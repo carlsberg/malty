@@ -1,0 +1,11 @@
+{
+    "name": "carlsberg-base",
+    "version": "0.0.1",
+    "private": true,
+    "workspaces": [
+        "components/ui/*"
+    ],
+    "devDependencies": {
+        "typescript": "^4.2.3"
+    }
+}

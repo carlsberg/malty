@@ -1,0 +1,15 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+      "outDir": "build",
+      "rootDir": "components/ui",
+      "target": "ES2019",
+      "lib": [ "dom", "ES2019"]
+    },
+    "references": [],
+    "exclude": [
+      "node_modules",
+      "build",
+      "dist"
+    ]
+}
