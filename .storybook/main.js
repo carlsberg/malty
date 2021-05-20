@@ -1,10 +1,14 @@
 module.exports = {
-  "stories": [
-    "../components/**/**/*.stories.mdx",
-    "../components/**/**/*.stories.@(js|jsx|ts|tsx)"
+  stories: [
+    "welcome.stories.mdx",
+    "../base/**/**/*.stories.mdx",
+    "../base/**/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials"
-  ]
+  addons: [{
+    name: '@storybook/addon-links',
+    name: '@storybook/addon-essentials',
+    options: {
+      // actions: false,
+    }
+  }]
 }

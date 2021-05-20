@@ -10,19 +10,23 @@
     /**
      * the name of the component workspace. used for development purposes.
      **/
-    "name": "carlsberg",
+    "name": "base",
     /**
      * set the icon to be shown on the Bit server.
      **/
     "icon": "https://www.carlsberg.com/media/2249/favicon-32x32.png",
     /**
-     * default directory for all components in workspace.
+     * default directory for all components in workspace, the following placeholders are available:
+     * name - component name includes namespace, e.g. 'ui/button'.
+     * scopeId - full scope-id includes the owner, e.g. 'teambit.compilation'.
+     * scope - scope name only, e.g. 'compilation'.
+     * owner - owner name in bit.dev, e.g. 'teambit'.
      **/
     "defaultDirectory": "{scope}/{name}",
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "base"
+    "defaultScope": "carlsberg.base"
   },
   /**
    * main configuration for component dependency resolution.
@@ -33,12 +37,19 @@
      */
     "packageManager": "teambit.dependencies/yarn",
     "policy": {
-      "dependencies": {},
+      "dependencies": {
+        "@testing-library/react": "11.2.6"
+      },
       "peerDependencies": {
-        "react": "16.13.1",
-        "react-dom": "16.13.1"
+        "react": "17.0.2",
+        "react-dom": "17.0.2"
       }
-    }
+    },
+    "packageManagerArgs": [],
+    "devFilePatterns": [
+      "**/*.spec.ts"
+    ],
+    "strictPeerDependencies": true
   },
   /**
    * workspace variants allow to set different subsets of configuration for components in your workspace.
@@ -50,7 +61,7 @@
      * "*" is a special rule which applied on all components in the workspace.
      **/
     "*": {
-      "teambit.react/react": { }
+      "teambit.react/react": {}
     }
   }
 }
