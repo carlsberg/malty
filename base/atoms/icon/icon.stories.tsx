@@ -1,7 +1,7 @@
+import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
 import * as Icons from './icon';
-import { IconInterface, NamesTypes, ColorsTypes, SizesTypes } from './icon.types';
+import { ColorsTypes, IconInterface, NamesTypes, SizesTypes } from './icon.types';
 
 export default {
   title: 'Icon',
@@ -39,16 +39,16 @@ export default {
         type: 'radio'
       }
     }
-  },
+  }
 } as Meta;
 
 const Template: Story<IconInterface> = (args) => {
-  let SelectedComponent = Icons[args.name || 'CarlsbergFilled'];
+  const SelectedComponent = Icons[args.name || 'CarlsbergFilled'];
   return (
     <>
       <SelectedComponent color={args.color} size={args.size} />
     </>
-  )
+  );
 };
 
 export const Main = Template.bind({});
