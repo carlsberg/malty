@@ -1,4 +1,4 @@
-name: Example workflow for S3 Deploy
+name: S3 Deploy Storybook static files
 
 on: [push]
 
@@ -19,4 +19,4 @@ jobs:
             bucket-region: ${{ secrets.S3_BUCKET_REGION }}
             delete-removed: true
             no-cache: true
-            private: true
+            private: false
