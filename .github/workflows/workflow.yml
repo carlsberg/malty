@@ -19,4 +19,4 @@ jobs:
             bucket-region: ${{ secrets.S3_BUCKET_REGION }}
             delete-removed: true
             no-cache: true
-            private: false
+            private: true
