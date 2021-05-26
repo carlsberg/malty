@@ -1,32 +1,30 @@
-import { CarlsbergFilled } from "./icon"
-
 export interface IconInterface {
-  name?: NamesTypes,
-  color: ColorsTypes,
-  size: SizesTypes
+  name?: NamesTypes;
+  color: ColorsTypes;
+  size: SizesTypes;
 }
 
 export enum Colors {
   Primary = '#212833',
   White = '#ffffff'
-};
+}
 
 export enum Sizes {
   Small = '16px',
   Medium = '24px',
   Large = '32px'
-};
+}
 
 export enum ColorsTypes {
   Primary = 'Primary',
   White = 'White'
-};
+}
 
 export enum SizesTypes {
   Small = 'Small',
   Medium = 'Medium',
   Large = 'Large'
-};
+}
 
 export enum NamesTypes {
   AddContent = 'AddContent',
@@ -236,5 +234,5 @@ export enum NamesTypes {
   ViewList = 'ViewList',
   Volume = 'Volume',
   Wheat = 'Wheat',
-  World = 'World',
+  World = 'World'
 }

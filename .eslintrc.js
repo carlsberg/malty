@@ -81,7 +81,16 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/*.test.{ts,tsx}', '**/{test,mockServer}/*.{ts,tsx}', '**/*.stories.{ts,tsx}'] }
+      {
+        devDependencies: [
+          '**/*.spec.{ts,tsx}',
+          '**/*.test.{ts,tsx}',
+          '**/{test,mockServer}/*.{ts,tsx}',
+          '**/*.stories.{ts,tsx}',
+          'jest-setup.ts',
+          'webpack.config.js'
+        ]
+      }
     ],
     'import/prefer-default-export': 'off',
 
