@@ -4,7 +4,7 @@ import * as Icons from './icon';
 import { ColorsTypes, IconInterface, NamesTypes, SizesTypes } from './icon.types';
 
 export default {
-  title: 'Icon',
+  title: 'Atoms/Icon',
   component: Icons.AddContent, // Should be dynamically set
   argTypes: {
     name: {

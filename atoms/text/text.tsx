@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { theme as componentTheme } from '../../../theme';
+import { theme as componentTheme } from '../../theme';
 import { Align, Color, Size, Weight } from './text.types';
 
 export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
