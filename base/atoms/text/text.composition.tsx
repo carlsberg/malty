@@ -1,4 +1,3 @@
-import React from 'react';
 import { Text } from './text';
 
 // sets the Component preview in gallery view

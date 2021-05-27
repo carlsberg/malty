@@ -1,21 +1,23 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-export default (env) => ({
-  mode: env.production ? 'production' : 'development',
-  devtool: env.production ? 'source-map' : 'eval',
+module.exports = function(env) {
+  return {
+    mode: env.production ? 'production' : 'development',
+    devtool: env.production ? 'source-map' : 'eval',
 
-  devServer: {
-    open: true,
-    historyApiFallback: true
-  },
+    devServer: {
+      open: true,
+      historyApiFallback: true
+    },
 
-  entry: {
-    index: './build/index.js'
-  },
+    entry: {
+      index: './build/index.js'
+    },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
-});
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html'
+      })
+    ]
+  }
+};
