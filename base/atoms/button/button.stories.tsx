@@ -1,6 +1,7 @@
+import { Story } from '@storybook/react';
 import React from 'react';
-
-import { Button } from './button';
+import { Button, ButtonProps } from './button';
+import { Size, Type } from './button.types';
 
 export default {
   title: 'Atoms/Button',
@@ -10,27 +11,27 @@ export default {
   }
 };
 
-const Template = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Button'
+  text: 'Button',
+  buttonType: Type.Floater
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button'
+  text: 'Button'
 };
 
 export const Large = Template.bind({});
 Large.args = {
-  size: 'large',
-  label: 'Button'
+  size: Size.Large,
+  text: 'Button'
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  size: 'small',
-  label: 'Button'
+  size: Size.Small,
+  text: 'Button'
 };
