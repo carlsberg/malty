@@ -4,17 +4,17 @@ import { theme as componentTheme } from '../theme';
 import { Size, Type } from './button.types';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  text: string;
-  icon: ReactNode;
-  url: string;
+  text?: string;
+  icon?: ReactNode;
+  url?: string;
   buttonType: Type;
-  size: Size;
-  onClick: () => unknown;
-  selected: boolean;
-  disabled: boolean;
-  loading: boolean;
-  error: boolean;
-  success: boolean;
+  size?: Size;
+  onClick?: () => unknown;
+  selected?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+  error?: boolean;
+  success?: boolean;
 }
 
 const getTypeStyles = (buttonType: string) => {

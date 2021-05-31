@@ -8,6 +8,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   weight?: Weight;
   align?: Align;
   color?: Color;
+  content?: string;
 }
 
 const Paragraph = styled.p<{ size?: string; weight?: string; align?: string; color?: string }>`
@@ -17,10 +18,10 @@ const Paragraph = styled.p<{ size?: string; weight?: string; align?: string; col
   font-size: ${({ theme, size }) => (size ? theme.fontSizes[size] : theme.fontSizes.medium)};
   font-weight: ${({ weight }) => weight || Weight.Normal};
 `;
-export const Text = ({ children, size, weight, align, color }: TextProps) => (
+export const Text = ({ size, weight, align, color, content }: TextProps) => (
   <ThemeProvider theme={componentTheme}>
     <Paragraph size={size} weight={weight} align={align} color={color}>
-      {children}
+      {content}
     </Paragraph>
   </ThemeProvider>
 );

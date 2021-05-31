@@ -10,5 +10,9 @@ module.exports = {
     options: {
       // actions: false,
     }
-  }]
+  }],
+  typescript: {
+    check: true,
+    reactDocgen: true,
+  },
 }
