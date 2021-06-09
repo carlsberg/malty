@@ -1,11 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { BasicText } from './text.composition';
+import { Text } from './text';
 
 describe('text', () => {
   it('should render with the correct text', () => {
-    render(<BasicText />);
-    const rendered = screen.getByText('this is a text block');
-    expect(rendered).toBeTruthy();
+    const text = 'this is a text block';
+    render(<Text content={text} />);
+    const rendered = screen.getByText(text);
+    expect(rendered).toBeInTheDocument();
   });
 });

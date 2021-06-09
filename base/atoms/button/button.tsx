@@ -1,64 +1,52 @@
-import React, { ReactNode } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css, ThemeProvider } from 'styled-components';
+import { ColorsTypes, NamesTypes, Sizes as IconSizes, SizesTypes as IconSizesTypes } from '../icon/icon.types';
 import { theme as componentTheme } from '../theme';
-import { Size, Type } from './button.types';
+import { ButtonInterface, ButtonType, Sizes, SizeTypes } from './button.types';
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  text?: string;
-  icon?: ReactNode;
-  url?: string;
-  buttonType: Type;
-  size?: Size;
-  onClick?: () => unknown;
-  selected?: boolean;
-  disabled?: boolean;
-  loading?: boolean;
-  error?: boolean;
-  success?: boolean;
-}
+const IconWrapper = styled.div<{ hasText: boolean }>`
+  margin-left: ${({ hasText }) => (hasText ? '10px' : 0)};
+`;
 
-const getTypeStyles = (buttonType: string) => {
-  switch (buttonType) {
-    case Type.Floater:
-      return css`
-        border-radius: 50%;
-      `;
-    case Type.Secondary:
-      return css`
-        color: #fff;
-        background: #f56342;
-      `;
-    case Type.Primary:
-      return css`
-        color: #fff;
-        background: red;
-      `;
-    default:
-      return css`
-        color: dodgerblue;
-        background: #eee;
-      `;
-  }
-};
+const StyledIconPlaceHolder = styled.div<{ hasText: boolean }>`
+  display: inline-block;
+  height: ${() => IconSizes[IconSizesTypes.Medium]}px;
+  width: ${() => IconSizes[IconSizesTypes.Medium]}px;
+  margin-left: ${({ hasText }) => (hasText ? '10px' : 0)};
+`;
 
-const InputButton = styled.button<{ buttonType: string }>`
+const StyledButton = styled.button<{
+  buttonType: ButtonType;
+  hasText: boolean;
+  hasIcon: boolean;
+  sizing: number;
+  backgroundColor: string;
+  textColor: string;
+  borderColor: string;
+}>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 40px;
-  background-color: #212833;
+  padding: ${({ buttonType }) => (buttonType !== ButtonType.Link ? '0 40px' : '0')};
+  height: ${({ sizing, buttonType }) => (buttonType !== ButtonType.Link ? `${sizing}px` : 'auto')};
   font-size: 14px;
-  color: #fff;
-  font-family: ${({ theme }) => theme.fontFamily.text};
   font-weight: bold;
   transition: 0.25s ease-in-out;
   transition-property: background-color, color;
-  border: none;
   cursor: pointer;
-  ${({ buttonType }) => getTypeStyles(buttonType)};
+  background-color: ${({ buttonType, backgroundColor }) =>
+    buttonType !== ButtonType.Link ? backgroundColor : 'transparent'};
+  color: ${({ textColor }) => textColor};
+  font-family: ${({ theme }) => theme.fontFamily.text};
+  border: ${({ borderColor, buttonType }) => (buttonType !== ButtonType.Link ? `1px solid ${borderColor}` : 'none')};
+  text-decoration: ${({ buttonType }) => (buttonType === ButtonType.Link ? 'underline' : 'none')};
+  border-radius: ${({ buttonType, sizing }) => (buttonType === ButtonType.Floater ? `${sizing / 2}px` : '0')};
+
   &:hover {
-    background-color: green;
+    background-color: ${({ theme, buttonType }) =>
+      buttonType !== ButtonType.Link ? theme.colors.support : theme.colors.transparent};
   }
+
   &:hover,
   &:focus {
     outline: 0;
@@ -66,12 +54,76 @@ const InputButton = styled.button<{ buttonType: string }>`
 
   &:disabled {
     cursor: default;
-    color: black;
+    color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.disabled};
   }
+
+  ${({ hasText, hasIcon, sizing }) =>
+    !hasText &&
+    hasIcon &&
+    css`
+      padding: 0;
+      justify-content: center;
+      width: ${sizing}px;
+    `};
 `;
-export const Button = ({ text, buttonType }: ButtonProps) => (
-  <ThemeProvider theme={componentTheme}>
-    <InputButton buttonType={buttonType}>{text}</InputButton>
-  </ThemeProvider>
-);
+
+function loadIconComponent(name: NamesTypes, iconColor: ColorsTypes, hasText: boolean) {
+  const IconComponent = React.lazy(() => import(`../icon/icons/${name}`));
+  return (
+    <React.Suspense fallback={<StyledIconPlaceHolder hasText={hasText} />}>
+      <IconWrapper hasText={hasText}>
+        <IconComponent color={iconColor} size={SizeTypes.Small} />
+      </IconWrapper>
+    </React.Suspense>
+  );
+}
+
+export const Button = ({
+  text,
+  buttonType,
+  inverseColor,
+  disabled,
+  onClick,
+  icon,
+  size,
+  loading,
+  error,
+  success
+}: ButtonInterface) => {
+  const [currentIcon, setCurrentIcon] = useState(icon);
+  useEffect(() => {
+    let iconName = icon;
+    if (loading) {
+      iconName = NamesTypes.Loading;
+    } else if (error) {
+      iconName = NamesTypes.Alert;
+    } else if (success) {
+      iconName = NamesTypes.CheckboxCheckSquare;
+    }
+    setCurrentIcon(iconName);
+  }, [icon, loading, error, success]);
+
+  const backgroundColor = inverseColor ? componentTheme.colors.white : componentTheme.colors.primary;
+  const textColor = inverseColor ? componentTheme.colors.primary : componentTheme.colors.white;
+  const iconColor = inverseColor ? ColorsTypes.Primary : ColorsTypes.White;
+  const borderColor = inverseColor ? componentTheme.colors.primary : componentTheme.colors.transparent;
+
+  return (
+    <ThemeProvider theme={componentTheme}>
+      <StyledButton
+        disabled={disabled}
+        hasText={!!text}
+        hasIcon={!!icon}
+        buttonType={buttonType}
+        sizing={Sizes[size || SizeTypes.Medium]}
+        backgroundColor={backgroundColor}
+        textColor={textColor}
+        borderColor={borderColor}
+        onClick={onClick}
+      >
+        {text} {currentIcon && loadIconComponent(currentIcon, iconColor, !!text)}
+      </StyledButton>
+    </ThemeProvider>
+  );
+};

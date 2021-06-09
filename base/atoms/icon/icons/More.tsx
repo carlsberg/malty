@@ -1,23 +1,15 @@
 import * as React from 'react';
-import { Colors, ColorsTypes, IconInterface, Sizes, SizesTypes } from '../icon.types';
+import { Icon } from '../icon';
+import { IconInterface } from '../icon.types';
 
-function More(props: IconInterface) {
+function More({ size, color }: IconInterface) {
   return (
-    <svg
-      height={Sizes[props.size || SizesTypes.Medium]}
-      width={Sizes[props.size || SizesTypes.Medium]}
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <g fill="none" fillRule="evenodd">
-        <path d="M0 0h24v24H0z" />
-        <path
-          d="M12 18a2 2 0 110 4 2 2 0 010-4zm0-8a2 2 0 110 4 2 2 0 010-4zm0-8a2 2 0 110 4 2 2 0 010-4z"
-          fill={Colors[props.color || ColorsTypes.Primary]}
-        />
+    <Icon size={size} color={color} viewBox="0 0 24 24">
+      <g fillRule="evenodd">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 18a2 2 0 110 4 2 2 0 010-4zm0-8a2 2 0 110 4 2 2 0 010-4zm0-8a2 2 0 110 4 2 2 0 010-4z" />
       </g>
-    </svg>
+    </Icon>
   );
 }
 

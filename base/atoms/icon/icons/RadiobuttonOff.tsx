@@ -1,23 +1,15 @@
 import * as React from 'react';
-import { Colors, ColorsTypes, IconInterface, Sizes, SizesTypes } from '../icon.types';
+import { Icon } from '../icon';
+import { IconInterface } from '../icon.types';
 
-function RadiobuttonOff(props: IconInterface) {
+function RadiobuttonOff({ size, color }: IconInterface) {
   return (
-    <svg
-      height={Sizes[props.size || SizesTypes.Medium]}
-      width={Sizes[props.size || SizesTypes.Medium]}
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <g fill="none" fillRule="evenodd">
-        <path d="M0 0h24v24H0z" />
-        <path
-          d="M12 21a9 9 0 100-18 9 9 0 000 18zm0-2a7 7 0 110-14 7 7 0 010 14z"
-          fill={Colors[props.color || ColorsTypes.Primary]}
-        />
+    <Icon size={size} color={color} viewBox="0 0 24 24">
+      <g fillRule="evenodd">
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 21a9 9 0 100-18 9 9 0 000 18zm0-2a7 7 0 110-14 7 7 0 010 14z" />
       </g>
-    </svg>
+    </Icon>
   );
 }
 

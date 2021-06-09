@@ -5,7 +5,9 @@ const theme: DefaultTheme = {
     primary: '#212833',
     white: '#FFFFFF',
     support: '#8BA0B9',
-    disabled: '#D5DBE2'
+    disabled: '#D5DBE2',
+    black: '#000000',
+    transparent: 'transparent'
   },
   fontSizes: {
     small: '12px',
@@ -14,7 +16,7 @@ const theme: DefaultTheme = {
   },
   fontFamily: {
     headings: `'Montserrat', Arial, sans-serif`,
-    text: `'Montserrat', Arial, sans-serif`,
+    text: `'Montserrat', Arial, sans-serif`
   }
 };
 

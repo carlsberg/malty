@@ -1,7 +1,14 @@
 export interface IconInterface {
-  name?: NamesTypes;
   color: ColorsTypes;
   size: SizesTypes;
+  name?: NamesTypes;
+}
+
+export interface MainIconInterface {
+  children: JSX.Element;
+  color: ColorsTypes;
+  size: SizesTypes;
+  viewBox: string;
 }
 
 export enum Colors {
@@ -10,9 +17,9 @@ export enum Colors {
 }
 
 export enum Sizes {
-  Small = '16px',
-  Medium = '24px',
-  Large = '32px'
+  Small = '16',
+  Medium = '24',
+  Large = '32'
 }
 
 export enum ColorsTypes {
@@ -28,8 +35,6 @@ export enum SizesTypes {
 
 export enum NamesTypes {
   AddContent = 'AddContent',
-  AddEvent = 'AddEvent',
-  AddProject = 'AddProject',
   AddedDocument = 'AddedDocument',
   AlertConnection = 'AlertConnection',
   Alert = 'Alert',

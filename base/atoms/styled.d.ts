@@ -8,6 +8,8 @@ declare module 'styled-components' {
       white: string;
       support: string;
       disabled: string;
+      black: string;
+      transparent: string;
     };
     fontSizes: {
       [key: string]: string;
