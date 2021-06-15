@@ -10,9 +10,15 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
     inverseColor: { control: 'boolean' },
-    loading: { control: 'boolean' },
-    error: { control: 'boolean' },
-    success: { control: 'boolean' },
+    // loading: { control: 'boolean' },
+    // error: { control: 'boolean' },
+    // success: { control: 'boolean' },
+    buttonType: {
+      options: ButtonType,
+      control: {
+        type: 'radio'
+      }
+    },
     size: {
       options: SizeTypes,
       description: 'Size options are',
@@ -36,10 +42,26 @@ Primary.args = {
   buttonType: ButtonType.Primary,
   inverseColor: false,
   disabled: false,
-  size: SizeTypes.Medium,
-  loading: false,
-  error: false,
-  success: false
+  size: SizeTypes.Medium
+  // loading: false,
+  // error: false,
+  // success: false
+};
+
+export const Secondary = Template.bind({});
+Secondary.parameters = {
+  backgrounds: { default: 'gray' }
+};
+Secondary.args = {
+  buttonType: ButtonType.Secondary,
+  inverseColor: false,
+  disabled: false,
+  text: 'Secondary',
+  icon: NamesTypes.ArrowSmallUp,
+  size: SizeTypes.Medium
+  // loading: false,
+  // error: false,
+  // success: false
 };
 
 export const Floater = Template.bind({});
@@ -48,34 +70,24 @@ Floater.args = {
   inverseColor: false,
   disabled: false,
   icon: NamesTypes.Close,
-  size: SizeTypes.Medium,
-  loading: false,
-  error: false,
-  success: false
-};
-
-export const FloaterWithText = Template.bind({});
-FloaterWithText.args = {
-  buttonType: ButtonType.Floater,
-  inverseColor: false,
-  disabled: false,
-  text: 'Floater text',
-  icon: NamesTypes.ArrowSmallUp,
-  size: SizeTypes.Medium,
-  loading: false,
-  error: false,
-  success: false
+  size: SizeTypes.Medium
+  // loading: false,
+  // error: false,
+  // success: false
 };
 
 export const Link = Template.bind({});
+Link.parameters = {
+  backgrounds: { default: 'gray' }
+};
 Link.args = {
   buttonType: ButtonType.Link,
   inverseColor: false,
   disabled: false,
   text: 'Link text',
   icon: NamesTypes.ArrowSmallUp,
-  size: SizeTypes.Medium,
-  loading: false,
-  error: false,
-  success: false
+  size: SizeTypes.Medium
+  // loading: false,
+  // error: false,
+  // success: false
 };

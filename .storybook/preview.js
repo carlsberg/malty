@@ -1,3 +1,5 @@
+import {addParameters} from '@storybook/react';
+
 
 export const parameters = {
   docs: {
@@ -10,4 +12,16 @@ export const parameters = {
       date: /Date$/,
     },
   }
+  
 }
+
+addParameters({
+  backgrounds: {
+    default: 'white',
+    values: [
+      { name: 'white', value: '#ffffff' }, 
+      { name: 'gray', value: '#c1c1c1' },
+      { name: 'black', value: '#333333' },
+    ]
+  }
+});

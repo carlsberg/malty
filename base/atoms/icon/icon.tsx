@@ -5,8 +5,7 @@ import { Colors, ColorsTypes, MainIconInterface, Sizes, SizesTypes } from './ico
 const StyledSvg = styled.svg.attrs({
   version: '1.1',
   xmlns: 'http://www.w3.org/2000/svg',
-  xmlnsXlink: 'http://www.w3.org/1999/xlink',
-  dataTestid: 'svg-component'
+  xmlnsXlink: 'http://www.w3.org/1999/xlink'
 })<{
   color: ColorsTypes;
   size: SizesTypes;
@@ -18,7 +17,7 @@ const StyledSvg = styled.svg.attrs({
 `;
 
 export const Icon = ({ size, children, viewBox, color }: MainIconInterface) => (
-  <StyledSvg viewBox={viewBox} className="icon" color={color} size={size}>
+  <StyledSvg viewBox={viewBox} className="icon" color={color} size={size} data-testid="svg-component">
     {children}
   </StyledSvg>
 );

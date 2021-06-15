@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import { NamesTypes } from '../icon/icon.types';
 import { Button } from './button';
 import { ButtonType } from './button.types';
 
@@ -16,16 +15,17 @@ describe('button', () => {
     expect(screen.getByText(newText)).not.toBeNull();
   });
 
-  it('calls correct function on click', () => {
+  it('calls function on click', () => {
     const onClick = jest.fn();
     render(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} />);
     fireEvent.click(screen.getByText(defaultText));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('renders with an icon', () => {
-    render(<Button text={defaultText} buttonType={ButtonType.Primary} icon={NamesTypes.AddContent} />);
-    const element = screen.getByTestId('svg-component');
-    expect(element).toBeInTheDocument();
+  it('does not call function on click when disabled', () => {
+    const onClick = jest.fn();
+    render(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />);
+    fireEvent.click(screen.getByText(defaultText));
+    expect(onClick).toHaveBeenCalledTimes(0);
   });
 });

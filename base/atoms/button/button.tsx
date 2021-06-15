@@ -105,9 +105,19 @@ export const Button = ({
   }, [icon, loading, error, success]);
 
   const backgroundColor = inverseColor ? componentTheme.colors.white : componentTheme.colors.primary;
+  const background =
+    buttonType === ButtonType.Link || buttonType === ButtonType.Secondary
+      ? componentTheme.colors.transparent
+      : backgroundColor;
+
   const textColor = inverseColor ? componentTheme.colors.primary : componentTheme.colors.white;
   const iconColor = inverseColor ? ColorsTypes.Primary : ColorsTypes.White;
-  const borderColor = inverseColor ? componentTheme.colors.primary : componentTheme.colors.transparent;
+
+  const border =
+    buttonType === ButtonType.Link || buttonType === ButtonType.Secondary
+      ? componentTheme.colors.white
+      : componentTheme.colors.transparent;
+  const borderColor = inverseColor ? componentTheme.colors.primary : border;
 
   return (
     <ThemeProvider theme={componentTheme}>
@@ -117,7 +127,7 @@ export const Button = ({
         hasIcon={!!icon}
         buttonType={buttonType}
         sizing={Sizes[size || SizeTypes.Medium]}
-        backgroundColor={backgroundColor}
+        backgroundColor={background}
         textColor={textColor}
         borderColor={borderColor}
         onClick={onClick}

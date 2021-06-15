@@ -28,7 +28,8 @@ export enum Sizes {
 }
 
 export enum ButtonType {
-  Primary = 'default',
+  Primary = 'primary',
+  Secondary = 'secondary',
   Floater = 'floater',
   Link = 'link'
 }
