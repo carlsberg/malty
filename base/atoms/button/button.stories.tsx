@@ -38,10 +38,10 @@ const Template: Story<ButtonInterface> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  text: 'Primary',
   buttonType: ButtonType.Primary,
   inverseColor: false,
   disabled: false,
+  text: 'Primary',
   size: SizeTypes.Medium
   // loading: false,
   // error: false,
@@ -49,9 +49,6 @@ Primary.args = {
 };
 
 export const Secondary = Template.bind({});
-Secondary.parameters = {
-  backgrounds: { default: 'gray' }
-};
 Secondary.args = {
   buttonType: ButtonType.Secondary,
   inverseColor: false,
@@ -77,9 +74,6 @@ Floater.args = {
 };
 
 export const Link = Template.bind({});
-Link.parameters = {
-  backgrounds: { default: 'gray' }
-};
 Link.args = {
   buttonType: ButtonType.Link,
   inverseColor: false,
