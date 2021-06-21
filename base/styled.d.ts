@@ -6,10 +6,13 @@ declare module 'styled-components' {
       [key: string]: string;
       primary: string;
       white: string;
+      supportDark: string;
       support: string;
+      supportLight: string;
       disabled: string;
       black: string;
       transparent: string;
+      fail: string;
     };
     fontSizes: {
       [key: string]: string;

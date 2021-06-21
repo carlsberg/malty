@@ -6,7 +6,7 @@ export interface ButtonInterface extends React.HTMLAttributes<HTMLButtonElement>
   url?: string;
   buttonType: ButtonType;
   size?: SizeTypes;
-  inverseColor?: boolean;
+  isWhite?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   selected?: boolean;
   disabled?: boolean;

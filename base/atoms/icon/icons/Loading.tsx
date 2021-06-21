@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { Icon } from '../icon';
-import { IconInterface } from '../icon.types';
 
-function Loading({ size, color }: IconInterface) {
+
+function Loading() {
   return (
-    <Icon size={size} color={color} viewBox="0 0 24 24">
+    
       <g fillRule="evenodd">
         <path d="M0 0h24v24H0z" fill="none" />
         <path
@@ -13,7 +12,6 @@ function Loading({ size, color }: IconInterface) {
         />
         <path d="M12 2c5.43 0 9.848 4.327 9.996 9.72L22 12h-2a8 8 0 00-7.75-7.996L12 4z" />
       </g>
-    </Icon>
   );
 }
 

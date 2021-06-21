@@ -1,23 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Colors, ColorsTypes, MainIconInterface, Sizes, SizesTypes } from './icon.types';
+import { StyledIcon } from './icon.styled';
+import { MainIconInterface } from './icon.types';
+import * as IconsPaths from './icons/index';
 
-const StyledSvg = styled.svg.attrs({
-  version: '1.1',
-  xmlns: 'http://www.w3.org/2000/svg',
-  xmlnsXlink: 'http://www.w3.org/1999/xlink'
-})<{
-  color: ColorsTypes;
-  size: SizesTypes;
-}>`
-  fill: ${({ color }) => Colors[color || ColorsTypes.Primary]};
-  height: ${({ size }) => Sizes[size || SizesTypes.Medium]}px;
-  width: ${({ size }) => Sizes[size || SizesTypes.Medium]}px;
-  transition: fill 0.25s ease-in-out;
-`;
-
-export const Icon = ({ size, children, viewBox, color }: MainIconInterface) => (
-  <StyledSvg viewBox={viewBox} className="icon" color={color} size={size} data-testid="svg-component">
-    {children}
-  </StyledSvg>
-);
+export const Icon = ({ size, color, name, viewBox }: MainIconInterface) => {
+  const IconPath = IconsPaths[name];
+  return (
+    <StyledIcon viewBox={viewBox ?? '0 0 24 24'} className="icon" color={color} size={size} data-testid="svg-component">
+      <IconPath />
+    </StyledIcon>
+  );
+};

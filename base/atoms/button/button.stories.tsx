@@ -39,7 +39,7 @@ const Template: Story<ButtonInterface> = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   buttonType: ButtonType.Primary,
-  inverseColor: false,
+  isWhite: false,
   disabled: false,
   text: 'Primary',
   size: SizeTypes.Medium
@@ -51,7 +51,7 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   buttonType: ButtonType.Secondary,
-  inverseColor: false,
+  isWhite: false,
   disabled: false,
   text: 'Secondary',
   icon: NamesTypes.ArrowSmallUp,
@@ -64,7 +64,7 @@ Secondary.args = {
 export const Floater = Template.bind({});
 Floater.args = {
   buttonType: ButtonType.Floater,
-  inverseColor: false,
+  isWhite: false,
   disabled: false,
   icon: NamesTypes.Close,
   size: SizeTypes.Medium
@@ -76,7 +76,7 @@ Floater.args = {
 export const Link = Template.bind({});
 Link.args = {
   buttonType: ButtonType.Link,
-  inverseColor: false,
+  isWhite: false,
   disabled: false,
   text: 'Link text',
   icon: NamesTypes.ArrowSmallUp,

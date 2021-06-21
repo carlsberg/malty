@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { ColorsTypes, NamesTypes } from '../icon/icon.types';
+import { ColorsTypes, NamesTypes, SizesTypes } from '../icon/icon.types';
 import {
-  IconWrapper,
+  StyledButtonIcon,
   StyledFloaterButton,
-  StyledIconPlaceHolder,
   StyledLinkButton,
   StyledPrimaryButton,
   StyledSecondaryButton
 } from './button.styled';
 import { ButtonInterface, ButtonType, Sizes, SizeTypes } from './button.types';
 
-const loadIconComponent = (name: NamesTypes, iconColor: ColorsTypes, hasText: boolean) => {
-  const IconComponent = React.lazy(() => import(`../icon/icons/${name}`));
-  return (
-    <React.Suspense fallback={<StyledIconPlaceHolder hasText={hasText} />}>
-      <IconWrapper hasText={hasText}>
-        <IconComponent color={iconColor} size={SizeTypes.Small} />
-      </IconWrapper>
-    </React.Suspense>
-  );
-};
-
 export const Button = ({
   text,
   buttonType,
-  inverseColor = false,
+  isWhite = false,
   disabled,
   onClick,
   icon,
@@ -34,18 +22,18 @@ export const Button = ({
   success
 }: ButtonInterface) => {
   let Component = StyledPrimaryButton;
-  let iconColor = inverseColor ? ColorsTypes.Primary : ColorsTypes.White;
+  let iconColor = isWhite ? ColorsTypes.Primary : ColorsTypes.White;
   switch (buttonType) {
     case ButtonType.Secondary:
       Component = StyledSecondaryButton;
-      iconColor = inverseColor ? ColorsTypes.White : ColorsTypes.Primary;
+      iconColor = isWhite ? ColorsTypes.White : ColorsTypes.Primary;
       break;
     case ButtonType.Floater:
       Component = StyledFloaterButton;
       break;
     case ButtonType.Link:
       Component = StyledLinkButton;
-      iconColor = inverseColor ? ColorsTypes.White : ColorsTypes.Primary;
+      iconColor = isWhite ? ColorsTypes.White : ColorsTypes.Primary;
       break;
     default:
       break;
@@ -71,9 +59,12 @@ export const Button = ({
       hasIcon={!!icon}
       sizing={Sizes[size || SizeTypes.Medium]}
       onClick={onClick}
-      isInverse={inverseColor}
+      isWhite={isWhite}
     >
-      {text} {currentIcon && loadIconComponent(currentIcon, iconColor, !!text)}
+      {text}
+      {currentIcon && (
+        <StyledButtonIcon hasText={!!text} name={currentIcon} color={iconColor} size={SizesTypes.Small} />
+      )}
     </Component>
   );
 };

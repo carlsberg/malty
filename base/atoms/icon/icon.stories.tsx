@@ -2,33 +2,16 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Icon } from './icon';
+import { StyledIcon } from './icon.styled';
 import { ColorsTypes, IconInterface, NamesTypes, SizesTypes } from './icon.types';
 
 const StyledAllIconsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  ${StyledIcon} {
+    padding: 10px;
+  }
 `;
-
-const StyledIconPlaceHolder = styled.div`
-  height: 48px;
-  width: 48px;
-`;
-
-const StyledIconWrapper = styled.div`
-  height: 48px;
-  width: 48px;
-`;
-
-function loadIconComponent(name: NamesTypes, iconColor: ColorsTypes, size: SizesTypes) {
-  const IconComponent = React.lazy(() => import(`./icons/${name}`));
-  return (
-    <StyledIconWrapper>
-      <React.Suspense fallback={<StyledIconPlaceHolder />}>
-        <IconComponent color={iconColor} size={size} />
-      </React.Suspense>
-    </StyledIconWrapper>
-  );
-}
 
 export default {
   title: 'Atoms/Icon',
@@ -71,34 +54,27 @@ export default {
   }
 } as Meta;
 
-const Template: Story<IconInterface> = ({ color, size, name = NamesTypes.AddContent }) =>
-  loadIconComponent(name, color, size);
+const Template: Story<IconInterface> = ({ color, size, name = NamesTypes.AddContent }) => (
+  <Icon name={name} color={color} size={size} />
+);
 
 export const Main = Template.bind({});
 Main.parameters = {
   color: ColorsTypes.Primary,
   size: SizesTypes.Large,
-  name: NamesTypes.AddContent,
-  docs: {
-    source: {
-      code: 'code'
-    }
-  }
+  name: NamesTypes.AddContent
 };
 
 const AllIconsTemplate: Story<IconInterface> = ({ color, size }) => (
   <StyledAllIconsWrapper>
-    {Object.values(NamesTypes).map((name) => loadIconComponent(name, color, size))}
+    {Object.values(NamesTypes).map((name) => (
+      <Icon name={name} color={color} size={size} />
+    ))}
   </StyledAllIconsWrapper>
 );
 
 export const AllIcons = AllIconsTemplate.bind({});
 AllIcons.parameters = {
   color: ColorsTypes.Primary,
-  size: SizesTypes.Large,
-  docs: {
-    source: {
-      code: 'code'
-    }
-  }
+  size: SizesTypes.Large
 };

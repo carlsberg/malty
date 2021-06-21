@@ -1,5 +1,16 @@
 import {addParameters} from '@storybook/react';
+import React from 'react';
+import { GlobalStyle } from '../base/assets/styles/global';
 
+
+ export const decorators = [
+  Story => (
+    <>
+      <GlobalStyle />
+      <Story />
+    </>
+  ),
+];
 
 export const parameters = {
   docs: {
@@ -12,8 +23,8 @@ export const parameters = {
       date: /Date$/,
     },
   }
-  
 }
+
 
 addParameters({
   backgrounds: {

@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
 import { theme } from '../../theme';
+import { Icon } from '../icon/icon';
+import { StyledIcon } from '../icon/icon.styled';
 import { Sizes as IconSizes, SizesTypes as IconSizesTypes } from '../icon/icon.types';
 
-export const IconWrapper = styled.div<{ hasText: boolean }>`
+export const StyledButtonIcon = styled(Icon)<{ hasText: boolean }>`
   margin-left: ${({ hasText }) => (hasText ? '10px' : 0)};
 `;
 
@@ -16,7 +18,7 @@ export const StyledIconPlaceHolder = styled.div<{ hasText: boolean }>`
 const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
-  isInverse?: boolean;
+  isWhite?: boolean;
   sizing: number;
 }>`
   display: flex;
@@ -31,9 +33,6 @@ const StyledButton = styled.button<{
   cursor: pointer;
   font-family: ${theme.fontFamily.text};
   border: none;
-  &:hover {
-    background-color: ${theme.colors.support};
-  }
 
   &:hover,
   &:focus {
@@ -54,30 +53,48 @@ const StyledButton = styled.button<{
       justify-content: center;
       width: ${sizing}px;
     `};
+
+  ${({ hasText, hasIcon }) =>
+    hasText &&
+    hasIcon &&
+    css`
+      ${StyledIcon} {
+        margin-left: 16px;
+      }
+    `};
 `;
 
 export const StyledPrimaryButton = styled(StyledButton)`
-  background-color: ${({ isInverse }) => (isInverse ? theme.colors.white : theme.colors.primary)};
-  color: ${({ isInverse }) => (isInverse ? theme.colors.primary : theme.colors.white)};
-  border: 1px solid ${({ isInverse }) => (isInverse ? theme.colors.primary : theme.colors.transparent)};
+  background-color: ${({ isWhite }) => (isWhite ? theme.colors.white : theme.colors.primary)};
+  color: ${({ isWhite }) => (isWhite ? theme.colors.primary : theme.colors.white)};
+  border: 1px solid ${({ isWhite }) => (isWhite ? theme.colors.primary : theme.colors.transparent)};
+  &:hover {
+    background-color: ${({ isWhite }) => (isWhite ? theme.colors.supportLight : theme.colors.support)};
+  }
 `;
 
 export const StyledSecondaryButton = styled(StyledButton)`
   background-color: ${theme.colors.transparent};
-  color: ${({ isInverse }) => (isInverse ? theme.colors.white : theme.colors.primary)};
-  border: 1px solid ${({ isInverse }) => (isInverse ? theme.colors.white : theme.colors.primary)};
+  color: ${({ isWhite }) => (isWhite ? theme.colors.white : theme.colors.primary)};
+  border: 1px solid ${({ isWhite }) => (isWhite ? theme.colors.white : theme.colors.primary)};
+  &:hover {
+    background-color: ${({ isWhite }) => (isWhite ? theme.colors.support : theme.colors.supportLight)};
+  }
 `;
 
 export const StyledFloaterButton = styled(StyledButton)`
-  background-color: ${({ isInverse }) => (isInverse ? theme.colors.white : theme.colors.primary)};
-  color: ${({ isInverse }) => (isInverse ? theme.colors.primary : theme.colors.white)};
-  border: 1px solid ${({ isInverse }) => (isInverse ? theme.colors.primary : theme.colors.transparent)};
+  background-color: ${({ isWhite }) => (isWhite ? theme.colors.white : theme.colors.primary)};
+  color: ${({ isWhite }) => (isWhite ? theme.colors.primary : theme.colors.white)};
+  border: 1px solid ${({ isWhite }) => (isWhite ? theme.colors.primary : theme.colors.transparent)};
   border-radius: ${({ sizing }) => `${sizing / 2}px`};
+  &:hover {
+    background-color: ${({ isWhite }) => (isWhite ? theme.colors.supportLight : theme.colors.support)};
+  }
 `;
 
 export const StyledLinkButton = styled(StyledButton)`
   background-color: transparent;
-  color: ${({ isInverse }) => (isInverse ? theme.colors.white : theme.colors.primary)};
+  color: ${({ isWhite }) => (isWhite ? theme.colors.white : theme.colors.primary)};
   text-decoration: underline;
   padding: 0;
   height: auto;

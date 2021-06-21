@@ -1,15 +1,11 @@
 import * as React from 'react';
-import { Icon } from '../icon';
-import { IconInterface } from '../icon.types';
 
-function Bold({ size, color }: IconInterface) {
+function Bold() {
   return (
-    <Icon size={size} color={color} viewBox="0 0 24 24">
-      <path
-        d="M7.5 19a1.5 1.5 0 01-.144-2.993L7.5 16h.247V7H7.5a1.5 1.5 0 01-.144-2.993L7.5 4h7a4.5 4.5 0 013.353 7.501A4.5 4.5 0 0114.5 19zm7.144-5.993L14.5 13h-3.753v3H14.5a1.5 1.5 0 00.144-2.993zM14.5 7h-3.753v3H14.5a1.5 1.5 0 00.144-2.993z"
-        fillRule="evenodd"
-      />
-    </Icon>
+    <path
+      d="M7.5 19a1.5 1.5 0 01-.144-2.993L7.5 16h.247V7H7.5a1.5 1.5 0 01-.144-2.993L7.5 4h7a4.5 4.5 0 013.353 7.501A4.5 4.5 0 0114.5 19zm7.144-5.993L14.5 13h-3.753v3H14.5a1.5 1.5 0 00.144-2.993zM14.5 7h-3.753v3H14.5a1.5 1.5 0 00.144-2.993z"
+      fillRule="evenodd"
+    />
   );
 }
 

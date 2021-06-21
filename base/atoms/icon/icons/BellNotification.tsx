@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { Icon } from '../icon';
-import { IconInterface } from '../icon.types';
 
-function BellNotification({ size, color }: IconInterface) {
+
+function BellNotification() {
   return (
-    <Icon size={size} color={color} viewBox="0 0 24 24">
+    
       <g fillRule="evenodd">
         <path d="M0 0h24v24H0z" fill="none" />
         <g transform="translate(2)">
@@ -12,7 +11,6 @@ function BellNotification({ size, color }: IconInterface) {
           <circle cx={17} cy={5} fill="#f45f5e" r={3} />
         </g>
       </g>
-    </Icon>
   );
 }
 

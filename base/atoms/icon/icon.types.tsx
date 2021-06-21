@@ -5,10 +5,10 @@ export interface IconInterface {
 }
 
 export interface MainIconInterface {
-  children: JSX.Element;
   color: ColorsTypes;
   size: SizesTypes;
-  viewBox: string;
+  viewBox?: string;
+  name: NamesTypes;
 }
 
 export enum Colors {
@@ -36,6 +36,7 @@ export enum SizesTypes {
 export enum NamesTypes {
   AddContent = 'AddContent',
   AddedDocument = 'AddedDocument',
+  AddEvent = 'AddEvent',
   AlertConnection = 'AlertConnection',
   Alert = 'Alert',
   AppDropbox = 'AppDropbox',
