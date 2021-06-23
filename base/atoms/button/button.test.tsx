@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { Button } from './button';
 import { ButtonType } from './button.types';
 
@@ -27,5 +28,13 @@ describe('button', () => {
     render(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />);
     fireEvent.click(screen.getByText(defaultText));
     expect(onClick).toHaveBeenCalledTimes(0);
+  });
+
+  it('renders correctly', () => {
+    const onClick = jest.fn();
+    const tree = renderer
+      .create(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

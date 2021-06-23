@@ -2,7 +2,7 @@
 
 exports[`icon renders correctly 1`] = `
 <svg
-  className="sc-bdnxRM fNOwgz icon"
+  className="sc-bdnxRM fNOwgz"
   color="Primary"
   data-testid="svg-component"
   size="Small"

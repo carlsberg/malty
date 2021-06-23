@@ -1,13 +1,10 @@
-export interface IconInterface {
-  color: ColorsTypes;
-  size: SizesTypes;
-  name?: NamesTypes;
-}
+import { MouseEventHandler } from 'react';
 
-export interface MainIconInterface {
+export interface IconInterface extends React.HTMLAttributes<SVGElement> {
   color: ColorsTypes;
   size: SizesTypes;
   viewBox?: string;
+  onIconClick?: MouseEventHandler<SVGElement>;
   name: NamesTypes;
 }
 

@@ -52,7 +52,6 @@ export const StyledInput = styled.input<{
   border: 1px solid ${theme.colors.supportLight};
   color: ${theme.colors.support};
   height: ${({ size }) => size}px;
-  box-sizing: border-box;
   ::placeholder {
     opacity: 0.8;
     color: ${theme.colors.support};

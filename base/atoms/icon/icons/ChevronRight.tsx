@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { IconInterface } from '../icon.types';
 
 function ChevronRight() {
   return (
