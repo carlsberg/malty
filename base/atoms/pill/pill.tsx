@@ -20,7 +20,7 @@ export const Pill = ({
       <Icon
         className="pill__remove-icon"
         name={NamesTypes.Close}
-        onClick={onRemoveClick}
+        onIconClick={onRemoveClick}
         size={SizesTypes.Small}
         color={ColorsTypes.White}
       />
