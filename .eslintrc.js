@@ -45,7 +45,8 @@ module.exports = {
     'prettier/react',
     'plugin:jest/recommended',
     'plugin:jest/style',
-    'plugin:testing-library/react'
+    'plugin:testing-library/react',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -67,7 +68,6 @@ module.exports = {
         tsx: 'never'
       }
     ],
-    'prettier/prettier': ['error'],
     'comma-dangle': ['error', 'never'],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-unused-vars': 'off',

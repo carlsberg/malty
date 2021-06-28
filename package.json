@@ -12,12 +12,12 @@
     "build-storybook": "build-storybook --docs -o docs",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+    "lint": "eslint \"base/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
     "@storybook/react": "^6.2.9",
-    "prettier": "*",
-    "prettier-plugin-organize-imports": "*",
+    "prettier": "^2.2.1",
+    "prettier-plugin-organize-imports": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.2.3",
@@ -56,7 +56,7 @@
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-jsdoc": "*",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^4.6.0",
