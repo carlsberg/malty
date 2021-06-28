@@ -1,3 +1,11 @@
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  size?: Size;
+  weight?: Weight;
+  align?: Align;
+  color?: Color;
+  content?: string;
+}
+
 export enum Size {
   Small = 'small',
   Medium = 'medium',

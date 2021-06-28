@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { NamesTypes } from '../icon/icon.types';
 import { Pill } from './pill';
-import { PillColor, PillInterface, PillSizeType } from './pill.types';
+import { PillColor, PillProps, PillSizeType } from './pill.types';
 
 export default {
   title: 'Atoms/Pill',
@@ -28,15 +28,7 @@ export default {
     }
   }
 } as Meta;
-const Template: Story<PillInterface> = ({
-  text,
-  icon,
-  color,
-  isRounded,
-  onRemoveClick,
-  onClick,
-  size
-}: PillInterface) => (
+const Template: Story<PillProps> = ({ text, icon, color, isRounded, onRemoveClick, onClick, size }: PillProps) => (
   <Pill
     text={text}
     onClick={onClick}

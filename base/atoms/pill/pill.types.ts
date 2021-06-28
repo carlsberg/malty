@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react';
 import { NamesTypes } from '../icon/icon.types';
 
-export interface PillInterface extends React.HTMLAttributes<HTMLElement> {
+export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   text?: string;
   icon?: NamesTypes;
   color?: PillColor;

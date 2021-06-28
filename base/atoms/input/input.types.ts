@@ -1,6 +1,6 @@
 import { NamesTypes } from '../icon/icon.types';
 
-export interface InputInterface extends React.HTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   value: string;
   label?: string;
   onValueChange: (value: string) => void;

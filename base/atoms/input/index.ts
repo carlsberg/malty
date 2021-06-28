@@ -1,2 +1,2 @@
 export { Input } from './input';
-export type { InputInterface } from './input.types';
+export type { InputProps } from './input.types';

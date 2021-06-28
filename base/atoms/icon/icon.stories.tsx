@@ -9,7 +9,7 @@ const StyledAllIconsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   ${StyledIcon} {
-    padding: 10px;
+    margin: 10px;
   }
 `;
 

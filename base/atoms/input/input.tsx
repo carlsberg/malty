@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 import { Icon } from '../icon/icon';
 import { ColorsTypes, SizesTypes as IconSizes } from '../icon/icon.types';
 import { StyledError, StyledInput, StyledInputContainer, StyledInputWrapper, StyledLabel } from './input.styled';
-import { InputInterface, Sizes, SizeTypes } from './input.types';
+import { InputProps, Sizes, SizeTypes } from './input.types';
 
 export const Input = ({
   value,
@@ -16,15 +16,15 @@ export const Input = ({
   isIconLeft,
   isDisabled,
   size = SizeTypes.Medium
-}: InputInterface) => {
-  const name = useMemo(() => uuid(), []);
+}: InputProps) => {
+  const id = useMemo(() => uuid(), []);
   return (
     <StyledInputContainer>
-      <StyledLabel htmlFor={name}>{label}</StyledLabel>
+      <StyledLabel htmlFor={id}>{label}</StyledLabel>
       <StyledInputWrapper isIconLeft={isIconLeft}>
         <StyledInput
-          name={name}
-          id={name}
+          name={id}
+          id={id}
           value={value}
           placeholder={placeholder}
           disabled={isDisabled}

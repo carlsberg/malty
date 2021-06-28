@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { NamesTypes } from '../icon/icon.types';
 import { Input } from './input';
-import { InputInterface, InputType, SizeTypes } from './input.types';
+import { InputProps, InputType, SizeTypes } from './input.types';
 
 export default {
   title: 'Atoms/Input',
@@ -34,7 +34,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<InputInterface> = ({
+const Template: Story<InputProps> = ({
   value,
   size,
   label,
@@ -44,7 +44,7 @@ const Template: Story<InputInterface> = ({
   error,
   isDisabled,
   isIconLeft
-}: InputInterface) => {
+}: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
     <Input

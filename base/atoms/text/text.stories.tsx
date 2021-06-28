@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Text, TextProps } from './text';
-import { Align, Color, Size, Weight } from './text.types';
+import { Text } from './text';
+import { Align, Color, Size, TextProps, Weight } from './text.types';
 
 export default {
   title: 'Atoms/Text',
