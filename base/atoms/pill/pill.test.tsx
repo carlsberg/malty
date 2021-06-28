@@ -5,7 +5,7 @@ import { NamesTypes } from '../icon/icon.types';
 import { Pill } from './pill';
 
 describe('pill', () => {
-  it('renders correctly', () => {
+  it('matches snapshot', () => {
     const tree = renderer.create(<Pill text="Pill text" icon={NamesTypes.AddContent} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

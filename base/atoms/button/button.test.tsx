@@ -8,6 +8,14 @@ const defaultText = 'Submit';
 const newText = 'Go';
 
 describe('button', () => {
+  it('matches snapshot', () => {
+    const onClick = jest.fn();
+    const tree = renderer
+      .create(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders with correct text', () => {
     const { rerender } = render(<Button text={defaultText} buttonType={ButtonType.Primary} />);
     expect(screen.getByText(defaultText)).not.toBeNull();
@@ -28,13 +36,5 @@ describe('button', () => {
     render(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />);
     fireEvent.click(screen.getByText(defaultText));
     expect(onClick).toHaveBeenCalledTimes(0);
-  });
-
-  it('renders correctly', () => {
-    const onClick = jest.fn();
-    const tree = renderer
-      .create(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
   });
 });

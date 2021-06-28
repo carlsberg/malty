@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { Checkbox } from './checkbox';
 
 describe('checkbox', () => {
-  it('renders correctly', () => {
+  it('matches snapshot', () => {
     const tree = renderer
       .create(<Checkbox labelText="Label text" value="test" onValueChange={() => null} checked />)
       .toJSON();

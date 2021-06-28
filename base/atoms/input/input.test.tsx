@@ -10,6 +10,11 @@ jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 const mockFn = jest.fn();
 
 describe('input', () => {
+  it('matches snapshot', () => {
+    const tree = renderer.create(<Input value="Value" onValueChange={mockFn} type={InputType.Text} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   it('renders elements', () => {
     render(
       <Input
@@ -38,10 +43,5 @@ describe('input', () => {
 
     rerender(<Input value="Test" label="Input label" onValueChange={onValueChange} type={InputType.Text} />);
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
-  });
-
-  it('renders correctly', () => {
-    const tree = renderer.create(<Input value="Value" onValueChange={mockFn} type={InputType.Text} />).toJSON();
-    expect(tree).toMatchSnapshot();
   });
 });
