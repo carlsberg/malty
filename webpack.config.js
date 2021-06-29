@@ -1,6 +1,6 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = function(env) {
+module.exports = function (env) {
   return {
     mode: env.production ? 'production' : 'development',
     devtool: env.production ? 'source-map' : 'eval',
@@ -19,5 +19,5 @@ module.exports = function(env) {
         template: './src/index.html'
       })
     ]
-  }
+  };
 };

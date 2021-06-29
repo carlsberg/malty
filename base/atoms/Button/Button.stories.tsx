@@ -8,8 +8,7 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    inverseColor: { control: 'boolean' },
+    isWhite: { control: 'boolean' },
     // loading: { control: 'boolean' },
     // error: { control: 'boolean' },
     // success: { control: 'boolean' },
