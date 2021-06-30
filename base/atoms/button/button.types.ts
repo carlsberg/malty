@@ -1,14 +1,12 @@
 import { NamesTypes } from '../Icon/Icon.types';
 
-export interface ButtonInterface extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonInterface {
   text?: string;
   icon?: NamesTypes;
-  url?: string;
   buttonType: ButtonType;
   size?: SizeTypes;
   isWhite?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  selected?: boolean;
   disabled?: boolean;
   loading?: boolean;
   error?: boolean;

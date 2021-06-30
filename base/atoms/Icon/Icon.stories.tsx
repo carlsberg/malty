@@ -18,7 +18,7 @@ export default {
   component: Icon,
   argTypes: {
     name: {
-      options: NamesTypes,
+      options: Object.values(NamesTypes),
       description: 'Name options listed below',
       defaultValue: NamesTypes.AddContent,
       control: {
@@ -26,7 +26,7 @@ export default {
       }
     },
     color: {
-      options: ColorsTypes,
+      options: Object.values(ColorsTypes),
       description: 'Color options are',
       defaultValue: ColorsTypes.Primary,
       table: {
@@ -39,7 +39,7 @@ export default {
       }
     },
     size: {
-      options: SizesTypes,
+      options: Object.values(SizesTypes),
       defaultValue: SizesTypes.Medium,
       description: 'Size options are',
       table: {
@@ -50,13 +50,21 @@ export default {
       control: {
         type: 'radio'
       }
+    },
+    viewBox: {
+      table: {
+        disable: true
+      }
+    },
+    onIconClick: {
+      table: {
+        disable: true
+      }
     }
   }
 } as Meta;
 
-const Template: Story<IconInterface> = ({ color, size, name = NamesTypes.AddContent }) => (
-  <Icon name={name} color={color} size={size} />
-);
+const Template: Story<IconInterface> = (args) => <Icon {...args} />;
 
 export const Main = Template.bind({});
 Main.parameters = {
@@ -65,10 +73,10 @@ Main.parameters = {
   name: NamesTypes.AddContent
 };
 
-const AllIconsTemplate: Story<IconInterface> = ({ color, size }) => (
+const AllIconsTemplate: Story<IconInterface> = (args) => (
   <StyledAllIconsWrapper>
     {Object.values(NamesTypes).map((name) => (
-      <Icon name={name} color={color} size={size} />
+      <Icon {...args} name={name} />
     ))}
   </StyledAllIconsWrapper>
 );

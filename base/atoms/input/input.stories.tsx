@@ -8,27 +8,37 @@ export default {
   title: 'Atoms/Input',
   component: Input,
   argTypes: {
-    value: {
-      control: {
-        disable: true
-      }
-    },
+    label: { control: 'text' },
+    placeholder: { control: 'text' },
+    error: { control: 'text' },
     size: {
-      options: SizeTypes,
+      options: Object.values(SizeTypes),
       control: {
         type: 'radio'
       }
     },
     type: {
-      options: InputType,
+      options: Object.values(InputType),
       control: {
         type: 'select'
       }
     },
     icon: {
-      options: NamesTypes,
+      options: Object.values(NamesTypes),
       control: {
         type: 'select'
+      }
+    },
+    isDisabled: { control: 'boolean' },
+    isIconLeft: { control: 'boolean' },
+    value: {
+      table: {
+        disable: true
+      }
+    },
+    onValueChange: {
+      table: {
+        disable: true
       }
     }
   }

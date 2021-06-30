@@ -8,32 +8,35 @@ export default {
   component: Text,
   argTypes: {
     color: {
-      options: Color,
+      options: Object.values(Color),
       defaultValue: Color.Primary,
       control: {
         type: 'select'
       }
     },
     size: {
-      options: Size,
+      options: Object.values(Size),
       defaultValue: Size.Medium,
       control: {
         type: 'select'
       }
     },
     align: {
-      options: Align,
+      options: Object.values(Align),
       defaultValue: Align.Left,
       control: {
         type: 'select'
       }
     },
     weight: {
-      options: Weight,
+      options: Object.values(Weight),
       defaultValue: Weight.Normal,
       control: {
         type: 'select'
       }
+    },
+    content: {
+      control: { type: 'text' }
     }
   }
 };

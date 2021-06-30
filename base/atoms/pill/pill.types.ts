@@ -9,9 +9,6 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   isRounded?: boolean;
   onClick?: MouseEventHandler<HTMLElement>;
   onRemoveClick?: MouseEventHandler<SVGElement>;
-  removable?: boolean;
-  selected?: boolean;
-  loading?: boolean;
 }
 
 export enum PillSizeType {

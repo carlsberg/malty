@@ -15,7 +15,7 @@
     "lint": "eslint \"base/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
-    "@storybook/react": "^6.2.9",
+    "@storybook/react": "^6.3.1",
     "prettier": "^2.2.1",
     "prettier-plugin-organize-imports": "^1.1.1",
     "react": "^17.0.2",
@@ -29,10 +29,10 @@
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/addon-storysource": "^6.2.9",
+    "@storybook/addon-actions": "^6.3.1",
+    "@storybook/addon-essentials": "^6.3.1",
+    "@storybook/addon-links": "^6.3.1",
+    "@storybook/addon-storysource": "^6.3.1",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",

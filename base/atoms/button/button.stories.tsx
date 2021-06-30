@@ -8,18 +8,23 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   argTypes: {
-    isWhite: { control: 'boolean' },
-    // loading: { control: 'boolean' },
-    // error: { control: 'boolean' },
-    // success: { control: 'boolean' },
+    text: { control: 'text' },
     buttonType: {
-      options: ButtonType,
+      options: Object.values(ButtonType),
       control: {
         type: 'radio'
       }
     },
+    icon: {
+      options: Object.values(NamesTypes),
+      description: 'Name options listed below',
+      defaultValue: '',
+      control: {
+        type: 'select'
+      }
+    },
     size: {
-      options: SizeTypes,
+      options: Object.values(SizeTypes),
       description: 'Size options are',
       table: {
         defaultValue: {
@@ -28,6 +33,28 @@ export default {
       },
       control: {
         type: 'radio'
+      }
+    },
+    isWhite: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    loading: {
+      table: {
+        disable: true
+      }
+    },
+    error: {
+      table: {
+        disable: true
+      }
+    },
+    success: {
+      table: {
+        disable: true
+      }
+    },
+    onClick: {
+      table: {
+        disable: true
       }
     }
   }

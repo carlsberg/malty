@@ -6,7 +6,13 @@ import { ProgressBarProps } from './ProgressBar.types';
 export default {
   title: 'Atoms/Progress Bar',
   component: ProgressBar,
-  argTypes: {}
+  argTypes: {
+    label: { control: 'text' },
+    displayAmount: { control: 'boolean' },
+    progress: {
+      control: { type: 'number', min: 0, max: 100, step: 10 }
+    }
+  }
 } as Meta;
 const Template: Story<ProgressBarProps> = ({ progress, displayAmount, label }: ProgressBarProps) => (
   <ProgressBar displayAmount={displayAmount} label={label} progress={progress} />
