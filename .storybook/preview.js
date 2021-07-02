@@ -1,7 +1,7 @@
 import {addParameters} from '@storybook/react';
 import React from 'react';
 import { GlobalStyle } from '../malty/assets/styles/global';
-import MaltyThemeProvider from '../malty/theme/ThemeProvider'
+import { MaltyThemeProvider } from '../malty/theme/MaltyThemeProvider';
 
  export const decorators = [
   (Story, context) => (
