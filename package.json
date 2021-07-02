@@ -1,5 +1,5 @@
 {
-  "name": "carlsberg-base",
+  "name": "carlsberg-malty",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "build-storybook": "build-storybook --docs -o docs",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint \"base/**/*.{ts,tsx,js,jsx}\""
+    "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
     "@storybook/react": "^6.3.1",
@@ -74,7 +74,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "workspaces": [
-    "base/*"
+    "malty/*"
   ],
   "resolutions": {
     "styled-components": "^5"

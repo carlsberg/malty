@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button matches snapshot 1`] = `
+<button
+  className="sc-hKFxyN sc-eCApnc feAKsB jQLyOZ"
+  disabled={true}
+  onClick={[MockFunction]}
+>
+  Submit
+</button>
+`;
+
+exports[`button renders correctly 1`] = `
+<button
+  className="sc-hKFxyN sc-eCApnc feAKsB jQLyOZ"
+  disabled={true}
+  onClick={[MockFunction]}
+>
+  Submit
+</button>
+`;

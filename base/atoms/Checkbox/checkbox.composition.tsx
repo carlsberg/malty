@@ -1,5 +1,0 @@
-import React from 'react';
-import { Checkbox } from './Checkbox';
-
-// sets the Component preview in gallery view
-export const BasicText = () => <Checkbox onValueChange={() => null} value="Test" checked />;

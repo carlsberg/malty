@@ -1,13 +1,15 @@
 import {addParameters} from '@storybook/react';
 import React from 'react';
-import { GlobalStyle } from '../base/assets/styles/global';
-
+import { GlobalStyle } from '../malty/assets/styles/global';
+import MaltyThemeProvider from '../malty/theme/ThemeProvider'
 
  export const decorators = [
-  Story => (
+  (Story, context) => (
     <>
-      <GlobalStyle />
-      <Story />
+      <MaltyThemeProvider theme={context.globals.theme}>
+        <GlobalStyle />
+        <Story />
+      </MaltyThemeProvider>
     </>
   ),
 ];
@@ -21,10 +23,21 @@ export const parameters = {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
-    },
+    }
   }
 }
 
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'defaultTheme',
+    toolbar: {
+      items: [{value:'defaultTheme', title: 'Default'}, {value:'blueTheme', title: 'Blue'}, {value:'redTheme', title: 'Red'}],
+      showName: true,
+    },
+  },
+};
 
 addParameters({
   backgrounds: {
