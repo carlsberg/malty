@@ -1,8 +1,8 @@
+import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
 import { Story } from '@storybook/react';
 import React from 'react';
-import { NamesTypes } from '../Icon/Icon.types';
+import { ButtonProps, ButtonType, SizeTypes } from '.';
 import { Button } from './Button';
-import { ButtonInterface, ButtonType, SizeTypes } from './Button.types';
 
 export default {
   title: 'Atoms/Button',
@@ -16,7 +16,7 @@ export default {
       }
     },
     icon: {
-      options: Object.values(NamesTypes),
+      options: Object.values(IconNamesTypes),
       description: 'Name options listed below',
       defaultValue: '',
       control: {
@@ -60,7 +60,7 @@ export default {
   }
 };
 
-const Template: Story<ButtonInterface> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -76,7 +76,7 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   buttonType: ButtonType.Secondary,
   text: 'Secondary',
-  icon: NamesTypes.ArrowSmallUp,
+  icon: IconNamesTypes.AddContent,
   size: SizeTypes.Medium
   // loading: false,
   // error: false,
@@ -86,7 +86,7 @@ Secondary.args = {
 export const Floater = Template.bind({});
 Floater.args = {
   buttonType: ButtonType.Floater,
-  icon: NamesTypes.Close,
+  icon: IconNamesTypes.AddContent,
   size: SizeTypes.Medium
   // loading: false,
   // error: false,
@@ -97,7 +97,7 @@ export const Link = Template.bind({});
 Link.args = {
   buttonType: ButtonType.Link,
   text: 'Link text',
-  icon: NamesTypes.ArrowSmallUp,
+  icon: IconNamesTypes.AddContent,
   size: SizeTypes.Medium
   // loading: false,
   // error: false,

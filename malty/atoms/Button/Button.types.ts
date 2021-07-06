@@ -1,8 +1,8 @@
-import { NamesTypes } from '../Icon/Icon.types';
+import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
 
-export interface ButtonInterface {
+export interface ButtonProps {
   text?: string;
-  icon?: NamesTypes;
+  icon?: IconNamesTypes;
   buttonType: ButtonType;
   size?: SizeTypes;
   isWhite?: boolean;

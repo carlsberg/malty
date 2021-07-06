@@ -1,5 +1,10 @@
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Button } from './Button';
 import { ButtonType } from './Button.types';
 
-export const BasicButton = () => <Button buttonType={ButtonType.Primary} text="click me" />;
+export const BasicButton = () => (
+  <MaltyThemeProvider theme="defaultTheme">
+    <Button buttonType={ButtonType.Primary} text="Clickable button" />
+  </MaltyThemeProvider>
+);

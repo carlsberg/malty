@@ -1,2 +1,2 @@
 export { MaltyThemeProvider } from './MaltyThemeProvider';
-export { MaltyThemeProviderProps } from './MaltyThemeProvider.types';
+export type { MaltyThemeProviderProps } from './MaltyThemeProvider.types';

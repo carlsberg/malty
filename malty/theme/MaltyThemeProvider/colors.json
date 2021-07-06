@@ -1,0 +1,211 @@
+{
+  "color": {
+    "button": {
+      "primary-default": {
+        "value": "rgb(33, 40, 51)"
+      },
+      "primary-disable": {
+        "value": "rgb(213, 219, 226)"
+      },
+      "primary-hover": {
+        "value": "rgb(102, 132, 141)"
+      },
+      "primary-negative-default": {
+        "value": "rgb(255, 255, 255)"
+      },
+      "primary-negative-hover": {
+        "value": "rgb(215, 224, 226)"
+      }
+    },
+    "data": {
+      "1-light-green": {
+        "value": "rgb(23, 177, 105)"
+      },
+      "2-true-blue": {
+        "value": "rgb(44, 117, 204)"
+      },
+      "3-naples-yellow": {
+        "value": "rgb(255, 224, 106)"
+      },
+      "4-vivid-red": {
+        "value": "rgb(176, 32, 71)"
+      },
+      "5-sky-blue": {
+        "value": "rgb(57, 201, 205)"
+      },
+      "6-gold-yellow": {
+        "value": "rgb(180, 145, 50)"
+      },
+      "7-carlsberg-green": {
+        "value": "rgb(0, 50, 30)"
+      },
+      "8-apricot": {
+        "value": "rgb(255, 192, 162)"
+      }
+    },
+    "default": {
+      "value": "rgb(33, 40, 51)"
+    },
+    "form": {
+      "calendar-available": {
+        "value": "rgb(215, 224, 226)"
+      },
+      "calendar-select": {
+        "value": "rgb(33, 40, 51)"
+      },
+      "calendar-special": {
+        "value": "rgb(102, 132, 141)"
+      },
+      "form-select": {
+        "value": "rgb(240, 242, 243)"
+      }
+    },
+    "gradient": {
+      "theme-primary-horizontal": {
+        "value": "linear-gradient(270deg, #21283300 0%,#21283300 43%,#212833ff 100%)"
+      },
+      "theme-primary-vertical": {
+        "value": "linear-gradient(180deg, #21283300 0%,#21283300 43%,#212833ff 100%)"
+      },
+      "transparent": {
+        "value": "linear-gradient(270deg, #21283300 0%,#21283300 43%,#21283300 100%)"
+      },
+      "white-horizontal": {
+        "value": "linear-gradient(270deg, #ffffff00 0%,#ffffff00 46%,#ffffffff 100%)"
+      },
+      "white-vertical": {
+        "value": "linear-gradient(180deg, #ffffff00 0%,#ffffff00 100%)"
+      }
+    },
+    "information": {
+      "active": {
+        "value": "rgb(10, 195, 155)"
+      },
+      "archive": {
+        "value": "rgb(143, 188, 211)"
+      },
+      "closed": {
+        "value": "rgb(28, 32, 37)"
+      },
+      "disable": {
+        "value": "rgb(213, 219, 226)"
+      },
+      "hold": {
+        "value": "rgb(255, 192, 106)"
+      },
+      "indirect": {
+        "value": "rgb(139, 160, 185)"
+      },
+      "live": {
+        "value": "rgb(243, 130, 145)"
+      },
+      "multiple": {
+        "value": "rgb(101, 109, 223)"
+      },
+      "new": {
+        "value": "rgb(26, 205, 204)"
+      },
+      "parked": {
+        "value": "rgb(57, 151, 236)"
+      },
+      "prospect": {
+        "value": "rgb(255, 202, 43)"
+      },
+      "wholesaler": {
+        "value": "rgb(252, 167, 236)"
+      }
+    },
+    "overlay": {
+      "10": {
+        "default": {
+          "value": "rgba(33, 40, 51, 0.1)"
+        },
+        "white": {
+          "value": "rgba(255, 255, 255, 0.1)"
+        }
+      },
+      "50": {
+        "default": {
+          "value": "rgba(33, 40, 51, 0.5)"
+        },
+        "white": {
+          "value": "rgba(255, 255, 255, 0.5)"
+        }
+      },
+      "75": {
+        "default": {
+          "value": "rgba(33, 40, 51, 0.75)"
+        },
+        "white": {
+          "value": "rgba(255, 255, 255, 0.75)"
+        }
+      },
+      "90": {
+        "default": {
+          "value": "rgba(33, 40, 51, 0.9)"
+        },
+        "white": {
+          "value": "rgba(255, 255, 255, 0.9)"
+        }
+      },
+      "transparent": {
+        "value": "rgba(33, 40, 51, 0)"
+      }
+    },
+    "support": {
+      "support-20": {
+        "value": "rgb(240, 242, 243)"
+      },
+      "support-40": {
+        "value": "rgb(215, 224, 226)"
+      },
+      "support-60": {
+        "value": "rgb(157, 179, 189)"
+      },
+      "support-80": {
+        "value": "rgb(102, 132, 141)"
+      }
+    },
+    "system": {
+      "alert-background": {
+        "value": "rgb(255, 243, 208)"
+      },
+      "alert-strong": {
+        "value": "rgb(255, 202, 43)"
+      },
+      "disable-background": {
+        "value": "rgb(244, 245, 249)"
+      },
+      "disable-strong": {
+        "value": "rgb(213, 219, 226)"
+      },
+      "fail-background": {
+        "value": "rgb(255, 225, 225)"
+      },
+      "fail-strong": {
+        "value": "rgb(244, 95, 94)"
+      },
+      "notification-background": {
+        "value": "rgb(213, 234, 255)"
+      },
+      "notification-strong": {
+        "value": "rgb(75, 135, 197)"
+      },
+      "notification-test": {
+        "value": "rgb(81, 215, 255)"
+      },
+      "success-background": {
+        "value": "rgb(205, 250, 223)"
+      },
+      "success-strong": {
+        "value": "rgb(27, 214, 101)"
+      }
+    },
+    "transparent": {
+      "value": "rgba(33, 40, 51, 0)"
+    },
+    "white": {
+      "value": "rgb(255, 255, 255)"
+    }
+  }
+}

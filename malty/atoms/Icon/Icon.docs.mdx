@@ -3,19 +3,26 @@ labels: ['react', 'typescript', 'icon']
 description: 'A Icon component.'
 ---
 
-import * as Icons from './icon';
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { Icon } from './Icon';
+import { Colors, NamesTypes, SizesTypes } from './Icon.types';
+
 
 Icon example:
 
-A simple Icon component with some text
+An simple Icon component with some text
 
 Code Snippet:
 ```js
-<AddContent color="Primary" size="Small" />
+<MaltyThemeProvider theme="defaultTheme">
+    <Icon name={NamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />
+</MaltyThemeProvider>
 ```
 
 
 Live Playground:
 ```js live
-<AddContent color="Primary" size="Small" />
+<MaltyThemeProvider theme="defaultTheme">
+    <Icon name={NamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />
+</MaltyThemeProvider>
 ```

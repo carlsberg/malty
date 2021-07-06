@@ -1,4 +1,6 @@
 export interface MaltyThemeProviderProps {
-  theme: 'defaultTheme' | 'blueTheme' | 'redTheme';
+  theme: ThemeName;
   children: JSX.Element | JSX.Element[];
 }
+
+export type ThemeName = 'defaultTheme' | 'baltikaTheme';

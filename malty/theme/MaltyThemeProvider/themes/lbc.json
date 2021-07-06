@@ -1,0 +1,17 @@
+{
+  "color": {
+    "theme": {
+      "lbc": {
+        "theme-primary": {
+          "value": "rgb(253, 188, 55)"
+        },
+        "theme-secondary": {
+          "value": "rgb(241, 57, 49)"
+        },
+        "theme-tertiary": {
+          "value": "rgb(255, 237, 162)"
+        }
+      }
+    }
+  }
+}

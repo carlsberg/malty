@@ -5,7 +5,25 @@
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "malty/atoms/Button"
+        "rootDir": "malty/atoms/button"
+    },
+    "atoms/icon": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Icon"
+    },
+    "atoms/text": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Text"
+    },
+    "theme/malty-theme-provider": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/theme/MaltyThemeProvider"
     },
     "$schema-version": "14.9.0"
 }

@@ -16,7 +16,7 @@ export const StyledProgressBar = styled.div<{
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.themeColors.primary};
     transition: width 0.25s ease-in-out;
     width: ${({ progress }) => `${progress}%`};
     max-width: 100%;

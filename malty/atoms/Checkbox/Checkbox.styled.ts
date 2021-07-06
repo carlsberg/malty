@@ -14,7 +14,7 @@ export const StyledError = styled.label`
 `;
 
 export const StyledCheckboxLabelText = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.themeColors.primary};
   font-size: 12px;
   margin-left: 8px;
   font-size: 14px;
@@ -28,7 +28,7 @@ export const StyledCheckboxHiddenInput = styled.input.attrs({
 `;
 
 export const StyledCheckboxDisplayInput = styled.div<{ checked: boolean }>`
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.themeColors.primary};
   height: 16px;
   width: 16px;
   transition: background-color 0.25s ease-in-out;
@@ -54,7 +54,7 @@ export const StyledCheckboxDisplayInput = styled.div<{ checked: boolean }>`
   ${({ checked }) =>
     checked &&
     css`
-      background-color: ${({ theme }) => theme.colors.primary};
+      background-color: ${({ theme }) => theme.themeColors.primary};
       &:before {
         opacity: 1;
       }
@@ -65,6 +65,7 @@ export const StyledCheckboxLabel = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
+  user-select: none;
   &:hover {
     ${StyledCheckboxHiddenInput}:not(:checked) + ${StyledCheckboxDisplayInput} {
       &:before {

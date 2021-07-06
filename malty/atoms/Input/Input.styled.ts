@@ -9,7 +9,7 @@ export const StyledInputContainer = styled.div`
 `;
 
 export const StyledLabel = styled.label`
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.themeColors.primary};
   font-size: 12px;
   padding-bottom: 8px;
   font-weight: bold;

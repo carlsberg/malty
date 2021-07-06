@@ -1,18 +1,5 @@
+import { StyledIcon } from '@carlsberg/malty.atoms.icon';
 import styled, { css } from 'styled-components';
-import { Icon } from '../Icon/Icon';
-import { StyledIcon } from '../Icon/Icon.styled';
-import { Sizes as IconSizes, SizesTypes as IconSizesTypes } from '../Icon/Icon.types';
-
-export const StyledButtonIcon = styled(Icon)<{ hasText: boolean }>`
-  margin-left: ${({ hasText }) => (hasText ? '10px' : 0)};
-`;
-
-export const StyledIconPlaceHolder = styled.div<{ hasText: boolean }>`
-  display: inline-block;
-  height: ${() => IconSizes[IconSizesTypes.Medium]}px;
-  width: ${() => IconSizes[IconSizesTypes.Medium]}px;
-  margin-left: ${({ hasText }) => (hasText ? '10px' : 0)};
-`;
 
 const StyledButton = styled.button<{
   hasText: boolean;
@@ -32,7 +19,6 @@ const StyledButton = styled.button<{
   cursor: pointer;
   font-family: ${({ theme }) => theme.fontFamily.text};
   border: none;
-
   &:hover,
   &:focus {
     outline: 0;
@@ -64,9 +50,9 @@ const StyledButton = styled.button<{
 `;
 
 export const StyledPrimaryButton = styled(StyledButton)`
-  background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.colors.primary)};
-  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.primary : theme.colors.white)};
-  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.colors.primary : theme.colors.transparent)};
+  background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.white)};
+  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.transparent)};
   &:hover {
     background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.supportLight : theme.colors.support)};
   }
@@ -74,17 +60,17 @@ export const StyledPrimaryButton = styled(StyledButton)`
 
 export const StyledSecondaryButton = styled(StyledButton)`
   background-color: ${({ theme }) => theme.colors.transparent};
-  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.colors.primary)};
-  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.colors.primary)};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
+  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
   &:hover {
     background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.support : theme.colors.supportLight)};
   }
 `;
 
 export const StyledFloaterButton = styled(StyledButton)`
-  background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.colors.primary)};
-  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.primary : theme.colors.white)};
-  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.colors.primary : theme.colors.transparent)};
+  background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.white)};
+  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.transparent)};
   border-radius: ${({ sizing }) => `${sizing / 2}px`};
   &:hover {
     background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.supportLight : theme.colors.support)};
@@ -93,7 +79,7 @@ export const StyledFloaterButton = styled(StyledButton)`
 
 export const StyledLinkButton = styled(StyledButton)`
   background-color: transparent;
-  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.colors.primary)};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
   text-decoration: underline;
   padding: 0;
   height: auto;

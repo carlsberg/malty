@@ -33,7 +33,7 @@ export const globalTypes = {
     description: 'Global theme for components',
     defaultValue: 'defaultTheme',
     toolbar: {
-      items: [{value:'defaultTheme', title: 'Default'}, {value:'blueTheme', title: 'Blue'}, {value:'redTheme', title: 'Red'}],
+      items: [{value:'defaultTheme', title: 'Default'}, {value:'baltikaTheme', title: 'Baltica'}],
       showName: true,
     },
   },

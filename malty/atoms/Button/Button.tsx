@@ -1,13 +1,7 @@
+import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberg/malty.atoms.icon';
 import React, { useEffect, useState } from 'react';
-import { Colors, NamesTypes, SizesTypes } from '../Icon/Icon.types';
-import {
-  StyledButtonIcon,
-  StyledFloaterButton,
-  StyledLinkButton,
-  StyledPrimaryButton,
-  StyledSecondaryButton
-} from './Button.styled';
-import { ButtonInterface, ButtonType, Sizes, SizeTypes } from './Button.types';
+import { ButtonProps, ButtonType, Sizes, SizeTypes } from '.';
+import { StyledFloaterButton, StyledLinkButton, StyledPrimaryButton, StyledSecondaryButton } from './Button.styled';
 
 export const Button = ({
   text,
@@ -20,20 +14,20 @@ export const Button = ({
   loading,
   error,
   success
-}: ButtonInterface) => {
+}: ButtonProps) => {
   let Component = StyledPrimaryButton;
-  let iconColor = isWhite ? Colors.Primary : Colors.White;
+  let iconColor = isWhite ? IconColors.Primary : IconColors.White;
   switch (buttonType) {
     case ButtonType.Secondary:
       Component = StyledSecondaryButton;
-      iconColor = isWhite ? Colors.White : Colors.Primary;
+      iconColor = isWhite ? IconColors.White : IconColors.Primary;
       break;
     case ButtonType.Floater:
       Component = StyledFloaterButton;
       break;
     case ButtonType.Link:
       Component = StyledLinkButton;
-      iconColor = isWhite ? Colors.White : Colors.Primary;
+      iconColor = isWhite ? IconColors.White : IconColors.Primary;
       break;
     default:
       break;
@@ -43,11 +37,11 @@ export const Button = ({
   useEffect(() => {
     let iconName = icon;
     if (loading) {
-      iconName = NamesTypes.Loading;
+      iconName = IconNamesTypes.Loading;
     } else if (error) {
-      iconName = NamesTypes.Alert;
+      iconName = IconNamesTypes.Alert;
     } else if (success) {
-      iconName = NamesTypes.CheckboxCheckSquare;
+      iconName = IconNamesTypes.CheckboxCheck;
     }
     setCurrentIcon(iconName);
   }, [icon, loading, error, success]);
@@ -62,9 +56,7 @@ export const Button = ({
       isWhite={isWhite}
     >
       {text}
-      {currentIcon && (
-        <StyledButtonIcon hasText={!!text} name={currentIcon} color={iconColor} size={SizesTypes.Small} />
-      )}
+      {currentIcon && <Icon name={currentIcon} color={iconColor} size={IconSizesTypes.Small} />}
     </Component>
   );
 };

@@ -1,9 +1,18 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { theme as themeObject } from '../../theme';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { MaltyThemeProviderProps } from './MaltyThemeProvider.types';
+import { baltikaTheme, defaultTheme } from './theme';
 
 export const MaltyThemeProvider = ({ theme = 'defaultTheme', children }: MaltyThemeProviderProps) => {
-  const currentTheme = themeObject[theme];
-  return <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>;
+  let selectedTheme: DefaultTheme | null = null;
+  switch (theme) {
+    case 'baltikaTheme':
+      selectedTheme = baltikaTheme;
+      break;
+
+    default:
+      selectedTheme = defaultTheme;
+      break;
+  }
+  return <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>;
 };
