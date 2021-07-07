@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`text renders correctly 1`] = `
+exports[`text matches snapshot 1`] = `
 <p
   className="sc-bdnxRM jeGzgD"
 >

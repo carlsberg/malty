@@ -1,19 +1,16 @@
-import { render, screen } from '@testing-library/react';
+import { jsonRenderer, render, screen } from '@/utils/test';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { Tooltip } from '.';
 import { Position } from './Tooltip.types';
 
 describe('Tooltip', () => {
   it('matches snapshot', () => {
-    const tree = renderer
-      .create(
-        <Tooltip position={Position.Bottom} isOpen content="Test">
-          <button type="button">Test</button>
-        </Tooltip>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(
+      <Tooltip position={Position.Bottom} isOpen content="Test">
+        <button type="button">Test</button>
+      </Tooltip>
+    );
+    expect(view).toMatchSnapshot();
   });
 
   it('renders elements', () => {

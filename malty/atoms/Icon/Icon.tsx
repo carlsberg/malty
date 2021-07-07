@@ -5,7 +5,6 @@ import * as IconsPaths from './icons';
 
 export const Icon = ({ size, color, name, viewBox, className, onIconClick }: IconInterface) => {
   const IconPath = IconsPaths[name];
-  console.log(name);
   return (
     <StyledIcon
       viewBox={viewBox ?? '0 0 24 24'}

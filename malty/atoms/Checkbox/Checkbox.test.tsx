@@ -1,14 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, jsonRenderer, render, screen } from '@/utils/test';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { Checkbox } from './Checkbox';
 
 describe('checkbox', () => {
   it('matches snapshot', () => {
-    const tree = renderer
-      .create(<Checkbox labelText="Label text" value="test" onValueChange={() => null} checked />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(<Checkbox labelText="Label text" value="test" onValueChange={() => null} checked />);
+    expect(view).toMatchSnapshot();
   });
 
   it('renders elements', () => {

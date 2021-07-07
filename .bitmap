@@ -3,27 +3,33 @@
 {
     "atoms/button": {
         "scope": "",
-        "version": "",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/button"
     },
     "atoms/icon": {
         "scope": "",
-        "version": "",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Icon"
     },
     "atoms/text": {
         "scope": "",
-        "version": "",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Text"
     },
     "theme/malty-theme-provider": {
         "scope": "",
-        "version": "",
+        "version": "0.0.1",
         "mainFile": "index.tsx",
         "rootDir": "malty/theme/MaltyThemeProvider"
+    },
+    "utils/test": {
+        "scope": "",
+        "version": "0.0.1",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/utils/test"
     },
     "$schema-version": "14.9.0"
 }

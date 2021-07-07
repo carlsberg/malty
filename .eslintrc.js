@@ -65,7 +65,8 @@ module.exports = {
           '**/{test,mockServer}/*.{ts,tsx}',
           '**/*.stories.{ts,tsx}',
           'jest-setup.ts',
-          'webpack.config.js'
+          'webpack.config.js',
+          'malty/utils/test.tsx'
         ]
       }
     ],

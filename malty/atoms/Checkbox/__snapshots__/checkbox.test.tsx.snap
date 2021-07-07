@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`checkbox renders correctly 1`] = `
+exports[`checkbox matches snapshot 1`] = `
 <div
   className="sc-bdnxRM UOsks"
 >
   <label
-    className="sc-hKFxyN kChuaK"
+    className="sc-jSFjdj dndiLy"
   >
     <input
       checked={true}
-      className="sc-eCApnc YhDET"
+      className="sc-hKFxyN iTXDUD"
       onChange={[Function]}
       type="checkbox"
       value="test"
     />
     <div
       checked={true}
-      className="sc-jSFjdj eUvaQc"
+      className="sc-eCApnc hXtxdP"
     />
     <span
       className="sc-dlnjwi cnyngY"

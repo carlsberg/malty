@@ -1,13 +1,12 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, jsonRenderer, render, screen } from '@/utils/test';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { NamesTypes } from '../Icon/Icon.types';
 import { Pill } from './Pill';
 
 describe('pill', () => {
   it('matches snapshot', () => {
-    const tree = renderer.create(<Pill text="Pill text" icon={NamesTypes.AddContent} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(<Pill text="Pill text" icon={NamesTypes.AddContent} />);
+    expect(view).toMatchSnapshot();
   });
 
   it('renders elements', () => {

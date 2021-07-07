@@ -1,13 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import { jsonRenderer, render, screen } from '@/utils/test';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { Text } from './Text';
 
 const text = 'this is a text block';
 describe('text', () => {
   it('matches snapshot', () => {
-    const tree = renderer.create(<Text content={text} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(<Text content={text} />);
+    expect(view).toMatchSnapshot();
   });
 
   it('should render with the correct text', () => {

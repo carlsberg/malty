@@ -78,5 +78,15 @@
   ],
   "resolutions": {
     "styled-components": "^5"
+  },
+  "bit": {
+    "resolveModules": {
+      "modulesDirectories": [
+        "malty"
+      ],
+      "aliases": {
+        "@": "malty"
+      }
+    }
   }
 }

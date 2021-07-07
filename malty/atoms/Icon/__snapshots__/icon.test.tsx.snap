@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`icon renders correctly 1`] = `
+exports[`icon matches snapshot 1`] = `
 <svg
   className="sc-bdnxRM fNOwgz"
   color="Primary"

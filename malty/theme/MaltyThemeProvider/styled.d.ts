@@ -1,7 +1,6 @@
 import 'styled-components';
 
 declare module 'styled-components' {
-  export type ThemeName = 'defaultTheme' | 'baltikaTheme';
   export interface DefaultTheme {
     [key: ThemeName]: {
       themeColors: {

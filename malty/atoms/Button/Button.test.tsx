@@ -1,6 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, jsonRenderer, render, screen } from '@/utils/test';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { Button } from './Button';
 import { ButtonType } from './Button.types';
 
@@ -10,10 +9,8 @@ const newText = 'Go';
 describe('button', () => {
   it('matches snapshot', () => {
     const onClick = jest.fn();
-    const tree = renderer
-      .create(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(<Button text={defaultText} buttonType={ButtonType.Primary} onClick={onClick} disabled />);
+    expect(view).toMatchSnapshot();
   });
 
   it('renders with correct text', () => {

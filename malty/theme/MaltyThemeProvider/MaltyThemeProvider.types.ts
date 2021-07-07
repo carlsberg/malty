@@ -1,6 +1,8 @@
+import { ReactNode } from 'react';
+
 export interface MaltyThemeProviderProps {
   theme: ThemeName;
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode;
 }
 
 export type ThemeName = 'defaultTheme' | 'baltikaTheme';

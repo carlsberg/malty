@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pill matches snapshot 1`] = `
+<div
+  className="sc-gtsrHT cPlHGU"
+>
+  <div
+    className="sc-dlnjwi iLDZtA"
+  >
+    <div
+      className="sc-bdnxRM ewGSND"
+    />
+    <span
+      className="sc-hKFxyN eHbykp"
+    >
+      30
+      %
+    </span>
+  </div>
+  <span
+    className="sc-eCApnc bfooLt"
+  >
+    Test text
+  </span>
+</div>
+`;

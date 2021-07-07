@@ -1,15 +1,14 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, jsonRenderer, render, screen } from '@/utils/test';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { IconColors, IconNamesTypes, IconSizesTypes } from '.';
 import { Icon } from './Icon';
 
 describe('icon', () => {
   it('matches snapshot', () => {
-    const tree = renderer
-      .create(<Icon name={IconNamesTypes.AddContent} color={IconColors.Primary} size={IconSizesTypes.Small} />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(
+      <Icon name={IconNamesTypes.AddContent} color={IconColors.Primary} size={IconSizesTypes.Small} />
+    );
+    expect(view).toMatchSnapshot();
   });
   it('renders an icon as svg', () => {
     render(<Icon name={IconNamesTypes.AddContent} color={IconColors.Primary} size={IconSizesTypes.Small} />);

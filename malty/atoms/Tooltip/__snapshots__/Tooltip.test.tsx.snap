@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pill matches snapshot 1`] = `
+exports[`Tooltip matches snapshot 1`] = `
 <div
-  className="sc-gtsrHT gaiXer"
+  className="sc-dlnjwi bVqWlg"
+  style={
+    Object {
+      "--color": "dodgerblue",
+    }
+  }
 >
   <button
     type="button"
@@ -10,10 +15,14 @@ exports[`pill matches snapshot 1`] = `
     Test
   </button>
   <div
-    className="sc-bdnxRM lfsCuK"
+    className="sc-gtsrHT dsqxmh"
     open={true}
   >
-    Test
+    <p
+      className="sc-bdnxRM jeGzgD"
+    >
+      Test
+    </p>
   </div>
 </div>
 `;

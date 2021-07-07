@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`input renders correctly 1`] = `
+exports[`input matches snapshot 1`] = `
 <div
   className="sc-gtsrHT hjasEJ"
 >

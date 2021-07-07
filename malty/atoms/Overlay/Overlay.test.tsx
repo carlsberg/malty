@@ -1,10 +1,9 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
+import { jsonRenderer } from '@/utils/test';
 import { Overlay } from '.';
 
 describe('overlay', () => {
   it('matches snapshot', () => {
-    const tree = renderer.create(<Overlay />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(<Overlay />);
+    expect(view).toMatchSnapshot();
   });
 });

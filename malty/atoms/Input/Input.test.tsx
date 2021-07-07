@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { jsonRenderer, render, screen } from '@/utils/test';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { Input } from './Input';
 import { InputType } from './Input.types';
 
@@ -11,8 +10,8 @@ const mockFn = jest.fn();
 
 describe('input', () => {
   it('matches snapshot', () => {
-    const tree = renderer.create(<Input value="Value" onValueChange={mockFn} type={InputType.Text} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const view = jsonRenderer(<Input value="Value" onValueChange={mockFn} type={InputType.Text} />);
+    expect(view).toMatchSnapshot();
   });
 
   it('renders elements', () => {

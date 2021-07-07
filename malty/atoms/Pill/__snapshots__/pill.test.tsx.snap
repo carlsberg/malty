@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pill renders correctly 1`] = `
+exports[`pill matches snapshot 1`] = `
 <div
   className="sc-gtsrHT eRYRTa"
   color="closed"
   size="Medium"
 >
   <svg
-    className="sc-bdnxRM gcwRGO pill__icon"
+    className="sc-bdnxRM hTmKbK pill__icon"
     color="White"
     data-testid="svg-component"
     size="Small"
