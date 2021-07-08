@@ -5,13 +5,6 @@
         "@babel/preset-typescript"
     ],
     "plugins": [
-        "@babel/plugin-proposal-class-properties",
-        "module-resolver",
-        {
-          "root": ["./malty"],
-          "alias": {
-            "@": "./malty",
-          }
-        }
+        "@babel/plugin-proposal-class-properties"
     ]
 }
