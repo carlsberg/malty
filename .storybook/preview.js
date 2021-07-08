@@ -1,6 +1,6 @@
 import {addParameters} from '@storybook/react';
 import React from 'react';
-import { GlobalStyle } from '../malty/assets/styles/global';
+import { GlobalStyle } from './styles';
 import { MaltyThemeProvider } from '../malty/theme/MaltyThemeProvider';
 
  export const decorators = [
