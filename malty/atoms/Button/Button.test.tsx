@@ -1,4 +1,4 @@
-import { fireEvent, jsonRenderer, render, screen } from '@/utils/test';
+import { fireEvent, jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
 import React from 'react';
 import { Button } from './Button';
 import { ButtonType } from './Button.types';

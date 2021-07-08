@@ -1,4 +1,4 @@
-import { jsonRenderer } from '@/utils/test';
+import { jsonRenderer } from '@carlsberg/malty.utils.test';
 import { Overlay } from '.';
 
 describe('overlay', () => {
