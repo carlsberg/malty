@@ -9,13 +9,13 @@
     "strict": true,
 
     "skipLibCheck": true,
-
     "jsx": "react",
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2015",
-
-    "composite": true
-  }
+    "resolveJsonModule": true,
+    "composite": true,
+  },
+  "include": ["**/*.json"]
 }

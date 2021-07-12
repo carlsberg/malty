@@ -5,18 +5,18 @@ import { Sizes } from './Input.types';
 export const StyledInputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: ${({ theme }) => theme.fontFamily.text};
+  font-family: ${({ theme }) => theme.font.fontFamily.text};
 `;
 
 export const StyledLabel = styled.label`
-  color: ${({ theme }) => theme.themeColors.primary};
+  color: ${({ theme }) => theme.color.default.value};
   font-size: 12px;
   padding-bottom: 8px;
   font-weight: bold;
 `;
 
 export const StyledError = styled.label`
-  color: ${({ theme }) => theme.colors.fail};
+  color: ${({ theme }) => theme.color.system.failStrong.value};
   font-size: 12px;
   font-weight: bold;
   padding-top: 6px;
@@ -48,12 +48,12 @@ export const StyledInput = styled.input<{
   font-size: 14px;
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
-  border: 1px solid ${({ theme }) => theme.colors.supportLight};
-  color: ${({ theme }) => theme.colors.support};
+  border: 1px solid ${({ theme }) => theme.color.form.calendarAvailable.value};
+  color: ${({ theme }) => theme.color.information.indirect.value};
   height: ${({ size }) => size}px;
   ::placeholder {
     opacity: 0.8;
-    color: ${({ theme }) => theme.colors.support};
+    color: ${({ theme }) => theme.color.information.indirect.value};
   }
 
   ${({ hasIcon, isIconLeft }) => {
@@ -71,7 +71,7 @@ export const StyledInput = styled.input<{
   ${({ disabled }) =>
     disabled
       ? css`
-          background-color: ${({ theme }) => theme.colors.supportLighter};
+          background-color: ${({ theme }) => theme.color.form.formSelect.value};
         `
       : css`
           &:hover,
@@ -79,11 +79,11 @@ export const StyledInput = styled.input<{
             outline: none;
           }
           &:hover {
-            border-color: ${({ theme }) => theme.colors.support};
+            border-color: ${({ theme }) => theme.color.information.indirect.value};
           }
           &:focus {
-            border-color: ${({ theme }) => theme.colors.supportDark};
-            color: ${({ theme }) => theme.colors.supportDark};
+            border-color: ${({ theme }) => theme.color.form.calendarSpecial.value};
+            color: ${({ theme }) => theme.color.form.calendarSpecial.value};
           }
         `}
 `;

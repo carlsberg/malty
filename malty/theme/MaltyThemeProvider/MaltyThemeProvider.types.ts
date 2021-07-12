@@ -5,4 +5,4 @@ export interface MaltyThemeProviderProps {
   children: ReactNode;
 }
 
-export type ThemeName = 'defaultTheme' | 'baltikaTheme';
+export type ThemeName = 'global' | 'baltika' | 'cadi' | 'carlsberg' | 'lbc';

@@ -4,7 +4,7 @@ import React, { ComponentType, ReactElement } from 'react';
 import renderer from 'react-test-renderer';
 
 const AllTheProviders: React.FC = ({ children }) => {
-  return <MaltyThemeProvider theme="defaultTheme">{children}</MaltyThemeProvider>;
+  return <MaltyThemeProvider theme="global">{children}</MaltyThemeProvider>;
 };
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>

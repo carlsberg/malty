@@ -2,13 +2,13 @@
   "color": {
     "theme": {
       "baltika": {
-        "theme-primary": {
+        "themePrimary": {
           "value": "rgb(0, 64, 105)"
         },
-        "theme-secondary": {
+        "themeSecondary": {
           "value": "rgb(87, 166, 206)"
         },
-        "theme-tertiary": {
+        "themeTertiary": {
           "value": "rgb(138, 114, 14)"
         }
       }

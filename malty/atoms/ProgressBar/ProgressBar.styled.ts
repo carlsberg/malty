@@ -16,7 +16,7 @@ export const StyledProgressBar = styled.div<{
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: ${({ theme }) => theme.themeColors.primary};
+    background-color: ${({ theme }) => theme.color.default.value};
     transition: width 0.25s ease-in-out;
     width: ${({ progress }) => `${progress}%`};
     max-width: 100%;
@@ -47,5 +47,5 @@ export const StyledText = styled.span`
   font-size: 14px;
   line-height: 14px;
   margin-top: 10px;
-  color: ${({ theme }) => theme.colors.supportDark};
+  color: ${({ theme }) => theme.color.form.calendarSpecial.value};
 `;

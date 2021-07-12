@@ -17,7 +17,7 @@ const StyledButton = styled.button<{
   transition: 0.25s ease-in-out;
   transition-property: background-color, color;
   cursor: pointer;
-  font-family: ${({ theme }) => theme.fontFamily.text};
+  font-family: ${({ theme }) => theme.font.fontFamily.text};
   border: none;
   &:hover,
   &:focus {
@@ -26,8 +26,8 @@ const StyledButton = styled.button<{
 
   &:disabled {
     cursor: default;
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.disabled};
+    color: ${({ theme }) => theme.color.white.value};
+    background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
   }
 
   ${({ hasText, hasIcon, sizing }) =>
@@ -50,40 +50,49 @@ const StyledButton = styled.button<{
 `;
 
 export const StyledPrimaryButton = styled(StyledButton)`
-  background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
-  color: ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.white)};
-  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.transparent)};
+  background-color: ${({ isWhite, theme }) =>
+    isWhite ? theme.color.button.primaryNegativeDefault.value : theme.color.button.primaryDefault.value};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.white.value)};
+  border: 1px solid
+    ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.transparent.value)};
   &:hover {
-    background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.supportLight : theme.colors.support)};
+    background-color: ${({ isWhite, theme }) =>
+      isWhite ? theme.color.button.primaryNegativeHover.value : theme.color.button.primaryHover.value};
   }
 `;
 
 export const StyledSecondaryButton = styled(StyledButton)`
-  background-color: ${({ theme }) => theme.colors.transparent};
-  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
-  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
+  background-color: ${({ theme }) => theme.color.transparent.value};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.color.white.value : theme.color.button.primaryDefault.value)};
+  border: 1px solid
+    ${({ isWhite, theme }) =>
+      isWhite ? theme.color.button.primaryNegativeDefault.value : theme.color.button.primaryDefault.value};
   &:hover {
-    background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.support : theme.colors.supportLight)};
+    background-color: ${({ isWhite, theme }) =>
+      isWhite ? theme.color.button.primaryNegativeHover.value : theme.color.button.primaryHover.value};
   }
 `;
 
 export const StyledFloaterButton = styled(StyledButton)`
-  background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
-  color: ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.white)};
-  border: 1px solid ${({ isWhite, theme }) => (isWhite ? theme.themeColors.primary : theme.colors.transparent)};
+  background-color: ${({ isWhite, theme }) =>
+    isWhite ? theme.color.white.value : theme.color.button.primaryDefault.value};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.white.value)};
+  border: 1px solid
+    ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.transparent.value)};
   border-radius: ${({ sizing }) => `${sizing / 2}px`};
   &:hover {
-    background-color: ${({ isWhite, theme }) => (isWhite ? theme.colors.supportLight : theme.colors.support)};
+    background-color: ${({ isWhite, theme }) =>
+      isWhite ? theme.color.button.primaryNegativeHover.value : theme.color.button.primaryHover.value};
   }
 `;
 
 export const StyledLinkButton = styled(StyledButton)`
   background-color: transparent;
-  color: ${({ isWhite, theme }) => (isWhite ? theme.colors.white : theme.themeColors.primary)};
+  color: ${({ isWhite, theme }) => (isWhite ? theme.color.white.value : theme.color.button.primaryDefault.value)};
   text-decoration: underline;
   padding: 0;
   height: auto;
   &:hover {
-    background-color: transparent;
+    background-color: ${({ theme }) => theme.color.transparent.value};
   }
 `;

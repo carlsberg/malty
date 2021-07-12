@@ -23,7 +23,5 @@ export enum Align {
 }
 export enum Color {
   White = 'white',
-  Primary = 'primary',
-  Support = 'support',
-  Disabled = 'disabled'
+  Default = 'default'
 }
