@@ -1,45 +1,45 @@
 {
   "color": {
     "button": {
-      "primary-default": {
+      "primaryDefault": {
         "value": "rgb(33, 40, 51)"
       },
-      "primary-disable": {
+      "primaryDisable": {
         "value": "rgb(213, 219, 226)"
       },
-      "primary-hover": {
+      "primaryHover": {
         "value": "rgb(102, 132, 141)"
       },
-      "primary-negative-default": {
+      "primaryNegativeDefault": {
         "value": "rgb(255, 255, 255)"
       },
-      "primary-negative-hover": {
+      "primaryNegativeHover": {
         "value": "rgb(215, 224, 226)"
       }
     },
     "data": {
-      "1-light-green": {
+      "lightGreen1": {
         "value": "rgb(23, 177, 105)"
       },
-      "2-true-blue": {
+      "trueBlue2": {
         "value": "rgb(44, 117, 204)"
       },
-      "3-naples-yellow": {
+      "naplesYellow3": {
         "value": "rgb(255, 224, 106)"
       },
-      "4-vivid-red": {
+      "vividRed4": {
         "value": "rgb(176, 32, 71)"
       },
-      "5-sky-blue": {
+      "skyBlue5": {
         "value": "rgb(57, 201, 205)"
       },
-      "6-gold-yellow": {
+      "goldYellow6": {
         "value": "rgb(180, 145, 50)"
       },
-      "7-carlsberg-green": {
+      "carlsbergGreen7": {
         "value": "rgb(0, 50, 30)"
       },
-      "8-apricot": {
+      "apricot8": {
         "value": "rgb(255, 192, 162)"
       }
     },
@@ -47,33 +47,33 @@
       "value": "rgb(33, 40, 51)"
     },
     "form": {
-      "calendar-available": {
+      "calendarAvailable": {
         "value": "rgb(215, 224, 226)"
       },
-      "calendar-select": {
+      "calendarSelect": {
         "value": "rgb(33, 40, 51)"
       },
-      "calendar-special": {
+      "calendarSpecial": {
         "value": "rgb(102, 132, 141)"
       },
-      "form-select": {
+      "formSelect": {
         "value": "rgb(240, 242, 243)"
       }
     },
     "gradient": {
-      "theme-primary-horizontal": {
+      "themePrimaryHorizontal": {
         "value": "linear-gradient(270deg, #21283300 0%,#21283300 43%,#212833ff 100%)"
       },
-      "theme-primary-vertical": {
+      "themePrimaryVertical": {
         "value": "linear-gradient(180deg, #21283300 0%,#21283300 43%,#212833ff 100%)"
       },
       "transparent": {
         "value": "linear-gradient(270deg, #21283300 0%,#21283300 43%,#21283300 100%)"
       },
-      "white-horizontal": {
+      "whiteHorizontal": {
         "value": "linear-gradient(270deg, #ffffff00 0%,#ffffff00 46%,#ffffffff 100%)"
       },
-      "white-vertical": {
+      "whiteVertical": {
         "value": "linear-gradient(180deg, #ffffff00 0%,#ffffff00 100%)"
       }
     },
@@ -116,7 +116,7 @@
       }
     },
     "overlay": {
-      "10": {
+      "opacity10": {
         "default": {
           "value": "rgba(33, 40, 51, 0.1)"
         },
@@ -124,7 +124,7 @@
           "value": "rgba(255, 255, 255, 0.1)"
         }
       },
-      "50": {
+      "opacity50": {
         "default": {
           "value": "rgba(33, 40, 51, 0.5)"
         },
@@ -132,7 +132,7 @@
           "value": "rgba(255, 255, 255, 0.5)"
         }
       },
-      "75": {
+      "opacity75": {
         "default": {
           "value": "rgba(33, 40, 51, 0.75)"
         },
@@ -140,7 +140,7 @@
           "value": "rgba(255, 255, 255, 0.75)"
         }
       },
-      "90": {
+      "opacity90": {
         "default": {
           "value": "rgba(33, 40, 51, 0.9)"
         },
@@ -153,51 +153,51 @@
       }
     },
     "support": {
-      "support-20": {
+      "support20": {
         "value": "rgb(240, 242, 243)"
       },
-      "support-40": {
+      "support40": {
         "value": "rgb(215, 224, 226)"
       },
-      "support-60": {
+      "support60": {
         "value": "rgb(157, 179, 189)"
       },
-      "support-80": {
+      "support80": {
         "value": "rgb(102, 132, 141)"
       }
     },
     "system": {
-      "alert-background": {
+      "alertBackground": {
         "value": "rgb(255, 243, 208)"
       },
-      "alert-strong": {
+      "alertStrong": {
         "value": "rgb(255, 202, 43)"
       },
-      "disable-background": {
+      "disableBackground": {
         "value": "rgb(244, 245, 249)"
       },
-      "disable-strong": {
+      "disableStrong": {
         "value": "rgb(213, 219, 226)"
       },
-      "fail-background": {
+      "failBackground": {
         "value": "rgb(255, 225, 225)"
       },
-      "fail-strong": {
+      "failStrong": {
         "value": "rgb(244, 95, 94)"
       },
-      "notification-background": {
+      "notificationBackground": {
         "value": "rgb(213, 234, 255)"
       },
-      "notification-strong": {
+      "notificationStrong": {
         "value": "rgb(75, 135, 197)"
       },
-      "notification-test": {
+      "notificationTest": {
         "value": "rgb(81, 215, 255)"
       },
-      "success-background": {
+      "successBackground": {
         "value": "rgb(205, 250, 223)"
       },
-      "success-strong": {
+      "successStrong": {
         "value": "rgb(27, 214, 101)"
       }
     },
@@ -206,6 +206,9 @@
     },
     "white": {
       "value": "rgb(255, 255, 255)"
+    },
+    "black": {
+      "value": "rgb(0, 0, 0)"
     }
   }
 }

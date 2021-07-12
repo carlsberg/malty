@@ -29,7 +29,7 @@ const positioning = (position: Position) => {
         &:before {
           bottom: -${arrowSize};
           border-width: ${arrowSize} 10px 0 10px;
-          border-top-color: ${({ theme }) => theme.colors.supportLighter};
+          border-top-color: ${({ theme }) => theme.color.form.formSelect.value};
         }
       `;
     case Position.Bottom:
@@ -39,7 +39,7 @@ const positioning = (position: Position) => {
         &:before {
           top: -${arrowSize};
           border-width: 0 10px ${arrowSize} 10px;
-          border-bottom-color: ${({ theme }) => theme.colors.supportLighter};
+          border-bottom-color: ${({ theme }) => theme.color.form.formSelect.value};
         }
       `;
     case Position.Right:
@@ -49,7 +49,7 @@ const positioning = (position: Position) => {
         &:before {
           left: -${arrowSize};
           border-width: 10px ${arrowSize} 10px 0;
-          border-right-color: ${({ theme }) => theme.colors.supportLighter};
+          border-right-color: ${({ theme }) => theme.color.form.formSelect.value};
         }
       `;
 
@@ -60,7 +60,7 @@ const positioning = (position: Position) => {
         &:before {
           right: -${arrowSize};
           border-width: 10px 0 10px ${arrowSize};
-          border-left-color: ${({ theme }) => theme.colors.supportLighter};
+          border-left-color: ${({ theme }) => theme.color.form.formSelect.value};
         }
       `;
     default:
@@ -72,7 +72,7 @@ export const StyledTooltip = styled.div<{
   position: Position;
   open: boolean;
 }>`
-  background-color: ${({ theme }) => theme.colors.supportLighter};
+  background-color: ${({ theme }) => theme.color.form.formSelect.value};
   position: absolute;
   display: ${({ open }) => (open ? 'block' : 'none')};
   padding: 15px;

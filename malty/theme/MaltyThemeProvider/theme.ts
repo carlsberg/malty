@@ -1,36 +1,12 @@
 import { DefaultTheme } from 'styled-components';
+import genericColors from './colors.json';
+import baltika from './themes/baltika.json';
+import cadi from './themes/cadi.json';
+import carlsberg from './themes/carlsberg.json';
+import global from './themes/global.json';
+import lbc from './themes/lbc.json';
 
-const defaultTheme: DefaultTheme = {
-  themeColors: {
-    primary: '#212833',
-    secondary: '#212833',
-    tertiary: '#212833'
-  },
-  colors: {
-    white: '#FFFFFF',
-    supportDark: '#516073',
-    support: '#8BA0B9',
-    supportLight: '#CFD9E7',
-    supportLighter: '#F1F4F8',
-    disabled: '#D5DBE2',
-    black: '#000000',
-    transparent: 'transparent',
-    fail: '#F45F5E'
-  },
-  informationColors: {
-    new: '#1ACDCC',
-    live: '#F38291',
-    multiple: '#656DDF',
-    hold: '#FFC06A',
-    archive: '#8FBCD3',
-    disable: '#D5DBE2',
-    active: '#0AC39B',
-    prospect: '#FFCA2B',
-    parked: '#3997EC',
-    indirect: '#8BA0B9',
-    wholesaler: '#FCA7EC',
-    closed: '#1C2025'
-  },
+const font = {
   fontSizes: {
     small: '12px',
     medium: '16px',
@@ -41,13 +17,21 @@ const defaultTheme: DefaultTheme = {
     text: `'Montserrat', Arial, sans-serif`
   }
 };
-const baltikaTheme = {
-  ...defaultTheme,
-  themeColors: {
-    primary: 'green',
-    secondary: 'red',
-    tertiary: 'blue'
-  }
+const defaultTheme: DefaultTheme = {
+  ...genericColors,
+  font
 };
 
-export { defaultTheme, baltikaTheme };
+const globalTheme = { ...defaultTheme };
+const baltikaTheme = { ...defaultTheme };
+const cadiTheme = { ...defaultTheme };
+const carlsbergTheme = { ...defaultTheme };
+const lbcTheme = { ...defaultTheme };
+
+globalTheme.color.theme = { ...global.color.theme.global };
+baltikaTheme.color.theme = { ...baltika.color.theme.baltika };
+cadiTheme.color.theme = { ...cadi.color.theme.cadi };
+carlsbergTheme.color.theme = { ...carlsberg.color.theme.carlsberg };
+lbcTheme.color.theme = { ...lbc.color.theme.lbc };
+
+export { globalTheme, baltikaTheme, cadiTheme, carlsbergTheme, lbcTheme };

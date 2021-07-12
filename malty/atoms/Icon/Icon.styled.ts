@@ -9,7 +9,7 @@ export const StyledIcon = styled.svg.attrs({
   color: Colors;
   size: SizesTypes;
 }>`
-  fill: ${({ color, theme }) => (color === Colors.Primary ? theme.themeColors.primary : theme.colors.white)};
+  fill: ${({ color, theme }) => (color === Colors.Primary ? theme.color.default.value : theme.color.white.value)};
   height: ${({ size }) => Sizes[size || SizesTypes.Medium]}px;
   width: ${({ size }) => Sizes[size || SizesTypes.Medium]}px;
   transition: fill 0.25s ease-in-out;

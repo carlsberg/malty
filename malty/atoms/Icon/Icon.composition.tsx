@@ -4,7 +4,7 @@ import { Icon } from './Icon';
 import { Colors, NamesTypes, SizesTypes } from './Icon.types';
 
 export const BasicIcon = () => (
-  <MaltyThemeProvider theme="defaultTheme">
+  <MaltyThemeProvider theme="global">
     <Icon name={NamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />
   </MaltyThemeProvider>
 );

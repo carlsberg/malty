@@ -2,16 +2,17 @@
   "color": {
     "theme": {
       "cadi": {
-        "theme-primary": {
+        "themePrimary": {
           "value": "rgb(10, 195, 155)"
         },
-        "theme-secondary": {
+        "themeSecondary": {
           "value": "rgb(0, 140, 120)"
         },
-        "theme-tertiary": {
+        "themeTertiary": {
           "value": "rgb(255, 192, 106)"
         }
       }
     }
   }
 }
+

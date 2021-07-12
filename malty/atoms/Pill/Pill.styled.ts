@@ -8,14 +8,14 @@ export const StyledPill = styled.div<{
   color: PillColor;
   hasText: boolean;
 }>`
-  background-color: ${({ color, theme }) => theme.informationColors[color]};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ color, theme }) => theme.color.information[color].value};
+  color: ${({ theme }) => theme.color.white.value};
   display: inline-flex;
   align-items: center;
   font-weight: bold;
   font-size: ${({ size }) => `${PillFontSize[size]}px`};
   height: ${({ size }) => `${PillHeight[size]}px`};
-  font-family: ${({ theme }) => theme.fontFamily.text};
+  font-family: ${({ theme }) => theme.font.fontFamily.text};
   transition: background-color 0.25s ease-in-out;
 
   ${({ hasOnClick }) =>
@@ -23,7 +23,7 @@ export const StyledPill = styled.div<{
     css`
       cursor: pointer;
       &:hover {
-        background: ${({ theme }) => theme.colors.support};
+        background: ${({ theme }) => theme.color.information.indirect.value};
       }
     `}
   ${({ isRounded, size }) =>
@@ -42,7 +42,7 @@ export const StyledPill = styled.div<{
       transition: 0.25s ease-in-out;
       transition-property: fill, transform;
       &:hover {
-        fill: ${({ theme }) => theme.colors.support};
+        fill: ${({ theme }) => theme.color.information.indirect.value};
         transform: rotate(90deg);
       }
     }

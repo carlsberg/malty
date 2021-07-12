@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Align, Weight } from './Text.types';
+import { Align, Color, Size, Weight } from './Text.types';
 
-export const StyledParagraph = styled.p<{ size?: string; weight?: string; align?: string; color?: string }>`
-  font-family: ${({ theme }) => theme.fontFamily.text};
-  color: ${({ color, theme }) => (color ? theme.colors[color] : theme.themeColors.primary)};
+export const StyledParagraph = styled.p<{ size?: Size; weight?: string; align?: string; color?: Color }>`
+  font-family: ${({ theme }) => theme.font.fontFamily.text};
+  color: ${({ color, theme }) => (color ? theme.color[color].value : theme.color.default.value)};
   text-align: ${({ align }) => align ?? Align.Left};
-  font-size: ${({ size, theme }) => (size ? theme.fontSizes[size] : theme.fontSizes.medium)};
+  font-size: ${({ size, theme }) => (size ? theme.font.fontSizes[size] : theme.font.fontSizes.medium)};
   font-weight: ${({ weight }) => weight || Weight.Normal};
 `;

@@ -2,13 +2,13 @@
   "color": {
     "theme": {
       "global": {
-        "theme-primary": {
+        "themePrimary": {
           "value": "rgb(33, 40, 51)"
         },
-        "theme-secondary": {
+        "themeSecondary": {
           "value": "rgb(240, 242, 243)"
         },
-        "theme-tertiary": {
+        "themeTertiary": {
           "value": "rgb(215, 224, 226)"
         }
       }

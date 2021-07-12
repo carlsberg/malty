@@ -2,16 +2,17 @@
   "color": {
     "theme": {
       "carlsberg": {
-        "theme-primary": {
+        "themePrimary": {
           "value": "rgb(0, 50, 30)"
         },
-        "theme-secondary": {
+        "themeSecondary": {
           "value": "rgb(23, 177, 105)"
         },
-        "theme-tertiary": {
+        "themeTertiary": {
           "value": "rgb(180, 145, 50)"
         }
       }
     }
   }
 }
+

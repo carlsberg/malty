@@ -2,16 +2,17 @@
   "color": {
     "theme": {
       "lbc": {
-        "theme-primary": {
+        "themePrimary": {
           "value": "rgb(253, 188, 55)"
         },
-        "theme-secondary": {
+        "themeSecondary": {
           "value": "rgb(241, 57, 49)"
         },
-        "theme-tertiary": {
+        "themeTertiary": {
           "value": "rgb(255, 237, 162)"
         }
       }
     }
   }
 }
+

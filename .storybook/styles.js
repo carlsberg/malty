@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
     body{
-        font-family: ${({ theme }) => theme.fontFamily.text};
+        font-family: ${({ theme }) => theme.font.fontFamily.text};
     }
     /* montserrat-300 - latin */
     @font-face {
