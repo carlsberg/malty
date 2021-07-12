@@ -1,6 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = function (env) {
+// eslint-disable-next-line func-names
+export default function (env) {
   return {
     mode: env.production ? 'production' : 'development',
     devtool: env.production ? 'source-map' : 'eval',
@@ -20,4 +21,4 @@ module.exports = function (env) {
       })
     ]
   };
-};
+}
