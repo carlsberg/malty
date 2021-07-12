@@ -8,7 +8,7 @@ exports[`pill matches snapshot 1`] = `
     className="sc-dlnjwi iLDZtA"
   >
     <div
-      className="sc-bdnxRM ewGSND"
+      className="sc-bdnxRM gMQIyv"
     />
     <span
       className="sc-hKFxyN eHbykp"
@@ -18,7 +18,7 @@ exports[`pill matches snapshot 1`] = `
     </span>
   </div>
   <span
-    className="sc-eCApnc bfooLt"
+    className="sc-eCApnc grhwtx"
   >
     Test text
   </span>

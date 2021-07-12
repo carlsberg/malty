@@ -2,12 +2,12 @@
 
 exports[`pill matches snapshot 1`] = `
 <div
-  className="sc-gtsrHT eRYRTa"
+  className="sc-gtsrHT bvmHgJ"
   color="closed"
   size="Medium"
 >
   <svg
-    className="sc-bdnxRM hTmKbK pill__icon"
+    className="sc-bdnxRM gZWpQh pill__icon"
     color="White"
     data-testid="svg-component"
     size="Small"

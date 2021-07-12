@@ -5,14 +5,14 @@ exports[`input matches snapshot 1`] = `
   className="sc-gtsrHT hjasEJ"
 >
   <label
-    className="sc-dlnjwi fJROuk"
+    className="sc-dlnjwi bjNmLc"
     htmlFor="00000000-0000-0000-0000-000000000000"
   />
   <div
     className="sc-eCApnc cahtOv"
   >
     <input
-      className="sc-jSFjdj fKcKuU"
+      className="sc-jSFjdj knrnWq"
       id="00000000-0000-0000-0000-000000000000"
       name="00000000-0000-0000-0000-000000000000"
       onChange={[Function]}

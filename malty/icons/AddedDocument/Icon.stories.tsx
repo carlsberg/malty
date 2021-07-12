@@ -5,7 +5,7 @@ import { Colors, IconInterface, SizesTypes } from './Icon.types';
 import { default as Icon } from './index';
 
 export default {
-  title: 'Icons/Add Content',
+  title: 'Icons/Added Document',
   component: Icon,
   argTypes: {
     color: {
@@ -49,8 +49,8 @@ export default {
 
 const Template: Story<IconInterface> = (args) => <Icon {...args} />;
 
-export const AddContent = Template.bind({});
-AddContent.parameters = {
+export const AddedDocument = Template.bind({});
+AddedDocument.parameters = {
   color: Colors.Primary,
   size: SizesTypes.Large
 };

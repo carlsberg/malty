@@ -2,7 +2,7 @@
 
 exports[`button matches snapshot 1`] = `
 <button
-  className="sc-gtsrHT sc-dlnjwi fPCuuD hZdoYZ"
+  className="sc-gtsrHT sc-dlnjwi kxYmHp gwLqUD"
   disabled={true}
   onClick={[MockFunction]}
 >

@@ -19,6 +19,36 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Text"
     },
+    "icons/add-content": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/AddContent"
+    },
+    "icons/add-event": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/AddEvent"
+    },
+    "icons/add-project": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/AddProject"
+    },
+    "icons/added-document": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/AddedDocument"
+    },
+    "icons/alert": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/Alert"
+    },
     "theme/malty-theme-provider": {
         "scope": "",
         "version": "",

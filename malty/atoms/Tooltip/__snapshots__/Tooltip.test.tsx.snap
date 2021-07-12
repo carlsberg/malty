@@ -15,11 +15,11 @@ exports[`Tooltip matches snapshot 1`] = `
     Test
   </button>
   <div
-    className="sc-gtsrHT dsqxmh"
+    className="sc-gtsrHT fyJcYF"
     open={true}
   >
     <p
-      className="sc-bdnxRM jeGzgD"
+      className="sc-bdnxRM idRdxD"
     >
       Test
     </p>
