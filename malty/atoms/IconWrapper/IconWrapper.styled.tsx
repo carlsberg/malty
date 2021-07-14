@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors, Sizes, SizesTypes } from './Icon.types';
+import { Colors, Sizes, SizesTypes } from './IconWrapper.types';
 
 export const StyledIcon = styled.svg.attrs({
   version: '1.1',

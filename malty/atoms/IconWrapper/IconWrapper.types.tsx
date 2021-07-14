@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
 
-export interface IconInterface extends React.HTMLAttributes<SVGElement> {
+export interface IconWrapperInterface extends React.HTMLAttributes<SVGElement> {
   color: Colors;
   size: SizesTypes;
   viewBox?: string;

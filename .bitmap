@@ -13,6 +13,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Icon"
     },
+    "atoms/icon-wrapper": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/IconWrapper"
+    },
     "atoms/text": {
         "scope": "",
         "version": "",

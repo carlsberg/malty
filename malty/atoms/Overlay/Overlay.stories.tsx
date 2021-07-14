@@ -6,11 +6,18 @@ export default {
   title: 'Atoms/Overlay',
   component: Overlay,
   argTypes: {
-    text: { control: 'text' }
+    isWhite: { control: 'boolean' },
+    content: {
+      table: {
+        disable: true
+      }
+    }
   }
 } as Meta;
 
 const Template: Story<OverlayProps> = (args) => <Overlay {...args} />;
 
 export const Main = Template.bind({});
-Main.args = {};
+Main.args = {
+  isWhite: false
+};
