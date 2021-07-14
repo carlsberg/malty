@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "webpack serve",
-    "build": "yarn compile && webpack --env production",
     "clean": "rm -rf ./dist && rm -rf ./build && rm tsconfig.tsbuildinfo",
     "watch": "tsc -b -w --preserveWatchOutput",
     "compile": "tsc -b",
+    "start": "bit compile && bit start",
+    "build": "bit install && bit compile && bit start",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook --docs -o docs",
     "test": "jest",

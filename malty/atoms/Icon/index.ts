@@ -1,5 +1,4 @@
-export { Icon } from './Icon';
-export { StyledIcon } from './Icon.styled';
+export * from './Icon.paths';
 export {
   Colors as IconColors,
   NamesTypes as IconNamesTypes,
