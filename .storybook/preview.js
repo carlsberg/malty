@@ -31,9 +31,9 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'defaultTheme',
+    defaultValue: 'global',
     toolbar: {
-      items: [{value:'defaultTheme', title: 'Default'}, {value:'baltikaTheme', title: 'Baltika'}],
+      items: [{value:'global', title: 'Global'}, {value:'baltika', title: 'Baltika'}],
       showName: true,
     },
   },

@@ -4,7 +4,7 @@ description: 'A Icon component.'
 ---
 
 import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
-import { default as Icon } from './index';
+import Icon from './index';
 import { Colors, SizesTypes } from './Icon.types';
 
 
@@ -14,7 +14,7 @@ An simple Icon component with some text
 
 Code Snippet:
 ```js
-<MaltyThemeProvider theme="defaultTheme">
+<MaltyThemeProvider theme="global">
     <Icon color={Colors.Primary} size={SizesTypes.Small} />
 </MaltyThemeProvider>
 ```
@@ -22,7 +22,7 @@ Code Snippet:
 
 Live Playground:
 ```js live
-<MaltyThemeProvider theme="defaultTheme">
+<MaltyThemeProvider theme="global">
     <Icon color={Colors.Primary} size={SizesTypes.Small} />
 </MaltyThemeProvider>
 ```

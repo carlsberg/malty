@@ -3,7 +3,7 @@ import React from 'react';
 import { Text } from './Text';
 
 export const BasicText = () => (
-  <MaltyThemeProvider theme="defaultTheme">
+  <MaltyThemeProvider theme="global">
     <Text content="this is a text block" />
   </MaltyThemeProvider>
 );

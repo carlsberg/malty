@@ -4,7 +4,7 @@ import { Button } from './Button';
 import { ButtonType } from './Button.types';
 
 export const BasicButton = () => (
-  <MaltyThemeProvider theme="defaultTheme">
+  <MaltyThemeProvider theme="global">
     <Button buttonType={ButtonType.Primary} text="Clickable button" />
   </MaltyThemeProvider>
 );
