@@ -107,9 +107,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.stories.tsx'], // Or *.test.js
+      files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.md', '**/*.mdx'], // Or *.test.js
       rules: {
         // The recommended way to write storybook stories is using props spreading
+        'import/no-extraneous-dependencies': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/no-array-index-key': 'off'
       }

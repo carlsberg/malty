@@ -22,11 +22,11 @@ const defaultTheme: DefaultTheme = {
   font
 };
 
-const globalTheme = { ...defaultTheme };
-const baltikaTheme = { ...defaultTheme };
-const cadiTheme = { ...defaultTheme };
-const carlsbergTheme = { ...defaultTheme };
-const lbcTheme = { ...defaultTheme };
+const globalTheme = { color: { theme: {} }, ...defaultTheme };
+const baltikaTheme = { color: { theme: {} }, ...defaultTheme };
+const cadiTheme = { color: { theme: {} }, ...defaultTheme };
+const carlsbergTheme = { color: { theme: {} }, ...defaultTheme };
+const lbcTheme = { color: { theme: {} }, ...defaultTheme };
 
 globalTheme.color.theme = { ...global.color.theme.global };
 baltikaTheme.color.theme = { ...baltika.color.theme.baltika };

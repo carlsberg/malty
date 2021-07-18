@@ -5,4 +5,4 @@ const [meta, story] = IconStories('Add Content', Icon);
 
 export default meta;
 
-export const AddContent = story;
+export const addContent = story;

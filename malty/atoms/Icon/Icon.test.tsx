@@ -1,32 +1,26 @@
+import { Colors, SizesTypes } from '@carlsberg/malty.atoms.icon-wrapper';
 import { fireEvent, jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
 import React from 'react';
-import { IconColors, IconNamesTypes, IconSizesTypes } from '.';
+import { IconNamesTypes } from '.';
 import { Icon } from './Icon';
 
 describe('icon', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <Icon name={IconNamesTypes.AddContent} color={IconColors.Primary} size={IconSizesTypes.Small} />
-    );
+    const view = jsonRenderer(<Icon name={IconNamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />);
     expect(view).toMatchSnapshot();
   });
   it('renders an icon as svg', () => {
-    render(<Icon name={IconNamesTypes.AddContent} color={IconColors.Primary} size={IconSizesTypes.Small} />);
+    render(<Icon name={IconNamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />);
     const element = screen.getByTestId('svg-component');
     expect(element).toBeInTheDocument();
   });
 
   it('calls function on click', () => {
-    const onClick = jest.fn();
+    const iconMockClickFn = jest.fn();
     render(
-      <Icon
-        name={IconNamesTypes.AddContent}
-        color={IconColors.Primary}
-        onIconClick={onClick}
-        size={IconSizesTypes.Small}
-      />
+      <Icon name={IconNamesTypes.AddContent} color={Colors.Primary} onClick={iconMockClickFn} size={SizesTypes.Small} />
     );
     fireEvent.click(screen.getByTestId('svg-component'));
-    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(iconMockClickFn).toHaveBeenCalledTimes(1);
   });
 });

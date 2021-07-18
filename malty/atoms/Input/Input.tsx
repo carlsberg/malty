@@ -1,7 +1,6 @@
+import { Icon, IconColors as Colors, IconSizesTypes as IconSizes } from '@carlsberg/malty.atoms.icon';
 import React, { useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
-import { Icon } from '../Icon/Icon';
-import { Colors, SizesTypes as IconSizes } from '../Icon/Icon.types';
 import { StyledError, StyledInput, StyledInputContainer, StyledInputWrapper, StyledLabel } from './Input.styled';
 import { InputProps, Sizes, SizeTypes } from './Input.types';
 

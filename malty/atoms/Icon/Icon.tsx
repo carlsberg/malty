@@ -2,7 +2,7 @@ import React from 'react';
 import * as IconsPaths from './Icon.paths';
 import { IconInterface } from './Icon.types';
 
-export const Icon = ({ size, color, name, viewBox, className, onIconClick }: IconInterface) => {
+export const Icon = ({ size, color, name, viewBox, className, onClick }: IconInterface) => {
   const IconElement = IconsPaths[name];
   return (
     <IconElement
@@ -10,7 +10,7 @@ export const Icon = ({ size, color, name, viewBox, className, onIconClick }: Ico
       className={className}
       color={color}
       size={size}
-      onClick={onIconClick}
+      onClick={onClick}
     />
   );
 };

@@ -1,6 +1,6 @@
+import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { NamesTypes } from '../Icon/Icon.types';
 import { Pill } from './Pill';
 import { PillColor, PillProps, PillSizeType } from './Pill.types';
 
@@ -22,7 +22,7 @@ export default {
       }
     },
     icon: {
-      options: Object.values(NamesTypes),
+      options: Object.values(IconNamesTypes),
       control: {
         type: 'select'
       }

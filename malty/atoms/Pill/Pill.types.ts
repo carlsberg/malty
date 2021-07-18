@@ -1,5 +1,5 @@
+import { IconNamesTypes as NamesTypes } from '@carlsberg/malty.atoms.icon';
 import { MouseEventHandler } from 'react';
-import { NamesTypes } from '../Icon/Icon.types';
 
 export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   text?: string;

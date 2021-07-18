@@ -1,7 +1,9 @@
-import * as React from 'react';
+import { IconWrapper, IconWrapperInterface } from '@carlsberg/malty.atoms.icon-wrapper';
+import React from 'react';
 
-function SpeachBalloonLivechat() {
-  return (
+const SpeachBalloonLivechat = (props: IconWrapperInterface) =>
+  IconWrapper(
+    props,
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
       <path
@@ -16,6 +18,5 @@ function SpeachBalloonLivechat() {
       </g>
     </g>
   );
-}
 
 export default SpeachBalloonLivechat;

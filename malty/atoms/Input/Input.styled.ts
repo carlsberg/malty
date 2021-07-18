@@ -1,5 +1,5 @@
+import { StyledIcon } from '@carlsberg/malty.atoms.icon';
 import styled, { css } from 'styled-components';
-import { StyledIcon } from '../Icon/Icon.styled';
 import { Sizes } from './Input.types';
 
 export const StyledInputContainer = styled.div`

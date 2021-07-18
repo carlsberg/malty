@@ -1,35 +1,19 @@
+import { Colors, Sizes, SizesTypes } from '@carlsberg/malty.atoms.icon-wrapper';
 import { MouseEventHandler } from 'react';
 
 export interface IconInterface extends React.HTMLAttributes<SVGElement> {
   color: Colors;
   size: SizesTypes;
   viewBox?: string;
-  onIconClick?: MouseEventHandler<SVGElement>;
+  onClick?: MouseEventHandler<SVGElement>;
   name: NamesTypes;
-}
-
-export enum Sizes {
-  Small = '16',
-  Medium = '24',
-  Large = '32'
-}
-
-export enum Colors {
-  Primary = 'Primary',
-  White = 'White'
-}
-
-export enum SizesTypes {
-  Small = 'Small',
-  Medium = 'Medium',
-  Large = 'Large'
 }
 
 export enum NamesTypes {
   AddContent = 'AddContent',
-  AddedDocument = 'AddedDocument',
   AddEvent = 'AddEvent',
   AlertConnection = 'AlertConnection',
+  AddedDocument = 'AddedDocument',
   Alert = 'Alert',
   AppDropbox = 'AppDropbox',
   AppFacebook = 'AppFacebook',
@@ -210,7 +194,7 @@ export enum NamesTypes {
   SpeachBalloon = 'SpeachBalloon',
   StarFilled = 'StarFilled',
   Star = 'Star',
-  Survey2 = 'Survey2',
+  Survey = 'Survey',
   Sync = 'Sync',
   TapGlass = 'TapGlass',
   Tap = 'Tap',
@@ -234,3 +218,5 @@ export enum NamesTypes {
   Wheat = 'Wheat',
   World = 'World'
 }
+
+export { Colors, Sizes, SizesTypes };

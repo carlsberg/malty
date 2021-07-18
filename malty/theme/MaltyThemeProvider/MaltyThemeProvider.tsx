@@ -3,11 +3,11 @@ import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { MaltyThemeProviderProps } from './MaltyThemeProvider.types';
 import { baltikaTheme, cadiTheme, carlsbergTheme, globalTheme, lbcTheme } from './theme';
 
-export const MaltyThemeProvider = ({ theme = 'carlsberg', children }: MaltyThemeProviderProps) => {
+export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemeProviderProps) => {
   let selectedTheme: DefaultTheme | null = null;
   switch (theme) {
-    case 'global':
-      selectedTheme = globalTheme;
+    case 'carlsberg':
+      selectedTheme = carlsbergTheme;
       break;
     case 'baltika':
       selectedTheme = baltikaTheme;
@@ -19,7 +19,7 @@ export const MaltyThemeProvider = ({ theme = 'carlsberg', children }: MaltyTheme
       selectedTheme = lbcTheme;
       break;
     default:
-      selectedTheme = carlsbergTheme;
+      selectedTheme = globalTheme;
       break;
   }
   return <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>;

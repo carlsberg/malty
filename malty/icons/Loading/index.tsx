@@ -1,7 +1,9 @@
-import * as React from 'react';
+import { IconWrapper, IconWrapperInterface } from '@carlsberg/malty.atoms.icon-wrapper';
+import React from 'react';
 
-function Loading() {
-  return (
+const Loading = (props: IconWrapperInterface) =>
+  IconWrapper(
+    props,
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
       <path
@@ -11,6 +13,5 @@ function Loading() {
       <path d="M12 2c5.43 0 9.848 4.327 9.996 9.72L22 12h-2a8 8 0 00-7.75-7.996L12 4z" />
     </g>
   );
-}
 
 export default Loading;

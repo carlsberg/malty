@@ -1,8 +1,7 @@
+import { Button, ButtonType } from '@carlsberg/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button } from '../Button';
-import { ButtonType } from '../Button/Button.types';
 import { Tooltip } from './Tooltip';
 import { Position, TooltipProps } from './Tooltip.types';
 

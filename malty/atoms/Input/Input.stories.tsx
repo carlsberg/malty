@@ -1,6 +1,6 @@
+import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { NamesTypes } from '../Icon/Icon.types';
 import { Input } from './Input';
 import { InputProps, InputType, SizeTypes } from './Input.types';
 
@@ -24,7 +24,7 @@ export default {
       }
     },
     icon: {
-      options: Object.values(NamesTypes),
+      options: Object.values(IconNamesTypes),
       control: {
         type: 'select'
       }

@@ -1,5 +1,6 @@
 
 **/.DS_Store
+**/*.icloud
 **/node_modules
 **/.bit
 public/bit

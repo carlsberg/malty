@@ -1,4 +1,4 @@
-import { NamesTypes } from '../Icon/Icon.types';
+import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   value: string;
@@ -7,7 +7,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   type: InputType;
   placeholder?: string;
   error?: string;
-  icon?: NamesTypes;
+  icon?: IconNamesTypes;
   isIconLeft?: boolean;
   isDisabled?: boolean;
   size?: SizeTypes;

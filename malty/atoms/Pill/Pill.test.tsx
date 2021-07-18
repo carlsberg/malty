@@ -1,6 +1,6 @@
+import { IconNamesTypes as NamesTypes } from '@carlsberg/malty.atoms.icon';
 import { fireEvent, jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
 import React from 'react';
-import { NamesTypes } from '../Icon/Icon.types';
 import { Pill } from './Pill';
 
 describe('pill', () => {
