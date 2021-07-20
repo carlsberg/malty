@@ -1,8 +1,8 @@
 module.exports = {
   stories: [
     "welcome.stories.mdx",
-    "../base/**/**/*.stories.mdx",
-    "../base/**/**/*.stories.@(js|jsx|ts|tsx)"
+    "../malty/**/**/*.stories.mdx",
+    "../malty/**/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   addons: [{
     name: '@storybook/addon-links',
@@ -10,5 +10,14 @@ module.exports = {
     options: {
       // actions: false,
     }
-  }]
+  }],
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
 }

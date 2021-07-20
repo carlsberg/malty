@@ -1,0 +1,17 @@
+---
+labels: ['react', 'typescript', 'button']
+description: 'A Button component.'
+---
+
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { Button, ButtonType } from '.';
+
+Button example:
+
+A simple Button component with some text
+
+```js live
+  <MaltyThemeProvider theme="global">
+    <Button buttonType={ButtonType.Primary} text="Clickable button" />
+  </MaltyThemeProvider>
+```

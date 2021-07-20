@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip matches snapshot 1`] = `
+<div
+  className="sc-dlnjwi bVqWlg"
+  style={
+    Object {
+      "--color": "dodgerblue",
+    }
+  }
+>
+  <button
+    type="button"
+  >
+    Test
+  </button>
+  <div
+    className="sc-gtsrHT fyJcYF"
+    open={true}
+  >
+    <p
+      className="sc-bdnxRM idRdxD"
+    >
+      Test
+    </p>
+  </div>
+</div>
+`;

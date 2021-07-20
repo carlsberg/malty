@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkbox matches snapshot 1`] = `
+<div
+  className="sc-bdnxRM gMkwNo"
+>
+  <label
+    className="sc-jSFjdj jxlqUH"
+  >
+    <input
+      checked={true}
+      className="sc-hKFxyN iTXDUD"
+      onChange={[Function]}
+      type="checkbox"
+      value="test"
+    />
+    <div
+      checked={true}
+      className="sc-eCApnc iHXKqs"
+    />
+    <span
+      className="sc-dlnjwi bUwitk"
+    >
+      Label text
+    </span>
+  </label>
+</div>
+`;

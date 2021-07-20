@@ -10,29 +10,6 @@ const a11yOff = Object.keys(require('eslint-plugin-jsx-a11y').rules).reduce((acc
 module.exports = {
   env: {
     browser: true,
-    es2021: true
-  },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended'],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 12,
-    sourceType: 'module'
-  },
-  plugins: ['react', '@typescript-eslint'],
-  rules: {
-    indent: ['error', 4],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always']
-  }
-};
-
-module.exports = {
-  env: {
-    browser: true,
     es2020: true
   },
   extends: [
@@ -45,7 +22,8 @@ module.exports = {
     'prettier/react',
     'plugin:jest/recommended',
     'plugin:jest/style',
-    'plugin:testing-library/react'
+    'plugin:testing-library/react',
+    'plugin:prettier/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -67,7 +45,6 @@ module.exports = {
         tsx: 'never'
       }
     ],
-    'prettier/prettier': ['error'],
     'comma-dangle': ['error', 'never'],
     'no-use-before-define': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
@@ -81,7 +58,17 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'import/no-extraneous-dependencies': [
       'error',
-      { devDependencies: ['**/*.test.{ts,tsx}', '**/{test,mockServer}/*.{ts,tsx}', '**/*.stories.{ts,tsx}'] }
+      {
+        devDependencies: [
+          '**/*.spec.{ts,tsx}',
+          '**/*.test.{ts,tsx}',
+          '**/{test,mockServer}/*.{ts,tsx}',
+          '**/*.stories.{ts,tsx}',
+          'jest-setup.ts',
+          'webpack.config.js',
+          'malty/utils/test.tsx'
+        ]
+      }
     ],
     'import/prefer-default-export': 'off',
 
@@ -120,18 +107,20 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.stories.tsx'], // Or *.test.js
+      files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.md', '**/*.mdx'], // Or *.test.js
       rules: {
         // The recommended way to write storybook stories is using props spreading
+        'import/no-extraneous-dependencies': 'off',
         'react/jsx-props-no-spreading': 'off',
         'react/no-array-index-key': 'off'
       }
     }
   ],
+
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.md', '.mdx']
       }
     },
     jest: {

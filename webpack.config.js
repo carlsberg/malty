@@ -1,6 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = function(env, argv) {
+// eslint-disable-next-line func-names
+export default function (env) {
   return {
     mode: env.production ? 'production' : 'development',
     devtool: env.production ? 'source-map' : 'eval',
@@ -11,13 +12,13 @@ module.exports = function(env, argv) {
     },
 
     entry: {
-      index: './build/index.js',
+      index: './build/index.js'
     },
 
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
-      }),
+        template: './src/index.html'
+      })
     ]
-  }
-};
+  };
+}

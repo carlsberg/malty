@@ -1,0 +1,17 @@
+---
+labels: ['react', 'typescript', 'checkbox']
+description: 'A Checkbox component.'
+---
+
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { Checkbox } from './Checkbox';
+
+Checkbox example:
+
+A simple checkbox component with a value
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Checkbox value="Test" checked={true} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
