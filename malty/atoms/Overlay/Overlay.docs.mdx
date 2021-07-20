@@ -3,19 +3,16 @@ labels: ['react', 'typescript', 'overlay']
 description: 'An Overlay component.'
 ---
 
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 import { Overlay } from '.';
 
 Overlay example:
 
 An Overlay component to be used with modals/panes/curtains
 
-Code Snippet:
-```js
-<Overlay />
-```
-
-
 Live Playground:
 ```js live
-<Overlay />
+<MaltyThemeProvider theme="global">
+  <Overlay isWhite={false}/>
+</MaltyThemeProvider>
 ```

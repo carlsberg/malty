@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export const StyledCheckboxContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: ${({ theme }) => theme.font.fontFamily.text};
+  // font-family: ${({ theme }) => theme.font.fontFamily.text};
 `;
 
 export const StyledError = styled.label`

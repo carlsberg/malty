@@ -9,7 +9,7 @@ export default {
   argTypes: {
     color: {
       options: Object.values(Color),
-      defaultValue: Color.Primary,
+      defaultValue: Color.Default,
       control: {
         type: 'select'
       }

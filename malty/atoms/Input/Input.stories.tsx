@@ -77,7 +77,7 @@ Main.args = {
   size: SizeTypes.Large,
   label: 'Label',
   type: InputType.Text,
-  icon: NamesTypes.Search,
+  icon: IconNamesTypes.Search,
   placeholder: 'Placeholder',
   error: 'Error text',
   isDisabled: false,

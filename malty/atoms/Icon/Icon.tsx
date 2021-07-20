@@ -5,12 +5,6 @@ import { IconInterface } from './Icon.types';
 export const Icon = ({ size, color, name, viewBox, className, onClick }: IconInterface) => {
   const IconElement = IconsPaths[name];
   return (
-    <IconElement
-      viewBox={viewBox ?? '0 0 24 24'}
-      className={className}
-      color={color}
-      size={size}
-      onClick={onClick}
-    />
+    <IconElement viewBox={viewBox ?? '0 0 24 24'} className={className} color={color} size={size} onClick={onClick} />
   );
 };

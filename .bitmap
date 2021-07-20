@@ -3,1285 +3,1321 @@
 {
     "atoms/button": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.ts",
-        "rootDir": "malty/atoms/button"
+        "rootDir": "malty/atoms/Button"
+    },
+    "atoms/checkbox": {
+        "scope": "",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Checkbox"
     },
     "atoms/icon": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Icon"
     },
     "atoms/icon-wrapper": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/IconWrapper"
     },
+    "atoms/input": {
+        "scope": "",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Input"
+    },
+    "atoms/overlay": {
+        "scope": "",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Overlay"
+    },
+    "atoms/pill": {
+        "scope": "",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Pill"
+    },
+    "atoms/progress-bar": {
+        "scope": "",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/ProgressBar"
+    },
     "atoms/text": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Text"
     },
+    "atoms/tooltip": {
+        "scope": "",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Tooltip"
+    },
     "icons/add-content": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AddContent"
     },
     "icons/add-event": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AddEvent"
     },
     "icons/add-project": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AddProject"
     },
     "icons/added-document": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AddedDocument"
     },
     "icons/alert": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Alert"
     },
     "icons/alert-connection": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AlertConnection"
     },
     "icons/app-dropbox": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AppDropbox"
     },
     "icons/app-facebook": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AppFacebook"
     },
     "icons/app-github": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AppGithub"
     },
     "icons/app-instagram": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AppInstagram"
     },
     "icons/app-linkedin": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AppLinkedin"
     },
     "icons/app-powerbi": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AppPowerbi"
     },
     "icons/app-skype": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/AppSkype"
     },
     "icons/arrange": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Arrange"
     },
     "icons/arrow-small-down": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ArrowSmallDown"
     },
     "icons/arrow-small-left": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ArrowSmallLeft"
     },
     "icons/arrow-small-right": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ArrowSmallRight"
     },
     "icons/arrow-small-up": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ArrowSmallUp"
     },
     "icons/at": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/At"
     },
     "icons/attachment": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Attachment"
     },
     "icons/badge": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Badge"
     },
     "icons/balance": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Balance"
     },
     "icons/bell": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Bell"
     },
     "icons/bell-notification": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/BellNotification"
     },
     "icons/bold": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Bold"
     },
     "icons/book": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Book"
     },
     "icons/bookmark": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Bookmark"
     },
     "icons/bookmark-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/BookmarkFilled"
     },
     "icons/bottle": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Bottle"
     },
     "icons/bottle-craft": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/BottleCraft"
     },
     "icons/calendar": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Calendar"
     },
     "icons/calendar-autumn": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CalendarAutumn"
     },
     "icons/calendar-confirm": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CalendarConfirm"
     },
     "icons/calendar-events": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CalendarEvents"
     },
     "icons/calendar-spring": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CalendarSpring"
     },
     "icons/calendar-summer": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CalendarSummer"
     },
     "icons/calendar-whole-year": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CalendarWholeYear"
     },
     "icons/calendar-winter": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CalendarWinter"
     },
     "icons/camera": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Camera"
     },
     "icons/can": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Can"
     },
     "icons/card": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Card"
     },
     "icons/card-plus": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CardPlus"
     },
     "icons/carlsberg-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CarlsbergFilled"
     },
     "icons/carlsberg-outlined": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CarlsbergOutlined"
     },
     "icons/carret-down": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CarretDown"
     },
     "icons/carret-left": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CarretLeft"
     },
     "icons/carret-move": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CarretMove"
     },
     "icons/carret-right": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CarretRight"
     },
     "icons/carret-up": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CarretUp"
     },
     "icons/cart": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Cart"
     },
     "icons/cart-added": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CartAdded"
     },
     "icons/cart-label": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CartLabel"
     },
     "icons/cart-notification": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CartNotification"
     },
     "icons/change": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Change"
     },
     "icons/check": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Check"
     },
     "icons/checkbox-check": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CheckboxCheck"
     },
     "icons/checkbox-check-alternate": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CheckboxCheckAlternate"
     },
     "icons/checkbox-check-square": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CheckboxCheckSquare"
     },
     "icons/checkbox-empty": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CheckboxEmpty"
     },
     "icons/chevron-down": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ChevronDown"
     },
     "icons/chevron-left": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ChevronLeft"
     },
     "icons/chevron-right": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ChevronRight"
     },
     "icons/chevron-up": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ChevronUp"
     },
     "icons/clock": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Clock"
     },
     "icons/clock-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ClockFilled"
     },
     "icons/clone": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Clone"
     },
     "icons/close": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Close"
     },
     "icons/coin-dollar": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CoinDollar"
     },
     "icons/coin-euro": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CoinEuro"
     },
     "icons/compass": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Compass"
     },
     "icons/compass-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CompassFilled"
     },
     "icons/connected": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Connected"
     },
     "icons/contract": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Contract"
     },
     "icons/cookies": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Cookies"
     },
     "icons/coupon": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Coupon"
     },
     "icons/customer": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Customer"
     },
     "icons/customer-add": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CustomerAdd"
     },
     "icons/customer-question": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CustomerQuestion"
     },
     "icons/customers": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Customers"
     },
     "icons/data-transfer": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/DataTransfer"
     },
     "icons/diagonal-down-left": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/DiagonalDownLeft"
     },
     "icons/diagonal-down-right": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/DiagonalDownRight"
     },
     "icons/diagonal-up-left": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/DiagonalUpLeft"
     },
     "icons/diagonal-up-right": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/DiagonalUpRight"
     },
     "icons/diploma": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Diploma"
     },
     "icons/diploma2": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Diploma2"
     },
     "icons/download": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Download"
     },
     "icons/draughtmaster": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Draughtmaster"
     },
     "icons/edit": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Edit"
     },
     "icons/email": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Email"
     },
     "icons/expand": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Expand"
     },
     "icons/eye": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Eye"
     },
     "icons/eye-fill": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/EyeFill"
     },
     "icons/file": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/File"
     },
     "icons/files-csv": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/FilesCsv"
     },
     "icons/files-json": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/FilesJson"
     },
     "icons/files-pdf": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/FilesPdf"
     },
     "icons/files-xls": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/FilesXls"
     },
     "icons/filters": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Filters"
     },
     "icons/flash": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Flash"
     },
     "icons/glass-goblet": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/GlassGoblet"
     },
     "icons/glass-mug": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/GlassMug"
     },
     "icons/glass-weissbier": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/GlassWeissbier"
     },
     "icons/globe": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Globe"
     },
     "icons/headline": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Headline"
     },
     "icons/heart": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Heart"
     },
     "icons/heart-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/HeartFilled"
     },
     "icons/help": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Help"
     },
     "icons/hide-menu": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/HideMenu"
     },
     "icons/history": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/History"
     },
     "icons/home": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Home"
     },
     "icons/hop": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Hop"
     },
     "icons/image": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Image"
     },
     "icons/information": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Information"
     },
     "icons/italic": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Italic"
     },
     "icons/item-add": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ItemAdd"
     },
     "icons/item-check": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ItemCheck"
     },
     "icons/item-check-default": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ItemCheckDefault"
     },
     "icons/item-check-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ItemCheckFilled"
     },
     "icons/item-close": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ItemClose"
     },
     "icons/item-close-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ItemCloseFilled"
     },
     "icons/library": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Library"
     },
     "icons/loading": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Loading"
     },
     "icons/location-ip": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/LocationIp"
     },
     "icons/lock": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Lock"
     },
     "icons/lock-open": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/LockOpen"
     },
     "icons/map": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Map"
     },
     "icons/market": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Market"
     },
     "icons/media-pause": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/MediaPause"
     },
     "icons/media-play": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/MediaPlay"
     },
     "icons/media-sound": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/MediaSound"
     },
     "icons/media-sound-off": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/MediaSoundOff"
     },
     "icons/media-stop": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/MediaStop"
     },
     "icons/menu": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Menu"
     },
     "icons/menu-left": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/MenuLeft"
     },
     "icons/menu-right": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/MenuRight"
     },
     "icons/minus": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Minus"
     },
     "icons/mobile": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Mobile"
     },
     "icons/more": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/More"
     },
     "icons/mouse": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Mouse"
     },
     "icons/notepad": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Notepad"
     },
     "icons/outlet": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Outlet"
     },
     "icons/outlet-plus": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/OutletPlus"
     },
     "icons/pack": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Pack"
     },
     "icons/package-keg": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PackageKeg"
     },
     "icons/package-wholesaler": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PackageWholesaler"
     },
     "icons/paint": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Paint"
     },
     "icons/pallet": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Pallet"
     },
     "icons/pencil": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Pencil"
     },
     "icons/phone-classic": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PhoneClassic"
     },
     "icons/pilsner": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Pilsner"
     },
     "icons/pin": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Pin"
     },
     "icons/pin-active": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinActive"
     },
     "icons/pin-churn": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinChurn"
     },
     "icons/pin-closed": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinClosed"
     },
     "icons/pin-inactive": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinInactive"
     },
     "icons/pin-indirect": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinIndirect"
     },
     "icons/pin-labeling": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinLabeling"
     },
     "icons/pin-parked": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinParked"
     },
     "icons/pin-prospect": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinProspect"
     },
     "icons/pin-several": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/PinSeveral"
     },
     "icons/pint": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Pint"
     },
     "icons/plus": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Plus"
     },
     "icons/power": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Power"
     },
     "icons/radiobutton-off": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/RadiobuttonOff"
     },
     "icons/radiobutton-on": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/RadiobuttonOn"
     },
     "icons/refresh": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Refresh"
     },
     "icons/restaurant": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Restaurant"
     },
     "icons/retry": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Retry"
     },
     "icons/salesrep": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Salesrep"
     },
     "icons/save": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Save"
     },
     "icons/search": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Search"
     },
     "icons/search-user": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/SearchUser"
     },
     "icons/sent": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Sent"
     },
     "icons/settings": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Settings"
     },
     "icons/share": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Share"
     },
     "icons/shield-exclamation": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ShieldExclamation"
     },
     "icons/shield-security": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ShieldSecurity"
     },
     "icons/shop": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Shop"
     },
     "icons/sign-out": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/SignOut"
     },
     "icons/speach-balloon": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/SpeachBalloon"
     },
     "icons/speach-balloon-complaint": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/SpeachBalloonComplaint"
     },
     "icons/speach-balloon-livechat": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/SpeachBalloonLivechat"
     },
     "icons/star": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Star"
     },
     "icons/star-filled": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/StarFilled"
     },
     "icons/survey": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Survey"
     },
     "icons/sync": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Sync"
     },
     "icons/tap": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Tap"
     },
     "icons/tap-glass": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/TapGlass"
     },
     "icons/technical-support": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/TechnicalSupport"
     },
     "icons/text": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Text"
     },
     "icons/third-party": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ThirdParty"
     },
     "icons/thumb-down": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ThumbDown"
     },
     "icons/thumb-up": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ThumbUp"
     },
     "icons/toggle-off": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ToggleOff"
     },
     "icons/toggle-on": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ToggleOn"
     },
     "icons/trash": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Trash"
     },
     "icons/trophy": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Trophy"
     },
     "icons/truck": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Truck"
     },
     "icons/tulipe": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Tulipe"
     },
     "icons/twitter": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Twitter"
     },
     "icons/underline": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Underline"
     },
     "icons/upload": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Upload"
     },
     "icons/view-grid": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ViewGrid"
     },
     "icons/view-list": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ViewList"
     },
     "icons/volume": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Volume"
     },
     "icons/wheat": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Wheat"
     },
     "icons/world": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/World"
     },
     "theme/malty-theme-provider": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/theme/MaltyThemeProvider"
     },
     "utils/test": {
         "scope": "",
-        "version": "",
+        "version": "0.0.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/utils/test"
     },

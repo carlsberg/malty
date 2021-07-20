@@ -13,9 +13,9 @@
     "esModuleInterop": true,
     "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es2015",
     "resolveJsonModule": true,
-    "composite": true,
-  },
-  "include": ["**/*.json"]
+    "allowSyntheticDefaultImports": true,
+    "target": "es2015",
+    "composite": true
+  }
 }

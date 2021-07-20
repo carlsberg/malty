@@ -1,5 +1,9 @@
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Checkbox } from './Checkbox';
 
-// sets the Component preview in gallery view
-export const BasicText = () => <Checkbox onValueChange={() => null} value="Test" checked />;
+export const BasicCheckbox = () => (
+  <MaltyThemeProvider theme="global">
+    <Checkbox value="Test" checked onValueChange={() => null} />
+  </MaltyThemeProvider>
+);

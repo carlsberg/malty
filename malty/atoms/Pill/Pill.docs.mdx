@@ -3,19 +3,16 @@ labels: ['react', 'typescript', 'icon']
 description: 'A Icon component.'
 ---
 
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 import { Pill } from './Pill';
 
 Pill example:
 
 A simple Icon component with some text
 
-Code Snippet:
-```js
-<Pill text="Pill text" />
-```
-
-
 Live Playground:
 ```js live
-<Pill text="Pill text" />
+<MaltyThemeProvider theme="global">
+  <Pill text="Pill text" />
+</MaltyThemeProvider>
 ```

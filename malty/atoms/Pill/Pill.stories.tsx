@@ -47,7 +47,7 @@ const Template: Story<PillProps> = ({ text, icon, color, isRounded, onClick, siz
 export const Main = Template.bind({});
 Main.args = {
   text: 'Text',
-  icon: NamesTypes.AddContent,
+  icon: IconNamesTypes.AddContent,
   color: PillColor.New,
   isRounded: true,
   size: PillSizeType.Medium

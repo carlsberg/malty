@@ -1,5 +1,11 @@
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Pill } from './Pill';
 
-// sets the Component preview in gallery view
-export const BasicPill = () => <Pill text="Pill text" />;
+export const BasicPill = () => {
+  return (
+    <MaltyThemeProvider theme="global">
+      <Pill text="Pill text" />
+    </MaltyThemeProvider>
+  );
+};

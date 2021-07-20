@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { DefaultTheme } from 'styled-components';
-import genericColors from './colors.json';
-import baltika from './themes/baltika.json';
-import cadi from './themes/cadi.json';
-import carlsberg from './themes/carlsberg.json';
-import global from './themes/global.json';
-import lbc from './themes/lbc.json';
+
+const nonThemeColors = require('./colors.json');
+const baltikaMarket = require('./themes/baltika.json');
+const cadiMarket = require('./themes/cadi.json');
+const carlsbergMarket = require('./themes/carlsberg.json');
+const globalMarket = require('./themes/global.json');
+const lbcMarket = require('./themes/lbc.json');
 
 const font = {
   fontSizes: {
@@ -18,7 +20,7 @@ const font = {
   }
 };
 const defaultTheme: DefaultTheme = {
-  ...genericColors,
+  ...nonThemeColors,
   font
 };
 
@@ -28,10 +30,10 @@ const cadiTheme = { color: { theme: {} }, ...defaultTheme };
 const carlsbergTheme = { color: { theme: {} }, ...defaultTheme };
 const lbcTheme = { color: { theme: {} }, ...defaultTheme };
 
-globalTheme.color.theme = { ...global.color.theme.global };
-baltikaTheme.color.theme = { ...baltika.color.theme.baltika };
-cadiTheme.color.theme = { ...cadi.color.theme.cadi };
-carlsbergTheme.color.theme = { ...carlsberg.color.theme.carlsberg };
-lbcTheme.color.theme = { ...lbc.color.theme.lbc };
+baltikaTheme.color.theme = { ...baltikaMarket.color.theme.baltika };
+cadiTheme.color.theme = { ...cadiMarket.color.theme.cadi };
+carlsbergTheme.color.theme = { ...carlsbergMarket.color.theme.carlsberg };
+globalTheme.color.theme = { ...globalMarket.color.theme.global };
+lbcTheme.color.theme = { ...lbcMarket.color.theme.lbc };
 
 export { globalTheme, baltikaTheme, cadiTheme, carlsbergTheme, lbcTheme };
