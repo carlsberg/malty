@@ -24,11 +24,11 @@ const defaultTheme: DefaultTheme = {
   font
 };
 
-const globalTheme = { color: { theme: {} }, ...defaultTheme };
-const baltikaTheme = { color: { theme: {} }, ...defaultTheme };
-const cadiTheme = { color: { theme: {} }, ...defaultTheme };
-const carlsbergTheme = { color: { theme: {} }, ...defaultTheme };
-const lbcTheme = { color: { theme: {} }, ...defaultTheme };
+const globalTheme = { ...defaultTheme };
+const baltikaTheme = { ...defaultTheme };
+const cadiTheme = { ...defaultTheme };
+const carlsbergTheme = { ...defaultTheme };
+const lbcTheme = { ...defaultTheme };
 
 baltikaTheme.color.theme = { ...baltikaMarket.color.theme.baltika };
 cadiTheme.color.theme = { ...cadiMarket.color.theme.cadi };

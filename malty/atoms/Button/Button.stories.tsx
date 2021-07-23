@@ -66,40 +66,38 @@ export const Primary = Template.bind({});
 Primary.args = {
   buttonType: ButtonType.Primary,
   text: 'Primary',
-  size: SizeTypes.Medium
-  // loading: false,
-  // error: false,
-  // success: false
+  size: SizeTypes.Medium,
+  loading: false,
+  error: false,
+  success: false
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   buttonType: ButtonType.Secondary,
   text: 'Secondary',
-  icon: IconNamesTypes.AddContent,
-  size: SizeTypes.Medium
-  // loading: false,
-  // error: false,
-  // success: false
+  size: SizeTypes.Medium,
+  loading: false,
+  error: false,
+  success: false
 };
 
 export const Floater = Template.bind({});
 Floater.args = {
   buttonType: ButtonType.Floater,
-  icon: IconNamesTypes.AddContent,
-  size: SizeTypes.Medium
-  // loading: false,
-  // error: false,
-  // success: false
+  icon: IconNamesTypes.ArrowSmallUp,
+  size: SizeTypes.Medium,
+  loading: false,
+  error: false,
+  success: false
 };
 
 export const Link = Template.bind({});
 Link.args = {
   buttonType: ButtonType.Link,
   text: 'Link text',
-  icon: IconNamesTypes.AddContent,
-  size: SizeTypes.Medium
-  // loading: false,
-  // error: false,
-  // success: false
+  size: SizeTypes.Medium,
+  loading: false,
+  error: false,
+  success: false
 };

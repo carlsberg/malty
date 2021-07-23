@@ -1,10 +1,10 @@
-import {addParameters} from '@storybook/react';
+import { addParameters } from '@storybook/react';
 import React from 'react';
 import { GlobalStyle } from './styles';
 // import { MaltyThemeProvider } from '../malty/theme/MaltyThemeProvider';
 import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 
- export const decorators = [
+export const decorators = [
   (Story, context) => (
     <>
       <MaltyThemeProvider theme={context.globals.theme}>
@@ -12,20 +12,20 @@ import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider'
         <Story />
       </MaltyThemeProvider>
     </>
-  ),
+  )
 ];
 
 export const parameters = {
   viewMode: 'docs',
-  previewTabs: { canvas: { hidden: true } },
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  previewTabs: { canvas: { hidden: false } },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
-      date: /Date$/,
+      date: /Date$/
     }
   }
-}
+};
 
 export const globalTypes = {
   theme: {
@@ -34,24 +34,24 @@ export const globalTypes = {
     defaultValue: 'global',
     toolbar: {
       items: [
-        {value:'global', title: 'Global'},
-        {value:'baltika', title: 'Baltika'},
-        {value:'cadi', title: 'Cadi'},
-        {value:'carlsberg', title: 'Carlsberg'},
-        {value:'lbc', title: 'LBC'}
+        { value: 'global', title: 'Global' },
+        { value: 'baltika', title: 'Baltika' },
+        { value: 'cadi', title: 'Cadi' },
+        { value: 'carlsberg', title: 'Carlsberg' },
+        { value: 'lbc', title: 'LBC' }
       ],
-      showName: true,
-    },
-  },
+      showName: true
+    }
+  }
 };
 
 addParameters({
   backgrounds: {
     default: 'white',
     values: [
-      { name: 'white', value: '#ffffff' }, 
+      { name: 'white', value: '#ffffff' },
       { name: 'gray', value: '#c1c1c1' },
-      { name: 'black', value: '#333333' },
+      { name: 'black', value: '#333333' }
     ]
   }
 });

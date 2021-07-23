@@ -8,3 +8,17 @@ export const BasicIcon = () => (
     <Icon name={NamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />
   </MaltyThemeProvider>
 );
+
+export const ClickableIcon = () => (
+  <MaltyThemeProvider theme="global">
+    <Icon
+      name={NamesTypes.AddContent}
+      color={Colors.Primary}
+      size={SizesTypes.Small}
+      onClick={() => {
+        // eslint-disable-next-line no-console
+        console.log('Just got clicked!');
+      }}
+    />
+  </MaltyThemeProvider>
+);

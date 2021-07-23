@@ -3,7 +3,7 @@
 {
     "atoms/button": {
         "scope": "",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Button"
     },
@@ -27,7 +27,7 @@
     },
     "atoms/input": {
         "scope": "",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
@@ -45,7 +45,7 @@
     },
     "atoms/progress-bar": {
         "scope": "",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/ProgressBar"
     },
@@ -57,7 +57,7 @@
     },
     "atoms/tooltip": {
         "scope": "",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Tooltip"
     },

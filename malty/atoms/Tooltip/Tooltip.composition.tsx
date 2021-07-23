@@ -1,4 +1,3 @@
-import { Button, ButtonType } from '@carlsberg/malty.atoms.button';
 import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useState } from 'react';
 import { Tooltip } from './Tooltip';
@@ -11,7 +10,9 @@ export const BasicTooltip = () => {
   return (
     <MaltyThemeProvider theme="global">
       <Tooltip position={Position.Bottom} content={<span>Contents</span>} isOpen>
-        <Button buttonType={ButtonType.Primary} text="Toggle" onClick={() => setIsOpen(!isOpen)} />
+        <button type="button" onClick={() => setIsOpen(!isOpen)}>
+          Toggle
+        </button>
       </Tooltip>
     </MaltyThemeProvider>
   );

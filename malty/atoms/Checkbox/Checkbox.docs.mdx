@@ -8,10 +8,18 @@ import { Checkbox } from './Checkbox';
 
 Checkbox example:
 
-A simple checkbox component with a value
+A simple `checked={true}` checkbox component
 
 ```js live
 <MaltyThemeProvider theme="global">
   <Checkbox value="Test" checked={true} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+A simple `checked={false}` checkbox component
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Checkbox value="Test" checked={false} onValueChange={() => null} />
 </MaltyThemeProvider>
 ```

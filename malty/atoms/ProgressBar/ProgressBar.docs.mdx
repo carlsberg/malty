@@ -1,0 +1,17 @@
+---
+labels: ['react', 'typescript', 'button']
+description: 'A Progress Bar component.'
+---
+
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { ProgressBar } from '.';
+
+Button example:
+
+A simple Progress Bar component with some text
+
+```js live
+<MaltyThemeProvider theme="global">
+  <ProgressBar progress={25} displayAmount={false} label="Loading data..." />
+</MaltyThemeProvider>
+```

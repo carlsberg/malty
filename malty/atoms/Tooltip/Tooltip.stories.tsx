@@ -1,4 +1,3 @@
-import { Button, ButtonType } from '@carlsberg/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -40,7 +39,9 @@ const Template: Story<TooltipProps> = ({ content, position }: TooltipProps) => {
   return (
     <StyledContainer>
       <Tooltip position={position} content={content} isOpen={isOpen}>
-        <Button buttonType={ButtonType.Primary} text="Toggle" onClick={() => setIsOpen(!isOpen)} />
+        <button type="button" onClick={() => setIsOpen(!isOpen)}>
+          Toggle
+        </button>
       </Tooltip>
     </StyledContainer>
   );
