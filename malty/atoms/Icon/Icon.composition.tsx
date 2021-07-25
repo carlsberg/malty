@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Icon } from './Icon';
@@ -16,7 +17,6 @@ export const ClickableIcon = () => (
       color={Colors.Primary}
       size={SizesTypes.Small}
       onClick={() => {
-        // eslint-disable-next-line no-console
         console.log('Just got clicked!');
       }}
     />

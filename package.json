@@ -16,13 +16,10 @@
   },
   "dependencies": {
     "@storybook/react": "^6.3.1",
-    "prettier": "^2.2.1",
-    "prettier-plugin-organize-imports": "^1.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.2.3",
-    "styled-normalize": "^8.0.7",
-    "uuid": "^8.3.2"
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -73,7 +70,8 @@
     "typescript": "^4.2.3",
     "webpack": "^5.30.0",
     "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "uuid": "^8.3.2"
   },
   "workspaces": [
     "malty/*"
