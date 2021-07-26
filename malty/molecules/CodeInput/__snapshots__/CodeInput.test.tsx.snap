@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input matches snapshot 1`] = `
+<div
+  className="sc-dlnjwi kEOpQV"
+>
+  <label
+    className="sc-hKFxyN dhGUqE"
+    htmlFor="00000000-0000-0000-0000-000000000000"
+  />
+  <div
+    className="sc-jSFjdj kWqYUn"
+  >
+    <input
+      className="sc-gKAaRy byFdFG"
+      id="00000000-0000-0000-0000-000000000000"
+      name="00000000-0000-0000-0000-000000000000"
+      onChange={[Function]}
+      size={48}
+      type="text"
+      value="Value"
+    />
+  </div>
+</div>
+`;

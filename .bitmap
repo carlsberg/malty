@@ -1309,6 +1309,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/World"
     },
+    "molecules/code-input": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/CodeInput"
+    },
     "theme/malty-theme-provider": {
         "scope": "",
         "version": "0.0.2",
