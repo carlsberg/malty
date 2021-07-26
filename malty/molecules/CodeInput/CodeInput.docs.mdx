@@ -1,0 +1,20 @@
+---
+labels: ['react', 'typescript', 'icon']
+description: 'A Icon component.'
+---
+
+import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { CodeInput } from './CodeInput';
+import { CodeInputType } from './CodeInput.types';
+
+Icon example:
+
+An simple Icon component with some text
+
+Live Playground:
+
+```js live
+<MaltyThemeProvider theme="global">
+  <CodeInput type={InputType.Text} value={'This is a test input'} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
