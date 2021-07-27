@@ -11,6 +11,7 @@ export interface ButtonProps {
   loading?: boolean;
   error?: boolean;
   success?: boolean;
+  // as of now I made it default as button, but we may add as well to switch the button to "submit" type
 }
 
 export enum SizeTypes {

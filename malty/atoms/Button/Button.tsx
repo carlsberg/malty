@@ -48,6 +48,7 @@ export const Button = ({
 
   return (
     <Component
+      type='button'
       disabled={disabled}
       hasText={!!text}
       hasIcon={!!icon}
