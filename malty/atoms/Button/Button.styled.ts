@@ -5,11 +5,12 @@ const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
   isWhite?: boolean;
+  isFullWidth?: boolean;
   sizing: number;
 }>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 40px;
   height: ${({ sizing }) => `${sizing}px`};
   font-size: 14px;
@@ -20,6 +21,7 @@ const StyledButton = styled.button<{
   font-family: ${({ theme }) => theme.font.fontFamily.text};
   border: none;
   gap: 10px;
+  width: ${({isFullWidth}) => isFullWidth ? '100%' : 'auto'};
   &:hover,
   &:focus {
     outline: 0;

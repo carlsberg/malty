@@ -12,6 +12,7 @@ export interface ButtonProps {
   error?: boolean;
   success?: boolean;
   // we may wanna add options for switching the icon to left?
+  isFullWidth?: boolean;
   // as of now I made it default as button, but we may add as well to switch the button to "submit" type
 }
 
