@@ -19,6 +19,7 @@ const StyledButton = styled.button<{
   cursor: pointer;
   font-family: ${({ theme }) => theme.font.fontFamily.text};
   border: none;
+  gap: 10px;
   &:hover,
   &:focus {
     outline: 0;
@@ -28,6 +29,10 @@ const StyledButton = styled.button<{
     cursor: default;
     color: ${({ theme }) => theme.color.white.value};
     background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+    &:hover {
+      color: ${({ theme }) => theme.color.white.value};
+      background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+    }
   }
 
   ${({ hasText, hasIcon, sizing }) =>
