@@ -4,6 +4,7 @@ description: 'A Icon component.'
 ---
 
 import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
 import { Input } from './Input';
 import { InputType } from './Input.types';
 
@@ -16,5 +17,49 @@ Live Playground:
 ```js live
 <MaltyThemeProvider theme="global">
   <Input type={InputType.Text} value={'This is a test input'} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Input type={InputType.Number} value={0} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Input type={InputType.Email} value={'test@carlsberg.com'} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Input type={InputType.Password} value={'123456'} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Input type={InputType.Date} value={'01/01/1970'} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+```js live
+<MaltyThemeProvider theme="global">
+    <Input type={InputType.Search} value={'Test query'}
+           icon={IconNamesTypes.Search} isIconLeft={true}
+           onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Input type={InputType.Telephone} value={'999-9999'} onValueChange={() => null} />
+</MaltyThemeProvider>
+```
+
+```js live
+<MaltyThemeProvider theme="global">
+  <Input type={InputType.URL} value={'https://www.domain.com'} onValueChange={() => null} />
 </MaltyThemeProvider>
 ```

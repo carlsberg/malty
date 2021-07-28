@@ -7,6 +7,7 @@ export const Button = ({
   text,
   buttonType,
   isWhite = false,
+  isFullWidth = false,
   disabled,
   onClick,
   icon,
@@ -48,12 +49,14 @@ export const Button = ({
 
   return (
     <Component
+      type='button'
       disabled={disabled}
       hasText={!!text}
       hasIcon={!!icon}
       sizing={Sizes[size || SizeTypes.Medium]}
       onClick={onClick}
       isWhite={isWhite}
+      isFullWidth={isFullWidth}
     >
       {text}
       {currentIcon && <Icon name={currentIcon} color={iconColor} size={IconSizesTypes.Small} />}

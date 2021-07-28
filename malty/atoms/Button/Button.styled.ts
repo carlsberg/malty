@@ -5,11 +5,12 @@ const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
   isWhite?: boolean;
+  isFullWidth?: boolean;
   sizing: number;
 }>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 40px;
   height: ${({ sizing }) => `${sizing}px`};
   font-size: 14px;
@@ -19,6 +20,8 @@ const StyledButton = styled.button<{
   cursor: pointer;
   font-family: ${({ theme }) => theme.font.fontFamily.text};
   border: none;
+  gap: 10px;
+  width: ${({isFullWidth}) => isFullWidth ? '100%' : 'auto'};
   &:hover,
   &:focus {
     outline: 0;
@@ -28,6 +31,10 @@ const StyledButton = styled.button<{
     cursor: default;
     color: ${({ theme }) => theme.color.white.value};
     background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+    &:hover {
+      color: ${({ theme }) => theme.color.white.value};
+      background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+    }
   }
 
   ${({ hasText, hasIcon, sizing }) =>
