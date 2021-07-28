@@ -1,4 +1,4 @@
-import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberg/malty.atoms.icon';
+import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
 import React from 'react';
 import { StyledPill } from './Pill.styled';
 import { PillColor, PillProps, PillSizeType } from './Pill.types';

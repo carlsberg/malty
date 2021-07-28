@@ -1,4 +1,4 @@
-import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
+import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { ButtonProps, ButtonType, SizeTypes } from '.';

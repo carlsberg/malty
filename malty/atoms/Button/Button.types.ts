@@ -1,4 +1,4 @@
-import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
+import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 
 export interface ButtonProps {
   text?: string;

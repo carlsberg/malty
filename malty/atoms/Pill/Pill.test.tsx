@@ -1,5 +1,5 @@
-import { IconNamesTypes as NamesTypes } from '@carlsberg/malty.atoms.icon';
-import { fireEvent, jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
+import { IconNamesTypes as NamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { Pill } from './Pill';
 

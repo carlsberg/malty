@@ -1,4 +1,4 @@
-import { StyledIcon } from '@carlsberg/malty.atoms.icon';
+import { StyledIcon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
 import { Sizes } from './Input.types';
 

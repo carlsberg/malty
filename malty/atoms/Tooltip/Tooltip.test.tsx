@@ -1,4 +1,4 @@
-import { jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
+import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { Tooltip } from '.';
 import { Position } from './Tooltip.types';

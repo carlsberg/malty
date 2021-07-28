@@ -1,4 +1,4 @@
-import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useState } from 'react';
 import { Tooltip } from './Tooltip';
 import { Position } from './Tooltip.types';

@@ -1,4 +1,4 @@
-import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberg/malty.atoms.icon';
+import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
 import React, { useEffect, useState } from 'react';
 import { ButtonProps, ButtonType, Sizes, SizeTypes } from '.';
 import { StyledFloaterButton, StyledLinkButton, StyledPrimaryButton, StyledSecondaryButton } from './Button.styled';

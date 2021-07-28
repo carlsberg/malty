@@ -1,4 +1,4 @@
-import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
+import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Input } from './Input';

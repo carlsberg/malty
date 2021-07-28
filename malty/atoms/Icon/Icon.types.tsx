@@ -1,4 +1,4 @@
-import { Colors, Sizes, SizesTypes } from '@carlsberg/malty.atoms.icon-wrapper';
+import { Colors, Sizes, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { MouseEventHandler } from 'react';
 
 export interface IconInterface extends React.HTMLAttributes<SVGElement> {
