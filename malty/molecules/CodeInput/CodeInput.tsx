@@ -1,4 +1,4 @@
-import { Icon, IconColors as Colors, IconSizesTypes as IconSizes } from '@carlsberg/malty.atoms.icon';
+import { Icon, IconColors as Colors, IconSizesTypes as IconSizes } from '@carlsberggroup/malty.atoms.icon';
 import React, { useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
 import {

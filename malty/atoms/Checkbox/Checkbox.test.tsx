@@ -1,4 +1,4 @@
-import { fireEvent, jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
+import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { Checkbox } from './Checkbox';
 

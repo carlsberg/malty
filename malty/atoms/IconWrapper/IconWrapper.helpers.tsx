@@ -1,4 +1,4 @@
-import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Colors, IconWrapperInterface, SizesTypes } from './IconWrapper.types';

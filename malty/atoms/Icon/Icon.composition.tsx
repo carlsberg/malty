@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Icon } from './Icon';
 import { Colors, NamesTypes, SizesTypes } from './Icon.types';

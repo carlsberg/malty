@@ -1,4 +1,4 @@
-import { StyledParagraph } from '@carlsberg/malty.atoms.text';
+import { StyledParagraph } from '@carlsberggroup/malty.atoms.text';
 import React from 'react';
 import { StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
 import { TooltipProps } from './Tooltip.types';

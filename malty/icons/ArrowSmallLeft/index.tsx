@@ -1,4 +1,4 @@
-import { IconWrapper, IconWrapperInterface } from '@carlsberg/malty.atoms.icon-wrapper';
+import { IconWrapper, IconWrapperInterface } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import React from 'react';
 
 const ArrowSmallLeft = (props: IconWrapperInterface) =>

@@ -1,5 +1,5 @@
-import { Colors, SizesTypes } from '@carlsberg/malty.atoms.icon-wrapper';
-import { fireEvent, jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
+import { Colors, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { IconNamesTypes } from '.';
 import { Icon } from './Icon';

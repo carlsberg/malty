@@ -1,5 +1,5 @@
-import { IconNamesTypes } from '@carlsberg/malty.atoms.icon';
-import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Button } from './Button';
 import { ButtonType } from './Button.types';

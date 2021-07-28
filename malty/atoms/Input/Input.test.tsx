@@ -1,4 +1,4 @@
-import { jsonRenderer, render, screen } from '@carlsberg/malty.utils.test';
+import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Input } from './Input';

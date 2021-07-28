@@ -3,18 +3,18 @@ labels: ['react', 'typescript', 'icon']
 description: 'A Icon component.'
 ---
 
-import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { default as Icon } from './index';
-import { Colors, SizesTypes } from '@carlsberg/malty.atoms.icon-wrapper';
-
+import { Colors, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
 
 Icon example:
 
 An simple Icon component with some text
 
 Live Playground:
+
 ```js live
 <MaltyThemeProvider theme="global">
-    <Icon color={Colors.Primary} size={SizesTypes.Small} />
+  <Icon color={Colors.Primary} size={SizesTypes.Small} />
 </MaltyThemeProvider>
 ```
