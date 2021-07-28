@@ -1315,6 +1315,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/CodeInput"
     },
+    "molecules/loading": {
+            "scope": "",
+            "version": "",
+            "mainFile": "index.ts",
+            "rootDir": "malty/molecules/Loading"
+        },
     "theme/malty-theme-provider": {
         "scope": "",
         "version": "0.0.1",

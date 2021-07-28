@@ -70,7 +70,10 @@ Primary.args = {
   size: SizeTypes.Medium,
   loading: false,
   error: false,
-  success: false
+  success: false,
+  isWhite: false,
+  disabled: false,
+  isFullWidth: false,
 };
 
 export const Secondary = Template.bind({});
@@ -80,7 +83,10 @@ Secondary.args = {
   size: SizeTypes.Medium,
   loading: false,
   error: false,
-  success: false
+  success: false,
+  isWhite: false,
+  disabled: false,
+  isFullWidth: false,
 };
 
 export const Floater = Template.bind({});
@@ -90,7 +96,10 @@ Floater.args = {
   size: SizeTypes.Medium,
   loading: false,
   error: false,
-  success: false
+  success: false,
+  isWhite: false,
+  disabled: false,
+  isFullWidth: false,
 };
 
 export const Link = Template.bind({});
@@ -100,5 +109,8 @@ Link.args = {
   size: SizeTypes.Medium,
   loading: false,
   error: false,
-  success: false
+  success: false,
+  isWhite: false,
+  disabled: false,
+  isFullWidth: false,
 };
