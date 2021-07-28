@@ -37,6 +37,7 @@ export default {
     },
     isWhite: { control: 'boolean' },
     disabled: { control: 'boolean' },
+    isFullWidth: { control: 'boolean' },
     loading: {
       table: {
         disable: true

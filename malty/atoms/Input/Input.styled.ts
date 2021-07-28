@@ -1,4 +1,3 @@
-import { StyledIcon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
 import { Sizes } from './Input.types';
 
@@ -27,7 +26,7 @@ export const StyledInputWrapper = styled.div<{
 }>`
   position: relative;
   display: flex;
-  ${StyledIcon} {
+  svg {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
