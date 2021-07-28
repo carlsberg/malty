@@ -1,7 +1,7 @@
-import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useState } from 'react';
 import { Loading } from './Loading';
-import { SizeTypes, LoadingStatus } from './Loading.types';
+import { LoadingStatus, SizeTypes } from './Loading.types';
 
 export const BasicCodeInput = () => {
   const [value, setValue] = useState('');
