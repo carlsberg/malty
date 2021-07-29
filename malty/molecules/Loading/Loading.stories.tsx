@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Loading } from './Loading';
-import { LoadingProps, SizeTypes, LoadingStatus } from './Loading.types';
+import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
 
 export default {
   title: 'Molecules/Loading',
@@ -19,23 +19,13 @@ export default {
       control: {
         type: 'select'
       }
-    },
+    }
   }
 } as Meta;
 
-const Template: Story<LoadingProps> = ({
-  text,
-  size,
-  status,
-}: LoadingProps) => {
-  return (
-    <Loading
-      text={text}
-      size={size}
-      status={status}
-    />
-  );
-};
+const Template: Story<LoadingProps> = ({ text, size, status }: LoadingProps) => (
+  <Loading text={text} size={size} status={status} />
+);
 
 export const Main = Template.bind({});
 Main.args = {

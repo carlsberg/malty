@@ -25,7 +25,7 @@ export const StyledLoadingContainer = styled.div<{
 `;
 
 export const StyledLoading = styled.div<{
-  size: SizeTypes
+  size: SizeTypes;
 }>`
   display: flex;
   transition: 0.25s ease-in-out;
@@ -33,9 +33,12 @@ export const StyledLoading = styled.div<{
     animation: ${rotate} 2s linear infinite;
     height: ${({ size }) => {
       switch (size) {
-        case SizeTypes.Small: return '16px';
-        case SizeTypes.Large: return '24px';
-        default: return '18px'; /* SizeTypes.Medium -- medium as default */
+        case SizeTypes.Small:
+          return '16px';
+        case SizeTypes.Large:
+          return '24px';
+        default:
+          return '18px'; /* SizeTypes.Medium -- medium as default */
+      }
     }}
-  }
 `;
