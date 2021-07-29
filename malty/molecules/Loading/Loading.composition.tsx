@@ -7,7 +7,7 @@ export const BasicCodeInput = () => {
   const [value, setValue] = useState('');
   return (
     <MaltyThemeProvider theme="global">
-      <Loading text={'Loading...'} size={SizeTypes.Medium} status={LoadingStatus.Default} />
+      <Loading text={'Loading...'} size={SizeTypes.Medium} status={LoadingStatus.Pending} />
     </MaltyThemeProvider>
   );
 };

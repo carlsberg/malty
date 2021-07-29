@@ -6,19 +6,20 @@ import {
 } from '@carlsberggroup/malty.atoms.icon';
 import React from 'react';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
-import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
+import { LoadingProps, SizeTypes, LoadingStatus } from './Loading.types';
 
-export const Loading = ({ text, size = SizeTypes.Medium, status = LoadingStatus.Default }: LoadingProps) => {
+export const Loading = ({ text, size = SizeTypes.Medium, status = LoadingStatus.Pending }: LoadingProps) => {
   return (
-    <>
-      {status && (
-        <StyledLoadingContainer size={size}>
-          <StyledLoading>
-            <Icon name={IconNamesTypes.Loading} color={Colors.Primary} size={IconSizes[size]} />
+    <StyledLoadingContainer size={size}>
+      {
+        status && status === LoadingStatus.Pending &&
+        <>
+          <StyledLoading size={size}>
+            <Icon name={IconNamesTypes.Loading} color={Colors.Primary} size={IconSizes[size]}/>
           </StyledLoading>
           {text}
-        </StyledLoadingContainer>
-      )}
-    </>
+        </>
+      }
+    </StyledLoadingContainer>
   );
 };

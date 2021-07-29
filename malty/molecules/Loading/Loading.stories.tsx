@@ -41,5 +41,5 @@ export const Main = Template.bind({});
 Main.args = {
   size: SizeTypes.Medium,
   text: 'Loading...',
-  status: LoadingStatus.Default
+  status: LoadingStatus.Pending
 };
