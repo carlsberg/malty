@@ -21,7 +21,7 @@ const StyledButton = styled.button<{
   font-family: ${({ theme }) => theme.font.fontFamily.text};
   border: none;
   gap: 10px;
-  width: ${({isFullWidth}) => isFullWidth ? '100%' : 'auto'};
+  width: ${({ isFullWidth }) => (isFullWidth ? '100%' : 'auto')};
   &:hover,
   &:focus {
     outline: 0;

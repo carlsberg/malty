@@ -73,7 +73,7 @@ Primary.args = {
   success: false,
   isWhite: false,
   disabled: false,
-  isFullWidth: false,
+  isFullWidth: false
 };
 
 export const Secondary = Template.bind({});
@@ -86,7 +86,7 @@ Secondary.args = {
   success: false,
   isWhite: false,
   disabled: false,
-  isFullWidth: false,
+  isFullWidth: false
 };
 
 export const Floater = Template.bind({});
@@ -99,7 +99,7 @@ Floater.args = {
   success: false,
   isWhite: false,
   disabled: false,
-  isFullWidth: false,
+  isFullWidth: false
 };
 
 export const Link = Template.bind({});
@@ -112,5 +112,5 @@ Link.args = {
   success: false,
   isWhite: false,
   disabled: false,
-  isFullWidth: false,
+  isFullWidth: false
 };
