@@ -1,5 +1,7 @@
 import { Icon, IconColors as Colors, IconSizesTypes as IconSizes } from '@carlsberggroup/malty.atoms.icon';
-import React, { useMemo } from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { StyledError, StyledInput, StyledInputContainer, StyledInputWrapper, StyledLabel } from './Input.styled';
 import { InputProps, Sizes, SizeTypes } from './Input.types';
@@ -16,11 +18,14 @@ export const Input = ({
   isDisabled,
   size = SizeTypes.Medium
 }: InputProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   return (
-    <StyledInputContainer>
-      <StyledLabel htmlFor={id}>{label}</StyledLabel>
-      <StyledInputWrapper isIconLeft={isIconLeft}>
+    <StyledInputContainer theme={theme}>
+      <StyledLabel htmlFor={id} theme={theme}>
+        {label}
+      </StyledLabel>
+      <StyledInputWrapper isIconLeft={isIconLeft} theme={theme}>
         <StyledInput
           name={id}
           id={id}
@@ -32,10 +37,11 @@ export const Input = ({
           isIconLeft={isIconLeft}
           onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
           type={type}
+          theme={theme}
         />
         {icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />}
       </StyledInputWrapper>
-      {error && <StyledError>{error}</StyledError>}
+      {error && <StyledError theme={theme}>{error}</StyledError>}
     </StyledInputContainer>
   );
 };

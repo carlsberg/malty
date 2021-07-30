@@ -1,5 +1,7 @@
 import { Icon, IconColors as Colors, IconSizesTypes as IconSizes } from '@carlsberggroup/malty.atoms.icon';
-import React, { useMemo } from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext, useMemo } from 'react';
+import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
   StyledCodeInput,
@@ -23,10 +25,14 @@ export const CodeInput = ({
   size = SizeTypes.Medium
 }: CodeInputProps) => {
   const id = useMemo(() => uuid(), []);
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   return (
-    <StyledCodeInputContainer>
-      <StyledLabel htmlFor={id}>{label}</StyledLabel>
-      <StyledCodeInputWrapper isIconLeft={isIconLeft}>
+    <StyledCodeInputContainer theme={theme}>
+      <StyledLabel htmlFor={id} theme={theme}>
+        {label}
+      </StyledLabel>
+      <StyledCodeInputWrapper isIconLeft={isIconLeft} theme={theme}>
         <StyledCodeInput
           name={id}
           id={id}
@@ -38,10 +44,11 @@ export const CodeInput = ({
           isIconLeft={isIconLeft}
           onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
           type={type}
+          theme={theme}
         />
         {icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />}
       </StyledCodeInputWrapper>
-      {error && <StyledError>{error}</StyledError>}
+      {error && <StyledError theme={theme}>{error}</StyledError>}
     </StyledCodeInputContainer>
   );
 };

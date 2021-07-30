@@ -5,7 +5,7 @@ exports[`checkbox matches snapshot 1`] = `
   className="sc-bdnxRM gMkwNo"
 >
   <label
-    className="sc-jSFjdj jxlqUH"
+    className="sc-jSFjdj JElwH"
   >
     <input
       checked={true}

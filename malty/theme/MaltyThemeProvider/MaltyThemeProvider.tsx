@@ -4,16 +4,16 @@ import { MaltyThemeProviderProps } from './MaltyThemeProvider.types';
 import { baltikaTheme, cadiTheme, carlsbergTheme, globalTheme, lbcTheme } from './theme';
 
 export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemeProviderProps) => {
-  let selectedTheme: DefaultTheme | null = null;
+  let selectedTheme: DefaultTheme;
   switch (theme) {
-    case 'carlsberg':
-      selectedTheme = carlsbergTheme;
-      break;
     case 'baltika':
       selectedTheme = baltikaTheme;
       break;
     case 'cadi':
       selectedTheme = cadiTheme;
+      break;
+    case 'carlsberg':
+      selectedTheme = carlsbergTheme;
       break;
     case 'lbc':
       selectedTheme = lbcTheme;

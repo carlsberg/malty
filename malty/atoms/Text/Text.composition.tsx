@@ -1,9 +1,4 @@
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Text } from './Text';
 
-export const BasicText = () => (
-  <MaltyThemeProvider theme="global">
-    <Text content="this is a text block" />
-  </MaltyThemeProvider>
-);
+export const BasicText = () => <Text content="this is a text block" />;

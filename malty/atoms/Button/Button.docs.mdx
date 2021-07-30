@@ -13,31 +13,23 @@ Button example:
 A simple Button with `style={Primary}`
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button style={ButtonStyle.Primary} text="Primary button" />
-</MaltyThemeProvider>
+<Button style={ButtonType.Primary} text="Primary button" />
 ```
 
 A simple Button with `style={Secondary}`
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button style={ButtonStyle.Secondary} text="Secondary button" />
-</MaltyThemeProvider>
+<Button style={ButtonType.Secondary} text="Secondary button" />
 ```
 
 A simple Button with `style={Floater}`
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button style={ButtonStyle.Floater} icon={IconNamesTypes.ArrowSmallUp} />
-</MaltyThemeProvider>
+<Button style={ButtonType.Floater} icon={IconNamesTypes.ArrowSmallUp} />
 ```
 
-A simple Button with `style={Link}`
+A simple Button with `buttonType={Link}` and text as a child
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button style={ButtonStyle.Link} text="Link button" />
-</MaltyThemeProvider>
+<Button style={ButtonType.Link}>Link button</Button>
 ```

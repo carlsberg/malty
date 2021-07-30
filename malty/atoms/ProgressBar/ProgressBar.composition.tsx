@@ -1,9 +1,4 @@
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React from 'react';
 import { ProgressBar } from './ProgressBar';
 
-export const BasicProgressBar = () => (
-  <MaltyThemeProvider theme="global">
-    <ProgressBar progress={25} displayAmount={false} label="Loading data..." />
-  </MaltyThemeProvider>
-);
+export const BasicProgressBar = () => <ProgressBar progress={25} displayAmount={false} label="Loading data..." />;

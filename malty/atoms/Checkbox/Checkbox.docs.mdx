@@ -3,7 +3,6 @@ labels: ['react', 'typescript', 'checkbox']
 description: 'A Checkbox component.'
 ---
 
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Checkbox } from './Checkbox';
 
 Checkbox example:
@@ -11,15 +10,11 @@ Checkbox example:
 A simple `checked={true}` checkbox component
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Checkbox value="Test" checked={true} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Checkbox value="Test" checked={true} onValueChange={() => null} />
 ```
 
 A simple `checked={false}` checkbox component
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Checkbox value="Test" checked={false} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Checkbox value="Test" checked={false} onValueChange={() => null} />
 ```

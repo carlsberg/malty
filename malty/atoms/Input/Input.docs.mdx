@@ -3,7 +3,6 @@ labels: ['react', 'typescript', 'icon']
 description: 'A Icon component.'
 ---
 
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Input } from './Input';
 import { InputType } from './Input.types';
@@ -15,51 +14,39 @@ An simple Icon component with some text
 Live Playground:
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Input type={InputType.Text} value={'This is a test input'} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input type={InputType.Text} value={'This is a test input'} onValueChange={() => null} />
 ```
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Input type={InputType.Number} value={0} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input type={InputType.Number} value={0} onValueChange={() => null} />
 ```
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Input type={InputType.Email} value={'test@carlsberg.com'} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input type={InputType.Email} value={'test@carlsberg.com'} onValueChange={() => null} />
 ```
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Input type={InputType.Password} value={'123456'} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input type={InputType.Password} value={'123456'} onValueChange={() => null} />
 ```
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Input type={InputType.Date} value={'01/01/1970'} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input type={InputType.Date} value={'01/01/1970'} onValueChange={() => null} />
 ```
 
 ```js live
-<MaltyThemeProvider theme="global">
-    <Input type={InputType.Search} value={'Test query'}
-           icon={IconNamesTypes.Search} isIconLeft={true}
-           onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input
+  type={InputType.Search}
+  value={'Test query'}
+  icon={IconNamesTypes.Search}
+  isIconLeft={true}
+  onValueChange={() => null}
+/>
 ```
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Input type={InputType.Telephone} value={'999-9999'} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input type={InputType.Telephone} value={'999-9999'} onValueChange={() => null} />
 ```
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Input type={InputType.URL} value={'https://www.domain.com'} onValueChange={() => null} />
-</MaltyThemeProvider>
+<Input type={InputType.URL} value={'https://www.domain.com'} onValueChange={() => null} />
 ```

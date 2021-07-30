@@ -1,5 +1,7 @@
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import React, { useEffect, useState } from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext, useEffect, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import { ButtonProps, Sizes, SizeTypes } from '.';
 import { StyledFloaterButton, StyledLinkButton, StyledPrimaryButton, StyledSecondaryButton } from './Button.styled';
 import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
@@ -19,7 +21,8 @@ export const Button = ({
   iconPos = IconPosition.Right,
   loading,
   error,
-  success
+  success,
+  children
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = isWhite ? IconColors.Primary : IconColors.White;
@@ -39,6 +42,8 @@ export const Button = ({
       break;
   }
 
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const [currentIcon, setCurrentIcon] = useState(icon);
   const [numSize, setNumSize] = useState(Sizes.Medium);
 
@@ -54,8 +59,9 @@ export const Button = ({
       fullWidth={fullWidth}
       iconPos={iconPos}
       className={selected ? 'active' : ''}
+      theme={theme}
     >
-      {text}
+      {text || children}
       {currentIcon && <Icon name={currentIcon} color={iconColor} size={IconSizesTypes.Small} />}
     </Component>
   );
@@ -99,5 +105,4 @@ export const Button = ({
     </a>
   ) : (
     renderComponent()
-  );
 };
