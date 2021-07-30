@@ -1,31 +1,39 @@
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import React from 'react';
 
 export interface ButtonProps {
   text?: string;
   icon?: IconNamesTypes;
+  iconPos?: IconPosition;
+  url?: string;
   buttonType: ButtonType;
   size?: SizeTypes;
   isWhite?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  selected?: boolean;
   disabled?: boolean;
   loading?: boolean;
   error?: boolean;
   success?: boolean;
-  // we may wanna add options for switching the icon to left?
-  isFullWidth?: boolean;
-  // as of now I made it default as button, but we may add as well to switch the button to "submit" type
+  fullWidth?: boolean;
+  successIcon?: IconNamesTypes;
+  successText?: string;
+  errorIcon?: IconNamesTypes;
+  errorText?: string;
 }
 
 export enum SizeTypes {
   Small = 'Small',
   Medium = 'Medium',
-  Large = 'Large'
+  Large = 'Large',
+  XLarge = 'XLarge'
 }
 
 export enum Sizes {
-  Small = 38,
-  Medium = 48,
-  Large = 58
+  Small = 32,
+  Medium = 40,
+  Large = 48,
+  XLarge = 56
 }
 
 export enum ButtonType {
@@ -33,4 +41,9 @@ export enum ButtonType {
   Secondary = 'secondary',
   Floater = 'floater',
   Link = 'link'
+}
+
+export enum IconPosition {
+  Right = 'Right',
+  Left = 'Left'
 }

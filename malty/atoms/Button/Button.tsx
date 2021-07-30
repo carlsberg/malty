@@ -2,16 +2,18 @@ import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggrou
 import React, { useEffect, useState } from 'react';
 import { ButtonProps, ButtonType, Sizes, SizeTypes } from '.';
 import { StyledFloaterButton, StyledLinkButton, StyledPrimaryButton, StyledSecondaryButton } from './Button.styled';
+import { IconPosition } from './Button.types';
 
 export const Button = ({
   text,
   buttonType,
   isWhite = false,
-  isFullWidth = false,
+  fullWidth = false,
   disabled,
   onClick,
   icon,
-  size,
+  size = SizeTypes.Medium,
+  iconPos = IconPosition.Right,
   loading,
   error,
   success
@@ -35,6 +37,7 @@ export const Button = ({
   }
 
   const [currentIcon, setCurrentIcon] = useState(icon);
+  const [numSize, setNumSize] = useState(Sizes.Medium);
   useEffect(() => {
     let iconName = icon;
     if (loading) {
@@ -47,16 +50,38 @@ export const Button = ({
     setCurrentIcon(iconName);
   }, [icon, loading, error, success]);
 
+  useEffect(() => {
+    switch (size) {
+      case SizeTypes.Small: {
+        setNumSize(Sizes.Small);
+        break;
+      }
+      case SizeTypes.Large: {
+        setNumSize(Sizes.Large);
+        break;
+      }
+      case SizeTypes.XLarge: {
+        setNumSize(Sizes.XLarge);
+        break;
+      }
+      default: {
+        setNumSize(Sizes.Medium);
+        break;
+      }
+    }
+  }, [size]);
+
   return (
     <Component
       type="button"
       disabled={disabled}
       hasText={!!text}
       hasIcon={!!icon}
-      sizing={Sizes[size || SizeTypes.Medium]}
+      sizing={numSize}
       onClick={onClick}
       isWhite={isWhite}
-      isFullWidth={isFullWidth}
+      fullWidth={fullWidth}
+      iconPos={iconPos}
     >
       {text}
       {currentIcon && <Icon name={currentIcon} color={iconColor} size={IconSizesTypes.Small} />}
