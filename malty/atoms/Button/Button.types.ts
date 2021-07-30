@@ -6,7 +6,8 @@ export interface ButtonProps {
   icon?: IconNamesTypes;
   iconPos?: IconPosition;
   url?: string;
-  buttonType: ButtonType;
+  type?: ButtonTypes;
+  style: ButtonStyle;
   size?: SizeTypes;
   isWhite?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
@@ -20,6 +21,12 @@ export interface ButtonProps {
   successText?: string;
   errorIcon?: IconNamesTypes;
   errorText?: string;
+}
+
+export enum ButtonTypes {
+  Submit = 'submit',
+  Button = 'button',
+  Reset = 'reset'
 }
 
 export enum SizeTypes {
@@ -36,7 +43,7 @@ export enum Sizes {
   XLarge = 56
 }
 
-export enum ButtonType {
+export enum ButtonStyle {
   Primary = 'primary',
   Secondary = 'secondary',
   Floater = 'floater',

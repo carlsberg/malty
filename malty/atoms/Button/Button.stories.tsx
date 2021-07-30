@@ -1,17 +1,28 @@
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Story } from '@storybook/react';
 import React from 'react';
-import { ButtonProps, ButtonType, SizeTypes } from '.';
+import { ButtonProps, SizeTypes } from '.';
 import { Button } from './Button';
-import { IconPosition } from './Button.types';
+import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
 
 export default {
   title: 'Atoms/Button',
   component: Button,
   argTypes: {
     text: { control: 'text' },
-    buttonType: {
-      options: Object.values(ButtonType),
+    type: {
+      options: Object.values(ButtonTypes),
+      control: {
+        type: 'radio'
+      },
+      table: {
+        defaultValue: {
+          summary: 'submit'
+        }
+      }
+    },
+    style: {
+      options: Object.values(ButtonStyle),
       control: {
         type: 'radio'
       }
@@ -67,7 +78,10 @@ export default {
     },
     fullWidth: { control: 'boolean' },
     url: { control: 'text' },
-    selected: { control: 'boolean' },
+    selected: {
+      description: 'Add classname of "active" to element',
+      control: 'boolean'
+    },
     success: { control: 'boolean' },
     successIcon: {
       options: Object.values(IconNamesTypes),
@@ -100,8 +114,9 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  buttonType: ButtonType.Primary,
+  style: ButtonStyle.Primary,
   text: 'Primary',
+  type: ButtonTypes.Submit,
   size: SizeTypes.Medium,
   iconPos: IconPosition.Right,
   loading: false,
@@ -120,8 +135,9 @@ Primary.args = {
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  buttonType: ButtonType.Secondary,
+  style: ButtonStyle.Secondary,
   text: 'Secondary',
+  type: ButtonTypes.Submit,
   size: SizeTypes.Medium,
   iconPos: IconPosition.Right,
   loading: false,
@@ -140,8 +156,9 @@ Secondary.args = {
 
 export const Floater = Template.bind({});
 Floater.args = {
-  buttonType: ButtonType.Floater,
+  style: ButtonStyle.Floater,
   icon: IconNamesTypes.ArrowSmallUp,
+  type: ButtonTypes.Submit,
   size: SizeTypes.Medium,
   iconPos: IconPosition.Right,
   loading: false,
@@ -160,7 +177,7 @@ Floater.args = {
 
 export const Link = Template.bind({});
 Link.args = {
-  buttonType: ButtonType.Link,
+  style: ButtonStyle.Link,
   text: 'Link text',
   size: SizeTypes.Medium,
   iconPos: IconPosition.Right,
