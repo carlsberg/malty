@@ -5,38 +5,39 @@ description: 'A Button component.'
 
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { Button, ButtonType } from '.';
+import { Button } from '.';
+import { ButtonStyle } from './Button.types';
 
 Button example:
 
-A simple Button with `buttonType={Primary}`
+A simple Button with `style={Primary}`
 
 ```js live
 <MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Primary} text="Primary button" />
+  <Button style={ButtonStyle.Primary} text="Primary button" />
 </MaltyThemeProvider>
 ```
 
-A simple Button with `buttonType={Secondary}`
+A simple Button with `style={Secondary}`
 
 ```js live
 <MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Secondary} text="Secondary button" />
+  <Button style={ButtonStyle.Secondary} text="Secondary button" />
 </MaltyThemeProvider>
 ```
 
-A simple Button with `buttonType={Floater}`
+A simple Button with `style={Floater}`
 
 ```js live
 <MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Floater} icon={IconNamesTypes.ArrowSmallUp} />
+  <Button style={ButtonStyle.Floater} icon={IconNamesTypes.ArrowSmallUp} />
 </MaltyThemeProvider>
 ```
 
-A simple Button with `buttonType={Link}`
+A simple Button with `style={Link}`
 
 ```js live
 <MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Link} text="Link button" />
+  <Button style={ButtonStyle.Link} text="Link button" />
 </MaltyThemeProvider>
 ```
