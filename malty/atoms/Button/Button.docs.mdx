@@ -4,7 +4,6 @@ description: 'A Button component.'
 ---
 
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Button, ButtonType } from '.';
 
 Button example:
@@ -12,31 +11,23 @@ Button example:
 A simple Button with `buttonType={Primary}`
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Primary} text="Primary button" />
-</MaltyThemeProvider>
+<Button buttonType={ButtonType.Primary} text="Primary button" />
 ```
 
 A simple Button with `buttonType={Secondary}`
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Secondary} text="Secondary button" />
-</MaltyThemeProvider>
+<Button buttonType={ButtonType.Secondary} text="Secondary button" />
 ```
 
 A simple Button with `buttonType={Floater}`
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Floater} icon={IconNamesTypes.ArrowSmallUp} />
-</MaltyThemeProvider>
+<Button buttonType={ButtonType.Floater} icon={IconNamesTypes.ArrowSmallUp} />
 ```
 
-A simple Button with `buttonType={Link}`
+A simple Button with `buttonType={Link}` and text as a child
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Button buttonType={ButtonType.Link} text="Link button" />
-</MaltyThemeProvider>
+<Button buttonType={ButtonType.Link}>Link button</Button>
 ```

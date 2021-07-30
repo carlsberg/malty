@@ -69,7 +69,7 @@ export const StyledCheckboxLabel = styled.label`
   &:hover {
     ${StyledCheckboxHiddenInput}:not(:checked) + ${StyledCheckboxDisplayInput} {
       &:before {
-        border-color: ${({ theme }) => theme.color.black.value};
+        border-color: ${({ theme }) => theme.color.default.value};
         opacity: 0.2;
       }
     }

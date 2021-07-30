@@ -3,7 +3,6 @@ labels: ['react', 'typescript', 'text']
 description: 'A Tooltip component.'
 ---
 
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Tooltip, Position } from '.';
 
 Text example:
@@ -11,47 +10,39 @@ Text example:
 A simple Tooltip component with some text
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Tooltip position={Position.Top} content={<span>Contents</span>} isOpen>
-    <button type="button" onClick={() => null}>
-      Toggle
-    </button>
-  </Tooltip>
-</MaltyThemeProvider>
+<Tooltip position={Position.Top} content={<span>Contents</span>} isOpen>
+  <button type="button" onClick={() => null}>
+    Toggle
+  </button>
+</Tooltip>
 ```
 
 A simple Tooltip component with some text
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Tooltip position={Position.Right} content={<span>Contents</span>} isOpen>
-    <button type="button" onClick={() => null}>
-      Toggle
-    </button>
-  </Tooltip>
-</MaltyThemeProvider>
+<Tooltip position={Position.Right} content={<span>Contents</span>} isOpen>
+  <button type="button" onClick={() => null}>
+    Toggle
+  </button>
+</Tooltip>
 ```
 
 A simple Tooltip component with some text
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Tooltip position={Position.Bottom} content={<span>Contents</span>} isOpen>
-    <button type="button" onClick={() => null}>
-      Toggle
-    </button>
-  </Tooltip>
-</MaltyThemeProvider>
+<Tooltip position={Position.Bottom} content={<span>Contents</span>} isOpen>
+  <button type="button" onClick={() => null}>
+    Toggle
+  </button>
+</Tooltip>
 ```
 
 A simple Tooltip component with some text
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Tooltip position={Position.Left} content={<span>Contents</span>} isOpen>
-    <button type="button" onClick={() => null}>
-      Toggle
-    </button>
-  </Tooltip>
-</MaltyThemeProvider>
+<Tooltip position={Position.Left} content={<span>Contents</span>} isOpen>
+  <button type="button" onClick={() => null}>
+    Toggle
+  </button>
+</Tooltip>
 ```

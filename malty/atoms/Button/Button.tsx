@@ -1,5 +1,8 @@
+/* eslint-disable no-console */
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import React, { useEffect, useState } from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext, useEffect, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonType, Sizes, SizeTypes } from '.';
 import { StyledFloaterButton, StyledLinkButton, StyledPrimaryButton, StyledSecondaryButton } from './Button.styled';
 
@@ -14,7 +17,8 @@ export const Button = ({
   size,
   loading,
   error,
-  success
+  success,
+  children
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = isWhite ? IconColors.Primary : IconColors.White;
@@ -34,6 +38,8 @@ export const Button = ({
       break;
   }
 
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const [currentIcon, setCurrentIcon] = useState(icon);
   useEffect(() => {
     let iconName = icon;
@@ -49,7 +55,7 @@ export const Button = ({
 
   return (
     <Component
-      type='button'
+      type="button"
       disabled={disabled}
       hasText={!!text}
       hasIcon={!!icon}
@@ -57,8 +63,9 @@ export const Button = ({
       onClick={onClick}
       isWhite={isWhite}
       isFullWidth={isFullWidth}
+      theme={theme}
     >
-      {text}
+      {text || children}
       {currentIcon && <Icon name={currentIcon} color={iconColor} size={IconSizesTypes.Small} />}
     </Component>
   );

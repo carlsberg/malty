@@ -34,11 +34,11 @@ const defaultTheme: DefaultTheme = {
   font
 };
 
-const globalTheme = { ...defaultTheme };
-const baltikaTheme = { ...defaultTheme };
-const cadiTheme = { ...defaultTheme };
-const carlsbergTheme = { ...defaultTheme };
-const lbcTheme = { ...defaultTheme };
+const baltikaTheme = JSON.parse(JSON.stringify(defaultTheme));
+const cadiTheme = JSON.parse(JSON.stringify(defaultTheme));
+const carlsbergTheme = JSON.parse(JSON.stringify(defaultTheme));
+const globalTheme = JSON.parse(JSON.stringify(defaultTheme));
+const lbcTheme = JSON.parse(JSON.stringify(defaultTheme));
 
 /*
   The proper way to assign the theme colors, below, would be
@@ -57,4 +57,4 @@ carlsbergTheme['color']['theme'] = { ...carlsbergMarket.color.theme.carlsberg };
 globalTheme['color']['theme'] = { ...globalMarket.color.theme.global };
 lbcTheme['color']['theme'] = { ...lbcMarket.color.theme.lbc };
 
-export { globalTheme, baltikaTheme, cadiTheme, carlsbergTheme, lbcTheme };
+export { baltikaTheme, cadiTheme, carlsbergTheme, globalTheme, lbcTheme };
