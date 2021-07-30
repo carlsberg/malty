@@ -4,30 +4,32 @@ description: 'A Button component.'
 ---
 
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
-import { Button, ButtonType } from '.';
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Button } from '.';
+import { ButtonStyle } from './Button.types';
 
 Button example:
 
-A simple Button with `buttonType={Primary}`
+A simple Button with `style={Primary}`
 
 ```js live
-<Button buttonType={ButtonType.Primary} text="Primary button" />
+<Button style={ButtonType.Primary} text="Primary button" />
 ```
 
-A simple Button with `buttonType={Secondary}`
+A simple Button with `style={Secondary}`
 
 ```js live
-<Button buttonType={ButtonType.Secondary} text="Secondary button" />
+<Button style={ButtonType.Secondary} text="Secondary button" />
 ```
 
-A simple Button with `buttonType={Floater}`
+A simple Button with `style={Floater}`
 
 ```js live
-<Button buttonType={ButtonType.Floater} icon={IconNamesTypes.ArrowSmallUp} />
+<Button style={ButtonType.Floater} icon={IconNamesTypes.ArrowSmallUp} />
 ```
 
 A simple Button with `buttonType={Link}` and text as a child
 
 ```js live
-<Button buttonType={ButtonType.Link}>Link button</Button>
+<Button style={ButtonType.Link}>Link button</Button>
 ```

@@ -1,17 +1,19 @@
 import { StyledIcon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
+import { IconPosition } from './Button.types';
 
 const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
   isWhite?: boolean;
-  isFullWidth?: boolean;
+  fullWidth?: boolean;
   sizing: number;
+  iconPos: IconPosition;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 40px;
+  padding: ${({ sizing }) => `0 ${sizing}px`};
   height: ${({ sizing }) => `${sizing}px`};
   font-size: 14px;
   font-weight: bold;
@@ -20,8 +22,9 @@ const StyledButton = styled.button<{
   cursor: pointer;
   font-family: ${({ theme }) => theme.font.fontFamily.text};
   border: none;
-  gap: 10px;
-  width: ${({ isFullWidth }) => (isFullWidth ? '100%' : 'auto')};
+  gap: 16px;
+  width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
+  flex-direction: ${({ iconPos }) => (IconPosition[iconPos] === IconPosition.Right ? 'row' : 'row-reverse')};
   &:hover,
   &:focus {
     outline: 0;
@@ -35,6 +38,11 @@ const StyledButton = styled.button<{
       color: ${({ theme }) => theme.color.white.value};
       background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
     }
+  }
+
+  svg {
+    height: 24px;
+    width: 24px;
   }
 
   ${({ hasText, hasIcon, sizing }) =>
@@ -87,6 +95,8 @@ export const StyledFloaterButton = styled(StyledButton)`
   border: 1px solid
     ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.transparent.value)};
   border-radius: ${({ sizing }) => `${sizing / 2}px`};
+  position: absolute;
+  z-index: 100;
   &:hover {
     background-color: ${({ isWhite, theme }) =>
       isWhite ? theme.color.button.primaryNegativeHover.value : theme.color.button.primaryHover.value};
