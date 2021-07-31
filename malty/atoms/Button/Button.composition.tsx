@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from './Button';
 import { ButtonStyle } from './Button.types';
 
-export const PrimaryButton = () => <Button style={ButtonStyle.Primary} text="Primary button" />
+export const PrimaryButton = () => <Button style={ButtonStyle.Primary} text="Primary button" />;
 
 export const SecondaryButton = () => <Button style={ButtonStyle.Secondary} text="Secondary button" />;
 

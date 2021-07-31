@@ -105,4 +105,5 @@ export const Button = ({
     </a>
   ) : (
     renderComponent()
+  );
 };

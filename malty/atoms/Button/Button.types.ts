@@ -21,6 +21,7 @@ export interface ButtonProps {
   successText?: string;
   errorIcon?: IconNamesTypes;
   errorText?: string;
+  children?: string;
 }
 
 export enum ButtonTypes {
