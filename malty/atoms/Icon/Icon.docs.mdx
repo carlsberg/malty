@@ -3,7 +3,6 @@ labels: ['react', 'typescript', 'icon']
 description: 'A Icon component.'
 ---
 
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Icon } from './Icon';
 import { Colors, NamesTypes, SizesTypes } from './Icon.types';
 
@@ -12,22 +11,18 @@ Icon example:
 An simple Icon component
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Icon name={NamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />
-</MaltyThemeProvider>
+<Icon name={NamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />
 ```
 
 An clickable Icon component
 
 ```js live
-<MaltyThemeProvider theme="global">
-  <Icon
-    name={NamesTypes.AddContent}
-    color={Colors.Primary}
-    size={SizesTypes.Small}
-    onClick={() => {
-      console.log('Just got clicked!');
-    }}
-  />
-</MaltyThemeProvider>
+<Icon
+  name={NamesTypes.AddContent}
+  color={Colors.Primary}
+  size={SizesTypes.Small}
+  onClick={() => {
+    console.log('Just got clicked!');
+  }}
+/>
 ```
