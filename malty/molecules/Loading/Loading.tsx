@@ -40,7 +40,7 @@ export const Loading = ({ text, size = SizeTypes.Medium, status = LoadingStatus.
               name={icon}
               color={Colors.Primary}
               size={IconSizes[size]}
-              className={status === LoadingStatus.Pending ? 'spinning' : 'fade-in'}
+              className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
             />
           </StyledLoading>
           {text}

@@ -13,4 +13,14 @@ describe('molecule loading', () => {
     render(<Loading text="Loading..." size={SizeTypes.Medium} status={LoadingStatus.Pending} />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
+
+  it('renders success icon', () => {
+    render(<Loading size={SizeTypes.Medium} status={LoadingStatus.Success} />);
+    expect(screen.getByTestId('svg-component')).toHaveClass(LoadingStatus.Success);
+  });
+
+  it('renders failure icon', () => {
+    render(<Loading size={SizeTypes.Medium} status={LoadingStatus.Failure} />);
+    expect(screen.getByTestId('svg-component')).toHaveClass(LoadingStatus.Failure);
+  });
 });

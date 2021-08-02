@@ -10,7 +10,7 @@ exports[`molecule loading matches snapshot 1`] = `
     size="Medium"
   >
     <svg
-      className="sc-bdnxRM tDuXz spinning"
+      className="sc-bdnxRM tDuXz spinning Pending"
       color="Primary"
       data-testid="svg-component"
       size="Medium"
