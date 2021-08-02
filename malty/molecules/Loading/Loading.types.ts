@@ -11,9 +11,9 @@ export enum SizeTypes {
 }
 
 export enum Sizes {
-  Small = 24,
-  Medium = 48,
-  Large = 58
+  Small = 16,
+  Medium = 24,
+  Large = 48
 }
 
 export enum LoadingStatus {
