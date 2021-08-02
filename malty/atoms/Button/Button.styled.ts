@@ -2,6 +2,10 @@ import { StyledIcon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
 import { IconPosition } from './Button.types';
 
+export const StyledAnchor = styled.a`
+  text-decoration: none;
+`;
+
 const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
@@ -10,7 +14,7 @@ const StyledButton = styled.button<{
   sizing: number;
   iconPos: IconPosition;
 }>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: ${({ sizing }) => `0 ${sizing}px`};

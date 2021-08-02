@@ -21,6 +21,11 @@ describe('button', () => {
     expect(screen.getByText(newText)).not.toBeNull();
   });
 
+  it('renders with correct text via child', () => {
+    render(<Button style={ButtonStyle.Primary}>{defaultText}</Button>);
+    expect(screen.getByText(defaultText)).not.toBeNull();
+  });
+
   it('calls function on click', () => {
     const onClick = jest.fn();
     render(<Button text={defaultText} style={ButtonStyle.Primary} onClick={onClick} />);

@@ -1,9 +1,16 @@
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { Loading, LoadingProps } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, Sizes, SizeTypes } from '.';
-import { StyledFloaterButton, StyledLinkButton, StyledPrimaryButton, StyledSecondaryButton } from './Button.styled';
+import {
+  StyledAnchor,
+  StyledFloaterButton,
+  StyledLinkButton,
+  StyledPrimaryButton,
+  StyledSecondaryButton
+} from './Button.styled';
 import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
 
 export const Button = ({
@@ -21,7 +28,11 @@ export const Button = ({
   iconPos = IconPosition.Right,
   loading,
   error,
+  errorIcon,
+  errorText,
   success,
+  successIcon,
+  successText,
   children
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
@@ -41,17 +52,14 @@ export const Button = ({
     default:
       break;
   }
-
   const theme = useContext(ThemeContext) || defaultTheme;
-
-  const [currentIcon, setCurrentIcon] = useState(icon);
   const [numSize, setNumSize] = useState(Sizes.Medium);
 
   const renderComponent = () => (
     <Component
       type={type}
       disabled={disabled}
-      hasText={!!text}
+      hasText={!!text || !!children}
       hasIcon={!!icon}
       sizing={numSize}
       onClick={onClick}
@@ -61,22 +69,18 @@ export const Button = ({
       className={selected ? 'active' : ''}
       theme={theme}
     >
-      {text || children}
-      {currentIcon && <Icon name={currentIcon} color={iconColor} size={IconSizesTypes.Small} />}
+      {(success && successText) || (error && errorText) || text || children}
+      {icon && !loading && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
+      {/* This is temporary use LoadingProps['status'] since the updated loading is not exported yet */}
+      {loading && !success && !error && <Loading status={'Default' as LoadingProps['status']} />}
+      {success && !error && (
+        <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
+      )}
+      {!success && error && (
+        <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
+      )}
     </Component>
   );
-
-  useEffect(() => {
-    let iconName = icon;
-    if (loading) {
-      iconName = IconNamesTypes.Loading;
-    } else if (error) {
-      iconName = IconNamesTypes.Alert;
-    } else if (success) {
-      iconName = IconNamesTypes.CheckboxCheck;
-    }
-    setCurrentIcon(iconName);
-  }, [icon, loading, error, success]);
 
   useEffect(() => {
     switch (size) {
@@ -99,10 +103,10 @@ export const Button = ({
     }
   }, [size]);
 
-  return style === ButtonStyle.Link ? (
-    <a target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
+  return url ? (
+    <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
       {renderComponent()}
-    </a>
+    </StyledAnchor>
   ) : (
     renderComponent()
   );
