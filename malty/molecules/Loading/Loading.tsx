@@ -10,14 +10,14 @@ import { ThemeContext } from 'styled-components';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
 
-export const Loading = ({ text, size = SizeTypes.Medium, status = LoadingStatus.Default }: LoadingProps) => {
+export const Loading = ({ text, size = SizeTypes.Medium, status = LoadingStatus.Pending }: LoadingProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <>
       {status && (
         <StyledLoadingContainer size={size} theme={theme}>
-          <StyledLoading>
+          <StyledLoading size={size}>
             <Icon name={IconNamesTypes.Loading} color={Colors.Primary} size={IconSizes[size]} />
           </StyledLoading>
           {text}

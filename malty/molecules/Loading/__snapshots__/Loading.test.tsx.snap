@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`input matches snapshot 1`] = `
+exports[`Molecule/Loading:  matches snapshot 1`] = `
 <div
-  className="sc-dlnjwi gbkORz"
+  className="sc-dlnjwi hDmcU"
   size="Medium"
 >
   <div
-    className="sc-hKFxyN iaCfqU"
+    className="sc-hKFxyN dTgmiG"
+    size="Medium"
   >
     <svg
       className="sc-bdnxRM tDuXz"

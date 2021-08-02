@@ -4,18 +4,20 @@ export interface LoadingProps {
   status: LoadingStatus;
 }
 
-export enum LoadingStatus {
-  Default = 'Default',
-  Success = 'Success',
-  Failure = 'Failure',
-}
-
 export enum SizeTypes {
+  Small = 'Small',
   Medium = 'Medium',
   Large = 'Large'
 }
 
 export enum Sizes {
+  Small = 24,
   Medium = 48,
   Large = 58
+}
+
+export enum LoadingStatus {
+  Pending = 'Pending',
+  Success = 'Success',
+  Failure = 'Failure'
 }
