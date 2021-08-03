@@ -3,9 +3,8 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
-import { IconPosition } from '../Button';
 import { StyledError, StyledInput, StyledInputContainer, StyledInputWrapper, StyledLabel } from './Input.styled';
-import { InputProps, Sizes, SizeTypes } from './Input.types';
+import { IconPosition, InputProps, Sizes, SizeTypes } from './Input.types';
 
 export const Input = ({
   value,

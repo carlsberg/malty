@@ -1,9 +1,8 @@
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { IconPosition } from '../Button';
 import { Input } from './Input';
-import { InputProps, InputType, SizeTypes } from './Input.types';
+import { IconPosition, InputProps, InputType, SizeTypes } from './Input.types';
 
 export default {
   title: 'Atoms/Input',
