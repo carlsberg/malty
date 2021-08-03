@@ -1,6 +1,7 @@
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
+import { IconPosition } from '../Button';
 import { Input } from './Input';
 import { InputProps, InputType, SizeTypes } from './Input.types';
 
@@ -29,8 +30,15 @@ export default {
         type: 'select'
       }
     },
-    isDisabled: { control: 'boolean' },
-    isIconLeft: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    iconPosition: {
+      options: Object.values(IconPosition),
+      control: {
+        type: 'radio'
+      }
+    },
+    clearable: { control: 'boolean' },
+    mask: { control: 'text' },
     value: {
       table: {
         disable: true
@@ -52,8 +60,10 @@ const Template: Story<InputProps> = ({
   icon,
   placeholder,
   error,
-  isDisabled,
-  isIconLeft
+  disabled,
+  iconPosition,
+  clearable,
+  mask
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -64,9 +74,11 @@ const Template: Story<InputProps> = ({
       icon={icon}
       placeholder={placeholder}
       error={error}
-      isDisabled={!!isDisabled}
+      disabled={disabled}
       value={stateValue}
-      isIconLeft={isIconLeft}
+      iconPosition={iconPosition}
+      clearable={clearable}
+      mask={mask}
       onValueChange={(newValue: string) => setStateValue(newValue)}
     />
   );
@@ -74,12 +86,14 @@ const Template: Story<InputProps> = ({
 
 export const Main = Template.bind({});
 Main.args = {
-  size: SizeTypes.Large,
+  size: SizeTypes.Medium,
   label: 'Label',
   type: InputType.Text,
   icon: IconNamesTypes.Search,
   placeholder: 'Placeholder',
   error: 'Error text',
-  isDisabled: false,
-  isIconLeft: false
+  disabled: false,
+  iconPosition: IconPosition.Left,
+  clearable: false,
+  mask: ''
 };

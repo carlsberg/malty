@@ -9,16 +9,18 @@ export const StyledInputContainer = styled.div`
 
 export const StyledLabel = styled.label`
   color: ${({ theme }) => theme.color.default.value};
-  font-size: 12px;
+  font-size: 14px;
   padding-bottom: 8px;
   font-weight: bold;
 `;
 
 export const StyledError = styled.label`
   color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
-  padding-top: 6px;
+  line-height: 16px;
+  letter-spacing: 0;
+  font-family: Montserrat;
 `;
 
 export const StyledInputWrapper = styled.div<{

@@ -3,6 +3,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
+import { IconPosition } from '../Button';
 import { StyledError, StyledInput, StyledInputContainer, StyledInputWrapper, StyledLabel } from './Input.styled';
 import { InputProps, Sizes, SizeTypes } from './Input.types';
 
@@ -14,8 +15,8 @@ export const Input = ({
   placeholder,
   error,
   icon,
-  isIconLeft,
-  isDisabled,
+  iconPosition = IconPosition.Left,
+  disabled,
   size = SizeTypes.Medium
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -25,16 +26,16 @@ export const Input = ({
       <StyledLabel htmlFor={id} theme={theme}>
         {label}
       </StyledLabel>
-      <StyledInputWrapper isIconLeft={isIconLeft} theme={theme}>
+      <StyledInputWrapper isIconLeft={iconPosition === IconPosition.Left} theme={theme}>
         <StyledInput
           name={id}
           id={id}
           value={value}
           placeholder={placeholder}
-          disabled={isDisabled}
+          disabled={disabled}
           size={Sizes[size]}
           hasIcon={!!icon}
-          isIconLeft={isIconLeft}
+          isIconLeft={iconPosition === IconPosition.Left}
           onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
           type={type}
           theme={theme}

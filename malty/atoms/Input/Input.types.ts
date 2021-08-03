@@ -8,9 +8,11 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   error?: string;
   icon?: IconNamesTypes;
-  isIconLeft?: boolean;
-  isDisabled?: boolean;
+  iconPosition?: IconPosition;
+  disabled?: boolean;
   size?: SizeTypes;
+  clearable?: boolean;
+  mask?: string;
 }
 
 export enum InputType {
@@ -32,4 +34,9 @@ export enum SizeTypes {
 export enum Sizes {
   Medium = 48,
   Large = 58
+}
+
+export enum IconPosition {
+  Left = 'Left',
+  Right = 'Right'
 }
