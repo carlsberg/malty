@@ -25,6 +25,8 @@ export const StyledError = styled.label`
 
 export const StyledInputWrapper = styled.div<{
   isIconLeft?: boolean;
+  clearable?: boolean;
+  addRight?: boolean;
 }>`
   position: relative;
   display: flex;
@@ -32,9 +34,27 @@ export const StyledInputWrapper = styled.div<{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    ${({ isIconLeft }) => css`
-      ${isIconLeft ? 'left' : 'right'}: 16px;
-    `}
+
+    &.clear-trigger {
+      opacity: 0.7;
+      height: 16px;
+      width: 16px;
+      ${({ clearable, isIconLeft, addRight }) => {
+        let right = 16;
+        if (!isIconLeft) right += 24;
+        if (addRight) right += 32;
+        if (!isIconLeft && addRight) right += 8;
+        return css`
+          ${clearable || addRight ? `right: ${right}px` : ''}
+        `;
+      }}
+    }
+
+    &:not(.clear-trigger) {
+      ${({ isIconLeft }) => css`
+        ${isIconLeft ? 'left' : 'right'}: 16px;
+      `}
+    }
   }
 `;
 
@@ -58,8 +78,8 @@ export const StyledInput = styled.input<{
   }
 
   ${({ hasIcon, isIconLeft }) => {
-    const rightPadding = isIconLeft ? '56px' : '16px';
-    const leftPadding = isIconLeft ? '16px' : '56px';
+    const rightPadding = isIconLeft ? '48px' : '16px';
+    const leftPadding = isIconLeft ? '16px' : '48px';
     return hasIcon
       ? css`
           padding: 0 ${leftPadding} 0 ${rightPadding};
