@@ -2,7 +2,7 @@ import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Input } from './Input';
-import { IconPosition, InputProps, InputType, SizeTypes } from './Input.types';
+import { IconPosition, InputProps, InputType, MaskTypes, SizeTypes } from './Input.types';
 
 export default {
   title: 'Atoms/Input',
@@ -37,7 +37,12 @@ export default {
       }
     },
     clearable: { control: 'boolean' },
-    mask: { control: 'text' },
+    mask: {
+      options: Object.values(MaskTypes),
+      control: {
+        type: 'select'
+      }
+    },
     value: {
       table: {
         disable: true
@@ -93,6 +98,5 @@ Main.args = {
   error: 'Error text',
   disabled: false,
   iconPosition: IconPosition.Left,
-  clearable: false,
-  mask: ''
+  clearable: false
 };

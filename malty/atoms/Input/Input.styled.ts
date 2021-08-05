@@ -64,6 +64,7 @@ export const StyledInput = styled.input<{
   size?: Sizes;
   hasIcon?: boolean;
   isIconLeft?: boolean;
+  addRight?: boolean;
 }>`
   flex: 1 1 auto;
   font-weight: bold;
@@ -95,10 +96,20 @@ export const StyledInput = styled.input<{
   &[type='search']::-webkit-search-results-decoration {
     display: none;
   }
+  &[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
 
-  ${({ hasIcon, isIconLeft }) => {
+  ${({ hasIcon, isIconLeft, addRight }) => {
     const rightPadding = isIconLeft ? '48px' : '16px';
-    const leftPadding = isIconLeft ? '16px' : '48px';
+    let leftPadding = isIconLeft ? '16px' : '48px';
+    if (addRight) leftPadding = '64px';
     return hasIcon
       ? css`
           padding: 0 ${leftPadding} 0 ${rightPadding};

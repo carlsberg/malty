@@ -12,7 +12,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   size?: SizeTypes;
   clearable?: boolean;
-  mask?: string;
+  mask?: MaskTypes | RegExp;
 }
 
 export enum InputType {
@@ -39,4 +39,9 @@ export enum Sizes {
 export enum IconPosition {
   Left = 'Left',
   Right = 'Right'
+}
+
+export enum MaskTypes {
+  Telephone = 'telephone',
+  CreditCard = 'credit_card'
 }
