@@ -33,7 +33,7 @@ export const Input = ({
       </StyledLabel>
       <StyledInputWrapper
         isIconLeft={iconPosition === IconPosition.Left}
-        clearable={clearable}
+        clearable={clearable || type === InputType.Search}
         addRight={type === InputType.Number || type === InputType.Date}
         theme={theme}
       >
@@ -50,7 +50,7 @@ export const Input = ({
           type={type}
           theme={theme}
         />
-        {clearable && !!value && (
+        {(clearable || type === InputType.Search) && !!value && (
           <Icon
             name={IconNamesTypes.Close}
             color={Colors.Primary}

@@ -30,6 +30,7 @@ export const StyledInputWrapper = styled.div<{
 }>`
   position: relative;
   display: flex;
+
   svg {
     position: absolute;
     top: 50%;
@@ -75,6 +76,24 @@ export const StyledInput = styled.input<{
   ::placeholder {
     opacity: 0.8;
     color: ${({ theme }) => theme.color.information.indirect.value};
+  }
+  /* clears the ‘X’ from Internet Explorer */
+  &[type='search']::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  &[type='search']::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  /* clears the ‘X’ from Chrome */
+  &[type='search']::-webkit-search-decoration,
+  &[type='search']::-webkit-search-cancel-button,
+  &[type='search']::-webkit-search-results-button,
+  &[type='search']::-webkit-search-results-decoration {
+    display: none;
   }
 
   ${({ hasIcon, isIconLeft }) => {
