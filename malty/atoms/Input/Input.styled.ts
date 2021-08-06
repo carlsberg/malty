@@ -27,6 +27,7 @@ export const StyledInputWrapper = styled.div<{
   isIconLeft?: boolean;
   clearable?: boolean;
   addRight?: boolean;
+  addLeft?: boolean;
 }>`
   position: relative;
   display: flex;
@@ -50,9 +51,12 @@ export const StyledInputWrapper = styled.div<{
     }
 
     &:not(.clear-trigger) {
-      ${({ isIconLeft }) => css`
-        ${isIconLeft ? 'left' : 'right'}: 16px;
-      `}
+      ${({ isIconLeft, addLeft }) => {
+        const pos = addLeft && isIconLeft ? '104px' : '16px';
+        return css`
+          ${isIconLeft ? 'left' : 'right'}: ${pos};
+        `;
+      }}
     }
 
     &.quantity-control {
@@ -163,4 +167,22 @@ export const StyledButton = styled.button<{
   &:last-child {
     border-left: 0;
   }
+`;
+
+export const StyledSelect = styled.select<{
+  size?: Sizes;
+}>`
+  height: ${({ size }) => size}px;
+  width: 91px;
+  border: 1px solid #D7E0E2;
+  border-right: 0;
+  padding 16px;
+  text-align: center;
+  appearance: none;
+`;
+
+export const StyledOption = styled.option<{
+  size?: Sizes;
+}>`
+  height: ${({ size }) => size}px;
 `;

@@ -14,9 +14,11 @@ import {
   StyledInput,
   StyledInputContainer,
   StyledInputWrapper,
-  StyledLabel
+  StyledLabel,
+  StyledOption,
+  StyledSelect
 } from './Input.styled';
-import { IconPosition, InputProps, InputType, MaskTypes, Sizes, SizeTypes } from './Input.types';
+import { Country, IconPosition, InputProps, InputType, MaskTypes, Prefixes, Sizes, SizeTypes } from './Input.types';
 
 export const Input = ({
   value,
@@ -54,6 +56,20 @@ export const Input = ({
     return text;
   };
 
+  const renderClearable = () =>
+    (clearable || type === InputType.Search) &&
+    !!value && (
+      <Icon
+        name={IconNamesTypes.ItemClose}
+        color={Colors.Primary}
+        size={IconSizes.Medium}
+        className="clear-trigger"
+        onClick={() => onValueChange('')}
+      />
+    );
+
+  const renderIcon = () => icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />;
+
   const renderInput = () => (
     <>
       <StyledInput
@@ -70,16 +86,8 @@ export const Input = ({
         type={type}
         theme={theme}
       />
-      {(clearable || type === InputType.Search) && !!value && (
-        <Icon
-          name={IconNamesTypes.ItemClose}
-          color={Colors.Primary}
-          size={IconSizes.Medium}
-          className="clear-trigger"
-          onClick={() => onValueChange('')}
-        />
-      )}
-      {icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />}
+      {renderClearable()}
+      {renderIcon()}
     </>
   );
 
@@ -116,6 +124,34 @@ export const Input = ({
     </>
   );
 
+  const renderTelNumber = () => (
+    <>
+      <StyledSelect theme={theme} size={Sizes[size]}>
+        {Object.keys(Country).map((country) => (
+          <StyledOption key={`option-value-${country}`} value={country} size={Sizes[size]}>
+            {country} {Prefixes[country as keyof typeof Prefixes]}
+          </StyledOption>
+        ))}
+      </StyledSelect>
+      <StyledInput
+        name={id}
+        id={id}
+        value={value}
+        placeholder="0"
+        disabled={disabled}
+        size={Sizes[size]}
+        hasIcon={!!icon}
+        isIconLeft={iconPosition === IconPosition.Left}
+        addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+        onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
+        type={type}
+        theme={theme}
+      />
+      {renderClearable()}
+      {renderIcon()}
+    </>
+  );
+
   return (
     <StyledInputContainer theme={theme}>
       <StyledLabel htmlFor={id} theme={theme}>
@@ -124,10 +160,12 @@ export const Input = ({
       <StyledInputWrapper
         isIconLeft={iconPosition === IconPosition.Left}
         clearable={clearable || type === InputType.Search}
+        addLeft={type === InputType.Telephone}
         addRight={type === InputType.Date}
         theme={theme}
       >
-        {type !== InputType.Number && renderInput()}
+        {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
+        {type === InputType.Telephone && renderTelNumber()}
         {type === InputType.Number && renderInputNumber()}
       </StyledInputWrapper>
       {error && <StyledError theme={theme}>{error}</StyledError>}
