@@ -145,9 +145,11 @@ export const StyledInput = styled.input<{
         `}
 `;
 
-export const StyledButton = styled.button`
-  height: 48px;
-  width: 48px;
+export const StyledButton = styled.button<{
+  size?: Sizes;
+}>`
+  height: ${({ size }) => size}px;
+  width: ${({ size }) => size}px;
   border: 1px solid #d7e0e2;
   background: ${({ theme }) => theme.color.button.primaryNegativeDefault.value};
   display: flex;

@@ -85,7 +85,11 @@ export const Input = ({
 
   const renderInputNumber = () => (
     <>
-      <StyledButton theme={theme} onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}>
+      <StyledButton
+        theme={theme}
+        size={Sizes[size]}
+        onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
+      >
         <Icon name={IconNamesTypes.Minus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
       </StyledButton>
       <StyledInput
@@ -102,7 +106,11 @@ export const Input = ({
         type={type}
         theme={theme}
       />
-      <StyledButton theme={theme} onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}>
+      <StyledButton
+        theme={theme}
+        size={Sizes[size]}
+        onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
+      >
         <Icon name={IconNamesTypes.Plus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
       </StyledButton>
     </>

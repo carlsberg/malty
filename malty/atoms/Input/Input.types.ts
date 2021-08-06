@@ -32,8 +32,8 @@ export enum SizeTypes {
 }
 
 export enum Sizes {
-  Medium = 48,
-  Large = 58
+  Medium = 40,
+  Large = 48
 }
 
 export enum IconPosition {
