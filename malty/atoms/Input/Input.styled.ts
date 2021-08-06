@@ -38,8 +38,6 @@ export const StyledInputWrapper = styled.div<{
 
     &.clear-trigger {
       opacity: 0.7;
-      height: 16px;
-      width: 16px;
       ${({ clearable, isIconLeft, addRight }) => {
         let right = 16;
         if (!isIconLeft) right += 24;
@@ -55,6 +53,10 @@ export const StyledInputWrapper = styled.div<{
       ${({ isIconLeft }) => css`
         ${isIconLeft ? 'left' : 'right'}: 16px;
       `}
+    }
+
+    &.quantity-control {
+      left: unset;
     }
   }
 `;
@@ -100,6 +102,10 @@ export const StyledInput = styled.input<{
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
+    padding: 16px;
+    flex-grow: unset;
+    width: 56px;
+    text-align: center;
   }
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -137,4 +143,22 @@ export const StyledInput = styled.input<{
             color: ${({ theme }) => theme.color.form.calendarSpecial.value};
           }
         `}
+`;
+
+export const StyledButton = styled.button`
+  height: 48px;
+  width: 48px;
+  border: 1px solid #d7e0e2;
+  background: ${({ theme }) => theme.color.button.primaryNegativeDefault.value};
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+
+  &:first-child {
+    border-right: 0;
+  }
+  &:last-child {
+    border-left: 0;
+  }
 `;

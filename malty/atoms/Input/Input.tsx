@@ -8,7 +8,14 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
-import { StyledError, StyledInput, StyledInputContainer, StyledInputWrapper, StyledLabel } from './Input.styled';
+import {
+  StyledButton,
+  StyledError,
+  StyledInput,
+  StyledInputContainer,
+  StyledInputWrapper,
+  StyledLabel
+} from './Input.styled';
 import { IconPosition, InputProps, InputType, MaskTypes, Sizes, SizeTypes } from './Input.types';
 
 export const Input = ({
@@ -47,6 +54,60 @@ export const Input = ({
     return text;
   };
 
+  const renderInput = () => (
+    <>
+      <StyledInput
+        name={id}
+        id={id}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        size={Sizes[size]}
+        hasIcon={!!icon}
+        isIconLeft={iconPosition === IconPosition.Left}
+        addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+        onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+        type={type}
+        theme={theme}
+      />
+      {(clearable || type === InputType.Search) && !!value && (
+        <Icon
+          name={IconNamesTypes.ItemClose}
+          color={Colors.Primary}
+          size={IconSizes.Medium}
+          className="clear-trigger"
+          onClick={() => onValueChange('')}
+        />
+      )}
+      {icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />}
+    </>
+  );
+
+  const renderInputNumber = () => (
+    <>
+      <StyledButton theme={theme} onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}>
+        <Icon name={IconNamesTypes.Minus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
+      </StyledButton>
+      <StyledInput
+        name={id}
+        id={id}
+        value={value}
+        placeholder="0"
+        disabled={disabled}
+        size={Sizes[size]}
+        hasIcon={!!icon}
+        isIconLeft={iconPosition === IconPosition.Left}
+        addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+        onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
+        type={type}
+        theme={theme}
+      />
+      <StyledButton theme={theme} onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}>
+        <Icon name={IconNamesTypes.Plus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
+      </StyledButton>
+    </>
+  );
+
   return (
     <StyledInputContainer theme={theme}>
       <StyledLabel htmlFor={id} theme={theme}>
@@ -58,30 +119,8 @@ export const Input = ({
         addRight={type === InputType.Date}
         theme={theme}
       >
-        <StyledInput
-          name={id}
-          id={id}
-          value={value}
-          placeholder={placeholder}
-          disabled={disabled}
-          size={Sizes[size]}
-          hasIcon={!!icon}
-          isIconLeft={iconPosition === IconPosition.Left}
-          addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
-          onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-          type={type}
-          theme={theme}
-        />
-        {(clearable || type === InputType.Search) && !!value && (
-          <Icon
-            name={IconNamesTypes.Close}
-            color={Colors.Primary}
-            size={IconSizes.Medium}
-            className="clear-trigger"
-            onClick={() => onValueChange('')}
-          />
-        )}
-        {icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />}
+        {type !== InputType.Number && renderInput()}
+        {type === InputType.Number && renderInputNumber()}
       </StyledInputWrapper>
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </StyledInputContainer>
