@@ -170,19 +170,20 @@ export const StyledButton = styled.button<{
 `;
 
 export const StyledSelect = styled.select<{
-  size?: Sizes;
+  height?: Sizes;
 }>`
-  height: ${({ size }) => size}px;
+  height: ${({ height }) => height}px;
   width: 91px;
   border: 1px solid #D7E0E2;
   border-right: 0;
-  padding 16px;
+  padding 8px 16px;
   text-align: center;
   appearance: none;
+  position: relative;
 `;
 
 export const StyledOption = styled.option<{
-  size?: Sizes;
+  height?: Sizes;
 }>`
-  height: ${({ size }) => size}px;
+  height: ${({ height }) => height}px;
 `;

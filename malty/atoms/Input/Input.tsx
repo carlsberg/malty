@@ -40,17 +40,11 @@ export const Input = ({
   const transform = (text: string): string => {
     if (mask) {
       if (type === InputType.Telephone && mask === MaskTypes.Telephone) {
-        const tel = text.match(/(\d{3})(\d{3})(\d{4})/);
-        if (tel) return `(${tel[1]}) ${tel[2]}  ${tel[3]}`;
+        const tel = text.match(/(\d{4})(\d{4})/);
+        if (tel) return `${tel[1]}  ${tel[2]}`;
       } else if (type === InputType.Text && mask === MaskTypes.CreditCard) {
         const card = text.match(/(\d{4})(\d{4})(\d{4})(\d{4})/);
         if (card) return `${card[1]}-${card[2]}-${card[3]}-${card[4]}`;
-      } else if (mask instanceof RegExp) {
-        // const exp = text.match(/(\d{4})(\d{4})(\d{4})(\d{4})/);
-        // if (exp) {
-        //   return exp.map(e);
-        // }
-        // add for custom regexp
       }
     }
     return text;
@@ -126,24 +120,33 @@ export const Input = ({
 
   const renderTelNumber = () => (
     <>
-      <StyledSelect theme={theme} size={Sizes[size]}>
-        {Object.keys(Country).map((country) => (
-          <StyledOption key={`option-value-${country}`} value={country} size={Sizes[size]}>
-            {country} {Prefixes[country as keyof typeof Prefixes]}
-          </StyledOption>
-        ))}
+      <StyledSelect theme={theme} height={Sizes[size]}>
+        {Object.keys(Country)
+          .sort((a, b) => {
+            const newA = Prefixes[Country[a as keyof typeof Country] as keyof typeof Prefixes];
+            const newB = Prefixes[Country[b as keyof typeof Country] as keyof typeof Prefixes];
+            return newA - newB;
+          })
+          .map((country) => {
+            const code = Prefixes[Country[country as keyof typeof Country] as keyof typeof Prefixes];
+            return (
+              <StyledOption key={`option-value-${country}`} value={code} height={Sizes[size]}>
+                + {code}
+              </StyledOption>
+            );
+          })}
       </StyledSelect>
       <StyledInput
         name={id}
         id={id}
         value={value}
-        placeholder="0"
+        placeholder={placeholder}
         disabled={disabled}
         size={Sizes[size]}
         hasIcon={!!icon}
         isIconLeft={iconPosition === IconPosition.Left}
         addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
-        onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
+        onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
         type={type}
         theme={theme}
       />
