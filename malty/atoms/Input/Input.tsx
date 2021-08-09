@@ -120,6 +120,7 @@ export const Input = ({
   );
 
   const renderTelNumber = () => (
+    // TO FOLLOW: Convert the select to dsm dropdown
     <>
       <StyledSelect theme={theme} height={Sizes[size]}>
         {Object.keys(Country)
