@@ -32,7 +32,8 @@ export const Input = ({
   disabled,
   size = SizeTypes.Medium,
   clearable,
-  mask
+  mask,
+  children
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -170,6 +171,7 @@ export const Input = ({
         {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
         {type === InputType.Telephone && renderTelNumber()}
         {type === InputType.Number && renderInputNumber()}
+        {children}
       </StyledInputWrapper>
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </StyledInputContainer>
