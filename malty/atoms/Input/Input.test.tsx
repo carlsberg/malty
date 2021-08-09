@@ -47,12 +47,12 @@ describe('input', () => {
   it('renders input number', () => {
     const onValueChange = jest.fn();
     render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
-    expect(screen.getByLabelText('Quantity')).toHaveValue('1');
+    expect(screen.getByDisplayValue('1')).toBeInTheDocument();
   });
 
   it('renders input search', () => {
     const onValueChange = jest.fn();
     render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
-    expect(screen.getByLabelText('Search')).toHaveValue('test search');
+    expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
   });
 });
