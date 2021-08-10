@@ -1,5 +1,5 @@
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import { Loading, LoadingProps } from '@carlsberggroup/malty.molecules.loading';
+import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -72,7 +72,7 @@ export const Button = ({
       {(success && successText) || (error && errorText) || text || children}
       {icon && !loading && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
       {/* This is temporary use LoadingProps['status'] since the updated loading is not exported yet */}
-      {loading && !success && !error && <Loading status={'Default' as LoadingProps['status']} />}
+      {loading && !success && !error && <Loading status={'Pending' as LoadingStatus} />}
       {success && !error && (
         <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
       )}
