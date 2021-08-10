@@ -5,7 +5,7 @@ description: 'A Icon component.'
 
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Input } from './Input';
-import { InputType } from './Input.types';
+import { InputType, IconPosition } from './Input.types';
 
 Icon example:
 
@@ -38,7 +38,7 @@ Live Playground:
   type={InputType.Search}
   value={'Test query'}
   icon={IconNamesTypes.Search}
-  isIconLeft={true}
+  iconPosition={IconPosition.Left}
   onValueChange={() => null}
 />
 ```

@@ -1,7 +1,7 @@
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import React, { useState } from 'react';
 import { Input } from './Input';
-import { InputType } from './Input.types';
+import { IconPosition, InputType } from './Input.types';
 
 export const InputText = () => {
   const [value, setValue] = useState('');
@@ -35,7 +35,7 @@ export const InputSearch = () => {
       type={InputType.Search}
       value={value}
       icon={IconNamesTypes.Search}
-      isIconLeft
+      iconPosition={IconPosition.Left}
       onValueChange={(newValue: string) => setValue(newValue)}
     />
   );
