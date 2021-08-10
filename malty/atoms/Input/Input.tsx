@@ -75,6 +75,7 @@ export const Input = ({
         disabled={disabled}
         size={Sizes[size]}
         hasIcon={!!icon}
+        isError={!!error}
         isIconLeft={iconPosition === IconPosition.Left}
         addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
         onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
@@ -91,6 +92,7 @@ export const Input = ({
       <StyledButton
         theme={theme}
         size={Sizes[size]}
+        isError={!!error}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
         <Icon name={IconNamesTypes.Minus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
@@ -103,6 +105,7 @@ export const Input = ({
         disabled={disabled}
         size={Sizes[size]}
         hasIcon={!!icon}
+        isError={!!error}
         isIconLeft={iconPosition === IconPosition.Left}
         addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
         onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
@@ -112,6 +115,7 @@ export const Input = ({
       <StyledButton
         theme={theme}
         size={Sizes[size]}
+        isError={!!error}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
         <Icon name={IconNamesTypes.Plus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
@@ -122,7 +126,7 @@ export const Input = ({
   const renderTelNumber = () => (
     // TO FOLLOW: Convert the select to dsm dropdown
     <>
-      <StyledSelect theme={theme} height={Sizes[size]}>
+      <StyledSelect theme={theme} height={Sizes[size]} isError={!!error}>
         {Object.keys(Country)
           .sort((a, b) => {
             const newA = Prefixes[Country[a as keyof typeof Country] as keyof typeof Prefixes];
@@ -146,6 +150,7 @@ export const Input = ({
         disabled={disabled}
         size={Sizes[size]}
         hasIcon={!!icon}
+        isError={!!error}
         isIconLeft={iconPosition === IconPosition.Left}
         addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
         onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}

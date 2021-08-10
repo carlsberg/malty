@@ -71,13 +71,16 @@ export const StyledInput = styled.input<{
   hasIcon?: boolean;
   isIconLeft?: boolean;
   addRight?: boolean;
+  isError?: boolean;
 }>`
   flex: 1 1 auto;
   font-weight: bold;
   font-size: 14px;
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
-  border: 1px solid ${({ theme }) => theme.color.form.calendarAvailable.value};
+  border: 1px solid
+    ${({ theme, isError }) =>
+      isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
   color: ${({ theme }) => theme.color.information.indirect.value};
   height: ${({ size }) => size}px;
   ::placeholder {
@@ -151,10 +154,13 @@ export const StyledInput = styled.input<{
 
 export const StyledButton = styled.button<{
   size?: Sizes;
+  isError?: boolean;
 }>`
   height: ${({ size }) => size}px;
   width: ${({ size }) => size}px;
-  border: 1px solid #d7e0e2;
+  border: 1px solid
+    ${({ theme, isError }) =>
+      isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
   background: ${({ theme }) => theme.color.button.primaryNegativeDefault.value};
   display: flex;
   padding: 16px;
@@ -171,10 +177,12 @@ export const StyledButton = styled.button<{
 
 export const StyledSelect = styled.select<{
   height?: Sizes;
+  isError?: boolean;
 }>`
   height: ${({ height }) => height}px;
   width: 91px;
-  border: 1px solid #D7E0E2;
+  border: 1px solid ${({ theme, isError }) =>
+    isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
   border-right: 0;
   padding 8px 16px;
   text-align: center;

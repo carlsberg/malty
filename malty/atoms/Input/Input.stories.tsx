@@ -95,7 +95,7 @@ Main.args = {
   type: InputType.Text,
   icon: IconNamesTypes.Search,
   placeholder: 'Placeholder',
-  error: 'Error text',
+  error: '',
   disabled: false,
   iconPosition: IconPosition.Left,
   clearable: false
