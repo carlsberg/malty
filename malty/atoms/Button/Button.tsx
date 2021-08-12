@@ -69,15 +69,30 @@ export const Button = ({
       className={selected ? 'active' : ''}
       theme={theme}
     >
-      {(success && successText) || (error && errorText) || text || children}
-      {icon && !loading && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
-      {/* This is temporary use LoadingProps['status'] since the updated loading is not exported yet */}
-      {loading && !success && !error && <Loading status={'Pending' as LoadingStatus} />}
-      {success && !error && (
-        <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
-      )}
-      {!success && error && (
-        <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
+      <div className={`text-container ${loading ? 'invisible' : ''}`}>
+        {!success && !error && (
+          <>
+            {text || children}
+            {icon && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
+          </>
+        )}
+        {success && !error && (
+          <>
+            {successText}
+            <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
+          </>
+        )}
+        {!success && error && (
+          <>
+            {errorText}
+            <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
+          </>
+        )}
+      </div>
+      {loading && (
+        <div className="secondary-container">
+          <Loading status={'Pending' as LoadingStatus} />
+        </div>
       )}
     </Component>
   );

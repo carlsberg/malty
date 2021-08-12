@@ -44,6 +44,19 @@ const StyledButton = styled.button<{
     }
   }
 
+  .text-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    &.invisible {
+      visibility: hidden;
+    }
+  }
+
+  .secondary-container {
+    position: absolute;
+  }
+
   svg {
     height: 24px;
     width: 24px;
@@ -87,8 +100,9 @@ export const StyledSecondaryButton = styled(StyledButton)`
     ${({ isWhite, theme }) =>
       isWhite ? theme.color.button.primaryNegativeDefault.value : theme.color.button.primaryDefault.value};
   &:hover {
-    background-color: ${({ isWhite, theme }) =>
-      isWhite ? theme.color.button.primaryNegativeHover.value : theme.color.button.primaryHover.value};
+    background-color: ${({ theme }) => theme.color.transparent.value};
+    color: ${({ theme }) => theme.color.button.primaryHover.value};
+    border: 1px solid ${({ theme }) => theme.color.button.primaryHover.value};
   }
 `;
 
