@@ -1,6 +1,15 @@
 import { StyledIcon } from '@carlsberggroup/malty.atoms.icon';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { IconPosition } from './Button.types';
+
+const animateShow = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const StyledAnchor = styled.a`
   text-decoration: none;
@@ -13,6 +22,7 @@ const StyledButton = styled.button<{
   fullWidth?: boolean;
   sizing: number;
   iconPos: IconPosition;
+  showButton: boolean;
 }>`
   display: inline-flex;
   align-items: center;
@@ -48,13 +58,20 @@ const StyledButton = styled.button<{
     display: flex;
     align-items: center;
     gap: 16px;
+    transition: all 1s;
+    opacity: 1;
     &.invisible {
-      visibility: hidden;
+      opacity: 0;
     }
   }
 
   .secondary-container {
     position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 1s;
+    animation: ${animateShow} 0.25s linear;
   }
 
   svg {
@@ -114,10 +131,18 @@ export const StyledFloaterButton = styled(StyledButton)`
     ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.transparent.value)};
   border-radius: ${({ sizing }) => `${sizing / 2}px`};
   position: absolute;
+  bottom: ${({ showButton }) => (showButton ? '24px' : '-36px')};
+  transition: bottom 0.25s;
+  right: 24px;
   z-index: 100;
   &:hover {
     background-color: ${({ isWhite, theme }) =>
       isWhite ? theme.color.button.primaryNegativeHover.value : theme.color.button.primaryHover.value};
+  }
+
+  @media screen and (max-width: 576px) {
+    bottom: ${({ showButton }) => (showButton ? '16px' : '-36px')};
+    right: 16px;
   }
 `;
 

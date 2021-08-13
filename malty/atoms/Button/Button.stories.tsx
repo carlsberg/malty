@@ -27,6 +27,40 @@ export default {
         type: 'radio'
       }
     },
+    scroll: {
+      description: 'Scroll position where will floater show',
+      defaultValue: 0,
+      control: {
+        type: 'number'
+      }
+    },
+    loading: {
+      table: {
+        defaultValue: {
+          summary: 'false'
+        }
+      },
+      control: 'boolean'
+    },
+    success: { control: 'boolean' },
+    successIcon: {
+      options: Object.values(IconNamesTypes),
+      description: 'Name options listed below',
+      defaultValue: '',
+      control: {
+        type: 'select'
+      }
+    },
+    successText: { control: 'text' },
+    error: { control: 'boolean' },
+    errorIcon: {
+      options: Object.values(IconNamesTypes),
+      description: 'Name options listed below',
+      defaultValue: '',
+      control: {
+        type: 'select'
+      }
+    },
     icon: {
       options: Object.values(IconNamesTypes),
       description: 'Name options listed below',
@@ -60,14 +94,6 @@ export default {
       }
     },
     isWhite: { control: 'boolean' },
-    loading: {
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      },
-      control: 'boolean'
-    },
     disabled: {
       table: {
         defaultValue: {
@@ -82,31 +108,7 @@ export default {
       description: 'Add classname of "active" to element',
       control: 'boolean'
     },
-    success: { control: 'boolean' },
-    successIcon: {
-      options: Object.values(IconNamesTypes),
-      description: 'Name options listed below',
-      defaultValue: '',
-      control: {
-        type: 'select'
-      }
-    },
-    successText: { control: 'text' },
-    error: { control: 'boolean' },
-    errorIcon: {
-      options: Object.values(IconNamesTypes),
-      description: 'Name options listed below',
-      defaultValue: '',
-      control: {
-        type: 'select'
-      }
-    },
     errorText: { control: 'text' },
-    onClick: {
-      table: {
-        disable: true
-      }
-    },
     children: { control: 'text' }
   }
 };
@@ -173,7 +175,8 @@ Floater.args = {
   successIcon: IconNamesTypes.ItemCheck,
   successText: 'Success',
   errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error'
+  errorText: 'Error',
+  scroll: 0
 };
 
 export const Link = Template.bind({});
@@ -191,7 +194,7 @@ Link.args = {
   url: '',
   selected: false,
   successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
+  successText: '',
   errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error'
+  errorText: ''
 };
