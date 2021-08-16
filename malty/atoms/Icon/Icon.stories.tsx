@@ -1,8 +1,8 @@
+import { StyledIcon } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Icon } from './Icon';
-import { StyledIcon } from './Icon.styled';
 import { Colors, IconInterface, NamesTypes, SizesTypes } from './Icon.types';
 
 const StyledAllIconsWrapper = styled.div`
