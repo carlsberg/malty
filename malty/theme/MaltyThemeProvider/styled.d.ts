@@ -18,6 +18,7 @@ declare module 'styled-components' {
     tooltip: TooltipType;
     codeInput: CodeInputType;
     loading: LoadingType;
+    container: ContainerType;
   }
 
   interface ButtonType {
@@ -166,6 +167,21 @@ declare module 'styled-components' {
     small: PropValue;
     medium: PropValue;
     large: PropValue;
+  }
+
+  interface ContainerType {
+    size: ContainerSizeType;
+  }
+
+  interface ContainerSizeType {
+    none: PropValue;
+    micro: PropValue;
+    tiny: PropValue;
+    xsmall: PropValue;
+    small: PropValue;
+    medium: PropValue;
+    large: PropValue;
+    xlarge: PropValue;
   }
 
   interface InputNumberType {
