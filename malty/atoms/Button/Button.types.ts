@@ -37,13 +37,6 @@ export enum SizeTypes {
   XLarge = 'XLarge'
 }
 
-export enum Sizes {
-  Small = 32,
-  Medium = 40,
-  Large = 48,
-  XLarge = 56
-}
-
 export enum ButtonStyle {
   Primary = 'primary',
   Secondary = 'secondary',
