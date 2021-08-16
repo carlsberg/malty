@@ -1,5 +1,5 @@
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import { Loading, LoadingProps } from '@carlsberggroup/malty.molecules.loading';
+import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -27,6 +27,7 @@ export const Button = ({
   size = SizeTypes.Medium,
   iconPos = IconPosition.Right,
   loading,
+  scroll,
   error,
   errorIcon,
   errorText,
@@ -54,6 +55,16 @@ export const Button = ({
   }
   const theme = useContext(ThemeContext) || defaultTheme;
   const [numSize, setNumSize] = useState(Sizes.Medium);
+  const [showButton, setShowButton] = useState(true);
+
+  const handleScroll = () => {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    if (!!scroll && st > scroll) {
+      setShowButton(true);
+    } else {
+      setShowButton(false);
+    }
+  };
 
   const renderComponent = () => (
     <Component
@@ -62,22 +73,34 @@ export const Button = ({
       hasText={!!text || !!children}
       hasIcon={!!icon}
       sizing={numSize}
-      onClick={onClick}
+      onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
       isWhite={isWhite}
       fullWidth={fullWidth}
       iconPos={iconPos}
       className={selected ? 'active' : ''}
       theme={theme}
+      showButton={showButton}
     >
-      {(success && successText) || (error && errorText) || text || children}
-      {icon && !loading && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
-      {/* This is temporary use LoadingProps['status'] since the updated loading is not exported yet */}
-      {loading && !success && !error && <Loading status={'Default' as LoadingProps['status']} />}
-      {success && !error && (
-        <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
+      <div className={`text-container ${loading || success || error ? 'invisible' : ''}`}>
+        {text || children}
+        {icon && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
+      </div>
+      {!loading && success && !error && (
+        <div className="secondary-container">
+          {successText}
+          <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
+        </div>
       )}
-      {!success && error && (
-        <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
+      {!loading && !success && error && (
+        <div className="secondary-container">
+          {errorText}
+          <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
+        </div>
+      )}
+      {loading && (
+        <div className="secondary-container">
+          <Loading status={'Pending' as LoadingStatus} />
+        </div>
       )}
     </Component>
   );
@@ -102,6 +125,15 @@ export const Button = ({
       }
     }
   }, [size]);
+  useEffect(() => {
+    if (style === ButtonStyle.Floater && !!scroll) {
+      setShowButton(false);
+      document.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, [style, scroll]);
 
   return url ? (
     <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
