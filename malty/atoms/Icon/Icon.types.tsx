@@ -1,4 +1,4 @@
-import { Colors, Sizes, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { Colors, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { MouseEventHandler } from 'react';
 
 export interface IconInterface extends React.HTMLAttributes<SVGElement> {
@@ -219,4 +219,4 @@ export enum NamesTypes {
   World = 'World'
 }
 
-export { Colors, Sizes, SizesTypes };
+export { Colors, SizesTypes };
