@@ -5,16 +5,22 @@ description: 'A Checkbox component.'
 
 import { Checkbox } from './Checkbox';
 
-Checkbox example:
+Undetermined example:
+
+A simple undetermined checkbox component
+
+```js live
+<Checkbox value="Undetermined" labelText="Undetermined" onValueChange={() => null} />
+```
 
 A simple `checked={true}` checkbox component
 
 ```js live
-<Checkbox value="Test" checked={true} onValueChange={() => null} />
+<Checkbox value="Checked" labelText="Checked" checked={true} onValueChange={() => null} />
 ```
 
 A simple `checked={false}` checkbox component
 
 ```js live
-<Checkbox value="Test" checked={false} onValueChange={() => null} />
+<Checkbox value="Unchecked" labelText="Unchecked" checked={false} onValueChange={() => null} />
 ```

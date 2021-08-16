@@ -2,10 +2,10 @@
 
 exports[`checkbox matches snapshot 1`] = `
 <div
-  className="sc-bdnxRM gMkwNo"
+  className="sc-bdnxRM dTmDPw"
 >
   <label
-    className="sc-jSFjdj JElwH"
+    className="sc-jSFjdj ihREMl"
   >
     <input
       checked={true}
@@ -16,10 +16,10 @@ exports[`checkbox matches snapshot 1`] = `
     />
     <div
       checked={true}
-      className="sc-eCApnc iHXKqs"
+      className="sc-eCApnc iTlleR"
     />
     <span
-      className="sc-dlnjwi bUwitk"
+      className="sc-dlnjwi fGpqjc"
     >
       Label text
     </span>

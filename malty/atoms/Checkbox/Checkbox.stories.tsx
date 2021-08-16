@@ -23,9 +23,7 @@ export default {
       }
     },
     checked: {
-      table: {
-        disable: true
-      }
+      control: 'boolean'
     },
     onValueChange: {
       table: {
@@ -37,12 +35,20 @@ export default {
 
 const Template: Story<CheckboxProps> = (args) => {
   const [stateChecked, setStateChecked] = useState(true);
-  return <Checkbox {...args} checked={stateChecked} onValueChange={() => setStateChecked(!stateChecked)} />;
+  return <Checkbox {...args} onValueChange={() => setStateChecked(!stateChecked)} />;
 };
 
-export const Main = Template.bind({});
-Main.args = {
-  value: 'Test value',
-  labelText: 'Label text',
+export const Checked = Template.bind({});
+Checked.args = {
+  value: 'Checked',
+  labelText: 'Checked label',
+  error: 'Error text',
+  checked: true
+};
+
+export const Undetermined = Template.bind({});
+Undetermined.args = {
+  value: 'Undetermined',
+  labelText: 'Undetermined label',
   error: 'Error text'
 };
