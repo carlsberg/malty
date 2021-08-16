@@ -1,26 +1,25 @@
 import styled, { css } from 'styled-components';
-import { Sizes } from './Input.types';
 
 export const StyledInputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  font-family: ${({ theme }) => theme.font.fontFamily.text};
+  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledLabel = styled.label`
   color: ${({ theme }) => theme.color.default.value};
-  font-size: 14px;
-  padding-bottom: 8px;
+  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  padding-bottom: ${({ theme }) => theme.variables.input.label.bottomPadding.value}px;
   font-weight: bold;
 `;
 
 export const StyledError = styled.label`
   color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: 10px;
+  font-size: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
   font-weight: bold;
-  line-height: 16px;
+  line-height: ${({ theme }) => theme.typography.text.small['line-height'].value};
   letter-spacing: 0;
-  font-family: Montserrat;
+  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledInputWrapper = styled.div<{
@@ -51,8 +50,11 @@ export const StyledInputWrapper = styled.div<{
     }
 
     &:not(.clear-trigger) {
-      ${({ isIconLeft, addLeft }) => {
-        const pos = addLeft && isIconLeft ? '104px' : '16px';
+      ${({ theme, isIconLeft, addLeft }) => {
+        const pos =
+          addLeft && isIconLeft
+            ? `${theme.variables.input.iconPadding.value}px`
+            : `${theme.variables.input.padding.value}px`;
         return css`
           ${isIconLeft ? 'left' : 'right'}: ${pos};
         `;
@@ -67,7 +69,7 @@ export const StyledInputWrapper = styled.div<{
 
 export const StyledInput = styled.input<{
   disabled?: boolean;
-  size?: Sizes;
+  size: number;
   hasIcon?: boolean;
   isIconLeft?: boolean;
   addRight?: boolean;
@@ -75,7 +77,7 @@ export const StyledInput = styled.input<{
 }>`
   flex: 1 1 auto;
   font-weight: bold;
-  font-size: 14px;
+  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid
@@ -109,9 +111,9 @@ export const StyledInput = styled.input<{
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
-    padding: 16px;
+    padding: ${({ theme }) => theme.variables.input.padding.value}px;
     flex-grow: unset;
-    width: 56px;
+    width: ${({ theme }) => theme.variables.input.number.width.value}px;
     text-align: center;
   }
   &[type='number']::-webkit-inner-spin-button,
@@ -119,16 +121,20 @@ export const StyledInput = styled.input<{
     -webkit-appearance: none;
   }
 
-  ${({ hasIcon, isIconLeft, addRight }) => {
-    const rightPadding = isIconLeft ? '48px' : '16px';
-    let leftPadding = isIconLeft ? '16px' : '48px';
-    if (addRight) leftPadding = '64px';
+  ${({ theme, hasIcon, isIconLeft, addRight }) => {
+    const rightPadding = isIconLeft
+      ? `${theme.variables.input.largePadding.value}px`
+      : `${theme.variables.input.padding.value}px`;
+    let leftPadding = isIconLeft
+      ? `${theme.variables.input.padding.value}px`
+      : `${theme.variables.input.largePadding.value}px`;
+    if (addRight) leftPadding = `${theme.variables.input.leftPadding.value}px`;
     return hasIcon
       ? css`
           padding: 0 ${leftPadding} 0 ${rightPadding};
         `
       : css`
-          padding: 0 16px;
+          padding: 0 ${theme.variables.input.padding.value}px;
         `;
   }}
 
@@ -153,7 +159,7 @@ export const StyledInput = styled.input<{
 `;
 
 export const StyledButton = styled.button<{
-  size?: Sizes;
+  size?: string;
   isError?: boolean;
 }>`
   height: ${({ size }) => size}px;
@@ -163,7 +169,7 @@ export const StyledButton = styled.button<{
       isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
   background: ${({ theme }) => theme.color.button.primaryNegativeDefault.value};
   display: flex;
-  padding: 16px;
+  padding: ${({ theme }) => theme.variables.input.padding.value}px;
   justify-content: center;
   align-items: center;
 
@@ -176,22 +182,23 @@ export const StyledButton = styled.button<{
 `;
 
 export const StyledSelect = styled.select<{
-  height?: Sizes;
+  height?: string;
   isError?: boolean;
 }>`
   height: ${({ height }) => height}px;
-  width: 91px;
+  width: ${({ theme }) => theme.variables.input.select.width.value}px;
   border: 1px solid ${({ theme, isError }) =>
     isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
   border-right: 0;
-  padding 8px 16px;
+  padding ${({ theme }) => theme.variables.input.label.bottomPadding.value}px ${({ theme }) =>
+  theme.variables.input.padding.value}px;
   text-align: center;
   appearance: none;
   position: relative;
 `;
 
 export const StyledOption = styled.option<{
-  height?: Sizes;
+  height?: string;
 }>`
   height: ${({ height }) => height}px;
 `;

@@ -32,11 +32,6 @@ export enum SizeTypes {
   Large = 'Large'
 }
 
-export enum Sizes {
-  Medium = 40,
-  Large = 48
-}
-
 export enum IconPosition {
   Left = 'Left',
   Right = 'Right'
