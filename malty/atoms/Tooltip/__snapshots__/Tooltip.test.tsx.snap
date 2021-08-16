@@ -9,19 +9,18 @@ exports[`Tooltip matches snapshot 1`] = `
     }
   }
 >
-  <button
-    type="button"
-  >
-    Test
-  </button>
   <div
-    className="sc-gtsrHT fyJcYF"
+    className="sc-gtsrHT fvwFPV"
     open={true}
   >
     <p
-      className="sc-bdnxRM idRdxD"
+      className="sc-bdnxRM eWcsub"
     >
-      Test
+      <button
+        type="button"
+      >
+        Test
+      </button>
     </p>
   </div>
 </div>

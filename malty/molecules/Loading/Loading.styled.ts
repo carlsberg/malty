@@ -1,5 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import { Sizes, SizeTypes } from './Loading.types';
 
 const rotate = keyframes`
     from {
@@ -21,38 +20,24 @@ const fadeIn = keyframes`
     }
 `;
 
-const sizeRef = (size: SizeTypes) => {
-  switch (size) {
-    case SizeTypes.Small:
-      return `${Sizes.Small}px`;
-    case SizeTypes.Large:
-      return `${Sizes.Large}px`;
-    default:
-      return `${Sizes.Medium}px`; /* SizeTypes.Medium -- medium as default */
-  }
-};
-
-export const StyledLoadingContainer = styled.div<{
-  size: SizeTypes;
-}>`
+export const StyledLoadingContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: ${({ theme }) => theme.variables.loading.gap.value}px;
   align-items: center;
   justify-content: center;
-  padding: 5px;
-  font-size: 14px;
-  font-family: Monserrat;
-  color: #1c2025;
+  padding: ${({ theme }) => theme.variables.loading.padding.value}px;
+  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  color: ${({ theme }) => theme.variables.loading.color.value};
   font-weight: bold;
   letter-spacing: 0;
-  line-height: 18px;
+  line-height: ${({ theme }) => theme.typography.text['medium-small']['line-height'].value}px;
   color: ${({ theme }) => theme.color.default.value};
-  font-family: ${({ theme }) => theme.font.fontFamily.text};
+  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledLoading = styled.div<{
-  size: SizeTypes;
+  size: string;
 }>`
   display: flex;
   svg {
@@ -62,6 +47,6 @@ export const StyledLoading = styled.div<{
     &.spinning {
       animation: ${rotate} 2s linear infinite;
     }
-    height: ${({ size }) => sizeRef(size)};
-    width: ${({ size }) => sizeRef(size)};
+    height: ${({ size }) => size};
+    width: ${({ size }) => size};
 `;

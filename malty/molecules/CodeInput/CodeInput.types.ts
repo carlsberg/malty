@@ -28,8 +28,3 @@ export enum SizeTypes {
   Medium = 'Medium',
   Large = 'Large'
 }
-
-export enum Sizes {
-  Medium = 48,
-  Large = 58
-}

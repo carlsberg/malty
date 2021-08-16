@@ -6,7 +6,7 @@ import { Position } from './Tooltip.types';
 describe('Tooltip', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(
-      <Tooltip position={Position.Bottom} isOpen content="Test">
+      <Tooltip position={Position.Bottom} isOpen>
         <button type="button">Test</button>
       </Tooltip>
     );
@@ -15,10 +15,10 @@ describe('Tooltip', () => {
 
   it('renders elements', () => {
     render(
-      <Tooltip position={Position.Bottom} isOpen content="Tooltip content">
+      <Tooltip position={Position.Bottom} isOpen>
         <button type="button">Test</button>
       </Tooltip>
     );
-    expect(screen.getByText('Tooltip content')).toBeInTheDocument();
+    expect(screen.getByText('Test')).toBeInTheDocument();
   });
 });

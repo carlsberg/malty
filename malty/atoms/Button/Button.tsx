@@ -3,7 +3,7 @@ import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading'
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { ButtonProps, Sizes, SizeTypes } from '.';
+import { ButtonProps, SizeTypes } from '.';
 import {
   StyledAnchor,
   StyledFloaterButton,
@@ -54,7 +54,9 @@ export const Button = ({
       break;
   }
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [numSize, setNumSize] = useState(Sizes.Medium);
+  const [numSize, setNumSize] = useState(theme.variables.button.size.medium.value);
+  const [fontSize, setFontSize] = useState(theme.typography.text.medium['font-size'].value);
+  const [iconSize, setIconSize] = useState(theme.variables.button.icon.size.medium.value);
   const [showButton, setShowButton] = useState(true);
 
   const handleScroll = () => {
@@ -73,6 +75,8 @@ export const Button = ({
       hasText={!!text || !!children}
       hasIcon={!!icon}
       sizing={numSize}
+      fontSize={fontSize}
+      iconSize={iconSize}
       onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
       isWhite={isWhite}
       fullWidth={fullWidth}
@@ -108,23 +112,32 @@ export const Button = ({
   useEffect(() => {
     switch (size) {
       case SizeTypes.Small: {
-        setNumSize(Sizes.Small);
+        setNumSize(theme.variables.button.size.small.value);
+        setFontSize(theme.typography.text['medium-small']['font-size'].value);
+        setIconSize(theme.variables.button.icon.size.small.value);
         break;
       }
       case SizeTypes.Large: {
-        setNumSize(Sizes.Large);
+        setNumSize(theme.variables.button.size.large.value);
+        setFontSize(theme.typography.text['medium-small']['font-size'].value);
+        setIconSize(theme.variables.button.icon.size.medium.value);
         break;
       }
       case SizeTypes.XLarge: {
-        setNumSize(Sizes.XLarge);
+        setNumSize(theme.variables.button.size.xlarge.value);
+        setFontSize(theme.typography.text.medium['font-size'].value);
+        setIconSize(theme.variables.button.icon.size.medium.value);
         break;
       }
       default: {
-        setNumSize(Sizes.Medium);
+        setNumSize(theme.variables.button.size.medium.value);
+        setFontSize(theme.typography.text['medium-small']['font-size'].value);
+        setIconSize(theme.variables.button.icon.size.medium.value);
         break;
       }
     }
-  }, [size]);
+  }, [size, theme]);
+
   useEffect(() => {
     if (style === ButtonStyle.Floater && !!scroll) {
       setShowButton(false);

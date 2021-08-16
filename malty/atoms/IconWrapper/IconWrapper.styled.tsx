@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Colors, Sizes, SizesTypes } from './IconWrapper.types';
+import { Colors } from './IconWrapper.types';
 
 export const StyledIcon = styled.svg.attrs({
   version: '1.1',
@@ -7,10 +7,10 @@ export const StyledIcon = styled.svg.attrs({
   xmlnsXlink: 'http://www.w3.org/1999/xlink'
 })<{
   color: Colors;
-  size: SizesTypes;
+  size: string;
 }>`
   fill: ${({ color, theme }) => (color === Colors.Primary ? theme.color.default.value : theme.color.white.value)};
-  height: ${({ size }) => Sizes[size || SizesTypes.Medium]}px;
-  width: ${({ size }) => Sizes[size || SizesTypes.Medium]}px;
+  height: ${({ size }) => size}px;
+  width: ${({ size }) => size}px;
   transition: fill 0.25s ease-in-out;
 `;

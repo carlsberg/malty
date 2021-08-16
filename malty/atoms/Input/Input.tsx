@@ -5,7 +5,7 @@ import {
   IconSizesTypes as IconSizes
 } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
@@ -18,7 +18,7 @@ import {
   StyledOption,
   StyledSelect
 } from './Input.styled';
-import { Country, IconPosition, InputProps, InputType, MaskTypes, Prefixes, Sizes, SizeTypes } from './Input.types';
+import { Country, IconPosition, InputProps, InputType, MaskTypes, Prefixes, SizeTypes } from './Input.types';
 
 export const Input = ({
   value,
@@ -37,6 +37,20 @@ export const Input = ({
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
+  const [numSize, setNumSize] = useState(theme.variables.input.size.medium.value);
+
+  useEffect(() => {
+    switch (size) {
+      case SizeTypes.Large: {
+        setNumSize(theme.variables.input.size.large.value);
+        break;
+      }
+      default: {
+        setNumSize(theme.variables.input.size.medium.value);
+        break;
+      }
+    }
+  }, [size, theme]);
 
   const transform = (text: string): string => {
     if (mask) {
@@ -73,7 +87,7 @@ export const Input = ({
         value={value}
         placeholder={placeholder}
         disabled={disabled}
-        size={Sizes[size]}
+        size={parseInt(numSize, 10)}
         hasIcon={!!icon}
         isError={!!error}
         isIconLeft={iconPosition === IconPosition.Left}
@@ -91,7 +105,7 @@ export const Input = ({
     <>
       <StyledButton
         theme={theme}
-        size={Sizes[size]}
+        size={numSize}
         isError={!!error}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
@@ -103,7 +117,7 @@ export const Input = ({
         value={value}
         placeholder="0"
         disabled={disabled}
-        size={Sizes[size]}
+        size={parseInt(numSize, 10)}
         hasIcon={!!icon}
         isError={!!error}
         isIconLeft={iconPosition === IconPosition.Left}
@@ -114,7 +128,7 @@ export const Input = ({
       />
       <StyledButton
         theme={theme}
-        size={Sizes[size]}
+        size={numSize}
         isError={!!error}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
@@ -126,7 +140,7 @@ export const Input = ({
   const renderTelNumber = () => (
     // TO FOLLOW: Convert the select to dsm dropdown
     <>
-      <StyledSelect theme={theme} height={Sizes[size]} isError={!!error}>
+      <StyledSelect theme={theme} height={numSize} isError={!!error}>
         {Object.keys(Country)
           .sort((a, b) => {
             const newA = Prefixes[Country[a as keyof typeof Country] as keyof typeof Prefixes];
@@ -136,7 +150,7 @@ export const Input = ({
           .map((country) => {
             const code = Prefixes[Country[country as keyof typeof Country] as keyof typeof Prefixes];
             return (
-              <StyledOption key={`option-value-${country}`} value={code} height={Sizes[size]}>
+              <StyledOption key={`option-value-${country}`} value={code} height={numSize}>
                 + {code}
               </StyledOption>
             );
@@ -148,7 +162,7 @@ export const Input = ({
         value={value}
         placeholder={placeholder}
         disabled={disabled}
-        size={Sizes[size]}
+        size={parseInt(numSize, 10)}
         hasIcon={!!icon}
         isError={!!error}
         isIconLeft={iconPosition === IconPosition.Left}

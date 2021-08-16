@@ -3,13 +3,13 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   weight?: Weight;
   align?: Align;
   color?: Color;
-  content?: string;
+  children: string | JSX.Element;
 }
 
 export enum Size {
-  Small = 'small',
   Medium = 'medium',
-  Large = 'large'
+  MediumSmall = 'medium-small',
+  Small = 'small'
 }
 export enum Weight {
   Lighter = 'lighter',

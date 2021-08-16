@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
-import { PillColor, PillFontSize, PillHeight, PillSizeType } from './Pill.types';
+import { PillColor, PillSizeType } from './Pill.types';
 
 export const StyledPill = styled.div<{
-  size: PillSizeType;
+  size: string;
+  fontSize: string;
   isRounded: boolean;
   hasOnClick: boolean;
   color: PillColor;
@@ -13,9 +14,10 @@ export const StyledPill = styled.div<{
   display: inline-flex;
   align-items: center;
   font-weight: bold;
-  font-size: ${({ size }) => `${PillFontSize[size]}px`};
-  height: ${({ size }) => `${PillHeight[size]}px`};
-  font-family: ${({ theme }) => theme.font.fontFamily.text};
+  font-size: ${({ fontSize }) => `${fontSize}px`};
+  line-height: 1.25;
+  height: ${({ size }) => `${size}px`};
+  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
   transition: background-color 0.25s ease-in-out;
 
   ${({ hasOnClick }) =>
@@ -29,15 +31,15 @@ export const StyledPill = styled.div<{
   ${({ isRounded, size }) =>
     isRounded &&
     css`
-      border-radius: ${PillHeight[size] / 2}px;
+      border-radius: ${parseInt(size, 10) / 2}px;
     `}
 
   .pill {
     &__icon {
-      ${({ hasText }) => hasText && 'margin-right: 8px;'};
+      ${({ theme, hasText }) => hasText && `margin-right: ${theme.variables.pill.padding.value}px;`};
     }
     &__remove-icon {
-      margin-left: 8px;
+      margin-left: ${({ theme }) => theme.variables.pill.padding.value}px;
       cursor: pointer;
       transition: 0.25s ease-in-out;
       transition-property: fill, transform;
@@ -48,17 +50,17 @@ export const StyledPill = styled.div<{
     }
   }
 
-  ${({ size, hasText }) => {
+  ${({ theme, size, hasText }) => {
     if (size === PillSizeType.ExtraSmall || size === PillSizeType.Small) {
       return css`
-        padding: 0 8px;
+        padding: 0 ${theme.variables.pill.padding.value}px;
         .pill {
           &__icon {
-            ${hasText && 'margin-right: 4px;'};
+            ${hasText && `margin-right: ${parseInt(theme.variables.pill.padding.value, 10) / 2}px;`};
           }
           &__remove-icon,
           &__icon {
-            padding: 4px 0;
+            padding: ${parseInt(theme.variables.pill.padding.value, 10) / 2}px 0;
             height: 100%;
             width: auto;
           }
@@ -66,7 +68,7 @@ export const StyledPill = styled.div<{
       `;
     }
     return css`
-      padding: 0 16px;
+      padding: 0 ${parseInt(theme.variables.pill.padding.value, 10) * 2}px;
     `;
   }}
 `;

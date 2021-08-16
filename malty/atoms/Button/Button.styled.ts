@@ -20,7 +20,9 @@ const StyledButton = styled.button<{
   hasIcon: boolean;
   isWhite?: boolean;
   fullWidth?: boolean;
-  sizing: number;
+  sizing: string;
+  fontSize: string;
+  iconSize: string;
   iconPos: IconPosition;
   showButton: boolean;
 }>`
@@ -29,14 +31,14 @@ const StyledButton = styled.button<{
   justify-content: center;
   padding: ${({ sizing }) => `0 ${sizing}px`};
   height: ${({ sizing }) => `${sizing}px`};
-  font-size: 14px;
+  font-size: ${({ fontSize }) => `${fontSize}px`};
   font-weight: bold;
   transition: 0.25s ease-in-out;
   transition-property: background-color, color;
   cursor: pointer;
-  font-family: ${({ theme }) => theme.font.fontFamily.text};
+  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
   border: none;
-  gap: 16px;
+  gap: ${({ theme }) => theme.variables.button.icon.margin.value}px;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   flex-direction: ${({ iconPos }) => (IconPosition[iconPos] === IconPosition.Right ? 'row' : 'row-reverse')};
   &:hover,
@@ -75,8 +77,8 @@ const StyledButton = styled.button<{
   }
 
   svg {
-    height: 24px;
-    width: 24px;
+    height: ${({ iconSize }) => `${iconSize}px`};
+    width: ${({ iconSize }) => `${iconSize}px`};
   }
 
   ${({ hasText, hasIcon, sizing }) =>
@@ -93,7 +95,7 @@ const StyledButton = styled.button<{
     hasIcon &&
     css`
       ${StyledIcon} {
-        margin-left: 16px;
+        margin-left: ${({ theme }) => theme.variables.button.icon.margin.value}px;
       }
     `};
 `;
@@ -129,7 +131,7 @@ export const StyledFloaterButton = styled(StyledButton)`
   color: ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.white.value)};
   border: 1px solid
     ${({ isWhite, theme }) => (isWhite ? theme.color.button.primaryDefault.value : theme.color.transparent.value)};
-  border-radius: ${({ sizing }) => `${sizing / 2}px`};
+  border-radius: ${({ sizing }) => `${parseInt(sizing, 10) / 2}px`};
   position: absolute;
   bottom: ${({ showButton }) => (showButton ? '24px' : '-36px')};
   transition: bottom 0.25s;

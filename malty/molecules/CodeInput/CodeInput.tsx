@@ -1,6 +1,6 @@
 import { Icon, IconColors as Colors, IconSizesTypes as IconSizes } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
@@ -10,7 +10,7 @@ import {
   StyledError,
   StyledLabel
 } from './CodeInput.styled';
-import { CodeInputProps, Sizes, SizeTypes } from './CodeInput.types';
+import { CodeInputProps, SizeTypes } from './CodeInput.types';
 
 export const CodeInput = ({
   value,
@@ -22,10 +22,24 @@ export const CodeInput = ({
   icon,
   isIconLeft,
   isDisabled,
-  size = SizeTypes.Medium
+  size
 }: CodeInputProps) => {
   const id = useMemo(() => uuid(), []);
   const theme = useContext(ThemeContext) || defaultTheme;
+  const [numSize, setNumSize] = useState(theme.variables.codeInput.size.medium.value);
+
+  useEffect(() => {
+    switch (size) {
+      case SizeTypes.Large: {
+        setNumSize(theme.variables.codeInput.size.large.value);
+        break;
+      }
+      default: {
+        setNumSize(theme.variables.codeInput.size.medium.value);
+        break;
+      }
+    }
+  }, [size, theme]);
 
   return (
     <StyledCodeInputContainer theme={theme}>
@@ -39,7 +53,7 @@ export const CodeInput = ({
           value={value}
           placeholder={placeholder}
           disabled={isDisabled}
-          size={Sizes[size]}
+          sizing={numSize}
           hasIcon={!!icon}
           isIconLeft={isIconLeft}
           onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}

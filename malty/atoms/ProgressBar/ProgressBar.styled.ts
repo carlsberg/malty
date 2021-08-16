@@ -4,10 +4,10 @@ export const StyledProgressBar = styled.div<{
   progress: number;
 }>`
   position: relative;
-  height: 8px;
-  background-color: rgba(33, 40, 51, 0.1);
+  height: ${({ theme }) => theme.variables.progressBar.bar.height.value}px;
+  background-color: ${({ theme }) => theme.color.overlay.opacity10.default.value};
   width: 100%;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.variables.progressBar.bar.borderRadius.value}px;
   overflow: hidden;
   &:before {
     content: '';
@@ -24,6 +24,7 @@ export const StyledProgressBar = styled.div<{
 `;
 
 export const StyledWrapper = styled.div`
+  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
   display: flex;
   flex-direction: column;
 `;
@@ -33,9 +34,9 @@ export const StyledBarContainer = styled.div`
 `;
 
 export const StyledProgressAmount = styled.span`
-  margin-left: 16px;
-  font-size: 12px;
-  line-height: 12px;
+  margin-left: ${({ theme }) => theme.variables.progressBar.text.marginLeft.value}px;
+  font-size: ${({ theme }) => theme.typography.text.small['font-size'].value}px;
+  line-height: ${({ theme }) => theme.variables.progressBar.text.lineHeight.value};
   font-weight: bold;
   flex: 0 1 auto;
 `;
@@ -44,8 +45,8 @@ export const StyledText = styled.span`
   width: 100%;
   text-align: center;
   font-weight: bold;
-  font-size: 14px;
-  line-height: 14px;
-  margin-top: 10px;
+  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  line-height: ${({ theme }) => theme.variables.progressBar.text.lineHeight.value};
+  margin-top: ${({ theme }) => theme.variables.progressBar.text.marginTop.value}px;
   color: ${({ theme }) => theme.color.form.calendarSpecial.value};
 `;
