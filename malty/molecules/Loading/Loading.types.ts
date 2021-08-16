@@ -10,12 +10,6 @@ export enum SizeTypes {
   Large = 'Large'
 }
 
-export enum Sizes {
-  Small = 16,
-  Medium = 24,
-  Large = 48
-}
-
 export enum LoadingStatus {
   Pending = 'Pending',
   Success = 'Success',

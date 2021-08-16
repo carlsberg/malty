@@ -13,6 +13,28 @@ import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
 export const Loading = ({ text, size = SizeTypes.Medium, status = LoadingStatus.Pending }: LoadingProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [icon, setIcon] = useState<IconNamesTypes>(IconNamesTypes.Loading);
+  const [iconSize, setIconSize] = useState<IconSizes>(IconSizes.Medium);
+  const [numSize, setNumSize] = useState(theme.variables.button.size.medium.value);
+
+  useEffect(() => {
+    switch (size) {
+      case SizeTypes.Small: {
+        setNumSize(theme.variables.loading.size.small.value);
+        setIconSize(IconSizes.Small);
+        break;
+      }
+      case SizeTypes.Large: {
+        setNumSize(theme.variables.loading.size.large.value);
+        setIconSize(IconSizes.Large);
+        break;
+      }
+      default: {
+        setNumSize(theme.variables.loading.size.medium.value);
+        setIconSize(IconSizes.Medium);
+        break;
+      }
+    }
+  }, [size, theme]);
 
   useEffect(() => {
     switch (status) {
@@ -34,12 +56,12 @@ export const Loading = ({ text, size = SizeTypes.Medium, status = LoadingStatus.
   return (
     <>
       {status && (
-        <StyledLoadingContainer size={size} theme={theme}>
-          <StyledLoading size={size}>
+        <StyledLoadingContainer theme={theme}>
+          <StyledLoading size={numSize}>
             <Icon
               name={icon}
               color={Colors.Primary}
-              size={IconSizes[size]}
+              size={iconSize}
               className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
             />
           </StyledLoading>
