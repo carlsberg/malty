@@ -40,10 +40,11 @@ export default {
     }
   }
 };
-const Template: Story<TextProps> = (args: TextProps) => <Text {...args} />;
-
+const Template: Story<TextProps> = () => (
+  <Text>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla
+    sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia
+    ut nunc.
+  </Text>
+);
 export const Main = Template.bind({});
-Main.args = {
-  content:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia ut nunc.'
-} as TextProps;
