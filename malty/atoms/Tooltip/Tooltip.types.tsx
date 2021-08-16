@@ -1,8 +1,7 @@
 export interface TooltipProps {
-  content: string | JSX.Element;
-  children: string | JSX.Element;
   position: Position;
   isOpen: boolean;
+  children: string | JSX.Element;
 }
 
 export enum Position {

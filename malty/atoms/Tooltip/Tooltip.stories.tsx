@@ -33,15 +33,18 @@ export default {
     }
   }
 } as Meta;
-const Template: Story<TooltipProps> = ({ content, position }: TooltipProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Template: Story<TooltipProps> = ({ position }: TooltipProps) => {
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <StyledContainer>
-      <Tooltip position={position} content={content} isOpen={isOpen}>
-        <button type="button" onClick={() => setIsOpen(!isOpen)}>
-          Toggle
-        </button>
+      <Tooltip position={position} isOpen={isOpen}>
+        <>
+          A simple bottom Tooltip component with some text
+          <button type="button" onClick={() => setIsOpen(!isOpen)}>
+            Toggle
+          </button>
+        </>
       </Tooltip>
     </StyledContainer>
   );
@@ -49,6 +52,5 @@ const Template: Story<TooltipProps> = ({ content, position }: TooltipProps) => {
 
 export const Main = Template.bind({});
 Main.args = {
-  position: Position.Bottom,
-  content: 'Test'
+  position: Position.Bottom
 };
