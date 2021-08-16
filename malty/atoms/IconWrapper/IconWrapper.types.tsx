@@ -7,12 +7,6 @@ export interface IconWrapperInterface extends React.HTMLAttributes<SVGElement> {
   onClick?: MouseEventHandler<SVGElement>;
 }
 
-export enum Sizes {
-  Small = '16',
-  Medium = '24',
-  Large = '32'
-}
-
 export enum Colors {
   Primary = 'Primary',
   White = 'White'
