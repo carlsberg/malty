@@ -12,6 +12,7 @@ export interface ButtonProps {
   isWhite?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   selected?: boolean;
+  scroll?: number;
   disabled?: boolean;
   loading?: boolean;
   error?: boolean;
