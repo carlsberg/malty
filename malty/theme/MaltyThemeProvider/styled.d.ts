@@ -18,6 +18,10 @@ declare module 'styled-components' {
     tooltip: TooltipType;
     codeInput: CodeInputType;
     loading: LoadingType;
+    image: ImageType;
+  }
+  interface ImageType {
+    border: PropValue;
   }
 
   interface ButtonType {

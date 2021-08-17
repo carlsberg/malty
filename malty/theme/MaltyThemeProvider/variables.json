@@ -259,6 +259,11 @@
       "lineHeight": {
         "value": "18"
       }
+    },
+    "image": {
+      "border": {
+        "value": "8"
+      }
     }
   }
 }
