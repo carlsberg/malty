@@ -3,6 +3,7 @@ export interface ImageProps {
   cover?: boolean;
   border?: Position;
   gradient?: Position;
+  alt?: string;
 }
 
 export enum Position {

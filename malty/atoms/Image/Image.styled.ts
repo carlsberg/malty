@@ -24,22 +24,22 @@ export const StyledContainer = styled.div<{ isCover?: boolean; borderPosition?: 
   ${({ borderPosition }) => {
     if (borderPosition === Position.Top) {
       return css`
-        border-top: ${({ theme }) => `8px solid ${theme.color.black.value}`};
+        border-top: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === Position.Right) {
       return css`
-        border-right: ${({ theme }) => `8px solid ${theme.color.black.value}`};
+        border-right: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === Position.Bottom) {
       return css`
-        border-bottom: ${({ theme }) => `8px solid ${theme.color.black.value}`};
+        border-bottom: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === Position.Left) {
       return css`
-        border-left: ${({ theme }) => `8px solid ${theme.color.black.value}`};
+        border-left: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
       `;
     }
     return ``;
@@ -55,24 +55,28 @@ export const StyledOverlay = styled.div<{ gradientPosition?: Position }>`
       return css`
         top: 0;
         left: 0;
+        background: linear-gradient(0deg, #21283300 0%, #21283300 43%, #212833ff 100%);
       `;
     }
     if (gradientPosition === Position.Right) {
       return css`
         right: 0;
         top: 0;
+        background: linear-gradient(90deg, #21283300 0%, #21283300 43%, #212833ff 100%);
       `;
     }
     if (gradientPosition === Position.Bottom) {
       return css`
         bottom: 0;
         left: 0;
+        background: linear-gradient(180deg, #21283300 0%, #21283300 43%, #212833ff 100%);
       `;
     }
     if (gradientPosition === Position.Left) {
       return css`
         left: 0;
         top: 0;
+        background: linear-gradient(270deg, #21283300 0%, #21283300 43%, #212833ff 100%);
       `;
     }
     return ``;

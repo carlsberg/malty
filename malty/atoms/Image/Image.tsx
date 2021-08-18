@@ -4,13 +4,13 @@ import { ThemeContext } from 'styled-components';
 import { ImageProps } from '.';
 import { StyledContainer, StyledImage, StyledOverlay } from './Image.styled';
 
-export const Image = ({ url, cover = false, border, gradient }: ImageProps) => {
+export const Image = ({ url, cover = false, border, gradient, alt }: ImageProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <StyledContainer theme={theme} isCover={cover} borderPosition={border}>
       <StyledOverlay gradientPosition={gradient} />
-      <StyledImage src={url} isCover={cover} />
+      <StyledImage src={url} isCover={cover} alt={alt} />
     </StyledContainer>
   );
 };

@@ -24,7 +24,8 @@ export default {
       control: {
         type: 'select'
       }
-    }
+    },
+    alt: { control: 'text' }
   }
 } as Meta;
 
@@ -33,5 +34,6 @@ const Template: Story<ImageProps> = (args) => <Image {...args} />;
 export const Main = Template.bind({});
 Main.args = {
   url: 'https://produits.bienmanger.com/5819-0w470h470_Carlsberg_Elephant_Danish_Beer.jpg',
-  border: Position.Bottom
+  border: Position.Bottom,
+  alt: 'This is a sample image'
 };

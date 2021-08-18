@@ -1,4 +1,4 @@
-import { jsonRenderer } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { Image } from '.';
 
@@ -8,5 +8,10 @@ describe('Image component', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(<Image url={testImageUrl} cover={false} />);
     expect(view).toMatchSnapshot();
+  });
+
+  it('renders the component', () => {
+    render(<Image url={testImageUrl} cover={false} alt="Image component" />);
+    expect(screen.getAllByAltText('Image component')).toBeDefined();
   });
 });
