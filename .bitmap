@@ -37,6 +37,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
+    "atoms/label": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Label"
+    },
     "atoms/overlay": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.6",
