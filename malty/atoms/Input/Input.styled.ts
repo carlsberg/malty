@@ -111,10 +111,14 @@ export const StyledInput = styled.input<{
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
-    padding: ${({ theme }) => theme.variables.input.padding.value}px;
+    padding: 0 ${({ theme }) => theme.variables.input.padding.value}px;
     flex-grow: unset;
-    width: ${({ theme }) => theme.variables.input.number.width.value}px;
+    width: ${({ size }) => size}px;
     text-align: center;
+    height: unset;
+  }
+  &[type='tel'] {
+    height: unset;
   }
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -179,6 +183,9 @@ export const StyledButton = styled.button<{
   &:last-child {
     border-left: 0;
   }
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+  }
 `;
 
 export const StyledSelect = styled.select<{
@@ -195,6 +202,9 @@ export const StyledSelect = styled.select<{
   text-align: center;
   appearance: none;
   position: relative;
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.form.formSelect.value};
+  }
 `;
 
 export const StyledOption = styled.option<{
