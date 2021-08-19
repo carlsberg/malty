@@ -1,3 +1,4 @@
+import { rgbToHex } from '@carlsberggroup/malty.utils.colors';
 import styled, { css } from 'styled-components';
 import { Position } from './Image.types';
 
@@ -54,12 +55,13 @@ export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?:
   top: 0;
   ${({ theme, gradientPosition, overlay }) => {
     if (gradientPosition && !overlay) {
+      const primaryFadedHex = `${rgbToHex(theme.color.theme.themePrimary.value)}00`;
       if (gradientPosition === Position.Top) {
         return css`
           background: linear-gradient(
             0deg,
-            ${theme.color.theme.themePrimaryFaded.value} 0%,
-            ${theme.color.theme.themePrimaryFaded.value} 43.23%,
+            ${primaryFadedHex} 0%,
+            ${primaryFadedHex} 43.23%,
             ${theme.color.theme.themePrimary.value} 100%
           );
         `;
@@ -68,8 +70,8 @@ export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?:
         return css`
           background: linear-gradient(
             90deg,
-            ${theme.color.theme.themePrimaryFaded.value} 0%,
-            ${theme.color.theme.themePrimaryFaded.value} 43.23%,
+            ${primaryFadedHex} 0%,
+            ${primaryFadedHex} 43.23%,
             ${theme.color.theme.themePrimary.value} 100%
           );
         `;
@@ -78,8 +80,8 @@ export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?:
         return css`
           background: linear-gradient(
             180deg,
-            ${theme.color.theme.themePrimaryFaded.value} 0%,
-            ${theme.color.theme.themePrimaryFaded.value} 43.23%,
+            ${primaryFadedHex} 0%,
+            ${primaryFadedHex} 43.23%,
             ${theme.color.theme.themePrimary.value} 100%
           );
         `;
@@ -88,8 +90,8 @@ export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?:
         return css`
           background: linear-gradient(
             270deg,
-            ${theme.color.theme.themePrimaryFaded.value} 0%,
-            ${theme.color.theme.themePrimaryFaded.value} 43.23%,
+            ${primaryFadedHex} 0%,
+            ${primaryFadedHex} 43.23%,
             ${theme.color.theme.themePrimary.value} 100%
           );
         `;

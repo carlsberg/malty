@@ -1333,6 +1333,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/theme/MaltyThemeProvider"
     },
+    "utils/colors": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/utils/colors"
+    },
     "utils/test": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.3",
