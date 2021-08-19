@@ -260,6 +260,34 @@
         "value": "18"
       }
     },
+    "container": {
+      "size": {
+        "none": {
+          "value": "0"
+        },
+        "micro": {
+          "value": "8"
+        },
+        "tiny": {
+          "value": "16"
+        },
+        "xsmall": {
+          "value": "24"
+        },
+        "small": {
+          "value": "32"
+        },
+        "medium": {
+          "value": "40"
+        },
+        "large": {
+          "value": "48"
+        },
+        "xlarge": {
+          "value": "56"
+        }
+      }
+    },
     "image": {
       "border": {
         "value": "8"
