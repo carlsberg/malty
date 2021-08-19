@@ -31,6 +31,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/IconWrapper"
     },
+    "atoms/image": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Image"
+    },
     "atoms/input": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.7",
@@ -1338,6 +1344,12 @@
         "version": "0.0.5",
         "mainFile": "index.tsx",
         "rootDir": "malty/theme/MaltyThemeProvider"
+    },
+    "utils/colors": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/utils/colors"
     },
     "utils/test": {
         "scope": "carlsberggroup.malty",

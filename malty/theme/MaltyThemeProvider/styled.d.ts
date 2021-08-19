@@ -19,6 +19,11 @@ declare module 'styled-components' {
     codeInput: CodeInputType;
     loading: LoadingType;
     container: ContainerType;
+    image: ImageType;
+  }
+
+  interface ImageType {
+    border: PropValue;
   }
 
   interface ButtonType {

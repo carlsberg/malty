@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image component matches snapshot 1`] = `
+<div
+  className="sc-gtsrHT eNjNBb"
+>
+  <div
+    className="sc-dlnjwi kWDYpm"
+  />
+  <img
+    className="sc-bdnxRM gNJHoS"
+    src="https://produits.bienmanger.com/5819-0w470h470_Carlsberg_Elephant_Danish_Beer.jpg"
+  />
+</div>
+`;
