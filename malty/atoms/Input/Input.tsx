@@ -107,6 +107,7 @@ export const Input = ({
         theme={theme}
         size={numSize}
         isError={!!error}
+        disabled={disabled}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
         <Icon name={IconNamesTypes.Minus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
@@ -130,6 +131,7 @@ export const Input = ({
         theme={theme}
         size={numSize}
         isError={!!error}
+        disabled={disabled}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
         <Icon name={IconNamesTypes.Plus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
@@ -140,7 +142,7 @@ export const Input = ({
   const renderTelNumber = () => (
     // TO FOLLOW: Convert the select to dsm dropdown
     <>
-      <StyledSelect theme={theme} height={numSize} isError={!!error}>
+      <StyledSelect theme={theme} height={numSize} disabled={disabled} isError={!!error}>
         {Object.keys(Country)
           .sort((a, b) => {
             const newA = Prefixes[Country[a as keyof typeof Country] as keyof typeof Prefixes];

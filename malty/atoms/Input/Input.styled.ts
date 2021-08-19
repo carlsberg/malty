@@ -183,6 +183,9 @@ export const StyledButton = styled.button<{
   &:last-child {
     border-left: 0;
   }
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+  }
 `;
 
 export const StyledSelect = styled.select<{
@@ -199,6 +202,9 @@ export const StyledSelect = styled.select<{
   text-align: center;
   appearance: none;
   position: relative;
+  &:disabled {
+    background-color: ${({ theme }) => theme.color.form.formSelect.value};
+  }
 `;
 
 export const StyledOption = styled.option<{
