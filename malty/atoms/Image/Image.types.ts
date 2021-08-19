@@ -3,6 +3,7 @@ export interface ImageProps {
   cover?: boolean;
   border?: Position;
   gradient?: Position;
+  overlay?: number;
   alt?: string;
 }
 

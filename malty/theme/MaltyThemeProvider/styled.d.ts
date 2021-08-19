@@ -265,8 +265,11 @@ declare module 'styled-components' {
 
   interface Theme {
     themePrimary: PropValue;
+    themePrimaryFaded: PropValue;
     themeSecondary: PropValue;
+    themeSecondaryFaded: PropValue;
     themeTertiary: PropValue;
+    themeTertiaryFaded: PropValue;
   }
 
   interface ButtonColors {

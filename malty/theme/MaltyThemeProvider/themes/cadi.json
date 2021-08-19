@@ -5,11 +5,20 @@
         "themePrimary": {
           "value": "rgb(10, 195, 155)"
         },
+        "themePrimaryFaded": {
+          "value": "rgba(10, 195, 155, 0)"
+        },
         "themeSecondary": {
           "value": "rgb(0, 140, 120)"
         },
+        "themeSecondaryFaded": {
+          "value": "rgba(0, 140, 120, 0)"
+        },
         "themeTertiary": {
           "value": "rgb(255, 192, 106)"
+        },
+        "themeTertiaryFaded": {
+          "value": "rgba(255, 192, 106, 0)"
         }
       }
     }

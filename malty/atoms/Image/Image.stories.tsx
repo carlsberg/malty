@@ -18,12 +18,18 @@ export default {
       }
     },
     gradient: {
-      options: Object.values(Position),
-      description: 'Position options are listed below',
+      options: ['', ...Object.values(Position)],
+      description:
+        'Position options are listed below. Gradient will not work if overlay is defined or value is greather than 0',
       defaultValue: '',
       control: {
         type: 'select'
       }
+    },
+    overlay: {
+      description: 'This accepts number as opacity percentage.',
+      control: 'number',
+      defaultValue: ''
     },
     alt: { control: 'text' }
   }
