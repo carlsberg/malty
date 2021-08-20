@@ -35,16 +35,27 @@ export default {
         type: 'select'
       }
     },
-    content: {
+    children: {
       control: { type: 'text' }
+    },
+    underline: {
+      defaultValue: false,
+      control: { type: 'boolean' }
+    },
+    italic: {
+      defaultValue: false,
+      control: { type: 'boolean' }
     }
   }
 };
-const Template: Story<TextProps> = () => (
-  <Text>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla
-    sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia
-    ut nunc.
+const Template: Story<TextProps> = ({ size, weight, align, color, children, underline, italic }) => (
+  <Text size={size} weight={weight} align={align} color={color} underline={underline} italic={italic}>
+    {children}
   </Text>
 );
 export const Main = Template.bind({});
+Main.args = {
+  size: Size.Small,
+  children:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia ut nunc.'
+};
