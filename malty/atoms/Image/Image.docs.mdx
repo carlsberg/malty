@@ -1,16 +1,23 @@
 ---
-labels: ['react', 'typescript', 'overlay']
-description: 'An Overlay component.'
+labels: ['react', 'typescript', 'image']
+description: 'An Image component.'
 ---
 
 import { Image } from '.';
 
-Overlay example:
+Image example:
 
-An Overlay component to be used with modals/panes/curtains
+An Image component
 
 Live Playground:
 
 ```js live
-<Image url='https://produits.bienmanger.com/5819-0w470h470_Carlsberg_Elephant_Danish_Beer.jpg' cover={false} alt='This is an image component' border='Bottom' gradient='Bottom' />
+<Image
+  src="https://via.placeholder.com/400x200"
+  alt="This is sample live image component"
+  border="Left"
+  overlay="25"
+  width="200"
+  height="200"
+/>
 ```

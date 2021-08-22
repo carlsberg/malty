@@ -1,16 +1,32 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Image, ImageProps } from '.';
-import { Position } from './Image.types';
+import { Overlay, Position } from './Image.types';
 
 export default {
   title: 'Atoms/Image',
   component: Image,
   argTypes: {
-    cover: { control: 'boolean' },
-    url: { control: 'text' },
+    cover: {
+      defaultValue: false,
+      control: 'boolean'
+    },
+    height: {
+      required: false,
+      control: 'text'
+    },
+    width: {
+      required: false,
+      control: 'text'
+    },
+    src: {
+      description: 'URL of image',
+      defaultValue: '',
+      required: true,
+      control: 'text'
+    },
     border: {
-      options: Object.values(Position),
+      options: [undefined, ...Object.values(Position)],
       description: 'Position options are listed below',
       defaultValue: '',
       control: {
@@ -18,20 +34,25 @@ export default {
       }
     },
     gradient: {
-      options: ['', ...Object.values(Position)],
-      description:
-        'Position options are listed below. Gradient will not work if overlay is defined or value is greather than 0',
+      options: [undefined, ...Object.values(Position)],
+      description: 'Position options are listed below. Gradient will not work if overlay is defined.',
       defaultValue: '',
       control: {
         type: 'select'
       }
     },
     overlay: {
-      description: 'This accepts number as opacity percentage.',
-      control: 'number',
+      options: [undefined, ...Object.values(Overlay)],
+      description: 'This accepts number string as opacity percentage.',
+      control: 'select',
       defaultValue: ''
     },
-    alt: { control: 'text' }
+    alt: { control: 'text' },
+    url: {
+      table: {
+        disable: true
+      }
+    }
   }
 } as Meta;
 
@@ -39,7 +60,7 @@ const Template: Story<ImageProps> = (args) => <Image {...args} />;
 
 export const Main = Template.bind({});
 Main.args = {
-  url: 'https://produits.bienmanger.com/5819-0w470h470_Carlsberg_Elephant_Danish_Beer.jpg',
+  src: 'https://via.placeholder.com/400',
   border: Position.Bottom,
   alt: 'This is a sample image'
 };
