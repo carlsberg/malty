@@ -1,27 +1,34 @@
 import { rgbToHex } from '@carlsberggroup/malty.utils.colors';
 import styled, { css } from 'styled-components';
-import { Position } from './Image.types';
+import { Overlay, Position } from './Image.types';
 
 export const StyledImage = styled.img<{ isCover?: boolean }>`
   display: flex;
-  ${({ isCover }) =>
-    isCover &&
-    css`
-      height: 100%;
-      width: 100%;
-    `}
+  height: 100%;
+  width: 100%;
+  object-fit: ${({ isCover }) => (isCover ? `cover` : `contain`)};
 `;
 
-export const StyledContainer = styled.div<{ isCover?: boolean; borderPosition?: Position }>`
+export const StyledContainer = styled.div<{
+  isCover?: boolean;
+  borderPosition?: Position;
+  height?: string;
+  width?: string;
+}>`
   position: relative;
   display: inline-flex;
   background-color: ${({ theme }) => theme.color.support.support20.value};
-  ${({ isCover }) =>
-    isCover &&
-    css`
-      height: 100%;
-      width: 100%;
-    `}
+  ${({ height, width }) => {
+    let dimensions;
+    if (height || width) {
+      dimensions = css`
+        height: ${height ? height.concat('px') : '100%'};
+        width: ${width ? width.concat('px') : '100%'};
+      `;
+    }
+    return dimensions;
+  }}
+
   ${({ borderPosition }) => {
     if (borderPosition === Position.Top) {
       return css`
@@ -47,7 +54,7 @@ export const StyledContainer = styled.div<{ isCover?: boolean; borderPosition?: 
   }}
 `;
 
-export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?: number }>`
+export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?: Overlay }>`
   position: absolute;
   height: 100%;
   width: 100%;

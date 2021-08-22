@@ -1,10 +1,12 @@
 export interface ImageProps {
-  url: string;
+  src: string;
   cover?: boolean;
   border?: Position;
   gradient?: Position;
-  overlay?: number;
+  overlay?: Overlay;
   alt?: string;
+  height?: string;
+  width?: string;
 }
 
 export enum Position {
@@ -12,4 +14,12 @@ export enum Position {
   Right = 'Right',
   Bottom = 'Bottom',
   Left = 'Left'
+}
+
+export enum Overlay {
+  Overlay10 = '10',
+  Overlay25 = '25',
+  Overlay50 = '50',
+  Overlay75 = '75',
+  Overlay90 = '90'
 }
