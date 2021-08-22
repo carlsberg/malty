@@ -22,7 +22,7 @@ export default {
       }
     },
     icon: {
-      options: Object.values(IconNamesTypes),
+      options: Object.values({ undefined, ...IconNamesTypes }),
       control: {
         type: 'select'
       }
@@ -34,27 +34,72 @@ export default {
       }
     },
     onRemoveClick: {
-      table: {
-        disable: true
+      options: Object.values([false, () => null]),
+      defaultValue: false,
+      control: {
+        type: 'radio'
       }
     }
   }
 } as Meta;
-const Template: Story<PillProps> = ({ text, icon, color, isRounded, onClick, size }: PillProps) => (
-  <Pill text={text} onClick={onClick} icon={icon} color={color} isRounded={isRounded} size={size} />
+const Template: Story<PillProps> = ({ text, icon, color, isRounded, onRemoveClick, onClick, size }: PillProps) => (
+  <Pill
+    text={text}
+    onRemoveClick={onRemoveClick}
+    onClick={onClick}
+    icon={icon}
+    color={color}
+    isRounded={isRounded}
+    size={size}
+  />
 );
 
-export const Main = Template.bind({});
-Main.args = {
+export const SimplePill = Template.bind({});
+SimplePill.args = {
   text: 'Text',
   icon: IconNamesTypes.AddContent,
-  color: PillColor.New,
+  color: PillColor.Closed,
   isRounded: true,
-  size: PillSizeType.Medium
+  size: PillSizeType.Medium,
+  onRemoveClick: false
 };
 
-const TemplateRemovable: Story<PillProps> = ({ text, icon, color, isRounded, onRemoveClick, size }: PillProps) => (
-  <Pill text={text} onRemoveClick={onRemoveClick} icon={icon} color={color} isRounded={isRounded} size={size} />
+export const IconPill = Template.bind({});
+IconPill.args = {
+  icon: IconNamesTypes.CarlsbergFilled,
+  color: PillColor.New,
+  isRounded: true,
+  size: PillSizeType.Medium,
+  onRemoveClick: false
+};
+
+export const IconLabelPill = Template.bind({});
+IconLabelPill.args = {
+  text: 'P',
+  color: PillColor.Archive,
+  isRounded: false,
+  size: PillSizeType.Medium,
+  onRemoveClick: false
+};
+
+const TemplateRemovable: Story<PillProps> = ({
+  text,
+  icon,
+  color,
+  isRounded,
+  onRemoveClick,
+  onClick,
+  size
+}: PillProps) => (
+  <Pill
+    text={text}
+    onRemoveClick={onRemoveClick}
+    onClick={onClick}
+    icon={icon}
+    color={color}
+    isRounded={isRounded}
+    size={size}
+  />
 );
 
 export const Removeable = TemplateRemovable.bind({});
@@ -62,5 +107,6 @@ Removeable.args = {
   text: 'Removeable',
   color: PillColor.Hold,
   isRounded: false,
-  size: PillSizeType.Medium
+  size: PillSizeType.Medium,
+  onRemoveClick: () => null
 };

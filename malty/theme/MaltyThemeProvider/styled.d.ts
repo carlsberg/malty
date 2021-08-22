@@ -81,7 +81,12 @@ declare module 'styled-components' {
 
   interface PillType {
     size: PillSizeType;
-    padding: PropValue;
+    padding: PillSizeType;
+    icon: PillIconType;
+  }
+
+  interface PillIconType {
+    size: PillSizeType;
   }
 
   interface PillSizeType {

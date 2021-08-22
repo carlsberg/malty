@@ -116,7 +116,34 @@
         }
       },
       "padding": {
-        "value": "8"
+        "xsmall": {
+          "value": "4"
+        },
+        "small": {
+          "value": "7"
+        },
+        "medium": {
+          "value": "10"
+        },
+        "large": {
+          "value": "14"
+        }
+      },
+      "icon": {
+        "size": {
+          "xsmall": {
+            "value": "8"
+          },
+          "small": {
+            "value": "10"
+          },
+          "medium": {
+            "value": "12"
+          },
+          "large": {
+            "value": "12"
+          }
+        }
       }
     },
     "progressBar": {

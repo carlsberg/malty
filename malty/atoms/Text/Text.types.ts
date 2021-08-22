@@ -4,6 +4,8 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   align?: Align;
   color?: Color;
   children: string | JSX.Element;
+  underline?: boolean;
+  italic?: boolean;
 }
 
 export enum Size {
@@ -23,5 +25,11 @@ export enum Align {
 }
 export enum Color {
   White = 'white',
-  Default = 'default'
+  Default = 'default',
+  Support = 'support',
+  Alert = 'alertStrong',
+  Disable = 'disableStrong',
+  Fail = 'failStrong',
+  Notification = 'notificationStrong',
+  Success = 'successStrong'
 }
