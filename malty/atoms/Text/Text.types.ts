@@ -27,9 +27,5 @@ export enum Color {
   White = 'white',
   Default = 'default',
   Support = 'support',
-  Alert = 'alertStrong',
-  Disable = 'disableStrong',
-  Fail = 'failStrong',
-  Notification = 'notificationStrong',
-  Success = 'successStrong'
+  Disable = 'disable'
 }

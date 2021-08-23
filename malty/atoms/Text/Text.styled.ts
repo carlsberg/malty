@@ -17,20 +17,8 @@ export const StyledParagraph = styled.p<{
     if (color === Color.Support) {
       return theme.color.support.support20.value;
     }
-    if (color === Color.Alert) {
-      return theme.color.system.alertStrong.value;
-    }
     if (color === Color.Disable) {
       return theme.color.system.disableStrong.value;
-    }
-    if (color === Color.Fail) {
-      return theme.color.system.failStrong.value;
-    }
-    if (color === Color.Notification) {
-      return theme.color.system.notificationStrong.value;
-    }
-    if (color === Color.Success) {
-      return theme.color.system.successStrong.value;
     }
     return theme.color.default.value;
   }};
