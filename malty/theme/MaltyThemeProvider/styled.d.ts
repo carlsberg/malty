@@ -20,6 +20,15 @@ declare module 'styled-components' {
     loading: LoadingType;
     container: ContainerType;
     image: ImageType;
+    breakpoints: BreakPointsType;
+  }
+
+  interface BreakPointsType {
+    xsmall: PropValue;
+    small: PropValue;
+    medium: PropValue;
+    large: PropValue;
+    xlarge: PropValue;
   }
 
   interface ImageType {
@@ -252,6 +261,7 @@ declare module 'styled-components' {
   interface TypographySize {
     'font-size': PropValue;
     'line-height': PropValue;
+    'mobile-font-size'?: PropValue;
   }
 
   interface TypographyAlignment {

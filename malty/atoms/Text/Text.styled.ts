@@ -38,4 +38,11 @@ export const StyledParagraph = styled.p<{
     css`
       font-style: italic;
     `}
+
+  ${({ theme }) => css`
+    @media screen and (max-width: ${theme.variables.breakpoints.small.value}px) {
+      ${theme.typography.text.small['mobile-font-size'] &&
+      `font-size:${theme.typography.text.small['mobile-font-size'].value}px`}
+    }
+  `}
 `;
