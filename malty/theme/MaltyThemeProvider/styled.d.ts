@@ -8,6 +8,10 @@ declare module 'styled-components' {
     variables: VariablesType;
   }
 
+  interface GlobalTypes {
+    breakpoints: BreakPointsType;
+  }
+
   interface VariablesType {
     button: ButtonType;
     checkbox: CheckboxType;
@@ -20,7 +24,7 @@ declare module 'styled-components' {
     loading: LoadingType;
     container: ContainerType;
     image: ImageType;
-    breakpoints: BreakPointsType;
+    global: GlobalTypes;
   }
 
   interface BreakPointsType {

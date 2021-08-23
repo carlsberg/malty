@@ -40,7 +40,7 @@ export const StyledParagraph = styled.p<{
     `}
 
   ${({ theme }) => css`
-    @media screen and (max-width: ${theme.variables.breakpoints.small.value}px) {
+    @media screen and (max-width: ${theme.variables.global.breakpoints.small.value}px) {
       ${theme.typography.text.small['mobile-font-size'] &&
       `font-size:${theme.typography.text.small['mobile-font-size'].value}px`}
     }

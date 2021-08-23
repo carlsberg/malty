@@ -320,21 +320,23 @@
         "value": "8"
       }
     },
-    "breakpoints": {
-      "xsmall": {
-        "value": "576"
-      },
-      "small": {
-        "value": "768"
-      },
-      "medium": {
-        "value": "992"
-      },
-      "large": {
-        "value": "1200"
-      },
-      "xlarge": {
-        "value": "1600"
+    "global": {
+      "breakpoints": {
+        "xsmall": {
+          "value": "576"
+        },
+        "small": {
+          "value": "768"
+        },
+        "medium": {
+          "value": "992"
+        },
+        "large": {
+          "value": "1200"
+        },
+        "xlarge": {
+          "value": "1600"
+        }
       }
     }
   }
