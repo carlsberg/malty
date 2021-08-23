@@ -27,7 +27,7 @@ export const StyledParagraph = styled.p<{
     size ? theme.typography.text[size]['font-size'].value : theme.typography.text.medium['font-size'].value}px;
   line-height: ${({ size, theme }) =>
     size ? theme.typography.text[size]['line-height'].value : theme.typography.text.medium['font-size'].value}px;
-  font-weight: ${({ weight }) => weight || Weight.Normal};
+  font-weight: ${({ weight }) => weight || Weight.Regular};
   ${({ underline }) =>
     underline &&
     css`
