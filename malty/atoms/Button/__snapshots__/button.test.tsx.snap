@@ -2,12 +2,16 @@
 
 exports[`button matches snapshot 1`] = `
 <button
-  className="sc-eCApnc sc-jSFjdj ekKwAW lelFZW"
+  className="sc-eCApnc sc-jSFjdj jUqjFJ lelFZW"
   disabled={true}
   fontSize="16"
   onClick={[MockFunction]}
   type="submit"
 >
-  Submit
+  <div
+    className="text-container "
+  >
+    Submit
+  </div>
 </button>
 `;
