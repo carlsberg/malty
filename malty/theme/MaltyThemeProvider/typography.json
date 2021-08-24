@@ -10,6 +10,9 @@
         "font-size": {
           "value": "72"
         },
+        "mobile-font-size": {
+          "value": "56"
+        },
         "line-height": {
           "value": "64"
         }
@@ -17,6 +20,9 @@
       "xlarge": {
         "font-size": {
           "value": "32"
+        },
+        "mobile-font-size": {
+          "value": "24"
         },
         "line-height": {
           "value": "32"
@@ -26,6 +32,9 @@
         "font-size": {
           "value": "56"
         },
+        "mobile-font-size": {
+          "value": "48"
+        },
         "line-height": {
           "value": "52"
         }
@@ -33,6 +42,9 @@
       "huge": {
         "font-size": {
           "value": "48"
+        },
+        "mobile-font-size": {
+          "value": "32"
         },
         "line-height": {
           "value": "44"
