@@ -14,8 +14,7 @@ export enum Size {
   Small = 'small'
 }
 export enum Weight {
-  Lighter = 'lighter',
-  Normal = 'normal',
+  Regular = 'normal',
   Bold = 'bold'
 }
 export enum Align {
@@ -27,9 +26,5 @@ export enum Color {
   White = 'white',
   Default = 'default',
   Support = 'support',
-  Alert = 'alertStrong',
-  Disable = 'disableStrong',
-  Fail = 'failStrong',
-  Notification = 'notificationStrong',
-  Success = 'successStrong'
+  Disable = 'disable'
 }
