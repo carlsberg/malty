@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Align, Color, Size } from './Headline.types';
 
 export const StyledHeadline = styled.h1<{
@@ -24,4 +24,12 @@ export const StyledHeadline = styled.h1<{
     size
       ? theme.typography.headline[size]['line-height'].value
       : theme.typography.headline.medium['font-size'].value}px;
+
+  ${({ theme, size }) =>
+    size &&
+    css`
+      @media screen and (max-width: ${theme.variables.global.breakpoints.small.value}px) {
+        font-size: ${theme.typography.headline[size]['mobile-font-size']?.value}px;
+      }
+    `}
 `;

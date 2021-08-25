@@ -54,6 +54,9 @@
         "font-size": {
           "value": "24"
         },
+        "mobile-font-size": {
+          "value": "24"
+        },
         "line-height": {
           "value": "28"
         }
@@ -62,12 +65,18 @@
         "font-size": {
           "value": "18"
         },
+        "mobile-font-size": {
+          "value": "18"
+        },
         "line-height": {
           "value": "22"
         }
       },
       "small": {
         "font-size": {
+          "value": "16"
+        },
+        "mobile-font-size": {
           "value": "16"
         },
         "line-height": {
