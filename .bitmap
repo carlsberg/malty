@@ -19,6 +19,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Container"
     },
+    "atoms/headline": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Headline"
+    },
     "atoms/icon": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.9",
