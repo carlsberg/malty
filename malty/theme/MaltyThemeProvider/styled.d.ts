@@ -8,6 +8,10 @@ declare module 'styled-components' {
     variables: VariablesType;
   }
 
+  interface GlobalTypes {
+    breakpoints: BreakPointsType;
+  }
+
   interface VariablesType {
     button: ButtonType;
     checkbox: CheckboxType;
@@ -20,6 +24,15 @@ declare module 'styled-components' {
     loading: LoadingType;
     container: ContainerType;
     image: ImageType;
+    global: GlobalTypes;
+  }
+
+  interface BreakPointsType {
+    xsmall: PropValue;
+    small: PropValue;
+    medium: PropValue;
+    large: PropValue;
+    xlarge: PropValue;
   }
 
   interface ImageType {
@@ -252,6 +265,7 @@ declare module 'styled-components' {
   interface TypographySize {
     'font-size': PropValue;
     'line-height': PropValue;
+    'mobile-font-size'?: PropValue;
   }
 
   interface TypographyAlignment {

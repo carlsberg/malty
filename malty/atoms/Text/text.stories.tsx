@@ -30,7 +30,7 @@ export default {
     },
     weight: {
       options: Object.values(Weight),
-      defaultValue: Weight.Normal,
+      defaultValue: Weight.Regular,
       control: {
         type: 'select'
       }

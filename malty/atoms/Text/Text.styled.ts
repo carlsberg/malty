@@ -17,20 +17,8 @@ export const StyledParagraph = styled.p<{
     if (color === Color.Support) {
       return theme.color.support.support20.value;
     }
-    if (color === Color.Alert) {
-      return theme.color.system.alertStrong.value;
-    }
     if (color === Color.Disable) {
       return theme.color.system.disableStrong.value;
-    }
-    if (color === Color.Fail) {
-      return theme.color.system.failStrong.value;
-    }
-    if (color === Color.Notification) {
-      return theme.color.system.notificationStrong.value;
-    }
-    if (color === Color.Success) {
-      return theme.color.system.successStrong.value;
     }
     return theme.color.default.value;
   }};
@@ -39,7 +27,7 @@ export const StyledParagraph = styled.p<{
     size ? theme.typography.text[size]['font-size'].value : theme.typography.text.medium['font-size'].value}px;
   line-height: ${({ size, theme }) =>
     size ? theme.typography.text[size]['line-height'].value : theme.typography.text.medium['font-size'].value}px;
-  font-weight: ${({ weight }) => weight || Weight.Normal};
+  font-weight: ${({ weight }) => weight || Weight.Regular};
   ${({ underline }) =>
     underline &&
     css`
@@ -50,4 +38,11 @@ export const StyledParagraph = styled.p<{
     css`
       font-style: italic;
     `}
+
+  ${({ theme }) => css`
+    @media screen and (max-width: ${theme.variables.global.breakpoints.small.value}px) {
+      ${theme.typography.text.small['mobile-font-size'] &&
+      `font-size:${theme.typography.text.small['mobile-font-size'].value}px`}
+    }
+  `}
 `;
