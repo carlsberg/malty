@@ -9,15 +9,20 @@ Malty is a Design System, and the code contained in this repository is its Compo
 
 ## Installation
 
-Use [Bit](https://pip.pypa.io/en/stable/) to install all dependencies, and compile all components locally, and run your local Dev server.
+You must have Bit CLI installed in order to run the Component Library locally. For instructions on how do install Bit CLI, please [look here](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/nav/5fa7cb638c01200018358a40/folder/60819db7d0b12cc8cb95193d).
+
+## Running local environment
+
+### Bit local env.
+
+Use [Bit](https://harmony-docs.bit.dev/) to install all dependencies, and compile all components locally, and run your local Dev server.
 
 Start installing all necessary dependencies:
-
 ```bash
 bit install
 ```
 
-Then compile all components locally, for local development:
+Then compile all components locally:
 ```bash
 bit compile
 ```
@@ -25,6 +30,18 @@ bit compile
 You can then start your local Dev server:
 ```bash
 bit start
+```
+
+### Storybook local env.
+
+To start your local dev. server:
+```bash
+yarn storybook
+```
+
+To build Storybook static files:
+```bash
+yarn build-storybook
 ```
 
 ## Usage
