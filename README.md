@@ -28,7 +28,7 @@ bit start
 ```
 
 ## Usage
-> asda
+
 ```typescript
 import React from 'react';
 import { Component, ComponentProps } from '@carlsberggroup/malty.atoms.component';
