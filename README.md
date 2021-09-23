@@ -7,9 +7,26 @@ Malty is a Design System, and the code contained in this repository is its Compo
 - Development of components for this library **must be in close coordination with the Design System Team**, and should only happen after POs have aligned.
 - This repository should be considered a backup mechanism for our [Carlsberg Group's Bit.dev Cloud](https://bit.dev/carlsberggroup) library, not its primary library management system.
 
-## Installation
+## Install CLI
 
-You must have Bit CLI installed in order to run the Component Library locally. For instructions on how do install Bit CLI, please [look here](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/nav/5fa7cb638c01200018358a40/folder/60819db7d0b12cc8cb95193d).
+You must have Bit CLI installed in order to run the Component Library locally. The following are the commands to run:
+
+Start installing [BVM](https://harmony-docs.bit.dev/reference/using-bvm/), Bit's Version Manager:
+```bash
+yarn global add @teambit/bvm
+```
+
+Then install Bit:
+```bash
+bvm install
+```
+
+You will then, most likely, need to run the following command in order to access the new `bit` binary:
+```bash
+echo 'export PATH=$(yarn global bin):$PATH'  >> ~/.bashrc && source ~/.bashrc
+```
+
+For more detailed instructions on how do install Bit CLI, please [look here](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/nav/5fa7cb638c01200018358a40/folder/60819db7d0b12cc8cb95193d).
 
 ## Running local environment
 
@@ -44,19 +61,28 @@ To build Storybook static files:
 yarn build-storybook
 ```
 
+### Testing
+
+To run tests on your local code:
+```bash
+yarn test
+```
+
+Alternatively you can add the `--watch` flag for continued refresh and testing, as well as the `-u` flag to update your snapshots, when relevant and needed.
+
 ## Usage
 
 ```typescript
 import React from 'react';
 import { Component, ComponentProps } from '@carlsberggroup/malty.atoms.component';
 
-export const Component = ({
+export const component = ({
   children
 }: ComponentProps) => {
 
   const renderComponent = () => (
     <Component>
-      childen
+      {childen}
     </Component>
   )
 };
