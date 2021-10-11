@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div<{ padding: string }>`
+export const StyledPaddedContainer = styled.div<{ padding: string }>`
   position: relative;
   top: 0;
   right: 0;
