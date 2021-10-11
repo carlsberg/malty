@@ -1,28 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`checkbox matches snapshot 1`] = `
-<div
-  className="sc-bdnxRM dTmDPw"
+<span
+  className="sc-bdfBQB hbDYzD"
 >
-  <label
-    className="sc-jSFjdj ihREMl"
+  <div
+    className="sc-gsTEea iCcuFk"
   >
-    <input
-      checked={true}
-      className="sc-hKFxyN iTXDUD"
-      onChange={[Function]}
-      type="checkbox"
-      value="test"
-    />
-    <div
-      checked={true}
-      className="sc-eCApnc iTlleR"
-    />
-    <span
-      className="sc-dlnjwi fGpqjc"
+    <label
+      className="sc-gKseQn nYnaa"
     >
-      Label text
-    </span>
-  </label>
-</div>
+      <input
+        checked={true}
+        className="sc-eCstlR lfRepL"
+        onChange={[Function]}
+        type="checkbox"
+        value="test"
+      />
+      <div
+        checked={true}
+        className="sc-jSgvzq goUOvp"
+      />
+      <span
+        className="sc-hKgJUU lhWjMd"
+      >
+        Label text
+      </span>
+    </label>
+  </div>
+</span>
 `;

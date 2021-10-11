@@ -8,6 +8,10 @@ import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
 export default {
   title: 'Atoms/Button',
   component: Button,
+  parameters: {
+    importObject: 'Button',
+    importPath: '@carlsberggroup/malty.atoms.button'
+  },
   argTypes: {
     text: { control: 'text' },
     type: {
@@ -29,7 +33,9 @@ export default {
     },
     scroll: {
       description: 'Scroll position where will floater show',
-      defaultValue: 0,
+      table: {
+        defaultValue: 0
+      },
       control: {
         type: 'number'
       }
@@ -46,7 +52,9 @@ export default {
     successIcon: {
       options: Object.values(IconNamesTypes),
       description: 'Name options listed below',
-      defaultValue: '',
+      table: {
+        defaultValue: ''
+      },
       control: {
         type: 'select'
       }
@@ -64,7 +72,9 @@ export default {
     icon: {
       options: Object.values(IconNamesTypes),
       description: 'Name options listed below',
-      defaultValue: '',
+      table: {
+        defaultValue: ''
+      },
       control: {
         type: 'select'
       }
@@ -115,8 +125,8 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const PrimaryStory = Template.bind({});
+PrimaryStory.args = {
   style: ButtonStyle.Primary,
   text: 'Primary',
   type: ButtonTypes.Submit,
@@ -136,8 +146,8 @@ Primary.args = {
   errorText: 'Error'
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const SecondaryStory = Template.bind({});
+SecondaryStory.args = {
   style: ButtonStyle.Secondary,
   text: 'Secondary',
   type: ButtonTypes.Submit,
@@ -157,8 +167,8 @@ Secondary.args = {
   errorText: 'Error'
 };
 
-export const Floater = Template.bind({});
-Floater.args = {
+export const FloaterStory = Template.bind({});
+FloaterStory.args = {
   style: ButtonStyle.Floater,
   icon: IconNamesTypes.ArrowSmallUp,
   type: ButtonTypes.Submit,
@@ -179,8 +189,8 @@ Floater.args = {
   scroll: 0
 };
 
-export const Link = Template.bind({});
-Link.args = {
+export const LinkStory = Template.bind({});
+LinkStory.args = {
   style: ButtonStyle.Link,
   text: 'Link text',
   size: SizeTypes.Medium,

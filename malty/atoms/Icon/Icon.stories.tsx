@@ -16,6 +16,10 @@ const StyledAllIconsWrapper = styled.div`
 export default {
   title: 'Atoms/Icon',
   component: Icon,
+  parameters: {
+    importObject: 'Icon',
+    importPath: '@carlsberggroup/malty.atoms.icon'
+  },
   argTypes: {
     name: {
       options: Object.values(NamesTypes),
@@ -76,7 +80,9 @@ Main.parameters = {
 const AllIconsTemplate: Story<IconInterface> = (args) => (
   <StyledAllIconsWrapper>
     {Object.values(NamesTypes).map((name) => (
-      <Icon {...args} name={name} />
+      <div title={name}>
+        <Icon {...args} name={name} />
+      </div>
     ))}
   </StyledAllIconsWrapper>
 );

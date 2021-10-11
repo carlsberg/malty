@@ -7,6 +7,10 @@ import { CodeInputProps, CodeInputType, SizeTypes } from './CodeInput.types';
 export default {
   title: 'Molecules/CodeInput',
   component: CodeInput,
+  parameters: {
+    importObject: 'CodeInput',
+    importPath: '@carlsberggroup/malty.atoms.code-input'
+  },
   argTypes: {
     label: { control: 'text' },
     placeholder: { control: 'text' },

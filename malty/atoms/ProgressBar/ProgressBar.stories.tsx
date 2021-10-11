@@ -6,6 +6,10 @@ import { ProgressBarProps } from './ProgressBar.types';
 export default {
   title: 'Atoms/Progress Bar',
   component: ProgressBar,
+  parameters: {
+    importObject: 'ProgressBar',
+    importPath: '@carlsberggroup/malty.atoms.progress-bar'
+  },
   argTypes: {
     label: { control: 'text' },
     displayAmount: { control: 'boolean' },

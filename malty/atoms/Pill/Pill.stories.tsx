@@ -7,6 +7,10 @@ import { PillColor, PillProps, PillSizeType } from './Pill.types';
 export default {
   title: 'Atoms/Pill',
   component: Pill,
+  parameters: {
+    importObject: 'Pill',
+    importPath: '@carlsberggroup/malty.atoms.pill'
+  },
   argTypes: {
     text: { control: 'text' },
     size: {

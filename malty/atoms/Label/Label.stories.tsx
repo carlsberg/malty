@@ -6,6 +6,8 @@ export default {
   title: 'Atoms/Label',
   component: Label,
   parameters: {
+    importObject: 'Label',
+    importPath: '@carlsberggroup/malty.atoms.label',
     docs: {
       description: {
         component:
@@ -74,7 +76,7 @@ NestedInput.args = {
 
 export const ByIdCheckbox = ByIdTemplateCheckbox.bind({});
 ByIdCheckbox.args = {
-  text: 'Stand-alone label by ID',
+  text: 'Stand-alone by ID',
   checkbox: true
 };
 

@@ -7,6 +7,10 @@ import { IconPosition, InputProps, InputType, MaskTypes, SizeTypes } from './Inp
 export default {
   title: 'Atoms/Input',
   component: Input,
+  parameters: {
+    importObject: 'Input',
+    importPath: '@carlsberggroup/malty.atoms.input'
+  },
   argTypes: {
     label: { control: 'text' },
     placeholder: { control: 'text' },

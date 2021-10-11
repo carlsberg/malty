@@ -6,6 +6,10 @@ import { Overlay, Position } from './Image.types';
 export default {
   title: 'Atoms/Image',
   component: Image,
+  parameters: {
+    importObject: 'Image',
+    importPath: '@carlsberggroup/malty.atoms.image'
+  },
   argTypes: {
     cover: {
       defaultValue: false,
@@ -46,6 +50,20 @@ export default {
       description: 'This accepts number string as opacity percentage.',
       control: 'select',
       defaultValue: ''
+    },
+    children: {
+      table: {
+        type: {
+          summary: 'JSX.Element'
+        }
+      },
+      control: {
+        type: 'select',
+        options: {
+          'No children': [],
+          'Example H1 tag': [<h1>This is an h1 tag</h1>]
+        }
+      }
     },
     alt: { control: 'text' },
     url: {

@@ -1,9 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Headline component matches snapshot 1`] = `
-<p
-  className="sc-bdnxRM iLZrOY"
+<span
+  className="sc-bdfBQB hbDYzD"
 >
-  this is a headline
-</p>
+  <h1
+    className="sc-gsTEea dgJvqh"
+    color="primary"
+    size="medium"
+  >
+    this is a headline
+  </h1>
+</span>
 `;

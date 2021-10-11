@@ -1,27 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tooltip matches snapshot 1`] = `
-<div
-  className="sc-dlnjwi bVqWlg"
-  style={
-    Object {
-      "--color": "dodgerblue",
-    }
-  }
->
-  <div
-    className="sc-gtsrHT fvwFPV"
-    open={true}
+Array [
+  <a
+    id="testId"
+    onClick={[Function]}
   >
-    <p
-      className="sc-bdnxRM cQnqiM"
+    Click here to toggle it!
+  </a>,
+  <span
+    className="sc-bdfBQB hbDYzD"
+  >
+    <div
+      className="sc-hKgJUU bTWTmT"
+      style={
+        Object {
+          "--color": "dodgerblue",
+        }
+      }
     >
-      <button
-        type="button"
+      <div
+        className="sc-dlfnuX eKyIZR"
+        open={true}
       >
-        Test
-      </button>
-    </p>
-  </div>
-</div>
+        <p
+          className="sc-gsTEea dirViS"
+        >
+          <button
+            type="button"
+          >
+            Test
+          </button>
+        </p>
+      </div>
+    </div>
+  </span>,
+]
 `;
