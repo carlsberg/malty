@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`text matches snapshot 1`] = `
-<p
-  className="sc-bdnxRM hitciv"
+<span
+  className="sc-bdfBQB hbDYzD"
 >
-  this is a text block
-</p>
+  <p
+    className="sc-gsTEea dirViS"
+  >
+    this is a text block
+  </p>
+</span>
 `;

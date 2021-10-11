@@ -1,23 +1,37 @@
 import { addParameters } from '@storybook/react';
 import React from 'react';
-import { GlobalStyle } from './styles';
+import { ImportPath } from './importPath';
+import { ArgsTable, Description, Primary, Stories, Subtitle, Title, PRIMARY_STORY } from '@storybook/addon-docs';
 import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 
 export const decorators = [
   (Story, context) => (
-    <>
-      <MaltyThemeProvider theme={context.globals.theme}>
-        <GlobalStyle />
-        <Story />
-      </MaltyThemeProvider>
-    </>
+    <MaltyThemeProvider theme={context.globals.theme}>
+      <Story />
+    </MaltyThemeProvider>
   )
 ];
 
 export const parameters = {
   viewMode: 'docs',
+  controls: { expanded: true },
   previewTabs: { canvas: { hidden: false } },
   actions: { argTypesRegex: '^on[A-Z].*' },
+  docs: {
+    page: () => {
+      return (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <ImportPath />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      );
+    }
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,

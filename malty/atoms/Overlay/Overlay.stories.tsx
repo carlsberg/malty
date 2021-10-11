@@ -5,6 +5,10 @@ import { Overlay, OverlayProps } from '.';
 export default {
   title: 'Atoms/Overlay',
   component: Overlay,
+  parameters: {
+    importObject: 'Overlay',
+    importPath: '@carlsberggroup/malty.atoms.overlay'
+  },
   argTypes: {
     isWhite: { control: 'boolean' },
     content: {

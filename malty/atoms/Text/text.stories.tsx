@@ -6,6 +6,10 @@ import { Align, Color, Size, TextProps, Weight } from './Text.types';
 export default {
   title: 'Atoms/Text',
   component: Text,
+  parameters: {
+    importObject: 'Text',
+    importPath: '@carlsberggroup/malty.atoms.text'
+  },
   argTypes: {
     color: {
       options: Object.values(Color),

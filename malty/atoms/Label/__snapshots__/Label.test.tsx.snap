@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`overlay matches snapshot 1`] = `
-<label
-  className="sc-bdnxRM RFXvQ"
+<span
+  className="sc-bdfBQB hbDYzD"
 >
-  <span
-    className="label__text"
+  <label
+    className="sc-gsTEea dkDQKI"
   >
-    Test label
-  </span>
-  <input
-    type="text"
-  />
-</label>
+    <span
+      className="label__text"
+    >
+      Test label
+    </span>
+    <input
+      type="text"
+    />
+  </label>
+</span>
 `;

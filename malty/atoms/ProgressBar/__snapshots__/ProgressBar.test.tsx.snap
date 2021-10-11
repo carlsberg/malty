@@ -1,26 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`pill matches snapshot 1`] = `
-<div
-  className="sc-gtsrHT fZXwjN"
+<span
+  className="sc-bdfBQB hbDYzD"
 >
   <div
-    className="sc-dlnjwi iLDZtA"
+    className="sc-dlfnuX cNwhLM"
   >
     <div
-      className="sc-bdnxRM clXnYP"
-    />
-    <span
-      className="sc-hKFxyN bMGvss"
+      className="sc-hKgJUU ixjwbN"
     >
-      30
-      %
+      <div
+        className="sc-gsTEea jDHeRY"
+      />
+      <span
+        className="sc-eCstlR bGZnQM"
+      >
+        30
+        %
+      </span>
+    </div>
+    <span
+      className="sc-jSgvzq jpENRW"
+    >
+      Test text
     </span>
   </div>
-  <span
-    className="sc-eCApnc fLMErq"
-  >
-    Test text
-  </span>
-</div>
+</span>
 `;

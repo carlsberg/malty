@@ -6,6 +6,10 @@ import { Align, Color, HeadlineProps, Size } from './Headline.types';
 export default {
   title: 'Atoms/Headline',
   component: Headline,
+  parameters: {
+    importObject: 'Headline',
+    importPath: '@carlsberggroup/malty.atoms.headline'
+  },
   argTypes: {
     color: {
       options: Object.values(Color),

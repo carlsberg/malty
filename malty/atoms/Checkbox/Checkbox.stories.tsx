@@ -6,6 +6,10 @@ import { CheckboxProps } from './Checkbox.types';
 export default {
   title: 'Atoms/Checkbox',
   component: Checkbox,
+  parameters: {
+    importObject: 'Checkbox',
+    importPath: '@carlsberggroup/malty.atoms.checkbox'
+  },
   argTypes: {
     value: {
       control: {

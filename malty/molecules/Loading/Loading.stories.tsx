@@ -6,6 +6,10 @@ import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
 export default {
   title: 'Molecules/Loading',
   component: Loading,
+  parameters: {
+    importObject: 'Loading',
+    importPath: '@carlsberggroup/malty.atoms.loading'
+  },
   argTypes: {
     text: { control: 'text' },
     size: {
