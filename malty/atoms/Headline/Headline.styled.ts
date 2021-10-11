@@ -7,7 +7,7 @@ export const StyledHeadline = styled.h1<{
   align?: string;
   color?: Color;
 }>`
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
+  font-family: ${({ theme }) => theme.typography.headline['font-family'].value};
   color: ${({ color, theme }) => {
     if (color === Color.White) {
       return theme.color.white.value;

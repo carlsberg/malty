@@ -3,7 +3,6 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: Colors;
-    font: Font;
     typography: TypographyTypes;
     variables: VariablesType;
   }
@@ -41,6 +40,7 @@ declare module 'styled-components' {
 
   interface ButtonType {
     icon: ButtonIconType;
+    horizontalPadding: PropValue;
     size: ButtonSize;
   }
 
@@ -241,6 +241,7 @@ declare module 'styled-components' {
   }
 
   interface HeadlineTypographySizes {
+    'font-family': PropValue;
     display: TypographySize;
     xlarge: TypographySize;
     hero: TypographySize;
@@ -251,12 +252,14 @@ declare module 'styled-components' {
   }
 
   interface InformationTypographySizes {
+    'font-family': PropValue;
     micro: TypographySize;
     small: TypographySize;
     tiny: TypographySize;
   }
 
   interface TextTypographySizes {
+    'font-family': PropValue;
     medium: TypographySize;
     'medium-small': TypographySize;
     small: TypographySize;
@@ -382,69 +385,4 @@ declare module 'styled-components' {
     successBackground: PropValue;
     successStrong: PropValue;
   }
-
-  /**
-   * WIP adapting the typography export from
-   * InVision DSM to work for typography styling.
-
-  interface Typography {
-    headline: TypographyColors;
-    information: TypographyColors;
-    text: TypographyColors;
-  }
-
-  interface TypographyColors {
-    primary?: TypographyAlignment;
-    support?: TypographyAlignment;
-    white?: TypographyAlignment;
-    disable?: TypographyAlignment;
-    alert?: [string, TypographyStyles];
-    success?: [string, TypographyStyles];
-    fail?: [string, TypographyStyles];
-  }
-
-  interface TypographyAlignment {
-    center?: [string, TypographyStyles];
-    left?: [string, TypographyStyles];
-  }
-
-  interface TypographyStyles {
-    'font-family': FontFamily;
-    'font-size': FontSize;
-    'font-style': FontStyle;
-    'font-weight': FontWeight;
-    'line-height': LineHeight;
-    'text-align': TextAlign;
-  }
-
-  interface FontSizes {
-    small: FontSize;
-    medium: FontSize;
-    large: FontSize;
-  }
-
-  interface FontFamily {
-    value: string;
-  }
-
-  interface FontSize {
-    value: string;
-  }
-
-  interface FontStyle {
-    value: string;
-  }
-
-  interface FontWeight {
-    value: string;
-  }
-
-  interface LineHeight {
-    value: string;
-  }
-
-  interface TextAlign {
-    value: string;
-  }
-  */
 }

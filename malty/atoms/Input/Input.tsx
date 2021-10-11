@@ -4,7 +4,7 @@ import {
   IconNamesTypes,
   IconSizesTypes as IconSizes
 } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -80,7 +80,7 @@ export const Input = ({
   const renderIcon = () => icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />;
 
   const renderInput = () => (
-    <>
+    <TypographyProvider>
       <StyledInput
         name={id}
         id={id}
@@ -98,11 +98,11 @@ export const Input = ({
       />
       {renderClearable()}
       {renderIcon()}
-    </>
+    </TypographyProvider>
   );
 
   const renderInputNumber = () => (
-    <>
+    <TypographyProvider>
       <StyledButton
         theme={theme}
         size={numSize}
@@ -136,12 +136,12 @@ export const Input = ({
       >
         <Icon name={IconNamesTypes.Plus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
       </StyledButton>
-    </>
+    </TypographyProvider>
   );
 
   const renderTelNumber = () => (
     // TO FOLLOW: Convert the select to dsm dropdown
-    <>
+    <TypographyProvider>
       <StyledSelect theme={theme} height={numSize} disabled={disabled} isError={!!error}>
         {Object.keys(Country)
           .sort((a, b) => {
@@ -175,27 +175,29 @@ export const Input = ({
       />
       {renderClearable()}
       {renderIcon()}
-    </>
+    </TypographyProvider>
   );
 
   return (
-    <StyledInputContainer theme={theme}>
-      <StyledLabel htmlFor={id} theme={theme}>
-        {label}
-      </StyledLabel>
-      <StyledInputWrapper
-        isIconLeft={iconPosition === IconPosition.Left}
-        clearable={clearable || type === InputType.Search}
-        addLeft={type === InputType.Telephone}
-        addRight={type === InputType.Date}
-        theme={theme}
-      >
-        {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
-        {type === InputType.Telephone && renderTelNumber()}
-        {type === InputType.Number && renderInputNumber()}
-        {children}
-      </StyledInputWrapper>
-      {error && <StyledError theme={theme}>{error}</StyledError>}
-    </StyledInputContainer>
+    <TypographyProvider>
+      <StyledInputContainer theme={theme}>
+        <StyledLabel htmlFor={id} theme={theme}>
+          {label}
+        </StyledLabel>
+        <StyledInputWrapper
+          isIconLeft={iconPosition === IconPosition.Left}
+          clearable={clearable || type === InputType.Search}
+          addLeft={type === InputType.Telephone}
+          addRight={type === InputType.Date}
+          theme={theme}
+        >
+          {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
+          {type === InputType.Telephone && renderTelNumber()}
+          {type === InputType.Number && renderInputNumber()}
+          {children}
+        </StyledInputWrapper>
+        {error && <StyledError theme={theme}>{error}</StyledError>}
+      </StyledInputContainer>
+    </TypographyProvider>
   );
 };

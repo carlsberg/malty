@@ -1,5 +1,5 @@
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledPill } from './Pill.styled';
@@ -54,29 +54,31 @@ export const Pill = ({
   }, [size, theme]);
 
   return (
-    <StyledPill
-      isRounded={isRounded}
-      hasOnClick={!!onClick}
-      color={color}
-      size={numSize}
-      fontSize={fontSize}
-      iconSize={iconSize}
-      padding={padding}
-      onClick={onClick}
-      hasText={!!text}
-      theme={theme}
-    >
-      {icon && <Icon name={icon} size={IconSizesTypes.Small} color={IconColors.White} className="pill__icon" />}
-      {text}
-      {typeof onRemoveClick === 'function' && (
-        <Icon
-          className="pill__remove-icon"
-          name={IconNamesTypes.Close}
-          onClick={onRemoveClick}
-          size={IconSizesTypes.Small}
-          color={IconColors.White}
-        />
-      )}
-    </StyledPill>
+    <TypographyProvider>
+      <StyledPill
+        isRounded={isRounded}
+        hasOnClick={!!onClick}
+        color={color}
+        size={numSize}
+        fontSize={fontSize}
+        iconSize={iconSize}
+        padding={padding}
+        onClick={onClick}
+        hasText={!!text}
+        theme={theme}
+      >
+        {icon && <Icon name={icon} size={IconSizesTypes.Small} color={IconColors.White} className="pill__icon" />}
+        {text}
+        {typeof onRemoveClick === 'function' && (
+          <Icon
+            className="pill__remove-icon"
+            name={IconNamesTypes.Close}
+            onClick={onRemoveClick}
+            size={IconSizesTypes.Small}
+            color={IconColors.White}
+          />
+        )}
+      </StyledPill>
+    </TypographyProvider>
   );
 };

@@ -24,7 +24,7 @@ export const StyledProgressBar = styled.div<{
 `;
 
 export const StyledWrapper = styled.div`
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
+  font-family: inherit;
   display: flex;
   flex-direction: column;
 `;

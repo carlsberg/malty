@@ -21,6 +21,7 @@ const fadeIn = keyframes`
 `;
 
 export const StyledLoadingContainer = styled.div`
+  font-family: inherit;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.variables.loading.gap.value}px;
@@ -33,7 +34,6 @@ export const StyledLoadingContainer = styled.div`
   letter-spacing: 0;
   line-height: ${({ theme }) => theme.typography.text['medium-small']['line-height'].value}px;
   color: ${({ theme }) => theme.color.default.value};
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledLoading = styled.div<{

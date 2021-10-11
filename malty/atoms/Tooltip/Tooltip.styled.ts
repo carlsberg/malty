@@ -18,12 +18,13 @@ const verticalPosition = css`
   }
 `;
 
-const positioning = (position: Position) => {
+const positioning = (position: Position, anchorOffset: { vertical: number; horizontal: number }) => {
   switch (position) {
     case Position.Top:
       return css`
         bottom: calc(100% + ${({ theme }) => theme.variables.tooltip.topPosition.bottom.value}px);
         ${verticalPosition}
+        margin: 0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 2}px;
         &:before {
           bottom: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
           border-width: ${({ theme }) => theme.variables.tooltip.arrowSize.value}px
@@ -36,6 +37,7 @@ const positioning = (position: Position) => {
       return css`
         top: calc(100% + ${({ theme }) => theme.variables.tooltip.bottomPosition.top.value}px);
         ${verticalPosition}
+        margin: 0 0 0 -${anchorOffset.horizontal / 2}px;
         &:before {
           top: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
           border-width: 0 ${({ theme }) => theme.variables.tooltip.bottomPosition.borderWidth.value}px
@@ -48,6 +50,7 @@ const positioning = (position: Position) => {
       return css`
         left: calc(100% + ${({ theme }) => theme.variables.tooltip.rightPosition.left.value}px);
         ${horizontalPosition}
+        margin: -${anchorOffset.vertical / 2}px 0 0 0;
         &:before {
           left: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
           border-width: ${({ theme }) => theme.variables.tooltip.rightPosition.borderWidth.value}px
@@ -61,6 +64,7 @@ const positioning = (position: Position) => {
       return css`
         right: calc(100% + ${({ theme }) => theme.variables.tooltip.leftPosition.right.value}px);
         ${horizontalPosition}
+        margin: -${anchorOffset.vertical / 2}px ${anchorOffset.horizontal}px 0 0;
         &:before {
           right: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
           border-width: ${({ theme }) => theme.variables.tooltip.leftPosition.borderWidth.value}px 0
@@ -76,8 +80,13 @@ const positioning = (position: Position) => {
 
 export const StyledTooltip = styled.div<{
   position: Position;
-  open: boolean;
+  anchorOffset: {
+    vertical: number;
+    horizontal: number;
+  };
+  open?: boolean;
 }>`
+  font-family: inherit;
   background-color: ${({ theme }) => theme.color.form.formSelect.value};
   position: absolute;
   display: ${({ open }) => (open ? 'block' : 'none')};
@@ -91,10 +100,11 @@ export const StyledTooltip = styled.div<{
     position: absolute;
     border-color: transparent;
   }
-  ${({ position }) => positioning(position)};
+  ${({ position, anchorOffset }) => positioning(position, anchorOffset)};
 `;
 
 export const StyledTooltipWrapper = styled.div`
   display: inline-flex;
   position: relative;
+  z-index: 0;
 `;
