@@ -1,0 +1,33 @@
+---
+labels: ['react', 'typescript', 'overlay']
+description: 'An Label component.'
+---
+
+import { Label } from '.';
+
+Label example:
+
+A Label component to be used with inputs, textareas, etc.
+
+**_Note:_** _Input components in this document are not part of the label component, and are used for demo purposes only._
+
+Live Playground:
+
+```js live
+<Label text="Wrapped label">
+  <input type="text" />
+</Label>
+```
+
+```js live
+<>
+  <input type="checkbox" id="test" />
+  <Label text="Stand-alone label" htmlFor="test" checkbox></Label>
+</>
+```
+
+```js live
+<Label text="Wrapped checkbox label" checkbox>
+  <input type="checkbox" />
+</Label>
+```

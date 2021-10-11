@@ -1,0 +1,6 @@
+{
+  "extends": ["@carlsberg/eslint-config-carlsberg"],
+  "rules": {
+    "import/no-extraneous-dependencies": "off"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "color": {
+    "theme": {
+      "global": {
+        "themePrimary": {
+          "value": "rgb(33, 40, 51)"
+        },
+        "themeSecondary": {
+          "value": "rgb(240, 242, 243)"
+        },
+        "themeTertiary": {
+          "value": "rgb(215, 224, 226)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "typography": {
+    "global": {
+      "font-family": {
+        "value": "Montserrat, Arial, sans-serif"
+      }
+    },
+    "headline": {
+      "display": {
+        "font-size": {
+          "value": "72"
+        },
+        "mobile-font-size": {
+          "value": "56"
+        },
+        "line-height": {
+          "value": "64"
+        }
+      },
+      "xlarge": {
+        "font-size": {
+          "value": "32"
+        },
+        "mobile-font-size": {
+          "value": "24"
+        },
+        "line-height": {
+          "value": "32"
+        }
+      },
+      "hero": {
+        "font-size": {
+          "value": "56"
+        },
+        "mobile-font-size": {
+          "value": "48"
+        },
+        "line-height": {
+          "value": "52"
+        }
+      },
+      "huge": {
+        "font-size": {
+          "value": "48"
+        },
+        "mobile-font-size": {
+          "value": "32"
+        },
+        "line-height": {
+          "value": "44"
+        }
+      },
+      "large": {
+        "font-size": {
+          "value": "24"
+        },
+        "mobile-font-size": {
+          "value": "24"
+        },
+        "line-height": {
+          "value": "28"
+        }
+      },
+      "medium": {
+        "font-size": {
+          "value": "18"
+        },
+        "mobile-font-size": {
+          "value": "18"
+        },
+        "line-height": {
+          "value": "22"
+        }
+      },
+      "small": {
+        "font-size": {
+          "value": "16"
+        },
+        "mobile-font-size": {
+          "value": "16"
+        },
+        "line-height": {
+          "value": "20"
+        }
+      }
+    },
+    "information": {
+      "micro": {
+        "font-size": {
+          "value": "8"
+        },
+        "line-height": {
+          "value": "12"
+        }
+      },
+      "small": {
+        "font-size": {
+          "value": "12"
+        },
+        "line-height": {
+          "value": "16"
+        }
+      },
+      "tiny": {
+        "font-size": {
+          "value": "10"
+        },
+        "line-height": {
+          "value": "16"
+        }
+      }
+    },
+    "text": {
+      "medium": {
+        "font-size": {
+          "value": "16"
+        },
+        "line-height": {
+          "value": "20"
+        }
+      },
+      "medium-small": {
+        "font-size": {
+          "value": "14"
+        },
+        "line-height": {
+          "value": "18"
+        }
+      },
+      "small": {
+        "font-size": {
+          "value": "12"
+        },
+        "line-height": {
+          "value": "18"
+        },
+        "mobile-font-size": {
+          "value": "14"
+        }
+      }
+    }
+  }
+}

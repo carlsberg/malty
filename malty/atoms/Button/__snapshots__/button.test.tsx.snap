@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button matches snapshot 1`] = `
+<span
+  className="sc-bdfBQB hbDYzD"
+>
+  <button
+    className="sc-jSgvzq sc-gKseQn jAupOf cuXSjV"
+    disabled={true}
+    fontSize="16"
+    onClick={[MockFunction]}
+    type="submit"
+  >
+    <div
+      className="text-container "
+    >
+      Submit
+    </div>
+  </button>
+</span>
+`;

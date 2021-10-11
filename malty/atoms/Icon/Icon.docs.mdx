@@ -1,0 +1,28 @@
+---
+labels: ['react', 'typescript', 'icon']
+description: 'A Icon component.'
+---
+
+import { Icon } from './Icon';
+import { Colors, NamesTypes, SizesTypes } from './Icon.types';
+
+Icon example:
+
+An simple Icon component
+
+```js live
+<Icon name={NamesTypes.AddContent} color={Colors.Primary} size={SizesTypes.Small} />
+```
+
+An clickable Icon component
+
+```js live
+<Icon
+  name={NamesTypes.AddContent}
+  color={Colors.Primary}
+  size={SizesTypes.Small}
+  onClick={() => {
+    console.log('Just got clicked!');
+  }}
+/>
+```
