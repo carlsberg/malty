@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 export const StyledInputContainer = styled.div`
+  font-family: inherit;
   display: flex;
   flex-direction: column;
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledLabel = styled.label`
@@ -14,12 +14,12 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledError = styled.label`
+  font-family: inherit;
   color: ${({ theme }) => theme.color.system.failStrong.value};
   font-size: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
   font-weight: bold;
   line-height: ${({ theme }) => theme.typography.text.small['line-height'].value};
   letter-spacing: 0;
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledInputWrapper = styled.div<{

@@ -11,7 +11,7 @@ export const StyledPill = styled.div<{
   color: PillColor;
   hasText: boolean;
 }>`
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
+  font-family: inherit;
   font-size: ${({ fontSize }) => `${fontSize}px`};
   line-height: 1;
   font-weight: bold;

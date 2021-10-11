@@ -10,6 +10,10 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperInterface>) 
   const storyMeta = {
     title: `Icons/${name}`,
     component: Icon,
+    parameters: {
+      importObject: 'Icon',
+      importPath: '@carlsberggroup/malty.atoms.icon'
+    },
     argTypes: {
       color: {
         options: Object.values(Colors),

@@ -1,6 +1,8 @@
 export interface TooltipProps {
   position: Position;
-  isOpen: boolean;
+  isOpen?: boolean;
+  toggle?: Toggle;
+  anchor?: string;
   children: string | JSX.Element;
 }
 
@@ -9,4 +11,10 @@ export enum Position {
   Right = 'right',
   Bottom = 'bottom',
   Left = 'left'
+}
+
+export enum Toggle {
+  Click = 'click',
+  Hover = 'hover',
+  Persist = 'persist'
 }

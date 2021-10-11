@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
 export const StyledCheckboxContainer = styled.div`
+  font-family: inherit;
   display: flex;
   flex-direction: column;
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledError = styled.label`

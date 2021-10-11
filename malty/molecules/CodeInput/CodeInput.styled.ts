@@ -2,9 +2,9 @@ import { StyledIcon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
 
 export const StyledCodeInputContainer = styled.div`
+  font-family: inherit;
   display: flex;
   flex-direction: column;
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
 `;
 
 export const StyledLabel = styled.label`

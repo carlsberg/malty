@@ -7,6 +7,7 @@ export interface ImageProps {
   alt?: string;
   height?: string;
   width?: string;
+  children?: string | JSX.Element;
 }
 
 export enum Position {

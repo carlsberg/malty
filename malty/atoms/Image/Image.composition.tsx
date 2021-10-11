@@ -27,6 +27,18 @@ export const CoverImage = () => (
   />
 );
 
+export const ContentImage = () => (
+  <Image
+    src="https://via.placeholder.com/200x200"
+    alt="This is sample live image component"
+    border={'Top' as ImageProps['border']}
+    width="200"
+    height="200"
+  >
+    <h4 style={{ textAlign: 'center' }}>This is a child h4 tag</h4>
+  </Image>
+);
+
 export const GradientImage = () => (
   <Image
     src="https://via.placeholder.com/200x300"

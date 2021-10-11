@@ -9,7 +9,7 @@ export const StyledParagraph = styled.p<{
   underline?: boolean;
   italic?: boolean;
 }>`
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
+  font-family: inherit;
   color: ${({ color, theme }) => {
     if (color === Color.White) {
       return theme.color.white.value;
