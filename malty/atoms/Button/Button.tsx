@@ -1,6 +1,6 @@
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, SizeTypes } from '.';
@@ -55,6 +55,7 @@ export const Button = ({
   }
   const theme = useContext(ThemeContext) || defaultTheme;
   const [numSize, setNumSize] = useState(theme.variables.button.size.medium.value);
+  const [hPadding, setHorizontalPadding] = useState(theme.variables.button.horizontalPadding.value);
   const [fontSize, setFontSize] = useState(theme.typography.text.medium['font-size'].value);
   const [iconSize, setIconSize] = useState(theme.variables.button.icon.size.medium.value);
   const [showButton, setShowButton] = useState(true);
@@ -69,44 +70,47 @@ export const Button = ({
   };
 
   const renderComponent = () => (
-    <Component
-      type={type}
-      disabled={disabled}
-      hasText={!!text || !!children}
-      hasIcon={!!icon}
-      sizing={numSize}
-      fontSize={fontSize}
-      iconSize={iconSize}
-      onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
-      isWhite={isWhite}
-      fullWidth={fullWidth}
-      iconPos={iconPos}
-      className={selected ? 'active' : ''}
-      theme={theme}
-      showButton={showButton}
-    >
-      <div className={`text-container ${loading || success || error ? 'invisible' : ''}`}>
-        {text || children}
-        {icon && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
-      </div>
-      {!loading && success && !error && (
-        <div className="secondary-container">
-          {successText}
-          <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
+    <TypographyProvider>
+      <Component
+        type={type}
+        disabled={disabled}
+        hasText={!!text || !!children}
+        hasIcon={!!icon}
+        sizing={numSize}
+        horizontalPadding={hPadding}
+        fontSize={fontSize}
+        iconSize={iconSize}
+        onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+        isWhite={isWhite}
+        fullWidth={fullWidth}
+        iconPos={iconPos}
+        className={selected ? 'active' : ''}
+        theme={theme}
+        showButton={showButton}
+      >
+        <div className={`text-container ${loading || success || error ? 'invisible' : ''}`}>
+          {text || children}
+          {icon && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
         </div>
-      )}
-      {!loading && !success && error && (
-        <div className="secondary-container">
-          {errorText}
-          <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
-        </div>
-      )}
-      {loading && (
-        <div className="secondary-container">
-          <Loading status={'Pending' as LoadingStatus} />
-        </div>
-      )}
-    </Component>
+        {!loading && success && !error && (
+          <div className="secondary-container">
+            {successText}
+            <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
+          </div>
+        )}
+        {!loading && !success && error && (
+          <div className="secondary-container">
+            {errorText}
+            <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
+          </div>
+        )}
+        {loading && (
+          <div className="secondary-container">
+            <Loading status={'Pending' as LoadingStatus} />
+          </div>
+        )}
+      </Component>
+    </TypographyProvider>
   );
 
   useEffect(() => {
@@ -149,9 +153,11 @@ export const Button = ({
   }, [style, scroll]);
 
   return url ? (
-    <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
-      {renderComponent()}
-    </StyledAnchor>
+    <TypographyProvider>
+      <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
+        {renderComponent()}
+      </StyledAnchor>
+    </TypographyProvider>
   ) : (
     renderComponent()
   );
