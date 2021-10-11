@@ -21,22 +21,23 @@ const StyledButton = styled.button<{
   isWhite?: boolean;
   fullWidth?: boolean;
   sizing: string;
+  horizontalPadding: string;
   fontSize: string;
   iconSize: string;
   iconPos: IconPosition;
   showButton: boolean;
 }>`
+  font-family: inherit;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: ${({ sizing }) => `0 ${sizing}px`};
+  padding: ${({ horizontalPadding }) => `0 ${horizontalPadding}px`};
   height: ${({ sizing }) => `${sizing}px`};
   font-size: ${({ fontSize }) => `${fontSize}px`};
   font-weight: bold;
   transition: 0.25s ease-in-out;
   transition-property: background-color, color;
   cursor: pointer;
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
   border: none;
   gap: ${({ theme }) => theme.variables.button.icon.margin.value}px;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
