@@ -1,4 +1,3 @@
-import { StyledIcon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css, keyframes } from 'styled-components';
 import { IconPosition } from './Button.types';
 
@@ -88,15 +87,6 @@ const StyledButton = styled.button<{
       padding: 0;
       justify-content: center;
       width: ${sizing}px;
-    `};
-
-  ${({ hasText, hasIcon }) =>
-    hasText &&
-    hasIcon &&
-    css`
-      ${StyledIcon} {
-        margin-left: ${({ theme }) => theme.variables.button.icon.margin.value}px;
-      }
     `};
 `;
 
