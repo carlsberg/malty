@@ -1,13 +1,13 @@
 import { DefaultTheme } from 'styled-components';
 
 /*
-  The following requires() are not the proper solution
-  for this, but unfortunately when imports are used instead
-  (proper), there is an error that the files are not found.
-  This stems from the JSON file format, but all config around
-  consuming JSON files was implemented, and yet the issue
-  remains.
-  TODO: Change require() to import statements
+The following requires() are not the proper solution
+for this, but unfortunately when imports are used instead
+(proper), there is an error that the files are not found.
+This stems from the JSON file format, but all config around
+consuming JSON files was implemented, and yet the issue
+remains.
+TODO: Change require() to import statements
 */
 
 /* eslint-disable @typescript-eslint/no-var-requires */

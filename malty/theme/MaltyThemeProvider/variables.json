@@ -14,6 +14,9 @@
           "value": "16"
         }
       },
+      "horizontalPadding": {
+        "value": "24"
+      },
       "size": {
         "small": {
           "value": "32"
