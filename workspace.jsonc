@@ -10,7 +10,7 @@
     /**
      * the name of the component workspace. used for development purposes.
      **/
-    "name": "malty",
+    "name": "base",
     /**
      * set the icon to be shown on the Bit server.
      **/
@@ -26,7 +26,7 @@
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "carlsberggroup.malty"
+    "defaultScope": "carlsberg.base"
   },
   /**
    * main configuration for component dependency resolution.

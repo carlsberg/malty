@@ -1,21 +1,21 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-
-    "strict": true,
-
-    "skipLibCheck": true,
-    "jsx": "react",
-    "esModuleInterop": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es2015",
-    "composite": true
+    "compilerOptions": {
+      "baseUrl": ".",
+  
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+  
+      "strict": true,
+  
+      "skipLibCheck": true,
+  
+      "jsx": "react",
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "target": "es2015",
+  
+      "composite": true
+    }
   }
-}

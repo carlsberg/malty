@@ -1,5 +1,6 @@
-// eslint-disable-next-line func-names
-export default function (env) {
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = function(env, argv) {
   return {
     mode: env.production ? 'production' : 'development',
     devtool: env.production ? 'source-map' : 'eval',
@@ -9,22 +10,14 @@ export default function (env) {
       historyApiFallback: true
     },
 
-    module: {
-      rules: [
-        {
-          test: /\.ts(x?)$/,
-          exclude: /node_modules/,
-          use: [
-            'ts-loader',
-            {
-              options: {
-                eslintPath: require.resolve('eslint')
-              },
-              loader: require.resolve('eslint-loader')
-            }
-          ]
-        }
-      ]
-    }
-  };
-}
+    entry: {
+      index: './build/index.js',
+    },
+
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+      }),
+    ]
+  }
+};

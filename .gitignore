@@ -1,10 +1,6 @@
 
 **/.DS_Store
-**/*.icloud
 **/node_modules
 **/.bit
-public/bit
-public/bit/*
 **/yarn.lock
 **/package-lock.json
-**/install-state.gz
