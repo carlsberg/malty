@@ -99,7 +99,7 @@
       },
       "select": {
         "width": {
-          "value": "91"
+          "value": "90"
         }
       }
     },
@@ -228,6 +228,16 @@
         },
         "borderWidth": {
           "value": "10"
+        }
+      }
+    },
+    "select": {
+      "size": {
+        "medium": {
+          "value": "40"
+        },
+        "large": {
+          "value": "48"
         }
       }
     },

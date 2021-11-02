@@ -13,20 +13,38 @@ export default {
   argTypes: {
     color: {
       options: Object.values(Color),
+      description: 'Color of the text, from the following options',
       control: {
         type: 'select'
+      },
+      table: {
+        defaultValue: {
+          summary: 'primary'
+        }
       }
     },
     size: {
       options: Object.values(Size),
+      description: 'Size of the text, from the following options',
       control: {
         type: 'select'
+      },
+      table: {
+        defaultValue: {
+          summary: 'medium'
+        }
       }
     },
     align: {
       options: Object.values(Align),
+      description: 'Text alignment, from the following options',
       control: {
         type: 'select'
+      },
+      table: {
+        defaultValue: {
+          summary: 'left'
+        }
       }
     },
     children: {

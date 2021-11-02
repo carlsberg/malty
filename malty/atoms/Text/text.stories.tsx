@@ -13,41 +13,60 @@ export default {
   argTypes: {
     color: {
       options: Object.values(Color),
-      defaultValue: Color.Default,
+      description: 'Color of the headline, from the following options',
       control: {
         type: 'select'
+      },
+      table: {
+        defaultValue: {
+          summary: 'primary'
+        }
       }
     },
     size: {
       options: Object.values(Size),
-      defaultValue: Size.Medium,
+      description: 'Size of the headline, from the following options',
       control: {
         type: 'select'
+      },
+      table: {
+        defaultValue: {
+          summary: 'medium'
+        }
       }
     },
     align: {
       options: Object.values(Align),
-      defaultValue: Align.Left,
+      description: 'Headline alignment, from the following options',
       control: {
         type: 'select'
-      }
-    },
-    weight: {
-      options: Object.values(Weight),
-      defaultValue: Weight.Regular,
-      control: {
-        type: 'select'
+      },
+      table: {
+        defaultValue: {
+          summary: 'left'
+        }
       }
     },
     children: {
+      description: 'This is the content of a headline component',
       control: { type: 'text' }
     },
+    weight: {
+      options: Object.values(Weight),
+      description: 'Weight of the typography.',
+      table: { defaultValue: { summary: 'regular' } },
+      control: {
+        type: 'select'
+      }
+    },
     underline: {
-      defaultValue: false,
+      description: 'Should headline be underline?',
+      table: { defaultValue: { summary: false } },
       control: { type: 'boolean' }
     },
     italic: {
-      defaultValue: false,
+      description: 'Should headline be italic?',
+      table: { defaultValue: { summary: false } },
       control: { type: 'boolean' }
     }
   }

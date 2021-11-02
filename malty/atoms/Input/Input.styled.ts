@@ -3,12 +3,14 @@ import styled, { css } from 'styled-components';
 export const StyledInputContainer = styled.div`
   font-family: inherit;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
 `;
 
 export const StyledLabel = styled.label`
   color: ${({ theme }) => theme.color.default.value};
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  font-size: ${({ theme }) => theme.typography.information.small['font-size'].value}px;
+  line-height: ${({ theme }) => theme.typography.information.small['line-height'].value}px;
   padding-bottom: ${({ theme }) => theme.variables.input.label.bottomPadding.value}px;
   font-weight: bold;
 `;
@@ -16,9 +18,9 @@ export const StyledLabel = styled.label`
 export const StyledError = styled.label`
   font-family: inherit;
   color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.text.small['line-height'].value};
+  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
   letter-spacing: 0;
 `;
 
@@ -27,9 +29,12 @@ export const StyledInputWrapper = styled.div<{
   clearable?: boolean;
   addRight?: boolean;
   addLeft?: boolean;
+  size?: number;
 }>`
   position: relative;
   display: flex;
+  flex: 1 1 auto;
+  height: ${({ size }) => size}px;
 
   svg {
     position: absolute;
@@ -62,6 +67,7 @@ export const StyledInputWrapper = styled.div<{
     }
 
     &.quantity-control {
+      top: calc(50% - 1px);
       left: unset;
     }
   }
@@ -76,14 +82,16 @@ export const StyledInput = styled.input<{
   isError?: boolean;
 }>`
   flex: 1 1 auto;
-  font-weight: bold;
+  display: inline-flex;
+  box-sizing: border-box;
+  font-weight: normal;
   font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid
     ${({ theme, isError }) =>
       isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
-  color: ${({ theme }) => theme.color.information.indirect.value};
+  color: ${({ theme }) => theme.color.button.primaryDefault.value};
   height: ${({ size }) => size}px;
   ::placeholder {
     opacity: 0.8;
@@ -111,14 +119,12 @@ export const StyledInput = styled.input<{
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
-    padding: 0 ${({ theme }) => theme.variables.input.padding.value}px;
     flex-grow: unset;
     width: ${({ size }) => size}px;
     text-align: center;
-    height: unset;
-  }
-  &[type='tel'] {
-    height: unset;
+    vertical-align: top;
+    padding: 0;
+    flex: 1 1 100%;
   }
   &[type='number']::-webkit-inner-spin-button,
   &[type='number']::-webkit-outer-spin-button {
@@ -171,11 +177,13 @@ export const StyledButton = styled.button<{
   border: 1px solid
     ${({ theme, isError }) =>
       isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
+  box-sizing: border-box;
   background: ${({ theme }) => theme.color.button.primaryNegativeDefault.value};
-  display: flex;
-  padding: ${({ theme }) => theme.variables.input.padding.value}px;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  line-height: 0px;
+  top: 0;
 
   &:first-child {
     border-right: 0;
@@ -189,16 +197,19 @@ export const StyledButton = styled.button<{
 `;
 
 export const StyledSelect = styled.select<{
+  size?: number;
   height?: string;
   isError?: boolean;
 }>`
+  vertical-align: top;
+  display: inline-flex;
+  box-sizing: border-box;
   height: ${({ height }) => height}px;
   width: ${({ theme }) => theme.variables.input.select.width.value}px;
-  border: 1px solid ${({ theme, isError }) =>
-    isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
+  border: 1px solid
+    ${({ theme, isError }) =>
+      isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
   border-right: 0;
-  padding ${({ theme }) => theme.variables.input.label.bottomPadding.value}px ${({ theme }) =>
-  theme.variables.input.padding.value}px;
   text-align: center;
   appearance: none;
   position: relative;

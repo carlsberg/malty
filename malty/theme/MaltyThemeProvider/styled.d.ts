@@ -19,6 +19,7 @@ declare module 'styled-components' {
     pill: PillType;
     progressBar: ProgressBarType;
     tooltip: TooltipType;
+    select: SelectType;
     codeInput: CodeInputType;
     loading: LoadingType;
     container: ContainerType;
@@ -159,6 +160,13 @@ declare module 'styled-components' {
   interface TooltipPositionLeftType {
     right: PropValue;
     borderWidth: PropValue;
+  }
+  interface SelectType {
+    size: SelectSizeType;
+  }
+  interface SelectSizeType {
+    medium: PropValue;
+    large: PropValue;
   }
 
   interface CodeInputType {

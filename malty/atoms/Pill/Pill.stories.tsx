@@ -12,26 +12,50 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.pill'
   },
   argTypes: {
-    text: { control: 'text' },
+    text: {
+      control: 'text',
+      description: 'Pill content text.'
+    },
     size: {
       options: Object.values(PillSizeType),
       control: {
         type: 'select'
+      },
+      description: 'Pill size, options below.',
+      table: {
+        defaultValue: {
+          summary: 'medium'
+        }
       }
     },
     color: {
       options: Object.values(PillColor),
       control: {
         type: 'select'
+      },
+      description: 'Pill colors, from design predefined colors, as follows.',
+      table: {
+        defaultValue: {
+          summary: 'closed'
+        }
       }
     },
     icon: {
       options: Object.values({ undefined, ...IconNamesTypes }),
       control: {
         type: 'select'
+      },
+      description: 'Icon to be displayed',
+      table: {
+        defaultValue: {
+          summary: false
+        }
       }
     },
-    isRounded: { control: 'boolean' },
+    isRounded: {
+      control: 'boolean',
+      description: 'Is pill to have rounded corners?'
+    },
     onClick: {
       table: {
         disable: true
@@ -42,7 +66,8 @@ export default {
       defaultValue: false,
       control: {
         type: 'radio'
-      }
+      },
+      description: 'Function to run when pill is removed.'
     }
   }
 } as Meta;

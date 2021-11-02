@@ -1,4 +1,3 @@
-import { addParameters } from '@storybook/react';
 import React from 'react';
 import { ImportPath } from './importPath';
 import { ArgsTable, Description, Primary, Stories, Subtitle, Title, PRIMARY_STORY } from '@storybook/addon-docs';
@@ -18,25 +17,35 @@ export const parameters = {
   previewTabs: { canvas: { hidden: false } },
   actions: { argTypesRegex: '^on[A-Z].*' },
   docs: {
-    page: () => {
-      return (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <ImportPath />
-          <Primary />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories />
-        </>
-      );
-    }
+    page: () => (
+      <>
+        <Title />
+        <Subtitle />
+        <Description />
+        <ImportPath />
+        <Primary />
+        <ArgsTable story={PRIMARY_STORY} />
+        <Stories />
+      </>
+    )
   },
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/
     }
+  },
+  options: {
+    showNav: true,
+    enableShortcuts: true
+  },
+  backgrounds: {
+    default: 'white',
+    values: [
+      { name: 'white', value: '#ffffff' },
+      { name: 'gray', value: '#c1c1c1' },
+      { name: 'black', value: '#333333' }
+    ]
   }
 };
 
@@ -57,14 +66,3 @@ export const globalTypes = {
     }
   }
 };
-
-addParameters({
-  backgrounds: {
-    default: 'white',
-    values: [
-      { name: 'white', value: '#ffffff' },
-      { name: 'gray', value: '#c1c1c1' },
-      { name: 'black', value: '#333333' }
-    ]
-  }
-});

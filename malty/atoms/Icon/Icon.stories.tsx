@@ -23,7 +23,8 @@ export default {
   argTypes: {
     name: {
       options: Object.values(NamesTypes),
-      description: 'Name options listed below',
+      description:
+        'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
       defaultValue: NamesTypes.AddContent,
       control: {
         type: 'select'
@@ -31,7 +32,7 @@ export default {
     },
     color: {
       options: Object.values(Colors),
-      description: 'Color options are',
+      description: 'Icon color, options are',
       defaultValue: Colors.Primary,
       table: {
         defaultValue: {
@@ -45,10 +46,10 @@ export default {
     size: {
       options: Object.values(SizesTypes),
       defaultValue: SizesTypes.Medium,
-      description: 'Size options are',
+      description: 'Icon size, options are',
       table: {
         defaultValue: {
-          summary: 'Medium'
+          summary: 'medium'
         }
       },
       control: {
@@ -60,10 +61,8 @@ export default {
         disable: true
       }
     },
-    onIconClick: {
-      table: {
-        disable: true
-      }
+    onClick: {
+      description: 'Function to run when icon is clicked.'
     }
   }
 } as Meta;
@@ -79,8 +78,8 @@ Main.parameters = {
 
 const AllIconsTemplate: Story<IconInterface> = (args) => (
   <StyledAllIconsWrapper>
-    {Object.values(NamesTypes).map((name) => (
-      <div title={name}>
+    {Object.values(NamesTypes).map((name, index) => (
+      <div title={name} key={index}>
         <Icon {...args} name={name} />
       </div>
     ))}

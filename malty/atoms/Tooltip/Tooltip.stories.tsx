@@ -21,6 +21,8 @@ export default {
   argTypes: {
     position: {
       options: Object.values(Position),
+      description: 'Tooltip position.',
+      table: { defaultValue: { summary: 'top' } },
       control: {
         type: 'radio'
       }
@@ -28,9 +30,12 @@ export default {
     anchor: {
       control: {
         disable: true
-      }
+      },
+      description:
+        "Anchor element to have Tooltip anchor to. The position is based on this element. If no anchor provided the Tooltip will show in it's corresponding position on the markup, and anchor on itself."
     },
     children: {
+      description: 'Content for the Tooltip, can be a `string`, a `React Element` or just simply `HTML`.',
       table: {
         type: {
           summary: 'JSX.Element'
@@ -39,6 +44,8 @@ export default {
       control: 'text'
     },
     toggle: {
+      description: 'Expected Tooltip behaviour for trigger.',
+      table: { defaultValue: { summary: 'persist' } },
       options: Object.values(Toggle),
       control: {
         type: 'radio'
@@ -62,6 +69,6 @@ const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipPr
 );
 export const Main = Template.bind({});
 Main.args = {
-  position: Position.Bottom,
+  position: Position.Top,
   children: 'A simple Tooltip component content with some text'
 };

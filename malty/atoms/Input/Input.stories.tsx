@@ -12,39 +12,79 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.input'
   },
   argTypes: {
-    label: { control: 'text' },
-    placeholder: { control: 'text' },
-    error: { control: 'text' },
+    label: {
+      description: 'Label for the input, goes above.',
+      control: 'text'
+    },
+    placeholder: {
+      description: 'Placeholder text to go inside the input field, when empty.',
+      control: 'text'
+    },
+    error: {
+      description: 'Error message to be displayed when error is present.',
+      control: 'text'
+    },
     size: {
+      description: 'Input size options, at the moment only the two below',
       options: Object.values(SizeTypes),
       control: {
         type: 'radio'
+      },
+      table: {
+        defaultValue: {
+          summary: 'medium'
+        }
       }
     },
     type: {
       options: Object.values(InputType),
       control: {
         type: 'select'
+      },
+      description: 'Input type options',
+      table: {
+        defaultValue: {
+          summary: 'text'
+        }
       }
     },
     icon: {
       options: Object.values(IconNamesTypes),
       control: {
         type: 'select'
-      }
+      },
+      description: 'Icon to be displayed inside input.'
     },
-    disabled: { control: 'boolean' },
+    disabled: {
+      control: 'boolean',
+      description: 'Input state, when disabled it is read-only.'
+    },
     iconPosition: {
       options: Object.values(IconPosition),
       control: {
         type: 'radio'
+      },
+      description: 'Icon positino within the input.',
+      table: {
+        defaultValue: {
+          summary: 'left'
+        }
       }
     },
-    clearable: { control: 'boolean' },
+    clearable: {
+      control: 'boolean',
+      description: 'Should input be clearable?',
+      table: {
+        defaultValue: {
+          summary: false
+        }
+      }
+    },
     mask: {
       options: Object.values(MaskTypes),
       control: {
-        type: 'select'
+        type: 'select',
+        description: 'RegEx to be applies as mask for input value.'
       }
     },
     value: {
@@ -97,10 +137,8 @@ Main.args = {
   size: SizeTypes.Medium,
   label: 'Label',
   type: InputType.Text,
-  icon: IconNamesTypes.Search,
   placeholder: 'Placeholder',
-  error: '',
+  error: 'Error text',
   disabled: false,
-  iconPosition: IconPosition.Left,
   clearable: false
 };

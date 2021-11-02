@@ -60,7 +60,7 @@ const StyledButton = styled.button<{
     display: flex;
     align-items: center;
     gap: 16px;
-    transition: all 1s;
+    // transition: color 1s;
     opacity: 1;
     &.invisible {
       opacity: 0;
@@ -72,7 +72,7 @@ const StyledButton = styled.button<{
     display: flex;
     align-items: center;
     gap: 16px;
-    transition: all 1s;
+    // transition: color 1s;
     animation: ${animateShow} 0.25s linear;
   }
 

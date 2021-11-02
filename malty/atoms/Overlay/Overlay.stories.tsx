@@ -10,7 +10,10 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.overlay'
   },
   argTypes: {
-    isWhite: { control: 'boolean' },
+    isWhite: {
+      description: 'Color for overlay. Is it white?',
+      control: 'boolean'
+    },
     content: {
       table: {
         disable: true

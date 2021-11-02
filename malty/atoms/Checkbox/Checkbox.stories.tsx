@@ -14,25 +14,28 @@ export default {
     value: {
       control: {
         type: 'text'
-      }
+      },
+      description: 'This is the value to be passed'
     },
     labelText: {
       control: {
         type: 'text'
-      }
+      },
+      description: 'This is the label for the checkbox'
     },
     error: {
       control: {
         type: 'text'
-      }
+      },
+      description: 'Error message below'
     },
     checked: {
-      control: 'boolean'
+      control: 'select',
+      options: [true, false, undefined],
+      description: 'Checked `true` or `false`, when mixed nested checkboxed, value is `undefined`'
     },
     onValueChange: {
-      table: {
-        disable: true
-      }
+      description: 'Function to be executed when checkbox state changes'
     }
   }
 };

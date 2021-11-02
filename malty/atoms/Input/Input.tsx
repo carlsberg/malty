@@ -8,6 +8,7 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
+import { emojiFlag } from './emojiFlag';
 import {
   StyledButton,
   StyledError,
@@ -55,10 +56,10 @@ export const Input = ({
   const transform = (text: string): string => {
     if (mask) {
       if (type === InputType.Telephone && mask === MaskTypes.Telephone) {
-        const tel = text.match(/(\d{4})(\d{4})/);
+        const tel = text.match(/(\d{3,})(\d{4,})/);
         if (tel) return `${tel[1]}  ${tel[2]}`;
       } else if (type === InputType.Text && mask === MaskTypes.CreditCard) {
-        const card = text.match(/(\d{4})(\d{4})(\d{4})(\d{4})/);
+        const card = text.match(/((\d{4}[-|" "|\.])|(\d{4})){3}\d{4}/g);
         if (card) return `${card[1]}-${card[2]}-${card[3]}-${card[4]}`;
       }
     }
@@ -153,7 +154,8 @@ export const Input = ({
             const code = Prefixes[Country[country as keyof typeof Country] as keyof typeof Prefixes];
             return (
               <StyledOption key={`option-value-${country}`} value={code} height={numSize}>
-                + {code}
+                {emojiFlag(country)}
+                &nbsp;&nbsp;&nbsp;+{code}
               </StyledOption>
             );
           })}
@@ -181,9 +183,11 @@ export const Input = ({
   return (
     <TypographyProvider>
       <StyledInputContainer theme={theme}>
-        <StyledLabel htmlFor={id} theme={theme}>
-          {label}
-        </StyledLabel>
+        {label && (
+          <StyledLabel htmlFor={id} theme={theme}>
+            {label}
+          </StyledLabel>
+        )}
         <StyledInputWrapper
           isIconLeft={iconPosition === IconPosition.Left}
           clearable={clearable || type === InputType.Search}

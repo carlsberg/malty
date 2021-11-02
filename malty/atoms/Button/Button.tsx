@@ -89,8 +89,9 @@ export const Button = ({
         showButton={showButton}
       >
         <div className={`text-container ${loading || success || error ? 'invisible' : ''}`}>
+          {icon && iconPos === 'Left' && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
           {text || children}
-          {icon && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
+          {icon && iconPos === 'Right' && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
         </div>
         {!loading && success && !error && (
           <div className="secondary-container">

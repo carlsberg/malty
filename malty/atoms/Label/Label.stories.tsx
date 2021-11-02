@@ -16,7 +16,10 @@ export default {
     }
   },
   argTypes: {
-    text: { control: 'text' },
+    text: {
+      description: 'Text for the label',
+      control: 'text'
+    },
     checkbox: {
       table: {
         defaultValue: {
