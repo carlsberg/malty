@@ -17,9 +17,9 @@ export const StyledStepperProcessCircle = styled.span<{
   display: inline-block;
   width: 16px;
   height: 16px;
-  border: solid 3px #f1f4f8;
+  border: solid 3px ${({ theme }) => theme.color.support.support20.value};
   border-radius: 50%;
-  border-color: ${({ active }) => (active ? '#212833' : '#f1f4f8')};
+  border-color: ${({ theme, active }) => (active ? theme.color.default.value : theme.color.support.support20.value)};
 `;
 
 export const StyledStepperProcessLine = styled.span<{
@@ -28,6 +28,6 @@ export const StyledStepperProcessLine = styled.span<{
   display: inline-block;
   width: 50px;
   height: 3px;
-  background-color: #f1f4f8;
-  border-color: ${({ active }) => (active ? '#212833' : '#f1f4f8')};
+  background-color: ${({ theme }) => theme.color.support.support20.value};
+  border-color: ${({ theme, active }) => (active ? theme.color.default.value : theme.color.support.support20.value)};
 `;
