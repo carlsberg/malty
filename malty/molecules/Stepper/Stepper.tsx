@@ -3,14 +3,14 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
-  StyledStepperProcessCircle,
-  StyledStepperProcessContainer,
-  StyledStepperProcessLine,
-  StyledStepperProcessNumber
-} from './StepperProcess.styled';
-import { StepperProcessProps } from './StepperProcess.types';
+  StyledStepperCircle,
+  StyledStepperContainer,
+  StyledStepperLine,
+  StyledStepperNumber
+} from './Stepper.styled';
+import { StepperProps } from './Stepper.types';
 
-export const StepperProcess = ({ steps, currentStep, isMultiStep }: StepperProcessProps) => {
+export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [elHtml, setElHtml] = useState([<></>]);
 
@@ -19,7 +19,7 @@ export const StepperProcess = ({ steps, currentStep, isMultiStep }: StepperProce
       setElHtml((prevState: Array<JSX.Element>) => [
         ...prevState,
         <>
-          <StyledStepperProcessCircle
+          <StyledStepperCircle
             key={`progressStep_circle_${step}`}
             active={currentStep >= step}
             currentStep={currentStep == step}
@@ -29,22 +29,22 @@ export const StepperProcess = ({ steps, currentStep, isMultiStep }: StepperProce
                 <Icon name={IconNamesTypes.ItemCheckFilled} size={IconSizesTypes.Small} color={IconColors.Primary} />
               )}
               {(currentStep <= step && !isMultiStep) && (
-                <StyledStepperProcessNumber active={currentStep >= step}>
+                <StyledStepperNumber active={currentStep >= step}>
                   { step }
-                </StyledStepperProcessNumber>
+                </StyledStepperNumber>
               )}
             </>
-          </StyledStepperProcessCircle>
+          </StyledStepperCircle>
           {step < steps && (
-            <StyledStepperProcessLine
+            <StyledStepperLine
               key={`progressStep_line_${step}`}
               active={currentStep > step && !isMultiStep}
-            ></StyledStepperProcessLine>
+            ></StyledStepperLine>
           )}
         </>
       ]);
     }
   }, [steps, currentStep]);
 
-  return <StyledStepperProcessContainer theme={theme}>{elHtml}</StyledStepperProcessContainer>;
+  return <StyledStepperContainer theme={theme}>{elHtml}</StyledStepperContainer>;
 };

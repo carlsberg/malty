@@ -1,20 +1,24 @@
 import styled from 'styled-components';
 
-export const StyledStepperProcessContainer = styled.div`
+export const StyledStepperContainer = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const StyledStepperProcessCircle = styled.span<{
+export const StyledStepperCircle = styled.span<{
   active: boolean;
   currentStep: boolean;
 }>`
   display: flex;
   justify-content: center;
   width: ${({ theme, active, currentStep }) =>
-    currentStep || !active ? theme.variables.icon.size.small.value - 4 : theme.variables.icon.size.small.value}px;
+    currentStep || !active
+      ? parseInt(theme.variables.icon.size.small.value) - 4
+      : theme.variables.icon.size.small.value}px;
   height: ${({ theme, active, currentStep }) =>
-    currentStep || !active ? theme.variables.icon.size.small.value - 4 : theme.variables.icon.size.small.value}px;
+    currentStep || !active
+      ? parseInt(theme.variables.icon.size.small.value) - 4
+      : theme.variables.icon.size.small.value}px;
   border: ${({ theme, active, currentStep }) =>
     currentStep
       ? 'solid 2px ' + theme.color.default.value
@@ -25,7 +29,7 @@ export const StyledStepperProcessCircle = styled.span<{
   align-items: center;
 `;
 
-export const StyledStepperProcessNumber = styled.span<{
+export const StyledStepperNumber = styled.span<{
   active: boolean;
 }>`
   font-size: ${({ theme }) => theme.typography.information.micro['font-size'].value}px;
@@ -36,7 +40,7 @@ export const StyledStepperProcessNumber = styled.span<{
   color: ${({ theme, active }) => (active ? theme.color.default.value : theme.color.support.support60.value)};
 `;
 
-export const StyledStepperProcessLine = styled.span<{
+export const StyledStepperLine = styled.span<{
   active: boolean;
 }>`
   display: inline-block;
