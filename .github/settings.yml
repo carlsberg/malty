@@ -55,7 +55,10 @@ labels:
 
 teams:
   - name: malty-maintainers
-    permission: maintain
+    permission: admin
+
+  - name: malty-contributors
+    permission: write
 
 branches:
   - name: main
@@ -75,7 +78,7 @@ branches:
       restrictions:
         apps: []
         users: []
-        teams: []
+        teams: [malty-maintainers]
 
   - name: develop
     protection:
@@ -94,7 +97,7 @@ branches:
       restrictions:
         apps: []
         users: []
-        teams: []
+        teams: [malty-maintainers, malty-contributors]
 
   - name: feature/*
     protection:
@@ -113,4 +116,4 @@ branches:
       restrictions:
         apps: []
         users: []
-        teams: []
+        teams: [malty-contributors]
