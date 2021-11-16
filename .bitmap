@@ -1353,6 +1353,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Loading"
     },
+    "molecules/stepper": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Stepper"
+    },
     "theme/malty-theme-provider": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.11",
