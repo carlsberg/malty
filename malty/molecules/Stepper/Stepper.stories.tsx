@@ -11,9 +11,18 @@ export default {
     importPath: '@carlsberggroup/malty.molecules.stepper'
   },
   argTypes: {
-    steps: { control: 'text' },
-    currentStep: { control: 'text' },
-    isMultiStep: { control: 'boolean' }
+    steps: {
+      control: 'number',
+      description: 'Total number of steps'
+    },
+    currentStep: {
+      control: 'number',
+      description: 'Current step number of progress'
+    },
+    isMultiStep: {
+      control: 'boolean',
+      description: 'Is the stepper a multi step control?'
+    }
   }
 } as Meta;
 
