@@ -1,14 +1,14 @@
 import { Meta, Story } from '@storybook/react';
+import React from 'react';
 import { Stepper } from './Stepper';
 import { StepperProps } from './Stepper.types';
-import React from 'react';
 
 export default {
   title: 'Molecules/Stepper',
   component: Stepper,
   parameters: {
     importObject: 'Stepper',
-    importPath: '@carlsberggroup/malty.atoms.stepper'
+    importPath: '@carlsberggroup/malty.molecules.stepper'
   },
   argTypes: {
     steps: { control: 'text' },
