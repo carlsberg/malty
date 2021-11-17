@@ -9,7 +9,7 @@ export default {
   component: CodeInput,
   parameters: {
     importObject: 'CodeInput',
-    importPath: '@carlsberggroup/malty.atoms.code-input'
+    importPath: '@carlsberggroup/malty.molecules.code-input'
   },
   argTypes: {
     label: { control: 'text' },

@@ -8,7 +8,7 @@ export default {
   component: Loading,
   parameters: {
     importObject: 'Loading',
-    importPath: '@carlsberggroup/malty.atoms.loading'
+    importPath: '@carlsberggroup/malty.molecules.loading'
   },
   argTypes: {
     text: { control: 'text' },
