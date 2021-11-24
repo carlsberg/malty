@@ -2,12 +2,7 @@ import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggrou
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  StyledStepperCircle,
-  StyledStepperContainer,
-  StyledStepperLine,
-  StyledStepperNumber
-} from './Stepper.styled';
+import { StyledStepperCircle, StyledStepperContainer, StyledStepperLine, StyledStepperNumber } from './Stepper.styled';
 import { StepperProps } from './Stepper.types';
 
 export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
@@ -23,14 +18,15 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
             key={`progressStep_circle_${step}`}
             active={currentStep >= step}
             currentStep={currentStep == step}
+            theme={theme}
           >
             <>
-              {(currentStep > step) && (
+              {currentStep > step && (
                 <Icon name={IconNamesTypes.ItemCheckFilled} size={IconSizesTypes.Small} color={IconColors.Primary} />
               )}
-              {(currentStep <= step && !isMultiStep) && (
-                <StyledStepperNumber active={currentStep >= step}>
-                  { step }
+              {currentStep <= step && !isMultiStep && (
+                <StyledStepperNumber theme={theme} active={currentStep >= step}>
+                  {step}
                 </StyledStepperNumber>
               )}
             </>
@@ -38,6 +34,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
           {step < steps && (
             <StyledStepperLine
               key={`progressStep_line_${step}`}
+              theme={theme}
               active={currentStep > step && !isMultiStep}
             ></StyledStepperLine>
           )}
