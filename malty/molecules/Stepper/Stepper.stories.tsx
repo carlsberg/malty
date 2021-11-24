@@ -1,19 +1,28 @@
 import { Meta, Story } from '@storybook/react';
+import React from 'react';
 import { Stepper } from './Stepper';
 import { StepperProps } from './Stepper.types';
-import React from 'react';
 
 export default {
   title: 'Molecules/Stepper',
   component: Stepper,
   parameters: {
     importObject: 'Stepper',
-    importPath: '@carlsberggroup/malty.atoms.stepper'
+    importPath: '@carlsberggroup/malty.molecules.stepper'
   },
   argTypes: {
-    steps: { control: 'text' },
-    currentStep: { control: 'text' },
-    isMultiStep: { control: 'boolean' }
+    steps: {
+      control: 'number',
+      description: 'Total number of steps'
+    },
+    currentStep: {
+      control: 'number',
+      description: 'Current step number of progress'
+    },
+    isMultiStep: {
+      control: 'boolean',
+      description: 'Is the stepper a multi step control?'
+    }
   }
 } as Meta;
 
