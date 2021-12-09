@@ -28,15 +28,13 @@ export default {
     action: {
       description: 'Add action',
       control: 'boolean',
-      defaultValue: true
+      table: { defaultValue: { summary: 'true' } }
     },
     icon: {
       description: 'Add icon',
       control: 'boolean',
-      table: { defaultValue: { summary: 'true' } },
-      defaultValue: true
+      table: { defaultValue: { summary: 'true' } }
     },
-
     heightSize: {
       options: Object.values(HeightSizeTypes),
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
