@@ -8,13 +8,15 @@ import {
   StyledActionContainer,
   StyledActionItem,
   StyledAlert,
+  StyledAlertBannerWrapper,
   StyledAlertContent,
   StyledAlertInLine,
   StyledAlertInLineWithActions,
+  StyledAlertInLineWrapper,
+  StyledAlertToastWrapper,
   StyledContent,
   StyledDismissContainer,
-  StyledTextContainer,
-  StyledWrapper
+  StyledTextContainer
 } from './Alert.styled';
 import { AlertBackgroundColor, AlertProps, AlertType } from './Alert.types';
 
@@ -37,17 +39,33 @@ export const Alert = ({
   const alertIconColor = type !== AlertType.InLine ? IconColors.White : IconColors.Primary;
   const actionButtonColor = action && type !== AlertType.InLine && true;
 
+  let ComponentWrapper = StyledAlertToastWrapper;
   let ComponentContainer = StyledAlert;
   let ComponentContent = StyledAlertContent;
-  if (type === AlertType.InLine && action === true) {
-    ComponentContainer = StyledAlertInLineWithActions;
-    ComponentContent = StyledContent;
-  } else if (type === AlertType.InLine && action === false) {
-    ComponentContainer = StyledAlertInLine;
-    ComponentContent = StyledContent;
-  } else {
-    ComponentContainer = StyledAlert;
-    ComponentContent = StyledAlertContent;
+
+  switch (type) {
+    case AlertType.InLine:
+      if (action === true) {
+        ComponentContainer = StyledAlertInLineWithActions;
+      } else {
+        ComponentContainer = StyledAlertInLine;
+      }
+      ComponentWrapper = StyledAlertInLineWrapper;
+      ComponentContent = StyledContent;
+      break;
+    case AlertType.Banner:
+      ComponentWrapper = StyledAlertBannerWrapper;
+      ComponentContainer = StyledAlert;
+      ComponentContent = StyledAlertContent;
+      break;
+
+    case AlertType.Toast:
+      ComponentWrapper = StyledAlertToastWrapper;
+      ComponentContainer = StyledAlert;
+      ComponentContent = StyledAlertContent;
+      break;
+    default:
+      break;
   }
 
   const renderAlertIcon = () => (
@@ -103,7 +121,7 @@ export const Alert = ({
   );
 
   return (
-    <StyledWrapper>
+    <ComponentWrapper>
       <ComponentContainer heightSize={heightSize} data-testid={dataQaId} color={color} theme={theme}>
         <ComponentContent>
           {icon && renderAlertIcon()}
@@ -113,6 +131,6 @@ export const Alert = ({
         {type !== AlertType.InLine && renderDismissContainer()}
         {action && type === AlertType.InLine && renderActions()}
       </ComponentContainer>
-    </StyledWrapper>
+    </ComponentWrapper>
   );
 };
