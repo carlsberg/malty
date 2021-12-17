@@ -1,5 +1,10 @@
 {
   "variables": {
+    "textarea": {
+      "padding": {
+        "value": "12px 16"
+      }
+    },
     "button": {
       "icon": {
         "size": {
