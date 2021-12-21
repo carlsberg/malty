@@ -38,6 +38,13 @@ declare module 'styled-components' {
 
   interface TextareaType {
     padding: PropValue;
+    counter: TextareaCounterType;
+  }
+
+  interface TextareaCounterType {
+    borderRadius: PropValue;
+    padding: PropValue;
+    lineHeight: PropValue;
   }
 
   interface ImageType {

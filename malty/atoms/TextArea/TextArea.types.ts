@@ -5,4 +5,5 @@ export interface TextAreaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   resize?: boolean;
   disabled?: boolean;
   onValueChange: (value: string) => void;
+  error?: string;
 }

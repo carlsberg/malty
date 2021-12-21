@@ -2,7 +2,18 @@
   "variables": {
     "textarea": {
       "padding": {
-        "value": "12px 16"
+        "value": "12px 16px 30px 16"
+      },
+      "counter": {
+        "borderRadius": {
+          "value": "100"
+        },
+        "padding": {
+          "value": "0 6"
+        },
+        "lineHeight": {
+          "value": "14"
+        }
       }
     },
     "button": {

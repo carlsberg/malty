@@ -3,6 +3,7 @@ import React, { useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
+  StyledError,
   StyledLabel,
   StyledtextArea,
   StyledTextAreaCharacterCounter,
@@ -11,31 +12,31 @@ import {
 } from './TextArea.styled';
 import { TextAreaProps } from './TextArea.types';
 
-export const TextArea = ({ label, placeholder, resize, disabled, value, onValueChange }: TextAreaProps) => {
+export const TextArea = ({ label, placeholder, resize, disabled, value, onValueChange, error }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [textAreaCount, setTextAreaCount] = useState(0);
   const [rows, setRows] = useState(3);
   const [minRows] = useState(3);
-  const [maxRows] = useState(8);
+  const [maxRows] = useState(6);
 
-  const handleCarachterCounter = (e) => {
+  const handleCarachterCounter = (e: React.FormEvent<HTMLTextAreaElement>) => {
     const textareaLineHeight = 18;
-    setTextAreaCount(e.target.value.length);
-    onValueChange(e.target.value as string);
+    setTextAreaCount(e.currentTarget.value.length);
+    onValueChange(e.currentTarget.value as string);
 
-    const previousRows = e.target.rows;
-    e.target.rows = minRows; // reset number of rows in textarea
+    const previousRows = e.currentTarget.rows;
+    e.currentTarget.rows = minRows; // reset number of rows in textarea
     // eslint-disable-next-line no-bitwise
-    const currentRows = ~~(e.target.scrollHeight / textareaLineHeight);
+    const currentRows = ~~(e.currentTarget.scrollHeight / textareaLineHeight) - 1;
 
     if (currentRows === previousRows) {
-      e.target.rows = currentRows;
+      e.currentTarget.rows = currentRows;
     }
 
     if (currentRows >= maxRows) {
-      e.target.rows = maxRows;
-      e.target.scrollTop = e.target.scrollHeight;
+      e.currentTarget.rows = maxRows;
+      e.currentTarget.scrollTop = e.currentTarget.scrollHeight;
     }
     setRows(currentRows < maxRows ? currentRows : maxRows);
   };
@@ -57,11 +58,13 @@ export const TextArea = ({ label, placeholder, resize, disabled, value, onValueC
             onChange={handleCarachterCounter}
             disabled={disabled}
             theme={theme}
+            isError={!!error}
           />
           <StyledTextAreaCharacterCounter theme={theme} data-testid="TextAreaCounter">
             {textAreaCount}
           </StyledTextAreaCharacterCounter>
         </StyledTextAreaWrapper>
+        {error && <StyledError theme={theme}>{error}</StyledError>}
       </StyledTextareaContainer>
     </TypographyProvider>
   );

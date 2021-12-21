@@ -14,16 +14,25 @@ export const StyledLabel = styled.label`
   padding-bottom: ${({ theme }) => theme.variables.input.label.bottomPadding.value}px;
   font-weight: bold;
 `;
+export const StyledError = styled.label`
+  font-family: inherit;
+  color: ${({ theme }) => theme.color.system.failStrong.value};
+  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
+  font-weight: bold;
+  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  letter-spacing: 0;
+`;
 
 export const StyledtextArea = styled.textarea<{
   resize?: boolean;
   disabled?: boolean;
+  isError?: boolean;
 }>`
-  width: 100%;
+  width: 380px;
+  min-height: 96px;
   display: block;
   box-sizing: border-box;
   font-weight: normal;
-  min-height: 96px;
   font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
@@ -31,7 +40,9 @@ export const StyledtextArea = styled.textarea<{
   padding: ${({ theme }) => theme.variables.textarea.padding.value}px;
 
   border-radius: 0;
-  border: 1px solid ${({ theme }) => theme.color.form.calendarAvailable.value};
+  border: 1px solid
+    ${({ theme, isError }) =>
+      isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
 
   ::placeholder {
     opacity: 0.8;
@@ -70,14 +81,6 @@ export const StyledTextAreaWrapper = styled.div`
   position: relative;
   display: flex;
   flex: 1 1 auto;
-  &::before {
-    content: 'fffff';
-    position: absolute;
-    bottom: 0;
-    height: 25px;
-    width: 100%;
-    background-color: red;
-  }
 `;
 export const StyledTextAreaCharacterCounterContainer = styled.div`
   position: relative;
@@ -89,15 +92,10 @@ export const StyledTextAreaCharacterCounter = styled.div`
   left: 8px;
   bottom: 8px;
   background-color: ${({ theme }) => theme.color.support.support60.value};
-  color: white;
+  color: ${({ theme }) => theme.color.white.value};
   font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
-  padding: 0 6px;
-  border-radius: 100px;
-  line-height: 14px;
+  padding: ${({ theme }) => theme.variables.textarea.counter.padding.value}px;
+  border-radius: ${({ theme }) => theme.variables.textarea.counter.borderRadius.value}px;
+  line-height: ${({ theme }) => theme.variables.textarea.counter.lineHeight.value}px;
   font-weight: bold;
-  &::before {
-    content: '';
-    margin-top: 10px;
-    height: 20px;
-  }
 `;

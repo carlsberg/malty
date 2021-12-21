@@ -26,11 +26,25 @@ export default {
     disabled: {
       control: 'boolean',
       description: 'Input state, when disabled it is read-only.'
+    },
+    error: {
+      description: 'Error message to be displayed when error is present.',
+      control: 'text'
+    },
+    value: {
+      table: {
+        disable: true
+      }
+    },
+    onValueChange: {
+      table: {
+        disable: true
+      }
     }
   }
 } as Meta;
 
-const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, value }: TextAreaProps) => {
+const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, value, error }: TextAreaProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
     <TextArea
@@ -40,6 +54,7 @@ const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, 
       disabled={disabled}
       value={stateValue}
       onValueChange={(newValue: string) => setStateValue(newValue)}
+      error={error}
     />
   );
 };
@@ -49,5 +64,6 @@ Main.args = {
   label: 'Label',
   resize: false,
   placeholder: 'Placeholder',
-  disabled: false
+  disabled: false,
+  error: 'Error text'
 };
