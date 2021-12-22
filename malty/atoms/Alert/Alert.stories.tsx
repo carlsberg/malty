@@ -79,7 +79,7 @@ export default {
 
 const Template: Story<AlertProps> = ({ ...args }) => <AlertComponent {...args} />;
 
-export const Banner = Template.bind({});
+export const Alert = Template.bind({});
 
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
