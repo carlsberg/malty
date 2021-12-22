@@ -6,7 +6,7 @@ import { AlertBackgroundColor, AlertProps, AlertType, HeightSizeTypes } from './
 
 export default {
   title: 'Atoms/Alert',
-  component: Alert,
+  component: AlertComponent,
   parameters: {
     importObject: 'Alert',
     importPath: '@carlsberggroup/malty.atoms.alert'
