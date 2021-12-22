@@ -81,44 +81,48 @@ const Template: Story<AlertProps> = ({ ...args }) => <AlertComponent {...args} /
 
 export const Banner = Template.bind({});
 
-Banner.args = {
-  type: AlertType.Banner,
-  label: 'Hello, Im the Banner Alert! Play with me.',
-  action: true,
-  icon: true,
-  heightSize: HeightSizeTypes.Medium,
-  color: AlertBackgroundColor.Notification,
-  dataQaId: 'banner-alert',
-  firstAction: action('First Action clicked'),
-  firstActionText: 'First Action'
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
 
-export const InLine = Template.bind({});
-
-InLine.args = {
-  type: AlertType.InLine,
-  label: 'Hello, Im the In Line Alert! Play with me.',
-  action: false,
-  icon: false,
-  heightSize: HeightSizeTypes.Medium,
-  color: AlertBackgroundColor.Notification,
-  dataQaId: 'inline-alert',
-  firstAction: action('First Action clicked'),
-  firstActionText: 'First Action',
-  secondAction: action('Second Action clicked'),
-  secondActionText: 'Second Action'
-};
-
-export const Toast = Template.bind({});
-
-Toast.args = {
-  type: AlertType.Toast,
-  label: 'Hello, Im the Toast Alert! Play with me.',
-  action: true,
-  icon: true,
-  heightSize: undefined,
-  color: AlertBackgroundColor.Notification,
-  dataQaId: 'toast-alert',
-  firstAction: action('First Action clicked'),
-  firstActionText: 'First Action'
-};
+switch (variant) {
+  case 'inline':
+    Alert.args = {
+      type: AlertType.InLine,
+      label: 'Hello, Im the In Line Alert! Play with me.',
+      action: false,
+      icon: false,
+      heightSize: HeightSizeTypes.Medium,
+      color: AlertBackgroundColor.Notification,
+      dataQaId: 'inline-alert',
+      firstAction: action('First Action clicked'),
+      firstActionText: 'First Action',
+      secondAction: action('Second Action clicked'),
+      secondActionText: 'Second Action'
+    };
+    break;
+  case 'toast':
+    Alert.args = {
+      type: AlertType.Toast,
+      label: 'Hello, Im the Toast Alert! Play with me.',
+      action: true,
+      icon: true,
+      heightSize: undefined,
+      color: AlertBackgroundColor.Notification,
+      dataQaId: 'toast-alert',
+      firstAction: action('First Action clicked'),
+      firstActionText: 'First Action'
+    };
+    break;
+  default:
+    Alert.args = {
+      type: AlertType.Banner,
+      label: 'Hello, Im the Banner Alert! Play with me.',
+      action: true,
+      icon: true,
+      heightSize: HeightSizeTypes.Medium,
+      color: AlertBackgroundColor.Notification,
+      dataQaId: 'banner-alert',
+      firstAction: action('First Action clicked'),
+      firstActionText: 'First Action'
+    };
+    break;
