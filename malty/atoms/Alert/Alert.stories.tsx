@@ -77,7 +77,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<AlertProps> = ({ ...args }) => <Alert {...args} />;
+const Template: Story<AlertProps> = ({ ...args }) => <AlertComponent {...args} />;
 
 export const Banner = Template.bind({});
 
