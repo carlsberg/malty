@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Alert as AlertComponent } from './Alert';
-import { AlertBackgroundColor, AlertProps, AlertType, HeightSizeTypes } from './Alert.types';
+import { AlertBackgroundColor, AlertHeightSizeTypes, AlertProps, AlertType } from './Alert.types';
 
 export default {
   title: 'Atoms/Alert',
@@ -36,7 +36,7 @@ export default {
       table: { defaultValue: { summary: 'true' } }
     },
     heightSize: {
-      options: Object.values(HeightSizeTypes),
+      options: Object.values(AlertHeightSizeTypes),
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
       table: {
         defaultValue: {
@@ -91,7 +91,7 @@ switch (variant) {
       label: 'Hello, Im the In Line Alert! Play with me.',
       action: false,
       icon: false,
-      heightSize: HeightSizeTypes.Medium,
+      heightSize: AlertHeightSizeTypes.Medium,
       color: AlertBackgroundColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
@@ -119,10 +119,11 @@ switch (variant) {
       label: 'Hello, Im the Banner Alert! Play with me.',
       action: true,
       icon: true,
-      heightSize: HeightSizeTypes.Medium,
+      heightSize: AlertHeightSizeTypes.Medium,
       color: AlertBackgroundColor.Notification,
       dataQaId: 'banner-alert',
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action'
     };
     break;
+}

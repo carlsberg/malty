@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { AlertBackgroundColor, AlertType, HeightSizeTypes } from './Alert.types';
+import { AlertBackgroundColor, AlertHeightSizeTypes, AlertType } from './Alert.types';
 
 export const StyledWrapper = styled.div<{
   type?: AlertType;
@@ -29,7 +29,7 @@ export const StyledAlertToastWrapper = styled(StyledWrapper)`
 
 export const StyledContainer = styled.div<{
   color?: AlertBackgroundColor;
-  heightSize?: HeightSizeTypes;
+  heightSize?: AlertHeightSizeTypes;
 }>`
   width: 100%;
   display: flex;
@@ -61,7 +61,7 @@ export const StyledAlertInLine = styled(StyledContainer)`
   }};
   color: ${({ theme }) => theme.color.default.value};
   height: ${({ heightSize, theme }) => {
-    if (heightSize === HeightSizeTypes.Small) {
+    if (heightSize === AlertHeightSizeTypes.Small) {
       return `${theme.variables.container.size.small.value}px`;
     }
     return `${theme.variables.container.size.medium.value}px`;

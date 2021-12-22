@@ -4,7 +4,7 @@ export interface AlertProps {
   action?: boolean;
   icon?: boolean;
   dismiss?: (state: boolean) => void;
-  heightSize?: HeightSizeTypes;
+  heightSize?: AlertHeightSizeTypes;
   color: AlertBackgroundColor;
   dataQaId?: string;
   firstAction?: () => void;
