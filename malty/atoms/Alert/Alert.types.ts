@@ -26,7 +26,7 @@ export enum AlertBackgroundColor {
   Fail = 'fail'
 }
 
-export enum HeightSizeTypes {
+export enum AlertHeightSizeTypes {
   Small = 'small',
   Medium = 'medium'
 }
