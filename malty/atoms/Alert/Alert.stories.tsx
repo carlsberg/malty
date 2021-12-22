@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Alert } from './Alert';
+import { Alert as AlertComponent } from './Alert';
 import { AlertBackgroundColor, AlertProps, AlertType, HeightSizeTypes } from './Alert.types';
 
 export default {
