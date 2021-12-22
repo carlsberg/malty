@@ -1,2 +1,2 @@
 export { Alert } from './Alert';
-export type { AlertBackgroundColor, AlertProps, AlertType, HeightSizeTypes } from './Alert.types';
+export type { AlertBackgroundColor, AlertProps, AlertType, AlertHeightSizeTypes } from './Alert.types';
