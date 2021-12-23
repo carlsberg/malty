@@ -12,7 +12,16 @@ import {
 } from './TextArea.styled';
 import { TextAreaProps } from './TextArea.types';
 
-export const TextArea = ({ label, placeholder, resize, disabled, value, onValueChange, error }: TextAreaProps) => {
+export const TextArea = ({
+  label,
+  placeholder,
+  resize,
+  disabled,
+  value,
+  onValueChange,
+  error,
+  fullWidth
+}: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [textAreaCount, setTextAreaCount] = useState(0);
@@ -49,16 +58,21 @@ export const TextArea = ({ label, placeholder, resize, disabled, value, onValueC
             {label}
           </StyledLabel>
         )}
-        <StyledTextAreaWrapper theme={theme}>
+        <StyledTextAreaWrapper
+          fullWidth={fullWidth}
+          disabled={disabled}
+          isError={!!error}
+          resize={resize}
+          theme={theme}
+        >
           <StyledtextArea
+            name={id}
+            id={id}
             rows={rows}
             value={value}
             placeholder={placeholder}
-            resize={resize}
             onChange={handleCarachterCounter}
-            disabled={disabled}
             theme={theme}
-            isError={!!error}
           />
           <StyledTextAreaCharacterCounter theme={theme} data-testid="TextAreaCounter">
             {textAreaCount}

@@ -21,15 +21,19 @@ export default {
     },
     resize: {
       control: 'boolean',
-      description: 'Textarea  state, resizable textarea'
+      description: 'Textarea state, resizable textarea'
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, when disabled it is read-only.'
+      description: 'Textarea state, when disabled it is read-only.'
     },
     error: {
       description: 'Error message to be displayed when error is present.',
       control: 'text'
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'When true, makes the textare take up the full width of its container'
     },
     value: {
       table: {
@@ -44,7 +48,15 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, value, error }: TextAreaProps) => {
+const Template: Story<TextAreaProps> = ({
+  label,
+  placeholder,
+  resize,
+  disabled,
+  value,
+  error,
+  fullWidth
+}: TextAreaProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
     <TextArea
@@ -55,6 +67,7 @@ const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, 
       value={stateValue}
       onValueChange={(newValue: string) => setStateValue(newValue)}
       error={error}
+      fullWidth={fullWidth}
     />
   );
 };
@@ -65,5 +78,6 @@ Main.args = {
   resize: false,
   placeholder: 'Placeholder',
   disabled: false,
-  error: 'Error text'
+  error: 'Error text',
+  fullWidth: true
 };

@@ -23,14 +23,9 @@ export const StyledError = styled.label`
   letter-spacing: 0;
 `;
 
-export const StyledtextArea = styled.textarea<{
-  resize?: boolean;
-  disabled?: boolean;
-  isError?: boolean;
-}>`
-  width: 380px;
-  min-height: 96px;
-  display: block;
+export const StyledtextArea = styled.textarea`
+  width: 100%;
+  height: calc(100% - 22px);
   box-sizing: border-box;
   font-weight: normal;
   font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
@@ -38,16 +33,43 @@ export const StyledtextArea = styled.textarea<{
   transition-property: border-color, color;
   color: ${({ theme }) => theme.color.button.primaryDefault.value};
   padding: ${({ theme }) => theme.variables.textarea.padding.value}px;
-
-  border-radius: 0;
-  border: 1px solid
-    ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
+  resize: none;
+  border: 0;
+  &:hover,
+  &:focus {
+    outline: none;
+  }
 
   ::placeholder {
     opacity: 0.8;
     color: ${({ theme }) => theme.color.information.indirect.value};
   }
+`;
+
+export const StyledTextAreaWrapper = styled.div<{
+  resize?: boolean;
+  disabled?: boolean;
+  isError?: boolean;
+  fullWidth?: boolean;
+}>`
+  min-width: 290px;
+  min-height: 96px;
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  border: 1px solid
+    ${({ theme, isError }) =>
+      isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
+  overflow: hidden;
+  ${({ fullWidth }) =>
+    fullWidth
+      ? css`
+          max-width: 100%;
+        `
+      : css`
+          max-width: 380px;
+        `};
   ${({ resize }) =>
     resize
       ? css`
@@ -56,7 +78,6 @@ export const StyledtextArea = styled.textarea<{
       : css`
           resize: none;
         `};
-
   ${({ disabled }) =>
     disabled
       ? css`
@@ -76,21 +97,17 @@ export const StyledtextArea = styled.textarea<{
           }
         `}
 `;
-
-export const StyledTextAreaWrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex: 1 1 auto;
-`;
 export const StyledTextAreaCharacterCounterContainer = styled.div`
   position: relative;
   display: flex;
   flex: 1 1 auto;
 `;
 export const StyledTextAreaCharacterCounter = styled.div`
-  position: absolute;
-  left: 8px;
-  bottom: 8px;
+  margin-top: 5px;
+  position: relative;
+  width: fit-content;
+  margin-left: 8px;
+  margin-bottom: 8px;
   background-color: ${({ theme }) => theme.color.support.support60.value};
   color: ${({ theme }) => theme.color.white.value};
   font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
