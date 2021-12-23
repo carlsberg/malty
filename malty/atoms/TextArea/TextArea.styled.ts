@@ -73,7 +73,7 @@ export const StyledTextAreaWrapper = styled.div<{
   ${({ resize }) =>
     resize
       ? css`
-          resize: both;
+          resize: vertical;
         `
       : css`
           resize: none;
