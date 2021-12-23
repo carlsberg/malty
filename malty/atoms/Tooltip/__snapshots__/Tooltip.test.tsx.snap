@@ -9,10 +9,10 @@ Array [
     Click here to toggle it!
   </a>,
   <span
-    className="sc-bdfBQB dGZTMR"
+    className="sc-bdvvtL iouZXA"
   >
     <div
-      className="sc-hKgJUU bTWTmT"
+      className="sc-hKwDye hLtcyT"
       style={
         Object {
           "--color": "dodgerblue",
@@ -20,11 +20,11 @@ Array [
       }
     >
       <div
-        className="sc-dlfnuX eKyIZR"
+        className="sc-dkPtRN jbCtJt"
         open={true}
       >
         <p
-          className="sc-gsTEea dirViS"
+          className="sc-gsDKAQ irAOty"
         >
           <button
             type="button"

@@ -2,19 +2,19 @@
 
 exports[`input matches snapshot 1`] = `
 <span
-  className="sc-bdfBQB dGZTMR"
+  className="sc-bdvvtL iouZXA"
 >
   <div
-    className="sc-dlfnuX gsbWOj"
+    className="sc-dkPtRN khGQdv"
   >
     <div
-      className="sc-jSgvzq iYlHTr"
+      className="sc-jRQBWg dVkVox"
     >
       <span
-        className="sc-bdfBQB dGZTMR"
+        className="sc-bdvvtL iouZXA"
       >
         <input
-          className="sc-gKseQn eQyXbZ"
+          className="sc-gKclnd iOwrBT"
           id="00000000-0000-0000-0000-000000000000"
           name="00000000-0000-0000-0000-000000000000"
           onChange={[Function]}

@@ -2,10 +2,10 @@
 
 exports[`button matches snapshot 1`] = `
 <span
-  className="sc-bdfBQB dGZTMR"
+  className="sc-bdvvtL iouZXA"
 >
   <button
-    className="sc-jSgvzq sc-gKseQn cNvpjr cuXSjV"
+    className="sc-jRQBWg sc-gKclnd kgleYN daEqQf"
     disabled={true}
     fontSize="16"
     onClick={[MockFunction]}
