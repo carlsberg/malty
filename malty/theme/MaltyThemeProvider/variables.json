@@ -1,5 +1,15 @@
 {
   "variables": {
+    "alert": {
+      "size": {
+        "medium": {
+          "value": "40"
+        },
+        "small": {
+          "value": "32"
+        }
+      }
+    },
     "button": {
       "icon": {
         "size": {

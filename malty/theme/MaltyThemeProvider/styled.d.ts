@@ -12,6 +12,7 @@ declare module 'styled-components' {
   }
 
   interface VariablesType {
+    alert: AlertType;
     button: ButtonType;
     checkbox: CheckboxType;
     icon: IconType;
@@ -37,6 +38,15 @@ declare module 'styled-components' {
 
   interface ImageType {
     border: PropValue;
+  }
+
+  interface AlertType {
+    size: AlertHeightSize;
+  }
+
+  interface AlertHeightSize {
+    small: PropValue;
+    medium: PropValue;
   }
 
   interface ButtonType {
