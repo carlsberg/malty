@@ -2,26 +2,26 @@
 
 exports[`pill matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL iouZXA"
+  className="sc-bdfBQB dGZTMR"
 >
   <div
-    className="sc-dkPtRN gjmJjE"
+    className="sc-dlfnuX cNwhLM"
   >
     <div
-      className="sc-hKwDye grShSB"
+      className="sc-hKgJUU ixjwbN"
     >
       <div
-        className="sc-gsDKAQ lnjgzY"
+        className="sc-gsTEea jDHeRY"
       />
       <span
-        className="sc-eCImPb dwAoMB"
+        className="sc-eCstlR bGZnQM"
       >
         30
         %
       </span>
     </div>
     <span
-      className="sc-jRQBWg gafLJA"
+      className="sc-jSgvzq jpENRW"
     >
       Test text
     </span>

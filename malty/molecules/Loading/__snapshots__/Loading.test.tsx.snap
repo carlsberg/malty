@@ -2,14 +2,14 @@
 
 exports[`molecule loading matches snapshot 1`] = `
 <div
-  className="sc-dkPtRN fmXWEs"
+  className="sc-dlfnuX jHvCfo"
 >
   <div
-    className="sc-hKwDye laxEWy"
+    className="sc-hKgJUU hmgXZm"
     size="40"
   >
     <svg
-      className="sc-gsDKAQ rszqA spinning Pending"
+      className="sc-gsTEea gjoxSc spinning Pending"
       color="Primary"
       data-testid="svg-component"
       size="40"

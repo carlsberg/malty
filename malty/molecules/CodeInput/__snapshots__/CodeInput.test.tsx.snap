@@ -2,17 +2,17 @@
 
 exports[`input matches snapshot 1`] = `
 <div
-  className="sc-dkPtRN gjmJjE"
+  className="sc-dlfnuX cNwhLM"
 >
   <label
-    className="sc-hKwDye bvTKXl"
+    className="sc-hKgJUU htAymp"
     htmlFor="00000000-0000-0000-0000-000000000000"
   />
   <div
-    className="sc-jRQBWg ga-DbSV"
+    className="sc-jSgvzq hCQqnB"
   >
     <input
-      className="sc-gKclnd kTzlZk"
+      className="sc-gKseQn lhUbZS"
       id="00000000-0000-0000-0000-000000000000"
       name="00000000-0000-0000-0000-000000000000"
       onChange={[Function]}
