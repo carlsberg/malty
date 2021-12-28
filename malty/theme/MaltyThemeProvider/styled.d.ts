@@ -19,6 +19,7 @@ declare module 'styled-components' {
     pill: PillType;
     progressBar: ProgressBarType;
     tooltip: TooltipType;
+    radio: RadioType;
     select: SelectType;
     codeInput: CodeInputType;
     loading: LoadingType;
@@ -37,6 +38,10 @@ declare module 'styled-components' {
 
   interface ImageType {
     border: PropValue;
+  }
+
+  interface RadioType {
+    paddingLeft: PropValue;
   }
 
   interface ButtonType {

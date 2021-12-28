@@ -333,6 +333,12 @@
         "value": "8"
       }
     },
+    "radio": {
+      "paddingLeft": {
+        "value": "10"
+      }
+    },
+
     "global": {
       "breakpoints": {
         "xsmall": {
