@@ -22,7 +22,6 @@ import { AlertBackgroundColor, AlertProps, AlertType } from './Alert.types';
 
 export const Alert = ({
   type,
-  label,
   action = true,
   icon,
   dismiss,
@@ -32,7 +31,8 @@ export const Alert = ({
   firstAction,
   firstActionText,
   secondAction,
-  secondActionText
+  secondActionText,
+  children
 }: AlertProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const labelFontColor = type !== AlertType.InLine ? Color.White : Color.Default;
@@ -80,7 +80,7 @@ export const Alert = ({
   const renderLabel = () => (
     <StyledTextContainer data-alert-label-container>
       <Text color={labelFontColor} size={Size.MediumSmall}>
-        {label}
+        {children}
       </Text>
     </StyledTextContainer>
   );
