@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { TextArea } from './TextArea';
+import { TextArea as TextAreaComponent } from './TextArea';
 import { TextAreaProps } from './TextArea.types';
 
 export default {
   title: 'Atoms/TextArea',
-  component: TextArea,
+  component: TextAreaComponent,
   parameters: {
     importObject: 'TextArea',
     importPath: '@carlsberggroup/malty.atoms.TextArea'
@@ -59,7 +59,7 @@ const Template: Story<TextAreaProps> = ({
 }: TextAreaProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
-    <TextArea
+    <TextAreaComponent
       label={label}
       placeholder={placeholder}
       resize={resize}
@@ -72,8 +72,8 @@ const Template: Story<TextAreaProps> = ({
   );
 };
 
-export const Main = Template.bind({});
-Main.args = {
+export const TextArea = Template.bind({});
+TextArea.args = {
   label: 'Label',
   resize: false,
   placeholder: 'Placeholder',
