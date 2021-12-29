@@ -1,17 +1,20 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledRadio = styled.input`
   display: inline-block;
   height: 18px;
   width: 18px;
-  margin-top: 0;
+  margin: 0;
   background: red;
   border: 2px solid red;
 
   position: relative;
 
   cursor: pointer;
-
+  &:disabled {
+    pointer-events: none;
+    background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+  }
   &:before {
     content: '';
     transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
@@ -50,12 +53,19 @@ export const StyledRadio = styled.input`
   }
 `;
 
-export const StyledLabel = styled.label`
+export const StyledLabel = styled.label<{
+  disabled?: boolean;
+}>`
   color: ${({ theme }) => theme.color.default.value};
   font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
   line-height: ${({ theme }) => theme.typography.text['medium-small']['line-height'].value}px;
   padding-left: ${({ theme }) => theme.variables.radio.paddingLeft.value}px;
   font-weight: 400;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.color.information.disable.value};
+    `}
 `;
 
 export const StyledError = styled.label`

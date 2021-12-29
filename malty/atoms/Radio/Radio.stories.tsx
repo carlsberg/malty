@@ -23,26 +23,34 @@ export default {
       description: 'Value of Radio component',
       control: 'text'
     },
+
     selected: {
       description: 'If Radio component is selected or not',
       control: 'boolean'
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Input state, when disabled it is read-only.'
+    },
+    name: {
+      description: 'Name attribute of the radio element.'
+    },
     onValueChange: {
-      table: {
-        disable: true
-      }
+      description: 'Function to be executed when radio state changes'
     }
   }
 };
-const Template: Story<RadioProps> = ({ value, labelText, selected, onValueChange, name, error }) => (
+const Template: Story<RadioProps> = ({ value, labelText, selected, onValueChange, name, error, disabled }) => (
   <>
     <Radio
+      id={value.toString()}
       value={value}
       labelText={labelText}
       selected={selected}
       onValueChange={onValueChange}
       name={name}
       error={error}
+      disabled={disabled}
     />
   </>
 );
@@ -51,6 +59,6 @@ Main.args = {
   labelText: 'Option 1',
   name: 'radioOptions',
   value: 'Option 1',
-  error: 'Error text',
-  selected: true
+  selected: true,
+  disabled: false
 };
