@@ -1353,6 +1353,24 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Loading"
     },
+    "molecules/nav-list": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/molecules/NavList"
+    },
+    "molecules/products-bar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/molecules/ProductsBar"
+    },
+    "molecules/side-nav": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/molecules/SideNav"
+    },
     "molecules/stepper": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.3",
