@@ -97,6 +97,7 @@ export const NavList = ({ navItems }: NavListProps) => {
       {subNavIsActive && (
         <>
           <StyledNavItem onClick={closeSubNav}>
+            <LinkComponent item={navItems[activeNavItem]} />
             <Icon name="ArrowSmallLeft" size="Small" color="White" />
             <Text size="medium-small" color="white" weight="bold">
               {navItems[activeNavItem]?.name}
