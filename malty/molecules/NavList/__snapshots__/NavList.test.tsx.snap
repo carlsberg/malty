@@ -5,7 +5,9 @@ exports[`sideNav molecule matches snapshot 1`] = `
   className="sc-hKwDye kEMVNS"
 >
   <li
-    className="sc-eCImPb bPZFBl"
+    className="sc-eCImPb eMdPPz"
+    onClick={[Function]}
+    selected={false}
   >
     <svg
       className="sc-gsDKAQ jfmKRC"
@@ -29,9 +31,9 @@ exports[`sideNav molecule matches snapshot 1`] = `
         className="sc-bdvvtL iouZXA"
       >
         <p
-          className="sc-dkPtRN exrcrI"
+          className="sc-dkPtRN eGpvia"
           color="white"
-          size="medium-small"
+          size="small"
         >
           item 1
         </p>
@@ -39,7 +41,9 @@ exports[`sideNav molecule matches snapshot 1`] = `
     </a>
   </li>
   <li
-    className="sc-eCImPb bPZFBl"
+    className="sc-eCImPb eMdPPz"
+    onClick={[Function]}
+    selected={false}
   >
     <svg
       className="sc-gsDKAQ jfmKRC"
@@ -63,9 +67,9 @@ exports[`sideNav molecule matches snapshot 1`] = `
         className="sc-bdvvtL iouZXA"
       >
         <p
-          className="sc-dkPtRN exrcrI"
+          className="sc-dkPtRN eGpvia"
           color="white"
-          size="medium-small"
+          size="small"
         >
           item 2
         </p>
@@ -73,7 +77,9 @@ exports[`sideNav molecule matches snapshot 1`] = `
     </a>
   </li>
   <li
-    className="sc-eCImPb bPZFBl"
+    className="sc-eCImPb eMdPPz"
+    onClick={[Function]}
+    selected={false}
   >
     <svg
       className="sc-gsDKAQ jfmKRC"
@@ -97,9 +103,9 @@ exports[`sideNav molecule matches snapshot 1`] = `
         className="sc-bdvvtL iouZXA"
       >
         <p
-          className="sc-dkPtRN exrcrI"
+          className="sc-dkPtRN eGpvia"
           color="white"
-          size="medium-small"
+          size="small"
         >
           item 3
         </p>
