@@ -1,19 +1,20 @@
+import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
 import { fireEvent, jsonRenderer, render, screen, within } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { NavList } from './NavList';
 
 const simpleNavigation = [
-  { icon: 'DataTransfer', name: 'item 1', href: '/item1' },
-  { icon: 'DataTransfer', name: 'item 2', href: '/item2' },
-  { icon: 'DataTransfer', name: 'item 3', href: '/item3' }
+  { icon: IconNames.DataTransfer, name: 'item 1', href: '/item1' },
+  { icon: IconNames.DataTransfer, name: 'item 2', href: '/item2' },
+  { icon: IconNames.DataTransfer, name: 'item 3', href: '/item3' }
 ];
 
 const navWithRouterItems = [
-  { icon: 'DataTransfer', name: 'item 1', href: '/item1' },
-  { icon: 'DataTransfer', name: 'item 2', href: '/item2' },
+  { icon: IconNames.DataTransfer, name: 'item 1', href: '/item1' },
+  { icon: IconNames.DataTransfer, name: 'item 2', href: '/item2' },
   {
-    icon: 'DataTransfer',
+    icon: IconNames.DataTransfer,
     name: 'item with subnav',
     component: Link,
     href: '/',
