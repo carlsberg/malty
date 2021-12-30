@@ -1,33 +1,34 @@
+import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
 import React from 'react';
 
-export interface subItemProps {
+export interface SubItemProps {
   name: string;
   href: string;
   component?: React.ReactNode | JSX.Element;
 }
 
-export interface navItemProps {
+export interface ItemProps {
   name: string;
-  icon?: string;
+  icon: IconNames;
   href: string;
   component?: React.ReactNode | JSX.Element;
-  subItems?: subItemProps[];
+  subItems?: SubItemProps[];
 }
 
-export type NavItemProps = {
-  item: navItemProps;
+export interface NavItemProps {
+  item: ItemProps;
   itemIndex: number;
   setActiveNavItem: (item: number) => void;
   openSubNav: (item: number) => void;
   selected?: boolean;
-};
+}
 
-export type SubNavItemProps = {
-  item: navItemProps;
+export interface SubNavItemProps {
+  item: SubItemProps;
   itemIndex: number;
   setActiveNavItem: (item: number) => void;
   selected: boolean;
-};
+}
 
 export type LinkComponentProps = {
   href: string;
@@ -36,5 +37,5 @@ export type LinkComponentProps = {
 };
 
 export interface NavListProps {
-  navItems: navItemProps[];
+  navItems: ItemProps[];
 }

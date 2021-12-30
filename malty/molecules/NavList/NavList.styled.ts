@@ -10,7 +10,7 @@ export const StyledNavList = styled.ul`
 `;
 
 export const StyledNavItem = styled.li<{
-  selected: string;
+  selected: boolean;
 }>`
   width: 100%;
   height: 56px;

@@ -1,9 +1,9 @@
-import { Headline } from '@carlsberggroup/malty.atoms.headline';
+import { Align, Color, Headline, Size } from '@carlsberggroup/malty.atoms.headline';
+import { NavList } from '@carlsberggroup/malty.molecules.nav-list';
+import { ProductsBar } from '@carlsberggroup/malty.molecules.products-bar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { NavList } from '../NavList';
-import { ProductsBar } from '../ProductsBar';
 import { StyledNavList, StyledSideNav, StyledWrapper } from './SideNav.styled';
 import { SideNavProps } from './SideNav.types';
 
@@ -14,7 +14,7 @@ export const SideNav = ({ productName, navItems }: SideNavProps) => {
     <StyledWrapper theme={theme}>
       <ProductsBar />
       <StyledSideNav>
-        <Headline align="left" color="white" size="medium">
+        <Headline align={Align.Left} color={Color.White} size={Size.Medium}>
           {productName}
         </Headline>
         <StyledNavList>

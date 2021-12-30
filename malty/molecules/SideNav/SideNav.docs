@@ -2,15 +2,3 @@
 labels: ['react', 'typescript', 'sideNav']
 description: 'A Side nav component'
 ---
-
-import { SideNav } from './SideNav';
-
-SideNav example:
-
-A product side nav component.
-
-Live Playground:
-
-```js live
-<SideNav productName="Ottilia" />
-```

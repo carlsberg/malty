@@ -1,5 +1,10 @@
-import { Icon, IconColors, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import { Text } from '@carlsberggroup/malty.atoms.text';
+import {
+  Icon,
+  IconColors,
+  IconNamesTypes as IconNames,
+  IconSizesTypes as IconSizes
+} from '@carlsberggroup/malty.atoms.icon';
+import { Color, Size, Text, Weight } from '@carlsberggroup/malty.atoms.text';
 import React, { useEffect, useState } from 'react';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
 import { LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
@@ -14,7 +19,7 @@ const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
   return (
     <StyledSubNavItem key={`subNavItem-${itemIndex}`} onClick={() => setActiveNavItem(itemIndex)} selected={selected}>
       <LinkComponent component={component} href={href}>
-        <Text size="medium-small" color="white">
+        <Text size={Size.MediumSmall} color={Color.White}>
           {name}
         </Text>
       </LinkComponent>
@@ -31,17 +36,17 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
       onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
       selected={selected}
     >
-      <Icon name={icon} size={IconSizesTypes.Small} color={IconColors.White} />
+      {icon && <Icon name={IconNames[icon]} size={IconSizes.Small} color={IconColors.White} />}
 
       <LinkComponent component={component} href={href}>
-        <Text size="medium-small" color="white">
+        <Text size={Size.Small} color={Color.White}>
           {name}
         </Text>
       </LinkComponent>
 
       {subItems && (
         <StyledRightArrow>
-          <Icon name="ArrowSmallRight" size="Small" color="White" />
+          <Icon name={IconNames.ArrowSmallRight} size={IconSizes.Small} color={IconColors.White} />
         </StyledRightArrow>
       )}
     </StyledNavItem>
@@ -98,14 +103,14 @@ export const NavList = ({ navItems }: NavListProps) => {
 
       {subNavIsActive && (
         <>
-          <StyledNavItem onClick={closeSubNav}>
+          <StyledNavItem selected={false} onClick={closeSubNav}>
             <LinkComponent component={component} href={href}>
-              <Text size="medium-small" color="white">
+              <Text size={Size.MediumSmall} color={Color.White}>
                 {name}
               </Text>
             </LinkComponent>
-            <Icon name="ArrowSmallLeft" size="Small" color="White" />
-            <Text size="medium-small" color="white" weight="bold">
+            <Icon name={IconNames.ArrowSmallLeft} size={IconSizes.Small} color={IconColors.White} />
+            <Text size={Size.MediumSmall} color={Color.White} weight={Weight.Bold}>
               {name}
             </Text>
           </StyledNavItem>
