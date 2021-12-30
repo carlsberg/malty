@@ -17,7 +17,7 @@ const LinkComponent = ({ component, href, children }: LinkComponentProps) => {
 const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) => {
   const { component, name, href } = item;
   return (
-    <StyledSubNavItem key={`subNavItem-${itemIndex}`} onClick={() => setActiveNavItem(itemIndex)} selected={selected}>
+    <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected}>
       <LinkComponent component={component} href={href}>
         <Text size={Size.MediumSmall} color={Color.White}>
           {name}
@@ -32,7 +32,6 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
 
   return (
     <StyledNavItem
-      key={`navItem-${itemIndex}`}
       onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
       selected={selected}
     >
@@ -97,6 +96,7 @@ export const NavList = ({ navItems }: NavListProps) => {
               setActiveNavItem={setActiveNavItem}
               openSubNav={openSubNav}
               selected={selected}
+              key={`navItem${index}`}
             />
           );
         })}
@@ -116,7 +116,15 @@ export const NavList = ({ navItems }: NavListProps) => {
           </StyledNavItem>
           {subItems?.map((item, index) => {
             const selected = activeSubItem === index;
-            return <SubNavItem item={item} itemIndex={index} setActiveNavItem={setActiveSubItem} selected={selected} />;
+            return (
+              <SubNavItem
+                item={item}
+                itemIndex={index}
+                setActiveNavItem={setActiveSubItem}
+                selected={selected}
+                key={`subNavItem${index}`}
+              />
+            );
           })}
         </>
       )}
