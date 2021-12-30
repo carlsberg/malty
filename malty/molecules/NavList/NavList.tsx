@@ -2,52 +2,51 @@ import { Icon, IconColors, IconSizesTypes } from '@carlsberggroup/malty.atoms.ic
 import { Text } from '@carlsberggroup/malty.atoms.text';
 import React, { useEffect, useState } from 'react';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
-import { NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
+import { LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
 
-const LinkComponent = ({ item }) => {
-  const CustomComponent = (item.component as keyof JSX.IntrinsicElements) || null;
+const LinkComponent = ({ component, href, children }: LinkComponentProps) => {
+  const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
+  return <>{component ? <CustomComponent to={href}>{children}</CustomComponent> : <a href={href}>{children}</a>}</>;
+};
+
+const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) => {
+  const { component, name, href } = item;
   return (
-    <>
-      {item.component ? (
-        <CustomComponent to={item.href}>
-          <Text size="medium-small" color="white">
-            {item.name}
-          </Text>
-        </CustomComponent>
-      ) : (
-        <a href={item.href}>
-          <Text size="medium-small" color="white">
-            {item.name}
-          </Text>
-        </a>
-      )}
-    </>
+    <StyledSubNavItem key={`subNavItem-${itemIndex}`} onClick={() => setActiveNavItem(itemIndex)} selected={selected}>
+      <LinkComponent component={component} href={href}>
+        <Text size="medium-small" color="white">
+          {name}
+        </Text>
+      </LinkComponent>
+    </StyledSubNavItem>
   );
 };
 
-const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) => (
-  <StyledSubNavItem key={`subNavItem-${itemIndex}`} onClick={() => setActiveNavItem(itemIndex)} selected={selected}>
-    <LinkComponent item={item} />
-  </StyledSubNavItem>
-);
+const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false }: NavItemProps) => {
+  const { component, name, href, icon, subItems } = item;
 
-const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false }: NavItemProps) => (
-  <StyledNavItem
-    key={`navItem-${itemIndex}`}
-    onClick={item.subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
-    selected={selected}
-  >
-    <Icon name={item.icon} size={IconSizesTypes.Small} color={IconColors.White} />
+  return (
+    <StyledNavItem
+      key={`navItem-${itemIndex}`}
+      onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
+      selected={selected}
+    >
+      <Icon name={icon} size={IconSizesTypes.Small} color={IconColors.White} />
 
-    <LinkComponent item={item} />
+      <LinkComponent component={component} href={href}>
+        <Text size="medium-small" color="white">
+          {name}
+        </Text>
+      </LinkComponent>
 
-    {item.subItems && (
-      <StyledRightArrow>
-        <Icon name="ArrowSmallRight" size="Small" color="White" />
-      </StyledRightArrow>
-    )}
-  </StyledNavItem>
-);
+      {subItems && (
+        <StyledRightArrow>
+          <Icon name="ArrowSmallRight" size="Small" color="White" />
+        </StyledRightArrow>
+      )}
+    </StyledNavItem>
+  );
+};
 
 export const NavList = ({ navItems }: NavListProps) => {
   const [subNavIsActive, toggleSubNav] = useState(false);
@@ -78,6 +77,9 @@ export const NavList = ({ navItems }: NavListProps) => {
     toggleSubNav(false);
   };
 
+  const activeItem = navItems[activeNavItem] || {};
+  const { component, name, href, subItems } = activeItem;
+
   return (
     <StyledNavList>
       {!subNavIsActive &&
@@ -97,13 +99,17 @@ export const NavList = ({ navItems }: NavListProps) => {
       {subNavIsActive && (
         <>
           <StyledNavItem onClick={closeSubNav}>
-            <LinkComponent item={navItems[activeNavItem]} />
+            <LinkComponent component={component} href={href}>
+              <Text size="medium-small" color="white">
+                {name}
+              </Text>
+            </LinkComponent>
             <Icon name="ArrowSmallLeft" size="Small" color="White" />
             <Text size="medium-small" color="white" weight="bold">
-              {navItems[activeNavItem]?.name}
+              {name}
             </Text>
           </StyledNavItem>
-          {navItems[activeNavItem]?.subItems?.map((item, index) => {
+          {subItems?.map((item, index) => {
             const selected = activeSubItem === index;
             return <SubNavItem item={item} itemIndex={index} setActiveNavItem={setActiveSubItem} selected={selected} />;
           })}

@@ -29,6 +29,12 @@ export type SubNavItemProps = {
   selected: boolean;
 };
 
+export type LinkComponentProps = {
+  href: string;
+  children: React.ReactNode | JSX.Element;
+  component?: React.ReactNode | JSX.Element;
+};
+
 export interface NavListProps {
   navItems: navItemProps[];
 }
