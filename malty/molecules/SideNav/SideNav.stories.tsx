@@ -1,3 +1,4 @@
+import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
@@ -17,10 +18,10 @@ export default {
 } as Meta;
 
 const navItemsMock = [
-  { icon: 'DataTransfer', name: 'item 1', href: '/iframe.html' },
-  { icon: 'DataTransfer', name: 'item 2', component: Link, href: '/item2' },
+  { icon: IconNames.DataTransfer, name: 'item 1', href: '/iframe.html' },
+  { icon: IconNames.DataTransfer, name: 'item 2', component: Link, href: '/item2' },
   {
-    icon: 'DataTransfer',
+    icon: IconNames.DataTransfer,
     name: 'item 3',
     component: Link,
     href: '/item3',

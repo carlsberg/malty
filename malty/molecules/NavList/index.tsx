@@ -1,2 +1,2 @@
 export { NavList } from './NavList';
-export type { NavListProps } from './NavList.types';
+export type { ItemProps, NavListProps } from './NavList.types';

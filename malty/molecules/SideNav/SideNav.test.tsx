@@ -1,3 +1,4 @@
+import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
 import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { SideNav } from './SideNav';
@@ -5,9 +6,9 @@ import { SideNav } from './SideNav';
 const productName = 'Ottilia';
 
 const simpleNavigation = [
-  { icon: 'DataTransfer', name: 'item 1', href: '/item1' },
-  { icon: 'DataTransfer', name: 'item 2', href: '/item2' },
-  { icon: 'DataTransfer', name: 'item 3', href: '/item3' }
+  { icon: IconNames.DataTransfer, name: 'item 1', href: '/item1' },
+  { icon: IconNames.DataTransfer, name: 'item 2', href: '/item2' },
+  { icon: IconNames.DataTransfer, name: 'item 3', href: '/item3' }
 ];
 
 describe('molecule sideNav', () => {
