@@ -1,4 +1,4 @@
-export interface RadioProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface RadioProps extends React.HTMLAttributes<HTMLInputElement> {
   value: string | number;
   name: string;
   labelText: string;
