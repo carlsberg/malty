@@ -9,7 +9,7 @@ exports[`radio matches snapshot 1`] = `
   >
     <input
       checked={true}
-      className="sc-gsDKAQ gmZfda"
+      className="sc-gsDKAQ kbuuGX"
       id="test"
       name="radio"
       onChange={[Function]}
@@ -17,7 +17,7 @@ exports[`radio matches snapshot 1`] = `
       value="test"
     />
     <label
-      className="sc-dkPtRN iQClgT"
+      className="sc-dkPtRN ljICfl"
       htmlFor="test"
     >
       Label text

@@ -334,8 +334,17 @@
       }
     },
     "radio": {
+      "borderRadius": {
+        "value": "50"
+      },
       "paddingLeft": {
         "value": "10"
+      },
+      "size": {
+        "value": "18"
+      },
+      "inputSelected": {
+        "value": "8"
       }
     },
 

@@ -42,6 +42,9 @@ declare module 'styled-components' {
 
   interface RadioType {
     paddingLeft: PropValue;
+    size: PropValue;
+    inputSelected: PropValue;
+    borderRadius: PropValue;
   }
 
   interface ButtonType {

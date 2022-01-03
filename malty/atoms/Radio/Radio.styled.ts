@@ -2,19 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const StyledRadio = styled.input`
   display: inline-block;
-  height: 18px;
-  width: 18px;
+  height: ${({ theme }) => theme.variables.radio.size.value}px;
+  width: ${({ theme }) => theme.variables.radio.size.value}px;
   margin: 0;
-  background: red;
-  border: 2px solid red;
 
   position: relative;
 
   cursor: pointer;
-  &:disabled {
-    pointer-events: none;
-    background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
-  }
+
   &:before {
     content: '';
     transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
@@ -24,12 +19,12 @@ export const StyledRadio = styled.input`
     left: 5px;
     z-index: 1;
 
-    width: 8px;
-    height: 8px;
+    width: ${({ theme }) => theme.variables.radio.inputSelected.value}px;
+    height: ${({ theme }) => theme.variables.radio.inputSelected.value}px;
 
-    background: #000000;
+    background: ${({ theme }) => theme.color.black.value};
 
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.variables.radio.borderRadius.value}%;
   }
 
   &:checked {
@@ -43,14 +38,27 @@ export const StyledRadio = styled.input`
 
     position: absolute;
 
-    width: 18px;
-    height: 18px;
+    width: ${({ theme }) => theme.variables.radio.size.value}px;
+    height: ${({ theme }) => theme.variables.radio.size.value}px;
     box-sizing: border-box;
-    background: white;
+    background: ${({ theme }) => theme.color.white.value};
 
-    border: 2px solid rgba(33, 40, 51, 1);
-    border-radius: 50%;
+    border: 2px solid ${({ theme }) => theme.color.default.value};
+    border-radius: ${({ theme }) => theme.variables.radio.borderRadius.value}%;
   }
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      pointer-events: none;
+      &:before {
+        background: ${({ theme }) => theme.color.button.primaryDisable.value};
+      }
+      &:after {
+        background: ${({ theme }) => theme.color.white.value};
+        border: 2px solid ${({ theme }) => theme.color.button.primaryDisable.value};
+      }
+    `}
 `;
 
 export const StyledLabel = styled.label<{
@@ -61,10 +69,12 @@ export const StyledLabel = styled.label<{
   line-height: ${({ theme }) => theme.typography.text['medium-small']['line-height'].value}px;
   padding-left: ${({ theme }) => theme.variables.radio.paddingLeft.value}px;
   font-weight: 400;
+  cursor: pointer;
   ${({ disabled }) =>
     disabled &&
     css`
       color: ${({ theme }) => theme.color.information.disable.value};
+      pointer-events: none;
     `}
 `;
 
