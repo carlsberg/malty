@@ -1,4 +1,4 @@
-export interface TextAreaProps extends React.HTMLAttributes<HTMLTextAreaElement> {
+export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   value: string;
   label?: string;
   placeholder?: string;
@@ -6,5 +6,4 @@ export interface TextAreaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   disabled?: boolean;
   onValueChange: (value: string) => void;
   error?: string;
-  fullWidth?: boolean;
 }

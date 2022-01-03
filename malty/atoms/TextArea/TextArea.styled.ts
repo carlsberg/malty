@@ -23,7 +23,9 @@ export const StyledError = styled.label`
   letter-spacing: 0;
 `;
 
-export const StyledtextArea = styled.textarea`
+export const StyledtextArea = styled.textarea<{
+  disabled?: boolean;
+}>`
   width: 100%;
   height: calc(100% - 22px);
   box-sizing: border-box;
@@ -44,15 +46,18 @@ export const StyledtextArea = styled.textarea`
     opacity: 0.8;
     color: ${({ theme }) => theme.color.information.indirect.value};
   }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${({ theme }) => theme.color.form.formSelect.value};
+    `}
 `;
 
 export const StyledTextAreaWrapper = styled.div<{
   resize?: boolean;
   disabled?: boolean;
   isError?: boolean;
-  fullWidth?: boolean;
 }>`
-  min-width: 290px;
   min-height: 96px;
   position: relative;
   display: flex;
@@ -62,14 +67,7 @@ export const StyledTextAreaWrapper = styled.div<{
     ${({ theme, isError }) =>
       isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
   overflow: hidden;
-  ${({ fullWidth }) =>
-    fullWidth
-      ? css`
-          max-width: 100%;
-        `
-      : css`
-          max-width: 380px;
-        `};
+
   ${({ resize }) =>
     resize
       ? css`
@@ -113,6 +111,8 @@ export const StyledTextAreaCharacterCounter = styled.div`
   font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
   padding: ${({ theme }) => theme.variables.textarea.counter.padding.value}px;
   border-radius: ${({ theme }) => theme.variables.textarea.counter.borderRadius.value}px;
-  line-height: ${({ theme }) => theme.variables.textarea.counter.lineHeight.value}px;
+  display: flex;
+  align-items: center;
+  height: ${({ theme }) => theme.variables.textarea.counter.height.value}px;
   font-weight: bold;
 `;

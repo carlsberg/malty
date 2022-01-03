@@ -31,10 +31,7 @@ export default {
       description: 'Error message to be displayed when error is present.',
       control: 'text'
     },
-    fullWidth: {
-      control: 'boolean',
-      description: 'When true, makes the textare take up the full width of its container'
-    },
+
     value: {
       table: {
         disable: true
@@ -48,15 +45,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TextAreaProps> = ({
-  label,
-  placeholder,
-  resize,
-  disabled,
-  value,
-  error,
-  fullWidth
-}: TextAreaProps) => {
+const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, value, error }: TextAreaProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
     <TextAreaComponent
@@ -67,7 +56,6 @@ const Template: Story<TextAreaProps> = ({
       value={stateValue}
       onValueChange={(newValue: string) => setStateValue(newValue)}
       error={error}
-      fullWidth={fullWidth}
     />
   );
 };
@@ -78,6 +66,5 @@ TextArea.args = {
   resize: false,
   placeholder: 'Placeholder',
   disabled: false,
-  error: 'Error text',
-  fullWidth: true
+  error: 'Error text'
 };

@@ -20,7 +20,7 @@ export const TextArea = ({
   value,
   onValueChange,
   error,
-  fullWidth
+  ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -58,13 +58,7 @@ export const TextArea = ({
             {label}
           </StyledLabel>
         )}
-        <StyledTextAreaWrapper
-          fullWidth={fullWidth}
-          disabled={disabled}
-          isError={!!error}
-          resize={resize}
-          theme={theme}
-        >
+        <StyledTextAreaWrapper disabled={disabled} isError={!!error} resize={resize} theme={theme}>
           <StyledtextArea
             name={id}
             id={id}
@@ -73,6 +67,9 @@ export const TextArea = ({
             placeholder={placeholder}
             onChange={handleCarachterCounter}
             theme={theme}
+            disabled={disabled}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...props}
           />
           <StyledTextAreaCharacterCounter theme={theme} data-testid="TextAreaCounter">
             {textAreaCount}

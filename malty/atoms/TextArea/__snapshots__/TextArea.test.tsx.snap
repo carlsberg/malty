@@ -8,10 +8,10 @@ exports[`textarea matches snapshot 1`] = `
     className="sc-gsDKAQ IhRIv"
   >
     <div
-      className="sc-jRQBWg vqhel"
+      className="sc-jRQBWg hWOBzh"
     >
       <textarea
-        className="sc-eCImPb hcdPqF"
+        className="sc-eCImPb kfIqQv"
         id="00000000-0000-0000-0000-000000000000"
         name="00000000-0000-0000-0000-000000000000"
         onChange={[Function]}
@@ -19,7 +19,7 @@ exports[`textarea matches snapshot 1`] = `
         value="Value"
       />
       <div
-        className="sc-iCfMLu kFBDdN"
+        className="sc-iCfMLu LSckO"
         data-testid="TextAreaCounter"
       >
         0

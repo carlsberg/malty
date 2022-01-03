@@ -45,7 +45,7 @@ declare module 'styled-components' {
   interface TextareaCounterType {
     borderRadius: PropValue;
     padding: PropValue;
-    lineHeight: PropValue;
+    height: PropValue;
   }
 
   interface ImageType {
