@@ -1,11 +1,11 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Radio } from './Radio';
+import { Radio as RadioComponent } from './Radio';
 import { RadioProps } from './Radio.types';
 
 export default {
   title: 'Atoms/Radio',
-  component: Radio,
+  component: RadioComponent,
   parameters: {
     importObject: 'Radio',
     importPath: '@carlsberggroup/malty.atoms.Radio'
@@ -42,7 +42,7 @@ export default {
 };
 const Template: Story<RadioProps> = ({ value, labelText, selected, onValueChange, name, error, disabled }) => (
   <>
-    <Radio
+    <RadioComponent
       id={value.toString()}
       value={value}
       labelText={labelText}
@@ -54,8 +54,8 @@ const Template: Story<RadioProps> = ({ value, labelText, selected, onValueChange
     />
   </>
 );
-export const Main = Template.bind({});
-Main.args = {
+export const Radio = Template.bind({});
+Radio.args = {
   labelText: 'Option 1',
   name: 'radioOptions',
   value: 'Option 1',
