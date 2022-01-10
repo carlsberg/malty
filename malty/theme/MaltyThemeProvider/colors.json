@@ -124,6 +124,7 @@
           "value": "rgba(255, 255, 255, 0.1)"
         }
       },
+
       "opacity50": {
         "default": {
           "value": "rgba(33, 40, 51, 0.5)"
@@ -172,6 +173,9 @@
       },
       "alertStrong": {
         "value": "rgb(255, 202, 43)"
+      },
+      "disable": {
+        "value": "rgba(33, 40, 51, 0.15)"
       },
       "disableBackground": {
         "value": "rgb(244, 245, 249)"

@@ -393,6 +393,7 @@ declare module 'styled-components' {
   interface SystemColors {
     alertBackground: PropValue;
     alertStrong: PropValue;
+    disable: PropValue;
     disableBackground: PropValue;
     disableStrong: PropValue;
     failBackground: PropValue;
