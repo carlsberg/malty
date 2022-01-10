@@ -9,6 +9,14 @@ export const StyledRadio = styled.input`
   position: relative;
 
   cursor: pointer;
+  &:hover {
+    &:before {
+      background: ${({ theme }) => theme.color.support.support80.value};
+    }
+    &:after {
+      border: 2px solid ${({ theme }) => theme.color.support.support80.value};
+    }
+  }
 
   &:before {
     content: '';
