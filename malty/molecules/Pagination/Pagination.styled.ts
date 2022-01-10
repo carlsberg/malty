@@ -41,8 +41,6 @@ export const StyledPageNumber = styled.button<{ active?: boolean }>`
   font-weight: ${({ active }) => (active ? '700' : '400')};
   background-color: ${({ theme, active }) => (active ? theme.color.support.support40.value : 'transparent')};
 
-  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition-property: color, background-color;
   transition-duration: 250ms, 250ms;
@@ -50,6 +48,10 @@ export const StyledPageNumber = styled.button<{ active?: boolean }>`
   transition-delay: 0ms, 0ms;
 
   :hover {
+    background-color: ${({ theme }) => theme.color.overlay.opacity10.default.value};
+  }
+  :focus-visible {
+    outline: 0;
     background-color: ${({ theme }) => theme.color.overlay.opacity10.default.value};
   }
 `;

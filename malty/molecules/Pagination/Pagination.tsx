@@ -34,12 +34,12 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
     }
   };
 
-  const onPageClick = (targetPage: number | string) => {
-    onChange(Number(targetPage));
+  const onPageClick = (targetPage: number) => {
+    onChange(targetPage);
   };
 
   const onPageKeyUp = (pageNr: number) => (e: KeyboardEvent) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' || e.key === 'Space') {
       e.preventDefault();
       onChange(pageNr);
     }
@@ -66,13 +66,13 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
             const isCurrentPage = pageNr === currentPage;
             if (pageNr === DOTS) {
               return (
-                <li>
-                  <StyledDots key={`${pageNr}${idx}`}>&#8230;</StyledDots>
+                <li key={`${pageNr}${idx}`} tabIndex={-1}>
+                  <StyledDots>&#8230;</StyledDots>
                 </li>
               );
             }
             return (
-              <li>
+              <li key={pageNr}>
                 <StyledPageNumber
                   theme={theme}
                   active={isCurrentPage}
@@ -81,7 +81,6 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
                   aria-current={isCurrentPage}
                   aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
                   tabIndex={0}
-                  key={pageNr}
                 >
                   {pageNr}
                 </StyledPageNumber>
@@ -89,7 +88,7 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
             );
           })}
           <li>
-            <StyledChevron disabled={lastPage === currentPage} tabIndex={0} onKeyUp={onNextKeyUp} onClick={onNext}>
+            <StyledChevron disabled={lastPage === currentPage} tabIndex={-1} onClick={onNext} onKeyUp={onNextKeyUp}>
               <ChevronRight size={SizesTypes.Medium} color={Colors.Primary} />
             </StyledChevron>
           </li>
