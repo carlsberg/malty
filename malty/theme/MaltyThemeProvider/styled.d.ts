@@ -12,6 +12,7 @@ declare module 'styled-components' {
   }
 
   interface VariablesType {
+    textarea: TextareaType;
     alert: AlertType;
     button: ButtonType;
     checkbox: CheckboxType;
@@ -34,6 +35,17 @@ declare module 'styled-components' {
     medium: PropValue;
     large: PropValue;
     xlarge: PropValue;
+  }
+
+  interface TextareaType {
+    padding: PropValue;
+    counter: TextareaCounterType;
+  }
+
+  interface TextareaCounterType {
+    borderRadius: PropValue;
+    padding: PropValue;
+    height: PropValue;
   }
 
   interface ImageType {
