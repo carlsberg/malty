@@ -8,7 +8,7 @@ export default {
   component: TextAreaComponent,
   parameters: {
     importObject: 'TextArea',
-    importPath: '@carlsberggroup/malty.atoms.TextArea'
+    importPath: '@carlsberggroup/malty.atoms.text-area'
   },
   argTypes: {
     label: {
