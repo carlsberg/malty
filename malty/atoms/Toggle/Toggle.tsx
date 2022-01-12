@@ -16,7 +16,7 @@ export const Toggle = ({ disabled, onValueChange, label, checked, error }: Toggl
   return (
     <TypographyProvider>
       <StyledLabelWrapper theme={theme}>
-        <StyledToggleSwitch>
+        <StyledToggleSwitch theme={theme}>
           <StyledInput
             theme={theme}
             disabled={disabled}

@@ -12,6 +12,7 @@ declare module 'styled-components' {
   }
 
   interface VariablesType {
+    toggle: ToggleType;
     alert: AlertType;
     button: ButtonType;
     checkbox: CheckboxType;
@@ -38,6 +39,22 @@ declare module 'styled-components' {
 
   interface ImageType {
     border: PropValue;
+  }
+  interface ToggleType {
+    width: PropValue;
+    height: PropValue;
+    switch: ToggleSwitchType;
+  }
+  interface ToggleSwitchType {
+    borderRadius: PropValue;
+    before: ToggleSwitchBeforeType;
+  }
+  interface ToggleSwitchBeforeType {
+    borderRadius: PropValue;
+    width: PropValue;
+    height: PropValue;
+    top: PropValue;
+    left: PropValue;
   }
 
   interface AlertType {
@@ -393,7 +410,7 @@ declare module 'styled-components' {
   interface SystemColors {
     alertBackground: PropValue;
     alertStrong: PropValue;
-    disable: PropValue;
+    disabledDefault: PropValue;
     disableBackground: PropValue;
     disableStrong: PropValue;
     failBackground: PropValue;

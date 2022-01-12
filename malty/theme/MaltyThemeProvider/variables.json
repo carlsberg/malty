@@ -1,5 +1,35 @@
 {
   "variables": {
+    "toggle": {
+      "width": {
+        "value": "24"
+      },
+      "height": {
+        "value": "14"
+      },
+      "switch": {
+        "borderRadius": {
+          "value": "25"
+        },
+        "before": {
+          "borderRadius": {
+            "value": "50"
+          },
+          "width": {
+            "value": "8"
+          },
+          "height": {
+            "value": "8"
+          },
+          "top": {
+            "value": "-1"
+          },
+          "left": {
+            "value": "-2"
+          }
+        }
+      }
+    },
     "alert": {
       "size": {
         "medium": {

@@ -5,10 +5,10 @@ exports[`toggle matches snapshot 1`] = `
   className="sc-bdvvtL iouZXA"
 >
   <label
-    className="sc-dkPtRN kkNRcq"
+    className="sc-dkPtRN gpRhZw"
   >
     <div
-      className="sc-hKwDye kGRnVF"
+      className="sc-hKwDye cNZSkx"
     >
       <input
         checked={false}
@@ -17,7 +17,7 @@ exports[`toggle matches snapshot 1`] = `
         type="checkbox"
       />
       <span
-        className="sc-gKclnd bNhnfz switch"
+        className="sc-gKclnd lcqVmS switch"
       />
     </div>
     <label

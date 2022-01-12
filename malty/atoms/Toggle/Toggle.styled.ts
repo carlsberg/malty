@@ -9,26 +9,19 @@ export const StyledError = styled.label`
   letter-spacing: 0;
 `;
 
-export const StyledLabelWrapper = styled.label<{
-  disabled?: boolean;
-}>`
+export const StyledLabelWrapper = styled.label`
   align-items: center;
   display: inline-block;
   display: flex;
-  height: 14px;
+  height: ${({ theme }) => theme.variables.toggle.height.value}px;
   position: relative;
   width: auto;
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      opacity: 0.5;
-    `}
 `;
 export const StyledToggleSwitch = styled.div`
   position: relative;
   display: inline-block;
-  width: 24px;
-  height: 14px;
+  width: ${({ theme }) => theme.variables.toggle.width.value}px;
+  height: ${({ theme }) => theme.variables.toggle.height.value}px;
 `;
 export const StyledLabel = styled.label<{
   disabled?: boolean;
@@ -41,7 +34,7 @@ export const StyledLabel = styled.label<{
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${({ theme }) => theme.color.system.disable.value};
+      color: ${({ theme }) => theme.color.system.disabledDefault.value};
     `}
 `;
 export const StyledInput = styled.input<{
@@ -64,9 +57,9 @@ export const StyledInput = styled.input<{
     disabled &&
     css`
       &:checked + .switch {
-        background-color: ${({ theme }) => theme.color.system.disable.value};
+        background-color: ${({ theme }) => theme.color.system.disabledDefault.value};
         pointer-events: none;
-        border: 2px solid ${({ theme }) => theme.color.system.disable.value};
+        border: 2px solid ${({ theme }) => theme.color.system.disabledDefault.value};
       }
     `}
 `;
@@ -77,7 +70,7 @@ export const StyledSwitch = styled.span<{
   position: absolute;
   cursor: pointer;
   background-color: ${({ theme }) => theme.color.white.value};
-  border-radius: 25px;
+  border-radius: ${({ theme }) => theme.variables.toggle.switch.borderRadius.value}px;
   top: 0;
   right: 0;
   bottom: 0;
@@ -93,23 +86,23 @@ export const StyledSwitch = styled.span<{
   &:before {
     position: absolute;
     content: '';
-    left: -2px;
-    top: -1px;
-    width: 8px;
-    height: 8px;
+    left: ${({ theme }) => theme.variables.toggle.switch.before.left.value}px;
+    top: ${({ theme }) => theme.variables.toggle.switch.before.top.value}px;
+    width: ${({ theme }) => theme.variables.toggle.switch.before.width.value}px;
+    height: ${({ theme }) => theme.variables.toggle.switch.before.height.value}px;
     background-color: ${({ theme }) => theme.color.white.value};
     border: 2px solid ${({ theme }) => theme.color.default.value};
-    border-radius: 50%;
+    border-radius: ${({ theme }) => theme.variables.toggle.switch.before.borderRadius.value}%;
     transition: transform 0.3s ease;
   }
   ${({ disabled }) =>
     disabled &&
     css`
       &:before {
-        border: 2px solid ${({ theme }) => theme.color.system.disable.value};
+        border: 2px solid ${({ theme }) => theme.color.system.disabledDefault.value};
         pointer-events: none;
       }
       pointer-events: none;
-      border: 2px solid ${({ theme }) => theme.color.system.disable.value};
+      border: 2px solid ${({ theme }) => theme.color.system.disabledDefault.value};
     `}
 `;
