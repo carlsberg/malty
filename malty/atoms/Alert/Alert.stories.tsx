@@ -20,9 +20,9 @@ export default {
         type: 'radio'
       }
     },
-    label: {
+    children: {
       control: 'text',
-      description: 'Alert label, can be',
+      description: 'Alert children, can be',
       table: { defaultValue: { summary: 'none' } }
     },
     action: {
@@ -88,7 +88,7 @@ switch (variant) {
   case 'inline':
     Alert.args = {
       type: AlertType.InLine,
-      label: 'Hello, Im the In Line Alert! Play with me.',
+      children: 'Hello, Im the In Line Alert! Play with me.',
       action: false,
       icon: false,
       heightSize: AlertHeightSizeTypes.Medium,
@@ -103,7 +103,7 @@ switch (variant) {
   case 'toast':
     Alert.args = {
       type: AlertType.Toast,
-      label: 'Hello, Im the Toast Alert! Play with me.',
+      children: 'Hello, Im the Toast Alert! Play with me.',
       action: true,
       icon: true,
       heightSize: undefined,
@@ -116,7 +116,7 @@ switch (variant) {
   default:
     Alert.args = {
       type: AlertType.Banner,
-      label: 'Hello, Im the Banner Alert! Play with me.',
+      children: 'Hello, Im the Banner Alert! Play with me.',
       action: true,
       icon: true,
       heightSize: AlertHeightSizeTypes.Medium,

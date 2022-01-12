@@ -30,6 +30,22 @@
         }
       }
     },
+    "textarea": {
+      "padding": {
+        "value": "12px 16"
+      },
+      "counter": {
+        "borderRadius": {
+          "value": "100"
+        },
+        "padding": {
+          "value": "0 6"
+        },
+        "height": {
+          "value": "14"
+        }
+      }
+    },
     "alert": {
       "size": {
         "medium": {
