@@ -1,7 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import { ImportPath } from './importPath';
+import { DocsContainer } from '@storybook/addon-docs';
 import { ArgsTable, Description, Primary, Stories, Subtitle, Title, PRIMARY_STORY } from '@storybook/addon-docs';
 import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import maltyTheme from './maltyTheme';
+
+const params = new URLSearchParams(window.location.search);
+const plain = params.get('plain');
+const options = params.get('options');
 
 export const decorators = [
   (Story, context) => (
@@ -11,33 +18,66 @@ export const decorators = [
   )
 ];
 
+const StyledDocsContainer = styled.div`
+  .sbdocs-wrapper {
+    padding: 0;
+  }
+  .sbdocs-preview {
+    margin: 0;
+  }
+`;
+
 export const parameters = {
   viewMode: 'docs',
   controls: { expanded: true },
-  previewTabs: { canvas: { hidden: false } },
+  previewTabs: {
+    canvas: {
+      hidden: true
+    },
+    'storybook/docs/panel': {
+      hidden: false,
+      title: 'Code'
+    }
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
+  options: {
+    isToolshown: true
+  },
   docs: {
-    page: () => (
-      <>
-        <Title />
-        <Subtitle />
-        <Description />
-        <ImportPath />
-        <Primary />
-        <ArgsTable story={PRIMARY_STORY} />
-        <Stories />
-      </>
-    )
+    theme: maltyTheme,
+    container: ({ children, ...rest }) =>
+      (!plain && !options && (
+        <DocsContainer {...rest}>
+          <Title />
+          <Subtitle />
+          <Description />
+          <ImportPath />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </DocsContainer>
+      )) ||
+      (plain && (
+        <StyledDocsContainer>
+          <DocsContainer {...rest}>
+            <Primary />
+          </DocsContainer>
+        </StyledDocsContainer>
+      )) ||
+      (options && (
+        <StyledDocsContainer>
+          <DocsContainer {...rest}>
+            <Primary />
+            <ArgsTable story={PRIMARY_STORY} />
+          </DocsContainer>
+        </StyledDocsContainer>
+      ))
   },
   controls: {
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/
     }
-  },
-  options: {
-    showNav: true,
-    enableShortcuts: true
   },
   backgrounds: {
     default: 'white',
