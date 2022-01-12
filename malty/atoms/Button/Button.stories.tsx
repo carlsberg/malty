@@ -219,6 +219,27 @@ SecondaryStory.args = {
   errorText: 'Error'
 };
 
+export const TransparentStory = Template.bind({});
+TransparentStory.args = {
+  style: ButtonStyle.Transparent,
+  text: 'Transparent',
+  type: ButtonTypes.Submit,
+  size: SizeTypes.Medium,
+  iconPos: IconPosition.Right,
+  loading: false,
+  error: false,
+  success: false,
+  isWhite: false,
+  disabled: false,
+  fullWidth: false,
+  url: '',
+  selected: true,
+  successIcon: IconNamesTypes.ItemCheck,
+  successText: 'Success',
+  errorIcon: IconNamesTypes.ItemClose,
+  errorText: 'Error'
+};
+
 export const FloaterStory = Template.bind({});
 FloaterStory.args = {
   style: ButtonStyle.Floater,

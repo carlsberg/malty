@@ -2,15 +2,14 @@
 import { Colors, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import ChevronLeft from '@carlsberggroup/malty.icons.chevron-left';
 import ChevronRight from '@carlsberggroup/malty.icons.chevron-right';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { StyledChevron, StyledContainer, StyledDots, StyledPageNumber } from './Pagination.styled';
+import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React from 'react';
+import { Button, ButtonStyle } from '../../atoms/Button';
+import { StyledChevron, StyledContainer, StyledDots } from './Pagination.styled';
 import { PaginationProps } from './Pagination.types';
 import { DOTS, usePagination } from './usePagination';
 
 export const Pagination = ({ count, currentPage, onChange, siblingCount }: PaginationProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
   const paginationRange = usePagination({
     totalPageCount: count,
     siblingCount,
@@ -73,17 +72,17 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
             }
             return (
               <li key={pageNr}>
-                <StyledPageNumber
-                  theme={theme}
-                  active={isCurrentPage}
+                <Button
+                  style={ButtonStyle.Transparent}
+                  selected={isCurrentPage}
                   onClick={() => onPageClick(Number(pageNr))}
                   onKeyUp={() => onPageKeyUp(Number(pageNr))}
                   aria-current={isCurrentPage}
                   aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
                   tabIndex={0}
-                >
-                  {pageNr}
-                </StyledPageNumber>
+                  loading={false}
+                  text={pageNr}
+                />
               </li>
             );
           })}

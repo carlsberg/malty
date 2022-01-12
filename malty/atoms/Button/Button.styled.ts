@@ -60,7 +60,6 @@ const StyledButton = styled.button<{
     display: flex;
     align-items: center;
     gap: 16px;
-    // transition: color 1s;
     opacity: 1;
     &.invisible {
       opacity: 0;
@@ -72,7 +71,6 @@ const StyledButton = styled.button<{
     display: flex;
     align-items: center;
     gap: 16px;
-    // transition: color 1s;
     animation: ${animateShow} 0.25s linear;
   }
 
@@ -113,6 +111,21 @@ export const StyledSecondaryButton = styled(StyledButton)`
     background-color: ${({ theme }) => theme.color.transparent.value};
     color: ${({ theme }) => theme.color.button.primaryHover.value};
     border: 1px solid ${({ theme }) => theme.color.button.primaryHover.value};
+  }
+`;
+
+export const StyledTransparentButton = styled(StyledButton)`
+  background-color: transparent;
+  &.active {
+    background-color: ${({ theme }) => theme.color.support.support40.value};
+  }
+  color: ${({ isWhite, theme }) => (isWhite ? theme.color.white.value : theme.color.button.primaryDefault.value)};
+  &:hover {
+    background-color: ${({ theme }) => theme.color.overlay.opacity10.default.value};
+  }
+  :focus-visible {
+    outline: 0;
+    background-color: ${({ theme }) => theme.color.overlay.opacity10.default.value};
   }
 `;
 

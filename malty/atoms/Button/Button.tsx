@@ -9,7 +9,8 @@ import {
   StyledFloaterButton,
   StyledLinkButton,
   StyledPrimaryButton,
-  StyledSecondaryButton
+  StyledSecondaryButton,
+  StyledTransparentButton
 } from './Button.styled';
 import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
 
@@ -22,6 +23,7 @@ export const Button = ({
   selected = false,
   disabled,
   onClick,
+  onKeyUp,
   icon,
   url,
   size = SizeTypes.Medium,
@@ -34,6 +36,7 @@ export const Button = ({
   success,
   successIcon,
   successText,
+  tabIndex = -1,
   children
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
@@ -42,6 +45,9 @@ export const Button = ({
     case ButtonStyle.Secondary:
       Component = StyledSecondaryButton;
       iconColor = isWhite ? IconColors.White : IconColors.Primary;
+      break;
+    case ButtonStyle.Transparent:
+      Component = StyledTransparentButton;
       break;
     case ButtonStyle.Floater:
       Component = StyledFloaterButton;
@@ -55,7 +61,7 @@ export const Button = ({
   }
   const theme = useContext(ThemeContext) || defaultTheme;
   const [numSize, setNumSize] = useState(theme.variables.button.size.medium.value);
-  const [hPadding, setHorizontalPadding] = useState(theme.variables.button.horizontalPadding.value);
+  const [hPadding, _setHorizontalPadding] = useState(theme.variables.button.horizontalPadding.value);
   const [fontSize, setFontSize] = useState(theme.typography.text.medium['font-size'].value);
   const [iconSize, setIconSize] = useState(theme.variables.button.icon.size.medium.value);
   const [showButton, setShowButton] = useState(true);
@@ -81,12 +87,14 @@ export const Button = ({
         fontSize={fontSize}
         iconSize={iconSize}
         onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+        onKeyUp={onKeyUp}
         isWhite={isWhite}
         fullWidth={fullWidth}
         iconPos={iconPos}
         className={selected ? 'active' : ''}
         theme={theme}
         showButton={showButton}
+        tabIndex={tabIndex}
       >
         <div className={`text-container ${loading || success || error ? 'invisible' : ''}`}>
           {icon && iconPos === 'Left' && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
