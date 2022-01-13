@@ -1,28 +1,37 @@
 import { Meta, Story } from '@storybook/react';
-import { Stepper } from './Stepper';
-import { StepperProps } from './Stepper.types';
 import React from 'react';
+import { Stepper as StepperComponent } from './Stepper';
+import { StepperProps } from './Stepper.types';
 
 export default {
   title: 'Molecules/Stepper',
-  component: Stepper,
+  component: StepperComponent,
   parameters: {
     importObject: 'Stepper',
-    importPath: '@carlsberggroup/malty.atoms.stepper'
+    importPath: '@carlsberggroup/malty.molecules.stepper'
   },
   argTypes: {
-    steps: { control: 'text' },
-    currentStep: { control: 'text' },
-    isMultiStep: { control: 'boolean' }
+    steps: {
+      control: 'number',
+      description: 'Total number of steps'
+    },
+    currentStep: {
+      control: 'number',
+      description: 'Current step number of progress'
+    },
+    isMultiStep: {
+      control: 'boolean',
+      description: 'Is the stepper a multi step control?'
+    }
   }
 } as Meta;
 
 const Template: Story<StepperProps> = ({ steps, currentStep, isMultiStep }: StepperProps) => (
-  <Stepper steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} />
+  <StepperComponent steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} />
 );
 
-export const Main = Template.bind({});
-Main.args = {
+export const Stepper = Template.bind({});
+Stepper.args = {
   steps: 5,
   currentStep: 2
 };

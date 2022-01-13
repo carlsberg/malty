@@ -1,14 +1,14 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Loading } from './Loading';
+import { Loading as LoadingComponent } from './Loading';
 import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
 
 export default {
   title: 'Molecules/Loading',
-  component: Loading,
+  component: LoadingComponent,
   parameters: {
     importObject: 'Loading',
-    importPath: '@carlsberggroup/malty.atoms.loading'
+    importPath: '@carlsberggroup/malty.molecules.loading'
   },
   argTypes: {
     text: { control: 'text' },
@@ -28,11 +28,11 @@ export default {
 } as Meta;
 
 const Template: Story<LoadingProps> = ({ text, size, status }: LoadingProps) => (
-  <Loading text={text} size={size} status={status} />
+  <LoadingComponent text={text} size={size} status={status} />
 );
 
-export const Main = Template.bind({});
-Main.args = {
+export const Loading = Template.bind({});
+Loading.args = {
   size: SizeTypes.Medium,
   text: 'Loading...',
   status: LoadingStatus.Pending

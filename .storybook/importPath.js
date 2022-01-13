@@ -1,28 +1,26 @@
-import React from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { Source, DocsContext, Description } from '@storybook/addon-docs';
-
-function capitalize(text) {
-  return text.replace(/(^\w|-\w)/g, clearAndUpper);
-}
-
-function clearAndUpper(text) {
-  return text.replace(/-/, '').toUpperCase();
-}
 
 export const ImportPath = () => {
   const context = React.useContext(DocsContext);
-  const importPath = context.parameters.importPath.toString();
-  let dynamicImportObject = capitalize(
-    importPath
-      .match(/\.[0-9a-z]*[\-]*[0-9a-z]+$/gim)
-      .toString()
-      .replace('.', '')
-  );
-  const importObject = context.parameters.importObject || dynamicImportObject;
-  const install = `yarn add '${importPath}'`;
-  const path = `import { ${importObject} } from '${importPath}';`;
+  const [story] = useState(context.getStoryContext(context.storyById(context.id)));
+  const [params] = useState(story.parameters);
+  const [path, setPath] = useState(params.importPath.toString());
+  const [object, setObject] = useState(params.importObject.replace(/\s+/g, ''));
+  const [installStr, setInstallStr] = useState(`yarn add '${path}'`);
+  const [pathStr, setPathStr] = useState(`import { ${object} } from '${path}';`);
 
-  return importObject && importPath ? (
+  useLayoutEffect(() => {
+    setPath(params.importPath.toString());
+    setObject(params.importObject.replace(/\s+/g, ''));
+  }, [params.importPath, params.importObject]);
+
+  useLayoutEffect(() => {
+    setInstallStr(`yarn add '${path}'`);
+    setPathStr(`import { ${object} } from '${path}';`);
+  }, [path, object]);
+
+  return installStr && pathStr ? (
     <>
       <Description>
         Make sure, prior to installing any Malty components, you have [Registered the
@@ -32,9 +30,9 @@ export const ImportPath = () => {
         To add this package to your project, install it with [Yarn](https://classic.yarnpkg.com/lang/en/docs/install),
         first:
       </Description>
-      <Source language="bash" code={install} dark></Source>
+      <Source language="bash" code={installStr} dark></Source>
       <Description>Once you have it installed, feel free to import it anywhere as follows:</Description>
-      <Source language="ts" code={path} dark></Source>
+      <Source language="ts" code={pathStr} dark></Source>
       <Description>
         After having successfully installed and imported the component into your project, feel free to use it as shown
         below:
