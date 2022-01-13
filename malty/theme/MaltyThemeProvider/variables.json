@@ -377,6 +377,10 @@
           "value": "1600"
         }
       }
+    },
+    "pagination": {
+      "height": { "value": "40" },
+      "width": { "value": "40" }
     }
   }
 }

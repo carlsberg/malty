@@ -16,8 +16,8 @@ export const StyledContainer = styled.div`
 
 export const StyledChevron = styled.button<{ disabled: boolean }>`
   border-style: none;
-  height: 40px;
-  width: 40px;
+  height: ${({ theme }) => theme.variables.pagination.heigth.value};
+  width: ${({ theme }) => theme.variables.pagination.width.value};
   padding: 0;
   margin: 0;
   background-color: transparent;
@@ -31,8 +31,8 @@ export const StyledChevron = styled.button<{ disabled: boolean }>`
 `;
 
 export const StyledDots = styled.div`
-  height: 40px;
-  width: 40px;
+  height: ${({ theme }) => theme.variables.pagination.heigth.value};
+  width: ${({ theme }) => theme.variables.pagination.width.value};
   display: flex;
   justify-content: center;
   align-items: center;
