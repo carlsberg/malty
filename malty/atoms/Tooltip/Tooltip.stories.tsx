@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Tooltip } from './Tooltip';
+import { Tooltip as TooltipComponent } from './Tooltip';
 import { Position, Toggle, TooltipProps } from './Tooltip.types';
 
 const StyledContainer = styled.div`
@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
 
 export default {
   title: 'Atoms/Tooltip',
-  component: Tooltip,
+  component: TooltipComponent,
   parameters: {
     importObject: 'Tooltip',
     importPath: '@carlsberggroup/malty.atoms.tooltip'
@@ -62,13 +62,13 @@ export default {
 const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipProps) => (
   <StyledContainer>
     <div id="testId">Click here to toggle it!</div>
-    <Tooltip anchor="testId" position={position} toggle={toggle}>
+    <TooltipComponent anchor="testId" position={position} toggle={toggle}>
       {children}
-    </Tooltip>
+    </TooltipComponent>
   </StyledContainer>
 );
-export const Main = Template.bind({});
-Main.args = {
+export const Tooltip = Template.bind({});
+Tooltip.args = {
   position: Position.Top,
   children: 'A simple Tooltip component content with some text'
 };

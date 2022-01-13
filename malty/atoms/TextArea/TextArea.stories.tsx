@@ -4,7 +4,7 @@ import { TextArea as TextAreaComponent } from './TextArea';
 import { TextAreaProps } from './TextArea.types';
 
 export default {
-  title: 'Atoms/TextArea',
+  title: 'Atoms/Text Area',
   component: TextAreaComponent,
   parameters: {
     importObject: 'TextArea',
