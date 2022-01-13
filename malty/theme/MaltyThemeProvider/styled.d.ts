@@ -12,7 +12,7 @@ declare module 'styled-components' {
   }
 
   interface PaginationTypes {
-    heigth: PropValue;
+    height: PropValue;
     width: PropValue;
   }
 

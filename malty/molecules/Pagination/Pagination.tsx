@@ -2,14 +2,17 @@
 import { Colors, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import ChevronLeft from '@carlsberggroup/malty.icons.chevron-left';
 import ChevronRight from '@carlsberggroup/malty.icons.chevron-right';
-import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React from 'react';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { Button, ButtonStyle } from '../../atoms/Button';
 import { StyledChevron, StyledContainer, StyledDots } from './Pagination.styled';
 import { PaginationProps } from './Pagination.types';
 import { DOTS, usePagination } from './usePagination';
 
 export const Pagination = ({ count, currentPage, onChange, siblingCount }: PaginationProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const paginationRange = usePagination({
     totalPageCount: count,
     siblingCount,
@@ -57,7 +60,13 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
       <StyledContainer>
         <ul>
           <li>
-            <StyledChevron disabled={currentPage === 1} tabIndex={0} onClick={onPrevious} onKeyUp={onPreviousKeyUp}>
+            <StyledChevron
+              theme={theme}
+              disabled={currentPage === 1}
+              tabIndex={0}
+              onClick={onPrevious}
+              onKeyUp={onPreviousKeyUp}
+            >
               <ChevronLeft size={SizesTypes.Medium} color={Colors.Primary} />
             </StyledChevron>
           </li>
@@ -66,7 +75,7 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
             if (pageNr === DOTS) {
               return (
                 <li key={`${pageNr}${idx}`} tabIndex={-1}>
-                  <StyledDots>&#8230;</StyledDots>
+                  <StyledDots theme={theme}>&#8230;</StyledDots>
                 </li>
               );
             }
@@ -87,7 +96,13 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
             );
           })}
           <li>
-            <StyledChevron disabled={lastPage === currentPage} tabIndex={-1} onClick={onNext} onKeyUp={onNextKeyUp}>
+            <StyledChevron
+              theme={theme}
+              disabled={lastPage === currentPage}
+              tabIndex={-1}
+              onClick={onNext}
+              onKeyUp={onNextKeyUp}
+            >
               <ChevronRight size={SizesTypes.Medium} color={Colors.Primary} />
             </StyledChevron>
           </li>
