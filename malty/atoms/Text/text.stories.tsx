@@ -1,11 +1,11 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Text } from './Text';
+import { Text as TextComponent } from './Text';
 import { Align, Color, Size, TextProps, Weight } from './Text.types';
 
 export default {
   title: 'Atoms/Text',
-  component: Text,
+  component: TextComponent,
   parameters: {
     importObject: 'Text',
     importPath: '@carlsberggroup/malty.atoms.text'
@@ -72,12 +72,14 @@ export default {
   }
 };
 const Template: Story<TextProps> = ({ size, weight, align, color, children, underline, italic }) => (
-  <Text size={size} weight={weight} align={align} color={color} underline={underline} italic={italic}>
+  <TextComponent size={size} weight={weight} align={align} color={color} underline={underline} italic={italic}>
     {children}
-  </Text>
+  </TextComponent>
 );
-export const Main = Template.bind({});
-Main.args = {
+
+export const Text = Template.bind({});
+
+Text.args = {
   size: Size.Small,
   children:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia ut nunc.'

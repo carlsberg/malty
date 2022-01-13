@@ -2,12 +2,12 @@ import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { ButtonProps, SizeTypes } from '.';
-import { Button } from './Button';
+import { Button as ButtonComponent } from './Button';
 import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
 
 export default {
   title: 'Atoms/Button',
-  component: Button,
+  component: ButtonComponent,
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button'
@@ -175,109 +175,121 @@ export default {
   }
 };
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => <ButtonComponent {...args} />;
 
-export const PrimaryStory = Template.bind({});
-PrimaryStory.args = {
-  style: ButtonStyle.Primary,
-  text: 'Primary',
-  type: ButtonTypes.Submit,
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error'
-};
+export const Button = Template.bind({});
 
-export const SecondaryStory = Template.bind({});
-SecondaryStory.args = {
-  style: ButtonStyle.Secondary,
-  text: 'Secondary',
-  type: ButtonTypes.Submit,
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error'
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
 
-export const TransparentStory = Template.bind({});
-TransparentStory.args = {
-  style: ButtonStyle.Transparent,
-  text: 'Transparent',
-  type: ButtonTypes.Submit,
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: true,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error'
-};
+switch (variant) {
+  case 'link':
+    Button.args = {
+      style: ButtonStyle.Link,
+      text: 'Link text',
+      size: SizeTypes.Medium,
+      iconPos: IconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconNamesTypes.ItemCheck,
+      successText: '',
+      errorIcon: IconNamesTypes.ItemClose,
+      errorText: ''
+    };
+    break;
 
-export const FloaterStory = Template.bind({});
-FloaterStory.args = {
-  style: ButtonStyle.Floater,
-  icon: IconNamesTypes.ArrowSmallUp,
-  type: ButtonTypes.Submit,
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error',
-  scroll: 0
-};
+  case 'secondary':
+    Button.args = {
+      style: ButtonStyle.Secondary,
+      text: 'Secondary',
+      type: ButtonTypes.Submit,
+      size: SizeTypes.Medium,
+      iconPos: IconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconNamesTypes.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconNamesTypes.ItemClose,
+      errorText: 'Error'
+    };
+    break;
 
-export const LinkStory = Template.bind({});
-LinkStory.args = {
-  style: ButtonStyle.Link,
-  text: 'Link text',
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: '',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: ''
-};
+  case 'floater':
+    Button.args = {
+      style: ButtonStyle.Floater,
+      icon: IconNamesTypes.ArrowSmallUp,
+      type: ButtonTypes.Submit,
+      size: SizeTypes.Medium,
+      iconPos: IconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconNamesTypes.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconNamesTypes.ItemClose,
+      errorText: 'Error',
+      scroll: 0
+    };
+    break;
+
+  case 'transparent':
+    Button.args = {
+      style: ButtonStyle.Transparent,
+      text: 'Transparent',
+      type: ButtonTypes.Submit,
+      size: SizeTypes.Medium,
+      iconPos: IconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: true,
+      successIcon: IconNamesTypes.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconNamesTypes.ItemClose,
+      errorText: 'Error'
+    };
+    break;
+  
+  default:
+    Button.args = {
+      style: ButtonStyle.Primary,
+      text: 'Primary',
+      type: ButtonTypes.Submit,
+      size: SizeTypes.Medium,
+      iconPos: IconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconNamesTypes.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconNamesTypes.ItemClose,
+      errorText: 'Error'
+    };
+    break;
+}

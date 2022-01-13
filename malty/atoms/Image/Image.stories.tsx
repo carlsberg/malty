@@ -1,12 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import dedent from 'ts-dedent';
-import { Image, ImageProps } from '.';
+import { Image as ImageComponent, ImageProps } from '.';
 import { Overlay, Position } from './Image.types';
 
 export default {
   title: 'Atoms/Image',
-  component: Image,
+  component: ImageComponent,
   parameters: {
     importObject: 'Image',
     importPath: '@carlsberggroup/malty.atoms.image',
@@ -90,11 +90,19 @@ export default {
   }
 } as Meta;
 
-const Template: Story<ImageProps> = (args) => <Image {...args} />;
+const Template: Story<ImageProps> = (args) => <ImageComponent {...args} />;
 
-export const Main = Template.bind({});
-Main.args = {
-  src: 'https://via.placeholder.com/400',
-  border: Position.Bottom,
-  alt: 'This is a sample image'
-};
+export const Image = Template.bind({});
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  default:
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: Position.Bottom,
+      alt: 'This is a sample image'
+    };
+    break;
+}

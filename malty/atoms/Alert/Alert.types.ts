@@ -1,6 +1,5 @@
 export interface AlertProps {
   type?: AlertType;
-  label: string | JSX.Element;
   action?: boolean;
   icon?: boolean;
   dismiss?: (state: boolean) => void;
@@ -11,6 +10,7 @@ export interface AlertProps {
   firstActionText?: string;
   secondAction?: () => void;
   secondActionText?: string;
+  children: string | JSX.Element;
 }
 
 export enum AlertType {
