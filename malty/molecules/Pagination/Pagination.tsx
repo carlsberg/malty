@@ -1,11 +1,11 @@
 /* eslint-disable react/no-array-index-key */
+import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Colors, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import ChevronLeft from '@carlsberggroup/malty.icons.chevron-left';
 import ChevronRight from '@carlsberggroup/malty.icons.chevron-right';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { Button, ButtonStyle } from '../../atoms/Button';
 import { StyledChevron, StyledContainer, StyledDots } from './Pagination.styled';
 import { PaginationProps } from './Pagination.types';
 import { DOTS, usePagination } from './usePagination';
