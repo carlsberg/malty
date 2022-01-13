@@ -1,11 +1,11 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Headline } from './Headline';
+import { Headline as HeadlineComponent } from './Headline';
 import { Align, Color, HeadlineProps, Size } from './Headline.types';
 
 export default {
   title: 'Atoms/Headline',
-  component: Headline,
+  component: HeadlineComponent,
   parameters: {
     importObject: 'Headline',
     importPath: '@carlsberggroup/malty.atoms.headline'
@@ -24,10 +24,10 @@ export default {
       }
     },
     size: {
-      options: Object.values(Size),
+      // options: Object.values(Size),
       description: 'Size of the text, from the following options',
       control: {
-        type: 'select'
+        type: null
       },
       table: {
         defaultValue: {
@@ -53,13 +53,34 @@ export default {
     }
   }
 };
-const Template: Story<HeadlineProps> = ({ size, align, color, children }) => (
-  <Headline size={size} align={align} color={color}>
-    {children}
-  </Headline>
+const Template: Story<HeadlineProps> = ({ align, color, children }) => (
+  <>
+    <HeadlineComponent size={Size.Small} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent size={Size.Medium} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent size={Size.Large} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent size={Size.XLarge} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent size={Size.Huge} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent size={Size.Hero} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent size={Size.Display} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+  </>
 );
-export const Main = Template.bind({});
-Main.args = {
+export const Headline = Template.bind({});
+
+Headline.args = {
   color: Color.Primary,
   size: Size.Medium,
   align: Align.Left,
