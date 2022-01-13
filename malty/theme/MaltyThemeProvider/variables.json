@@ -310,6 +310,7 @@
         "value": "18"
       }
     },
+
     "container": {
       "size": {
         "none": {
@@ -341,6 +342,73 @@
     "image": {
       "border": {
         "value": "8"
+      }
+    },
+    "sideNav": {
+      "maxWidth": {
+        "value": "220"
+      },
+      "list": {
+        "marginTop": {
+          "value": "77"
+        },
+        "paddingTop": {
+          "value": "23"
+        },
+        "paddingBottom": {
+          "value": "23"
+        },
+        "paddingLeft": {
+          "value": "33"
+        }
+      }
+    },
+    "productsBar": {
+      "width": {
+        "value": "80"
+      },
+      "paddingSide": {
+        "value": "30"
+      },
+      "paddingVertical": {
+        "value": "28"
+      },
+      "border": {
+        "value": "1"
+      },
+      "borderColor": {
+        "value": "rgb(49,69,80)"
+      }
+    },
+    "navList": {
+      "listItem": {
+        "height": {
+          "value": "56"
+        },
+        "paddingSide": {
+          "value": "30"
+        },
+        "paddingVertical": {
+          "value": "20"
+        },
+        "labelTop": {
+          "value": "20"
+        },
+        "labelLeft": {
+          "value": "36"
+        },
+        "iconLeft": {
+          "value": "9"
+        },
+        "arrowRight": {
+          "value": "16"
+        },
+        "arrowTop": {
+          "value": "22"
+        }
+      },
+      "subItem": {
+        "paddingLeft": "48"
       }
     },
     "global": {

@@ -5,7 +5,6 @@ export const StyledNavList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 77px;
   box-sizing: border-box;
 `;
 
@@ -13,12 +12,14 @@ export const StyledNavItem = styled.li<{
   selected: boolean;
 }>`
   width: 100%;
-  height: 56px;
-  padding: 20px 36px;
+  height: ${({ theme }) => theme.variables.navList.listItem.height.value}px;
+  padding: ${({ theme }) => theme.variables.navList.listItem.paddingVertical.value}px
+    ${({ theme }) => theme.variables.navList.listItem.paddingSide.value}px;
   text-transform: capitalize;
   position: relative;
   box-sizing: border-box;
-  background-color: ${({ selected }) => `${selected ? '#668494' : '#212833'}`};
+  background-color: ${({ selected, theme }) =>
+    `${selected ? theme.color.support.support80.value : theme.color.default.value}`};
   cursor: ${({ selected }) => `${selected ? 'default' : 'pointer'}`};
   & a {
     text-decoration: none;
@@ -31,31 +32,31 @@ export const StyledNavItem = styled.li<{
     & span {
       display: inline-block;
       position: absolute;
-      left: 36px;
-      top: 20px;
+      left: ${({ theme }) => theme.variables.navList.listItem.labelLeft.value}px;
+      top: ${({ theme }) => theme.variables.navList.listItem.labelTop.value}px;
     }
   }
   & svg {
     position: absolute;
-    left: 9px;
+    left: ${({ theme }) => theme.variables.navList.listItem.iconLeft.value}px;
   }
   & p {
     margin: 0;
   }
   &:hover {
-    background-color: ${({ selected }) => `${selected ? '#668494' : '#314550'}`};
+    background-color: ${({ selected, theme }) => `${selected ? theme.color.support.support80.value : '#314550'}`};
     transition: background-color 0.2s ease-in-out;
   }
 `;
 
 export const StyledSubNavItem = styled(StyledNavItem)`
-  padding-left: 48px;
+  padding-left: ${({ theme }) => theme.variables.navList.subItem.paddingLeft.value}px;
 `;
 
 export const StyledRightArrow = styled.span`
   & svg {
     left: initial;
-    right: 16px;
-    top: 22px;
+    right: ${({ theme }) => theme.variables.navList.listItem.arrowRight.value}px;
+    top: ${({ theme }) => theme.variables.navList.listItem.arrowTop.value}px;
   }
 `;

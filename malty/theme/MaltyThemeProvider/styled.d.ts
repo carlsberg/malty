@@ -1,4 +1,4 @@
-import 'styled-components';
+import { PropValue } from 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -26,6 +26,9 @@ declare module 'styled-components' {
     container: ContainerType;
     image: ImageType;
     global: GlobalTypes;
+    sideNav: SideNavType;
+    productsBar: ProductsBarType;
+    navList: NavListType;
   }
 
   interface BreakPointsType {
@@ -403,4 +406,39 @@ declare module 'styled-components' {
     successBackground: PropValue;
     successStrong: PropValue;
   }
+}
+
+interface SideNavType {
+  maxWidth: PropValue;
+  list: {
+    marginTop: PropValue;
+    paddingTop: PropValue;
+    paddingBottom: PropValue;
+    paddingLeft: PropValue;
+  };
+}
+
+interface ProductsBarType {
+  width: PropValue;
+  paddingSide: PropValue;
+  paddingVertical: PropValue;
+  border: PropValue;
+  borderColor: PropValue;
+}
+
+interface NavListType {
+  marginTop: PropValue;
+  listItem: {
+    height: PropValue;
+    paddingSide: PropValue;
+    paddingVertical: PropValue;
+    labelTop: PropValue;
+    labelLeft: PropValue;
+    iconLeft: PropValue;
+    arrowRight: PropValue;
+    arrowTop: PropValue;
+  };
+  subItem: {
+    paddingLeft: PropValue;
+  };
 }

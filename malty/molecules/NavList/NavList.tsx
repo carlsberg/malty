@@ -5,7 +5,9 @@ import {
   IconSizesTypes as IconSizes
 } from '@carlsberggroup/malty.atoms.icon';
 import { Color, Size, Text, Weight } from '@carlsberggroup/malty.atoms.text';
-import React, { useEffect, useState } from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext, useEffect, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
 import { LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
 
@@ -53,6 +55,8 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
 };
 
 export const NavList = ({ navItems }: NavListProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const [subNavIsActive, toggleSubNav] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState(-1);
   const [activeSubItem, setActiveSubItem] = useState(-1);
@@ -85,7 +89,7 @@ export const NavList = ({ navItems }: NavListProps) => {
   const { component, name, href, subItems } = activeItem;
 
   return (
-    <StyledNavList>
+    <StyledNavList theme={theme}>
       {!subNavIsActive &&
         navItems?.map((item, index) => {
           const selected = activeNavItem === index;
@@ -105,14 +109,11 @@ export const NavList = ({ navItems }: NavListProps) => {
         <>
           <StyledNavItem selected={false} onClick={closeSubNav}>
             <LinkComponent component={component} href={href}>
-              <Text size={Size.MediumSmall} color={Color.White}>
+              <Text size={Size.MediumSmall} color={Color.White} weight={Weight.Bold}>
                 {name}
               </Text>
             </LinkComponent>
             <Icon name={IconNames.ArrowSmallLeft} size={IconSizes.Small} color={IconColors.White} />
-            <Text size={Size.MediumSmall} color={Color.White} weight={Weight.Bold}>
-              {name}
-            </Text>
           </StyledNavItem>
           {subItems?.map((item, index) => {
             const selected = activeSubItem === index;

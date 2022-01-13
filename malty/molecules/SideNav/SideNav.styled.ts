@@ -12,43 +12,21 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledSideNav = styled.div`
-  max-width: 220px;
-  width: calc(100% - 80px);
+  max-width: ${({ theme }) => theme.variables.sideNav.maxWidth.value}px;
+  width: calc(100% - ${({ theme }) => theme.variables.productsBar.width.value}px);
   height: 100%;
-  background-color: #212833;
-  padding: 23px 0 23px 33px;
+  background-color: ${({ theme }) => theme.color.default.value};
+  padding-top: ${({ theme }) => theme.variables.sideNav.list.paddingTop.value}px;
+  padding-bottom: ${({ theme }) => theme.variables.sideNav.list.paddingBottom.value}px;
+  padding-left: ${({ theme }) => theme.variables.sideNav.list.paddingLeft.value}px;
+  padding-right: 0;
   box-sizing: border-box;
 `;
 
-export const StyledNavList = styled.ul`
+export const StyledListWrapper = styled.div`
   width: 100%;
-  list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 77px;
+  margin-top: ${({ theme }) => theme.variables.sideNav.list.marginTop.value}px;
   box-sizing: border-box;
-`;
-
-export const StyledNavItem = styled.li`
-  width: 100%;
-  padding: 20px 36px;
-  text-transform: capitalize;
-  position: relative;
-  box-sizing: border-box;
-  background-color: #212833;
-  cursor: pointer;
-  & a {
-    text-decoration: none;
-  }
-  & svg {
-    position: absolute;
-    left: 9px;
-  }
-  & p {
-    margin: 0;
-  }
-  &:hover {
-    background-color: #314550;
-    transition: background-color 0.2s ease-in-out;
-  }
 `;
