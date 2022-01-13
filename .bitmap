@@ -11,7 +11,7 @@
 {
     "atoms/alert": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Alert"
     },
@@ -95,13 +95,13 @@
     },
     "atoms/text-area": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.2",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/TextArea"
     },
     "atoms/tooltip": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.25",
+        "version": "0.0.26",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Tooltip"
     },

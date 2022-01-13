@@ -59,6 +59,7 @@ export default {
     }
   }
 } as Meta;
+
 const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipProps) => (
   <StyledContainer>
     <div id="testId">Click here to toggle it!</div>
@@ -67,7 +68,9 @@ const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipPr
     </TooltipComponent>
   </StyledContainer>
 );
+
 export const Tooltip = Template.bind({});
+
 Tooltip.args = {
   position: Position.Top,
   children: 'A simple Tooltip component content with some text'
