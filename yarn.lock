@@ -11824,6 +11824,8 @@ __metadata:
 "fsevents@npm:^2.1.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ffsevents%2F-%2Ffsevents-2.3.2.tgz"
+  dependencies:
+    node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
   conditions: os=darwin
   languageName: node
@@ -11842,6 +11844,8 @@ __metadata:
 "fsevents@patch:fsevents@^2.1.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ffsevents%252F-%252Ffsevents-2.3.2.tgz#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
+  dependencies:
+    node-gyp: latest
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -15352,6 +15356,8 @@ __metadata:
 "nan@npm:^2.12.1":
   version: 2.15.0
   resolution: "nan@npm:2.15.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnan%2F-%2Fnan-2.15.0.tgz"
+  dependencies:
+    node-gyp: latest
   checksum: 33e1bb4dfca447fe37d4bb5889be55de154828632c8d38646db67293a21afd61ed9909cdf1b886214a64707d935926c4e60e2b09de9edfc2ad58de31d6ce8f39
   languageName: node
   linkType: hard
