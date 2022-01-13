@@ -1,12 +1,12 @@
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { Input } from './Input';
+import { Input as InputComponent } from './Input';
 import { IconPosition, InputProps, InputType, MaskTypes, SizeTypes } from './Input.types';
 
 export default {
   title: 'Atoms/Input',
-  component: Input,
+  component: InputComponent,
   parameters: {
     importObject: 'Input',
     importPath: '@carlsberggroup/malty.atoms.input'
@@ -115,7 +115,7 @@ const Template: Story<InputProps> = ({
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
-    <Input
+    <InputComponent
       size={size}
       label={label}
       type={type}
@@ -132,13 +132,105 @@ const Template: Story<InputProps> = ({
   );
 };
 
-export const Main = Template.bind({});
-Main.args = {
-  size: SizeTypes.Medium,
-  label: 'Label',
-  type: InputType.Text,
-  placeholder: 'Placeholder',
-  error: 'Error text',
-  disabled: false,
-  clearable: false
-};
+export const Input = Template.bind({});
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'url':
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.URL,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: true
+    };
+    break;
+
+  case 'number':
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.Number,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'email':
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.Email,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: true
+    };
+    break;
+
+  case 'password':
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.Password,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'date':
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.Date,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'search':
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.Search,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'phone':
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.Telephone,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  default:
+    Input.args = {
+      size: SizeTypes.Medium,
+      label: 'Label',
+      type: InputType.Text,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+}

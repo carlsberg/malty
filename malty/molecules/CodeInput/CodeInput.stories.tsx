@@ -1,12 +1,12 @@
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { CodeInput } from './CodeInput';
+import { CodeInput as CodeInputComponent } from './CodeInput';
 import { CodeInputProps, CodeInputType, SizeTypes } from './CodeInput.types';
 
 export default {
-  title: 'Molecules/CodeInput',
-  component: CodeInput,
+  title: 'Molecules/Code Input',
+  component: CodeInputComponent,
   parameters: {
     importObject: 'CodeInput',
     importPath: '@carlsberggroup/malty.molecules.code-input'
@@ -61,7 +61,7 @@ const Template: Story<CodeInputProps> = ({
 }: CodeInputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
-    <CodeInput
+    <CodeInputComponent
       size={size}
       label={label}
       type={type}
@@ -76,8 +76,8 @@ const Template: Story<CodeInputProps> = ({
   );
 };
 
-export const Main = Template.bind({});
-Main.args = {
+export const CodeInput = Template.bind({});
+CodeInput.args = {
   size: SizeTypes.Large,
   label: 'Label',
   type: CodeInputType.Text,
