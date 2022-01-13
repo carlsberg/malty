@@ -2,7 +2,7 @@ import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import React from 'react';
 
 export interface ButtonProps {
-  text?: string;
+  text?: string | number;
   icon?: IconNamesTypes;
   iconPos?: IconPosition;
   url?: string;
@@ -11,6 +11,7 @@ export interface ButtonProps {
   size?: SizeTypes;
   isWhite?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onKeyUp?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
   selected?: boolean;
   scroll?: number;
   disabled?: boolean;
@@ -22,7 +23,8 @@ export interface ButtonProps {
   successText?: string;
   errorIcon?: IconNamesTypes;
   errorText?: string;
-  children?: string;
+  tabIndex?: number;
+  children?: string | JSX.Element;
 }
 
 export enum ButtonTypes {
@@ -41,6 +43,7 @@ export enum SizeTypes {
 export enum ButtonStyle {
   Primary = 'primary',
   Secondary = 'secondary',
+  Transparent = 'transparent',
   Floater = 'floater',
   Link = 'link'
 }

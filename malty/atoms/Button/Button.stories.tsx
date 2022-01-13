@@ -249,6 +249,28 @@ switch (variant) {
     };
     break;
 
+  case 'transparent':
+    Button.args = {
+      style: ButtonStyle.Transparent,
+      text: 'Transparent',
+      type: ButtonTypes.Submit,
+      size: SizeTypes.Medium,
+      iconPos: IconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: true,
+      successIcon: IconNamesTypes.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconNamesTypes.ItemClose,
+      errorText: 'Error'
+    };
+    break;
+  
   default:
     Button.args = {
       style: ButtonStyle.Primary,
