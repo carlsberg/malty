@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Pagination as PaginationComponent } from './Pagination';
 import { PaginationProps } from './Pagination.types';
 
@@ -8,7 +8,7 @@ export default {
   component: PaginationComponent,
   parameters: {
     importObject: 'Pagination',
-    importPath: '@carlsberggroup/malty.atoms.pagination'
+    importPath: '@carlsberggroup/malty.molecules.pagination'
   },
   argTypes: {
     dataQaId: {
@@ -19,13 +19,23 @@ export default {
   }
 } as Meta;
 
-const Template: Story<PaginationProps> = ({ ...args }) => <PaginationComponent {...args} />;
+const Template: Story<PaginationProps> = ({ count, currentPage }) => {
+  const [statePage, setStatePage] = useState(currentPage);
+
+  return (
+    <PaginationComponent
+      onChange={(page) => {
+        setStatePage(page);
+      }}
+      count={count}
+      currentPage={statePage}
+    />
+  );
+};
 
 export const Pagination = Template.bind({});
 
 Pagination.args = {
   count: 10,
-  currentPage: 1,
-  // eslint-disable-next-line no-console
-  onChange: (page) => console.log(page)
+  currentPage: 1
 };
