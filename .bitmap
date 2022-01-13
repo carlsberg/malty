@@ -1365,6 +1365,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Loading"
     },
+    "molecules/pagination": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Pagination"
+    },
     "molecules/stepper": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.11",
