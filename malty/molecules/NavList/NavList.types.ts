@@ -3,14 +3,14 @@ import React from 'react';
 
 export interface SubItemProps {
   name: string;
-  href: string;
+  href?: string;
   component?: React.ReactNode | JSX.Element;
 }
 
 export interface ItemProps {
   name: string;
   icon: IconNames;
-  href: string;
+  href?: string;
   component?: React.ReactNode | JSX.Element;
   subItems?: SubItemProps[];
 }
@@ -30,10 +30,20 @@ export interface SubNavItemProps {
   selected: boolean;
 }
 
+type validCustomPropValues =
+  | string
+  | number
+  | React.ReactNode
+  | JSX.Element
+  | React.MouseEventHandler<HTMLButtonElement>;
+
 export type LinkComponentProps = {
-  href: string;
   children: React.ReactNode | JSX.Element;
   component?: React.ReactNode | JSX.Element;
+  componentProps?: {
+    [key: string]: validCustomPropValues;
+  };
+  href?: string;
 };
 
 export interface NavListProps {

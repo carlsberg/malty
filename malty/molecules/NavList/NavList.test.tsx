@@ -17,7 +17,7 @@ const navWithRouterItems = [
     icon: IconNames.DataTransfer,
     name: 'item with subnav',
     component: Link,
-    href: '/',
+    to: '/',
     subItems: [{ name: 'sub item 1', href: '/' }]
   }
 ];

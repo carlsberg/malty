@@ -11,16 +11,28 @@ import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
 import { LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
 
-const LinkComponent = ({ component, href, children }: LinkComponentProps) => {
+const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
-  return <>{component ? <CustomComponent to={href}>{children}</CustomComponent> : <a href={href}>{children}</a>}</>;
+
+  return (
+    <>
+      {
+        // we need to spread props in this case in order to allow custom properties being passed to the custom component
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>
+      }
+    </>
+  );
 };
 
 const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) => {
-  const { component, name, href } = item;
+  const { component, name, href, ...customProps } = item;
+  const componentProps = { ...customProps };
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   return (
-    <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected}>
-      <LinkComponent component={component} href={href}>
+    <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
+      <LinkComponent component={component} href={href} componentProps={componentProps}>
         <Text size={Size.MediumSmall} color={Color.White}>
           {name}
         </Text>
@@ -30,23 +42,26 @@ const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
 };
 
 const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false }: NavItemProps) => {
-  const { component, name, href, icon, subItems } = item;
+  const { component, name, href, icon, subItems, ...customProps } = item;
+  const componentProps = { ...customProps };
+  const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <StyledNavItem
       onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
       selected={selected}
+      theme={theme}
     >
       {icon && <Icon name={IconNames[icon]} size={IconSizes.Small} color={IconColors.White} />}
 
-      <LinkComponent component={component} href={href}>
+      <LinkComponent component={component} href={href} componentProps={componentProps}>
         <Text size={Size.Small} color={Color.White}>
           {name}
         </Text>
       </LinkComponent>
 
       {subItems && (
-        <StyledRightArrow>
+        <StyledRightArrow theme={theme}>
           <Icon name={IconNames.ArrowSmallRight} size={IconSizes.Small} color={IconColors.White} />
         </StyledRightArrow>
       )}
@@ -86,7 +101,8 @@ export const NavList = ({ navItems }: NavListProps) => {
   };
 
   const activeItem = navItems[activeNavItem] || {};
-  const { component, name, href, subItems } = activeItem;
+  const { component, name, href, subItems, icon, ...customProps } = activeItem;
+  const componentProps = { ...customProps };
 
   return (
     <StyledNavList theme={theme}>
@@ -107,8 +123,8 @@ export const NavList = ({ navItems }: NavListProps) => {
 
       {subNavIsActive && (
         <>
-          <StyledNavItem selected={false} onClick={closeSubNav}>
-            <LinkComponent component={component} href={href}>
+          <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
+            <LinkComponent component={component} href={href} componentProps={componentProps}>
               <Text size={Size.MediumSmall} color={Color.White} weight={Weight.Bold}>
                 {name}
               </Text>

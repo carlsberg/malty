@@ -5,7 +5,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
   className="sc-pVTFL Tvvmw"
 >
   <div
-    className="sc-furwcr gOiEQO"
+    className="sc-furwcr dsaZkv"
   >
     <svg
       className="sc-gsDKAQ jfmKRC"
@@ -24,7 +24,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
     </svg>
   </div>
   <div
-    className="sc-jrQzAO iqvCHN"
+    className="sc-jrQzAO fvJchc"
   >
     <span
       className="sc-bdvvtL iouZXA"
@@ -37,14 +37,14 @@ exports[`molecule sideNav matches snapshot 1`] = `
         Ottilia
       </h1>
     </span>
-    <ul
-      className="sc-kDTinF idgfNI"
+    <div
+      className="sc-kDTinF dJCqRi"
     >
       <ul
-        className="sc-eCImPb kQMUrG"
+        className="sc-eCImPb BsWdZ"
       >
         <li
-          className="sc-jRQBWg mcEtA"
+          className="sc-jRQBWg hxMxND"
           onClick={[Function]}
           selected={false}
         >
@@ -80,7 +80,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
           </a>
         </li>
         <li
-          className="sc-jRQBWg mcEtA"
+          className="sc-jRQBWg hxMxND"
           onClick={[Function]}
           selected={false}
         >
@@ -116,7 +116,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
           </a>
         </li>
         <li
-          className="sc-jRQBWg mcEtA"
+          className="sc-jRQBWg hxMxND"
           onClick={[Function]}
           selected={false}
         >
@@ -152,7 +152,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
           </a>
         </li>
       </ul>
-    </ul>
+    </div>
   </div>
 </div>
 `;

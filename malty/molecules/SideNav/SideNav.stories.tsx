@@ -19,15 +19,16 @@ export default {
 
 const navItemsMock = [
   { icon: IconNames.DataTransfer, name: 'item 1', href: '/iframe.html' },
-  { icon: IconNames.DataTransfer, name: 'item 2', component: Link, href: '/item2' },
+  { icon: IconNames.DataTransfer, name: 'item 2', component: Link, to: '/item2' },
   {
     icon: IconNames.DataTransfer,
     name: 'item 3',
     component: Link,
-    href: '/item3',
+    to: '/item3',
+    replace: true,
     subItems: [
-      { name: 'sub item 1', component: Link, href: '/sub-item1' },
-      { name: 'sub item 2', component: Link, href: '/sub-item2' }
+      { name: 'sub item 1', component: Link, to: '/sub-item1' },
+      { name: 'sub item 2', component: Link, to: '/sub-item2' }
     ]
   }
 ];
