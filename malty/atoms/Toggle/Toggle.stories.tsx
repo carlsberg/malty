@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Toggle } from './Toggle';
+import { Toggle as ToggleComponent } from './Toggle';
 import { ToggleProps } from './Toggle.types';
 
 export default {
   title: 'Atoms/Toggle',
-  component: Toggle,
+  component: ToggleComponent,
   parameters: {
     importObject: 'Toggle',
     importPath: '@carlsberggroup/malty.atoms.toggle'
@@ -33,11 +33,11 @@ export default {
   }
 } as Meta;
 const Template: Story<ToggleProps> = ({ label, checked, onValueChange, disabled, error }: ToggleProps) => (
-  <Toggle disabled={disabled} checked={checked} label={label} onValueChange={onValueChange} error={error} />
+  <ToggleComponent disabled={disabled} checked={checked} label={label} onValueChange={onValueChange} error={error} />
 );
 
-export const Main = Template.bind({});
-Main.args = {
+export const Toggle = Template.bind({});
+Toggle.args = {
   label: 'toggle label',
   checked: false,
   disabled: false,

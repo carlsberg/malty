@@ -11,7 +11,7 @@ import {
 } from './Toggle.styled';
 import { ToggleProps } from './Toggle.types';
 
-export const Toggle = ({ disabled, onValueChange, label, checked, error }: ToggleProps) => {
+export const Toggle = ({ disabled, onValueChange, label, checked, error, ...props }: ToggleProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   return (
     <TypographyProvider>
@@ -23,6 +23,8 @@ export const Toggle = ({ disabled, onValueChange, label, checked, error }: Toggl
             type="checkbox"
             checked={checked}
             onChange={(e) => onValueChange(!(e.target as HTMLInputElement).checked)}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...props}
           />
           <StyledSwitch theme={theme} disabled={disabled} className="switch" />
         </StyledToggleSwitch>
