@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`molecule pagination matches snapshot 1`] = `
+<span
+  className="sc-bdvvtL iouZXA"
+>
+  <div
+    className="sc-kDTinF ptlVJ"
+  >
+    <ul>
+      <li>
+        <button
+          className="sc-iqseJM keKLOL"
+          disabled={true}
+          onClick={[Function]}
+          onKeyUp={[Function]}
+          tabIndex={0}
+        >
+          <svg
+            className="sc-gsDKAQ rszqA"
+            color="Primary"
+            data-testid="svg-component"
+            size="40"
+            version="1.1"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              fillRule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M10.414 12l5.293-5.293a1 1 0 00-1.414-1.414l-6 6a1 1 0 000 1.414l6 6a1 1 0 101.414-1.414z"
+              />
+            </g>
+          </svg>
+        </button>
+      </li>
+      <li>
+        <span
+          className="sc-bdvvtL iouZXA"
+        >
+          <button
+            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo active"
+            fontSize="16"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={0}
+            type="submit"
+          >
+            <div
+              className="text-container "
+            >
+              1
+            </div>
+          </button>
+        </span>
+      </li>
+      <li>
+        <span
+          className="sc-bdvvtL iouZXA"
+        >
+          <button
+            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
+            fontSize="16"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={0}
+            type="submit"
+          >
+            <div
+              className="text-container "
+            >
+              2
+            </div>
+          </button>
+        </span>
+      </li>
+      <li>
+        <span
+          className="sc-bdvvtL iouZXA"
+        >
+          <button
+            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
+            fontSize="16"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={0}
+            type="submit"
+          >
+            <div
+              className="text-container "
+            >
+              3
+            </div>
+          </button>
+        </span>
+      </li>
+      <li>
+        <span
+          className="sc-bdvvtL iouZXA"
+        >
+          <button
+            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
+            fontSize="16"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={0}
+            type="submit"
+          >
+            <div
+              className="text-container "
+            >
+              4
+            </div>
+          </button>
+        </span>
+      </li>
+      <li>
+        <span
+          className="sc-bdvvtL iouZXA"
+        >
+          <button
+            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
+            fontSize="16"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={0}
+            type="submit"
+          >
+            <div
+              className="text-container "
+            >
+              5
+            </div>
+          </button>
+        </span>
+      </li>
+      <li
+        tabIndex={-1}
+      >
+        <div
+          className="sc-crHmcD jigcKj"
+        >
+          …
+        </div>
+      </li>
+      <li>
+        <span
+          className="sc-bdvvtL iouZXA"
+        >
+          <button
+            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
+            fontSize="16"
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={0}
+            type="submit"
+          >
+            <div
+              className="text-container "
+            >
+              10
+            </div>
+          </button>
+        </span>
+      </li>
+      <li>
+        <button
+          className="sc-iqseJM cxdiCD"
+          disabled={false}
+          onClick={[Function]}
+          onKeyUp={[Function]}
+          tabIndex={-1}
+        >
+          <svg
+            className="sc-gsDKAQ rszqA"
+            color="Primary"
+            data-testid="svg-component"
+            size="40"
+            version="1.1"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              fillRule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M13.586 12l-5.293 5.293a1 1 0 001.414 1.414L16.414 12 9.707 5.293a1 1 0 00-1.414 1.414z"
+              />
+            </g>
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </div>
+</span>
+`;

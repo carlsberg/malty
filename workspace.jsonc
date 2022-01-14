@@ -61,6 +61,12 @@
      * "*" is a special rule which applied on all components in the workspace.
      **/
     "*": {
+      "teambit.component/dev-files": {
+        "devFilePatterns": [
+          "**/*.stories.+(js|ts|jsx|tsx)",
+          "**/*.helpers.+(js|ts|jsx|tsx)"
+        ]
+      },
       "teambit.react/react": {}
     }
   }

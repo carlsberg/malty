@@ -1,5 +1,31 @@
 {
   "variables": {
+    "textarea": {
+      "padding": {
+        "value": "12px 16"
+      },
+      "counter": {
+        "borderRadius": {
+          "value": "100"
+        },
+        "padding": {
+          "value": "0 6"
+        },
+        "height": {
+          "value": "14"
+        }
+      }
+    },
+    "alert": {
+      "size": {
+        "medium": {
+          "value": "40"
+        },
+        "small": {
+          "value": "32"
+        }
+      }
+    },
     "button": {
       "icon": {
         "size": {
@@ -15,7 +41,7 @@
         }
       },
       "horizontalPadding": {
-        "value": "24"
+        "value": "16"
       },
       "size": {
         "small": {
@@ -351,6 +377,10 @@
           "value": "1600"
         }
       }
+    },
+    "pagination": {
+      "height": { "value": "40" },
+      "width": { "value": "40" }
     }
   }
 }
