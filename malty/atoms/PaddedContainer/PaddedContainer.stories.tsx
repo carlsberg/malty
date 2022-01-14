@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { PaddedContainer, PaddedContainerProps } from '.';
+import { PaddedContainer as PaddedContainerComponent, PaddedContainerProps } from '.';
 import { PaddedContainerSizeType } from './PaddedContainer.types';
 
 export default {
-  title: 'Atoms/PaddedContainer',
-  component: PaddedContainer,
+  title: 'Atoms/Padded Container',
+  component: PaddedContainerComponent,
   parameters: {
     importObject: 'PaddedContainer',
     importPath: '@carlsberggroup/malty.atoms.padded-container'
@@ -27,7 +27,7 @@ export default {
 } as Meta;
 
 const Template: Story<PaddedContainerProps> = (args) => (
-  <PaddedContainer {...args}>
+  <PaddedContainerComponent {...args}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Mi tempus imperdiet nulla malesuada pellentesque. Sodales ut etiam sit amet nisl purus. Rutrum quisque non
     tellus orci ac auctor augue mauris. A pellentesque sit amet porttitor eget dolor morbi non. Viverra vitae congue eu
@@ -36,10 +36,10 @@ const Template: Story<PaddedContainerProps> = (args) => (
     Tellus elementum sagittis vitae et leo. Scelerisque fermentum dui faucibus in. Porttitor rhoncus dolor purus non
     enim praesent elementum facilisis leo. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum.
     Arcu risus quis varius quam. Volutpat ac tincidunt vitae semper. Donec adipiscing tristique risus nec.
-  </PaddedContainer>
+  </PaddedContainerComponent>
 );
 
-export const Main = Template.bind({});
-Main.args = {
+export const PaddedContainer = Template.bind({});
+PaddedContainer.args = {
   padding: PaddedContainerSizeType.None
 };

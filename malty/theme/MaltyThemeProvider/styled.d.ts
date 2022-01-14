@@ -11,6 +11,11 @@ declare module 'styled-components' {
     breakpoints: BreakPointsType;
   }
 
+  interface PaginationTypes {
+    height: PropValue;
+    width: PropValue;
+  }
+
   interface VariablesType {
     toggle: ToggleType;
     textarea: TextareaType;
@@ -28,6 +33,7 @@ declare module 'styled-components' {
     container: ContainerType;
     image: ImageType;
     global: GlobalTypes;
+    pagination: PaginationTypes;
   }
 
   interface BreakPointsType {

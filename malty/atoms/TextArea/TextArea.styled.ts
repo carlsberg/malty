@@ -67,7 +67,7 @@ export const StyledTextAreaWrapper = styled.div<{
     ${({ theme, isError }) =>
       isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
   overflow: hidden;
-
+  background-color: ${({ theme }) => theme.color.white.value};
   ${({ resize }) =>
     resize
       ? css`
