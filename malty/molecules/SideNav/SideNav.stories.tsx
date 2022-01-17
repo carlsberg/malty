@@ -42,8 +42,8 @@ const Template: Story<SideNavProps> = ({ productName, navItems }) => (
   </BrowserRouter>
 );
 
-export const Main = Template.bind({});
-Main.args = {
+export const SideNav = Template.bind({});
+SideNav.args = {
   productName: 'Ottilia',
   navItems: navItemsMock
 };
