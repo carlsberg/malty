@@ -35,7 +35,7 @@ const navItemsMock = [
 
 const Template: Story<SideNavProps> = ({ productName, navItems }) => (
   <BrowserRouter>
-    <SideNav productName={productName} navItems={navItems} />
+    < SideNavComponent productName={productName} navItems={navItems} />
     <Routes>
       <Route path="/item3"> </Route>
     </Routes>
