@@ -7,7 +7,7 @@ import { SideNavProps } from './SideNav.types';
 
 export default {
   title: 'Molecules/SideNav',
-  component: SideNav,
+  component: SideNavComponent,
   parameters: {
     importObject: 'SideNav',
     importPath: '@carlsberggroup/malty.molecules.sideNav'
