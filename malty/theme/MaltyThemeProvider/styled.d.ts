@@ -1,4 +1,4 @@
-import { PropValue } from 'styled-components';
+import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
