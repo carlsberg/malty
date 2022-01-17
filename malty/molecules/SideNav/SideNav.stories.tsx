@@ -2,7 +2,7 @@ import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { SideNav } from './SideNav';
+import { SideNav as SideNavComponent } from './SideNav';
 import { SideNavProps } from './SideNav.types';
 
 export default {
