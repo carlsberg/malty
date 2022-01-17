@@ -9,7 +9,6 @@ import { StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
 import { Position, Toggle, TooltipProps } from './Tooltip.types';
 
 export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipProps) => {
-  const style = { '--color': 'dodgerblue' } as React.CSSProperties;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showTooltip, setShowTooltip] = useState(false);
   const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
@@ -105,7 +104,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
 
   return (
     <TypographyProvider>
-      <StyledTooltipWrapper style={style} theme={theme}>
+      <StyledTooltipWrapper theme={theme}>
         <StyledTooltip
           position={position}
           anchorOffset={anchorOffset}

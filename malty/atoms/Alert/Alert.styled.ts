@@ -21,7 +21,6 @@ export const StyledAlertToastWrapper = styled(StyledWrapper)`
   margin-top: 8px;
 
   ${({ theme }) => css`
-    margin-top: ;
     @media screen and (min-width: ${theme.variables.global.breakpoints.medium.value}px) {
     margin-top: 16px
   `}

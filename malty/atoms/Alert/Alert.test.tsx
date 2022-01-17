@@ -7,12 +7,9 @@ describe('<Alert/>', () => {
   describe('In Line Alert', () => {
     it('should render In Line Alert component with label', () => {
       render(
-        <Alert
-          type={AlertType.InLine}
-          label="In Line Alert Label"
-          color={AlertBackgroundColor.Notification}
-          dataQaId="inline-alert"
-        />
+        <Alert type={AlertType.InLine} color={AlertBackgroundColor.Notification} dataQaId="inline-alert">
+          In Line Alert Label
+        </Alert>
       );
       expect(screen.getByText('In Line Alert Label')).toBeInTheDocument();
       expect(screen.getByTestId('inline-alert')).toBeInTheDocument();
@@ -20,13 +17,9 @@ describe('<Alert/>', () => {
 
     it('should render In Line Alert component with label and Icon', () => {
       render(
-        <Alert
-          type={AlertType.InLine}
-          label="In Line Alert Label and Icon"
-          icon
-          color={AlertBackgroundColor.Notification}
-          dataQaId="inline-alert-with-icon"
-        />
+        <Alert type={AlertType.InLine} icon color={AlertBackgroundColor.Notification} dataQaId="inline-alert-with-icon">
+          In Line Alert Label and Icon
+        </Alert>
       );
 
       expect(screen.getByText('In Line Alert Label and Icon')).toBeInTheDocument();
@@ -39,14 +32,15 @@ describe('<Alert/>', () => {
       render(
         <Alert
           type={AlertType.InLine}
-          label="In Line Alert with Label, Icon and two actions"
           icon
           color={AlertBackgroundColor.Notification}
           dataQaId="inline-alert-with-icon-and-actions"
           firstActionText="ok"
           secondActionText="cancel"
           secondAction={secondActionMock}
-        />
+        >
+          In Line Alert with Label, Icon and two actions
+        </Alert>
       );
 
       expect(screen.getByText('ok')).toBeInTheDocument();
