@@ -6,7 +6,7 @@ import { SideNav as SideNavComponent } from './SideNav';
 import { SideNavProps } from './SideNav.types';
 
 export default {
-  title: 'Molecules/SideNav',
+  title: 'Molecules/Side Nav',
   component: SideNavComponent,
   parameters: {
     importObject: 'SideNav',
@@ -35,7 +35,7 @@ const navItemsMock = [
 
 const Template: Story<SideNavProps> = ({ productName, navItems }) => (
   <BrowserRouter>
-    < SideNavComponent productName={productName} navItems={navItems} />
+    <SideNavComponent productName={productName} navItems={navItems} />
     <Routes>
       <Route path="/item3"> </Route>
     </Routes>
