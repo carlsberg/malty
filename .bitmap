@@ -1381,7 +1381,8 @@
         "scope": "",
         "version": "",
         "mainFile": "index.tsx",
-        "rootDir": "malty/molecules/SideNav",
+        "rootDir": "malty/molecules/SideNav"
+    },
     "molecules/pagination": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.1",
@@ -1414,4 +1415,4 @@
     },
     "$schema-version": "14.9.0"
 }
- }
+ 
