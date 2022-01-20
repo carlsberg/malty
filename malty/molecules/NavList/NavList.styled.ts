@@ -21,6 +21,7 @@ export const StyledNavItem = styled.li<{
   background-color: ${({ selected, theme }) =>
     `${selected ? theme.color.support.support80.value : theme.color.default.value}`};
   cursor: ${({ selected }) => `${selected ? 'default' : 'pointer'}`};
+  user-select: none;
   & a {
     text-decoration: none;
     display: inline-block;
