@@ -5,7 +5,7 @@ exports[`sideNav molecule matches snapshot 1`] = `
   className="sc-hKwDye kpGpgl"
 >
   <li
-    className="sc-eCImPb fHTwLo"
+    className="sc-eCImPb ebzDfg"
     onClick={[Function]}
     selected={false}
   >
@@ -41,7 +41,7 @@ exports[`sideNav molecule matches snapshot 1`] = `
     </a>
   </li>
   <li
-    className="sc-eCImPb fHTwLo"
+    className="sc-eCImPb ebzDfg"
     onClick={[Function]}
     selected={false}
   >
@@ -77,7 +77,7 @@ exports[`sideNav molecule matches snapshot 1`] = `
     </a>
   </li>
   <li
-    className="sc-eCImPb fHTwLo"
+    className="sc-eCImPb ebzDfg"
     onClick={[Function]}
     selected={false}
   >
