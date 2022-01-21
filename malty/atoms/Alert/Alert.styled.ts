@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { AlertBackgroundColor, AlertHeightSizeTypes, AlertType } from './Alert.types';
 
 export const StyledWrapper = styled.div<{
@@ -17,13 +17,24 @@ export const StyledAlertBannerWrapper = styled(StyledWrapper)`
   margin-top: 0;
 `;
 
+// Toast
+const fadeInBottomUpAnimation = keyframes`
+  0% {
+    bottom: 0;
+    opacity: 0.3
+  }
+  100% {
+    bottom: 32px;
+    opacity: 1
+  }
+`;
 export const StyledAlertToastWrapper = styled(StyledWrapper)`
-  margin-top: 8px;
-
-  ${({ theme }) => css`
-    @media screen and (min-width: ${theme.variables.global.breakpoints.medium.value}px) {
-    margin-top: 16px
-  `}
+  position: absolute;
+  margin: auto;
+  left: 0;
+  bottom: 32px;
+  animation-name: ${fadeInBottomUpAnimation};
+  animation-duration: 0.5s;
 `;
 
 export const StyledContainer = styled.div<{
@@ -34,7 +45,6 @@ export const StyledContainer = styled.div<{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  word-break: break-all;
   padding: 8px 16px;
   box-sizing: border-box;
   row-gap: 4px;
@@ -97,6 +107,11 @@ export const StyledAlert = styled(StyledContainer)`
   }
 `;
 
+export const StyledToast = styled(StyledAlert)`
+  width: min(400px, 90vw);
+  margin: auto;
+`;
+
 export const StyledTextContainer = styled.div`
   min-width: 30px;
   overflow: hidden;
@@ -112,13 +127,18 @@ export const StyledActionContainer = styled.div`
   column-gap: 8px;
   justify-content: flex-end;
   box-sizing: border-box;
+  height: 100%;
+  align-items: center;
 `;
 
-export const StyledActionItem = styled.div`
+export const StyledActionItem = styled.div.attrs((props: { alertType: AlertType }) => props)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   box-sizing: border-box;
+  button {
+    text-decoration: ${(props) => (props.alertType === AlertType.Toast ? `none` : `underline`)};
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -152,4 +172,12 @@ export const StyledAlertContent = styled(StyledContent)`
   width: 80%;
   margin: 0 auto;
   justify-content: center;
+`;
+export const StyledAlertToastContent = styled(StyledAlertContent)`
+  width: 100%;
+  justify-content: space-between;
+
+  p {
+    white-space: normal;
+  }
 `;

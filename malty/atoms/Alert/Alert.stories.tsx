@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
+import styled from 'styled-components';
 import { Alert as AlertComponent } from './Alert';
 import { AlertBackgroundColor, AlertHeightSizeTypes, AlertProps, AlertType } from './Alert.types';
 
@@ -76,8 +77,15 @@ export default {
     }
   }
 } as Meta;
-
-const Template: Story<AlertProps> = ({ ...args }) => <AlertComponent {...args} />;
+const StyledContainer = styled.div`
+  height: 200px;
+  width: 100%;
+`;
+const Template: Story<AlertProps> = ({ ...args }) => (
+  <StyledContainer>
+    <AlertComponent {...args} />
+  </StyledContainer>
+);
 
 export const Alert = Template.bind({});
 
@@ -105,12 +113,13 @@ switch (variant) {
       type: AlertType.Toast,
       children: 'Hello, Im the Toast Alert! Play with me.',
       action: true,
-      icon: true,
       heightSize: undefined,
       color: AlertBackgroundColor.Notification,
       dataQaId: 'toast-alert',
-      firstAction: action('First Action clicked'),
-      firstActionText: 'First Action'
+      firstAction: action('Undo Action clicked'),
+      firstActionText: 'Undo',
+      onHideToast: action('hideToast Action clicked')
+      // autoHideDuration: 5000
     };
     break;
   default:
@@ -123,7 +132,8 @@ switch (variant) {
       color: AlertBackgroundColor.Notification,
       dataQaId: 'banner-alert',
       firstAction: action('First Action clicked'),
-      firstActionText: 'First Action'
+      firstActionText: 'First Action',
+      dismiss: action('Dismiss button clicked')
     };
     break;
 }

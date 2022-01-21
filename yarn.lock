@@ -10293,9 +10293,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.564, electron-to-chromium@npm:^1.4.17":
-  version: 1.4.44
-  resolution: "electron-to-chromium@npm:1.4.44::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.44.tgz"
-  checksum: 76b0c723cf4fa3f542e4e34add8c559d5c3668192d1f359d24b45546b34791dff716e9fd905fbcddd6875cb849b72106c6f5edd682bba2f78c1c2eb6bccd647d
+  version: 1.4.45
+  resolution: "electron-to-chromium@npm:1.4.45::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.45.tgz"
+  checksum: 8afc465bfe4873701c748626bcd3081976526b3cd9cf4b098b0a1ad90bd2be5f4933ddf1e061cc140d2793146f0901f2b96996aaecd726d0abdebcaf5d3bdbaa
   languageName: node
   linkType: hard
 
@@ -17540,12 +17540,12 @@ __metadata:
   linkType: hard
 
 "regexp.prototype.flags@npm:^1.2.0, regexp.prototype.flags@npm:^1.3.1":
-  version: 1.3.1
-  resolution: "regexp.prototype.flags@npm:1.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fregexp.prototype.flags%2F-%2Fregexp.prototype.flags-1.3.1.tgz"
+  version: 1.4.1
+  resolution: "regexp.prototype.flags@npm:1.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fregexp.prototype.flags%2F-%2Fregexp.prototype.flags-1.4.1.tgz"
   dependencies:
     call-bind: ^1.0.2
     define-properties: ^1.1.3
-  checksum: 343595db5a6bbbb3bfbda881f9c74832cfa9fc0039e64a43843f6bb9158b78b921055266510800ed69d4997638890b17a46d55fd9f32961f53ae56ac3ec4dd05
+  checksum: 77944a3ea5ae84f391fa80bff9babfedc47eadc9dc38e282b5fd746368fb787deec89c68ce3114195bf6b5782b160280a278b62d41ccc6e125afab1a7f816de8
   languageName: node
   linkType: hard
 
@@ -20797,8 +20797,8 @@ __metadata:
   linkType: hard
 
 "ws@npm:^8.2.3":
-  version: 8.4.0
-  resolution: "ws@npm:8.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fws%2F-%2Fws-8.4.0.tgz"
+  version: 8.4.1
+  resolution: "ws@npm:8.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fws%2F-%2Fws-8.4.1.tgz"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ^5.0.2
@@ -20807,7 +20807,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 5e37ccf0ecb8d8019d88b07af079e8f74248b688ad3109ab57cd5e1c9a7392545f572914d0c27f25e8b83a6cfc09a89ac151c556ff4fae26d6f824077e4f8239
+  checksum: 0e9b52005589d7f0938faddfaf775ec3be492829089ad2d95cf09b2ae7ec8c760aa67fc850e7f6c8071e182c441026aacbf8a01547e64fe673db6b9f5c98c3e3
   languageName: node
   linkType: hard
 

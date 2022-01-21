@@ -11,6 +11,8 @@ export interface AlertProps {
   secondAction?: () => void;
   secondActionText?: string;
   children: string | JSX.Element;
+  autoHideDuration?: number;
+  onHideToast?: () => void;
 }
 
 export enum AlertType {
