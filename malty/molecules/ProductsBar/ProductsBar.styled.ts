@@ -5,7 +5,7 @@ export const StyledProductsBar = styled.div`
   height: 100%;
   background-color: ${({ theme }) => theme.color.default.value};
   border-width: ${({ theme }) => theme.variables.productsBar.border.value}px;
-  border-color: ${({ theme }) => theme.variables.productsBar.borderColor.value};
+  border-color: ${({ theme }) => theme.color.productsBar.border.value};
   border-style: solid;
   box-sizing: border-box;
   padding: ${({ theme }) => theme.variables.productsBar.paddingVertical.value}px

@@ -201,6 +201,11 @@
         "value": "rgb(27, 214, 101)"
       }
     },
+    "productsBar": {
+      "border": {
+        "value": "rgb(49,69,80)"
+      }
+    },
     "transparent": {
       "value": "rgba(33, 40, 51, 0)"
     },

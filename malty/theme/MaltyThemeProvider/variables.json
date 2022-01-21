@@ -391,9 +391,6 @@
       },
       "border": {
         "value": "1"
-      },
-      "borderColor": {
-        "value": "rgb(49,69,80)"
       }
     },
     "navList": {

@@ -330,6 +330,7 @@ declare module 'styled-components' {
     transparent: PropValue;
     white: PropValue;
     black: PropValue;
+    productsBar: ProductsBarColors;
   }
 
   interface PropValue {
@@ -424,6 +425,10 @@ declare module 'styled-components' {
     successBackground: PropValue;
     successStrong: PropValue;
   }
+}
+
+interface ProductsBarColors {
+  border: PropValue;
 }
 
 interface SideNavType {
