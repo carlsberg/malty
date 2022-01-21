@@ -19,18 +19,20 @@ export default {
 
 const navItemsMock = [
   { icon: IconNames.DataTransfer, name: 'item 1', href: '/iframe.html' },
-  { icon: IconNames.DataTransfer, name: 'item 2', component: Link, to: '/item2' },
+  { icon: IconNames.DataTransfer, name: 'item 2', component: Link, to: '/item2', category: 'favourites' },
   {
     icon: IconNames.DataTransfer,
     name: 'item 3',
     component: Link,
     to: '/item3',
+    category: 'favourites',
     replace: true,
     subItems: [
       { name: 'sub item 1', component: Link, to: '/sub-item1' },
       { name: 'sub item 2', component: Link, to: '/sub-item2' }
     ]
-  }
+  },
+  { icon: IconNames.DataTransfer, name: 'item 4', component: Link, to: '/item4' }
 ];
 
 const Template: Story<SideNavProps> = ({ productName, navItems }) => (

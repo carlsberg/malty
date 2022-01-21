@@ -9,7 +9,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
-import { LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
+import { ItemProps, LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
 
 const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
@@ -41,8 +41,8 @@ const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
   );
 };
 
-const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false }: NavItemProps) => {
-  const { component, name, href, icon, subItems, ...customProps } = item;
+const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false, className }: NavItemProps) => {
+  const { component, name, href, icon, subItems, category, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -51,6 +51,8 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
       onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
       selected={selected}
       theme={theme}
+      data-category={category}
+      className={className}
     >
       {icon && <Icon name={IconNames[icon]} size={IconSizes.Small} color={IconColors.White} />}
 
@@ -76,8 +78,13 @@ export const NavList = ({ navItems }: NavListProps) => {
   const [activeNavItem, setActiveNavItem] = useState(-1);
   const [activeSubItem, setActiveSubItem] = useState(-1);
 
-  // set initial selected active item for the one that matches the current window location
   useEffect(() => {
+    setInitialActiveItem();
+  }, [navItems]);
+
+  const setInitialActiveItem = () => {
+    // set initial selected active item for the one that matches the current window location
+
     for (let i = 0; i < navItems.length; i++) {
       const currentItem = navItems[i];
       const currentLocation = window.location.pathname;
@@ -88,7 +95,7 @@ export const NavList = ({ navItems }: NavListProps) => {
         break;
       }
     }
-  }, [navItems]);
+  };
 
   const openSubNav = (item: number) => {
     setActiveNavItem(item);
@@ -100,15 +107,37 @@ export const NavList = ({ navItems }: NavListProps) => {
     toggleSubNav(false);
   };
 
-  const activeItem = navItems[activeNavItem] || {};
-  const { component, name, href, subItems, icon, ...customProps } = activeItem;
+  const activeItem = navItems[activeNavItem] || ({} as ItemProps);
+  const { component, name, href, subItems, icon, category, ...customProps } = activeItem;
   const componentProps = { ...customProps };
+
+  const resolveItemClass = (itemsInCategory: ItemProps[], item: ItemProps) => {
+    let className;
+    const isFirstInCategory = itemsInCategory.indexOf(item) === 0;
+    const isLastInCategory = itemsInCategory.indexOf(item) === itemsInCategory.length - 1;
+
+    if (isFirstInCategory) {
+      className = 'firstInCategory';
+    }
+    if (isLastInCategory) {
+      className = 'lastInCategory';
+    }
+    return className;
+  };
 
   return (
     <StyledNavList theme={theme}>
       {!subNavIsActive &&
         navItems?.map((item, index) => {
           const selected = activeNavItem === index;
+          let className;
+
+          if (item.category) {
+            const itemsInCategory = navItems.filter((navItem) => navItem.category === item.category);
+            // add a class to the first and the list nav items that belong to the current category
+            className = resolveItemClass(itemsInCategory, item);
+          }
+
           return (
             <NavItem
               item={item}
@@ -117,6 +146,7 @@ export const NavList = ({ navItems }: NavListProps) => {
               openSubNav={openSubNav}
               selected={selected}
               key={`navItem${index}`}
+              className={className}
             />
           );
         })}

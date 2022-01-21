@@ -7,13 +7,14 @@ export interface SubItemProps {
   component?: React.ReactNode | JSX.Element;
 }
 
-export interface ItemProps {
+export type ItemProps = {
   name: string;
   icon: IconNames;
   href?: string;
   component?: React.ReactNode | JSX.Element;
   subItems?: SubItemProps[];
-}
+  category?: string;
+};
 
 export interface NavItemProps {
   item: ItemProps;
@@ -21,6 +22,7 @@ export interface NavItemProps {
   setActiveNavItem: (item: number) => void;
   openSubNav: (item: number) => void;
   selected?: boolean;
+  className?: string;
 }
 
 export interface SubNavItemProps {

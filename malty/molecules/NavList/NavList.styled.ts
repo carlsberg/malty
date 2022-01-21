@@ -48,6 +48,12 @@ export const StyledNavItem = styled.li<{
     background-color: ${({ selected, theme }) => `${selected ? theme.color.support.support80.value : '#314550'}`};
     transition: background-color 0.2s ease-in-out;
   }
+  &.firstInCategory {
+    border-top: 1px solid ${({ theme }) => theme.color.support.support80.value};
+  }
+  &.lastInCategory {
+    border-bottom: 1px solid ${({ theme }) => theme.color.support.support80.value};
+  }
 `;
 
 export const StyledSubNavItem = styled(StyledNavItem)`
