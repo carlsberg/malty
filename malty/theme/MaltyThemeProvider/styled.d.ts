@@ -411,6 +411,7 @@ declare module 'styled-components' {
   interface SystemColors {
     alertBackground: PropValue;
     alertStrong: PropValue;
+    disabledDefault: PropValue;
     disableBackground: PropValue;
     disableStrong: PropValue;
     failBackground: PropValue;
