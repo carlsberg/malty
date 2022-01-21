@@ -31,6 +31,10 @@ export default {
       description: 'Error message to be displayed when error is present.',
       control: 'text'
     },
+    maxLength: {
+      description: 'Maxium characters of textarea ',
+      control: 'number'
+    },
 
     value: {
       table: {
@@ -45,10 +49,19 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, value, error }: TextAreaProps) => {
+const Template: Story<TextAreaProps> = ({
+  label,
+  placeholder,
+  resize,
+  disabled,
+  value,
+  error,
+  maxLength
+}: TextAreaProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
     <TextAreaComponent
+      maxLength={maxLength}
       label={label}
       placeholder={placeholder}
       resize={resize}
@@ -63,6 +76,7 @@ const Template: Story<TextAreaProps> = ({ label, placeholder, resize, disabled, 
 export const TextArea = Template.bind({});
 TextArea.args = {
   label: 'Label',
+  maxLength: 20,
   resize: false,
   placeholder: 'Placeholder',
   disabled: false,

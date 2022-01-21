@@ -6,4 +6,5 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   disabled?: boolean;
   onValueChange: (value: string) => void;
   error?: string;
+  maxLength?: number;
 }
