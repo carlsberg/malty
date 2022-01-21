@@ -1,4 +1,4 @@
 export interface ModalProps {
-  showModal: boolean;
-  setShowModal: (params: boolean) => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
 }
