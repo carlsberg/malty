@@ -74,6 +74,11 @@ export default {
       control: 'text',
       description: 'Second Action',
       table: { defaultValue: { summary: 'none' } }
+    },
+    autoHideDuration: {
+      control: 'number',
+      description: 'Set auto hide duration',
+      table: { defaultValue: { summary: '5000' } }
     }
   }
 } as Meta;
@@ -119,7 +124,6 @@ switch (variant) {
       firstAction: action('Undo Action clicked'),
       firstActionText: 'Undo',
       onHideToast: action('hideToast Action clicked')
-      // autoHideDuration: 5000
     };
     break;
   default:

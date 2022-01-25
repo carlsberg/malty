@@ -75,11 +75,6 @@ export const StyledAlertInLine = styled(StyledContainer)`
     }
     return `${theme.variables.container.size.medium.value}px`;
   }};
-  p {
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-  }
 `;
 
 export const StyledAlertInLineWithActions = styled(StyledAlertInLine)`
@@ -101,25 +96,16 @@ export const StyledAlert = styled(StyledContainer)`
     return theme.color.system.notificationStrong.value;
   }};
   color: ${({ theme }) => theme.color.white.value};
-
-  p {
-    white-space: nowrap;
-  }
 `;
 
 export const StyledToast = styled(StyledAlert)`
-  width: min(400px, 90vw);
+  width: min(736px, 90vw);
   margin: auto;
 `;
 
 export const StyledTextContainer = styled.div`
   min-width: 30px;
   overflow: hidden;
-
-  p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 `;
 
 export const StyledActionContainer = styled.div`
