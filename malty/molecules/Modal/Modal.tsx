@@ -1,10 +1,21 @@
 import { Button } from '@carlsberggroup/malty.atoms.button';
 import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
+import { Text } from '@carlsberggroup/malty.atoms.text';
 import React from 'react';
-import { ModalProps } from './ModalProps.types';
+import {
+  StyledButtonContainer,
+  StyledButtonsWrapper,
+  StyledCloseIconContainer,
+  StyledContainer,
+  StyledIconContainer,
+  StyledModalWrapper,
+  StyledTextContainer,
+  StyledTitleContainer
+} from './Modal.styled';
+import { ModalProps } from './Modal.types';
 
-export const Modal = ({ open, setOpen }: ModalProps) => {
+export const Modal = ({ open, setOpen, info, buttons }: ModalProps) => {
   const closeModal = () => {
     setOpen(false);
   };
@@ -13,52 +24,38 @@ export const Modal = ({ open, setOpen }: ModalProps) => {
       {open ? (
         <>
           <Overlay />
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              alignItems: 'center',
-              display: 'flex',
-              justifyContent: 'center'
-            }}
-          >
-            <div
-              style={{
-                width: '560px',
-                height: '350px',
-                display: 'block',
-                backgroundColor: '#fff',
-                textAlign: 'center',
-                padding: '104px 60px 60px',
-                position: 'relative'
-              }}
-            >
-              <div onClick={closeModal} style={{ cursor: 'pointer', position: 'absolute', top: 66, right: 66 }}>
+          <StyledContainer>
+            <StyledModalWrapper>
+              <StyledCloseIconContainer onClick={closeModal}>
                 <Icon name={IconNamesTypes.Close} size={IconSizesTypes.Large} color={IconColors.Primary} />
-              </div>
-              <Icon name={IconNamesTypes.ItemCheck} size={IconSizesTypes.Large} color={IconColors.Primary} />
-              <h1>Modal</h1>
-              <p>dsdklsa askdjaskld jas la ladksjd lkasjdlkasd aljd ad djakd aldj alk jlaks jlkas akl jasl kj</p>
-              <div
-                style={{
-                  alignItems: 'center',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  position: 'absolute',
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  height: 132
-                }}
-              >
-                <Button style="secondary">Cancel</Button>
-                <Button style="primary">Confirm selection</Button>
-              </div>
-            </div>
-          </div>
+              </StyledCloseIconContainer>
+              <StyledIconContainer>
+                <Icon name={info.icon} size={IconSizesTypes.Large} color={IconColors.Primary} onClick={closeModal} />
+              </StyledIconContainer>
+              <StyledTitleContainer>
+                <Text align="center" weight="bold">
+                  {info.title}
+                </Text>
+              </StyledTitleContainer>
+              <StyledTextContainer>
+                <Text align="center" size="medium-small">
+                  {info.text}
+                </Text>
+              </StyledTextContainer>
+
+              {buttons && (
+                <StyledButtonsWrapper>
+                  {buttons.map((btnInstance, index: number) => (
+                    <StyledButtonContainer key={index}>
+                      <Button fullWidth style={btnInstance.style} onClick={btnInstance.onClick}>
+                        {btnInstance.label}
+                      </Button>
+                    </StyledButtonContainer>
+                  ))}
+                </StyledButtonsWrapper>
+              )}
+            </StyledModalWrapper>
+          </StyledContainer>
         </>
       ) : null}
     </>
