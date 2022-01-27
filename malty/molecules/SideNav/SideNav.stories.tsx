@@ -35,9 +35,30 @@ const navItemsMock = [
   { icon: IconNames.DataTransfer, name: 'item 4', component: Link, to: '/item4' }
 ];
 
+const systemOptionsMock = [
+  { icon: IconNames.DataTransfer, href: '/iframe.html' },
+  { icon: IconNames.DataTransfer, component: Link, to: '/item2' }
+];
+
+const profileMenuMock = {
+  username: 'Maria Snow',
+  userRole: 'Market director',
+  profileActions: [
+    { name: 'User profile', icon: IconNames.DataTransfer, component: Link, to: '/profile' },
+    { name: 'Sign out', icon: IconNames.DataTransfer, component: Link, to: '/sign-out' }
+  ]
+};
+
 const Template: Story<SideNavProps> = ({ productName, navItems }) => (
   <BrowserRouter>
-    <SideNavComponent productName={productName} navItems={navItems} />
+    <div style={{ height: '800px' }}>
+      <SideNavComponent
+        productName={productName}
+        navItems={navItems}
+        systemOptions={systemOptionsMock}
+        profileMenu={profileMenuMock}
+      />
+    </div>
     <Routes>
       <Route path="/item3"> </Route>
     </Routes>
