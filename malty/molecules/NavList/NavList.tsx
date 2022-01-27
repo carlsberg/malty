@@ -57,7 +57,7 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
       {icon && <Icon name={IconNames[icon]} size={IconSizes.Small} color={IconColors.White} />}
 
       <LinkComponent component={component} href={href} componentProps={componentProps}>
-        <Text size={Size.Small} color={Color.White}>
+        <Text size={Size.MediumSmall} color={Color.White}>
           {name}
         </Text>
       </LinkComponent>
