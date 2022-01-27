@@ -32,9 +32,9 @@ export default {
   }
 };
 const Template: Story<AvatarProps> = ({ profileImg, username, fontSize }) => (
-  <>
+  <div style={{ width: '100px' }}>
     <AvatarComponent profileImg={profileImg} username={username} fontSize={fontSize} />
-  </>
+  </div>
 );
 export const Avatar = Template.bind({});
 
