@@ -71,7 +71,9 @@ export const StyledAvatar = styled.span`
   transform: translateX(-50%);
 `;
 
-export const StyledProfileMenu = styled.div`
+export const StyledProfileMenu = styled.div<{
+  open: boolean;
+}>`
   width: 100%;
   background-color: ${({ open }) => (open ? 'rgba(49, 69, 80, 1)' : 'transparent')};
   position: absolute;
@@ -93,7 +95,9 @@ export const StyledRoleLabel = styled.p`
   font-family: 'Montserrat';
 `;
 
-export const StyledProfileActions = styled.div`
+export const StyledProfileActions = styled.div<{
+  open: boolean;
+}>`
   visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   & ul {
     padding-left: 0;
@@ -123,7 +127,9 @@ export const StyledProfileItem = styled.li`
   }
 `;
 
-export const StyledOverlay = styled.div`
+export const StyledOverlay = styled.div<{
+  open: boolean;
+}>`
   width: 100%;
   height: 100%;
   z-index: 10;
