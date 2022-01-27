@@ -23,5 +23,7 @@ export const StyledAvatar = styled.div<{
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: ${({ fontSize }) => `${fontSize || '12'}px`};
+    letter-spacing: -1px;
+    white-space: nowrap;
   }
 `;
