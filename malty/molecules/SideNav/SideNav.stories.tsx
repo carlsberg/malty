@@ -13,7 +13,20 @@ export default {
     importPath: '@carlsberggroup/malty.molecules.sideNav'
   },
   argTypes: {
-    productName: { control: 'text' }
+    productName: {
+      description: 'the name of your product',
+      control: 'text'
+    },
+    navItems: {
+      description: 'navigation items configuration, you can group items by passing to it the same category id'
+    },
+    systemOptions: {
+      description: 'the options to be displayed on the system settings menu'
+    },
+    profileMenu: {
+      description:
+        'configuration for the profile menu, if more than one action is set a secondary profile menu will be displayed on click'
+    }
   }
 } as Meta;
 
@@ -49,14 +62,14 @@ const profileMenuMock = {
   ]
 };
 
-const Template: Story<SideNavProps> = ({ productName, navItems }) => (
+const Template: Story<SideNavProps> = ({ productName, navItems, systemOptions, profileMenu }) => (
   <BrowserRouter>
     <div style={{ height: '800px' }}>
       <SideNavComponent
         productName={productName}
         navItems={navItems}
-        systemOptions={systemOptionsMock}
-        profileMenu={profileMenuMock}
+        systemOptions={systemOptions}
+        profileMenu={profileMenu}
       />
     </div>
     <Routes>
@@ -68,5 +81,7 @@ const Template: Story<SideNavProps> = ({ productName, navItems }) => (
 export const SideNav = Template.bind({});
 SideNav.args = {
   productName: 'Ottilia',
-  navItems: navItemsMock
+  navItems: navItemsMock,
+  systemOptions: systemOptionsMock,
+  profileMenu: profileMenuMock
 };
