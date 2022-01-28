@@ -13,4 +13,5 @@ export const StyledIcon = styled.svg.attrs({
   height: ${({ size }) => size}px;
   width: ${({ size }) => size}px;
   transition: fill 0.25s ease-in-out;
+  color: ${({ color, theme }) => (color === Colors.Primary ? theme.color.default.value : theme.color.white.value)};
 `;
