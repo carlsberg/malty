@@ -1,18 +1,9 @@
-import { StyledIcon } from '@carlsberggroup/malty.atoms.icon-wrapper';
+/* eslint-disable react/destructuring-assignment */
 import { DocsContext } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
-import React, { useLayoutEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { Icon } from './Icon';
 import { Colors, IconInterface, NamesTypes, SizesTypes } from './Icon.types';
-
-const StyledAllIconsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  ${StyledIcon} {
-    margin: 10px;
-  }
-`;
 
 const convertToKebabCase = (string: string) =>
   string
@@ -20,8 +11,15 @@ const convertToKebabCase = (string: string) =>
     .replace(/\s+/g, '-')
     .toLowerCase();
 
+const getValueByKeyForStringEnum = (value: string) => Object.entries(NamesTypes).find(([key]) => key === value)?.[1];
+
+const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
+const variant: string = urlParams.get('variant') || 'AddContent';
+
+const defaultIconName: NamesTypes = getValueByKeyForStringEnum(variant) || NamesTypes.AddContent;
+
 export default {
-  title: 'Atoms/Icons',
+  title: 'Atoms/Icons/Single Icon',
   component: Icon,
   parameters: {
     importObject: 'AddContent',
@@ -32,7 +30,7 @@ export default {
       options: Object.values(NamesTypes),
       description:
         'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
-      defaultValue: NamesTypes.AddContent,
+      defaultValue: defaultIconName,
       control: {
         type: 'select'
       }
@@ -75,44 +73,36 @@ export default {
 } as Meta;
 
 const Template: Story<IconInterface> = (args) => {
-  const context = React.useContext(DocsContext);
+  const context = useContext(DocsContext);
   const [story] = useState(context.getStoryContext(context.storyById(context.id)));
   const params = story.parameters;
-  const [path, setPath] = useState(story.args.name);
-  const [object, setObject] = useState(story.args.name);
+  const [object, setObject] = useState(args.name);
+  const [path, setPath] = useState(
+    `@carlsberggroup/malty.atoms.icons.${convertToKebabCase(args.name || 'AddContent')}`
+  );
 
   useLayoutEffect(() => {
-    setPath(story.args.name);
-    setObject(`@carlsberggroup/malty.atoms.icons.${convertToKebabCase(story.args.name)}`);
-  }, [story, story.args, story.args.name]);
+    params.importObject = object;
+    params.importPath = path;
+  }, [story, object, path]);
 
-  useLayoutEffect(() => {
-    params.importObject = path;
-    params.importPath = object;
-  }, [path, object]);
+  useEffect(() => {
+    setObject(args.name);
+    setPath(`@carlsberggroup/malty.atoms.icons.${convertToKebabCase(args.name || 'AddContent')}`);
+  }, [args.name]);
 
-  return <Icon {...args} />;
+  useEffect(() => {
+    const name: string = args.name || 'AddContent';
+    params.importObject = name;
+    params.importPath = `@carlsberggroup/malty.atoms.icons.${convertToKebabCase(name)}`;
+  }, [args.name]);
+
+  return <Icon name={getValueByKeyForStringEnum(args.name || 'AddContent')} color={args.color} size={args.size} />;
 };
 
 export const SingleIcon = Template.bind({});
+
 SingleIcon.parameters = {
-  color: Colors.Primary,
-  size: SizesTypes.Large,
-  name: NamesTypes.AddContent
-};
-
-const AllIconsTemplate: Story<IconInterface> = (args) => (
-  <StyledAllIconsWrapper>
-    {Object.values(NamesTypes).map((name, index) => (
-      <div title={name} key={index}>
-        <Icon {...args} name={name} />
-      </div>
-    ))}
-  </StyledAllIconsWrapper>
-);
-
-export const AllIcons = AllIconsTemplate.bind({});
-AllIcons.parameters = {
   color: Colors.Primary,
   size: SizesTypes.Large
 };
