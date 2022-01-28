@@ -11,7 +11,7 @@
 {
     "atoms/alert": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.10",
+        "version": "0.0.11",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Alert"
     },
@@ -95,7 +95,7 @@
     },
     "atoms/text-area": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/TextArea"
     },
