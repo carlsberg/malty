@@ -6,7 +6,7 @@ import {
 } from '@carlsberggroup/malty.atoms.icon';
 import { Color, Size, Text, Weight } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
 import { ItemProps, LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
@@ -71,12 +71,16 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
   );
 };
 
-export const NavList = ({ navItems }: NavListProps) => {
+export const NavList = ({
+  navItems,
+  activeNavItem,
+  activeSubItem,
+  subNavIsActive,
+  setActiveNavItem,
+  setActiveSubItem,
+  toggleSubNav
+}: NavListProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-
-  const [subNavIsActive, toggleSubNav] = useState(false);
-  const [activeNavItem, setActiveNavItem] = useState(-1);
-  const [activeSubItem, setActiveSubItem] = useState(-1);
 
   useEffect(() => {
     setInitialActiveItem();

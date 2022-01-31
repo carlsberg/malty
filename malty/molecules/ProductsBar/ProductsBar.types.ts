@@ -30,4 +30,5 @@ export type ProfileMenuType = {
 export interface ProductsBarProps {
   systemOptions: SystemItemProps[];
   profileMenu: ProfileMenuType;
+  resetNavState: () => void;
 }

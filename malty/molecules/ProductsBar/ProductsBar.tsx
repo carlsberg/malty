@@ -100,7 +100,7 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
   );
 };
 
-export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) => {
+export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const { username, userRole, profileActions } = profileMenu;
@@ -123,7 +123,7 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
             return (
-              <StyledSystemOption theme={theme}>
+              <StyledSystemOption theme={theme} onClick={resetNavState}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
                     <Icon color={IconColors.White} name={IconNames[icon]} size={IconSizes.Medium} />
@@ -136,7 +136,7 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
 
         {profileActions.length === 1 && (
           <StyledProfileBtn theme={theme}>
-            <StyledOptionIcon theme={theme}>
+            <StyledOptionIcon theme={theme} onClick={resetNavState}>
               <LinkComponent component={singleItemComponent} href={singleItemHref} componentProps={singleItemCompProps}>
                 <StyledAvatar theme={theme}>
                   <Avatar username={username} />
@@ -159,7 +159,7 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
                 const componentProps = { ...customProps };
 
                 return (
-                  <StyledProfileItem theme={theme}>
+                  <StyledProfileItem theme={theme} onClick={resetNavState}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
                       <Icon color={IconColors.White} name={IconNames[icon]} size={IconSizes.Small} />
                       <Text size={Size.MediumSmall} color={Color.White}>

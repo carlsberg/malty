@@ -50,4 +50,10 @@ export type LinkComponentProps = {
 
 export interface NavListProps {
   navItems: ItemProps[];
+  activeNavItem: number;
+  activeSubItem: number;
+  subNavIsActive: boolean;
+  setActiveNavItem: (item: number) => void;
+  setActiveSubItem: (item: number) => void;
+  toggleSubNav: (active: boolean) => void;
 }
