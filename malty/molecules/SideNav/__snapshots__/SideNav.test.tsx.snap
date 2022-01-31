@@ -8,7 +8,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
     className="sc-pVTFL sofWl"
   >
     <div
-      className="sc-ieecCq hTAMJ"
+      className="sc-ieecCq cDlAau"
       open={false}
     />
     <svg
@@ -30,14 +30,14 @@ exports[`molecule sideNav matches snapshot 1`] = `
       className="sc-jrQzAO bkYkvJ"
     >
       <ul
-        className="sc-kDTinF dxMloQ"
-        data-testid="system-options"
+        className="sc-kDTinF bSpJKr"
+        data-testId="system-options"
       >
         <li
-          className="sc-iqseJM aUlCl"
+          className="sc-iqseJM fYPlgK"
         >
           <span
-            className="sc-egiyK bSzvEi"
+            className="sc-egiyK eSBvSj"
           >
             <a
               href="/iframe.html"
@@ -61,10 +61,10 @@ exports[`molecule sideNav matches snapshot 1`] = `
           </span>
         </li>
         <li
-          className="sc-iqseJM aUlCl"
+          className="sc-iqseJM fYPlgK"
         >
           <span
-            className="sc-egiyK bSzvEi"
+            className="sc-egiyK eSBvSj"
           >
             <a
               href="/iframe.html"
@@ -93,14 +93,14 @@ exports[`molecule sideNav matches snapshot 1`] = `
         open={false}
       >
         <li
-          className="sc-iqseJM aUlCl"
+          className="sc-iqseJM fYPlgK"
           onClick={[Function]}
         >
           <span
-            className="sc-egiyK bSzvEi"
+            className="sc-egiyK eSBvSj"
           >
             <span
-              className="sc-bqiRlB kSSNgP"
+              className="sc-bqiRlB fuVocX"
             >
               <div
                 className="sc-furwcr ezAjgi"
@@ -120,7 +120,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
           open={false}
         >
           <div
-            className="sc-hBUSln kwnUqi"
+            className="sc-hBUSln fooJSR"
           >
             <span
               className="sc-bdvvtL iouZXA"
@@ -134,16 +134,16 @@ exports[`molecule sideNav matches snapshot 1`] = `
               </p>
             </span>
             <p
-              className="sc-fotOHu beNfvH"
+              className="sc-fotOHu dOMELk"
             >
               Market director
             </p>
           </div>
           <ul
-            data-testid="profile-options"
+            data-testId="profile-options"
           >
             <li
-              className="sc-bkkeKt fzIQnS"
+              className="sc-bkkeKt kKAeNO"
             >
               <a
                 href="/iframe.html"
@@ -177,7 +177,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
               </a>
             </li>
             <li
-              className="sc-bkkeKt fzIQnS"
+              className="sc-bkkeKt kKAeNO"
             >
               <a
                 href="/item2"

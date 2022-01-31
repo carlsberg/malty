@@ -1,4 +1,4 @@
-import 'styled-components';
+import { PropValue } from 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -447,6 +447,20 @@ interface ProductsBarType {
   paddingVertical: PropValue;
   border: PropValue;
   borderColor: PropValue;
+  systemMenu: {
+    marginBottom: PropValue;
+    itemSize: PropValue;
+    itemMarginBottom: PropValue;
+  };
+  profileMenu: {
+    itemLeftPadd: PropValue;
+    headerLeftPadd: PropValue;
+  };
+  avatarContainer: {
+    size: PropValue;
+    marginTop: PropValue;
+    marginBottom: PropValue;
+  };
 }
 
 interface NavListType {

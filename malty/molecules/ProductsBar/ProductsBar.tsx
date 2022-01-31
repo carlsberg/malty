@@ -69,6 +69,7 @@ const useClickOutside = (
 };
 
 const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
   const profileMenuRef = React.useRef<HTMLDivElement>(null);
 
   useClickOutside(profileMenuRef, open, setProfileMenuOpen);
@@ -78,20 +79,20 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
   };
 
   return (
-    <StyledProfileMenu open={open} ref={profileMenuRef}>
-      <StyledSystemOption onClick={toggleProfileMenu}>
-        <StyledOptionIcon>
-          <StyledAvatar>
+    <StyledProfileMenu open={open} ref={profileMenuRef} theme={theme}>
+      <StyledSystemOption onClick={toggleProfileMenu} theme={theme}>
+        <StyledOptionIcon theme={theme}>
+          <StyledAvatar theme={theme}>
             <Avatar username={username} />
           </StyledAvatar>
         </StyledOptionIcon>
       </StyledSystemOption>
       <StyledProfileActions open={open}>
-        <StyledProfileHeader>
+        <StyledProfileHeader theme={theme}>
           <Text size={Size.Medium} color={Color.White} weight={Weight.Bold}>
             {username}
           </Text>
-          <StyledRoleLabel>{userRole}</StyledRoleLabel>
+          <StyledRoleLabel theme={theme}>{userRole}</StyledRoleLabel>
         </StyledProfileHeader>
         {children}
       </StyledProfileActions>
@@ -117,13 +118,13 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
       <StyledOverlay open={profileMenuOpen} theme={theme} />
       <Icon color={IconColors.White} name={IconNames.CarlsbergFilled} size={IconSizes.Medium} />
       <StyledSystemWrapper theme={theme}>
-        <StyledSystemMenu theme={theme} data-testId="system-options">
+        <StyledSystemMenu theme={theme} data-testid="system-options">
           {systemOptions?.map((option) => {
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
             return (
-              <StyledSystemOption>
-                <StyledOptionIcon>
+              <StyledSystemOption theme={theme}>
+                <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
                     <Icon color={IconColors.White} name={IconNames[icon]} size={IconSizes.Medium} />
                   </LinkComponent>
@@ -134,10 +135,10 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
         </StyledSystemMenu>
 
         {profileActions.length === 1 && (
-          <StyledProfileBtn>
-            <StyledOptionIcon>
+          <StyledProfileBtn theme={theme}>
+            <StyledOptionIcon theme={theme}>
               <LinkComponent component={singleItemComponent} href={singleItemHref} componentProps={singleItemCompProps}>
-                <StyledAvatar>
+                <StyledAvatar theme={theme}>
                   <Avatar username={username} />
                 </StyledAvatar>
               </LinkComponent>
@@ -152,13 +153,13 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
             userRole={userRole}
             setProfileMenuOpen={setProfileMenuOpen}
           >
-            <ul data-testId="profile-options">
+            <ul data-testid="profile-options">
               {profileActions.map((action) => {
                 const { name = 'item', icon, component, href, ...customProps } = action;
                 const componentProps = { ...customProps };
 
                 return (
-                  <StyledProfileItem>
+                  <StyledProfileItem theme={theme}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
                       <Icon color={IconColors.White} name={IconNames[icon]} size={IconSizes.Small} />
                       <Text size={Size.MediumSmall} color={Color.White}>

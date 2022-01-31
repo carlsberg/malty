@@ -391,6 +391,34 @@
       },
       "border": {
         "value": "1"
+      },
+      "systemMenu": {
+        "marginBottom": {
+          "value": "84"
+        },
+        "itemSize": {
+          "value": "56"
+        },
+        "itemMarginBottom": {
+          "value": "8"
+        }
+      },
+      "profileMenu": {
+        "itemLeftPadd": {
+          "value": "62"
+        },
+        "headerLeftPadd": {
+          "value": "88"
+        }
+      },
+      "avatarContainer": {
+        "size": {
+          "value": "40"
+        },
+        "marginTop": {
+          "value": "16"
+        },
+        "marginBottom": { "value": "24" }
       }
     },
     "navList": {

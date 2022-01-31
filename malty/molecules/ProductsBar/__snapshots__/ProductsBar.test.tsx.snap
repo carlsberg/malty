@@ -5,7 +5,7 @@ exports[`Products bar component matches snapshot 1`] = `
   className="sc-eCImPb eBnQuJ"
 >
   <div
-    className="sc-ksdxgE hXRYQD"
+    className="sc-ksdxgE FInXg"
     open={false}
   />
   <svg
@@ -27,14 +27,14 @@ exports[`Products bar component matches snapshot 1`] = `
     className="sc-jRQBWg fiXnxL"
   >
     <ul
-      className="sc-gKclnd gdLTFL"
-      data-testId="system-options"
+      className="sc-gKclnd dZxTSI"
+      data-testid="system-options"
     >
       <li
-        className="sc-iCfMLu cczCRE"
+        className="sc-iCfMLu bWUnPz"
       >
         <span
-          className="sc-pVTFL jlMLiH"
+          className="sc-pVTFL hnmhEa"
         >
           <a
             href="/iframe.html"
@@ -58,10 +58,10 @@ exports[`Products bar component matches snapshot 1`] = `
         </span>
       </li>
       <li
-        className="sc-iCfMLu cczCRE"
+        className="sc-iCfMLu bWUnPz"
       >
         <span
-          className="sc-pVTFL jlMLiH"
+          className="sc-pVTFL hnmhEa"
         >
           <a
             href="/item2"
@@ -91,14 +91,14 @@ exports[`Products bar component matches snapshot 1`] = `
       open={false}
     >
       <li
-        className="sc-iCfMLu cczCRE"
+        className="sc-iCfMLu bWUnPz"
         onClick={[Function]}
       >
         <span
-          className="sc-pVTFL jlMLiH"
+          className="sc-pVTFL hnmhEa"
         >
           <span
-            className="sc-jrQzAO hYwycc"
+            className="sc-jrQzAO hcvJhM"
           >
             <div
               className="sc-dkPtRN gZUazS"
@@ -118,7 +118,7 @@ exports[`Products bar component matches snapshot 1`] = `
         open={false}
       >
         <div
-          className="sc-iqseJM jatHSV"
+          className="sc-iqseJM bPuNPi"
         >
           <span
             className="sc-bdvvtL iouZXA"
@@ -132,16 +132,16 @@ exports[`Products bar component matches snapshot 1`] = `
             </p>
           </span>
           <p
-            className="sc-crHmcD fgvFsr"
+            className="sc-crHmcD fbPlXo"
           >
             Market director
           </p>
         </div>
         <ul
-          data-testId="profile-options"
+          data-testid="profile-options"
         >
           <li
-            className="sc-bqiRlB eaFMCE"
+            className="sc-bqiRlB gbANqA"
           >
             <a
               href="/profile"
@@ -176,7 +176,7 @@ exports[`Products bar component matches snapshot 1`] = `
             </a>
           </li>
           <li
-            className="sc-bqiRlB eaFMCE"
+            className="sc-bqiRlB gbANqA"
           >
             <a
               href="/sign-out"
