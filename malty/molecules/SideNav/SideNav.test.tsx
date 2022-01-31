@@ -11,14 +11,42 @@ const simpleNavigation = [
   { icon: IconNames.DataTransfer, name: 'item 3', href: '/item3' }
 ];
 
+const systemOptions = [
+  { icon: IconNames.DataTransfer, href: '/iframe.html' },
+  { icon: IconNames.DataTransfer, href: '/iframe.html' }
+];
+
+const profileMenu = {
+  username: 'Maria Snow',
+  userRole: 'Market director',
+  profileActions: [
+    { name: 'User profile', icon: IconNames.DataTransfer, href: '/iframe.html' },
+    { name: 'Sign out', icon: IconNames.DataTransfer, href: '/item2' }
+  ]
+};
+
 describe('molecule sideNav', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(<SideNav productName="Ottilia" navItems={simpleNavigation} />);
+    const view = jsonRenderer(
+      <SideNav
+        productName="Ottilia"
+        navItems={simpleNavigation}
+        systemOptions={systemOptions}
+        profileMenu={profileMenu}
+      />
+    );
     expect(view).toMatchSnapshot();
   });
 
   it('renders with correct product name', () => {
-    render(<SideNav productName={productName} navItems={simpleNavigation} />);
+    render(
+      <SideNav
+        productName={productName}
+        navItems={simpleNavigation}
+        systemOptions={systemOptions}
+        profileMenu={profileMenu}
+      />
+    );
     expect(screen.getByText(productName)).not.toBeNull();
   });
 });

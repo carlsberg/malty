@@ -2,11 +2,15 @@
 
 exports[`molecule sideNav matches snapshot 1`] = `
 <div
-  className="sc-pVTFL Tvvmw"
+  className="sc-dJjYzT cwNEly"
 >
   <div
-    className="sc-furwcr dsaZkv"
+    className="sc-pVTFL sofWl"
   >
+    <div
+      className="sc-ieecCq hTAMJ"
+      open={false}
+    />
     <svg
       className="sc-gsDKAQ jfmKRC"
       color="White"
@@ -22,9 +26,194 @@ exports[`molecule sideNav matches snapshot 1`] = `
         fillRule="evenodd"
       />
     </svg>
+    <div
+      className="sc-jrQzAO bkYkvJ"
+    >
+      <div
+        className="sc-kDTinF hDReBL"
+      >
+        <div
+          className="sc-iqseJM aUlCl"
+        >
+          <span
+            className="sc-egiyK bSzvEi"
+          >
+            <a
+              href="/iframe.html"
+            >
+              <svg
+                className="sc-gsDKAQ jfmKRC"
+                color="White"
+                data-testid="svg-component"
+                size="40"
+                version="1.1"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <path
+                  d="M16 2a1 1 0 01.117 1.993L16 4H7a1 1 0 00-.993.883L6 5v14a1 1 0 00.883.993L7 20h9a1 1 0 01.117 1.993L16 22H7a3 3 0 01-2.995-2.824L4 19V5a3 3 0 012.824-2.995L7 2zm-4 13a1 1 0 01.117 1.993L12 17H9a1 1 0 01-.117-1.993L9 15zm5.293-6.667a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414l2.293-2.293-2.293-2.293a1 1 0 010-1.414zM12 11a1 1 0 01.117 1.993L12 13H9a1 1 0 01-.117-1.993L9 11zm0-4a1 1 0 01.117 1.993L12 9H9a1 1 0 01-.117-1.993L9 7z"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </a>
+          </span>
+        </div>
+        <div
+          className="sc-iqseJM aUlCl"
+        >
+          <span
+            className="sc-egiyK bSzvEi"
+          >
+            <a
+              href="/iframe.html"
+            >
+              <svg
+                className="sc-gsDKAQ jfmKRC"
+                color="White"
+                data-testid="svg-component"
+                size="40"
+                version="1.1"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <path
+                  d="M16 2a1 1 0 01.117 1.993L16 4H7a1 1 0 00-.993.883L6 5v14a1 1 0 00.883.993L7 20h9a1 1 0 01.117 1.993L16 22H7a3 3 0 01-2.995-2.824L4 19V5a3 3 0 012.824-2.995L7 2zm-4 13a1 1 0 01.117 1.993L12 17H9a1 1 0 01-.117-1.993L9 15zm5.293-6.667a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414l2.293-2.293-2.293-2.293a1 1 0 010-1.414zM12 11a1 1 0 01.117 1.993L12 13H9a1 1 0 01-.117-1.993L9 11zm0-4a1 1 0 01.117 1.993L12 9H9a1 1 0 01-.117-1.993L9 7z"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </a>
+          </span>
+        </div>
+      </div>
+      <div
+        className="sc-ksdxgE cLtBfe"
+        open={false}
+      >
+        <div
+          className="sc-iqseJM aUlCl"
+          onClick={[Function]}
+        >
+          <span
+            className="sc-egiyK bSzvEi"
+          >
+            <span
+              className="sc-bqiRlB kSSNgP"
+            >
+              <div
+                className="sc-furwcr ezAjgi"
+                data-testid="avatar"
+              >
+                <span>
+                   
+                  M S
+                   
+                </span>
+              </div>
+            </span>
+          </span>
+        </div>
+        <div
+          className="sc-fFeiMQ hjaeTr"
+          open={false}
+        >
+          <div
+            className="sc-hBUSln kwnUqi"
+          >
+            <span
+              className="sc-bdvvtL iouZXA"
+            >
+              <p
+                className="sc-hKwDye hcqBkd"
+                color="white"
+                size="medium"
+              >
+                Maria Snow
+              </p>
+            </span>
+            <p
+              className="sc-fotOHu beNfvH"
+            >
+              Market director
+            </p>
+          </div>
+          <ul>
+            <li
+              className="sc-bkkeKt fzIQnS"
+            >
+              <a
+                href="/iframe.html"
+              >
+                <svg
+                  className="sc-gsDKAQ jfmKRC"
+                  color="White"
+                  data-testid="svg-component"
+                  size="40"
+                  version="1.1"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                >
+                  <path
+                    d="M16 2a1 1 0 01.117 1.993L16 4H7a1 1 0 00-.993.883L6 5v14a1 1 0 00.883.993L7 20h9a1 1 0 01.117 1.993L16 22H7a3 3 0 01-2.995-2.824L4 19V5a3 3 0 012.824-2.995L7 2zm-4 13a1 1 0 01.117 1.993L12 17H9a1 1 0 01-.117-1.993L9 15zm5.293-6.667a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414l2.293-2.293-2.293-2.293a1 1 0 010-1.414zM12 11a1 1 0 01.117 1.993L12 13H9a1 1 0 01-.117-1.993L9 11zm0-4a1 1 0 01.117 1.993L12 9H9a1 1 0 01-.117-1.993L9 7z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="sc-bdvvtL iouZXA"
+                >
+                  <p
+                    className="sc-hKwDye gbBpSn"
+                    color="white"
+                    size="medium-small"
+                  >
+                    User profile
+                  </p>
+                </span>
+              </a>
+            </li>
+            <li
+              className="sc-bkkeKt fzIQnS"
+            >
+              <a
+                href="/item2"
+              >
+                <svg
+                  className="sc-gsDKAQ jfmKRC"
+                  color="White"
+                  data-testid="svg-component"
+                  size="40"
+                  version="1.1"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                >
+                  <path
+                    d="M16 2a1 1 0 01.117 1.993L16 4H7a1 1 0 00-.993.883L6 5v14a1 1 0 00.883.993L7 20h9a1 1 0 01.117 1.993L16 22H7a3 3 0 01-2.995-2.824L4 19V5a3 3 0 012.824-2.995L7 2zm-4 13a1 1 0 01.117 1.993L12 17H9a1 1 0 01-.117-1.993L9 15zm5.293-6.667a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414l2.293-2.293-2.293-2.293a1 1 0 010-1.414zM12 11a1 1 0 01.117 1.993L12 13H9a1 1 0 01-.117-1.993L9 11zm0-4a1 1 0 01.117 1.993L12 9H9a1 1 0 01-.117-1.993L9 7z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                <span
+                  className="sc-bdvvtL iouZXA"
+                >
+                  <p
+                    className="sc-hKwDye gbBpSn"
+                    color="white"
+                    size="medium-small"
+                  >
+                    Sign out
+                  </p>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   <div
-    className="sc-jrQzAO fvJchc"
+    className="sc-hGPBjI bKBxWD"
   >
     <span
       className="sc-bdvvtL iouZXA"
@@ -38,7 +227,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
       </h1>
     </span>
     <div
-      className="sc-kDTinF dJCqRi"
+      className="sc-dlVxhl knJSbi"
     >
       <ul
         className="sc-eCImPb BsWdZ"
@@ -70,9 +259,9 @@ exports[`molecule sideNav matches snapshot 1`] = `
               className="sc-bdvvtL iouZXA"
             >
               <p
-                className="sc-hKwDye hsqAlp"
+                className="sc-hKwDye gbBpSn"
                 color="white"
-                size="small"
+                size="medium-small"
               >
                 item 1
               </p>
@@ -106,9 +295,9 @@ exports[`molecule sideNav matches snapshot 1`] = `
               className="sc-bdvvtL iouZXA"
             >
               <p
-                className="sc-hKwDye hsqAlp"
+                className="sc-hKwDye gbBpSn"
                 color="white"
-                size="small"
+                size="medium-small"
               >
                 item 2
               </p>
@@ -142,9 +331,9 @@ exports[`molecule sideNav matches snapshot 1`] = `
               className="sc-bdvvtL iouZXA"
             >
               <p
-                className="sc-hKwDye hsqAlp"
+                className="sc-hKwDye gbBpSn"
                 color="white"
-                size="small"
+                size="medium-small"
               >
                 item 3
               </p>
