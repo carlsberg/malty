@@ -9,7 +9,7 @@ export type SystemItemProps = {
 export interface ProfileMenuProps {
   username: string;
   open: boolean;
-  toggleProfileMenu: () => void;
+  setProfileMenuOpen: (open: boolean) => void;
   children: React.ReactNode;
   userRole?: string;
 }

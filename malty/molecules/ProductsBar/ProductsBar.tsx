@@ -8,7 +8,7 @@ import {
 import { Color, Size, Text, Weight } from '@carlsberggroup/malty.atoms.text';
 import { LinkComponentProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useState } from 'react';
+import React, { RefObject, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   StyledAvatar,
@@ -41,26 +41,63 @@ const LinkComponent = ({ component, href, children, componentProps }: LinkCompon
   );
 };
 
-export const ProfileMenu = ({ open, toggleProfileMenu, username, userRole, children }: ProfileMenuProps) => (
-  <StyledProfileMenu open={open}>
-    <StyledSystemOption onClick={toggleProfileMenu}>
-      <StyledOptionIcon>
-        <StyledAvatar>
-          <Avatar username={username} />
-        </StyledAvatar>
-      </StyledOptionIcon>
-    </StyledSystemOption>
-    <StyledProfileActions open={open}>
-      <StyledProfileHeader>
-        <Text size={Size.Medium} color={Color.White} weight={Weight.Bold}>
-          {username}
-        </Text>
-        <StyledRoleLabel>{userRole}</StyledRoleLabel>
-      </StyledProfileHeader>
-      {children}
-    </StyledProfileActions>
-  </StyledProfileMenu>
-);
+const useClickOutside = (
+  ref: RefObject<HTMLDivElement>,
+  open: boolean,
+  setProfileMenuOpen: (open: boolean) => void
+) => {
+  /**
+   * Detect click outside of element event
+   */
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      const clickedElem = event.target;
+      if (ref.current && !ref.current.contains(clickedElem)) {
+        if (!open) {
+          return;
+        }
+        setProfileMenuOpen(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, open]);
+};
+
+const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) => {
+  const profileMenuRef = React.useRef<HTMLDivElement>(null);
+
+  useClickOutside(profileMenuRef, open, setProfileMenuOpen);
+
+  const toggleProfileMenu = () => {
+    setProfileMenuOpen(!open);
+  };
+
+  return (
+    <StyledProfileMenu open={open} ref={profileMenuRef}>
+      <StyledSystemOption onClick={toggleProfileMenu}>
+        <StyledOptionIcon>
+          <StyledAvatar>
+            <Avatar username={username} />
+          </StyledAvatar>
+        </StyledOptionIcon>
+      </StyledSystemOption>
+      <StyledProfileActions open={open}>
+        <StyledProfileHeader>
+          <Text size={Size.Medium} color={Color.White} weight={Weight.Bold}>
+            {username}
+          </Text>
+          <StyledRoleLabel>{userRole}</StyledRoleLabel>
+        </StyledProfileHeader>
+        {children}
+      </StyledProfileActions>
+    </StyledProfileMenu>
+  );
+};
 
 export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -74,10 +111,6 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
   } = profileActions[0];
 
   const singleItemCompProps = { ...singleItemCustomProps };
-
-  const toggleProfileMenu = () => {
-    setProfileMenuOpen(!profileMenuOpen);
-  };
 
   return (
     <StyledProductsBar theme={theme}>
@@ -117,7 +150,7 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
             open={profileMenuOpen}
             username={username}
             userRole={userRole}
-            toggleProfileMenu={toggleProfileMenu}
+            setProfileMenuOpen={setProfileMenuOpen}
           >
             <ul>
               {profileActions.map((action) => {
