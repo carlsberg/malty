@@ -29,12 +29,13 @@ const fadeInBottomUpAnimation = keyframes`
   }
 `;
 export const StyledAlertToastWrapper = styled(StyledWrapper)`
-  position: absolute;
+  position: fixed;
   margin: auto;
   left: 0;
   bottom: 32px;
   animation-name: ${fadeInBottomUpAnimation};
   animation-duration: 0.5s;
+  z-index: 9999;
 `;
 
 export const StyledContainer = styled.div<{
