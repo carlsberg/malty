@@ -1,4 +1,6 @@
-import React from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { StyledAvatar } from './Avatar.styled';
 import { AvatarProps } from './Avatar.types';
 
@@ -20,8 +22,12 @@ const displayInitials = (username: string) => {
   return `${firstInitial} ${lastInitial}`;
 };
 
-export const Avatar = ({ profileImg, username, fontSize }: AvatarProps) => (
-  <StyledAvatar profileImg={profileImg} fontSize={fontSize} data-testid="avatar">
-    {!profileImg && username && <span> {displayInitials(username)} </span>}
-  </StyledAvatar>
-);
+export const Avatar = ({ profileImg, username, fontSize }: AvatarProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
+  return (
+    <StyledAvatar profileImg={profileImg} fontSize={fontSize} data-testid="avatar" theme={theme}>
+      {!profileImg && username && <span> {displayInitials(username)} </span>}
+    </StyledAvatar>
+  );
+};

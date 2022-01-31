@@ -7,7 +7,7 @@ export const StyledAvatar = styled.div<{
   width: 100%;
   padding-top: 100%;
   border-radius: 100%;
-  background-color: rgb(215, 224, 226);
+  background-color: ${({ theme }) => theme.color.support.support40.value};
   display: inline-block;
   position: relative;
   background-image: ${({ profileImg }) => `${profileImg ? `url(${profileImg})` : null}`};
@@ -16,7 +16,7 @@ export const StyledAvatar = styled.div<{
   background-repeat: none;
   & span {
     position: absolute;
-    color: rgb(33, 40, 51);
+    color: ${({ theme }) => theme.color.default.value};
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
