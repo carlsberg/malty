@@ -21,7 +21,7 @@ const displayInitials = (username: string) => {
 };
 
 export const Avatar = ({ profileImg, username, fontSize }: AvatarProps) => (
-  <StyledAvatar profileImg={profileImg} fontSize={fontSize}>
+  <StyledAvatar profileImg={profileImg} fontSize={fontSize} data-testid="avatar">
     {!profileImg && username && <span> {displayInitials(username)} </span>}
   </StyledAvatar>
 );
