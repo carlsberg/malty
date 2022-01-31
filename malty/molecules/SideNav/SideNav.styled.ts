@@ -12,22 +12,33 @@ export const StyledWrapper = styled.div`
   overflow-y: hidden;
 `;
 
-export const StyledSideNav = styled.div`
+export const StyledSideNav = styled.div<{
+  productName?: string;
+}>`
   max-width: ${({ theme }) => theme.variables.sideNav.maxWidth.value}px;
   width: calc(100% - ${({ theme }) => theme.variables.productsBar.width.value}px);
   height: 100%;
   background-color: ${({ theme }) => theme.color.default.value};
-  padding-top: ${({ theme }) => theme.variables.sideNav.list.paddingTop.value}px;
+  padding-top: calc(
+    ${({ theme, productName }) =>
+      productName
+        ? `${theme.variables.sideNav.list.paddingTop.value}px + 22px + 15vh`
+        : `${theme.variables.sideNav.list.paddingTop.value}px + 15vh`}
+  );
   padding-bottom: ${({ theme }) => theme.variables.sideNav.list.paddingBottom.value}px;
   padding-left: ${({ theme }) => theme.variables.sideNav.list.paddingLeft.value}px;
   padding-right: 0;
   box-sizing: border-box;
+  & h1 {
+    position: absolute;
+    top: ${({ theme }) => theme.variables.sideNav.list.paddingTop.value}px;
+  }
 `;
 
 export const StyledListWrapper = styled.div`
   width: 100%;
   padding: 0;
   margin: 0;
-  margin-top: ${({ theme }) => theme.variables.sideNav.list.marginTop.value}px;
+  margin-top: 0;
   box-sizing: border-box;
 `;

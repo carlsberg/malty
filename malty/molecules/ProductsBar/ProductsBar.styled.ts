@@ -34,6 +34,7 @@ export const StyledSystemMenu = styled.ul`
 export const StyledSystemOption = styled.li`
   width: ${({ theme }) => theme.variables.productsBar.width.value}px;
   height: ${({ theme }) => theme.variables.productsBar.systemMenu.itemSize.value}px;
+  list-style: none;
   cursor: pointer;
   position: relative;
   z-index: 100;

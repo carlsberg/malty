@@ -7,7 +7,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledListWrapper, StyledSideNav, StyledWrapper } from './SideNav.styled';
 import { SideNavProps } from './SideNav.types';
 
-export const SideNav = ({ productName, navItems, systemOptions, profileMenu }: SideNavProps) => {
+export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: SideNavProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   // Nav list active menu items
@@ -27,10 +27,12 @@ export const SideNav = ({ productName, navItems, systemOptions, profileMenu }: S
   return (
     <StyledWrapper>
       <ProductsBar systemOptions={systemOptions} profileMenu={profileMenu} resetNavState={resetNavState} />
-      <StyledSideNav theme={theme}>
-        <Headline align={Align.Left} color={Color.White} size={Size.Medium}>
-          {productName}
-        </Headline>
+      <StyledSideNav theme={theme} productName={productName}>
+        {productName && (
+          <Headline align={Align.Left} color={Color.White} size={Size.Medium}>
+            {productName}
+          </Headline>
+        )}
         <StyledListWrapper theme={theme}>
           <NavList
             navItems={navItems}
