@@ -23,13 +23,15 @@ export const StyledSystemWrapper = styled.div`
   );
 `;
 
-export const StyledSystemMenu = styled.div`
+export const StyledSystemMenu = styled.ul`
   width: 100%;
   position: relative;
   margin-bottom: 84px;
+  list-style: none;
+  padding: 0;
 `;
 
-export const StyledSystemOption = styled.div`
+export const StyledSystemOption = styled.li`
   width: 80px;
   height: 56px;
   cursor: pointer;

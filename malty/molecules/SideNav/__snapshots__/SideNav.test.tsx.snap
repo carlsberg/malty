@@ -29,10 +29,11 @@ exports[`molecule sideNav matches snapshot 1`] = `
     <div
       className="sc-jrQzAO bkYkvJ"
     >
-      <div
-        className="sc-kDTinF hDReBL"
+      <ul
+        className="sc-kDTinF dxMloQ"
+        data-testid="system-options"
       >
-        <div
+        <li
           className="sc-iqseJM aUlCl"
         >
           <span
@@ -58,8 +59,8 @@ exports[`molecule sideNav matches snapshot 1`] = `
               </svg>
             </a>
           </span>
-        </div>
-        <div
+        </li>
+        <li
           className="sc-iqseJM aUlCl"
         >
           <span
@@ -85,13 +86,13 @@ exports[`molecule sideNav matches snapshot 1`] = `
               </svg>
             </a>
           </span>
-        </div>
-      </div>
+        </li>
+      </ul>
       <div
         className="sc-ksdxgE cLtBfe"
         open={false}
       >
-        <div
+        <li
           className="sc-iqseJM aUlCl"
           onClick={[Function]}
         >
@@ -113,7 +114,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
               </div>
             </span>
           </span>
-        </div>
+        </li>
         <div
           className="sc-fFeiMQ hjaeTr"
           open={false}
@@ -138,7 +139,9 @@ exports[`molecule sideNav matches snapshot 1`] = `
               Market director
             </p>
           </div>
-          <ul>
+          <ul
+            data-testid="profile-options"
+          >
             <li
               className="sc-bkkeKt fzIQnS"
             >

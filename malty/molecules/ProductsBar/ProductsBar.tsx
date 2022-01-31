@@ -52,7 +52,7 @@ const useClickOutside = (
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      const clickedElem = event.target;
+      const clickedElem = event.target as Element;
       if (ref.current && !ref.current.contains(clickedElem)) {
         if (!open) {
           return;
@@ -114,10 +114,10 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
 
   return (
     <StyledProductsBar theme={theme}>
-      <StyledOverlay open={profileMenuOpen} />
+      <StyledOverlay open={profileMenuOpen} theme={theme} />
       <Icon color={IconColors.White} name={IconNames.CarlsbergFilled} size={IconSizes.Medium} />
-      <StyledSystemWrapper>
-        <StyledSystemMenu>
+      <StyledSystemWrapper theme={theme}>
+        <StyledSystemMenu theme={theme} data-testId="system-options">
           {systemOptions?.map((option) => {
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
@@ -152,7 +152,7 @@ export const ProductsBar = ({ systemOptions, profileMenu }: ProductsBarProps) =>
             userRole={userRole}
             setProfileMenuOpen={setProfileMenuOpen}
           >
-            <ul>
+            <ul data-testId="profile-options">
               {profileActions.map((action) => {
                 const { name = 'item', icon, component, href, ...customProps } = action;
                 const componentProps = { ...customProps };
