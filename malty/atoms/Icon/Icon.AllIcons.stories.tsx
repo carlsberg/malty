@@ -2,7 +2,7 @@ import { StyledIcon } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Icon } from './Icon';
+import { Icon as IconComponent } from './Icon';
 import { Colors, IconInterface, NamesTypes, SizesTypes } from './Icon.types';
 
 const StyledAllIconsWrapper = styled.div`
@@ -14,8 +14,8 @@ const StyledAllIconsWrapper = styled.div`
 `;
 
 export default {
-  title: 'Atoms/Icon',
-  component: Icon,
+  title: 'Atoms/Icons/All Icons',
+  component: IconComponent,
   parameters: {
     importObject: 'Icon',
     importPath: '@carlsberggroup/malty.atoms.icon'
@@ -27,7 +27,7 @@ export default {
         'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
       defaultValue: NamesTypes.AddContent,
       control: {
-        type: 'select'
+        disable: true
       }
     },
     color: {
@@ -67,27 +67,19 @@ export default {
   }
 } as Meta;
 
-const Template: Story<IconInterface> = (args) => <Icon {...args} />;
-
-export const Main = Template.bind({});
-Main.parameters = {
-  color: Colors.Primary,
-  size: SizesTypes.Large,
-  name: NamesTypes.AddContent
-};
-
-const AllIconsTemplate: Story<IconInterface> = (args) => (
+const Template: Story<IconInterface> = (args) => (
   <StyledAllIconsWrapper>
     {Object.values(NamesTypes).map((name, index) => (
       <div title={name} key={index}>
-        <Icon {...args} name={name} />
+        <IconComponent {...args} name={name} />
       </div>
     ))}
   </StyledAllIconsWrapper>
 );
 
-export const AllIcons = AllIconsTemplate.bind({});
+export const AllIcons = Template.bind({});
 AllIcons.parameters = {
   color: Colors.Primary,
-  size: SizesTypes.Large
+  size: SizesTypes.Medium,
+  name: NamesTypes.AddContent
 };

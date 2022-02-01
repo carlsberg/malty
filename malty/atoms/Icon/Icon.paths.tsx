@@ -1,419 +1,208 @@
-import AddContent from '@carlsberggroup/malty.icons.add-content';
-import AddEvent from '@carlsberggroup/malty.icons.add-event';
-import AddProject from '@carlsberggroup/malty.icons.add-project';
-import AddedDocument from '@carlsberggroup/malty.icons.added-document';
-import Alert from '@carlsberggroup/malty.icons.alert';
-import AlertConnection from '@carlsberggroup/malty.icons.alert-connection';
-import AppDropbox from '@carlsberggroup/malty.icons.app-dropbox';
-import AppFacebook from '@carlsberggroup/malty.icons.app-facebook';
-import AppGithub from '@carlsberggroup/malty.icons.app-github';
-import AppInstagram from '@carlsberggroup/malty.icons.app-instagram';
-import AppLinkedin from '@carlsberggroup/malty.icons.app-linkedin';
-import AppPowerbi from '@carlsberggroup/malty.icons.app-powerbi';
-import AppSkype from '@carlsberggroup/malty.icons.app-skype';
-import Arrange from '@carlsberggroup/malty.icons.arrange';
-import ArrowSmallDown from '@carlsberggroup/malty.icons.arrow-small-down';
-import ArrowSmallLeft from '@carlsberggroup/malty.icons.arrow-small-left';
-import ArrowSmallRight from '@carlsberggroup/malty.icons.arrow-small-right';
-import ArrowSmallUp from '@carlsberggroup/malty.icons.arrow-small-up';
-import At from '@carlsberggroup/malty.icons.at';
-import Attachment from '@carlsberggroup/malty.icons.attachment';
-import Badge from '@carlsberggroup/malty.icons.badge';
-import Balance from '@carlsberggroup/malty.icons.balance';
-import Bell from '@carlsberggroup/malty.icons.bell';
-import BellNotification from '@carlsberggroup/malty.icons.bell-notification';
-import Bold from '@carlsberggroup/malty.icons.bold';
-import Book from '@carlsberggroup/malty.icons.book';
-import Bookmark from '@carlsberggroup/malty.icons.bookmark';
-import BookmarkFilled from '@carlsberggroup/malty.icons.bookmark-filled';
-import Bottle from '@carlsberggroup/malty.icons.bottle';
-import BottleCraft from '@carlsberggroup/malty.icons.bottle-craft';
-import Calendar from '@carlsberggroup/malty.icons.calendar';
-import CalendarAutumn from '@carlsberggroup/malty.icons.calendar-autumn';
-import CalendarConfirm from '@carlsberggroup/malty.icons.calendar-confirm';
-import CalendarEvents from '@carlsberggroup/malty.icons.calendar-events';
-import CalendarSpring from '@carlsberggroup/malty.icons.calendar-spring';
-import CalendarSummer from '@carlsberggroup/malty.icons.calendar-summer';
-import CalendarWholeYear from '@carlsberggroup/malty.icons.calendar-whole-year';
-import CalendarWinter from '@carlsberggroup/malty.icons.calendar-winter';
-import Camera from '@carlsberggroup/malty.icons.camera';
-import Can from '@carlsberggroup/malty.icons.can';
-import Card from '@carlsberggroup/malty.icons.card';
-import CardPlus from '@carlsberggroup/malty.icons.card-plus';
-import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
-import CarlsbergOutlined from '@carlsberggroup/malty.icons.carlsberg-outlined';
-import CarretDown from '@carlsberggroup/malty.icons.carret-down';
-import CarretLeft from '@carlsberggroup/malty.icons.carret-left';
-import CarretMove from '@carlsberggroup/malty.icons.carret-move';
-import CarretRight from '@carlsberggroup/malty.icons.carret-right';
-import CarretUp from '@carlsberggroup/malty.icons.carret-up';
-import Cart from '@carlsberggroup/malty.icons.cart';
-import CartAdded from '@carlsberggroup/malty.icons.cart-added';
-import CartLabel from '@carlsberggroup/malty.icons.cart-label';
-import CartNotification from '@carlsberggroup/malty.icons.cart-notification';
-import Change from '@carlsberggroup/malty.icons.change';
-import Check from '@carlsberggroup/malty.icons.check';
-import CheckboxCheck from '@carlsberggroup/malty.icons.checkbox-check';
-import CheckboxCheckAlternate from '@carlsberggroup/malty.icons.checkbox-check-alternate';
-import CheckboxCheckSquare from '@carlsberggroup/malty.icons.checkbox-check-square';
-import CheckboxEmpty from '@carlsberggroup/malty.icons.checkbox-empty';
-import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
-import ChevronLeft from '@carlsberggroup/malty.icons.chevron-left';
-import ChevronRight from '@carlsberggroup/malty.icons.chevron-right';
-import ChevronUp from '@carlsberggroup/malty.icons.chevron-up';
-import Clock from '@carlsberggroup/malty.icons.clock';
-import ClockFilled from '@carlsberggroup/malty.icons.clock-filled';
-import Clone from '@carlsberggroup/malty.icons.clone';
-import Close from '@carlsberggroup/malty.icons.close';
-import CoinDollar from '@carlsberggroup/malty.icons.coin-dollar';
-import CoinEuro from '@carlsberggroup/malty.icons.coin-euro';
-import Compass from '@carlsberggroup/malty.icons.compass';
-import CompassFilled from '@carlsberggroup/malty.icons.compass-filled';
-import Connected from '@carlsberggroup/malty.icons.connected';
-import Contract from '@carlsberggroup/malty.icons.contract';
-import Cookies from '@carlsberggroup/malty.icons.cookies';
-import Coupon from '@carlsberggroup/malty.icons.coupon';
-import Customer from '@carlsberggroup/malty.icons.customer';
-import CustomerAdd from '@carlsberggroup/malty.icons.customer-add';
-import CustomerQuestion from '@carlsberggroup/malty.icons.customer-question';
-import Customers from '@carlsberggroup/malty.icons.customers';
-import DataTransfer from '@carlsberggroup/malty.icons.data-transfer';
-import DiagonalDownLeft from '@carlsberggroup/malty.icons.diagonal-down-left';
-import DiagonalDownRight from '@carlsberggroup/malty.icons.diagonal-down-right';
-import DiagonalUpLeft from '@carlsberggroup/malty.icons.diagonal-up-left';
-import DiagonalUpRight from '@carlsberggroup/malty.icons.diagonal-up-right';
-import Diploma from '@carlsberggroup/malty.icons.diploma';
-import Diploma2 from '@carlsberggroup/malty.icons.diploma2';
-import Download from '@carlsberggroup/malty.icons.download';
-import Draughtmaster from '@carlsberggroup/malty.icons.draughtmaster';
-import Edit from '@carlsberggroup/malty.icons.edit';
-import Email from '@carlsberggroup/malty.icons.email';
-import Expand from '@carlsberggroup/malty.icons.expand';
-import Eye from '@carlsberggroup/malty.icons.eye';
-import EyeFill from '@carlsberggroup/malty.icons.eye-fill';
-import File from '@carlsberggroup/malty.icons.file';
-import FilesCsv from '@carlsberggroup/malty.icons.files-csv';
-import FilesJson from '@carlsberggroup/malty.icons.files-json';
-import FilesPdf from '@carlsberggroup/malty.icons.files-pdf';
-import FilesXls from '@carlsberggroup/malty.icons.files-xls';
-import Filters from '@carlsberggroup/malty.icons.filters';
-import Flash from '@carlsberggroup/malty.icons.flash';
-import GlassGoblet from '@carlsberggroup/malty.icons.glass-goblet';
-import GlassMug from '@carlsberggroup/malty.icons.glass-mug';
-import GlassWeissbier from '@carlsberggroup/malty.icons.glass-weissbier';
-import Globe from '@carlsberggroup/malty.icons.globe';
-import Headline from '@carlsberggroup/malty.icons.headline';
-import Heart from '@carlsberggroup/malty.icons.heart';
-import HeartFilled from '@carlsberggroup/malty.icons.heart-filled';
-import Help from '@carlsberggroup/malty.icons.help';
-import HideMenu from '@carlsberggroup/malty.icons.hide-menu';
-import History from '@carlsberggroup/malty.icons.history';
-import Home from '@carlsberggroup/malty.icons.home';
-import Hop from '@carlsberggroup/malty.icons.hop';
-import Image from '@carlsberggroup/malty.icons.image';
-import Information from '@carlsberggroup/malty.icons.information';
-import Italic from '@carlsberggroup/malty.icons.italic';
-import ItemAdd from '@carlsberggroup/malty.icons.item-add';
-import ItemCheck from '@carlsberggroup/malty.icons.item-check';
-import ItemCheckDefault from '@carlsberggroup/malty.icons.item-check-default';
-import ItemCheckFilled from '@carlsberggroup/malty.icons.item-check-filled';
-import ItemClose from '@carlsberggroup/malty.icons.item-close';
-import ItemCloseFilled from '@carlsberggroup/malty.icons.item-close-filled';
-import Library from '@carlsberggroup/malty.icons.library';
-import Loading from '@carlsberggroup/malty.icons.loading';
-import LocationIp from '@carlsberggroup/malty.icons.location-ip';
-import Lock from '@carlsberggroup/malty.icons.lock';
-import LockOpen from '@carlsberggroup/malty.icons.lock-open';
-import Map from '@carlsberggroup/malty.icons.map';
-import Market from '@carlsberggroup/malty.icons.market';
-import MediaPause from '@carlsberggroup/malty.icons.media-pause';
-import MediaPlay from '@carlsberggroup/malty.icons.media-play';
-import MediaSound from '@carlsberggroup/malty.icons.media-sound';
-import MediaSoundOff from '@carlsberggroup/malty.icons.media-sound-off';
-import MediaStop from '@carlsberggroup/malty.icons.media-stop';
-import Menu from '@carlsberggroup/malty.icons.menu';
-import MenuLeft from '@carlsberggroup/malty.icons.menu-left';
-import MenuRight from '@carlsberggroup/malty.icons.menu-right';
-import Minus from '@carlsberggroup/malty.icons.minus';
-import Mobile from '@carlsberggroup/malty.icons.mobile';
-import More from '@carlsberggroup/malty.icons.more';
-import Mouse from '@carlsberggroup/malty.icons.mouse';
-import Notepad from '@carlsberggroup/malty.icons.notepad';
-import Outlet from '@carlsberggroup/malty.icons.outlet';
-import OutletPlus from '@carlsberggroup/malty.icons.outlet-plus';
-import Pack from '@carlsberggroup/malty.icons.pack';
-import PackageKeg from '@carlsberggroup/malty.icons.package-keg';
-import PackageWholesaler from '@carlsberggroup/malty.icons.package-wholesaler';
-import Paint from '@carlsberggroup/malty.icons.paint';
-import Pallet from '@carlsberggroup/malty.icons.pallet';
-import Pencil from '@carlsberggroup/malty.icons.pencil';
-import PhoneClassic from '@carlsberggroup/malty.icons.phone-classic';
-import Pilsner from '@carlsberggroup/malty.icons.pilsner';
-import Pin from '@carlsberggroup/malty.icons.pin';
-import PinActive from '@carlsberggroup/malty.icons.pin-active';
-import PinChurn from '@carlsberggroup/malty.icons.pin-churn';
-import PinClosed from '@carlsberggroup/malty.icons.pin-closed';
-import PinInactive from '@carlsberggroup/malty.icons.pin-inactive';
-import PinIndirect from '@carlsberggroup/malty.icons.pin-indirect';
-import PinLabeling from '@carlsberggroup/malty.icons.pin-labeling';
-import PinParked from '@carlsberggroup/malty.icons.pin-parked';
-import PinProspect from '@carlsberggroup/malty.icons.pin-prospect';
-import PinSeveral from '@carlsberggroup/malty.icons.pin-several';
-import Pint from '@carlsberggroup/malty.icons.pint';
-import Plus from '@carlsberggroup/malty.icons.plus';
-import Power from '@carlsberggroup/malty.icons.power';
-import RadiobuttonOff from '@carlsberggroup/malty.icons.radiobutton-off';
-import RadiobuttonOn from '@carlsberggroup/malty.icons.radiobutton-on';
-import Refresh from '@carlsberggroup/malty.icons.refresh';
-import Restaurant from '@carlsberggroup/malty.icons.restaurant';
-import Retry from '@carlsberggroup/malty.icons.retry';
-import Salesrep from '@carlsberggroup/malty.icons.salesrep';
-import Save from '@carlsberggroup/malty.icons.save';
-import Search from '@carlsberggroup/malty.icons.search';
-import SearchUser from '@carlsberggroup/malty.icons.search-user';
-import Sent from '@carlsberggroup/malty.icons.sent';
-import Settings from '@carlsberggroup/malty.icons.settings';
-import Share from '@carlsberggroup/malty.icons.share';
-import ShieldExclamation from '@carlsberggroup/malty.icons.shield-exclamation';
-import ShieldSecurity from '@carlsberggroup/malty.icons.shield-security';
-import Shop from '@carlsberggroup/malty.icons.shop';
-import SignOut from '@carlsberggroup/malty.icons.sign-out';
-import SpeachBalloon from '@carlsberggroup/malty.icons.speach-balloon';
-import SpeachBalloonComplaint from '@carlsberggroup/malty.icons.speach-balloon-complaint';
-import SpeachBalloonLivechat from '@carlsberggroup/malty.icons.speach-balloon-livechat';
-import Star from '@carlsberggroup/malty.icons.star';
-import StarFilled from '@carlsberggroup/malty.icons.star-filled';
-import Survey from '@carlsberggroup/malty.icons.survey';
-import Sync from '@carlsberggroup/malty.icons.sync';
-import Tap from '@carlsberggroup/malty.icons.tap';
-import TapGlass from '@carlsberggroup/malty.icons.tap-glass';
-import TechnicalSupport from '@carlsberggroup/malty.icons.technical-support';
-import Text from '@carlsberggroup/malty.icons.text';
-import ThirdParty from '@carlsberggroup/malty.icons.third-party';
-import ThumbDown from '@carlsberggroup/malty.icons.thumb-down';
-import ThumbUp from '@carlsberggroup/malty.icons.thumb-up';
-import ToggleOff from '@carlsberggroup/malty.icons.toggle-off';
-import ToggleOn from '@carlsberggroup/malty.icons.toggle-on';
-import Trash from '@carlsberggroup/malty.icons.trash';
-import Trophy from '@carlsberggroup/malty.icons.trophy';
-import Truck from '@carlsberggroup/malty.icons.truck';
-import Tulipe from '@carlsberggroup/malty.icons.tulipe';
-import Twitter from '@carlsberggroup/malty.icons.twitter';
-import Underline from '@carlsberggroup/malty.icons.underline';
-import Upload from '@carlsberggroup/malty.icons.upload';
-import ViewGrid from '@carlsberggroup/malty.icons.view-grid';
-import ViewList from '@carlsberggroup/malty.icons.view-list';
-import Volume from '@carlsberggroup/malty.icons.volume';
-import Wheat from '@carlsberggroup/malty.icons.wheat';
-import World from '@carlsberggroup/malty.icons.world';
-
-export {
-  AddContent,
-  AddEvent,
-  AddProject,
-  AddedDocument,
-  Alert,
-  AlertConnection,
-  AppDropbox,
-  AppFacebook,
-  AppGithub,
-  AppInstagram,
-  AppLinkedin,
-  AppPowerbi,
-  AppSkype,
-  Arrange,
-  ArrowSmallDown,
-  ArrowSmallLeft,
-  ArrowSmallRight,
-  ArrowSmallUp,
-  At,
-  Attachment,
-  Badge,
-  Balance,
-  Bell,
-  BellNotification,
-  Bold,
-  Book,
-  Bookmark,
-  BookmarkFilled,
-  Bottle,
-  BottleCraft,
-  Calendar,
-  CalendarAutumn,
-  CalendarConfirm,
-  CalendarEvents,
-  CalendarSpring,
-  CalendarSummer,
-  CalendarWholeYear,
-  CalendarWinter,
-  Camera,
-  Can,
-  Card,
-  CardPlus,
-  CarlsbergFilled,
-  CarlsbergOutlined,
-  CarretDown,
-  CarretLeft,
-  CarretMove,
-  CarretRight,
-  CarretUp,
-  Cart,
-  CartAdded,
-  CartLabel,
-  CartNotification,
-  Change,
-  Check,
-  CheckboxCheck,
-  CheckboxCheckAlternate,
-  CheckboxCheckSquare,
-  CheckboxEmpty,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  ChevronUp,
-  Clock,
-  ClockFilled,
-  Clone,
-  Close,
-  CoinDollar,
-  CoinEuro,
-  Compass,
-  CompassFilled,
-  Connected,
-  Contract,
-  Cookies,
-  Coupon,
-  Customer,
-  CustomerAdd,
-  CustomerQuestion,
-  Customers,
-  DataTransfer,
-  DiagonalDownLeft,
-  DiagonalDownRight,
-  DiagonalUpLeft,
-  DiagonalUpRight,
-  Diploma,
-  Diploma2,
-  Download,
-  Draughtmaster,
-  Edit,
-  Email,
-  Expand,
-  Eye,
-  EyeFill,
-  File,
-  FilesCsv,
-  FilesJson,
-  FilesPdf,
-  FilesXls,
-  Filters,
-  Flash,
-  GlassGoblet,
-  GlassMug,
-  GlassWeissbier,
-  Globe,
-  Headline,
-  Heart,
-  HeartFilled,
-  Help,
-  HideMenu,
-  History,
-  Home,
-  Hop,
-  Image,
-  Information,
-  Italic,
-  ItemAdd,
-  ItemCheck,
-  ItemCheckDefault,
-  ItemCheckFilled,
-  ItemClose,
-  ItemCloseFilled,
-  Library,
-  Loading,
-  LocationIp,
-  Lock,
-  LockOpen,
-  Map,
-  Market,
-  MediaPause,
-  MediaPlay,
-  MediaSound,
-  MediaSoundOff,
-  MediaStop,
-  Menu,
-  MenuLeft,
-  MenuRight,
-  Minus,
-  Mobile,
-  More,
-  Mouse,
-  Notepad,
-  Outlet,
-  OutletPlus,
-  Pack,
-  PackageKeg,
-  PackageWholesaler,
-  Paint,
-  Pallet,
-  Pencil,
-  PhoneClassic,
-  Pilsner,
-  Pin,
-  PinActive,
-  PinChurn,
-  PinClosed,
-  PinInactive,
-  PinIndirect,
-  PinLabeling,
-  PinParked,
-  PinProspect,
-  PinSeveral,
-  Pint,
-  Plus,
-  Power,
-  RadiobuttonOff,
-  RadiobuttonOn,
-  Refresh,
-  Restaurant,
-  Retry,
-  Salesrep,
-  Save,
-  Search,
-  SearchUser,
-  Sent,
-  Settings,
-  Share,
-  ShieldExclamation,
-  ShieldSecurity,
-  Shop,
-  SignOut,
-  SpeachBalloon,
-  SpeachBalloonComplaint,
-  SpeachBalloonLivechat,
-  Star,
-  StarFilled,
-  Survey,
-  Sync,
-  Tap,
-  TapGlass,
-  TechnicalSupport,
-  Text,
-  ThirdParty,
-  ThumbDown,
-  ThumbUp,
-  ToggleOff,
-  ToggleOn,
-  Trash,
-  Trophy,
-  Truck,
-  Tulipe,
-  Twitter,
-  Underline,
-  Upload,
-  ViewGrid,
-  ViewList,
-  Volume,
-  World,
-  Wheat
-};
+export { default as AddContent } from '@carlsberggroup/malty.icons.add-content';
+export { default as AddEvent } from '@carlsberggroup/malty.icons.add-event';
+export { default as AddProject } from '@carlsberggroup/malty.icons.add-project';
+export { default as AddedDocument } from '@carlsberggroup/malty.icons.added-document';
+export { default as Alert } from '@carlsberggroup/malty.icons.alert';
+export { default as AlertConnection } from '@carlsberggroup/malty.icons.alert-connection';
+export { default as AppDropbox } from '@carlsberggroup/malty.icons.app-dropbox';
+export { default as AppFacebook } from '@carlsberggroup/malty.icons.app-facebook';
+export { default as AppGithub } from '@carlsberggroup/malty.icons.app-github';
+export { default as AppInstagram } from '@carlsberggroup/malty.icons.app-instagram';
+export { default as AppLinkedin } from '@carlsberggroup/malty.icons.app-linkedin';
+export { default as AppPowerbi } from '@carlsberggroup/malty.icons.app-powerbi';
+export { default as AppSkype } from '@carlsberggroup/malty.icons.app-skype';
+export { default as Arrange } from '@carlsberggroup/malty.icons.arrange';
+export { default as ArrowSmallDown } from '@carlsberggroup/malty.icons.arrow-small-down';
+export { default as ArrowSmallLeft } from '@carlsberggroup/malty.icons.arrow-small-left';
+export { default as ArrowSmallRight } from '@carlsberggroup/malty.icons.arrow-small-right';
+export { default as ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
+export { default as At } from '@carlsberggroup/malty.icons.at';
+export { default as Attachment } from '@carlsberggroup/malty.icons.attachment';
+export { default as Badge } from '@carlsberggroup/malty.icons.badge';
+export { default as Balance } from '@carlsberggroup/malty.icons.balance';
+export { default as Bell } from '@carlsberggroup/malty.icons.bell';
+export { default as BellNotification } from '@carlsberggroup/malty.icons.bell-notification';
+export { default as Bold } from '@carlsberggroup/malty.icons.bold';
+export { default as Book } from '@carlsberggroup/malty.icons.book';
+export { default as Bookmark } from '@carlsberggroup/malty.icons.bookmark';
+export { default as BookmarkFilled } from '@carlsberggroup/malty.icons.bookmark-filled';
+export { default as Bottle } from '@carlsberggroup/malty.icons.bottle';
+export { default as BottleCraft } from '@carlsberggroup/malty.icons.bottle-craft';
+export { default as Calendar } from '@carlsberggroup/malty.icons.calendar';
+export { default as CalendarAutumn } from '@carlsberggroup/malty.icons.calendar-autumn';
+export { default as CalendarConfirm } from '@carlsberggroup/malty.icons.calendar-confirm';
+export { default as CalendarEvents } from '@carlsberggroup/malty.icons.calendar-events';
+export { default as CalendarSpring } from '@carlsberggroup/malty.icons.calendar-spring';
+export { default as CalendarSummer } from '@carlsberggroup/malty.icons.calendar-summer';
+export { default as CalendarWholeYear } from '@carlsberggroup/malty.icons.calendar-whole-year';
+export { default as CalendarWinter } from '@carlsberggroup/malty.icons.calendar-winter';
+export { default as Camera } from '@carlsberggroup/malty.icons.camera';
+export { default as Can } from '@carlsberggroup/malty.icons.can';
+export { default as Card } from '@carlsberggroup/malty.icons.card';
+export { default as CardPlus } from '@carlsberggroup/malty.icons.card-plus';
+export { default as CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
+export { default as CarlsbergOutlined } from '@carlsberggroup/malty.icons.carlsberg-outlined';
+export { default as CarretDown } from '@carlsberggroup/malty.icons.carret-down';
+export { default as CarretLeft } from '@carlsberggroup/malty.icons.carret-left';
+export { default as CarretMove } from '@carlsberggroup/malty.icons.carret-move';
+export { default as CarretRight } from '@carlsberggroup/malty.icons.carret-right';
+export { default as CarretUp } from '@carlsberggroup/malty.icons.carret-up';
+export { default as Cart } from '@carlsberggroup/malty.icons.cart';
+export { default as CartAdded } from '@carlsberggroup/malty.icons.cart-added';
+export { default as CartLabel } from '@carlsberggroup/malty.icons.cart-label';
+export { default as CartNotification } from '@carlsberggroup/malty.icons.cart-notification';
+export { default as Change } from '@carlsberggroup/malty.icons.change';
+export { default as Check } from '@carlsberggroup/malty.icons.check';
+export { default as CheckboxCheck } from '@carlsberggroup/malty.icons.checkbox-check';
+export { default as CheckboxCheckAlternate } from '@carlsberggroup/malty.icons.checkbox-check-alternate';
+export { default as CheckboxCheckSquare } from '@carlsberggroup/malty.icons.checkbox-check-square';
+export { default as CheckboxEmpty } from '@carlsberggroup/malty.icons.checkbox-empty';
+export { default as ChevronDown } from '@carlsberggroup/malty.icons.chevron-down';
+export { default as ChevronLeft } from '@carlsberggroup/malty.icons.chevron-left';
+export { default as ChevronRight } from '@carlsberggroup/malty.icons.chevron-right';
+export { default as ChevronUp } from '@carlsberggroup/malty.icons.chevron-up';
+export { default as Clock } from '@carlsberggroup/malty.icons.clock';
+export { default as ClockFilled } from '@carlsberggroup/malty.icons.clock-filled';
+export { default as Clone } from '@carlsberggroup/malty.icons.clone';
+export { default as Close } from '@carlsberggroup/malty.icons.close';
+export { default as CoinDollar } from '@carlsberggroup/malty.icons.coin-dollar';
+export { default as CoinEuro } from '@carlsberggroup/malty.icons.coin-euro';
+export { default as Compass } from '@carlsberggroup/malty.icons.compass';
+export { default as CompassFilled } from '@carlsberggroup/malty.icons.compass-filled';
+export { default as Connected } from '@carlsberggroup/malty.icons.connected';
+export { default as Contract } from '@carlsberggroup/malty.icons.contract';
+export { default as Cookies } from '@carlsberggroup/malty.icons.cookies';
+export { default as Coupon } from '@carlsberggroup/malty.icons.coupon';
+export { default as Customer } from '@carlsberggroup/malty.icons.customer';
+export { default as CustomerAdd } from '@carlsberggroup/malty.icons.customer-add';
+export { default as CustomerQuestion } from '@carlsberggroup/malty.icons.customer-question';
+export { default as Customers } from '@carlsberggroup/malty.icons.customers';
+export { default as DataTransfer } from '@carlsberggroup/malty.icons.data-transfer';
+export { default as DiagonalDownLeft } from '@carlsberggroup/malty.icons.diagonal-down-left';
+export { default as DiagonalDownRight } from '@carlsberggroup/malty.icons.diagonal-down-right';
+export { default as DiagonalUpLeft } from '@carlsberggroup/malty.icons.diagonal-up-left';
+export { default as DiagonalUpRight } from '@carlsberggroup/malty.icons.diagonal-up-right';
+export { default as Diploma } from '@carlsberggroup/malty.icons.diploma';
+export { default as Diploma2 } from '@carlsberggroup/malty.icons.diploma2';
+export { default as Download } from '@carlsberggroup/malty.icons.download';
+export { default as Draughtmaster } from '@carlsberggroup/malty.icons.draughtmaster';
+export { default as Edit } from '@carlsberggroup/malty.icons.edit';
+export { default as Email } from '@carlsberggroup/malty.icons.email';
+export { default as Expand } from '@carlsberggroup/malty.icons.expand';
+export { default as Eye } from '@carlsberggroup/malty.icons.eye';
+export { default as EyeFill } from '@carlsberggroup/malty.icons.eye-fill';
+export { default as File } from '@carlsberggroup/malty.icons.file';
+export { default as FilesCsv } from '@carlsberggroup/malty.icons.files-csv';
+export { default as FilesJson } from '@carlsberggroup/malty.icons.files-json';
+export { default as FilesPdf } from '@carlsberggroup/malty.icons.files-pdf';
+export { default as FilesXls } from '@carlsberggroup/malty.icons.files-xls';
+export { default as Filters } from '@carlsberggroup/malty.icons.filters';
+export { default as Flash } from '@carlsberggroup/malty.icons.flash';
+export { default as GlassGoblet } from '@carlsberggroup/malty.icons.glass-goblet';
+export { default as GlassMug } from '@carlsberggroup/malty.icons.glass-mug';
+export { default as GlassWeissbier } from '@carlsberggroup/malty.icons.glass-weissbier';
+export { default as Globe } from '@carlsberggroup/malty.icons.globe';
+export { default as Headline } from '@carlsberggroup/malty.icons.headline';
+export { default as Heart } from '@carlsberggroup/malty.icons.heart';
+export { default as HeartFilled } from '@carlsberggroup/malty.icons.heart-filled';
+export { default as Help } from '@carlsberggroup/malty.icons.help';
+export { default as HideMenu } from '@carlsberggroup/malty.icons.hide-menu';
+export { default as History } from '@carlsberggroup/malty.icons.history';
+export { default as Home } from '@carlsberggroup/malty.icons.home';
+export { default as Hop } from '@carlsberggroup/malty.icons.hop';
+export { default as Image } from '@carlsberggroup/malty.icons.image';
+export { default as Information } from '@carlsberggroup/malty.icons.information';
+export { default as Italic } from '@carlsberggroup/malty.icons.italic';
+export { default as ItemAdd } from '@carlsberggroup/malty.icons.item-add';
+export { default as ItemCheck } from '@carlsberggroup/malty.icons.item-check';
+export { default as ItemCheckDefault } from '@carlsberggroup/malty.icons.item-check-default';
+export { default as ItemCheckFilled } from '@carlsberggroup/malty.icons.item-check-filled';
+export { default as ItemClose } from '@carlsberggroup/malty.icons.item-close';
+export { default as ItemCloseFilled } from '@carlsberggroup/malty.icons.item-close-filled';
+export { default as Library } from '@carlsberggroup/malty.icons.library';
+export { default as Loading } from '@carlsberggroup/malty.icons.loading';
+export { default as LocationIp } from '@carlsberggroup/malty.icons.location-ip';
+export { default as Lock } from '@carlsberggroup/malty.icons.lock';
+export { default as LockOpen } from '@carlsberggroup/malty.icons.lock-open';
+export { default as Map } from '@carlsberggroup/malty.icons.map';
+export { default as Market } from '@carlsberggroup/malty.icons.market';
+export { default as MediaPause } from '@carlsberggroup/malty.icons.media-pause';
+export { default as MediaPlay } from '@carlsberggroup/malty.icons.media-play';
+export { default as MediaSound } from '@carlsberggroup/malty.icons.media-sound';
+export { default as MediaSoundOff } from '@carlsberggroup/malty.icons.media-sound-off';
+export { default as MediaStop } from '@carlsberggroup/malty.icons.media-stop';
+export { default as Menu } from '@carlsberggroup/malty.icons.menu';
+export { default as MenuLeft } from '@carlsberggroup/malty.icons.menu-left';
+export { default as MenuRight } from '@carlsberggroup/malty.icons.menu-right';
+export { default as Minus } from '@carlsberggroup/malty.icons.minus';
+export { default as Mobile } from '@carlsberggroup/malty.icons.mobile';
+export { default as More } from '@carlsberggroup/malty.icons.more';
+export { default as Mouse } from '@carlsberggroup/malty.icons.mouse';
+export { default as Notepad } from '@carlsberggroup/malty.icons.notepad';
+export { default as Outlet } from '@carlsberggroup/malty.icons.outlet';
+export { default as OutletPlus } from '@carlsberggroup/malty.icons.outlet-plus';
+export { default as Pack } from '@carlsberggroup/malty.icons.pack';
+export { default as PackageKeg } from '@carlsberggroup/malty.icons.package-keg';
+export { default as PackageWholesaler } from '@carlsberggroup/malty.icons.package-wholesaler';
+export { default as Paint } from '@carlsberggroup/malty.icons.paint';
+export { default as Pallet } from '@carlsberggroup/malty.icons.pallet';
+export { default as Pencil } from '@carlsberggroup/malty.icons.pencil';
+export { default as PhoneClassic } from '@carlsberggroup/malty.icons.phone-classic';
+export { default as Pilsner } from '@carlsberggroup/malty.icons.pilsner';
+export { default as Pin } from '@carlsberggroup/malty.icons.pin';
+export { default as PinActive } from '@carlsberggroup/malty.icons.pin-active';
+export { default as PinChurn } from '@carlsberggroup/malty.icons.pin-churn';
+export { default as PinClosed } from '@carlsberggroup/malty.icons.pin-closed';
+export { default as PinInactive } from '@carlsberggroup/malty.icons.pin-inactive';
+export { default as PinIndirect } from '@carlsberggroup/malty.icons.pin-indirect';
+export { default as PinLabeling } from '@carlsberggroup/malty.icons.pin-labeling';
+export { default as PinParked } from '@carlsberggroup/malty.icons.pin-parked';
+export { default as PinProspect } from '@carlsberggroup/malty.icons.pin-prospect';
+export { default as PinSeveral } from '@carlsberggroup/malty.icons.pin-several';
+export { default as Pint } from '@carlsberggroup/malty.icons.pint';
+export { default as Plus } from '@carlsberggroup/malty.icons.plus';
+export { default as Power } from '@carlsberggroup/malty.icons.power';
+export { default as RadiobuttonOff } from '@carlsberggroup/malty.icons.radiobutton-off';
+export { default as RadiobuttonOn } from '@carlsberggroup/malty.icons.radiobutton-on';
+export { default as Refresh } from '@carlsberggroup/malty.icons.refresh';
+export { default as Restaurant } from '@carlsberggroup/malty.icons.restaurant';
+export { default as Retry } from '@carlsberggroup/malty.icons.retry';
+export { default as Salesrep } from '@carlsberggroup/malty.icons.salesrep';
+export { default as Save } from '@carlsberggroup/malty.icons.save';
+export { default as Search } from '@carlsberggroup/malty.icons.search';
+export { default as SearchUser } from '@carlsberggroup/malty.icons.search-user';
+export { default as Sent } from '@carlsberggroup/malty.icons.sent';
+export { default as Settings } from '@carlsberggroup/malty.icons.settings';
+export { default as Share } from '@carlsberggroup/malty.icons.share';
+export { default as ShieldExclamation } from '@carlsberggroup/malty.icons.shield-exclamation';
+export { default as ShieldSecurity } from '@carlsberggroup/malty.icons.shield-security';
+export { default as Shop } from '@carlsberggroup/malty.icons.shop';
+export { default as SignOut } from '@carlsberggroup/malty.icons.sign-out';
+export { default as SpeachBalloon } from '@carlsberggroup/malty.icons.speach-balloon';
+export { default as SpeachBalloonComplaint } from '@carlsberggroup/malty.icons.speach-balloon-complaint';
+export { default as SpeachBalloonLivechat } from '@carlsberggroup/malty.icons.speach-balloon-livechat';
+export { default as Star } from '@carlsberggroup/malty.icons.star';
+export { default as StarFilled } from '@carlsberggroup/malty.icons.star-filled';
+export { default as Survey } from '@carlsberggroup/malty.icons.survey';
+export { default as Sync } from '@carlsberggroup/malty.icons.sync';
+export { default as Tap } from '@carlsberggroup/malty.icons.tap';
+export { default as TapGlass } from '@carlsberggroup/malty.icons.tap-glass';
+export { default as TechnicalSupport } from '@carlsberggroup/malty.icons.technical-support';
+export { default as Text } from '@carlsberggroup/malty.icons.text';
+export { default as ThirdParty } from '@carlsberggroup/malty.icons.third-party';
+export { default as ThumbDown } from '@carlsberggroup/malty.icons.thumb-down';
+export { default as ThumbUp } from '@carlsberggroup/malty.icons.thumb-up';
+export { default as ToggleOff } from '@carlsberggroup/malty.icons.toggle-off';
+export { default as ToggleOn } from '@carlsberggroup/malty.icons.toggle-on';
+export { default as Trash } from '@carlsberggroup/malty.icons.trash';
+export { default as Trophy } from '@carlsberggroup/malty.icons.trophy';
+export { default as Truck } from '@carlsberggroup/malty.icons.truck';
+export { default as Tulipe } from '@carlsberggroup/malty.icons.tulipe';
+export { default as Twitter } from '@carlsberggroup/malty.icons.twitter';
+export { default as Underline } from '@carlsberggroup/malty.icons.underline';
+export { default as Upload } from '@carlsberggroup/malty.icons.upload';
+export { default as ViewGrid } from '@carlsberggroup/malty.icons.view-grid';
+export { default as ViewList } from '@carlsberggroup/malty.icons.view-list';
+export { default as Volume } from '@carlsberggroup/malty.icons.volume';
+export { default as Wheat } from '@carlsberggroup/malty.icons.wheat';
+export { default as World } from '@carlsberggroup/malty.icons.world';

@@ -20,6 +20,7 @@ export const TextArea = ({
   value,
   onValueChange,
   error,
+  maxLength,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -68,6 +69,7 @@ export const TextArea = ({
             onChange={handleCarachterCounter}
             theme={theme}
             disabled={disabled}
+            maxLength={maxLength}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />

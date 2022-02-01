@@ -6,7 +6,7 @@ export interface IconInterface extends React.HTMLAttributes<SVGElement> {
   size: SizesTypes;
   viewBox?: string;
   onClick?: MouseEventHandler<SVGElement>;
-  name: NamesTypes;
+  name?: NamesTypes;
 }
 
 export enum NamesTypes {
