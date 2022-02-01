@@ -100,8 +100,13 @@ export const StyledAlert = styled(StyledContainer)`
 `;
 
 export const StyledToast = styled(StyledAlert)`
-  width: min(736px, 90vw);
+  width: calc(100vw - 32px);
   margin: auto;
+  padding: 11px 0;
+  align-items: center;
+  @media (min-width: 768px) {
+    width: 736px;
+  }
 `;
 
 export const StyledTextContainer = styled.div`
@@ -125,6 +130,7 @@ export const StyledActionItem = styled.div.attrs((props: { alertType: AlertType 
   box-sizing: border-box;
   button {
     text-decoration: ${(props) => (props.alertType === AlertType.Toast ? `none` : `underline`)};
+    padding: ${(props) => (props.alertType === AlertType.Toast ? `0 16px` : `0`)};
   }
 `;
 
@@ -142,11 +148,12 @@ export const StyledButton = styled.button`
   text-decoration: underline;
 `;
 
-export const StyledDismissContainer = styled.div`
+export const StyledDismissContainer = styled.div.attrs((props: { alertType: AlertType }) => props)`
   display: flex;
   align-items: center;
   column-gap: 16px;
   margin-left: auto;
+  margin-right: ${(props) => (props.alertType === AlertType.Toast ? `12px` : `0`)};
 `;
 
 export const StyledContent = styled.div`
@@ -166,5 +173,7 @@ export const StyledAlertToastContent = styled(StyledAlertContent)`
 
   p {
     white-space: normal;
+    margin: 0;
+    padding: 0 16px;
   }
 `;

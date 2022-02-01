@@ -145,12 +145,13 @@ export const Alert = ({
   );
 
   const renderDismissContainer = () => (
-    <StyledDismissContainer data-testid={`${dataQaId}-close-icon`} onClick={onDismissAction}>
+    <StyledDismissContainer alertType={type} data-testid={`${dataQaId}-close-icon`} onClick={onDismissAction}>
       <Icon
         className="inline-alert-icon"
         name={IconNamesTypes.Close}
-        size={IconSizesTypes.Medium}
+        size={type === AlertType.Toast ? IconSizesTypes.Small : IconSizesTypes.Medium}
         color={IconColors.White}
+        viewBox={type === AlertType.Toast ? '2 2 20 20' : undefined}
       />
     </StyledDismissContainer>
   );
