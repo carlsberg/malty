@@ -4,11 +4,9 @@ import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 export interface ModalProps {
   open: boolean;
   setOpen: (open: boolean) => void;
-  info: {
-    title: string;
-    text: string;
-    icon?: IconNamesTypes;
-  };
+  title: string;
+  text: string;
+  icon?: IconNamesTypes;
   image?: string;
   buttons?: {
     variant: ButtonStyle;

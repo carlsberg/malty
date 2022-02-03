@@ -14,7 +14,33 @@ export default {
   argTypes: {
     open: {
       control: 'boolean',
-      description: 'Is the modal open?'
+      description: 'The bolean state that controlls whether the Modal is open or not'
+    },
+    setOpen: {
+      description: `The useState function that controlls the "open" state`
+    },
+    title: {
+      control: 'text',
+      description: 'Modal title'
+    },
+    text: {
+      control: 'text',
+      description: 'Modal text'
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: IconNamesTypes
+      },
+      description: 'Main Icon displayed'
+    },
+    image: {
+      control: 'text',
+      description: 'Image source url'
+    },
+    buttons: {
+      control: '',
+      description: 'An array of maximum 2 buttons '
     }
   }
 } as Meta;
@@ -22,12 +48,6 @@ export default {
 const Template: Story = () => {
   const [open, setOpen] = useState(true);
   const toggleModal = () => setOpen(!open);
-  const info = {
-    title: 'Headline',
-    text: `Paragraph block to support main headline(optional)
-    And…it can have 2 lines, more than that is just boring…`,
-    icon: IconNamesTypes.ItemCheck
-  };
   const buttons = [
     {
       variant: ButtonStyle.Secondary,
@@ -42,18 +62,30 @@ const Template: Story = () => {
   ];
   return (
     <>
-      <button type="button" onClick={toggleModal}>
-        Toggle Modal
-      </button>
-      <ModalComponent
-        open={open}
-        setOpen={setOpen}
-        info={info}
-        buttons={buttons}
-        image="https://source.unsplash.com/user/c_v_r/220x280"
-      />
+      <div style={{ height: '600px', width: '500px' }}>
+        <button type="button" onClick={toggleModal}>
+          Toggle Modal
+        </button>
+        <ModalComponent
+          open={open}
+          setOpen={setOpen}
+          title="Headline"
+          text="Paragraph block to support main headline(optional)
+        And…it can have 2 lines, more than that is just boring…"
+          icon={IconNamesTypes.ItemCheck}
+          buttons={buttons}
+          image="https://source.unsplash.com/user/c_v_r/220x280"
+        />
+      </div>
     </>
   );
 };
 
 export const Modal = Template.bind({});
+Modal.args = {
+  title: 'Headline',
+  text: `Paragraph block to support main headline(optional)
+  And…it can have 2 lines, more than that is just boring…`,
+  icon: IconNamesTypes.ItemCheck,
+  image: 'https://source.unsplash.com/user/c_v_r/220x280'
+};

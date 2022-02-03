@@ -21,7 +21,7 @@ import {
 } from './Modal.styled';
 import { ModalProps } from './Modal.types';
 
-export const Modal = ({ open, setOpen, info, buttons, image }: ModalProps) => {
+export const Modal = ({ open, setOpen, text, title, icon, buttons, image }: ModalProps) => {
   const closeModal = () => {
     setOpen(false);
   };
@@ -35,19 +35,19 @@ export const Modal = ({ open, setOpen, info, buttons, image }: ModalProps) => {
               <StyledCloseIconContainer onClick={closeModal}>
                 <Icon name={IconNamesTypes.Close} size={IconSizesTypes.Large} color={IconColors.Primary} />
               </StyledCloseIconContainer>
-              {info.icon && (
+              {icon && (
                 <StyledIconContainer>
-                  <Icon name={info.icon} size={IconSizesTypes.Large} color={IconColors.Primary} onClick={closeModal} />
+                  <Icon name={icon} size={IconSizesTypes.Large} color={IconColors.Primary} onClick={closeModal} />
                 </StyledIconContainer>
               )}
               <StyledTitleContainer>
                 <Text align={TextAlignType.Center} weight={TextWeightType.Bold}>
-                  {info.title}
+                  {title}
                 </Text>
               </StyledTitleContainer>
               <StyledTextContainer>
                 <Text align={TextAlignType.Center} size={TextSizeType.MediumSmall}>
-                  {info.text}
+                  {text}
                 </Text>
               </StyledTextContainer>
 
