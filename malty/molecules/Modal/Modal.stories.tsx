@@ -3,6 +3,7 @@ import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Modal as ModalComponent } from './Modal';
+import { ModalProps } from './Modal.types';
 
 export default {
   title: 'Molecules/Modal',
@@ -45,21 +46,9 @@ export default {
   }
 } as Meta;
 
-const Template: Story = () => {
+const Template: Story<ModalProps> = ({ title, text, icon, image, buttons }: ModalProps) => {
   const [open, setOpen] = useState(true);
   const toggleModal = () => setOpen(!open);
-  const buttons = [
-    {
-      variant: ButtonStyle.Secondary,
-      label: 'Cancel',
-      onClick: toggleModal
-    },
-    {
-      variant: ButtonStyle.Primary,
-      label: 'Confirm',
-      onClick: () => alert('primay button pressed')
-    }
-  ];
   return (
     <>
       <div style={{ height: '600px', width: '500px' }}>
@@ -69,12 +58,11 @@ const Template: Story = () => {
         <ModalComponent
           open={open}
           setOpen={setOpen}
-          title="Headline"
-          text="Paragraph block to support main headline(optional)
-        And…it can have 2 lines, more than that is just boring…"
-          icon={IconNamesTypes.ItemCheck}
+          title={title}
+          text={text}
+          icon={icon}
+          image={image}
           buttons={buttons}
-          image="https://source.unsplash.com/user/c_v_r/220x280"
         />
       </div>
     </>
@@ -87,5 +75,17 @@ Modal.args = {
   text: `Paragraph block to support main headline(optional)
   And…it can have 2 lines, more than that is just boring…`,
   icon: IconNamesTypes.ItemCheck,
-  image: 'https://source.unsplash.com/user/c_v_r/220x280'
+  image: 'https://source.unsplash.com/user/c_v_r/220x280',
+  buttons: [
+    {
+      variant: ButtonStyle.Secondary,
+      label: 'Cancel',
+      onClick: () => alert('primay button pressed')
+    },
+    {
+      variant: ButtonStyle.Primary,
+      label: 'Confirm',
+      onClick: () => alert('primay button pressed')
+    }
+  ]
 };
