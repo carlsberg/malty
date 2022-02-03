@@ -1,3 +1,5 @@
+import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Modal as ModalComponent } from './Modal';
@@ -21,21 +23,21 @@ const Template: Story = () => {
   const [open, setOpen] = useState(true);
   const toggleModal = () => setOpen(!open);
   const info = {
-    icon: 'ItemCheck',
     title: 'Headline',
     text: `Paragraph block to support main headline(optional)
-    And…it can have 2 lines, more than that is just boring…`
+    And…it can have 2 lines, more than that is just boring…`,
+    icon: IconNamesTypes.ItemCheck
   };
   const buttons = [
     {
-      style: 'secondary',
+      variant: ButtonStyle.Secondary,
       label: 'Cancel',
       onClick: toggleModal
     },
     {
-      style: 'primary',
+      variant: ButtonStyle.Primary,
       label: 'Confirm',
-      onClick: () => console.log('ye')
+      onClick: () => alert('primay button pressed')
     }
   ];
   return (
@@ -43,7 +45,13 @@ const Template: Story = () => {
       <button type="button" onClick={toggleModal}>
         Toggle Modal
       </button>
-      <ModalComponent open={open} setOpen={setOpen} info={info} buttons={buttons} />
+      <ModalComponent
+        open={open}
+        setOpen={setOpen}
+        info={info}
+        buttons={buttons}
+        image="https://source.unsplash.com/user/c_v_r/220x280"
+      />
     </>
   );
 };

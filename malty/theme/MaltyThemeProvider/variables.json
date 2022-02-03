@@ -381,6 +381,50 @@
     "pagination": {
       "height": { "value": "40" },
       "width": { "value": "40" }
+    },
+    "modal":{
+      "width": {"value": "480"},
+      "backgroundColor": {"value": "#fff"},
+      "padding": {"value": "56px 56px 24"},
+      "closeIcon": {
+        "top": {
+          "value": "24"
+        },
+        "right": {
+          "value": "24"
+        }
+      },
+      "mainIcon": {
+        "marginTop": {
+          "value": "16"
+        }
+      },
+      "title": {
+        "marginTop": {
+          "value": "16"
+        }
+      },
+      "text": {
+        "marginTop": {
+          "value": "16"
+        }
+      },
+      "image": {
+        "marginTop": {
+          "value": "24"
+        }
+      },
+      "buttons": {
+        "marginTop": {
+          "value": "24"
+        },
+        "width": {
+          "value": "200"
+        },
+        "padding": {
+          "value": "0 8"
+        }
+      }
     }
   }
 }

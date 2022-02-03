@@ -12,53 +12,53 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledModalWrapper = styled.div`
-  width: 480px;
+  width: ${({ theme }) => theme.variables.modal.width.value}px;
   display: block;
-  background-color: rgb(255, 255, 255);
+  background-color: ${({ theme }) => theme.variables.modal.backgroundColor.value};
   text-align: center;
-  padding: 60px 60px 48px;
+  padding: ${({ theme }) => theme.variables.modal.padding.value}px;
   position: relative;
 `;
 
 export const StyledCloseIconContainer = styled.div`
   cursor: pointer;
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: ${({ theme }) => theme.variables.modal.closeIcon.top.value}px;
+  right: ${({ theme }) => theme.variables.modal.closeIcon.right.value}px;
 `;
 
 export const StyledIconContainer = styled.div`
-  margin: 0 0 18px;
-  > svg {
-    height: 35px;
-    width: 35px;
-  }
+  position: relative;
+  margin-top: ${({ theme }) => theme.variables.modal.mainIcon.marginTop.value}px;
 `;
 
 export const StyledTitleContainer = styled.div`
-  display: inline-flex;
-  > span p {
-    font-size: 18px;
-    margin: 0 0 16px;
+  margin-top: ${({ theme }) => theme.variables.modal.title.marginTop.value}px;
+  p {
+    margin: 0px;
   }
 `;
 
 export const StyledTextContainer = styled.div`
-  width: 416px;
-  display: inline-flex;
-  > span p {
-    margin: 0 0 24px;
+  margin-top: ${({ theme }) => theme.variables.modal.text.marginTop.value}px;
+  p {
+    margin: 0px;
   }
 `;
 
-export const StyledButtonsWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+export const StyledImgContainer = styled.div`
+  margin-top: ${({ theme }) => theme.variables.modal.image.marginTop.value}px;
 `;
+
+export const StyledButtonsWrapper = styled.div`
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: ${({ theme }) => theme.variables.modal.buttons.marginTop.value}px;
+`;
+
 export const StyledButtonContainer = styled.div`
-  width: 200px;
-  padding: 0px 8px;
-  span > button {
-    height: 48px;
-  }
+  width: ${({ theme }) => theme.variables.modal.buttons.width.value}px;
+  padding: ${({ theme }) => theme.variables.modal.buttons.padding.value}px;
 `;

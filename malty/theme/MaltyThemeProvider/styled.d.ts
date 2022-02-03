@@ -16,6 +16,33 @@ declare module 'styled-components' {
     width: PropValue;
   }
 
+  interface ModalTypes {
+    width: PropValue;
+    backgroundColor: PropValue;
+    padding: PropValue;
+    closeIcon: {
+      top: PropValue;
+      right: PropValue;
+    };
+    mainIcon: {
+      marginTop: PropValue;
+    };
+    title: {
+      marginTop: PropValue;
+    };
+    text: {
+      marginTop: PropValue;
+    };
+    image: {
+      marginTop: PropValue;
+    };
+    buttons: {
+      marginTop: PropValue;
+      width: PropValue;
+      padding: PropValue;
+    };
+  }
+
   interface VariablesType {
     textarea: TextareaType;
     alert: AlertType;
@@ -33,6 +60,7 @@ declare module 'styled-components' {
     image: ImageType;
     global: GlobalTypes;
     pagination: PaginationTypes;
+    modal: ModalTypes;
   }
 
   interface BreakPointsType {
