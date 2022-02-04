@@ -14,8 +14,8 @@ export default {
   },
   argTypes: {
     open: {
-      control: 'boolean',
-      description: 'The bolean state that controlls whether the Modal is open or not'
+      description: 'The bolean state that controlls whether the Modal is open or not',
+      control: ''
     },
     setOpen: {
       description: `The useState function that controlls the "open" state`
@@ -75,7 +75,7 @@ Modal.args = {
   text: `Paragraph block to support main headline(optional)
   And…it can have 2 lines, more than that is just boring…`,
   icon: IconNamesTypes.ItemCheck,
-  image: 'https://source.unsplash.com/user/c_v_r/220x280',
+  image: 'http://placehold.it/120x120&text=image1',
   buttons: [
     {
       variant: ButtonStyle.Secondary,

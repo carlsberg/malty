@@ -7,7 +7,9 @@ import {
   Text,
   Weight as TextWeightType
 } from '@carlsberggroup/malty.atoms.text';
-import React from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   StyledButtonContainer,
   StyledButtonsWrapper,
@@ -25,42 +27,43 @@ export const Modal = ({ open, setOpen, text, title, icon, buttons, image }: Moda
   const closeModal = () => {
     setOpen(false);
   };
+  const theme = useContext(ThemeContext) || defaultTheme;
   return (
     <>
       {open ? (
         <>
           <Overlay />
           <StyledContainer>
-            <StyledModalWrapper>
-              <StyledCloseIconContainer onClick={closeModal}>
+            <StyledModalWrapper theme={theme}>
+              <StyledCloseIconContainer onClick={closeModal} theme={theme}>
                 <Icon name={IconNamesTypes.Close} size={IconSizesTypes.Large} color={IconColors.Primary} />
               </StyledCloseIconContainer>
               {icon && (
-                <StyledIconContainer>
+                <StyledIconContainer theme={theme}>
                   <Icon name={icon} size={IconSizesTypes.Large} color={IconColors.Primary} onClick={closeModal} />
                 </StyledIconContainer>
               )}
-              <StyledTitleContainer>
+              <StyledTitleContainer theme={theme}>
                 <Text align={TextAlignType.Center} weight={TextWeightType.Bold}>
                   {title}
                 </Text>
               </StyledTitleContainer>
-              <StyledTextContainer>
+              <StyledTextContainer theme={theme}>
                 <Text align={TextAlignType.Center} size={TextSizeType.MediumSmall}>
                   {text}
                 </Text>
               </StyledTextContainer>
 
               {image && (
-                <StyledImgContainer>
+                <StyledImgContainer theme={theme}>
                   <img src={image} />
                 </StyledImgContainer>
               )}
 
               {buttons && (
-                <StyledButtonsWrapper>
+                <StyledButtonsWrapper theme={theme}>
                   {buttons.map((btnInstance, index: number) => (
-                    <StyledButtonContainer key={index}>
+                    <StyledButtonContainer theme={theme} key={index}>
                       <Button
                         fullWidth
                         size={SizeTypes.Large}

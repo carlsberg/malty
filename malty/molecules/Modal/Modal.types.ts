@@ -11,6 +11,6 @@ export interface ModalProps {
   buttons?: {
     variant: ButtonStyle;
     label: string;
-    onClick: React.MouseEventHandler<HTMLButtonElement>;
+    onClick: () => void;
   }[];
 }
