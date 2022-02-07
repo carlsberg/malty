@@ -75,7 +75,6 @@ Modal.args = {
   text: `Paragraph block to support main headline(optional)
   And…it can have 2 lines, more than that is just boring…`,
   icon: IconNamesTypes.ItemCheck,
-  image: 'http://placehold.it/120x120&text=image1',
   buttons: [
     {
       variant: ButtonStyle.Secondary,

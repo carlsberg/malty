@@ -1,7 +1,7 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal } from './Modal';
 
 const title = 'Headline';
@@ -48,5 +48,33 @@ describe('Triggers the passed function when clicking the button', () => {
       })
     );
     expect(screen.getByText('Clicked primary')).toBeInTheDocument();
+  });
+});
+
+describe('Does the modal close?', () => {
+  it('Modal closed correctly', () => {
+    const ModalTest = () => {
+      const [open, setOpen] = useState(true);
+      return (
+        <Modal open={open} setOpen={setOpen} title={title} text={text} icon={icon} image={image} buttons={buttons} />
+      );
+    };
+
+    render(
+      <>
+        <ModalTest />
+      </>
+    );
+
+    const closeIcon = screen.getAllByTestId('svg-component') && screen.getAllByTestId('svg-component')[0];
+
+    fireEvent(
+      closeIcon,
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true
+      })
+    );
+    expect(screen.queryByText('Headline')).not.toBeInTheDocument();
   });
 });
