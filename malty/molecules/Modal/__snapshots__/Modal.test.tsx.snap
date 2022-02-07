@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`molecule modal matches snapshot 1`] = `
+exports[`does molecule modal match snapshot? matches snapshot 1`] = `
 Array [
   <div
     className="sc-kDTinF gCYFJK"
@@ -89,7 +89,7 @@ Array [
             size="medium-small"
           >
             Paragraph block to support main headline(optional)
-    And…it can have 2 lines, more than that is just boring…
+And…it can have 2 lines, more than that is just boring…
           </p>
         </span>
       </div>
