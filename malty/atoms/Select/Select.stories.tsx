@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Select } from './Select';
-import { OptionsType, SelectProps, SelectType, SizeTypes } from './Select.types';
+import { SelectProps, SelectType, SizeTypes } from './Select.types';
 
 export default {
   title: 'Atoms/Select',
@@ -13,6 +13,7 @@ export default {
   argTypes: {
     label: { control: 'text' },
     error: { control: 'text' },
+    success: { control: 'text' },
     size: {
       options: Object.values(SizeTypes),
       control: {
@@ -26,6 +27,7 @@ export default {
       }
     },
     disabled: { control: 'boolean' },
+    multiple: { control: 'boolean' },
     value: {
       table: {
         disable: true
@@ -47,7 +49,9 @@ const Template: Story<SelectProps> = ({
   type,
   error,
   disabled,
-  placeholder
+  placeholder,
+  multiple,
+  success
 }: SelectProps) => {
   const [stateValue, setStateValue] = useState(initialValue);
   return (
@@ -60,7 +64,9 @@ const Template: Story<SelectProps> = ({
       disabled={disabled}
       placeholder={placeholder}
       initialValue={stateValue}
-      onChange={(newOption: OptionsType) => setStateValue(newOption)}
+      onChange={(newOption: any) => setStateValue(newOption)}
+      multiple={multiple}
+      success={success}
     />
   );
 };
@@ -87,14 +93,24 @@ const testOptions = [
     name: 'name 5'
   }
 ];
+const initialValues = [
+  {
+    value: 'value 1',
+    name: 'name 1'
+  }
+];
 
 export const Main = Template.bind({});
 Main.args = {
   options: testOptions,
   size: SizeTypes.Medium,
   label: 'Label',
-  type: SelectType.Dropdown,
+  type: SelectType.Country,
   error: 'Error text',
+  success: 'Success text',
+
   disabled: false,
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
+  multiple: false,
+  initialValue: [testOptions[0], testOptions[1]]
 };
