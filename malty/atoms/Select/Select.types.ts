@@ -1,7 +1,7 @@
-export interface SelectProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface SelectProps extends React.HTMLAttributes<HTMLSelectElement> {
   label?: string;
-  onChange: (e: any) => void;
-  initialValue?: any;
+  onValueChange: (value: OptionsType) => void;
+  defaultValue?: OptionsType[];
   options?: OptionsType[];
   placeholder?: string;
   type: SelectType;
@@ -20,8 +20,7 @@ export interface OptionsType {
 
 export enum SelectType {
   Default = 'default',
-  Inline = 'inline',
-  Country = 'country'
+  Inline = 'inline'
 }
 
 export enum SizeTypes {

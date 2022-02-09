@@ -1,11 +1,9 @@
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconColors, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import Check from '@carlsberggroup/malty.icons.check';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
-import { emojiFlag } from './emojiFlag';
 import {
   StyledButton,
   StyledButtonContainer,
@@ -17,19 +15,19 @@ import {
   StyledOptionsWrapper,
   StyledSuccess
 } from './Select.styled';
-import { Country, OptionsType, Prefixes, SelectProps, SelectType, SizeTypes } from './Select.types';
+import { OptionsType, SelectProps, SelectType, SizeTypes } from './Select.types';
 
 export const Select = ({
-  initialValue,
-  onChange,
+  defaultValue,
+  onValueChange,
   options,
   placeholder,
   label,
   type,
   error,
   success,
-  disabled,
-  size = SizeTypes.Medium,
+  disabled = false,
+  size,
   children,
   multiple = false
 }: SelectProps) => {
@@ -38,16 +36,15 @@ export const Select = ({
   // eslint-disable-next-line radix
   const [numSize, setNumSize] = useState(parseInt(theme.variables.select.size.medium.value));
   const [showOptionList, setShowOptionList] = useState(false);
-  const [selectedValueState, setSelectedValueState] = useState<any[]>(initialValue || []);
-  console.log(selectedValueState);
+  const [selectedValueState, setSelectedValueState] = useState(defaultValue || []);
 
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
   };
 
-  const handleOptionSelected = (option: any) => {
+  const handleOptionSelected = (option: OptionsType) => {
     // eslint-disable-next-line no-restricted-globals
-    onChange(option);
+    onValueChange(option);
     event?.preventDefault();
     if (!multiple) {
       setShowOptionList(false);
@@ -65,17 +62,18 @@ export const Select = ({
     }
   };
 
-  const checkIfSelected = (option) => selectedValueState?.indexOf(option) > -1;
+  const checkIfSelected = (option: OptionsType) =>
+    !!selectedValueState.find((el: OptionsType) => el.value === option.value);
 
-  const removeSelectedOption = (option) => {
+  const removeSelectedOption = (option: OptionsType) => {
     const index = selectedValueState?.indexOf(option);
-    const auxSelected = selectedValueState;
+    const auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     auxSelected?.splice(index, 1);
     update(auxSelected);
   };
 
-  const update = (auxSelected) => {
-    setSelectedValueState((prev) => auxSelected);
+  const update = (auxSelected: OptionsType[]) => {
+    setSelectedValueState(auxSelected);
     // setSelectedValueState(option);
   };
 
@@ -94,94 +92,45 @@ export const Select = ({
     }
   }, [size, theme]);
 
-  const renderDropdowncountry = () => (
+  const renderDefaultDropdown = () => (
     <TypographyProvider>
       {showOptionList && (
-        <StyledOptionsWrapper theme={theme} height={numSize}>
-          {Object.keys(Country)
-            .sort((a, b) => {
-              const newA = Prefixes[Country[a as keyof typeof Country] as keyof typeof Prefixes];
-              const newB = Prefixes[Country[b as keyof typeof Country] as keyof typeof Prefixes];
-              return newA - newB;
-            })
-            .map((country) => (
+        <StyledOptionsWrapper selectStyle={type} theme={theme} height={numSize}>
+          {children}
+          {!children &&
+            options?.map((option: OptionsType) => (
               <StyledOption
                 theme={theme}
-                key={`option-value-${country}`}
-                value={country}
+                key={option.value}
+                value={option.value}
+                onClick={() => handleOptionSelected(option)}
                 height={numSize}
-                selected={selectedValueState?.indexOf(country) > -1}
-                onClick={() => handleOptionSelected(country)}
+                selected={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
                 selectStyle={type}
                 disabled={disabled}
               >
+                {multiple && (
+                  <Checkbox
+                    labelText={option.name as string}
+                    value={option.value}
+                    onValueChange={() => null}
+                    checked={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
+                  />
+                )}
                 {!multiple && (
                   <>
-                    {`${emojiFlag(country)} ${Country[country as keyof typeof Country]}`}
-                    {selectedValueState?.indexOf(country) > -1 && (
-                      <Check
+                    {option.name}
+                    {selectedValueState.find((el: OptionsType) => el.value === option.value) && (
+                      <StyledCheck
+                        selectStyle={type}
                         color={IconColors.Primary}
                         size={size === SizeTypes.Large ? IconSizesTypes.Medium : IconSizesTypes.Small}
                       />
                     )}
                   </>
                 )}
-
-                {multiple && (
-                  <Checkbox
-                    labelText={`${emojiFlag(country)} ${Country[country as keyof typeof Country]}` as string}
-                    value={country}
-                    onValueChange={() => handleOptionSelected(country)}
-                    checked={selectedValueState?.indexOf(country) > -1}
-                  />
-                )}
               </StyledOption>
             ))}
-
-          <></>
-        </StyledOptionsWrapper>
-      )}
-    </TypographyProvider>
-  );
-
-  const renderDefaultDropdown = () => (
-    <TypographyProvider>
-      {showOptionList && (
-        <StyledOptionsWrapper selectStyle={type} theme={theme} height={numSize}>
-          {children}
-          {options?.map((option: OptionsType) => (
-            <StyledOption
-              theme={theme}
-              key={option.value}
-              value={option.value}
-              onClick={() => handleOptionSelected(option)}
-              height={numSize}
-              selected={selectedValueState?.indexOf(option) > -1}
-              selectStyle={type}
-              disabled={disabled}
-            >
-              {multiple && (
-                <Checkbox
-                  labelText={option.name as string}
-                  value={option.value}
-                  onValueChange={() => null}
-                  checked={selectedValueState?.indexOf(option) > -1}
-                />
-              )}
-              {!multiple && (
-                <>
-                  {option.name}
-                  {selectedValueState?.indexOf(option) > -1 && (
-                    <StyledCheck
-                      selectStyle={type}
-                      color={IconColors.Primary}
-                      size={size === SizeTypes.Large ? IconSizesTypes.Medium : IconSizesTypes.Small}
-                    />
-                  )}
-                </>
-              )}
-            </StyledOption>
-          ))}
         </StyledOptionsWrapper>
       )}
     </TypographyProvider>
@@ -205,15 +154,7 @@ export const Select = ({
           isSuccess={!!success && type !== SelectType.Inline}
           open={showOptionList}
         >
-          {type === SelectType.Country &&
-            (selectedValueState?.length > 0
-              ? selectedValueState?.map(
-                  (selectedValue: string) =>
-                    `${emojiFlag(selectedValue)} ${Country[selectedValue as keyof typeof Country]}`
-                )
-              : placeholder)}
-
-          {type !== SelectType.Country && selectedValueState.length > 0
+          {selectedValueState.length > 0
             ? selectedValueState?.map((selectedValue: OptionsType, index: number) =>
                 index !== 0 ? `, ${selectedValue.name}` : selectedValue.name
               )
@@ -228,8 +169,7 @@ export const Select = ({
           />
         </StyledButton>
 
-        {type === SelectType.Country && renderDropdowncountry()}
-        {type !== SelectType.Country && renderDefaultDropdown()}
+        {renderDefaultDropdown()}
       </StyledButtonContainer>
 
       {error && type !== SelectType.Inline && <StyledError theme={theme}>{error}</StyledError>}

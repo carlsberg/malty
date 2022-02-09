@@ -11,27 +11,49 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.select'
   },
   argTypes: {
-    label: { control: 'text' },
-    error: { control: 'text' },
-    success: { control: 'text' },
+    label: {
+      description: 'Label for the Select component',
+      control: 'text'
+    },
+    placeholder: {
+      description: 'Placeholder text to go inside the Select field, when empty.',
+      control: 'text'
+    },
+    error: {
+      description: 'Error message to be displayed when error is present.',
+      control: 'text'
+    },
+    success: {
+      description: 'success message to be displayed',
+      control: 'text'
+    },
     size: {
+      description: 'Select component size.',
       options: Object.values(SizeTypes),
       control: {
         type: 'radio'
       }
     },
     type: {
+      description: 'Type of select component',
       options: Object.values(SelectType),
       control: {
         type: 'select'
       }
     },
-    disabled: { control: 'boolean' },
-    multiple: { control: 'boolean' },
-    value: {
-      table: {
-        disable: true
-      }
+    disabled: {
+      description: 'Select state, when disabled it is read-only.',
+      control: 'boolean'
+    },
+    defaultValue: {
+      description: 'Initial selected option'
+    },
+    options: {
+      description: 'Select options.'
+    },
+    multiple: {
+      description: 'Select state, when active allows for multi selection',
+      control: 'boolean'
     },
     onValueChange: {
       table: {
@@ -43,7 +65,7 @@ export default {
 
 const Template: Story<SelectProps> = ({
   options,
-  initialValue,
+  defaultValue,
   size,
   label,
   type,
@@ -53,7 +75,7 @@ const Template: Story<SelectProps> = ({
   multiple,
   success
 }: SelectProps) => {
-  const [stateValue, setStateValue] = useState(initialValue);
+  const [stateValue, setStateValue] = useState(defaultValue);
   return (
     <Select
       options={options}
@@ -63,8 +85,8 @@ const Template: Story<SelectProps> = ({
       error={error}
       disabled={disabled}
       placeholder={placeholder}
-      initialValue={stateValue}
-      onChange={(newOption: any) => setStateValue(newOption)}
+      defaultValue={stateValue}
+      onValueChange={(newOption: any) => setStateValue(newOption)}
       multiple={multiple}
       success={success}
     />
@@ -93,24 +115,18 @@ const testOptions = [
     name: 'name 5'
   }
 ];
-const initialValues = [
-  {
-    value: 'value 1',
-    name: 'name 1'
-  }
-];
 
 export const Main = Template.bind({});
 Main.args = {
   options: testOptions,
   size: SizeTypes.Medium,
   label: 'Label',
-  type: SelectType.Country,
+  type: SelectType.Default,
   error: 'Error text',
   success: 'Success text',
 
   disabled: false,
   placeholder: 'Placeholder',
   multiple: false,
-  initialValue: [testOptions[0], testOptions[1]]
+  defaultValue: [testOptions[0]]
 };
