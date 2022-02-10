@@ -14,7 +14,7 @@ export const StyledContainer = styled.div`
 export const StyledModalWrapper = styled.div`
   width: ${({ theme }) => theme.variables.modal.width.value}px;
   display: block;
-  background-color: ${({ theme }) => theme.variables.modal.backgroundColor.value};
+  background-color: ${({ theme }) => theme.color.white.value};
   text-align: center;
   padding: ${({ theme }) => theme.variables.modal.padding.value}px;
   position: relative;

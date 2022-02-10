@@ -384,7 +384,6 @@
     },
     "modal":{
       "width": {"value": "480"},
-      "backgroundColor": {"value": "#fff"},
       "padding": {"value": "56px 56px 24"},
       "closeIcon": {
         "top": {
