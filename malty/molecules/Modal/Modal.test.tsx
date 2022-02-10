@@ -36,7 +36,7 @@ describe('does molecule modal match snapshot?', () => {
 });
 
 describe('Triggers the passed function when clicking the button', () => {
-  it('opens when clicking a nav item with sub items', () => {
+  it('OnClick function passed successfully', () => {
     render(<Modal open setOpen={() => false} title={title} text={text} icon={icon} image={image} buttons={buttons} />);
     const primaryButton = screen.getByText('Confirm');
 
