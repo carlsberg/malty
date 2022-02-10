@@ -23,9 +23,9 @@ import {
 } from './Modal.styled';
 import { ModalProps } from './Modal.types';
 
-export const Modal = ({ open, setOpen, text, title, icon, buttons, image }: ModalProps) => {
+export const Modal = ({ open, onClose, text, title, icon, buttons, image }: ModalProps) => {
   const closeModal = () => {
-    setOpen(false);
+    onClose();
   };
   const theme = useContext(ThemeContext) || defaultTheme;
   return (

@@ -57,7 +57,7 @@ const Template: Story<ModalProps> = ({ title, text, icon, image, buttons }: Moda
         </button>
         <ModalComponent
           open={open}
-          setOpen={setOpen}
+          onClose={toggleModal}
           title={title}
           text={text}
           icon={icon}

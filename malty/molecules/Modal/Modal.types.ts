@@ -3,7 +3,7 @@ import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 
 export interface ModalProps {
   open: boolean;
-  setOpen: (open: boolean) => void;
+  onClose: () => void;
   title: string;
   text: string;
   icon?: IconNamesTypes;
