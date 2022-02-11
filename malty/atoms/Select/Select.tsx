@@ -27,9 +27,10 @@ export const Select = ({
   error,
   success,
   disabled = false,
-  size,
+  size = SizeTypes.Medium,
   children,
-  multiple = false
+  multiple = false,
+  className
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -98,7 +99,7 @@ export const Select = ({
         <StyledOptionsWrapper selectStyle={type} theme={theme} height={numSize}>
           {children}
           {!children &&
-            options?.map((option: OptionsType) => (
+            options?.map((option: OptionsType, index: number) => (
               <StyledOption
                 theme={theme}
                 key={option.value}
@@ -108,6 +109,8 @@ export const Select = ({
                 selected={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
                 selectStyle={type}
                 disabled={disabled}
+                data-testid={`select-option-${index}`}
+                className={className}
               >
                 {multiple && (
                   <Checkbox
@@ -144,6 +147,8 @@ export const Select = ({
       )}
       <StyledButtonContainer selectStyle={type} theme={theme}>
         <StyledButton
+          name={id}
+          id={id}
           theme={theme}
           isActive={selectedValueState?.length > 0 || type === SelectType.Inline}
           selectStyle={type}

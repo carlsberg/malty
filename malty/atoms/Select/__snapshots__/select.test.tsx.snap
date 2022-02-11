@@ -1,33 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`input matches snapshot 1`] = `
+exports[`select matches snapshot 1`] = `
 <span
-  className="sc-bdfBQB hbDYzD"
+  className="sc-bdvvtL iouZXA"
 >
-  <div
-    className="sc-dlfnuX cNwhLM"
+  <label
+    className="sc-pVTFL emPkkg"
+    disabled={false}
+    htmlFor="00000000-0000-0000-0000-000000000000"
   >
-    <label
-      className="sc-hKgJUU fqHigb"
-      htmlFor="00000000-0000-0000-0000-000000000000"
-    />
-    <div
-      className="sc-jSgvzq WCGFf"
+    Label text
+  </label>
+  <div
+    className="sc-furwcr jJkSds"
+  >
+    <button
+      className="sc-iqseJM kygKVy"
+      disabled={false}
+      height={40}
+      id="00000000-0000-0000-0000-000000000000"
+      name="00000000-0000-0000-0000-000000000000"
+      onClick={[Function]}
+      open={false}
     >
-      <span
-        className="sc-bdfBQB hbDYzD"
+      Placeholder text
+      <svg
+        className="sc-iCfMLu hlTgLv sc-ksdxgE jfziNX"
+        color="Primary"
+        data-testid="svg-component"
+        size="40"
+        version="1.1"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
       >
-        <input
-          className="sc-gKseQn heEKjC"
-          id="00000000-0000-0000-0000-000000000000"
-          name="00000000-0000-0000-0000-000000000000"
-          onChange={[Function]}
-          size={40}
-          type="text"
-          value="Value"
-        />
-      </span>
-    </div>
+        <g
+          fillRule="evenodd"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M12 13.586L6.707 8.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 10-1.414-1.414z"
+          />
+        </g>
+      </svg>
+    </button>
+    <span
+      className="sc-bdvvtL iouZXA"
+    />
   </div>
 </span>
 `;

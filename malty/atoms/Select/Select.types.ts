@@ -1,4 +1,4 @@
-export interface SelectProps extends React.HTMLAttributes<HTMLSelectElement> {
+export interface SelectProps {
   label?: string;
   onValueChange: (value: OptionsType) => void;
   defaultValue?: OptionsType[];
@@ -8,9 +8,10 @@ export interface SelectProps extends React.HTMLAttributes<HTMLSelectElement> {
   error?: string;
   success?: string;
   disabled?: boolean;
-  size: SizeTypes;
+  size?: SizeTypes;
   children?: React.Component;
   multiple?: boolean;
+  className?: string;
 }
 
 export interface OptionsType {

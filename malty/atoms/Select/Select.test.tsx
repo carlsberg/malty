@@ -1,58 +1,99 @@
 import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import { Input } from './Input';
-import { InputType } from './Input.types';
+import { Select } from './Select';
+import { SelectType, SizeTypes } from './Select.types';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
 const mockFn = jest.fn();
-
-describe('input', () => {
+const testOptions = [
+  {
+    value: 'value 1',
+    name: 'name 1'
+  },
+  {
+    value: 'value 2',
+    name: 'name 2'
+  },
+  {
+    value: 'value 3',
+    name: 'name 3'
+  },
+  {
+    value: 'value 4',
+    name: 'name 4'
+  },
+  {
+    value: 'value 5',
+    name: 'name 5'
+  }
+];
+describe('select', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(<Input value="Value" onValueChange={mockFn} type={InputType.Text} />);
+    const view = jsonRenderer(
+      <Select
+        options={testOptions}
+        label="Label text"
+        placeholder="Placeholder text"
+        onValueChange={mockFn}
+        type={SelectType.Default}
+        size={SizeTypes.Medium}
+      />
+    );
     expect(view).toMatchSnapshot();
   });
 
   it('renders elements', () => {
     render(
-      <Input
-        value="Value text"
+      <Select
+        options={testOptions}
         label="Label text"
         placeholder="Placeholder text"
         onValueChange={mockFn}
-        type={InputType.Text}
+        type={SelectType.Default}
         error="Error text"
+        size={SizeTypes.Medium}
       />
     );
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Placeholder text')).toBeInTheDocument();
+    expect(screen.getByText('Placeholder text')).toBeInTheDocument();
     expect(screen.getByText('Error text')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
   });
 
-  it('calls onValueChange when typing', () => {
+  it('calls onValueChange on click', () => {
     const onValueChange = jest.fn();
     const { rerender } = render(
-      <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
+      <Select
+        options={testOptions}
+        label="select label"
+        placeholder="select"
+        onValueChange={onValueChange}
+        type={SelectType.Default}
+        size={SizeTypes.Medium}
+      />
     );
-    const input = screen.getByDisplayValue('Initial value');
-    userEvent.type(input, 'Test');
-    expect(onValueChange).toHaveBeenCalledTimes(4);
-
-    rerender(<Input value="Test" label="Input label" onValueChange={onValueChange} type={InputType.Text} />);
-    expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
+    const select = screen.getByText('select');
+    userEvent.click(select);
+    const selectOption = screen.getByTestId('select-option-1');
+    userEvent.click(selectOption);
+    expect(onValueChange).toHaveBeenCalledTimes(1);
+    rerender(
+      <Select
+        options={testOptions}
+        defaultValue={[testOptions[1]]}
+        label="Input label"
+        onValueChange={onValueChange}
+        type={SelectType.Default}
+        size={SizeTypes.Medium}
+      />
+    );
+    expect(screen.getByText(testOptions[1].name)).toBeInTheDocument();
   });
 
-  it('renders input number', () => {
+  it('renders inline select', () => {
     const onValueChange = jest.fn();
-    render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
-    expect(screen.getByDisplayValue('1')).toBeInTheDocument();
-  });
-
-  it('renders input search', () => {
-    const onValueChange = jest.fn();
-    render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
-    expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
+    render(<Select options={testOptions} label="inline" onValueChange={onValueChange} type={SelectType.Inline} />);
+    expect(screen.getByText('inline')).toBeInTheDocument();
   });
 });
