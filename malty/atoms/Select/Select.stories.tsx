@@ -1,7 +1,9 @@
+import { Icon, IconColors, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { NamesTypes } from '@carlsberggroup/malty.atoms.icon/Icon.types';
 import { Meta, Story } from '@storybook/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { Select } from './Select';
-import { SelectProps, SelectType, SizeTypes } from './Select.types';
+import { OptionsType, SelectProps, SelectType, SizeTypes } from './Select.types';
 
 export default {
   title: 'Atoms/Select',
@@ -74,33 +76,36 @@ const Template: Story<SelectProps> = ({
   placeholder,
   multiple,
   success
-}: SelectProps) => {
-  const [stateValue, setStateValue] = useState(defaultValue);
-  return (
-    <Select
-      options={options}
-      size={size}
-      label={label}
-      type={type}
-      error={error}
-      disabled={disabled}
-      placeholder={placeholder}
-      defaultValue={stateValue}
-      onValueChange={(newOption: any) => setStateValue(newOption)}
-      multiple={multiple}
-      success={success}
-    />
-  );
-};
+}: SelectProps) => (
+  <Select
+    options={options}
+    size={size}
+    label={label}
+    type={type}
+    error={error}
+    disabled={disabled}
+    placeholder={placeholder}
+    defaultValue={defaultValue}
+    onValueChange={() => null}
+    multiple={multiple}
+    success={success}
+  />
+);
 
-const testOptions = [
+const testOptions: OptionsType[] = [
   {
     value: 'value 1',
-    name: 'name 1'
+    name: 'name 1',
+    icon: (
+      <Icon color={IconColors.Primary} name={NamesTypes.AddContent} onClick={() => null} size={IconSizesTypes.Medium} />
+    )
   },
   {
     value: 'value 2',
-    name: 'name 2'
+    name: 'name 2',
+    icon: (
+      <Icon color={IconColors.Primary} name={NamesTypes.AddContent} onClick={() => null} size={IconSizesTypes.Medium} />
+    )
   },
   {
     value: 'value 3',

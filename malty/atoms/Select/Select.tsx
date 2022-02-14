@@ -13,7 +13,8 @@ import {
   StyledLabel,
   StyledOption,
   StyledOptionsWrapper,
-  StyledSuccess
+  StyledSuccess,
+  StyledWrapper
 } from './Select.styled';
 import { OptionsType, SelectProps, SelectType, SizeTypes } from './Select.types';
 
@@ -46,6 +47,7 @@ export const Select = ({
   const handleOptionSelected = (option: OptionsType) => {
     // eslint-disable-next-line no-restricted-globals
     onValueChange(option);
+    // eslint-disable-next-line no-restricted-globals
     event?.preventDefault();
     if (!multiple) {
       setShowOptionList(false);
@@ -122,7 +124,10 @@ export const Select = ({
                 )}
                 {!multiple && (
                   <>
-                    {option.name}
+                    <StyledWrapper>
+                      {option.icon}
+                      {option.name}
+                    </StyledWrapper>
                     {selectedValueState.find((el: OptionsType) => el.value === option.value) && (
                       <StyledCheck
                         selectStyle={type}

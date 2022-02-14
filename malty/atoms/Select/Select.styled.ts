@@ -192,7 +192,7 @@ export const StyledChevronDown = styled(ChevronDown)<{
   selectStyle?: string;
 }>`
   transition: transform 0.3s linear;
-  ${({ selectStyle, theme }) =>
+  ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
       margin-left: 12px;
@@ -218,4 +218,12 @@ export const StyledCheck = styled(Check)<{
     css`
       margin-left: 16px;
     `}
+`;
+
+export const StyledWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  svg {
+    margin-right: 4px;
+  }
 `;

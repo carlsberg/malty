@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface SelectProps {
   label?: string;
   onValueChange: (value: OptionsType) => void;
@@ -17,6 +19,7 @@ export interface SelectProps {
 export interface OptionsType {
   name: string | React.Component;
   value: string | number;
+  icon?: JSX.Element;
 }
 
 export enum SelectType {
