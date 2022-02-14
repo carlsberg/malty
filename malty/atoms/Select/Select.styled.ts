@@ -58,11 +58,13 @@ export const StyledButton = styled.button<{
   selectStyle: string;
   open?: boolean;
 }>`
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   padding: 0 16px;
   height: ${({ height }) => height}px;
   font-weight: normal;
   font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
-  transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   color: ${({ isActive, theme }) =>
     isActive ? theme.color.button.primaryDefault.value : theme.color.button.primaryDisable.value};
@@ -123,7 +125,19 @@ export const StyledButton = styled.button<{
 export const StyledOptionsWrapper = styled.ul<{
   height: number;
   selectStyle?: string;
+  isOpen?: boolean;
 }>`
+  ${({ isOpen }) =>
+    isOpen
+      ? css`
+          display: block;
+        `
+      : css`
+          display: none;
+        `}
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   position: absolute;
   background-color: white;
   width: 100%;
@@ -132,9 +146,7 @@ export const StyledOptionsWrapper = styled.ul<{
   overflow-y: auto;
   padding: 0;
   z-index: 2;
-  display: block;
   transform-origin: top center;
-  transition: all 600ms ease-in;
 
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.color.form.calendarSelect.value};
@@ -169,7 +181,6 @@ export const StyledOption = styled.li<{
   justify-content: space-between;
   padding: 0 16px;
   color: #212833;
-  transition: all 600ms ease-in;
 
   &:hover {
     background-color: ${({ theme }) => theme.color.support.support20.value};
