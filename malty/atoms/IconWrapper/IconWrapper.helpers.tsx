@@ -2,13 +2,9 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Colors, IconWrapperInterface, SizesTypes } from './IconWrapper.types';
 
-export const IconComposition = (Icon: React.FC<IconWrapperInterface>) => (
-  <Icon color={Colors.Primary} size={SizesTypes.Medium} />
-);
-
 export const IconStories = (name: string, Icon: React.FC<IconWrapperInterface>) => {
   const storyMeta = {
-    title: `Icons/${name}`,
+    title: `Atoms/Icons/Individual Icons/${name}`,
     component: Icon,
     parameters: {
       importObject: 'Icon',
