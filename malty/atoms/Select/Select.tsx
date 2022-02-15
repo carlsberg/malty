@@ -95,48 +95,50 @@ export const Select = ({
 
   const renderDefaultDropdown = () => (
     <TypographyProvider>
-      <StyledOptionsWrapper isOpen={showOptionList} selectStyle={type} theme={theme} height={numSize}>
-        {children}
-        {!children &&
-          options?.map((option: OptionsType, index: number) => (
-            <StyledOption
-              theme={theme}
-              key={option.value}
-              value={option.value}
-              onClick={() => handleOptionSelected(option)}
-              height={numSize}
-              selected={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
-              selectStyle={type}
-              disabled={disabled}
-              data-testid={`select-option-${index}`}
-              className={className}
-            >
-              {multiple && (
-                <Checkbox
-                  labelText={option.name as string}
-                  value={option.value}
-                  onValueChange={() => null}
-                  checked={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
-                />
-              )}
-              {!multiple && (
-                <>
-                  <StyledWrapper>
-                    {option.icon}
-                    {option.name}
-                  </StyledWrapper>
-                  {selectedValueState.find((el: OptionsType) => el.value === option.value) && (
-                    <StyledCheck
-                      selectStyle={type}
-                      color={IconColors.Primary}
-                      size={size === SizeTypes.Large ? IconSizesTypes.Medium : IconSizesTypes.Small}
-                    />
-                  )}
-                </>
-              )}
-            </StyledOption>
-          ))}
-      </StyledOptionsWrapper>
+      {showOptionList && (
+        <StyledOptionsWrapper isOpen={showOptionList} selectStyle={type} theme={theme} height={numSize}>
+          {children}
+          {!children &&
+            options?.map((option: OptionsType, index: number) => (
+              <StyledOption
+                theme={theme}
+                key={option.value}
+                value={option.value}
+                onClick={() => handleOptionSelected(option)}
+                height={numSize}
+                selected={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
+                selectStyle={type}
+                disabled={disabled}
+                data-testid={`select-option-${index}`}
+                className={className}
+              >
+                {multiple && (
+                  <Checkbox
+                    labelText={option.name as string}
+                    value={option.value}
+                    onValueChange={() => null}
+                    checked={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
+                  />
+                )}
+                {!multiple && (
+                  <>
+                    <StyledWrapper>
+                      {option.icon}
+                      {option.name}
+                    </StyledWrapper>
+                    {selectedValueState.find((el: OptionsType) => el.value === option.value) && (
+                      <StyledCheck
+                        selectStyle={type}
+                        color={IconColors.Primary}
+                        size={size === SizeTypes.Large ? IconSizesTypes.Medium : IconSizesTypes.Small}
+                      />
+                    )}
+                  </>
+                )}
+              </StyledOption>
+            ))}
+        </StyledOptionsWrapper>
+      )}
     </TypographyProvider>
   );
   return (
