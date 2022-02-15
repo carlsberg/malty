@@ -60,7 +60,6 @@ export const Select = ({
       if (!multiple) {
         selectedValueState.pop();
       }
-      // setSelectedValueState([...selectedValueState, option]);
       setSelectedValueState((prev) => [...prev, option]);
     }
   };
@@ -77,7 +76,6 @@ export const Select = ({
 
   const update = (auxSelected: OptionsType[]) => {
     setSelectedValueState(auxSelected);
-    // setSelectedValueState(option);
   };
 
   useEffect(() => {
