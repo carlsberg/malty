@@ -13,6 +13,7 @@ import {
   StyledLabel,
   StyledOption,
   StyledOptionsWrapper,
+  StyledSelectedOptionsWrapper,
   StyledSuccess,
   StyledWrapper
 } from './Select.styled';
@@ -162,12 +163,13 @@ export const Select = ({
           isSuccess={!!success && type !== SelectType.Inline}
           open={showOptionList}
         >
-          {selectedValueState.length > 0
-            ? selectedValueState?.map((selectedValue: OptionsType, index: number) =>
-                index !== 0 ? `, ${selectedValue.name}` : selectedValue.name
-              )
-            : (type === SelectType.Inline && label) || (type === SelectType.Default && placeholder)}
-
+          <StyledSelectedOptionsWrapper>
+            {selectedValueState.length > 0
+              ? selectedValueState?.map((selectedValue: OptionsType, index: number) =>
+                  index !== 0 ? `, ${selectedValue.name}` : selectedValue.name
+                )
+              : (type === SelectType.Inline && label) || (type === SelectType.Default && placeholder)}
+          </StyledSelectedOptionsWrapper>
           <StyledChevronDown
             selectStyle={type}
             disabled={disabled}

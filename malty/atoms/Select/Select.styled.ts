@@ -58,6 +58,7 @@ export const StyledButton = styled.button<{
   selectStyle: string;
   open?: boolean;
 }>`
+  text-align: left;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -237,4 +238,11 @@ export const StyledWrapper = styled.div`
   svg {
     margin-right: 4px;
   }
+`;
+export const StyledSelectedOptionsWrapper = styled.div`
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 36px);
 `;
