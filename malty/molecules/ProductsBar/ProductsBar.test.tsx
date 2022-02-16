@@ -24,11 +24,15 @@ const singleOptionConfig = {
   profileActions: [{ name: 'User profile', icon: IconNames.DataTransfer, component: Link, to: '/profile' }]
 };
 
+const resetNavState = () => {
+  console.log('reset nav state');
+};
+
 describe('Products bar component', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} />
+        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
       </BrowserRouter>
     );
     expect(view).toMatchSnapshot();
@@ -37,7 +41,7 @@ describe('Products bar component', () => {
   it('renders with correct number of system options', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} />
+        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
       </BrowserRouter>
     );
     const options = screen.getByTestId('system-options');
@@ -49,7 +53,7 @@ describe('Products bar component', () => {
   it('opens profile menu when there is more than on action configured', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} />
+        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');
@@ -62,7 +66,7 @@ describe('Products bar component', () => {
   it("doesn't render profile menu when there is only one action configured", () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={singleOptionConfig} />
+        <ProductsBar systemOptions={systemOptionsMock} profileMenu={singleOptionConfig} resetNavState={resetNavState} />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');
