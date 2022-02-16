@@ -59,6 +59,7 @@ export const StyledTextAreaWrapper = styled.div<{
   isError?: boolean;
 }>`
   min-height: 96px;
+  height: 100px;
   position: relative;
   display: flex;
   flex: 1 1 auto;
