@@ -87,6 +87,14 @@ export const StyledButton = styled.button<{
       background: ${theme.color.button.primaryNegativeDefault.value};
       width: fit-content;
       padding: 0;
+      height: 28px;
+      padding: 0 12px;
+      &:hover {
+        background-color: rgba(33, 40, 51, 0.05);
+      }
+      &:focus {
+        background-color: ${theme.color.overlay.opacity10.default.value};
+      }
     `}
   ${({ isSuccess, theme }) =>
     isSuccess &&
@@ -116,6 +124,7 @@ export const StyledButton = styled.button<{
       ? css`
           border-color: ${({ theme }) => theme.color.system.disabledDefault.value};
           color: ${({ theme }) => theme.color.system.disabledDefault.value};
+          background-color: transparent !important;
         `
       : css`
           &:hover,
