@@ -69,7 +69,7 @@ export const Select = ({
     !!selectedValueState.find((el: OptionsType) => el.value === option.value);
 
   const removeSelectedOption = (option: OptionsType) => {
-    const index = selectedValueState?.indexOf(option);
+    const index = selectedValueState?.findIndex((el) => el.value === option.value);
     const auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     auxSelected?.splice(index, 1);
     update(auxSelected);
@@ -94,52 +94,57 @@ export const Select = ({
     }
   }, [size, theme]);
 
+  const displaySelectedValues = () => {
+    if (selectedValueState.length > 0) {
+      if (selectedValueState.length > 2) {
+        return `${selectedValueState.length} selected`;
+      }
+      return selectedValueState?.map((selectedValue: OptionsType, index: number) =>
+        index !== 0 ? `, ${selectedValue.name}` : selectedValue.name
+      );
+    }
+    return type === SelectType.Inline ? label : placeholder;
+  };
   const renderDefaultDropdown = () => (
     <TypographyProvider>
-      {showOptionList && (
-        <StyledOptionsWrapper isOpen={showOptionList} selectStyle={type} theme={theme} height={numSize}>
-          {children}
-          {!children &&
-            options?.map((option: OptionsType, index: number) => (
-              <StyledOption
-                theme={theme}
-                key={option.value}
-                value={option.value}
-                onClick={() => handleOptionSelected(option)}
-                height={numSize}
-                selected={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
-                selectStyle={type}
-                disabled={disabled}
-                data-testid={`select-option-${index}`}
-                className={className}
-              >
-                {multiple && (
-                  <Checkbox
-                    labelText={option.name as string}
-                    value={option.value}
-                    onValueChange={() => null}
-                    checked={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
-                  />
-                )}
-                {!multiple && (
-                  <>
-                    <StyledWrapper>
-                      {option.icon}
-                      {option.name}
-                    </StyledWrapper>
-                    {selectedValueState.find((el: OptionsType) => el.value === option.value) && (
-                      <StyledCheck
-                        selectStyle={type}
-                        color={IconColors.Primary}
-                        size={size === SizeTypes.Large ? IconSizesTypes.Medium : IconSizesTypes.Small}
-                      />
-                    )}
-                  </>
-                )}
-              </StyledOption>
-            ))}
-        </StyledOptionsWrapper>
-      )}
+      <StyledOptionsWrapper isOpen={showOptionList} selectStyle={type} theme={theme} height={numSize}>
+        {children}
+        {!children &&
+          options?.map((option: OptionsType, index: number) => (
+            <StyledOption
+              theme={theme}
+              key={option.value}
+              value={option.value}
+              onClick={() => handleOptionSelected(option)}
+              height={numSize}
+              selected={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
+              selectStyle={type}
+              disabled={disabled}
+              data-testid={`select-option-${index}`}
+              className={className}
+            >
+              {multiple && (
+                <Checkbox
+                  labelText={option.name as string}
+                  value={option.value}
+                  onValueChange={() => null}
+                  checked={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
+                />
+              )}
+              {!multiple && (
+                <>
+                  <StyledWrapper>
+                    {option.icon}
+                    {option.name}
+                  </StyledWrapper>
+                  {selectedValueState.find((el: OptionsType) => el.value === option.value) && (
+                    <StyledCheck selectStyle={type} color={IconColors.Primary} size={IconSizesTypes.Small} />
+                  )}
+                </>
+              )}
+            </StyledOption>
+          ))}
+      </StyledOptionsWrapper>
     </TypographyProvider>
   );
   return (
@@ -163,12 +168,8 @@ export const Select = ({
           isSuccess={!!success && type !== SelectType.Inline}
           open={showOptionList}
         >
-          <StyledSelectedOptionsWrapper>
-            {selectedValueState.length > 0
-              ? selectedValueState?.map((selectedValue: OptionsType, index: number) =>
-                  index !== 0 ? `, ${selectedValue.name}` : selectedValue.name
-                )
-              : (type === SelectType.Inline && label) || (type === SelectType.Default && placeholder)}
+          <StyledSelectedOptionsWrapper data-testid="selected-value">
+            {displaySelectedValues()}
           </StyledSelectedOptionsWrapper>
           <StyledChevronDown
             selectStyle={type}

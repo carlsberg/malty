@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface SelectProps {
-  label?: string;
+  label: string;
   onValueChange: (value: OptionsType) => void;
   defaultValue?: OptionsType[];
   options?: OptionsType[];

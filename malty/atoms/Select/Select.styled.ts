@@ -1,7 +1,16 @@
 import Check from '@carlsberggroup/malty.icons.check';
 import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
+const fadeIn = keyframes`
+    0% {opacity: 0;}
+     50% {opacity: 0.5;}
+    100% {opacity: 1;}
+`;
+const fadeOut = keyframes`
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+`;
 export const StyledButtonContainer = styled.div<{
   selectStyle: string;
 }>`
@@ -128,17 +137,6 @@ export const StyledOptionsWrapper = styled.ul<{
   selectStyle?: string;
   isOpen?: boolean;
 }>`
-  ${({ isOpen }) =>
-    isOpen
-      ? css`
-          display: block;
-        `
-      : css`
-          display: none;
-        `}
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
   position: absolute;
   background-color: white;
   width: 100%;
@@ -148,9 +146,21 @@ export const StyledOptionsWrapper = styled.ul<{
   padding: 0;
   z-index: 2;
   transform-origin: top center;
-
+  visibility: hidden;
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.color.form.calendarSelect.value};
+  animation-name: ${fadeOut};
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  ${({ isOpen }) =>
+    isOpen &&
+    css`
+      visibility: visible;
+      display: block !important;
+      animation-name: ${fadeIn};
+      animation-duration: 0.3s;
+      opacity: 1;
+    `}
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
@@ -212,7 +222,7 @@ export const StyledChevronDown = styled(ChevronDown)<{
   ${({ open }) =>
     open &&
     css`
-      transform: rotate(180deg);
+      transform: rotate(-180deg);
       transition: transform 0.3s linear;
     `}
 
@@ -235,6 +245,7 @@ export const StyledCheck = styled(Check)<{
 export const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
+  width: fit-content;
   svg {
     margin-right: 4px;
   }

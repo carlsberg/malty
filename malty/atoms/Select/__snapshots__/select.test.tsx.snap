@@ -15,7 +15,7 @@ exports[`select matches snapshot 1`] = `
     className="sc-furwcr jJkSds"
   >
     <button
-      className="sc-iqseJM kcqIVS"
+      className="sc-iqseJM hLFMbH"
       disabled={false}
       height={40}
       id="00000000-0000-0000-0000-000000000000"
@@ -23,7 +23,12 @@ exports[`select matches snapshot 1`] = `
       onClick={[Function]}
       open={false}
     >
-      Placeholder text
+      <div
+        className="sc-fFeiMQ dkmTRP"
+        data-testid="selected-value"
+      >
+        Placeholder text
+      </div>
       <svg
         className="sc-iCfMLu hlTgLv sc-ksdxgE jfziNX"
         color="Primary"
@@ -49,7 +54,88 @@ exports[`select matches snapshot 1`] = `
     </button>
     <span
       className="sc-bdvvtL iouZXA"
-    />
+    >
+      <ul
+        className="sc-crHmcD gYsEZo"
+        height={40}
+      >
+        <li
+          className="sc-bqiRlB fBdGMJ"
+          data-testid="select-option-0"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 1"
+        >
+          <div
+            className="sc-fotOHu hBXNju"
+          >
+            name 1
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB fBdGMJ"
+          data-testid="select-option-1"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 2"
+        >
+          <div
+            className="sc-fotOHu hBXNju"
+          >
+            name 2
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB fBdGMJ"
+          data-testid="select-option-2"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 3"
+        >
+          <div
+            className="sc-fotOHu hBXNju"
+          >
+            name 3
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB fBdGMJ"
+          data-testid="select-option-3"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 4"
+        >
+          <div
+            className="sc-fotOHu hBXNju"
+          >
+            name 4
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB fBdGMJ"
+          data-testid="select-option-4"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 5"
+        >
+          <div
+            className="sc-fotOHu hBXNju"
+          >
+            name 5
+          </div>
+        </li>
+      </ul>
+    </span>
   </div>
 </span>
 `;

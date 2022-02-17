@@ -88,7 +88,8 @@ describe('select', () => {
         size={SizeTypes.Medium}
       />
     );
-    expect(screen.getByText(testOptions[1].name)).toBeInTheDocument();
+    const selectedValue = screen.getByTestId('selected-value');
+    expect(selectedValue.innerHTML).toEqual(testOptions[1].name);
   });
 
   it('renders inline select', () => {
