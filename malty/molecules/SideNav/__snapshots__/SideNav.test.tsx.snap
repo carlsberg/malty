@@ -12,7 +12,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
       open={false}
     />
     <svg
-      className="sc-gsDKAQ jfmKRC"
+      className="sc-gsDKAQ kZIBj"
       color="White"
       data-testid="svg-component"
       size="40"
@@ -31,10 +31,11 @@ exports[`molecule sideNav matches snapshot 1`] = `
     >
       <ul
         className="sc-kDTinF bSpJKr"
-        data-testId="system-options"
+        data-testid="system-options"
       >
         <li
-          className="sc-iqseJM fYPlgK"
+          className="sc-iqseJM iHQFpz"
+          onClick={[Function]}
         >
           <span
             className="sc-egiyK eSBvSj"
@@ -43,7 +44,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
               href="/iframe.html"
             >
               <svg
-                className="sc-gsDKAQ jfmKRC"
+                className="sc-gsDKAQ kZIBj"
                 color="White"
                 data-testid="svg-component"
                 size="40"
@@ -61,7 +62,8 @@ exports[`molecule sideNav matches snapshot 1`] = `
           </span>
         </li>
         <li
-          className="sc-iqseJM fYPlgK"
+          className="sc-iqseJM iHQFpz"
+          onClick={[Function]}
         >
           <span
             className="sc-egiyK eSBvSj"
@@ -70,7 +72,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
               href="/iframe.html"
             >
               <svg
-                className="sc-gsDKAQ jfmKRC"
+                className="sc-gsDKAQ kZIBj"
                 color="White"
                 data-testid="svg-component"
                 size="40"
@@ -93,7 +95,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
         open={false}
       >
         <li
-          className="sc-iqseJM fYPlgK"
+          className="sc-iqseJM iHQFpz"
           onClick={[Function]}
         >
           <span
@@ -140,16 +142,17 @@ exports[`molecule sideNav matches snapshot 1`] = `
             </p>
           </div>
           <ul
-            data-testId="profile-options"
+            data-testid="profile-options"
           >
             <li
               className="sc-bkkeKt kKAeNO"
+              onClick={[Function]}
             >
               <a
                 href="/iframe.html"
               >
                 <svg
-                  className="sc-gsDKAQ jfmKRC"
+                  className="sc-gsDKAQ kZIBj"
                   color="White"
                   data-testid="svg-component"
                   size="40"
@@ -178,12 +181,13 @@ exports[`molecule sideNav matches snapshot 1`] = `
             </li>
             <li
               className="sc-bkkeKt kKAeNO"
+              onClick={[Function]}
             >
               <a
                 href="/item2"
               >
                 <svg
-                  className="sc-gsDKAQ jfmKRC"
+                  className="sc-gsDKAQ kZIBj"
                   color="White"
                   data-testid="svg-component"
                   size="40"
@@ -216,7 +220,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
     </div>
   </div>
   <div
-    className="sc-hGPBjI bKBxWD"
+    className="sc-hGPBjI BwMIz"
   >
     <span
       className="sc-bdvvtL iouZXA"
@@ -230,7 +234,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
       </h1>
     </span>
     <div
-      className="sc-dlVxhl knJSbi"
+      className="sc-dlVxhl MohTt"
     >
       <ul
         className="sc-eCImPb BsWdZ"
@@ -241,7 +245,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
           selected={false}
         >
           <svg
-            className="sc-gsDKAQ jfmKRC"
+            className="sc-gsDKAQ kZIBj"
             color="White"
             data-testid="svg-component"
             size="40"
@@ -277,7 +281,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
           selected={false}
         >
           <svg
-            className="sc-gsDKAQ jfmKRC"
+            className="sc-gsDKAQ kZIBj"
             color="White"
             data-testid="svg-component"
             size="40"
@@ -313,7 +317,7 @@ exports[`molecule sideNav matches snapshot 1`] = `
           selected={false}
         >
           <svg
-            className="sc-gsDKAQ jfmKRC"
+            className="sc-gsDKAQ kZIBj"
             color="White"
             data-testid="svg-component"
             size="40"

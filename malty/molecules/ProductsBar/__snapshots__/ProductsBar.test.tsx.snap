@@ -9,7 +9,7 @@ exports[`Products bar component matches snapshot 1`] = `
     open={false}
   />
   <svg
-    className="sc-gsDKAQ jfmKRC"
+    className="sc-gsDKAQ kZIBj"
     color="White"
     data-testid="svg-component"
     size="40"
@@ -31,7 +31,8 @@ exports[`Products bar component matches snapshot 1`] = `
       data-testid="system-options"
     >
       <li
-        className="sc-iCfMLu bWUnPz"
+        className="sc-iCfMLu hKkylO"
+        onClick={[Function]}
       >
         <span
           className="sc-pVTFL hnmhEa"
@@ -40,7 +41,7 @@ exports[`Products bar component matches snapshot 1`] = `
             href="/iframe.html"
           >
             <svg
-              className="sc-gsDKAQ jfmKRC"
+              className="sc-gsDKAQ kZIBj"
               color="White"
               data-testid="svg-component"
               size="40"
@@ -58,7 +59,8 @@ exports[`Products bar component matches snapshot 1`] = `
         </span>
       </li>
       <li
-        className="sc-iCfMLu bWUnPz"
+        className="sc-iCfMLu hKkylO"
+        onClick={[Function]}
       >
         <span
           className="sc-pVTFL hnmhEa"
@@ -68,7 +70,7 @@ exports[`Products bar component matches snapshot 1`] = `
             onClick={[Function]}
           >
             <svg
-              className="sc-gsDKAQ jfmKRC"
+              className="sc-gsDKAQ kZIBj"
               color="White"
               data-testid="svg-component"
               size="40"
@@ -91,7 +93,7 @@ exports[`Products bar component matches snapshot 1`] = `
       open={false}
     >
       <li
-        className="sc-iCfMLu bWUnPz"
+        className="sc-iCfMLu hKkylO"
         onClick={[Function]}
       >
         <span
@@ -142,13 +144,14 @@ exports[`Products bar component matches snapshot 1`] = `
         >
           <li
             className="sc-bqiRlB gbANqA"
+            onClick={[Function]}
           >
             <a
               href="/profile"
               onClick={[Function]}
             >
               <svg
-                className="sc-gsDKAQ jfmKRC"
+                className="sc-gsDKAQ kZIBj"
                 color="White"
                 data-testid="svg-component"
                 size="40"
@@ -177,13 +180,14 @@ exports[`Products bar component matches snapshot 1`] = `
           </li>
           <li
             className="sc-bqiRlB gbANqA"
+            onClick={[Function]}
           >
             <a
               href="/sign-out"
               onClick={[Function]}
             >
               <svg
-                className="sc-gsDKAQ jfmKRC"
+                className="sc-gsDKAQ kZIBj"
                 color="White"
                 data-testid="svg-component"
                 size="40"
