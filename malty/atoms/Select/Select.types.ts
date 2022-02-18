@@ -13,7 +13,6 @@ export interface SelectProps {
   size?: SizeTypes;
   children?: React.Component;
   multiple?: boolean;
-  className?: string;
 }
 
 export interface OptionsType {

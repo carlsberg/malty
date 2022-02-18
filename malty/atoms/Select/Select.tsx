@@ -31,8 +31,7 @@ export const Select = ({
   disabled = false,
   size = SizeTypes.Medium,
   children,
-  multiple = false,
-  className
+  multiple = false
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -121,7 +120,6 @@ export const Select = ({
               selectStyle={type}
               disabled={disabled}
               data-testid={`select-option-${index}`}
-              className={className}
             >
               {multiple && (
                 <Checkbox
