@@ -222,13 +222,13 @@ declare module 'styled-components' {
   }
 
   interface GlobalTypes {
-    'text-alignments': TypographyAlignment;
+    breakpoints: BreakPointsType;
   }
 
   interface TypographyAlignment {
-    left: PropValue;
-    center: PropValue;
-    right: PropValue;
+    left: boolean;
+    center: boolean;
+    right: boolean;
   }
 
   interface PropValue {
