@@ -4,7 +4,7 @@ import { Checkbox as CheckboxComponent } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
 export default {
-  title: 'Atoms/Checkbox',
+  title: 'Forms/Checkbox',
   component: CheckboxComponent,
   parameters: {
     importObject: 'Checkbox',
