@@ -19,7 +19,7 @@ export const StyledError = styled.label`
   color: ${({ theme }) => theme.colors.colours.system.fail.value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value}px;
   letter-spacing: 0;
 `;
 
