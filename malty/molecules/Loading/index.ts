@@ -1,2 +1,2 @@
 export { Loading } from './Loading';
-export type { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
+export type { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
