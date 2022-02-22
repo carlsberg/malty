@@ -190,7 +190,7 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'link':
+  case 'Link':
     Button.args = {
       style: ButtonStyle.Link,
       type: ButtonType.Submit,
@@ -212,7 +212,7 @@ switch (variant) {
     };
     break;
 
-  case 'secondary':
+  case 'Secondary':
     Button.args = {
       style: ButtonStyle.Secondary,
       text: 'Secondary',
@@ -234,7 +234,7 @@ switch (variant) {
     };
     break;
 
-  case 'floater':
+  case 'Floater':
     Button.args = {
       style: ButtonStyle.Floater,
       icon: IconName.ArrowSmallUp,
@@ -257,7 +257,7 @@ switch (variant) {
     };
     break;
 
-  case 'transparent':
+  case 'Transparent':
     Button.args = {
       style: ButtonStyle.Transparent,
       text: 'Transparent',
