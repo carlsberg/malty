@@ -1,11 +1,11 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Input as InputComponent } from './Input';
-import { IconPosition, InputProps, InputType, MaskTypes, SizeTypes } from './Input.types';
+import { InputIconPosition, InputMaskTypes, InputProps, InputSize, InputType } from './Input.types';
 
 export default {
-  title: 'Atoms/Input',
+  title: 'Forms/Input',
   component: InputComponent,
   parameters: {
     importObject: 'Input',
@@ -26,30 +26,28 @@ export default {
     },
     size: {
       description: 'Input size options, at the moment only the two below',
-      options: Object.values(SizeTypes),
+      options: Object.values(InputSize),
       control: {
         type: 'radio'
-      },
-      table: {
-        defaultValue: {
-          summary: 'medium'
-        }
       }
     },
     type: {
-      options: Object.values(InputType),
+      options: Object.keys(InputType),
+      mapping: InputType,
       control: {
-        type: 'select'
+        type: 'select',
+        label: Object.values(InputType)
       },
       description: 'Input type options',
       table: {
         defaultValue: {
-          summary: 'text'
+          summary: 'InputType.Text'
         }
-      }
+      },
+      defaultValue: 'Text'
     },
     icon: {
-      options: Object.values(IconNamesTypes),
+      options: Object.values(IconName),
       control: {
         type: 'select'
       },
@@ -60,16 +58,19 @@ export default {
       description: 'Input state, when disabled it is read-only.'
     },
     iconPosition: {
-      options: Object.values(IconPosition),
+      options: Object.keys(InputIconPosition),
+      mapping: InputIconPosition,
       control: {
-        type: 'radio'
+        type: 'radio',
+        label: Object.values(InputIconPosition)
       },
       description: 'Icon positino within the input.',
       table: {
         defaultValue: {
-          summary: 'left'
+          summary: 'InputIconPosition.Left'
         }
-      }
+      },
+      defaultValue: 'Left'
     },
     clearable: {
       control: 'boolean',
@@ -81,7 +82,7 @@ export default {
       }
     },
     mask: {
-      options: Object.values(MaskTypes),
+      options: Object.values(InputMaskTypes),
       control: {
         type: 'select',
         description: 'RegEx to be applies as mask for input value.'
@@ -140,7 +141,7 @@ const variant = params.get('variant');
 switch (variant) {
   case 'url':
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.URL,
       placeholder: 'Placeholder',
@@ -152,7 +153,7 @@ switch (variant) {
 
   case 'number':
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.Number,
       placeholder: 'Placeholder',
@@ -164,7 +165,7 @@ switch (variant) {
 
   case 'email':
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.Email,
       placeholder: 'Placeholder',
@@ -176,7 +177,7 @@ switch (variant) {
 
   case 'password':
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.Password,
       placeholder: 'Placeholder',
@@ -188,7 +189,7 @@ switch (variant) {
 
   case 'date':
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.Date,
       placeholder: 'Placeholder',
@@ -200,7 +201,7 @@ switch (variant) {
 
   case 'search':
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.Search,
       placeholder: 'Placeholder',
@@ -212,7 +213,7 @@ switch (variant) {
 
   case 'phone':
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.Telephone,
       placeholder: 'Placeholder',
@@ -224,7 +225,7 @@ switch (variant) {
 
   default:
     Input.args = {
-      size: SizeTypes.Medium,
+      size: InputSize.Medium,
       label: 'Label',
       type: InputType.Text,
       placeholder: 'Placeholder',
