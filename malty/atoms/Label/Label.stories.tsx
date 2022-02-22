@@ -3,7 +3,7 @@ import React from 'react';
 import { Label as LabelComponent, LabelProps } from '.';
 
 export default {
-  title: 'Atoms/Label',
+  title: 'Forms/Label',
   component: LabelComponent,
   parameters: {
     importObject: 'Label',
