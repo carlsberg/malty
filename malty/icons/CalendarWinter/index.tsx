@@ -1,7 +1,7 @@
-import { IconWrapper, IconWrapperInterface } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import React from 'react';
 
-const CalendarWinter = (props: IconWrapperInterface) =>
+const CalendarWinter = (props: IconWrapperProps) =>
   IconWrapper(
     props,
     <path
