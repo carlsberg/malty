@@ -19,7 +19,7 @@ export const StyledPill = styled.div<{
   color: ${({ theme }) => theme.colors.colours.default.white.value};
   display: inline-flex;
   align-items: center;
-  height: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
 
   ${({ hasOnClick }) =>
