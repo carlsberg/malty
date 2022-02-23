@@ -4795,15 +4795,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"Avatar-e7b5d6@workspace:malty/atoms/Avatar":
-  version: 0.0.0-use.local
-  resolution: "Avatar-e7b5d6@workspace:malty/atoms/Avatar"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
 "Badge-74c856@workspace:malty/icons/Badge":
   version: 0.0.0-use.local
   resolution: "Badge-74c856@workspace:malty/icons/Badge"

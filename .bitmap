@@ -15,12 +15,6 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Alert"
     },
-    "atoms/avatar": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.tsx",
-        "rootDir": "malty/atoms/Avatar"
-    },
     "atoms/button": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.31",

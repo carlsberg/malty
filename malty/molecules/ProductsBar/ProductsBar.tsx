@@ -1,4 +1,4 @@
-import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
+// import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
 import {
   Icon,
   IconColors,
@@ -82,8 +82,9 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
     <StyledProfileMenu open={open} ref={profileMenuRef} theme={theme}>
       <StyledSystemOption onClick={toggleProfileMenu} theme={theme}>
         <StyledOptionIcon theme={theme}>
-          <StyledAvatar theme={theme}>
-            <Avatar username={username} />
+          <StyledAvatar theme={theme} data-testid="avatar">
+            {/* To do: reset Avatar in this position when Avatar component is published
+            <Avatar username={username} /> */}
           </StyledAvatar>
         </StyledOptionIcon>
       </StyledSystemOption>
@@ -138,8 +139,9 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
           <StyledProfileBtn theme={theme}>
             <StyledOptionIcon theme={theme} onClick={resetNavState}>
               <LinkComponent component={singleItemComponent} href={singleItemHref} componentProps={singleItemCompProps}>
-                <StyledAvatar theme={theme}>
-                  <Avatar username={username} />
+                <StyledAvatar theme={theme} data-testid="avatar">
+                  {/* To do: reset Avatar in this position when Avatar component is published
+                    <Avatar username={username} /> */}
                 </StyledAvatar>
               </LinkComponent>
             </StyledOptionIcon>

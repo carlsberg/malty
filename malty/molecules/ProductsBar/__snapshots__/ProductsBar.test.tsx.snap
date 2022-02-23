@@ -2,10 +2,10 @@
 
 exports[`Products bar component matches snapshot 1`] = `
 <div
-  className="sc-eCImPb eBnQuJ"
+  className="sc-hKwDye jHFkqp"
 >
   <div
-    className="sc-ksdxgE FInXg"
+    className="sc-bqiRlB dFqBfw"
     open={false}
   />
   <svg
@@ -24,18 +24,18 @@ exports[`Products bar component matches snapshot 1`] = `
     />
   </svg>
   <div
-    className="sc-jRQBWg fiXnxL"
+    className="sc-eCImPb gDbCDM"
   >
     <ul
-      className="sc-gKclnd dZxTSI"
+      className="sc-jRQBWg fiwohe"
       data-testid="system-options"
     >
       <li
-        className="sc-iCfMLu hKkylO"
+        className="sc-gKclnd cXpswD"
         onClick={[Function]}
       >
         <span
-          className="sc-pVTFL hnmhEa"
+          className="sc-furwcr hLlilB"
         >
           <a
             href="/iframe.html"
@@ -59,11 +59,11 @@ exports[`Products bar component matches snapshot 1`] = `
         </span>
       </li>
       <li
-        className="sc-iCfMLu hKkylO"
+        className="sc-gKclnd cXpswD"
         onClick={[Function]}
       >
         <span
-          className="sc-pVTFL hnmhEa"
+          className="sc-furwcr hLlilB"
         >
           <a
             href="/item2"
@@ -89,44 +89,34 @@ exports[`Products bar component matches snapshot 1`] = `
       </li>
     </ul>
     <div
-      className="sc-kDTinF bBWXXa"
+      className="sc-jrQzAO cVfvWZ"
       open={false}
     >
       <li
-        className="sc-iCfMLu hKkylO"
+        className="sc-gKclnd cXpswD"
         onClick={[Function]}
       >
         <span
-          className="sc-pVTFL hnmhEa"
+          className="sc-furwcr hLlilB"
         >
           <span
-            className="sc-jrQzAO hcvJhM"
-          >
-            <div
-              className="sc-dkPtRN gZUazS"
-              data-testid="avatar"
-            >
-              <span>
-                 
-                M S
-                 
-              </span>
-            </div>
-          </span>
+            className="sc-pVTFL egoHvt"
+            data-testid="avatar"
+          />
         </span>
       </li>
       <div
-        className="sc-egiyK iEIOMe"
+        className="sc-crHmcD eRBOAo"
         open={false}
       >
         <div
-          className="sc-iqseJM bPuNPi"
+          className="sc-kDTinF iRTuXR"
         >
           <span
             className="sc-bdvvtL iouZXA"
           >
             <p
-              className="sc-hKwDye hcqBkd"
+              className="sc-dkPtRN bZQcfC"
               color="white"
               size="medium"
             >
@@ -134,7 +124,7 @@ exports[`Products bar component matches snapshot 1`] = `
             </p>
           </span>
           <p
-            className="sc-crHmcD fbPlXo"
+            className="sc-iqseJM dmVtpS"
           >
             Market director
           </p>
@@ -143,7 +133,7 @@ exports[`Products bar component matches snapshot 1`] = `
           data-testid="profile-options"
         >
           <li
-            className="sc-bqiRlB gbANqA"
+            className="sc-egiyK hbZzQD"
             onClick={[Function]}
           >
             <a
@@ -169,7 +159,7 @@ exports[`Products bar component matches snapshot 1`] = `
                 className="sc-bdvvtL iouZXA"
               >
                 <p
-                  className="sc-hKwDye gbBpSn"
+                  className="sc-dkPtRN exrcrI"
                   color="white"
                   size="medium-small"
                 >
@@ -179,7 +169,7 @@ exports[`Products bar component matches snapshot 1`] = `
             </a>
           </li>
           <li
-            className="sc-bqiRlB gbANqA"
+            className="sc-egiyK hbZzQD"
             onClick={[Function]}
           >
             <a
@@ -205,7 +195,7 @@ exports[`Products bar component matches snapshot 1`] = `
                 className="sc-bdvvtL iouZXA"
               >
                 <p
-                  className="sc-hKwDye gbBpSn"
+                  className="sc-dkPtRN exrcrI"
                   color="white"
                   size="medium-small"
                 >
