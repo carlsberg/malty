@@ -49,4 +49,5 @@ export const StyledLoading = styled.div<{
     }
     height: ${({ size }) => size};
     width: ${({ size }) => size};
+  }
 `;
