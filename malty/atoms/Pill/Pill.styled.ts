@@ -12,7 +12,7 @@ export const StyledPill = styled.div<{
   hasText: boolean;
 }>`
   font-family: inherit;
-  font-size: ${({ fontSize }) => `${fontSize}px`};
+  font-size: ${({ fontSize }) => `${fontSize}`};
   line-height: 1;
   font-weight: bold;
   background-color: ${({ color, theme }) => theme.colors.colours.information[color].value};
