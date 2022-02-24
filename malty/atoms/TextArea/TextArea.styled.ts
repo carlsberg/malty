@@ -8,18 +8,18 @@ export const StyledTextareaContainer = styled.div`
 `;
 
 export const StyledLabel = styled.label`
-  color: ${({ theme }) => theme.color.default.value};
-  font-size: ${({ theme }) => theme.typography.information.small['font-size'].value}px;
-  line-height: ${({ theme }) => theme.typography.information.small['line-height'].value}px;
-  padding-bottom: ${({ theme }) => theme.variables.input.label.bottomPadding.value}px;
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
+  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
   font-weight: bold;
 `;
 export const StyledError = styled.label`
   font-family: inherit;
-  color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
+  color: ${({ theme }) => theme.colors.colours.system.fail.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
 `;
 
@@ -30,11 +30,14 @@ export const StyledtextArea = styled.textarea<{
   height: calc(100% - 22px);
   box-sizing: border-box;
   font-weight: normal;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
-  color: ${({ theme }) => theme.color.button.primaryDefault.value};
-  padding: ${({ theme }) => theme.variables.textarea.padding.value}px;
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  ${({ theme }) =>
+    css`
+      padding: ${theme.sizes.xs.value} ${theme.sizes.xs.value};
+    `}
   resize: none;
   border: 0;
   &:hover,
@@ -44,12 +47,12 @@ export const StyledtextArea = styled.textarea<{
 
   ::placeholder {
     opacity: 0.8;
-    color: ${({ theme }) => theme.color.information.indirect.value};
+    color: ${({ theme }) => theme.colors.colours.information.indirect.value};
   }
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${({ theme }) => theme.color.form.formSelect.value};
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
     `}
 `;
 
@@ -65,9 +68,9 @@ export const StyledTextAreaWrapper = styled.div<{
   flex-direction: column;
   border: 1px solid
     ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
+      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   overflow: hidden;
-  background-color: ${({ theme }) => theme.color.white.value};
+  background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   ${({ resize }) =>
     resize
       ? css`
@@ -75,11 +78,11 @@ export const StyledTextAreaWrapper = styled.div<{
         `
       : css`
           resize: none;
-        `};
-  ${({ disabled }) =>
+        `}
+  ${({ theme, disabled }) =>
     disabled
       ? css`
-          background-color: ${({ theme }) => theme.color.form.formSelect.value};
+          background-color: ${theme.colors.colours.support[20].value};
         `
       : css`
           &:hover,
@@ -87,11 +90,11 @@ export const StyledTextAreaWrapper = styled.div<{
             outline: none;
           }
           &:hover {
-            border-color: ${({ theme }) => theme.color.information.indirect.value};
+            border-color: ${theme.colors.colours.information.indirect.value};
           }
           &:focus {
-            border-color: ${({ theme }) => theme.color.form.calendarSpecial.value};
-            color: ${({ theme }) => theme.color.form.calendarSpecial.value};
+            border-color: ${theme.colors.colours.default['digital-black'].value};
+            color: ${theme.colors.colours.default['digital-black'].value};
           }
         `}
 `;
@@ -106,13 +109,13 @@ export const StyledTextAreaCharacterCounter = styled.div`
   width: fit-content;
   margin-left: 8px;
   margin-bottom: 8px;
-  background-color: ${({ theme }) => theme.color.support.support60.value};
-  color: ${({ theme }) => theme.color.white.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
-  padding: ${({ theme }) => theme.variables.textarea.counter.padding.value}px;
-  border-radius: ${({ theme }) => theme.variables.textarea.counter.borderRadius.value}px;
+  background-color: ${({ theme }) => theme.colors.colours.support[60].value};
+  color: ${({ theme }) => theme.colors.colours.default.white.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
+  padding: 0 ${({ theme }) => theme.sizes['3xs'].value};
+  border-radius: 7px;
   display: flex;
   align-items: center;
-  height: ${({ theme }) => theme.variables.textarea.counter.height.value}px;
+  height: 14px;
   font-weight: bold;
 `;

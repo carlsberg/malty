@@ -1,4 +1,4 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   value: string;
@@ -7,12 +7,12 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   type: InputType;
   placeholder?: string;
   error?: string;
-  icon?: IconNamesTypes;
-  iconPosition?: IconPosition;
+  icon?: IconName;
+  iconPosition?: InputIconPosition;
   disabled?: boolean;
-  size?: SizeTypes;
+  size?: InputSize;
   clearable?: boolean;
-  mask?: MaskTypes;
+  mask?: InputMaskTypes;
   children?: React.Component;
 }
 
@@ -27,22 +27,22 @@ export enum InputType {
   URL = 'url'
 }
 
-export enum SizeTypes {
+export enum InputSize {
   Medium = 'Medium',
   Large = 'Large'
 }
 
-export enum IconPosition {
+export enum InputIconPosition {
   Left = 'Left',
   Right = 'Right'
 }
 
-export enum MaskTypes {
+export enum InputMaskTypes {
   Telephone = 'telephone',
   CreditCard = 'credit_card'
 }
 
-export enum Country {
+export enum InputCountry {
   GB = 'United Kingdom',
   US = 'United States',
   AF = 'Afghanistan',
@@ -275,7 +275,7 @@ export enum Country {
   ZW = 'Zimbabwe'
 }
 
-export enum Prefixes {
+export enum InputPrefixes {
   'United Kingdom' = 44,
   'United States' = 1,
   'Algeria' = 213,

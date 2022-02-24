@@ -1,9 +1,9 @@
-import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { ButtonProps, SizeTypes } from '.';
+import { ButtonProps, ButtonSize } from '.';
 import {
   StyledAnchor,
   StyledFloaterButton,
@@ -12,12 +12,12 @@ import {
   StyledSecondaryButton,
   StyledTransparentButton
 } from './Button.styled';
-import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
+import { ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
 export const Button = ({
   text,
   style,
-  type = ButtonTypes.Submit,
+  type = ButtonType.Submit,
   isWhite = false,
   fullWidth = false,
   selected = false,
@@ -26,8 +26,8 @@ export const Button = ({
   onKeyUp,
   icon,
   url,
-  size = SizeTypes.Medium,
-  iconPos = IconPosition.Right,
+  size = ButtonSize.Medium,
+  iconPos = ButtonIconPosition.Right,
   loading,
   scroll,
   error,
@@ -40,11 +40,11 @@ export const Button = ({
   children
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
-  let iconColor = isWhite ? IconColors.Primary : IconColors.White;
+  let iconColor = isWhite ? IconColor.Primary : IconColor.White;
   switch (style) {
     case ButtonStyle.Secondary:
       Component = StyledSecondaryButton;
-      iconColor = isWhite ? IconColors.White : IconColors.Primary;
+      iconColor = isWhite ? IconColor.White : IconColor.Primary;
       break;
     case ButtonStyle.Transparent:
       Component = StyledTransparentButton;
@@ -54,16 +54,16 @@ export const Button = ({
       break;
     case ButtonStyle.Link:
       Component = StyledLinkButton;
-      iconColor = isWhite ? IconColors.White : IconColors.Primary;
+      iconColor = isWhite ? IconColor.White : IconColor.Primary;
       break;
     default:
       break;
   }
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [numSize, setNumSize] = useState(theme.variables.button.size.medium.value);
-  const [hPadding, _setHorizontalPadding] = useState(theme.variables.button.horizontalPadding.value);
-  const [fontSize, setFontSize] = useState(theme.typography.text.medium['font-size'].value);
-  const [iconSize, setIconSize] = useState(theme.variables.button.icon.size.medium.value);
+  const [numSize, setNumSize] = useState(theme.sizes.xl.value);
+  const [hPadding, _setHorizontalPadding] = useState(theme.sizes.s.value);
+  const [fontSize, setFontSize] = useState(theme.typography.desktop.text.medium_default['font-size'].value);
+  const [iconSize, setIconSize] = useState(theme.sizes.m.value);
   const [showButton, setShowButton] = useState(true);
 
   const handleScroll = () => {
@@ -97,20 +97,20 @@ export const Button = ({
         tabIndex={tabIndex}
       >
         <div className={`text-container ${loading || success || error ? 'invisible' : ''}`}>
-          {icon && iconPos === 'Left' && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
+          {icon && iconPos === 'Left' && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
           {text || children}
-          {icon && iconPos === 'Right' && <Icon name={icon} color={iconColor} size={IconSizesTypes.Small} />}
+          {icon && iconPos === 'Right' && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
         </div>
         {!loading && success && !error && (
           <div className="secondary-container">
             {successText}
-            <Icon name={successIcon || IconNamesTypes.ItemCheck} color={iconColor} size={IconSizesTypes.Small} />
+            <Icon name={successIcon || IconName.ItemCheck} color={iconColor} size={IconSize.Small} />
           </div>
         )}
         {!loading && !success && error && (
           <div className="secondary-container">
             {errorText}
-            <Icon name={errorIcon || IconNamesTypes.ItemClose} color={iconColor} size={IconSizesTypes.Small} />
+            <Icon name={errorIcon || IconName.ItemClose} color={iconColor} size={IconSize.Small} />
           </div>
         )}
         {loading && (
@@ -124,28 +124,28 @@ export const Button = ({
 
   useEffect(() => {
     switch (size) {
-      case SizeTypes.Small: {
-        setNumSize(theme.variables.button.size.small.value);
-        setFontSize(theme.typography.text['medium-small']['font-size'].value);
-        setIconSize(theme.variables.button.icon.size.small.value);
+      case ButtonSize.Small: {
+        setNumSize(theme.sizes.l.value);
+        setFontSize(theme.typography.desktop.text['medium-small_default']['font-size'].value);
+        setIconSize(theme.sizes.s.value);
         break;
       }
-      case SizeTypes.Large: {
-        setNumSize(theme.variables.button.size.large.value);
-        setFontSize(theme.typography.text['medium-small']['font-size'].value);
-        setIconSize(theme.variables.button.icon.size.medium.value);
+      case ButtonSize.Large: {
+        setNumSize(theme.sizes['2xl'].value);
+        setFontSize(theme.typography.desktop.text['medium-small_default']['font-size'].value);
+        setIconSize(theme.sizes.m.value);
         break;
       }
-      case SizeTypes.XLarge: {
-        setNumSize(theme.variables.button.size.xlarge.value);
-        setFontSize(theme.typography.text.medium['font-size'].value);
-        setIconSize(theme.variables.button.icon.size.medium.value);
+      case ButtonSize.XLarge: {
+        setNumSize(theme.sizes['3xl'].value);
+        setFontSize(theme.typography.desktop.text.medium_default['font-size'].value);
+        setIconSize(theme.sizes.m.value);
         break;
       }
       default: {
-        setNumSize(theme.variables.button.size.medium.value);
-        setFontSize(theme.typography.text['medium-small']['font-size'].value);
-        setIconSize(theme.variables.button.icon.size.medium.value);
+        setNumSize(theme.sizes.xl.value);
+        setFontSize(theme.typography.desktop.text['medium-small_default']['font-size'].value);
+        setIconSize(theme.sizes.m.value);
         break;
       }
     }

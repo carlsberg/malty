@@ -1,23 +1,23 @@
 export interface ImageProps {
   src: string;
   cover?: boolean;
-  border?: Position;
-  gradient?: Position;
-  overlay?: Overlay;
+  border?: ImageEffectPosition;
+  gradient?: ImageEffectPosition;
+  overlay?: ImageOverlay;
   alt?: string;
   height?: string;
   width?: string;
   children?: string | JSX.Element;
 }
 
-export enum Position {
+export enum ImageEffectPosition {
   Top = 'Top',
   Right = 'Right',
   Bottom = 'Bottom',
   Left = 'Left'
 }
 
-export enum Overlay {
+export enum ImageOverlay {
   Overlay10 = '10',
   Overlay25 = '25',
   Overlay50 = '50',

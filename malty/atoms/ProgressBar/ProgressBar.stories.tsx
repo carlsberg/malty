@@ -4,7 +4,7 @@ import { ProgressBar as ProgressBarContainer } from './ProgressBar';
 import { ProgressBarProps } from './ProgressBar.types';
 
 export default {
-  title: 'Atoms/Progress Bar',
+  title: 'Progress Indicators/Progress Bar',
   component: ProgressBarContainer,
   parameters: {
     importObject: 'ProgressBar',

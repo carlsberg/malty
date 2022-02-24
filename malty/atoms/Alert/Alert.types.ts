@@ -3,8 +3,8 @@ export interface AlertProps {
   action?: boolean;
   icon?: boolean;
   dismiss?: (state: boolean) => void;
-  heightSize?: AlertHeightSizeTypes;
-  color: AlertBackgroundColor;
+  heightSize?: AlertSize;
+  color: AlertColor;
   dataQaId?: string;
   firstAction?: () => void;
   firstActionText?: string;
@@ -21,14 +21,14 @@ export enum AlertType {
   Toast = 'toast'
 }
 
-export enum AlertBackgroundColor {
+export enum AlertColor {
   Notification = 'notification',
   Alert = 'alert',
   Success = 'success',
   Fail = 'fail'
 }
 
-export enum AlertHeightSizeTypes {
+export enum AlertSize {
   Small = 'small',
   Medium = 'medium'
 }

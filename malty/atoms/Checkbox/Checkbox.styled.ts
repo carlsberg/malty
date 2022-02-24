@@ -7,17 +7,17 @@ export const StyledCheckboxContainer = styled.div`
 `;
 
 export const StyledError = styled.label`
-  color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: ${({ theme }) => theme.typography.text.small['font-size'].value}px;
+  color: ${({ theme }) => theme.colors.colours.system.fail.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   font-weight: bold;
-  padding-top: ${({ theme }) => theme.variables.checkbox.error.padding.value}px;
+  padding-top: ${({ theme }) => theme.sizes['3xs'].value};
 `;
 
 export const StyledCheckboxLabelText = styled.span`
-  color: ${({ theme }) => theme.color.default.value};
-  margin-left: ${({ theme }) => theme.variables.checkbox.label.leftPadding.value}px;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
-  line-height: ${({ theme }) => theme.typography.text['medium-small']['line-height'].value}px;
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  margin-left: ${({ theme }) => theme.sizes['2xs'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
 `;
 
 export const StyledCheckboxHiddenInput = styled.input.attrs({
@@ -27,11 +27,16 @@ export const StyledCheckboxHiddenInput = styled.input.attrs({
 `;
 
 export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
-  border: ${({ theme }) => theme.variables.checkbox.border.value}px solid ${({ theme }) => theme.color.default.value};
-  height: ${({ theme }) => theme.variables.checkbox.size.value}px;
-  width: ${({ theme }) => theme.variables.checkbox.size.value}px;
+  ${({ theme }) =>
+    css`
+      border: ${theme.borders['border-1px--solid']['border-width'].value}
+        ${theme.borders['border-1px--solid']['border-style'].value}
+        ${theme.colors.colours.default['digital-black'].value};
+    `}
+  height: ${({ theme }) => theme.sizes.s.value};
+  width: ${({ theme }) => theme.sizes.s.value};
   transition: background-color 0.25s ease-in-out;
-  border-radius: ${({ theme }) => theme.variables.checkbox.borderRadius.value}px;
+  border-radius: 3px;
   position: relative;
 
   &:before {
@@ -42,7 +47,7 @@ export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
     checked &&
     checked === true &&
     css`
-      background-color: ${({ theme }) => theme.color.default.value};
+      background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
       &:before {
         height: 10px;
         width: 6px;
@@ -52,7 +57,7 @@ export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
         border-right: 2px solid;
         border-bottom: 2px solid;
         border-bottom-right-radius: 2px;
-        border-color: ${({ theme }) => theme.color.white.value};
+        border-color: ${({ theme }) => theme.colors.colours.default.white.value};
         transition: 0.25s ease-in-out;
         transition-property: opacity, border-color;
         transform: translate(-50%, -50%) rotate(45deg);
@@ -69,7 +74,7 @@ export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
         top: 50%;
         left: 50%;
         border-bottom: 2px solid;
-        border-color: ${({ theme }) => theme.color.default.value};
+        border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
         transition: 0.25s ease-in-out;
         transition-property: opacity, border-color;
         transform: translate(-50%, -50%);
@@ -97,7 +102,7 @@ export const StyledCheckboxLabel = styled.label`
         transition: 0.25s ease-in-out;
         transition-property: opacity, border-color;
         transform: translate(-50%, -50%) rotate(45deg);
-        border-color: ${({ theme }) => theme.color.default.value};
+        border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
         opacity: 0.2;
       }
     }

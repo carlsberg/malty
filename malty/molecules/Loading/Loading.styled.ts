@@ -24,16 +24,16 @@ export const StyledLoadingContainer = styled.div`
   font-family: inherit;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.variables.loading.gap.value}px;
+  gap: ${({ theme }) => theme.sizes['3xs'].value};
   align-items: center;
   justify-content: center;
-  padding: ${({ theme }) => theme.variables.loading.padding.value}px;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
-  color: ${({ theme }) => theme.variables.loading.color.value};
+  padding: ${({ theme }) => theme.sizes['3xs'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  color: ${({ theme }) => theme.colors.colours.information.close.value};
   font-weight: bold;
   letter-spacing: 0;
-  line-height: ${({ theme }) => theme.typography.text['medium-small']['line-height'].value}px;
-  color: ${({ theme }) => theme.color.default.value};
+  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
 `;
 
 export const StyledLoading = styled.div<{
@@ -49,4 +49,5 @@ export const StyledLoading = styled.div<{
     }
     height: ${({ size }) => size};
     width: ${({ size }) => size};
+  }
 `;
