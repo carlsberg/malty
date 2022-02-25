@@ -25,10 +25,14 @@ export const TextArea = ({
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [textAreaCount, setTextAreaCount] = useState(0);
+  const [textAreaCount, setTextAreaCount] = useState(maxLength || 0);
 
   const handleCarachterCounter = (e: React.FormEvent<HTMLTextAreaElement>) => {
-    setTextAreaCount(e.currentTarget.value.length);
+    if (maxLength) {
+      setTextAreaCount(maxLength - e.currentTarget.value.length);
+    } else {
+      setTextAreaCount(e.currentTarget.value.length);
+    }
     onValueChange(e.currentTarget.value as string);
   };
 
