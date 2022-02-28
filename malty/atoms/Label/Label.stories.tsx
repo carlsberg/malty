@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Label, LabelProps } from '.';
+import { Label as LabelComponent, LabelProps } from '.';
 
 export default {
-  title: 'Atoms/Label',
-  component: Label,
+  title: 'Forms/Label',
+  component: LabelComponent,
   parameters: {
     importObject: 'Label',
     importPath: '@carlsberggroup/malty.atoms.label',
@@ -53,38 +53,53 @@ export default {
   }
 } as Meta;
 
-const NestedTemplateCheckbox: Story<LabelProps> = (args) => (
-  <Label {...args}>
-    <input type="checkbox" />
-  </Label>
+const NestedTemplateInput: Story<LabelProps> = (args) => (
+  <LabelComponent {...args}>
+    <input type="text" />
+  </LabelComponent>
 );
 
 const ByIdTemplateCheckbox: Story<LabelProps> = (args) => (
   <>
     <input id="test_checkbox" type="checkbox" />
-    <Label htmlFor="test_checkbox" {...args} />
+    <LabelComponent htmlFor="test_checkbox" {...args} />
   </>
 );
 
-const NestedTemplateInput: Story<LabelProps> = (args) => (
-  <Label {...args}>
-    <input type="text" />
-  </Label>
+const NestedTemplateCheckbox: Story<LabelProps> = (args) => (
+  <LabelComponent {...args}>
+    <input type="checkbox" />
+  </LabelComponent>
 );
 
-export const NestedInput = NestedTemplateInput.bind({});
-NestedInput.args = {
-  text: 'Wrapped label'
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
 
-export const ByIdCheckbox = ByIdTemplateCheckbox.bind({});
-ByIdCheckbox.args = {
-  text: 'Stand-alone by ID',
-  checkbox: true
-};
+let LabelEl;
 
-export const NestedCheckbox = NestedTemplateCheckbox.bind({});
-NestedCheckbox.args = {
-  text: 'Wrapped checkbox label',
-  checkbox: true
-};
+switch (variant) {
+  case 'wrapped':
+    LabelEl = NestedTemplateInput.bind({});
+    LabelEl.args = {
+      text: 'Wrapped label'
+    };
+    break;
+
+  case 'standalone':
+    LabelEl = ByIdTemplateCheckbox.bind({});
+    LabelEl.args = {
+      text: 'Stand-alone by ID',
+      checkbox: true
+    };
+    break;
+
+  default:
+    LabelEl = NestedTemplateCheckbox.bind({});
+    LabelEl.args = {
+      text: 'Wrapped checkbox label',
+      checkbox: true
+    };
+    break;
+}
+
+export const Label = LabelEl;

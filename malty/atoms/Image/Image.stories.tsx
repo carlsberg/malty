@@ -1,12 +1,12 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import dedent from 'ts-dedent';
-import { Image, ImageProps } from '.';
-import { Overlay, Position } from './Image.types';
+import { Image as ImageComponent, ImageProps } from '.';
+import { ImageEffectPosition, ImageOverlay } from './Image.types';
 
 export default {
-  title: 'Atoms/Image',
-  component: Image,
+  title: 'Media/Image',
+  component: ImageComponent,
   parameters: {
     importObject: 'Image',
     importPath: '@carlsberggroup/malty.atoms.image',
@@ -43,14 +43,14 @@ export default {
       control: 'text'
     },
     border: {
-      options: [undefined, ...Object.values(Position)],
+      options: [undefined, ...Object.values(ImageEffectPosition)],
       description: 'Images can have a styled border side, the osition options are listed below',
       control: {
         type: 'select'
       }
     },
     gradient: {
-      options: [undefined, ...Object.values(Position)],
+      options: [undefined, ...Object.values(ImageEffectPosition)],
       description:
         'Images can have a gradient overlay, the position options are listed below. Gradient will not work if overlay is defined.',
       control: {
@@ -58,7 +58,7 @@ export default {
       }
     },
     overlay: {
-      options: [undefined, ...Object.values(Overlay)],
+      options: [undefined, ...Object.values(ImageOverlay)],
       description: 'This is the overlay opacity, it accepts number string as opacity percentage.',
       control: 'select'
     },
@@ -90,11 +90,19 @@ export default {
   }
 } as Meta;
 
-const Template: Story<ImageProps> = (args) => <Image {...args} />;
+const Template: Story<ImageProps> = (args) => <ImageComponent {...args} />;
 
-export const Main = Template.bind({});
-Main.args = {
-  src: 'https://via.placeholder.com/400',
-  border: Position.Bottom,
-  alt: 'This is a sample image'
-};
+export const Image = Template.bind({});
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  default:
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Bottom,
+      alt: 'This is a sample image'
+    };
+    break;
+}

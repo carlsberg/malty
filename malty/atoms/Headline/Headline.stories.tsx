@@ -1,51 +1,52 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { Headline } from './Headline';
-import { Align, Color, HeadlineProps, Size } from './Headline.types';
+import { Headline as HeadlineComponent } from './Headline';
+import { HeadlineAlign, HeadlineColor, HeadlineProps, HeadlineStyle } from './Headline.types';
 
 export default {
-  title: 'Atoms/Headline',
-  component: Headline,
+  title: 'Typography/Headline',
+  component: HeadlineComponent,
   parameters: {
     importObject: 'Headline',
     importPath: '@carlsberggroup/malty.atoms.headline'
   },
   argTypes: {
     color: {
-      options: Object.values(Color),
       description: 'Color of the text, from the following options',
+      options: Object.keys(HeadlineColor),
+      mapping: HeadlineColor,
       control: {
-        type: 'select'
+        type: 'select',
+        label: Object.values(HeadlineColor)
       },
       table: {
         defaultValue: {
-          summary: 'primary'
+          summary: 'HeadlineColor.DigitalBlack'
         }
-      }
+      },
+      defaultValue: 'DigitalBlack'
     },
-    size: {
-      options: Object.values(Size),
+    headlineStyle: {
       description: 'Size of the text, from the following options',
       control: {
-        type: 'select'
+        type: null
       },
-      table: {
-        defaultValue: {
-          summary: 'medium'
-        }
-      }
+      defaultValue: 'Medium'
     },
     align: {
-      options: Object.values(Align),
       description: 'Text alignment, from the following options',
+      options: Object.keys(HeadlineAlign),
+      mapping: HeadlineAlign,
       control: {
-        type: 'select'
+        type: 'select',
+        label: Object.values(HeadlineAlign)
       },
       table: {
         defaultValue: {
-          summary: 'left'
+          summary: 'HeadlineAlign.Left'
         }
-      }
+      },
+      defaultValue: 'Left'
     },
     children: {
       description: 'This is the content of a headline component',
@@ -53,15 +54,33 @@ export default {
     }
   }
 };
-const Template: Story<HeadlineProps> = ({ size, align, color, children }) => (
-  <Headline size={size} align={align} color={color}>
-    {children}
-  </Headline>
+const Template: Story<HeadlineProps> = ({ align, color, children }) => (
+  <>
+    <HeadlineComponent headlineStyle={HeadlineStyle.Display} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent headlineStyle={HeadlineStyle.Hero} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent headlineStyle={HeadlineStyle.Huge} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent headlineStyle={HeadlineStyle.Big} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent headlineStyle={HeadlineStyle.Large} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent headlineStyle={HeadlineStyle.MediumLarge} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+    <HeadlineComponent headlineStyle={HeadlineStyle.Medium} align={align} color={color}>
+      {children}
+    </HeadlineComponent>
+  </>
 );
-export const Main = Template.bind({});
-Main.args = {
-  color: Color.Primary,
-  size: Size.Medium,
-  align: Align.Left,
+export const Headline = Template.bind({});
+
+Headline.args = {
   children: 'This is a sample headline'
 };

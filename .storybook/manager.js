@@ -1,17 +1,19 @@
 import { addons } from '@storybook/addons';
+import maltyTheme from './maltyTheme';
 
 addons.setConfig({
+  theme: maltyTheme,
   isFullscreen: false,
-  showNav: false,
-  showPanel: true,
-  panelPosition: 'bottom',
+  showNav: true,
+  showPanel: false,
+  panelPosition: 'right',
   enableShortcuts: true,
   isToolshown: true,
   toolbar: {
     title: { hidden: false },
-    zoom: { hidden: true },
-    eject: { hidden: true },
-    copy: { hidden: true },
-    fullscreen: { hidden: true }
+    zoom: { hidden: false },
+    eject: { hidden: false },
+    copy: { hidden: false },
+    fullscreen: { hidden: false }
   }
 });

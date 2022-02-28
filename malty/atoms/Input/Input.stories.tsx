@@ -1,12 +1,12 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { Input } from './Input';
-import { IconPosition, InputProps, InputType, MaskTypes, SizeTypes } from './Input.types';
+import { Input as InputComponent } from './Input';
+import { InputIconPosition, InputMaskTypes, InputProps, InputSize, InputType } from './Input.types';
 
 export default {
-  title: 'Atoms/Input',
-  component: Input,
+  title: 'Forms/Input',
+  component: InputComponent,
   parameters: {
     importObject: 'Input',
     importPath: '@carlsberggroup/malty.atoms.input'
@@ -26,30 +26,28 @@ export default {
     },
     size: {
       description: 'Input size options, at the moment only the two below',
-      options: Object.values(SizeTypes),
+      options: Object.values(InputSize),
       control: {
         type: 'radio'
-      },
-      table: {
-        defaultValue: {
-          summary: 'medium'
-        }
       }
     },
     type: {
-      options: Object.values(InputType),
+      options: Object.keys(InputType),
+      mapping: InputType,
       control: {
-        type: 'select'
+        type: 'select',
+        label: Object.values(InputType)
       },
       description: 'Input type options',
       table: {
         defaultValue: {
-          summary: 'text'
+          summary: 'InputType.Text'
         }
-      }
+      },
+      defaultValue: 'Text'
     },
     icon: {
-      options: Object.values(IconNamesTypes),
+      options: Object.values(IconName),
       control: {
         type: 'select'
       },
@@ -60,16 +58,19 @@ export default {
       description: 'Input state, when disabled it is read-only.'
     },
     iconPosition: {
-      options: Object.values(IconPosition),
+      options: Object.keys(InputIconPosition),
+      mapping: InputIconPosition,
       control: {
-        type: 'radio'
+        type: 'radio',
+        label: Object.values(InputIconPosition)
       },
       description: 'Icon positino within the input.',
       table: {
         defaultValue: {
-          summary: 'left'
+          summary: 'InputIconPosition.Left'
         }
-      }
+      },
+      defaultValue: 'Left'
     },
     clearable: {
       control: 'boolean',
@@ -81,7 +82,7 @@ export default {
       }
     },
     mask: {
-      options: Object.values(MaskTypes),
+      options: Object.values(InputMaskTypes),
       control: {
         type: 'select',
         description: 'RegEx to be applies as mask for input value.'
@@ -115,7 +116,7 @@ const Template: Story<InputProps> = ({
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
-    <Input
+    <InputComponent
       size={size}
       label={label}
       type={type}
@@ -132,13 +133,105 @@ const Template: Story<InputProps> = ({
   );
 };
 
-export const Main = Template.bind({});
-Main.args = {
-  size: SizeTypes.Medium,
-  label: 'Label',
-  type: InputType.Text,
-  placeholder: 'Placeholder',
-  error: 'Error text',
-  disabled: false,
-  clearable: false
-};
+export const Input = Template.bind({});
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'url':
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.URL,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: true
+    };
+    break;
+
+  case 'number':
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Number,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'email':
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Email,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: true
+    };
+    break;
+
+  case 'password':
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Password,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'date':
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Date,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'search':
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Search,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  case 'phone':
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Telephone,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+
+  default:
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Text,
+      placeholder: 'Placeholder',
+      error: 'Error text',
+      disabled: false,
+      clearable: false
+    };
+    break;
+}

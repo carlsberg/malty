@@ -1,8 +1,8 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Tooltip } from './Tooltip';
-import { Position, Toggle, TooltipProps } from './Tooltip.types';
+import { Tooltip as TooltipComponent } from './Tooltip';
+import { TooltipPosition, TooltipProps, TooltipToggle } from './Tooltip.types';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -12,20 +12,23 @@ const StyledContainer = styled.div`
 `;
 
 export default {
-  title: 'Atoms/Tooltip',
-  component: Tooltip,
+  title: 'Information/Tooltip',
+  component: TooltipComponent,
   parameters: {
     importObject: 'Tooltip',
     importPath: '@carlsberggroup/malty.atoms.tooltip'
   },
   argTypes: {
     position: {
-      options: Object.values(Position),
       description: 'Tooltip position.',
-      table: { defaultValue: { summary: 'top' } },
+      options: Object.keys(TooltipPosition),
+      mapping: TooltipPosition,
+      table: { defaultValue: { summary: 'TooltipPosition.Top' } },
       control: {
-        type: 'radio'
-      }
+        type: 'select',
+        label: Object.values(TooltipPosition)
+      },
+      defaultValue: 'Top'
     },
     anchor: {
       control: {
@@ -45,12 +48,14 @@ export default {
     },
     toggle: {
       description: 'Expected Tooltip behaviour for trigger.',
-      table: { defaultValue: { summary: 'persist' } },
-      options: Object.values(Toggle),
+      options: Object.keys(TooltipToggle),
+      mapping: TooltipToggle,
+      table: { defaultValue: { summary: 'TooltipToggle.Persist' } },
       control: {
-        type: 'radio'
+        type: 'select',
+        label: Object.values(TooltipToggle)
       },
-      defaultValue: Toggle.Persist
+      defaultValue: 'Persist'
     },
     isOpen: {
       table: {
@@ -59,16 +64,19 @@ export default {
     }
   }
 } as Meta;
+
 const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipProps) => (
   <StyledContainer>
     <div id="testId">Click here to toggle it!</div>
-    <Tooltip anchor="testId" position={position} toggle={toggle}>
+    <TooltipComponent anchor="testId" position={position} toggle={toggle}>
       {children}
-    </Tooltip>
+    </TooltipComponent>
   </StyledContainer>
 );
-export const Main = Template.bind({});
-Main.args = {
-  position: Position.Top,
+
+export const Tooltip = Template.bind({});
+
+Tooltip.args = {
+  position: TooltipPosition.Top,
   children: 'A simple Tooltip component content with some text'
 };

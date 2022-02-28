@@ -1,11 +1,11 @@
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { Checkbox } from './Checkbox';
+import { Checkbox as CheckboxComponent } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
 export default {
-  title: 'Atoms/Checkbox',
-  component: Checkbox,
+  title: 'Forms/Checkbox',
+  component: CheckboxComponent,
   parameters: {
     importObject: 'Checkbox',
     importPath: '@carlsberggroup/malty.atoms.checkbox'
@@ -42,20 +42,38 @@ export default {
 
 const Template: Story<CheckboxProps> = (args) => {
   const [stateChecked, setStateChecked] = useState(true);
-  return <Checkbox {...args} onValueChange={() => setStateChecked(!stateChecked)} />;
+  return <CheckboxComponent {...args} onValueChange={() => setStateChecked(!stateChecked)} />;
 };
 
-export const Checked = Template.bind({});
-Checked.args = {
-  value: 'Checked',
-  labelText: 'Checked label',
-  error: 'Error text',
-  checked: true
-};
+export const Checkbox = Template.bind({});
 
-export const Undetermined = Template.bind({});
-Undetermined.args = {
-  value: 'Undetermined',
-  labelText: 'Undetermined label',
-  error: 'Error text'
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'undetermined':
+    Checkbox.args = {
+      value: 'Undetermined',
+      labelText: 'Undetermined label',
+      error: 'Error text'
+    };
+    break;
+
+  case 'unchecked':
+    Checkbox.args = {
+      value: 'Unchecked',
+      labelText: 'Unchecked label',
+      error: 'Error text',
+      checked: false
+    };
+    break;
+
+  default:
+    Checkbox.args = {
+      value: 'Checked',
+      labelText: 'Checked label',
+      error: 'Error text',
+      checked: true
+    };
+    break;
+}

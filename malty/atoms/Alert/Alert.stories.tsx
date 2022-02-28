@@ -1,11 +1,12 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
+import styled from 'styled-components';
 import { Alert as AlertComponent } from './Alert';
-import { AlertBackgroundColor, AlertHeightSizeTypes, AlertProps, AlertType } from './Alert.types';
+import { AlertColor, AlertProps, AlertSize, AlertType } from './Alert.types';
 
 export default {
-  title: 'Atoms/Alert',
+  title: 'Information/Alert',
   component: AlertComponent,
   parameters: {
     importObject: 'Alert',
@@ -14,15 +15,21 @@ export default {
   argTypes: {
     type: {
       description: 'Types of Alert',
-      options: Object.values(AlertType),
-      table: { defaultValue: { summary: 'Banner' } },
+      options: Object.keys(AlertType),
+      mapping: AlertType,
       control: {
-        type: 'radio'
+        type: 'select',
+        label: Object.values(AlertType)
+      },
+      table: {
+        defaultValue: {
+          summary: 'AlertType.Banner'
+        }
       }
     },
-    label: {
+    children: {
       control: 'text',
-      description: 'Alert label, can be',
+      description: 'Alert children, can be',
       table: { defaultValue: { summary: 'none' } }
     },
     action: {
@@ -36,26 +43,30 @@ export default {
       table: { defaultValue: { summary: 'true' } }
     },
     heightSize: {
-      options: Object.values(AlertHeightSizeTypes),
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
+      options: Object.keys(AlertSize),
+      mapping: AlertSize,
+      control: {
+        type: 'select',
+        label: Object.values(AlertSize)
+      },
       table: {
         defaultValue: {
-          summary: 'medium'
+          summary: 'AlertSize.Medium'
         }
-      },
-      control: {
-        type: 'radio'
       }
     },
     color: {
-      options: Object.values(AlertBackgroundColor),
-      control: {
-        type: 'select'
-      },
       description: 'Alert colors, from design predefined colors, as follows.',
+      options: Object.keys(AlertColor),
+      mapping: AlertColor,
+      control: {
+        type: 'select',
+        label: Object.values(AlertColor)
+      },
       table: {
         defaultValue: {
-          summary: 'Notification'
+          summary: 'AlertColor.Notification'
         }
       }
     },
@@ -73,11 +84,23 @@ export default {
       control: 'text',
       description: 'Second Action',
       table: { defaultValue: { summary: 'none' } }
+    },
+    autoHideDuration: {
+      control: 'number',
+      description: 'Set auto hide duration',
+      table: { defaultValue: { summary: '5000' } }
     }
   }
 } as Meta;
-
-const Template: Story<AlertProps> = ({ ...args }) => <AlertComponent {...args} />;
+const StyledContainer = styled.div`
+  height: 200px;
+  width: 100%;
+`;
+const Template: Story<AlertProps> = ({ ...args }) => (
+  <StyledContainer>
+    <AlertComponent {...args} />
+  </StyledContainer>
+);
 
 export const Alert = Template.bind({});
 
@@ -88,11 +111,11 @@ switch (variant) {
   case 'inline':
     Alert.args = {
       type: AlertType.InLine,
-      label: 'Hello, Im the In Line Alert! Play with me.',
+      children: 'Hello, Im the In Line Alert! Play with me.',
       action: false,
       icon: false,
-      heightSize: AlertHeightSizeTypes.Medium,
-      color: AlertBackgroundColor.Notification,
+      heightSize: AlertSize.Medium,
+      color: AlertColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',
@@ -103,27 +126,28 @@ switch (variant) {
   case 'toast':
     Alert.args = {
       type: AlertType.Toast,
-      label: 'Hello, Im the Toast Alert! Play with me.',
+      children: 'Hello, Im the Toast Alert! Play with me.',
       action: true,
-      icon: true,
       heightSize: undefined,
-      color: AlertBackgroundColor.Notification,
+      color: AlertColor.Notification,
       dataQaId: 'toast-alert',
-      firstAction: action('First Action clicked'),
-      firstActionText: 'First Action'
+      firstAction: action('Undo Action clicked'),
+      firstActionText: 'Undo',
+      onHideToast: action('hideToast Action clicked')
     };
     break;
   default:
     Alert.args = {
       type: AlertType.Banner,
-      label: 'Hello, Im the Banner Alert! Play with me.',
+      children: 'Hello, Im the Banner Alert! Play with me.',
       action: true,
       icon: true,
-      heightSize: AlertHeightSizeTypes.Medium,
-      color: AlertBackgroundColor.Notification,
+      heightSize: AlertSize.Medium,
+      color: AlertColor.Notification,
       dataQaId: 'banner-alert',
       firstAction: action('First Action clicked'),
-      firstActionText: 'First Action'
+      firstActionText: 'First Action',
+      dismiss: action('Dismiss button clicked')
     };
     break;
 }

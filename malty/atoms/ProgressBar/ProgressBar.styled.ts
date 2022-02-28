@@ -4,10 +4,10 @@ export const StyledProgressBar = styled.div<{
   progress: number;
 }>`
   position: relative;
-  height: ${({ theme }) => theme.variables.progressBar.bar.height.value}px;
-  background-color: ${({ theme }) => theme.color.overlay.opacity10.default.value};
+  height: ${({ theme }) => theme.sizes['2xs'].value};
+  background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
   width: 100%;
-  border-radius: ${({ theme }) => theme.variables.progressBar.bar.borderRadius.value}px;
+  border-radius: ${({ theme }) => theme.sizes['4xs'].value};
   overflow: hidden;
   &:before {
     content: '';
@@ -16,7 +16,7 @@ export const StyledProgressBar = styled.div<{
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: ${({ theme }) => theme.color.default.value};
+    background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     transition: width 0.25s ease-in-out;
     width: ${({ progress }) => `${progress}%`};
     max-width: 100%;
@@ -34,9 +34,9 @@ export const StyledBarContainer = styled.div`
 `;
 
 export const StyledProgressAmount = styled.span`
-  margin-left: ${({ theme }) => theme.variables.progressBar.text.marginLeft.value}px;
-  font-size: ${({ theme }) => theme.typography.text.small['font-size'].value}px;
-  line-height: ${({ theme }) => theme.variables.progressBar.text.lineHeight.value};
+  margin-left: ${({ theme }) => theme.sizes.s.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+  line-height: 1;
   font-weight: bold;
   flex: 0 1 auto;
 `;
@@ -45,8 +45,8 @@ export const StyledText = styled.span`
   width: 100%;
   text-align: center;
   font-weight: bold;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
-  line-height: ${({ theme }) => theme.variables.progressBar.text.lineHeight.value};
-  margin-top: ${({ theme }) => theme.variables.progressBar.text.marginTop.value}px;
-  color: ${({ theme }) => theme.color.form.calendarSpecial.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: 1;
+  margin-top: ${({ theme }) => theme.sizes.xs.value};
+  color: ${({ theme }) => theme.colors.colours.support[80].value};
 `;

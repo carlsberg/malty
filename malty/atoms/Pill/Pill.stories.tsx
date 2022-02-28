@@ -1,12 +1,12 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Pill } from './Pill';
-import { PillColor, PillProps, PillSizeType } from './Pill.types';
+import { Pill as PillComponent } from './Pill';
+import { PillColor, PillProps, PillSize } from './Pill.types';
 
 export default {
-  title: 'Atoms/Pill',
-  component: Pill,
+  title: 'Information/Pill',
+  component: PillComponent,
   parameters: {
     importObject: 'Pill',
     importPath: '@carlsberggroup/malty.atoms.pill'
@@ -17,38 +17,42 @@ export default {
       description: 'Pill content text.'
     },
     size: {
-      options: Object.values(PillSizeType),
+      description: 'Pill size, options below.',
+      options: Object.values(PillSize),
       control: {
         type: 'select'
       },
-      description: 'Pill size, options below.',
       table: {
         defaultValue: {
-          summary: 'medium'
+          summary: 'PillSize.Medium'
         }
       }
     },
     color: {
-      options: Object.values(PillColor),
-      control: {
-        type: 'select'
-      },
       description: 'Pill colors, from design predefined colors, as follows.',
+      options: Object.keys(PillColor),
+      mapping: PillColor,
+      control: {
+        type: 'select',
+        label: Object.values(PillColor)
+      },
       table: {
         defaultValue: {
-          summary: 'closed'
+          summary: 'PillColor.Closed'
         }
       }
     },
     icon: {
-      options: Object.values({ undefined, ...IconNamesTypes }),
-      control: {
-        type: 'select'
-      },
       description: 'Icon to be displayed',
+      options: Object.keys({ undefined, ...IconName }),
+      mapping: IconName,
+      control: {
+        type: 'select',
+        label: Object.values({ undefined, ...IconName })
+      },
       table: {
         defaultValue: {
-          summary: false
+          summary: 'IconName.CarlsbergFilled'
         }
       }
     },
@@ -71,8 +75,9 @@ export default {
     }
   }
 } as Meta;
+
 const Template: Story<PillProps> = ({ text, icon, color, isRounded, onRemoveClick, onClick, size }: PillProps) => (
-  <Pill
+  <PillComponent
     text={text}
     onRemoveClick={onRemoveClick}
     onClick={onClick}
@@ -82,34 +87,6 @@ const Template: Story<PillProps> = ({ text, icon, color, isRounded, onRemoveClic
     size={size}
   />
 );
-
-export const SimplePill = Template.bind({});
-SimplePill.args = {
-  text: 'Text',
-  icon: IconNamesTypes.AddContent,
-  color: PillColor.Closed,
-  isRounded: true,
-  size: PillSizeType.Medium,
-  onRemoveClick: false
-};
-
-export const IconPill = Template.bind({});
-IconPill.args = {
-  icon: IconNamesTypes.CarlsbergFilled,
-  color: PillColor.New,
-  isRounded: true,
-  size: PillSizeType.Medium,
-  onRemoveClick: false
-};
-
-export const IconLabelPill = Template.bind({});
-IconLabelPill.args = {
-  text: 'P',
-  color: PillColor.Archive,
-  isRounded: false,
-  size: PillSizeType.Medium,
-  onRemoveClick: false
-};
 
 const TemplateRemovable: Story<PillProps> = ({
   text,
@@ -131,11 +108,56 @@ const TemplateRemovable: Story<PillProps> = ({
   />
 );
 
-export const Removeable = TemplateRemovable.bind({});
-Removeable.args = {
-  text: 'Removeable',
-  color: PillColor.Hold,
-  isRounded: false,
-  size: PillSizeType.Medium,
-  onRemoveClick: () => null
-};
+let PillEl;
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'icon':
+    PillEl = Template.bind({});
+    PillEl.args = {
+      icon: IconName.CarlsbergFilled,
+      color: PillColor.New,
+      isRounded: true,
+      size: PillSize.Medium,
+      onRemoveClick: false
+    };
+    break;
+
+  case 'iconlabel':
+    PillEl = Template.bind({});
+    PillEl.args = {
+      text: 'P',
+      color: PillColor.Archive,
+      isRounded: false,
+      size: PillSize.Medium,
+      onRemoveClick: false
+    };
+    break;
+
+  case 'removable':
+    PillEl = TemplateRemovable.bind({});
+    PillEl.args = {
+      text: 'Removeable',
+      color: PillColor.Hold,
+      isRounded: false,
+      size: PillSize.Medium,
+      onRemoveClick: () => null
+    };
+    break;
+
+  default:
+    PillEl = Template.bind({});
+    PillEl.args = {
+      text: 'Text',
+      icon: IconName.CarlsbergFilled,
+      color: PillColor.Close,
+      isRounded: true,
+      size: PillSize.Medium,
+      onRemoveClick: false
+    };
+    break;
+}
+
+export const Pill = PillEl;

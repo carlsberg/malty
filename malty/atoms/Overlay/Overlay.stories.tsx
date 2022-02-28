@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Overlay, OverlayProps } from '.';
+import { Overlay as OverlayComponent, OverlayProps } from '.';
 
 export default {
-  title: 'Atoms/Overlay',
-  component: Overlay,
+  title: 'Overlays/Overlay',
+  component: OverlayComponent,
   parameters: {
     importObject: 'Overlay',
     importPath: '@carlsberggroup/malty.atoms.overlay'
@@ -22,9 +22,9 @@ export default {
   }
 } as Meta;
 
-const Template: Story<OverlayProps> = (args) => <Overlay {...args} />;
+const Template: Story<OverlayProps> = (args) => <OverlayComponent {...args} />;
 
-export const Main = Template.bind({});
-Main.args = {
+export const Overlay = Template.bind({});
+Overlay.args = {
   isWhite: false
 };

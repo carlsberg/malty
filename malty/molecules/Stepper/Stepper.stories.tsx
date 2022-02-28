@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Stepper } from './Stepper';
+import { Stepper as StepperComponent } from './Stepper';
 import { StepperProps } from './Stepper.types';
 
 export default {
-  title: 'Molecules/Stepper',
-  component: Stepper,
+  title: 'Progress Indicators/Stepper',
+  component: StepperComponent,
   parameters: {
     importObject: 'Stepper',
     importPath: '@carlsberggroup/malty.molecules.stepper'
@@ -27,11 +27,11 @@ export default {
 } as Meta;
 
 const Template: Story<StepperProps> = ({ steps, currentStep, isMultiStep }: StepperProps) => (
-  <Stepper steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} />
+  <StepperComponent steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} />
 );
 
-export const Main = Template.bind({});
-Main.args = {
+export const Stepper = Template.bind({});
+Stepper.args = {
   steps: 5,
   currentStep: 2
 };

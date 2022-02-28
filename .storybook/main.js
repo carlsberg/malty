@@ -11,8 +11,12 @@ module.exports = {
     checkOptions: {},
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
+      shouldExtractLiteralValuesFromEnum: false,
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
     }
-  }
+  },
+  core: {
+    builder: 'webpack5'
+  },
+  staticDirs: [{ from: '../public/storybook', to: '/' }]
 };

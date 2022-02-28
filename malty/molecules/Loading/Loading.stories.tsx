@@ -1,11 +1,11 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Loading } from './Loading';
-import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
+import { Loading as LoadingComponent } from './Loading';
+import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
 export default {
-  title: 'Molecules/Loading',
-  component: Loading,
+  title: 'Progress Indicators/Loading',
+  component: LoadingComponent,
   parameters: {
     importObject: 'Loading',
     importPath: '@carlsberggroup/malty.molecules.loading'
@@ -13,7 +13,7 @@ export default {
   argTypes: {
     text: { control: 'text' },
     size: {
-      options: Object.values(SizeTypes),
+      options: Object.values(LoadingSize),
       control: {
         type: 'select'
       }
@@ -28,12 +28,12 @@ export default {
 } as Meta;
 
 const Template: Story<LoadingProps> = ({ text, size, status }: LoadingProps) => (
-  <Loading text={text} size={size} status={status} />
+  <LoadingComponent text={text} size={size} status={status} />
 );
 
-export const Main = Template.bind({});
-Main.args = {
-  size: SizeTypes.Medium,
+export const Loading = Template.bind({});
+Loading.args = {
+  size: LoadingSize.Medium,
   text: 'Loading...',
   status: LoadingStatus.Pending
 };

@@ -1,0 +1,18 @@
+{
+  "border-1px--solid": {
+    "border-width": {
+      "value": "1px"
+    },
+    "border-style": {
+      "value": "solid"
+    }
+  },
+  "border-2px--solid": {
+    "border-width": {
+      "value": "2px"
+    },
+    "border-style": {
+      "value": "solid"
+    }
+  }
+}

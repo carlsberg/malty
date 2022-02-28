@@ -1,13 +1,13 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Story } from '@storybook/react';
 import React from 'react';
-import { ButtonProps, SizeTypes } from '.';
-import { Button } from './Button';
-import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
+import { ButtonProps, ButtonSize } from '.';
+import { Button as ButtonComponent } from './Button';
+import { ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
 export default {
-  title: 'Atoms/Button',
-  component: Button,
+  title: 'Forms/Button',
+  component: ButtonComponent,
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button'
@@ -18,26 +18,30 @@ export default {
       description: 'Button label, can be'
     },
     type: {
-      options: Object.values(ButtonTypes),
       description: 'The default behavior of the button. Possible values are',
+      options: Object.keys(ButtonType),
+      mapping: ButtonType,
       control: {
-        type: 'radio'
+        type: 'select',
+        label: Object.values(ButtonType)
       },
       table: {
         defaultValue: {
-          summary: 'submit'
+          summary: 'ButtonType.Submit'
         }
       }
     },
     style: {
-      options: Object.values(ButtonStyle),
       description: 'CSS styling for the button, can be',
+      options: Object.keys(ButtonStyle),
+      mapping: ButtonStyle,
       control: {
-        type: 'radio'
+        type: 'select',
+        label: Object.values(ButtonStyle)
       },
       table: {
         defaultValue: {
-          summary: 'primary'
+          summary: 'ButtonStyle.Primary'
         }
       }
     },
@@ -47,7 +51,9 @@ export default {
     scroll: {
       description: 'Scroll position where will floater show',
       table: {
-        defaultValue: 0
+        defaultValue: {
+          summary: 0
+        }
       },
       control: {
         type: 'number'
@@ -63,25 +69,25 @@ export default {
       description: 'Is button loading?'
     },
     success: {
+      description: 'Has button succeeded loading?',
       control: 'boolean',
       table: {
         defaultValue: {
           summary: 'false'
         }
-      },
-      description: 'Has button succeeded loading?'
+      }
     },
     successIcon: {
-      options: Object.values(IconNamesTypes),
+      description: 'Icon for success state',
+      options: Object.values(IconName),
       table: {
         defaultValue: {
-          summary: 'ItemCheck'
+          summary: 'IconName.ItemCheck'
         }
       },
       control: {
         type: 'select'
-      },
-      description: 'Icon for success state'
+      }
     },
     successText: {
       control: 'text',
@@ -97,11 +103,11 @@ export default {
       description: 'Has button failed loading?'
     },
     errorIcon: {
-      options: Object.values(IconNamesTypes),
       description: 'Icon for failed state',
+      options: Object.values(IconName),
       table: {
         defaultValue: {
-          summary: 'ItemClose'
+          summary: 'IconName.ItemClose'
         }
       },
       control: {
@@ -113,34 +119,34 @@ export default {
       description: 'Button label for failed state'
     },
     size: {
-      options: Object.values(SizeTypes),
       description: 'Button size. Options are',
+      options: Object.values(ButtonSize),
       table: {
         defaultValue: {
-          summary: 'Medium'
+          summary: 'ButtonSize.Medium'
         }
       },
       control: {
-        type: 'radio'
+        type: 'select'
       }
     },
     icon: {
-      options: Object.values(IconNamesTypes),
       description: 'When selected, button label will contain the selected icon',
+      options: Object.values(IconName),
       control: {
         type: 'select'
       }
     },
     iconPos: {
-      options: Object.values(IconPosition),
       description: 'When icon present, position will be',
+      options: Object.values(ButtonIconPosition),
       table: {
         defaultValue: {
           summary: 'Right'
         }
       },
       control: {
-        type: 'radio'
+        type: 'select'
       }
     },
     isWhite: {
@@ -175,88 +181,122 @@ export default {
   }
 };
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => <ButtonComponent {...args} />;
 
-export const PrimaryStory = Template.bind({});
-PrimaryStory.args = {
-  style: ButtonStyle.Primary,
-  text: 'Primary',
-  type: ButtonTypes.Submit,
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error'
-};
+export const Button = Template.bind({});
 
-export const SecondaryStory = Template.bind({});
-SecondaryStory.args = {
-  style: ButtonStyle.Secondary,
-  text: 'Secondary',
-  type: ButtonTypes.Submit,
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error'
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
 
-export const FloaterStory = Template.bind({});
-FloaterStory.args = {
-  style: ButtonStyle.Floater,
-  icon: IconNamesTypes.ArrowSmallUp,
-  type: ButtonTypes.Submit,
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: 'Success',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: 'Error',
-  scroll: 0
-};
+switch (variant) {
+  case 'Link':
+    Button.args = {
+      style: ButtonStyle.Link,
+      type: ButtonType.Submit,
+      text: 'Link text',
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconName.ItemCheck,
+      successText: '',
+      errorIcon: IconName.ItemClose,
+      errorText: ''
+    };
+    break;
 
-export const LinkStory = Template.bind({});
-LinkStory.args = {
-  style: ButtonStyle.Link,
-  text: 'Link text',
-  size: SizeTypes.Medium,
-  iconPos: IconPosition.Right,
-  loading: false,
-  error: false,
-  success: false,
-  isWhite: false,
-  disabled: false,
-  fullWidth: false,
-  url: '',
-  selected: false,
-  successIcon: IconNamesTypes.ItemCheck,
-  successText: '',
-  errorIcon: IconNamesTypes.ItemClose,
-  errorText: ''
-};
+  case 'Secondary':
+    Button.args = {
+      style: ButtonStyle.Secondary,
+      text: 'Secondary',
+      type: ButtonType.Submit,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconName.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconName.ItemClose,
+      errorText: 'Error'
+    };
+    break;
+
+  case 'Floater':
+    Button.args = {
+      style: ButtonStyle.Floater,
+      icon: IconName.ArrowSmallUp,
+      type: ButtonType.Submit,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconName.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconName.ItemClose,
+      errorText: 'Error',
+      scroll: 0
+    };
+    break;
+
+  case 'Transparent':
+    Button.args = {
+      style: ButtonStyle.Transparent,
+      text: 'Transparent',
+      type: ButtonType.Submit,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: true,
+      successIcon: IconName.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconName.ItemClose,
+      errorText: 'Error'
+    };
+    break;
+
+  default:
+    Button.args = {
+      style: ButtonStyle.Primary,
+      text: 'Primary',
+      type: ButtonType.Submit,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
+      loading: false,
+      error: false,
+      success: false,
+      isWhite: false,
+      disabled: false,
+      fullWidth: false,
+      url: '',
+      selected: false,
+      successIcon: IconName.ItemCheck,
+      successText: 'Success',
+      errorIcon: IconName.ItemClose,
+      errorText: 'Error'
+    };
+    break;
+}
