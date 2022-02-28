@@ -4,7 +4,7 @@ import { Stepper as StepperComponent } from './Stepper';
 import { StepperProps } from './Stepper.types';
 
 export default {
-  title: 'Molecules/Stepper',
+  title: 'Progress Indicators/Stepper',
   component: StepperComponent,
   parameters: {
     importObject: 'Stepper',

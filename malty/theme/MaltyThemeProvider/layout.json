@@ -1,0 +1,87 @@
+{
+  "xsmall": {
+    "device-max-width": {
+      "value": "428px"
+    },
+    "grid-width": {
+      "value": "100%"
+    },
+    "columns": {
+      "value": "6"
+    },
+    "gutter": {
+      "value": "16px"
+    },
+    "margin": {
+      "value": "16px"
+    }
+  },
+  "small": {
+    "device-max-width": {
+      "value": "768px"
+    },
+    "grid-width": {
+      "value": "100%"
+    },
+    "columns": {
+      "value": "6"
+    },
+    "gutter": {
+      "value": "16px"
+    },
+    "margin": {
+      "value": "16px"
+    }
+  },
+  "medium": {
+    "device-max-width": {
+      "value": "1024px"
+    },
+    "grid-width": {
+      "value": "100%"
+    },
+    "columns": {
+      "value": "12"
+    },
+    "gutter": {
+      "value": "24px"
+    },
+    "margin": {
+      "value": "24px"
+    }
+  },
+  "large": {
+    "device-max-width": {
+      "value": "1366px"
+    },
+    "grid-width": {
+      "value": "100%"
+    },
+    "columns": {
+      "value": "12"
+    },
+    "gutter": {
+      "value": "32px"
+    },
+    "margin": {
+      "value": "32px"
+    }
+  },
+  "xlarge": {
+    "device-min-width": {
+      "value": "1367px"
+    },
+    "grid-width": {
+      "value": "1366px"
+    },
+    "columns": {
+      "value": "12"
+    },
+    "gutter": {
+      "value": "32px"
+    },
+    "margin": {
+      "value": "32px"
+    }
+  }
+}

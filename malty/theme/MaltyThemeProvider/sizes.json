@@ -1,0 +1,41 @@
+{
+  "5xs": {
+    "value": "2px"
+  },
+  "4xs": {
+    "value": "4px"
+  },
+  "3xs": {
+    "value": "6px"
+  },
+  "2xs": {
+    "value": "8px"
+  },
+  "xs": {
+    "value": "12px"
+  },
+  "s": {
+    "value": "16px"
+  },
+  "m": {
+    "value": "24px"
+  },
+  "l": {
+    "value": "32px"
+  },
+  "xl": {
+    "value": "40px"
+  },
+  "2xl": {
+    "value": "48px"
+  },
+  "3xl": {
+    "value": "56px"
+  },
+  "4xl": {
+    "value": "64px"
+  },
+  "5xl": {
+    "value": "80px"
+  }
+}

@@ -1,7 +1,7 @@
 import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { Tooltip } from '.';
-import { Position, Toggle } from './Tooltip.types';
+import { TooltipPosition, TooltipToggle } from './Tooltip.types';
 
 describe('Tooltip', () => {
   it('matches snapshot', () => {
@@ -10,7 +10,7 @@ describe('Tooltip', () => {
         <a id="testId" onClick={() => null}>
           Click here to toggle it!
         </a>
-        <Tooltip anchor="testId" position={Position.Bottom} isOpen toggle={Toggle.Click}>
+        <Tooltip anchor="testId" position={TooltipPosition.Bottom} isOpen toggle={TooltipToggle.Click}>
           <button type="button">Test</button>
         </Tooltip>
       </>
@@ -24,7 +24,7 @@ describe('Tooltip', () => {
         <a id="testId" onClick={() => null}>
           Click here to toggle it!
         </a>
-        <Tooltip anchor="testId" position={Position.Bottom} isOpen toggle={Toggle.Click}>
+        <Tooltip anchor="testId" position={TooltipPosition.Bottom} isOpen toggle={TooltipToggle.Click}>
           <button type="button">Test</button>
         </Tooltip>
       </>

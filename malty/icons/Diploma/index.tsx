@@ -1,7 +1,7 @@
-import { IconWrapper, IconWrapperInterface } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import React from 'react';
 
-const Diploma = (props: IconWrapperInterface) =>
+const Diploma = (props: IconWrapperProps) =>
   IconWrapper(
     props,
     <path
