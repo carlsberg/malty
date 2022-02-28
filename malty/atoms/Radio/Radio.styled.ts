@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 
 export const StyledRadio = styled.input`
   display: inline-block;
-  height: ${({ theme }) => theme.variables.radio.size.value}px;
-  width: ${({ theme }) => theme.variables.radio.size.value}px;
+  height: 18px;
+  width: 18px;
   margin: 0;
 
   position: relative;
@@ -11,10 +11,10 @@ export const StyledRadio = styled.input`
   cursor: pointer;
   &:hover {
     &:before {
-      background: ${({ theme }) => theme.color.support.support80.value};
+      background: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
     }
     &:after {
-      border: 2px solid ${({ theme }) => theme.color.support.support80.value};
+      border: 2px solid ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
     }
   }
 
@@ -27,12 +27,12 @@ export const StyledRadio = styled.input`
     left: 5px;
     z-index: 1;
 
-    width: ${({ theme }) => theme.variables.radio.inputSelected.value}px;
-    height: ${({ theme }) => theme.variables.radio.inputSelected.value}px;
+    width: ${({ theme }) => theme.sizes['2xs'].value};
+    height: ${({ theme }) => theme.sizes['2xs'].value};
 
-    background: ${({ theme }) => theme.color.black.value};
+    background: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
 
-    border-radius: ${({ theme }) => theme.variables.radio.borderRadius.value}%;
+    border-radius: 50%;
   }
 
   &:checked {
@@ -46,13 +46,18 @@ export const StyledRadio = styled.input`
 
     position: absolute;
 
-    width: ${({ theme }) => theme.variables.radio.size.value}px;
-    height: ${({ theme }) => theme.variables.radio.size.value}px;
+    width: 18px;
+    height: 18px;
     box-sizing: border-box;
-    background: ${({ theme }) => theme.color.white.value};
-
-    border: 2px solid ${({ theme }) => theme.color.default.value};
-    border-radius: ${({ theme }) => theme.variables.radio.borderRadius.value}%;
+    background: ${({ theme }) => theme.colors.colours.default.white.value};
+    ${({ theme }) =>
+      theme &&
+      css`
+        border: ${theme.borders['border-2px--solid']['border-width'].value}
+          ${theme.borders['border-2px--solid']['border-style'].value}
+          ${theme.colors.colours.default['digital-black'].value};
+      `}
+    border-radius: 50%;
   }
 
   ${({ disabled }) =>
@@ -60,11 +65,11 @@ export const StyledRadio = styled.input`
     css`
       pointer-events: none;
       &:before {
-        background: ${({ theme }) => theme.color.button.primaryDisable.value};
+        background: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
       }
       &:after {
-        background: ${({ theme }) => theme.color.white.value};
-        border: 2px solid ${({ theme }) => theme.color.button.primaryDisable.value};
+        background: ${({ theme }) => theme.colors.colours.default.white.value};
+        border: 2px solid ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
       }
     `}
 `;
@@ -72,28 +77,28 @@ export const StyledRadio = styled.input`
 export const StyledLabel = styled.label<{
   disabled?: boolean;
 }>`
-  color: ${({ theme }) => theme.color.default.value};
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
-  line-height: ${({ theme }) => theme.typography.text['medium-small']['line-height'].value}px;
-  padding-left: ${({ theme }) => theme.variables.radio.paddingLeft.value}px;
-  font-weight: 400;
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
+  padding-left: 10px;
   cursor: pointer;
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${({ theme }) => theme.color.information.disable.value};
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
       pointer-events: none;
     `}
 `;
-
 export const StyledError = styled.label`
   font-family: inherit;
-  color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
+  color: ${({ theme }) => theme.colors.colours.system.fail.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
 `;
+
 export const StyledRadioContainer = styled.div`
   display: flex;
   align-items: center;

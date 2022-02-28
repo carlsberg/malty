@@ -4,7 +4,7 @@ import { Radio as RadioComponent } from './Radio';
 import { RadioProps } from './Radio.types';
 
 export default {
-  title: 'Atoms/Radio',
+  title: 'Forms/Radio',
   component: RadioComponent,
   parameters: {
     importObject: 'Radio',
