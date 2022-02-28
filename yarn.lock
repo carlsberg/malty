@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 5
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -3781,12 +3781,12 @@ __metadata:
   linkType: hard
 
 "@types/jest@npm:*":
-  version: 27.4.0
-  resolution: "@types/jest@npm:27.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fjest%2F-%2Fjest-27.4.0.tgz"
+  version: 27.4.1
+  resolution: "@types/jest@npm:27.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fjest%2F-%2Fjest-27.4.1.tgz"
   dependencies:
-    jest-diff: ^27.0.0
+    jest-matcher-utils: ^27.0.0
     pretty-format: ^27.0.0
-  checksum: d2350267f954f9a2e4a15e5f02fbf19a77abfb9fd9e57a954de1fb0e9a0d3d5f8d3646ac7d9c42aeb4b4d828d2e70624ec149c85bb50a48634a54eed8429e1f8
+  checksum: 5184f3eef4832d01ee8f59bed15eec45ccc8e29c724a5e6ce37bf74396b37bdf04f557000f45ba4fc38ae6075cf9cfcce3d7a75abc981023c61ceb27230a93e4
   languageName: node
   linkType: hard
 
@@ -3841,9 +3841,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 17.0.19
-  resolution: "@types/node@npm:17.0.19::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fnode%2F-%2Fnode-17.0.19.tgz"
-  checksum: 6bbd35bfc23dd50d1aefd4ae49c31f7fd632be209dba67c0322bb4fe8b555f4bb6e894018963146ad7758ae596857d5cbecc2d46ddf90a54f6a4424811cf4351
+  version: 17.0.21
+  resolution: "@types/node@npm:17.0.21::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fnode%2F-%2Fnode-17.0.21.tgz"
+  checksum: 89dcd2fe82f21d3634266f8384e9c865cf8af49685639fbdbd799bdd1040480fb1e8eeda2d3b9fce41edbe704d2a4be9f427118c4ae872e8d9bb7cbeb3c41a94
   languageName: node
   linkType: hard
 
@@ -6000,6 +6000,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"NavList-90d20e@workspace:malty/molecules/NavList":
+  version: 0.0.0-use.local
+  resolution: "NavList-90d20e@workspace:malty/molecules/NavList"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Notepad-308927@workspace:malty/icons/Notepad":
   version: 0.0.0-use.local
   resolution: "Notepad-308927@workspace:malty/icons/Notepad"
@@ -6252,6 +6261,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"ProductsBar-02d40e@workspace:malty/molecules/ProductsBar":
+  version: 0.0.0-use.local
+  resolution: "ProductsBar-02d40e@workspace:malty/molecules/ProductsBar"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "ProgressBar-7b0b05@workspace:malty/atoms/ProgressBar":
   version: 0.0.0-use.local
   resolution: "ProgressBar-7b0b05@workspace:malty/atoms/ProgressBar"
@@ -6390,6 +6408,15 @@ __metadata:
 "Shop-a97039@workspace:malty/icons/Shop":
   version: 0.0.0-use.local
   resolution: "Shop-a97039@workspace:malty/icons/Shop"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"SideNav-bf03d9@workspace:malty/molecules/SideNav":
+  version: 0.0.0-use.local
+  resolution: "SideNav-bf03d9@workspace:malty/molecules/SideNav"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -7773,8 +7800,8 @@ __metadata:
   linkType: hard
 
 "babel-plugin-styled-components@npm:>= 1.12.0":
-  version: 2.0.3
-  resolution: "babel-plugin-styled-components@npm:2.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fbabel-plugin-styled-components%2F-%2Fbabel-plugin-styled-components-2.0.3.tgz"
+  version: 2.0.6
+  resolution: "babel-plugin-styled-components@npm:2.0.6::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fbabel-plugin-styled-components%2F-%2Fbabel-plugin-styled-components-2.0.6.tgz"
   dependencies:
     "@babel/helper-annotate-as-pure": ^7.16.0
     "@babel/helper-module-imports": ^7.16.0
@@ -7783,7 +7810,7 @@ __metadata:
     picomatch: ^2.3.0
   peerDependencies:
     styled-components: ">= 2"
-  checksum: 7fe2d5f4c825f93b982b3505c7be36cb41b6e476efebfdfebc5f2a214437d7434162508875bbe7f50a1ecd5bd59b6405258b2f7b7bf11d6a9c00ce82a4d08e8d
+  checksum: 7be16a06432e0acfdbef23688b0da7d2320f2c48b6639e6f18089d4cdba4784b68d99e9b90e6d2b6babfb5a370dbc71151f1160f2cd8ca611c1fbd2cb1aea0ab
   languageName: node
   linkType: hard
 
@@ -8818,6 +8845,7 @@ __metadata:
     prettier-plugin-organize-imports: ^1.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-router-dom: 6.2.1
     react-test-renderer: ^17.0.2
     styled-components: ^5.2.3
     styled-normalize: ^8.0.7
@@ -9205,7 +9233,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-support@npm:^1.1.2":
+"color-support@npm:^1.1.2, color-support@npm:^1.1.3":
   version: 1.1.3
   resolution: "color-support@npm:1.1.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcolor-support%2F-%2Fcolor-support-1.1.3.tgz"
   bin:
@@ -9848,7 +9876,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.0.0, debug@npm:^3.1.1, debug@npm:^3.2.6, debug@npm:^3.2.7":
+"debug@npm:^3.0.0, debug@npm:^3.1.1, debug@npm:^3.2.7":
   version: 3.2.7
   resolution: "debug@npm:3.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fdebug%2F-%2Fdebug-3.2.7.tgz"
   dependencies:
@@ -10304,9 +10332,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.71":
-  version: 1.4.71
-  resolution: "electron-to-chromium@npm:1.4.71::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.71.tgz"
-  checksum: ecb2546eed6b0e95003d787c259de730f32e2f5c0fa2acb27069c0cd21378cbc2a6c7516f4ec677a5960db4e180644f87ed91a729825a238454e31e4e74617db
+  version: 1.4.73
+  resolution: "electron-to-chromium@npm:1.4.73::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.73.tgz"
+  checksum: 8a76418455bb697a4a3488a8a880fd2573bf8db4e007b683daadba9b9c12c092f53829a0d6a3e4460b008e9eb7ee1eddc219bf01f358e47c2d00175945f3cfb9
   languageName: node
   linkType: hard
 
@@ -10431,12 +10459,12 @@ __metadata:
   linkType: hard
 
 "enhanced-resolve@npm:^5.0.0, enhanced-resolve@npm:^5.8.3":
-  version: 5.9.0
-  resolution: "enhanced-resolve@npm:5.9.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fenhanced-resolve%2F-%2Fenhanced-resolve-5.9.0.tgz"
+  version: 5.9.1
+  resolution: "enhanced-resolve@npm:5.9.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fenhanced-resolve%2F-%2Fenhanced-resolve-5.9.1.tgz"
   dependencies:
     graceful-fs: ^4.2.4
     tapable: ^2.2.0
-  checksum: 06435f52670229eb7fd8d92ea2d988a275f9a1b8c08b9023ba45767c6ed844bc87aa9c9c7e6d044eef99ad73fc3b066b78101163696e5c53121909e5bf8efe8b
+  checksum: d5adf8fa8bce8ddaf663b020d26db7efb4cc46b0a35fad750cb9149b0ae8ef70c8ee8d85b1a85c0c6490613afddba1c9401590dd37b0426eaa483d48003a5f49
   languageName: node
   linkType: hard
 
@@ -10846,26 +10874,26 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-react@npm:^7.23.2":
-  version: 7.28.0
-  resolution: "eslint-plugin-react@npm:7.28.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Feslint-plugin-react%2F-%2Feslint-plugin-react-7.28.0.tgz"
+  version: 7.29.2
+  resolution: "eslint-plugin-react@npm:7.29.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Feslint-plugin-react%2F-%2Feslint-plugin-react-7.29.2.tgz"
   dependencies:
     array-includes: ^3.1.4
     array.prototype.flatmap: ^1.2.5
     doctrine: ^2.1.0
     estraverse: ^5.3.0
     jsx-ast-utils: ^2.4.1 || ^3.0.0
-    minimatch: ^3.0.4
+    minimatch: ^3.1.2
     object.entries: ^1.1.5
     object.fromentries: ^2.0.5
     object.hasown: ^1.1.0
     object.values: ^1.1.5
-    prop-types: ^15.7.2
+    prop-types: ^15.8.1
     resolve: ^2.0.0-next.3
     semver: ^6.3.0
     string.prototype.matchall: ^4.0.6
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: 90293d0fd53bb1f735ffd32141cdd211fb1120c9f7bbe5342f9e923261a39e52a2b2575d4e46c9cd77d257f42db4a99b8b339689fc5b5c1c26048929f69b1784
+  checksum: fcd793c0fd8e4570dcf8f70dd4afae9882303f4a4b650e09dac2f85fdc0b28747cb97b79832f4b8f4eabdbfb9edf69dc0ff04e8b7f33e0bb8e3f024185f4b037
   languageName: node
   linkType: hard
 
@@ -11083,7 +11111,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventsource@npm:^1.0.7":
+"eventsource@npm:^1.1.0":
   version: 1.1.0
   resolution: "eventsource@npm:1.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Feventsource%2F-%2Feventsource-1.1.0.tgz"
   dependencies:
@@ -11389,7 +11417,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"faye-websocket@npm:^0.11.3":
+"faye-websocket@npm:^0.11.3, faye-websocket@npm:^0.11.4":
   version: 0.11.4
   resolution: "faye-websocket@npm:0.11.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ffaye-websocket%2F-%2Ffaye-websocket-0.11.4.tgz"
   dependencies:
@@ -11908,19 +11936,19 @@ __metadata:
   linkType: hard
 
 "gauge@npm:^4.0.0":
-  version: 4.0.1
-  resolution: "gauge@npm:4.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fgauge%2F-%2Fgauge-4.0.1.tgz"
+  version: 4.0.2
+  resolution: "gauge@npm:4.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fgauge%2F-%2Fgauge-4.0.2.tgz"
   dependencies:
     ansi-regex: ^5.0.1
     aproba: ^1.0.3 || ^2.0.0
-    color-support: ^1.1.2
-    console-control-strings: ^1.0.0
+    color-support: ^1.1.3
+    console-control-strings: ^1.1.0
     has-unicode: ^2.0.1
-    signal-exit: ^3.0.0
+    signal-exit: ^3.0.7
     string-width: ^4.2.3
     strip-ansi: ^6.0.1
-    wide-align: ^1.1.2
-  checksum: 398540c761f2efbd8c35323b781a572db09a3ab2d62ea672fc440eb88e9249624ac8b64275731d9ef266cde6491880df5360d74d0829da077136ee614b08f85c
+    wide-align: ^1.1.5
+  checksum: 65077b87a7138bf465c7ea9541a81cdaeba42224f8650427529d47dda99c0a9273b596a8ee54a62af2a04a31682fa49de9b35ef7dd52ed8da5f0436d288ead23
   languageName: node
   linkType: hard
 
@@ -12443,11 +12471,11 @@ __metadata:
   linkType: hard
 
 "history@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "history@npm:5.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fhistory%2F-%2Fhistory-5.2.0.tgz"
+  version: 5.3.0
+  resolution: "history@npm:5.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fhistory%2F-%2Fhistory-5.3.0.tgz"
   dependencies:
     "@babel/runtime": ^7.7.6
-  checksum: 2c6a05aa86793e0a0857013457f34474c17f81a012c6bdb00bf30862389ac6a8c2df113d82176f67af2fd534ea9dc4e1218470c5526355b6fc1aefcc971f2eb2
+  checksum: d73c35df49d19ac172f9547d30a21a26793e83f16a78386d99583b5bf1429cc980799fcf1827eb215d31816a6600684fba9686ce78104e23bd89ec239e7c726f
   languageName: node
   linkType: hard
 
@@ -13742,7 +13770,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^27.0.0":
+"jest-diff@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-diff@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fjest-diff%2F-%2Fjest-diff-27.5.1.tgz"
   dependencies:
@@ -13889,6 +13917,18 @@ __metadata:
     jest-get-type: ^26.3.0
     pretty-format: ^26.6.2
   checksum: 74d2165c1ac7fe98fe27cd2b5407499478e6b2fe99dd54e26d8ee5c9f5f913bdd7bdc07c7221b9b04df0c15e9be0e866ff3455b03e38cc66c480d9996d6d5405
+  languageName: node
+  linkType: hard
+
+"jest-matcher-utils@npm:^27.0.0":
+  version: 27.5.1
+  resolution: "jest-matcher-utils@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fjest-matcher-utils%2F-%2Fjest-matcher-utils-27.5.1.tgz"
+  dependencies:
+    chalk: ^4.0.0
+    jest-diff: ^27.5.1
+    jest-get-type: ^27.5.1
+    pretty-format: ^27.5.1
+  checksum: bb2135fc48889ff3fe73888f6cc7168ddab9de28b51b3148f820c89fdfd2effdcad005f18be67d0b9be80eda208ad47290f62f03d0a33f848db2dd0273c8217a
   languageName: node
   linkType: hard
 
@@ -14281,13 +14321,6 @@ __metadata:
   version: 1.0.1
   resolution: "json-stable-stringify-without-jsonify@npm:1.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fjson-stable-stringify-without-jsonify%2F-%2Fjson-stable-stringify-without-jsonify-1.0.1.tgz"
   checksum: cff44156ddce9c67c44386ad5cddf91925fe06b1d217f2da9c4910d01f358c6e3989c4d5a02683c7a5667f9727ff05831f7aa8ae66c8ff691c556f0884d49215
-  languageName: node
-  linkType: hard
-
-"json3@npm:^3.3.3":
-  version: 3.3.3
-  resolution: "json3@npm:3.3.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fjson3%2F-%2Fjson3-3.3.3.tgz"
-  checksum: 55eda204a4c70d11b7d5caa5cb64c76a3aa54d5df72d07bdf446b922fd7cb8657b0732f68e0c36790f55e195e0a429c299144ff05430bbe93bc2a7c81ad3472b
   languageName: node
   linkType: hard
 
@@ -15100,7 +15133,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^3.0.2, minimatch@npm:^3.0.4":
+"minimatch@npm:^3.0.2, minimatch@npm:^3.0.4, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fminimatch%2F-%2Fminimatch-3.1.2.tgz"
   dependencies:
@@ -15302,7 +15335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.23, nanoid@npm:^3.2.0":
+"nanoid@npm:^3.1.23, nanoid@npm:^3.3.1":
   version: 3.3.1
   resolution: "nanoid@npm:3.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnanoid%2F-%2Fnanoid-3.3.1.tgz"
   bin:
@@ -16540,13 +16573,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:^8.2.15":
-  version: 8.4.6
-  resolution: "postcss@npm:8.4.6::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpostcss%2F-%2Fpostcss-8.4.6.tgz"
+  version: 8.4.7
+  resolution: "postcss@npm:8.4.7::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpostcss%2F-%2Fpostcss-8.4.7.tgz"
   dependencies:
-    nanoid: ^3.2.0
+    nanoid: ^3.3.1
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
-  checksum: 60e7808f39c4a9d0fa067bfd5eb906168c4eb6d3ff0093f7d314d1979b001a16363deedccd368a7df869c63ad4ae350d27da439c94ff3fb0f8fc93d49fe38a90
+  checksum: a515ed36622edbee1d3ba153298d3b62ae9826dfa6de19204c2a6f975c8d3ad36808423b5119a9d82b78efd486de3ce35a1faf882a36ac8aa09492be4fbb7fe1
   languageName: node
   linkType: hard
 
@@ -16658,17 +16691,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.21.0":
+"prismjs@npm:^1.21.0, prismjs@npm:~1.27.0":
   version: 1.27.0
   resolution: "prismjs@npm:1.27.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fprismjs%2F-%2Fprismjs-1.27.0.tgz"
   checksum: 85c7f4a3e999073502cc9e1882af01e3709706369ec254b60bff1149eda701f40d02512acab956012dc7e61cfd61743a3a34c1bd0737e8dbacd79141e5698bbc
-  languageName: node
-  linkType: hard
-
-"prismjs@npm:~1.25.0":
-  version: 1.25.0
-  resolution: "prismjs@npm:1.25.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fprismjs%2F-%2Fprismjs-1.25.0.tgz"
-  checksum: 04d8eae9d1b26b76c350bc65621584c8f8cab80ace7da3953f8aef2f9a8dd4b4f71c1d15bc5c67f126ddc90cd5af613919dc1340589a6c57355bed86fa3ac010
   languageName: node
   linkType: hard
 
@@ -16752,7 +16778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.0.0, prop-types@npm:^15.6.0, prop-types@npm:^15.7.2":
+"prop-types@npm:^15.0.0, prop-types@npm:^15.6.0, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fprop-types%2F-%2Fprop-types-15.8.1.tgz"
   dependencies:
@@ -17144,7 +17170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.0.0":
+"react-router-dom@npm:6.2.1, react-router-dom@npm:^6.0.0":
   version: 6.2.1
   resolution: "react-router-dom@npm:6.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-router-dom%2F-%2Freact-router-dom-6.2.1.tgz"
   dependencies:
@@ -17333,13 +17359,13 @@ __metadata:
   linkType: hard
 
 "refractor@npm:^3.1.0":
-  version: 3.5.0
-  resolution: "refractor@npm:3.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Frefractor%2F-%2Frefractor-3.5.0.tgz"
+  version: 3.6.0
+  resolution: "refractor@npm:3.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Frefractor%2F-%2Frefractor-3.6.0.tgz"
   dependencies:
     hastscript: ^6.0.0
     parse-entities: ^2.0.0
-    prismjs: ~1.25.0
-  checksum: e8e8bfe8fc035fb6b0a9427ba19abbd2ec1ad78197dcb0027fca95c94fa046ed14f253682b2dcee42e87591300c9237924714ccddf18173a21a18622521a20b7
+    prismjs: ~1.27.0
+  checksum: 39b01c4168c77c5c8486f9bf8907bbb05f257f15026057ba5728535815a2d90eed620468a4bfbb2b8ceefbb3ce3931a1be8b17152dbdbc8b0eef92450ff750a2
   languageName: node
   linkType: hard
 
@@ -18224,7 +18250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2, signal-exit@npm:^3.0.3":
+"signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2, signal-exit@npm:^3.0.3, signal-exit@npm:^3.0.7":
   version: 3.0.7
   resolution: "signal-exit@npm:3.0.7::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fsignal-exit%2F-%2Fsignal-exit-3.0.7.tgz"
   checksum: a2f098f247adc367dffc27845853e9959b9e88b01cb301658cfe4194352d8d2bb32e18467c786a7fe15f1d44b233ea35633d076d5e737870b7139949d1ab6318
@@ -18314,16 +18340,15 @@ __metadata:
   linkType: hard
 
 "sockjs-client@npm:^1.5.0":
-  version: 1.5.2
-  resolution: "sockjs-client@npm:1.5.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fsockjs-client%2F-%2Fsockjs-client-1.5.2.tgz"
+  version: 1.6.0
+  resolution: "sockjs-client@npm:1.6.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fsockjs-client%2F-%2Fsockjs-client-1.6.0.tgz"
   dependencies:
-    debug: ^3.2.6
-    eventsource: ^1.0.7
-    faye-websocket: ^0.11.3
+    debug: ^3.2.7
+    eventsource: ^1.1.0
+    faye-websocket: ^0.11.4
     inherits: ^2.0.4
-    json3: ^3.3.3
-    url-parse: ^1.5.3
-  checksum: b3c3966ca8ebe72454e3bbb83b21b0f58dda1c725815f2897162104afc42b779de9a6d964fb2b164ea290cb4c0c94cb3542bd7f788f21fe5df018da963826f96
+    url-parse: ^1.5.10
+  checksum: e071eafb2a0a3e1ecd5af8b423c01e4c76be703cf13d97ee240b2af297784d57a0a3b398415cbb6506f80a256d1a16c7b4c15da9e58520bf0cc28cc316ccbda4
   languageName: node
   linkType: hard
 
@@ -19553,7 +19578,7 @@ __metadata:
 
 "typescript@patch:typescript@^4.2.3#~builtin<compat/typescript>":
   version: 4.5.5
-  resolution: "typescript@patch:typescript@npm%3A4.5.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.5.5.tgz#~builtin<compat/typescript>::version=4.5.5&hash=142761"
+  resolution: "typescript@patch:typescript@npm%3A4.5.5%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.5.5.tgz#~builtin<compat/typescript>::version=4.5.5&hash=de8f8a"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -19562,11 +19587,11 @@ __metadata:
   linkType: hard
 
 "uglify-js@npm:^3.1.4":
-  version: 3.15.1
-  resolution: "uglify-js@npm:3.15.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fuglify-js%2F-%2Fuglify-js-3.15.1.tgz"
+  version: 3.15.2
+  resolution: "uglify-js@npm:3.15.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fuglify-js%2F-%2Fuglify-js-3.15.2.tgz"
   bin:
     uglifyjs: bin/uglifyjs
-  checksum: cf88574ec8af4d69368142a3f9fb83ac11b1344a117dff08890fcf99ed12c782c810f02e71a0c2a7e8666ea6225894f1c171cbd90e1a1fe4b2c4a198f8ad61a3
+  checksum: 5bbe848e01281032db94567f27eee3ab61ec685275c1c6825fbad55f231910fc1b47f1ceef1dc1d946e1253e946fde8b0d2809aa3ae186e4ddd6bda2f6dc7850
   languageName: node
   linkType: hard
 
@@ -19821,13 +19846,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"url-parse@npm:^1.4.3, url-parse@npm:^1.5.3":
-  version: 1.5.9
-  resolution: "url-parse@npm:1.5.9::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Furl-parse%2F-%2Furl-parse-1.5.9.tgz"
+"url-parse@npm:^1.4.3, url-parse@npm:^1.5.10":
+  version: 1.5.10
+  resolution: "url-parse@npm:1.5.10::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Furl-parse%2F-%2Furl-parse-1.5.10.tgz"
   dependencies:
     querystringify: ^2.1.1
     requires-port: ^1.0.0
-  checksum: 27bb2bec4736bb89837bc0359bd6f9f7698888b09f3b40fa9c9ce2c3971150b4a529a3ede3dcd639a2e89681b8a894e9166972d886d2c0e94b4fb32a8db7573a
+  checksum: fbdba6b1d83336aca2216bbdc38ba658d9cfb8fc7f665eb8b17852de638ff7d1a162c198a8e4ed66001ddbf6c9888d41e4798912c62b4fd777a31657989f7bdf
   languageName: node
   linkType: hard
 
@@ -20531,7 +20556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wide-align@npm:^1.1.2":
+"wide-align@npm:^1.1.2, wide-align@npm:^1.1.5":
   version: 1.1.5
   resolution: "wide-align@npm:1.1.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fwide-align%2F-%2Fwide-align-1.1.5.tgz"
   dependencies:
