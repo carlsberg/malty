@@ -1,9 +1,4 @@
-import {
-  Icon,
-  IconColors as Colors,
-  IconNamesTypes,
-  IconSizesTypes as IconSizes
-} from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -19,7 +14,15 @@ import {
   StyledOption,
   StyledSelect
 } from './Input.styled';
-import { Country, IconPosition, InputProps, InputType, MaskTypes, Prefixes, SizeTypes } from './Input.types';
+import {
+  InputCountry,
+  InputIconPosition,
+  InputMaskTypes,
+  InputPrefixes,
+  InputProps,
+  InputSize,
+  InputType
+} from './Input.types';
 
 export const Input = ({
   value,
@@ -29,25 +32,25 @@ export const Input = ({
   placeholder,
   error,
   icon,
-  iconPosition = IconPosition.Left,
+  iconPosition = InputIconPosition.Left,
   disabled,
-  size = SizeTypes.Medium,
+  size = InputSize.Medium,
   clearable,
   mask,
   children
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [numSize, setNumSize] = useState(theme.variables.input.size.medium.value);
+  const [numSize, setNumSize] = useState(theme.sizes.xl.value.replace('px', ''));
 
   useEffect(() => {
     switch (size) {
-      case SizeTypes.Large: {
-        setNumSize(theme.variables.input.size.large.value);
+      case InputSize.Large: {
+        setNumSize(theme.sizes['2xl'].value.replace('px', ''));
         break;
       }
       default: {
-        setNumSize(theme.variables.input.size.medium.value);
+        setNumSize(theme.sizes.xl.value.replace('px', ''));
         break;
       }
     }
@@ -55,10 +58,11 @@ export const Input = ({
 
   const transform = (text: string): string => {
     if (mask) {
-      if (type === InputType.Telephone && mask === MaskTypes.Telephone) {
+      if (type === InputType.Telephone && mask === InputMaskTypes.Telephone) {
         const tel = text.match(/(\d{3,})(\d{4,})/);
         if (tel) return `${tel[1]}  ${tel[2]}`;
-      } else if (type === InputType.Text && mask === MaskTypes.CreditCard) {
+      } else if (type === InputType.Text && mask === InputMaskTypes.CreditCard) {
+        // eslint-disable-next-line no-useless-escape
         const card = text.match(/((\d{4}[-|" "|\.])|(\d{4})){3}\d{4}/g);
         if (card) return `${card[1]}-${card[2]}-${card[3]}-${card[4]}`;
       }
@@ -70,15 +74,15 @@ export const Input = ({
     (clearable || type === InputType.Search) &&
     !!value && (
       <Icon
-        name={IconNamesTypes.ItemClose}
-        color={Colors.Primary}
-        size={IconSizes.Medium}
+        name={IconName.ItemClose}
+        color={IconColor.Primary}
+        size={IconSize.Medium}
         className="clear-trigger"
         onClick={() => onValueChange('')}
       />
     );
 
-  const renderIcon = () => icon && <Icon name={icon} color={Colors.Primary} size={IconSizes.Medium} />;
+  const renderIcon = () => icon && <Icon name={icon} color={IconColor.Primary} size={IconSize.Medium} />;
 
   const renderInput = () => (
     <TypographyProvider>
@@ -91,8 +95,8 @@ export const Input = ({
         size={parseInt(numSize, 10)}
         hasIcon={!!icon}
         isError={!!error}
-        isIconLeft={iconPosition === IconPosition.Left}
-        addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+        isIconLeft={iconPosition === InputIconPosition.Left}
+        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
         onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
         type={type}
         theme={theme}
@@ -111,7 +115,7 @@ export const Input = ({
         disabled={disabled}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
-        <Icon name={IconNamesTypes.Minus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
+        <Icon name={IconName.Minus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
       <StyledInput
         name={id}
@@ -122,8 +126,8 @@ export const Input = ({
         size={parseInt(numSize, 10)}
         hasIcon={!!icon}
         isError={!!error}
-        isIconLeft={iconPosition === IconPosition.Left}
-        addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+        isIconLeft={iconPosition === InputIconPosition.Left}
+        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
         onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
         type={type}
         theme={theme}
@@ -135,50 +139,54 @@ export const Input = ({
         disabled={disabled}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
-        <Icon name={IconNamesTypes.Plus} color={Colors.Primary} size={IconSizes.Medium} className="quantity-control" />
+        <Icon name={IconName.Plus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
     </TypographyProvider>
   );
 
-  const renderTelNumber = () => (
-    // TO FOLLOW: Convert the select to dsm dropdown
-    <TypographyProvider>
-      <StyledSelect theme={theme} height={numSize} disabled={disabled} isError={!!error}>
-        {Object.keys(Country)
-          .sort((a, b) => {
-            const newA = Prefixes[Country[a as keyof typeof Country] as keyof typeof Prefixes];
-            const newB = Prefixes[Country[b as keyof typeof Country] as keyof typeof Prefixes];
-            return newA - newB;
-          })
-          .map((country) => {
-            const code = Prefixes[Country[country as keyof typeof Country] as keyof typeof Prefixes];
-            return (
-              <StyledOption key={`option-value-${country}`} value={code} height={numSize}>
-                {emojiFlag(country)}
-                &nbsp;&nbsp;&nbsp;+{code}
-              </StyledOption>
-            );
-          })}
-      </StyledSelect>
-      <StyledInput
-        name={id}
-        id={id}
-        value={value}
-        placeholder={placeholder}
-        disabled={disabled}
-        size={parseInt(numSize, 10)}
-        hasIcon={!!icon}
-        isError={!!error}
-        isIconLeft={iconPosition === IconPosition.Left}
-        addRight={iconPosition !== IconPosition.Left && type !== InputType.Date && type !== InputType.Number}
-        onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-        type={type}
-        theme={theme}
-      />
-      {renderClearable()}
-      {renderIcon()}
-    </TypographyProvider>
-  );
+  const renderTelNumber = () => {
+    const height = `${numSize}px`;
+    return (
+      // TO FOLLOW: Convert the select to DSM dropdown
+      <TypographyProvider>
+        <StyledSelect theme={theme} height={height} disabled={disabled} isError={!!error}>
+          {Object.keys(InputCountry)
+            .sort((a, b) => {
+              const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+              const newB = InputPrefixes[InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+              return newA - newB;
+            })
+            .map((country) => {
+              const code =
+                InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+              return (
+                <StyledOption key={`option-value-${country}`} value={code} height={height}>
+                  {emojiFlag(country)}
+                  &nbsp;&nbsp;&nbsp;+{code}
+                </StyledOption>
+              );
+            })}
+        </StyledSelect>
+        <StyledInput
+          name={id}
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          disabled={disabled}
+          size={parseInt(numSize, 10)}
+          hasIcon={!!icon}
+          isError={!!error}
+          isIconLeft={iconPosition === InputIconPosition.Left}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+          onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+          type={type}
+          theme={theme}
+        />
+        {renderClearable()}
+        {renderIcon()}
+      </TypographyProvider>
+    );
+  };
 
   return (
     <TypographyProvider>
@@ -189,7 +197,7 @@ export const Input = ({
           </StyledLabel>
         )}
         <StyledInputWrapper
-          isIconLeft={iconPosition === IconPosition.Left}
+          isIconLeft={iconPosition === InputIconPosition.Left}
           clearable={clearable || type === InputType.Search}
           addLeft={type === InputType.Telephone}
           addRight={type === InputType.Date}

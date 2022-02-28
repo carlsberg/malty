@@ -1,48 +1,72 @@
 import styled, { css } from 'styled-components';
-import { Align, Color, Size, Weight } from './Text.types';
+import { TextAlign, TextColor, TextStyle } from './Text.types';
 
 export const StyledParagraph = styled.p<{
-  size?: Size;
-  weight?: string;
-  align?: string;
-  color?: Color;
-  underline?: boolean;
-  italic?: boolean;
+  textStyle: TextStyle;
+  color: TextColor;
+  align: TextAlign;
+  italic: boolean;
 }>`
   font-family: inherit;
-  color: ${({ color, theme }) => {
-    if (color === Color.White) {
-      return theme.color.white.value;
-    }
-    if (color === Color.Support) {
-      return theme.color.support.support20.value;
-    }
-    if (color === Color.Disable) {
-      return theme.color.system.disableStrong.value;
-    }
-    return theme.color.default.value;
-  }};
-  text-align: ${({ align }) => align ?? Align.Left};
-  font-size: ${({ size, theme }) =>
-    size ? theme.typography.text[size]['font-size'].value : theme.typography.text.medium['font-size'].value}px;
-  line-height: ${({ size, theme }) =>
-    size ? theme.typography.text[size]['line-height'].value : theme.typography.text.medium['font-size'].value}px;
-  font-weight: ${({ weight }) => weight || Weight.Regular};
-  ${({ underline }) =>
-    underline &&
+  margin: 0;
+  padding: 0;
+  color: ${({ color, theme }) => theme.colors['text-colours'][color].value};
+  ${({ theme, textStyle }) =>
     css`
-      text-decoration: underline;
+      font-family: ${theme.typography.desktop.text[textStyle]['font-family'].value};
+      font-size: ${theme.typography.desktop.text[textStyle]['font-size'].value};
+      letter-spacing: ${theme.typography.desktop.text[textStyle]['letter-spacing'].value};
+      line-height: ${theme.typography.desktop.text[textStyle]['line-height'].value};
+      font-weight: ${theme.typography.desktop.text[textStyle]['font-weight'].value};
+    `}
+  text-align: ${({ align }) => align ?? TextAlign.Left};
+  ${({ theme, textStyle }) =>
+    theme.typography.desktop.text[textStyle]['text-transform']?.value &&
+    css`
+      text-transform: ${theme.typography.desktop.text[textStyle]['text-transform']?.value};
+    `}
+  ${({ theme, textStyle }) =>
+    theme.typography.desktop.text[textStyle]['text-decoration']?.value &&
+    css`
+      text-decoration: ${theme.typography.desktop.text[textStyle]['text-decoration']?.value};
     `}
   ${({ italic }) =>
     italic &&
     css`
       font-style: italic;
     `}
-
-  ${({ theme }) => css`
-    @media screen and (max-width: ${theme.variables.global.breakpoints.small.value}px) {
-      ${theme.typography.text.small['mobile-font-size'] &&
-      `font-size:${theme.typography.text.small['mobile-font-size'].value}px`}
+  ${({ textStyle, theme }) => css`
+    @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
+      ${css`
+        font-size: ${theme.typography.tablet.text[textStyle]['font-size'].value};
+        letter-spacing: ${theme.typography.tablet.text[textStyle]['letter-spacing'].value};
+        line-height: ${theme.typography.tablet.text[textStyle]['line-height'].value};
+        font-weight: ${theme.typography.tablet.text[textStyle]['font-weight'].value};
+      `}
+      ${theme.typography.tablet.text[textStyle]['text-transform']?.value &&
+      css`
+        text-transform: ${theme.typography.tablet.text[textStyle]['text-transform']?.value};
+      `}
+      ${theme.typography.tablet.text[textStyle]['text-decoration']?.value &&
+      css`
+        text-decoration: ${theme.typography.tablet.text[textStyle]['text-decoration']?.value};
+      `}
+    }
+    @media screen and (max-width: ${theme.layout.xsmall['device-max-width']?.value}) {
+      ${css`
+        font-size: ${theme.typography.mobile.text[textStyle]['font-size'].value};
+        letter-spacing: ${theme.typography.mobile.text[textStyle]['letter-spacing'].value};
+        line-height: ${theme.typography.mobile.text[textStyle]['line-height'].value};
+        font-weight: ${theme.typography.mobile.text[textStyle]['font-weight'].value};
+      `}
+      ${theme.typography.mobile.text[textStyle]['text-transform']?.value &&
+      css`
+        text-transform: ${theme.typography.mobile.text[textStyle]['text-transform']?.value};
+      `}
+      ${theme.typography.mobile.text[textStyle]['text-decoration']?.value &&
+      css`
+        text-decoration: ${theme.typography.mobile.text[textStyle]['text-decoration']?.value};
+      `}
     }
   `}
 `;

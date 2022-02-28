@@ -8,19 +8,19 @@ export const StyledInputContainer = styled.div`
 `;
 
 export const StyledLabel = styled.label`
-  color: ${({ theme }) => theme.color.default.value};
-  font-size: ${({ theme }) => theme.typography.information.small['font-size'].value}px;
-  line-height: ${({ theme }) => theme.typography.information.small['line-height'].value}px;
-  padding-bottom: ${({ theme }) => theme.variables.input.label.bottomPadding.value}px;
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
+  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
   font-weight: bold;
 `;
 
 export const StyledError = styled.label`
   font-family: inherit;
-  color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
+  color: ${({ theme }) => theme.colors.colours.system.fail.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
 `;
 
@@ -49,7 +49,7 @@ export const StyledInputWrapper = styled.div<{
         if (addRight) right += 32;
         if (!isIconLeft && addRight) right += 8;
         return css`
-          ${clearable || addRight ? `right: ${right}px` : ''}
+          ${clearable || addRight ? `right: ${right}` : ''}
         `;
       }}
     }
@@ -57,9 +57,7 @@ export const StyledInputWrapper = styled.div<{
     &:not(.clear-trigger) {
       ${({ theme, isIconLeft, addLeft }) => {
         const pos =
-          addLeft && isIconLeft
-            ? `${theme.variables.input.iconPadding.value}px`
-            : `${theme.variables.input.padding.value}px`;
+          addLeft && isIconLeft ? `${theme.sizes['5xl'].value + theme.sizes.m.value}px` : `${theme.sizes.s.value}`;
         return css`
           ${isIconLeft ? 'left' : 'right'}: ${pos};
         `;
@@ -85,17 +83,17 @@ export const StyledInput = styled.input<{
   display: inline-flex;
   box-sizing: border-box;
   font-weight: normal;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid
     ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
-  color: ${({ theme }) => theme.color.button.primaryDefault.value};
+      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   height: ${({ size }) => size}px;
   ::placeholder {
     opacity: 0.8;
-    color: ${({ theme }) => theme.color.information.indirect.value};
+    color: ${({ theme }) => theme.colors.colours.information.indirect.value};
   }
   /* clears the ‘X’ from Internet Explorer */
   &[type='search']::-ms-clear {
@@ -132,26 +130,22 @@ export const StyledInput = styled.input<{
   }
 
   ${({ theme, hasIcon, isIconLeft, addRight }) => {
-    const rightPadding = isIconLeft
-      ? `${theme.variables.input.largePadding.value}px`
-      : `${theme.variables.input.padding.value}px`;
-    let leftPadding = isIconLeft
-      ? `${theme.variables.input.padding.value}px`
-      : `${theme.variables.input.largePadding.value}px`;
-    if (addRight) leftPadding = `${theme.variables.input.leftPadding.value}px`;
+    const rightPadding = isIconLeft ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
+    let leftPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
+    if (addRight) leftPadding = `${theme.sizes['4xl'].value}`;
     return hasIcon
       ? css`
           padding: 0 ${leftPadding} 0 ${rightPadding};
         `
       : css`
-          padding: 0 ${theme.variables.input.padding.value}px;
+          padding: 0 ${theme.sizes.s.value};
         `;
   }}
 
   ${({ disabled }) =>
     disabled
       ? css`
-          background-color: ${({ theme }) => theme.color.form.formSelect.value};
+          background-color: ${({ theme }) => theme.colors.colours.support[20].value};
         `
       : css`
           &:hover,
@@ -159,11 +153,11 @@ export const StyledInput = styled.input<{
             outline: none;
           }
           &:hover {
-            border-color: ${({ theme }) => theme.color.information.indirect.value};
+            border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
           }
           &:focus {
-            border-color: ${({ theme }) => theme.color.form.calendarSpecial.value};
-            color: ${({ theme }) => theme.color.form.calendarSpecial.value};
+            border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+            color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
           }
         `}
 `;
@@ -176,9 +170,9 @@ export const StyledButton = styled.button<{
   width: ${({ size }) => size}px;
   border: 1px solid
     ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
+      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   box-sizing: border-box;
-  background: ${({ theme }) => theme.color.button.primaryNegativeDefault.value};
+  background: ${({ theme }) => theme.colors.colours.default.white.value};
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -192,7 +186,7 @@ export const StyledButton = styled.button<{
     border-left: 0;
   }
   &:disabled {
-    background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+    background-color: ${({ theme }) => theme.colors.colours.information.disable.value};
   }
 `;
 
@@ -204,22 +198,22 @@ export const StyledSelect = styled.select<{
   vertical-align: top;
   display: inline-flex;
   box-sizing: border-box;
-  height: ${({ height }) => height}px;
-  width: ${({ theme }) => theme.variables.input.select.width.value}px;
+  height: ${({ height }) => height};
+  width: ${({ theme }) => theme.sizes['5xl'].value};
   border: 1px solid
     ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
+      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   border-right: 0;
   text-align: center;
   appearance: none;
   position: relative;
   &:disabled {
-    background-color: ${({ theme }) => theme.color.form.formSelect.value};
+    background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   }
 `;
 
 export const StyledOption = styled.option<{
   height?: string;
 }>`
-  height: ${({ height }) => height}px;
+  height: ${({ height }) => height};
 `;

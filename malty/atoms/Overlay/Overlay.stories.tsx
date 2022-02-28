@@ -3,7 +3,7 @@ import React from 'react';
 import { Overlay as OverlayComponent, OverlayProps } from '.';
 
 export default {
-  title: 'Atoms/Overlay',
+  title: 'Overlays/Overlay',
   component: OverlayComponent,
   parameters: {
     importObject: 'Overlay',

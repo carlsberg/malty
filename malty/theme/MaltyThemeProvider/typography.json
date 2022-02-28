@@ -1,150 +1,1488 @@
 {
-  "typography": {
-    "global": {
-      "font-family": {
-        "value": "'Montserrat'"
-      }
-    },
+  "desktop": {
     "headline": {
-      "font-family": {
-        "value": "'Montserrat'"
-      },
       "display": {
-        "font-size": {
-          "value": "72"
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
         },
-        "mobile-font-size": {
-          "value": "56"
+        "font-size": {
+          "value": "72px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "64"
-        }
-      },
-      "xlarge": {
-        "font-size": {
-          "value": "32"
+          "value": "64px"
         },
-        "mobile-font-size": {
-          "value": "24"
+        "font-weight": {
+          "value": "900"
         },
-        "line-height": {
-          "value": "32"
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
         }
       },
       "hero": {
-        "font-size": {
-          "value": "56"
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
         },
-        "mobile-font-size": {
-          "value": "48"
+        "font-size": {
+          "value": "56px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "52"
+          "value": "52px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
         }
       },
       "huge": {
-        "font-size": {
-          "value": "48"
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
         },
-        "mobile-font-size": {
-          "value": "32"
+        "font-size": {
+          "value": "48px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "44"
+          "value": "44px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "big": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "32px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "32px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
         }
       },
       "large": {
-        "font-size": {
-          "value": "24"
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
         },
-        "mobile-font-size": {
-          "value": "24"
+        "font-size": {
+          "value": "24px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "28"
+          "value": "28px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-large": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "18px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "22px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
         }
       },
       "medium": {
-        "font-size": {
-          "value": "18"
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
         },
-        "mobile-font-size": {
-          "value": "18"
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "22"
-        }
-      },
-      "small": {
-        "font-size": {
-          "value": "16"
+          "value": "20px"
         },
-        "mobile-font-size": {
-          "value": "16"
+        "font-weight": {
+          "value": "900"
         },
-        "line-height": {
-          "value": "20"
-        }
-      }
-    },
-    "information": {
-      "font-family": {
-        "value": "'Montserrat'"
-      },
-      "micro": {
-        "font-size": {
-          "value": "8"
-        },
-        "line-height": {
-          "value": "12"
-        }
-      },
-      "small": {
-        "font-size": {
-          "value": "12"
-        },
-        "line-height": {
-          "value": "16"
-        }
-      },
-      "tiny": {
-        "font-size": {
-          "value": "10"
-        },
-        "line-height": {
-          "value": "16"
+        "color": {
+          "value": "black"
         }
       }
     },
     "text": {
-      "font-family": {
-        "value": "'Montserrat'"
+      "medium_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "tiny_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "10px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "tiny_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "10px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "micro_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "8px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "12px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "micro_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Regular'"
+        },
+        "font-size": {
+          "value": "8px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "12px"
+        },
+        "font-weight": {
+          "value": "400"
+        },
+        "color": {
+          "value": "black"
+        }
+      }
+    }
+  },
+  "tablet": {
+    "headline": {
+      "display": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "72px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "64px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "hero": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "56px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "52px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "huge": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "48px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "44px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "big": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "32px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "32px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "large": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "24px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "28px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-large": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "18px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "22px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
+        }
       },
       "medium": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
         "font-size": {
-          "value": "16"
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "20"
+          "value": "20px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
+        }
+      }
+    },
+    "text": {
+      "medium_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
         }
       },
-      "medium-small": {
+      "medium_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
         "font-size": {
-          "value": "14"
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "18"
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
         }
       },
-      "small": {
+      "medium_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
         "font-size": {
-          "value": "12"
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
         },
         "line-height": {
-          "value": "18"
+          "value": "18px"
         },
-        "mobile-font-size": {
-          "value": "14"
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "tiny_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "10px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "tiny_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "10px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "micro_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "10px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "12px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "micro_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "10px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "12px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      }
+    }
+  },
+  "mobile": {
+    "headline": {
+      "display": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "56px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "64px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "hero": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "48px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "52px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "huge": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "32px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "44px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "big": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "24px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "32px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "text-transform": {
+          "value": " uppercase"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "large": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "20px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "28px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-large": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "18px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "22px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium": {
+        "font-family": {
+          "value": "'Montserrat Black', 'Montserrat-Black'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "20px"
+        },
+        "font-weight": {
+          "value": "900"
+        },
+        "color": {
+          "value": "black"
+        }
+      }
+    },
+    "text": {
+      "medium_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "16px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "medium-small_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "14px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "18px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_bold--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "small_default--underline": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "text-decoration": {
+          "value": " underline"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "tiny_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "tiny_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "16px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "micro_bold": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Bold'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "12px"
+        },
+        "font-weight": {
+          "value": "700"
+        },
+        "color": {
+          "value": "black"
+        }
+      },
+      "micro_default": {
+        "font-family": {
+          "value": "'Montserrat', 'Montserrat-Medium'"
+        },
+        "font-size": {
+          "value": "12px"
+        },
+        "letter-spacing": {
+          "value": "0px"
+        },
+        "line-height": {
+          "value": "12px"
+        },
+        "font-weight": {
+          "value": "500"
+        },
+        "color": {
+          "value": "black"
         }
       }
     }

@@ -1,3 +1,3 @@
 export { Tooltip } from './Tooltip';
-export { Position } from './Tooltip.types';
+export { TooltipPosition } from './Tooltip.types';
 export type { TooltipProps } from './Tooltip.types';

@@ -1353,12 +1353,6 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/World"
     },
-    "molecules/code-input": {
-        "scope": "carlsberggroup.malty",
-        "version": "0.0.29",
-        "mainFile": "index.ts",
-        "rootDir": "malty/molecules/CodeInput"
-    },
     "molecules/loading": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.30",
