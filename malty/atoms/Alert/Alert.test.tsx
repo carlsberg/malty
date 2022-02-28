@@ -2,13 +2,13 @@ import { fireEvent, render, screen } from '@carlsberggroup/malty.utils.test';
 import { waitFor } from '@testing-library/react';
 import React from 'react';
 import { Alert } from './Alert';
-import { AlertBackgroundColor, AlertType } from './Alert.types';
+import { AlertColor, AlertType } from './Alert.types';
 
 describe('<Alert/>', () => {
   describe('In Line Alert', () => {
     it('should render In Line Alert component with label', () => {
       render(
-        <Alert type={AlertType.InLine} color={AlertBackgroundColor.Notification} dataQaId="inline">
+        <Alert type={AlertType.InLine} color={AlertColor.Notification} dataQaId="inline">
           In Line Alert Label
         </Alert>
       );
@@ -18,7 +18,7 @@ describe('<Alert/>', () => {
 
     it('should render In Line Alert component with label and Icon', () => {
       render(
-        <Alert type={AlertType.InLine} icon color={AlertBackgroundColor.Notification} dataQaId="inline-alert-with-icon">
+        <Alert type={AlertType.InLine} icon color={AlertColor.Notification} dataQaId="inline-alert-with-icon">
           In Line Alert Label and Icon
         </Alert>
       );
@@ -34,7 +34,7 @@ describe('<Alert/>', () => {
         <Alert
           type={AlertType.InLine}
           icon
-          color={AlertBackgroundColor.Notification}
+          color={AlertColor.Notification}
           dataQaId="inline-alert-with-icon-and-actions"
           firstActionText="ok"
           secondActionText="cancel"
@@ -57,7 +57,7 @@ describe('<Alert/>', () => {
     it('should render Toast Alert component with label', () => {
       const dataQaId = 'toast';
       render(
-        <Alert type={AlertType.Toast} color={AlertBackgroundColor.Notification} dataQaId={dataQaId}>
+        <Alert type={AlertType.Toast} color={AlertColor.Notification} dataQaId={dataQaId}>
           Toast Alert Label
         </Alert>
       );
@@ -70,12 +70,7 @@ describe('<Alert/>', () => {
       const dismissMock = jest.fn();
       const dataQaId = 'toast-dismiss-actions';
       render(
-        <Alert
-          type={AlertType.Toast}
-          color={AlertBackgroundColor.Notification}
-          dataQaId={dataQaId}
-          dismiss={dismissMock}
-        >
+        <Alert type={AlertType.Toast} color={AlertColor.Notification} dataQaId={dataQaId} dismiss={dismissMock}>
           Toast with dismiss action
         </Alert>
       );
@@ -89,12 +84,7 @@ describe('<Alert/>', () => {
     it('Should hide the toast On time out', async () => {
       const dismissMock = jest.fn();
       render(
-        <Alert
-          type={AlertType.Toast}
-          color={AlertBackgroundColor.Notification}
-          dismiss={dismissMock}
-          autoHideDuration={1000}
-        >
+        <Alert type={AlertType.Toast} color={AlertColor.Notification} dismiss={dismissMock} autoHideDuration={1000}>
           Toast with dismiss action
         </Alert>
       );

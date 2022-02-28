@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Loading as LoadingComponent } from './Loading';
-import { LoadingProps, LoadingStatus, SizeTypes } from './Loading.types';
+import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
 export default {
-  title: 'Molecules/Loading',
+  title: 'Progress Indicators/Loading',
   component: LoadingComponent,
   parameters: {
     importObject: 'Loading',
@@ -13,7 +13,7 @@ export default {
   argTypes: {
     text: { control: 'text' },
     size: {
-      options: Object.values(SizeTypes),
+      options: Object.values(LoadingSize),
       control: {
         type: 'select'
       }
@@ -33,7 +33,7 @@ const Template: Story<LoadingProps> = ({ text, size, status }: LoadingProps) => 
 
 export const Loading = Template.bind({});
 Loading.args = {
-  size: SizeTypes.Medium,
+  size: LoadingSize.Medium,
   text: 'Loading...',
   status: LoadingStatus.Pending
 };

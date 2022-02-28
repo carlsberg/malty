@@ -1,14 +1,14 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import React from 'react';
 
 export interface ButtonProps {
   text?: string | number;
-  icon?: IconNamesTypes;
-  iconPos?: IconPosition;
+  icon?: IconName;
+  iconPos?: ButtonIconPosition;
   url?: string;
-  type?: ButtonTypes;
+  type?: ButtonType;
   style: ButtonStyle;
-  size?: SizeTypes;
+  size?: ButtonSize;
   isWhite?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onKeyUp?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
@@ -19,21 +19,21 @@ export interface ButtonProps {
   error?: boolean;
   success?: boolean;
   fullWidth?: boolean;
-  successIcon?: IconNamesTypes;
+  successIcon?: IconName;
   successText?: string;
-  errorIcon?: IconNamesTypes;
+  errorIcon?: IconName;
   errorText?: string;
   tabIndex?: number;
   children?: string | JSX.Element;
 }
 
-export enum ButtonTypes {
+export enum ButtonType {
   Submit = 'submit',
   Button = 'button',
   Reset = 'reset'
 }
 
-export enum SizeTypes {
+export enum ButtonSize {
   Small = 'Small',
   Medium = 'Medium',
   Large = 'Large',
@@ -41,14 +41,14 @@ export enum SizeTypes {
 }
 
 export enum ButtonStyle {
-  Primary = 'primary',
-  Secondary = 'secondary',
-  Transparent = 'transparent',
-  Floater = 'floater',
-  Link = 'link'
+  Primary = 'Primary',
+  Secondary = 'Secondary',
+  Transparent = 'Transparent',
+  Floater = 'Floater',
+  Link = 'Link'
 }
 
-export enum IconPosition {
+export enum ButtonIconPosition {
   Right = 'Right',
   Left = 'Left'
 }

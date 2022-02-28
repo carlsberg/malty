@@ -1,76 +1,72 @@
 import styled, { css } from 'styled-components';
-import { Position } from './Tooltip.types';
+import { TooltipPosition } from './Tooltip.types';
 
 const horizontalPosition = css`
-  top: ${({ theme }) => theme.variables.tooltip.horizontalPosTop.value}%;
-  transform: translateY(${({ theme }) => theme.variables.tooltip.horizontalPosTopTranslateY.value}%);
+  top: 50%;
+  transform: translateY(-50%);
   &:before {
-    top: ${({ theme }) => theme.variables.tooltip.horizontalPosTop.value}%;
-    transform: translateY(${({ theme }) => theme.variables.tooltip.horizontalPosTopTranslateY.value}%);
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;
 const verticalPosition = css`
-  left: ${({ theme }) => theme.variables.tooltip.verticalPosLeft.value}%;
-  transform: translateX(${({ theme }) => theme.variables.tooltip.verticalPosLeftTranslateX.value}%);
+  left: 50%;
+  transform: translateX(-50%);
   &:before {
-    left: ${({ theme }) => theme.variables.tooltip.verticalPosLeft.value}%;
-    transform: translateX(${({ theme }) => theme.variables.tooltip.verticalPosLeftTranslateX.value}%);
+    left: 50%;
+    transform: translateX(-50%);
   }
 `;
 
-const positioning = (position: Position, anchorOffset: { vertical: number; horizontal: number }) => {
+const positioning = (position: TooltipPosition, anchorOffset: { vertical: number; horizontal: number }) => {
   switch (position) {
-    case Position.Top:
+    case TooltipPosition.Top:
       return css`
-        bottom: calc(100% + ${({ theme }) => theme.variables.tooltip.topPosition.bottom.value}px);
+        bottom: calc(100% + ${({ theme }) => theme.sizes.s.value});
         ${verticalPosition}
         margin: 0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 2}px;
         &:before {
-          bottom: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
-          border-width: ${({ theme }) => theme.variables.tooltip.arrowSize.value}px
-            ${({ theme }) => theme.variables.tooltip.topPosition.borderWidth.value}px 0
-            ${({ theme }) => theme.variables.tooltip.topPosition.borderWidth.value}px;
-          border-top-color: ${({ theme }) => theme.color.form.formSelect.value};
+          bottom: -${({ theme }) => theme.sizes['2xs'].value};
+          border-width: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes['2xs'].value} 0
+            ${({ theme }) => theme.sizes['2xs'].value};
+          border-top-color: ${({ theme }) => theme.colors.colours.support[20].value};
         }
       `;
-    case Position.Bottom:
+    case TooltipPosition.Bottom:
       return css`
-        top: calc(100% + ${({ theme }) => theme.variables.tooltip.bottomPosition.top.value}px);
+        top: calc(100% + ${({ theme }) => theme.sizes.s.value});
         ${verticalPosition}
         margin: 0 0 0 -${anchorOffset.horizontal / 2}px;
         &:before {
-          top: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
-          border-width: 0 ${({ theme }) => theme.variables.tooltip.bottomPosition.borderWidth.value}px
-            ${({ theme }) => theme.variables.tooltip.arrowSize.value}px
-            ${({ theme }) => theme.variables.tooltip.bottomPosition.borderWidth.value}px;
-          border-bottom-color: ${({ theme }) => theme.color.form.formSelect.value};
+          top: -${({ theme }) => theme.sizes['2xs'].value};
+          border-width: 0 ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes['2xs'].value}
+            ${({ theme }) => theme.sizes['2xs'].value};
+          border-bottom-color: ${({ theme }) => theme.colors.colours.support[20].value};
         }
       `;
-    case Position.Right:
+    case TooltipPosition.Right:
       return css`
-        left: calc(100% + ${({ theme }) => theme.variables.tooltip.rightPosition.left.value}px);
+        left: calc(100% + ${({ theme }) => theme.sizes.s.value});
         ${horizontalPosition}
         margin: -${anchorOffset.vertical / 2}px 0 0 0;
         &:before {
-          left: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
-          border-width: ${({ theme }) => theme.variables.tooltip.rightPosition.borderWidth.value}px
-            ${({ theme }) => theme.variables.tooltip.arrowSize.value}px
-            ${({ theme }) => theme.variables.tooltip.rightPosition.borderWidth.value}px 0;
-          border-right-color: ${({ theme }) => theme.color.form.formSelect.value};
+          left: -${({ theme }) => theme.sizes['2xs'].value};
+          border-width: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes['2xs'].value}
+            ${({ theme }) => theme.sizes['2xs'].value} 0;
+          border-right-color: ${({ theme }) => theme.colors.colours.support[20].value};
         }
       `;
 
-    case Position.Left:
+    case TooltipPosition.Left:
       return css`
-        right: calc(100% + ${({ theme }) => theme.variables.tooltip.leftPosition.right.value}px);
+        right: calc(100% + ${({ theme }) => theme.sizes.s.value});
         ${horizontalPosition}
         margin: -${anchorOffset.vertical / 2}px ${anchorOffset.horizontal}px 0 0;
         &:before {
-          right: -${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
-          border-width: ${({ theme }) => theme.variables.tooltip.leftPosition.borderWidth.value}px 0
-            ${({ theme }) => theme.variables.tooltip.leftPosition.borderWidth.value}px
-            ${({ theme }) => theme.variables.tooltip.arrowSize.value}px;
-          border-left-color: ${({ theme }) => theme.color.form.formSelect.value};
+          right: -${({ theme }) => theme.sizes['2xs'].value};
+          border-width: ${({ theme }) => theme.sizes['2xs'].value} 0 ${({ theme }) => theme.sizes['2xs'].value}
+            ${({ theme }) => theme.sizes['2xs'].value};
+          border-left-color: ${({ theme }) => theme.colors.colours.support[20].value};
         }
       `;
     default:
@@ -79,7 +75,7 @@ const positioning = (position: Position, anchorOffset: { vertical: number; horiz
 };
 
 export const StyledTooltip = styled.div<{
-  position: Position;
+  position: TooltipPosition;
   anchorOffset: {
     vertical: number;
     horizontal: number;
@@ -87,12 +83,12 @@ export const StyledTooltip = styled.div<{
   open?: boolean;
 }>`
   font-family: inherit;
-  background-color: ${({ theme }) => theme.color.form.formSelect.value};
+  background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   position: absolute;
   display: ${({ open }) => (open ? 'block' : 'none')};
-  padding: ${({ theme }) => theme.variables.tooltip.padding.value}px;
-  min-width: ${({ theme }) => theme.variables.tooltip.minWidth.value}px;
-  box-shadow: ${({ theme }) => theme.variables.tooltip.boxShadow.value};
+  padding: ${({ theme }) => theme.sizes.s.value};
+  min-width: ${({ theme }) => parseInt(theme.sizes['4xl'].value.replace('px', ''), 10) * 3}px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   &:before {
     content: '';
     display: block;
