@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledProductsBar = styled.div`
-  width: ${({ theme }) => theme.variables.productsBar.width.value}px;
+  width: ${({ theme }) => theme.sizes[`5xl`].value};
   height: 100%;
-  background-color: ${({ theme }) => theme.color.default.value};
-  border-width: ${({ theme }) => theme.variables.productsBar.border.value}px;
-  border-color: ${({ theme }) => theme.color.productsBar.border.value};
+  background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  border-width: ${({ theme }) => theme.borders['border-1px--solid']['border-width'].value};
+  border-color: rgb(49, 69, 80);
   border-style: solid;
   box-sizing: border-box;
-  padding: ${({ theme }) => theme.variables.productsBar.paddingVertical.value}px
-    ${({ theme }) => theme.variables.productsBar.paddingSide.value}px;
+  padding: 24px 32px; //REPLACE BY TOKEN
   overflow-y: hidden;
 `;
 export const StyledSystemWrapper = styled.div`
@@ -17,29 +16,26 @@ export const StyledSystemWrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  max-width: calc(
-    ${({ theme }) => theme.variables.sideNav.maxWidth.value}px +
-      ${({ theme }) => theme.variables.productsBar.width.value}px
-  );
+  max-width: calc(220px + 80px);
 `;
 
 export const StyledSystemMenu = styled.ul`
   width: 100%;
   position: relative;
-  margin-bottom: ${({ theme }) => theme.variables.productsBar.systemMenu.marginBottom.value}px;
+  margin-bottom: ${({ theme }) => theme.sizes[`5xl`].value};
   list-style: none;
   padding: 0;
 `;
 
 export const StyledSystemOption = styled.li`
-  width: ${({ theme }) => theme.variables.productsBar.width.value}px;
-  height: ${({ theme }) => theme.variables.productsBar.systemMenu.itemSize.value}px;
+  width: ${({ theme }) => theme.sizes[`5xl`].value};
+  height: ${({ theme }) => theme.sizes[`3xl`].value};
   list-style: none;
   cursor: pointer;
   position: relative;
   z-index: 100;
   &:not(:last-of-type) {
-    margin-bottom: ${({ theme }) => theme.variables.productsBar.systemMenu.itemMarginBottom.value}px;
+    margin-bottom: ${({ theme }) => theme.sizes[`2xs`].value};
   }
 `;
 
@@ -49,8 +45,8 @@ export const StyledProfileBtn = styled(StyledSystemOption)`
 `;
 
 export const StyledOptionIcon = styled.span`
-  width: ${({ theme }) => theme.variables.productsBar.systemMenu.itemSize.value}}px;
-  height: ${({ theme }) => theme.variables.productsBar.systemMenu.itemSize.value}px;
+  width: ${({ theme }) => theme.sizes[`3xl`].value};
+  height: ${({ theme }) => theme.sizes[`3xl`].value};
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -64,12 +60,12 @@ export const StyledOptionIcon = styled.span`
 `;
 
 export const StyledAvatar = styled.span`
-  width: ${({ theme }) => theme.variables.productsBar.avatarContainer.size.value}px;
-  height: ${({ theme }) => theme.variables.productsBar.avatarContainer.size.value}px;
+  width: ${({ theme }) => theme.sizes.xl.value};
+  height: ${({ theme }) => theme.sizes.xl.value};
   display: inline-block;
   position: absolute;
-  margin-top: ${({ theme }) => theme.variables.productsBar.avatarContainer.marginTop.value}px;
-  margin-bottom: ${({ theme }) => theme.variables.productsBar.avatarContainer.marginBottom.value}px;
+  margin-top: ${({ theme }) => theme.sizes.s.value};
+  margin-bottom: ${({ theme }) => theme.sizes.m.value};
   left: 50%;
   transform: translateX(-50%);
 `;
@@ -78,7 +74,7 @@ export const StyledProfileMenu = styled.div<{
   open: boolean;
 }>`
   width: 100%;
-  background-color: ${({ open, theme }) => (open ? theme.color.productsBar.border.value : 'transparent')};
+  background-color: ${({ open }) => (open ? 'rgb(49,69,80)' : 'transparent')};
   position: absolute;
   transform: ${({ open }) => (open ? 'translateY(-100%)' : 'translateY(-84px)')};
   overflow-y: hidden;
@@ -86,16 +82,17 @@ export const StyledProfileMenu = styled.div<{
   z-index: 200;
 `;
 export const StyledProfileHeader = styled.div`
-  padding-left: ${({ theme }) => theme.variables.productsBar.profileMenu.headerLeftPadd.value}px;
+  padding-left: ${({ theme }) => theme.sizes[`4xl`].value};
   top: 0;
   position: absolute;
+  padding-top: 20px;
 `;
 
 export const StyledRoleLabel = styled.p`
-  font-size: ${({ theme }) => theme.typography.information.small['font-size'].value}px;
-  margin-top: -8px;
-  color: ${({ theme }) => theme.color.support.support60.value};
-  font-family: ${({ theme }) => theme.typography.global['font-family'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_default['font-family'].value};
+  margin-top: ${({ theme }) => theme.sizes['4xs'].value};
 `;
 
 export const StyledProfileActions = styled.div<{
@@ -111,9 +108,9 @@ export const StyledProfileActions = styled.div<{
 export const StyledProfileItem = styled.li`
   list-style: none;
   width: 100%;
-  height: ${({ theme }) => theme.variables.productsBar.systemMenu.itemSize.value}px;
+  height: ${({ theme }) => theme.sizes[`3xl`].value};
   display: flex;
-  padding-left: ${({ theme }) => theme.variables.productsBar.profileMenu.itemLeftPadd.value}px;
+  padding-left: ${({ theme }) => theme.sizes[`4xl`].value};
   position: relative;
   align-items: center;
   & svg {
@@ -141,9 +138,6 @@ export const StyledOverlay = styled.div<{
   left: 0;
   bottom: 0;
   display: ${({ open }) => (open ? 'block' : 'none')};
-  max-width: calc(
-    ${({ theme }) => theme.variables.sideNav.maxWidth.value}px +
-      ${({ theme }) => theme.variables.productsBar.width.value}px
-  );
-  background-color: ${({ theme }) => theme.color.overlay.opacity75.default.value};
+  max-width: calc(220px + 80px);
+  background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
 `;

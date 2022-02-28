@@ -1,4 +1,4 @@
-import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
@@ -31,10 +31,10 @@ export default {
 } as Meta;
 
 const navItemsMock = [
-  { icon: IconNames.DataTransfer, name: 'item 1', href: '/iframe.html' },
-  { icon: IconNames.DataTransfer, name: 'item 2', component: Link, to: '/item2', category: 'favourites' },
+  { icon: IconName.DataTransfer, name: 'item 1', href: '/iframe.html' },
+  { icon: IconName.DataTransfer, name: 'item 2', component: Link, to: '/item2', category: 'favourites' },
   {
-    icon: IconNames.DataTransfer,
+    icon: IconName.DataTransfer,
     name: 'item 3',
     component: Link,
     to: '/item3',
@@ -45,20 +45,20 @@ const navItemsMock = [
       { name: 'sub item 2', component: Link, to: '/sub-item2' }
     ]
   },
-  { icon: IconNames.DataTransfer, name: 'item 4', component: Link, to: '/item4' }
+  { icon: IconName.DataTransfer, name: 'item 4', component: Link, to: '/item4' }
 ];
 
 const systemOptionsMock = [
-  { icon: IconNames.DataTransfer, href: '/iframe.html' },
-  { icon: IconNames.DataTransfer, component: Link, to: '/item2' }
+  { icon: IconName.DataTransfer, href: '/iframe.html' },
+  { icon: IconName.DataTransfer, component: Link, to: '/item2' }
 ];
 
 const profileMenuMock = {
   username: 'Maria Snow',
   userRole: 'Market director',
   profileActions: [
-    { name: 'User profile', icon: IconNames.DataTransfer, component: Link, to: '/profile' },
-    { name: 'Sign out', icon: IconNames.DataTransfer, component: Link, to: '/sign-out' }
+    { name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' },
+    { name: 'Sign out', icon: IconName.DataTransfer, component: Link, to: '/sign-out' }
   ]
 };
 

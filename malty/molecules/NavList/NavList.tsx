@@ -1,10 +1,5 @@
-import {
-  Icon,
-  IconColors,
-  IconNamesTypes as IconNames,
-  IconSizesTypes as IconSizes
-} from '@carlsberggroup/malty.atoms.icon';
-import { Color, Size, Text, Weight } from '@carlsberggroup/malty.atoms.text';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -32,11 +27,10 @@ const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
 
   return (
     <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
-      <LinkComponent component={component} href={href} componentProps={componentProps}>
-        <Text size={Size.MediumSmall} color={Color.White}>
-          {name}
-        </Text>
-      </LinkComponent>
+      <LinkComponent component={component} href={href} componentProps={componentProps} />
+      <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
+        {name}
+      </Text>
     </StyledSubNavItem>
   );
 };
@@ -54,17 +48,17 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
       data-category={category}
       className={className}
     >
-      {icon && <Icon name={IconNames[icon]} size={IconSizes.Small} color={IconColors.White} />}
+      {icon && <Icon name={IconName[icon]} size={IconSize.Small} color={IconColor.White} />}
 
-      <LinkComponent component={component} href={href} componentProps={componentProps}>
-        <Text size={Size.MediumSmall} color={Color.White}>
-          {name}
-        </Text>
-      </LinkComponent>
+      <LinkComponent component={component} href={href} componentProps={componentProps} />
+
+      <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
+        {name}
+      </Text>
 
       {subItems && (
         <StyledRightArrow theme={theme}>
-          <Icon name={IconNames.ArrowSmallRight} size={IconSizes.Small} color={IconColors.White} />
+          <Icon name={IconName.ArrowSmallRight} size={IconSize.Small} color={IconColor.White} />
         </StyledRightArrow>
       )}
     </StyledNavItem>
@@ -158,12 +152,11 @@ export const NavList = ({
       {subNavIsActive && (
         <>
           <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
-            <LinkComponent component={component} href={href} componentProps={componentProps}>
-              <Text size={Size.MediumSmall} color={Color.White} weight={Weight.Bold}>
-                {name}
-              </Text>
-            </LinkComponent>
-            <Icon name={IconNames.ArrowSmallLeft} size={IconSizes.Small} color={IconColors.White} />
+            <Icon name={IconName.ArrowSmallLeft} size={IconSize.Small} color={IconColor.White} />
+            <LinkComponent component={component} href={href} componentProps={componentProps} />
+            <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.White}>
+              {name}
+            </Text>
           </StyledNavItem>
           {subItems?.map((item, index) => {
             const selected = activeSubItem === index;

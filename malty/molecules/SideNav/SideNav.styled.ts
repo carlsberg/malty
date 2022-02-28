@@ -15,23 +15,21 @@ export const StyledWrapper = styled.div`
 export const StyledSideNav = styled.div<{
   productName?: string;
 }>`
-  max-width: ${({ theme }) => theme.variables.sideNav.maxWidth.value}px;
-  width: calc(100% - ${({ theme }) => theme.variables.productsBar.width.value}px);
+  max-width: 220px;
+  width: calc(100% - 80px);
   height: 100%;
-  background-color: ${({ theme }) => theme.color.default.value};
+  background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value}};
   padding-top: calc(
     ${({ theme, productName }) =>
-      productName
-        ? `${theme.variables.sideNav.list.paddingTop.value}px + 22px + 15vh`
-        : `${theme.variables.sideNav.list.paddingTop.value}px + 15vh`}
+      productName ? `${theme.sizes.m.value} + 22px + 15vh` : `${theme.sizes.m.value} + 15vh`}
   );
-  padding-bottom: ${({ theme }) => theme.variables.sideNav.list.paddingBottom.value}px;
-  padding-left: ${({ theme }) => theme.variables.sideNav.list.paddingLeft.value}px;
+  padding-bottom: ${({ theme }) => theme.sizes.m.value};
+  padding-left: ${({ theme }) => theme.sizes.l.value};
   padding-right: 0;
   box-sizing: border-box;
   & h1 {
     position: absolute;
-    top: ${({ theme }) => theme.variables.sideNav.list.paddingTop.value}px;
+    top: ${({ theme }) => theme.sizes.m.value};
   }
 `;
 

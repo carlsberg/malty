@@ -1,4 +1,4 @@
-import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import React from 'react';
 
 export interface SubItemProps {
@@ -9,7 +9,7 @@ export interface SubItemProps {
 
 export type ItemProps = {
   name: string;
-  icon: IconNames;
+  icon: IconName;
   href?: string;
   component?: React.ReactNode | JSX.Element;
   subItems?: SubItemProps[];
@@ -40,12 +40,12 @@ type validCustomPropValues =
   | React.MouseEventHandler<HTMLButtonElement>;
 
 export type LinkComponentProps = {
-  children: React.ReactNode | JSX.Element;
   component?: React.ReactNode | JSX.Element;
   componentProps?: {
     [key: string]: validCustomPropValues;
   };
   href?: string;
+  children?: React.ReactNode | JSX.Element;
 };
 
 export interface NavListProps {

@@ -1,27 +1,27 @@
-import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { fireEvent, jsonRenderer, render, screen, within } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { ProductsBar } from './ProductsBar';
 
 const systemOptionsMock = [
-  { icon: IconNames.DataTransfer, href: '/iframe.html' },
-  { icon: IconNames.DataTransfer, component: Link, to: '/item2' }
+  { icon: IconName.DataTransfer, href: '/iframe.html' },
+  { icon: IconName.DataTransfer, component: Link, to: '/item2' }
 ];
 
 const profileMenuMock = {
   username: 'Maria Snow',
   userRole: 'Market director',
   profileActions: [
-    { name: 'User profile', icon: IconNames.DataTransfer, component: Link, to: '/profile' },
-    { name: 'Sign out', icon: IconNames.DataTransfer, component: Link, to: '/sign-out' }
+    { name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' },
+    { name: 'Sign out', icon: IconName.DataTransfer, component: Link, to: '/sign-out' }
   ]
 };
 
 const singleOptionConfig = {
   username: 'Maria Snow',
   userRole: 'Market director',
-  profileActions: [{ name: 'User profile', icon: IconNames.DataTransfer, component: Link, to: '/profile' }]
+  profileActions: [{ name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' }]
 };
 
 const resetNavState = () => {

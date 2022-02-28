@@ -1,11 +1,6 @@
 // import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
-import {
-  Icon,
-  IconColors,
-  IconNamesTypes as IconNames,
-  IconSizesTypes as IconSizes
-} from '@carlsberggroup/malty.atoms.icon';
-import { Color, Size, Text, Weight } from '@carlsberggroup/malty.atoms.text';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { LinkComponentProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { RefObject, useContext, useEffect, useState } from 'react';
@@ -90,7 +85,7 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
       </StyledSystemOption>
       <StyledProfileActions open={open}>
         <StyledProfileHeader theme={theme}>
-          <Text size={Size.Medium} color={Color.White} weight={Weight.Bold}>
+          <Text textStyle={TextStyle.MediumDefault} color={TextColor.White}>
             {username}
           </Text>
           <StyledRoleLabel theme={theme}>{userRole}</StyledRoleLabel>
@@ -117,7 +112,7 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
   return (
     <StyledProductsBar theme={theme}>
       <StyledOverlay open={profileMenuOpen} theme={theme} />
-      <Icon color={IconColors.White} name={IconNames.CarlsbergFilled} size={IconSizes.Medium} />
+      <Icon color={IconColor.White} name={IconName.CarlsbergFilled} size={IconSize.Medium} />
       <StyledSystemWrapper theme={theme}>
         <StyledSystemMenu theme={theme} data-testid="system-options">
           {systemOptions?.map((option) => {
@@ -127,7 +122,7 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
               <StyledSystemOption theme={theme} onClick={resetNavState}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
-                    <Icon color={IconColors.White} name={IconNames[icon]} size={IconSizes.Medium} />
+                    <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Medium} />
                   </LinkComponent>
                 </StyledOptionIcon>
               </StyledSystemOption>
@@ -163,8 +158,8 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
                 return (
                   <StyledProfileItem theme={theme} onClick={resetNavState}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
-                      <Icon color={IconColors.White} name={IconNames[icon]} size={IconSizes.Small} />
-                      <Text size={Size.MediumSmall} color={Color.White}>
+                      <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Small} />
+                      <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
                         {name}
                       </Text>
                     </LinkComponent>

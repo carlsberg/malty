@@ -12,14 +12,13 @@ export const StyledNavItem = styled.li<{
   selected: boolean;
 }>`
   width: 100%;
-  height: ${({ theme }) => theme.variables.navList.listItem.height.value}px;
-  padding: ${({ theme }) => theme.variables.navList.listItem.paddingVertical.value}px
-    ${({ theme }) => theme.variables.navList.listItem.paddingSide.value}px;
+  height: ${({ theme }) => theme.sizes[`3xl`].value};
+  padding: ${({ theme }) => `21px ${theme.sizes.l.value}`};
   text-transform: capitalize;
   position: relative;
   box-sizing: border-box;
   background-color: ${({ selected, theme }) =>
-    `${selected ? theme.color.support.support80.value : theme.color.default.value}`};
+    `${selected ? theme.colors.colours.support[80].value : theme.colors.colours.default['digital-black'].value}}`};
   cursor: ${({ selected }) => `${selected ? 'default' : 'pointer'}`};
   user-select: none;
   & a {
@@ -30,40 +29,35 @@ export const StyledNavItem = styled.li<{
     position: absolute;
     top: 0;
     left: 0;
-    & span {
-      display: inline-block;
-      position: absolute;
-      left: ${({ theme }) => theme.variables.navList.listItem.labelLeft.value}px;
-      top: ${({ theme }) => theme.variables.navList.listItem.labelTop.value}px;
-    }
   }
   & svg {
     position: absolute;
-    left: ${({ theme }) => theme.variables.navList.listItem.iconLeft.value}px;
+    left: ${({ theme }) => theme.sizes[`2xs`].value};
   }
   & p {
     margin: 0;
   }
   &:hover {
-    background-color: ${({ selected, theme }) => `${selected ? theme.color.support.support80.value : '#314550'}`};
+    background-color: ${({ selected, theme }) =>
+      `${selected ? theme.colors.colours.support[80].value : theme.colors.colours.support[100].value}`};
     transition: background-color 0.2s ease-in-out;
   }
   &.firstInCategory {
-    border-top: 1px solid ${({ theme }) => theme.color.support.support80.value};
+    border-top: 1px solid ${({ theme }) => theme.colors.colours.support[80].value};
   }
   &.lastInCategory {
-    border-bottom: 1px solid ${({ theme }) => theme.color.support.support80.value};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.colours.support[80].value};
   }
 `;
 
 export const StyledSubNavItem = styled(StyledNavItem)`
-  padding-left: ${({ theme }) => theme.variables.navList.subItem.paddingLeft.value}px;
+  padding-left: ${({ theme }) => theme.sizes.s.value};
 `;
 
 export const StyledRightArrow = styled.span`
   & svg {
     left: initial;
-    right: ${({ theme }) => theme.variables.navList.listItem.arrowRight.value}px;
-    top: ${({ theme }) => theme.variables.navList.listItem.arrowTop.value}px;
+    right: ${({ theme }) => theme.sizes.s.value};
+    top: 22px;
   }
 `;

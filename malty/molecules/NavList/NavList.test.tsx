@@ -1,20 +1,20 @@
-import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { fireEvent, jsonRenderer, render, screen, within } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { NavList } from './NavList';
 
 const simpleNavigation = [
-  { icon: IconNames.DataTransfer, name: 'item 1', href: '/item1' },
-  { icon: IconNames.DataTransfer, name: 'item 2', href: '/item2' },
-  { icon: IconNames.DataTransfer, name: 'item 3', href: '/item3' }
+  { icon: IconName.DataTransfer, name: 'item 1', href: '/item1' },
+  { icon: IconName.DataTransfer, name: 'item 2', href: '/item2' },
+  { icon: IconName.DataTransfer, name: 'item 3', href: '/item3' }
 ];
 
 const navWithRouterItems = [
-  { icon: IconNames.DataTransfer, name: 'item 1', href: '/item1' },
-  { icon: IconNames.DataTransfer, name: 'item 2', href: '/item2' },
+  { icon: IconName.DataTransfer, name: 'item 1', href: '/item1' },
+  { icon: IconName.DataTransfer, name: 'item 2', href: '/item2' },
   {
-    icon: IconNames.DataTransfer,
+    icon: IconName.DataTransfer,
     name: 'item with subnav',
     component: Link,
     to: '/',
@@ -22,14 +22,38 @@ const navWithRouterItems = [
   }
 ];
 
+const testHandler = () => {
+  console.log('test nav list behaviour');
+};
+
 describe('sideNav molecule', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(<NavList navItems={simpleNavigation} />);
+    const view = jsonRenderer(
+      <NavList
+        navItems={simpleNavigation}
+        activeNavItem={-1}
+        activeSubItem={-1}
+        subNavIsActive={false}
+        setActiveNavItem={testHandler}
+        setActiveSubItem={testHandler}
+        toggleSubNav={testHandler}
+      />
+    );
     expect(view).toMatchSnapshot();
   });
 
   it('renders correct number of list items', () => {
-    render(<NavList navItems={simpleNavigation} />);
+    render(
+      <NavList
+        navItems={simpleNavigation}
+        activeNavItem={-1}
+        activeSubItem={-1}
+        subNavIsActive={false}
+        setActiveNavItem={testHandler}
+        setActiveSubItem={testHandler}
+        toggleSubNav={testHandler}
+      />
+    );
     const list = screen.getByRole('list');
     const { getAllByRole } = within(list);
     const items = getAllByRole('listitem');
@@ -41,7 +65,15 @@ describe('sideNav sub navigation', () => {
   it('opens when clicking a nav item with sub items', () => {
     render(
       <BrowserRouter>
-        <NavList navItems={navWithRouterItems} />
+        <NavList
+          navItems={navWithRouterItems}
+          activeNavItem={-1}
+          activeSubItem={-1}
+          subNavIsActive={false}
+          setActiveNavItem={testHandler}
+          setActiveSubItem={testHandler}
+          toggleSubNav={testHandler}
+        />
       </BrowserRouter>
     );
 

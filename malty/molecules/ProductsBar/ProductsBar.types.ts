@@ -1,7 +1,7 @@
-import { IconNamesTypes as IconNames } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 
 export type SystemItemProps = {
-  icon: IconNames;
+  icon: IconName;
   href?: string;
   component?: React.ReactNode | JSX.Element;
 };
@@ -15,7 +15,7 @@ export interface ProfileMenuProps {
 }
 
 type ProfileItemProps = {
-  icon: IconNames;
+  icon: IconName;
   name?: string;
   href?: string;
   component?: React.ReactNode | JSX.Element;
