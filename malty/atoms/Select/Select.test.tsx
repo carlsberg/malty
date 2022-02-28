@@ -2,7 +2,7 @@ import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Select } from './Select';
-import { SelectType, SizeTypes } from './Select.types';
+import { SelectSize, SelectType } from './Select.types';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
@@ -38,7 +38,7 @@ describe('select', () => {
         placeholder="Placeholder text"
         onValueChange={mockFn}
         type={SelectType.Default}
-        size={SizeTypes.Medium}
+        size={SelectSize.Medium}
       />
     );
     expect(view).toMatchSnapshot();
@@ -53,7 +53,7 @@ describe('select', () => {
         onValueChange={mockFn}
         type={SelectType.Default}
         error="Error text"
-        size={SizeTypes.Medium}
+        size={SelectSize.Medium}
       />
     );
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();
@@ -70,7 +70,7 @@ describe('select', () => {
         placeholder="select"
         onValueChange={onValueChange}
         type={SelectType.Default}
-        size={SizeTypes.Medium}
+        size={SelectSize.Medium}
       />
     );
     const select = screen.getByText('select');
@@ -85,7 +85,7 @@ describe('select', () => {
         label="Input label"
         onValueChange={onValueChange}
         type={SelectType.Default}
-        size={SizeTypes.Medium}
+        size={SelectSize.Medium}
       />
     );
     const selectedValue = screen.getByTestId('selected-value');

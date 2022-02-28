@@ -1,5 +1,5 @@
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
-import { IconColors, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -17,7 +17,7 @@ import {
   StyledSuccess,
   StyledWrapper
 } from './Select.styled';
-import { OptionsType, SelectProps, SelectType, SizeTypes } from './Select.types';
+import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
 
 export const Select = ({
   defaultValue,
@@ -29,14 +29,15 @@ export const Select = ({
   error,
   success,
   disabled = false,
-  size = SizeTypes.Medium,
+  size = SelectSize.Medium,
   children,
-  multiple = false
+  multiple = false,
+  selectionText = 'selected'
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   // eslint-disable-next-line radix
-  const [numSize, setNumSize] = useState(parseInt(theme.variables.select.size.medium.value));
+  const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', '')));
   const [showOptionList, setShowOptionList] = useState(false);
   const [selectedValueState, setSelectedValueState] = useState(defaultValue || []);
 
@@ -44,7 +45,7 @@ export const Select = ({
     setShowOptionList(!showOptionList);
   };
 
-  const handleOptionSelected = (option: OptionsType) => {
+  const handleOptionSelected = (option: SelectOptionsType) => {
     // eslint-disable-next-line no-restricted-globals
     onValueChange(option);
     // eslint-disable-next-line no-restricted-globals
@@ -64,30 +65,30 @@ export const Select = ({
     }
   };
 
-  const checkIfSelected = (option: OptionsType) =>
-    !!selectedValueState.find((el: OptionsType) => el.value === option.value);
+  const checkIfSelected = (option: SelectOptionsType) =>
+    !!selectedValueState.find((el: SelectOptionsType) => el.value === option.value);
 
-  const removeSelectedOption = (option: OptionsType) => {
+  const removeSelectedOption = (option: SelectOptionsType) => {
     const index = selectedValueState?.findIndex((el) => el.value === option.value);
     const auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     auxSelected?.splice(index, 1);
     update(auxSelected);
   };
 
-  const update = (auxSelected: OptionsType[]) => {
+  const update = (auxSelected: SelectOptionsType[]) => {
     setSelectedValueState(auxSelected);
   };
 
   useEffect(() => {
     switch (size) {
-      case SizeTypes.Large: {
+      case SelectSize.Large: {
         // eslint-disable-next-line radix
-        setNumSize(parseInt(theme.variables.select.size.large.value));
+        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', '')));
         break;
       }
       default: {
         // eslint-disable-next-line radix
-        setNumSize(parseInt(theme.variables.select.size.medium.value));
+        setNumSize(parseInt(theme.sizes.xl.value.replace('px', '')));
         break;
       }
     }
@@ -96,9 +97,9 @@ export const Select = ({
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
       if (selectedValueState.length > 2) {
-        return `${selectedValueState.length} selected`;
+        return `${selectedValueState.length} ${selectionText}`;
       }
-      return selectedValueState?.map((selectedValue: OptionsType, index: number) =>
+      return selectedValueState?.map((selectedValue: SelectOptionsType, index: number) =>
         index !== 0 ? `, ${selectedValue.name}` : selectedValue.name
       );
     }
@@ -109,14 +110,14 @@ export const Select = ({
       <StyledOptionsWrapper isOpen={showOptionList} selectStyle={type} theme={theme} height={numSize}>
         {children}
         {!children &&
-          options?.map((option: OptionsType, index: number) => (
+          options?.map((option: SelectOptionsType, index: number) => (
             <StyledOption
               theme={theme}
               key={option.value}
               value={option.value}
               onClick={() => handleOptionSelected(option)}
               height={numSize}
-              selected={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
+              selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
               selectStyle={type}
               disabled={disabled}
               data-testid={`select-option-${index}`}
@@ -126,17 +127,17 @@ export const Select = ({
                   labelText={option.name as string}
                   value={option.value}
                   onValueChange={() => null}
-                  checked={!!selectedValueState.find((el: OptionsType) => el.value === option.value)}
+                  checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
                 />
               )}
               {!multiple && (
                 <>
-                  <StyledWrapper>
+                  <StyledWrapper theme={theme}>
                     {option.icon}
                     {option.name}
                   </StyledWrapper>
-                  {selectedValueState.find((el: OptionsType) => el.value === option.value) && (
-                    <StyledCheck selectStyle={type} color={IconColors.Primary} size={IconSizesTypes.Small} />
+                  {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
+                    <StyledCheck selectStyle={type} color={IconColor.Primary} size={IconSize.Small} />
                   )}
                 </>
               )}
@@ -170,11 +171,12 @@ export const Select = ({
             {displaySelectedValues()}
           </StyledSelectedOptionsWrapper>
           <StyledChevronDown
+            theme={theme}
             selectStyle={type}
             disabled={disabled}
             open={showOptionList}
-            color={IconColors.Primary}
-            size={IconSizesTypes.Medium}
+            color={IconColor.Primary}
+            size={IconSize.Medium}
           />
         </StyledButton>
 

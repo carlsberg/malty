@@ -2,20 +2,21 @@ import React from 'react';
 
 export interface SelectProps {
   label: string;
-  onValueChange: (value: OptionsType) => void;
-  defaultValue?: OptionsType[];
-  options?: OptionsType[];
+  onValueChange: (value: SelectOptionsType) => void;
+  defaultValue?: SelectOptionsType[];
+  options?: SelectOptionsType[];
   placeholder?: string;
   type: SelectType;
   error?: string;
   success?: string;
   disabled?: boolean;
-  size?: SizeTypes;
+  size?: SelectSize;
   children?: React.Component;
   multiple?: boolean;
+  selectionText?: string;
 }
 
-export interface OptionsType {
+export interface SelectOptionsType {
   name: string | React.Component;
   value: string | number;
   icon?: JSX.Element;
@@ -26,7 +27,7 @@ export enum SelectType {
   Inline = 'inline'
 }
 
-export enum SizeTypes {
+export enum SelectSize {
   Medium = 'Medium',
   Large = 'Large'
 }

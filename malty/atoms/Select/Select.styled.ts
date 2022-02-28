@@ -29,32 +29,32 @@ export const StyledButtonContainer = styled.div<{
 export const StyledLabel = styled.label<{
   disabled?: boolean;
 }>`
-  color: ${({ theme }) => theme.color.default.value};
-  font-size: ${({ theme }) => theme.typography.information.small['font-size'].value}px;
-  line-height: ${({ theme }) => theme.typography.information.small['line-height'].value}px;
-  padding-bottom: ${({ theme }) => theme.variables.input.label.bottomPadding.value}px;
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
+  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
   font-weight: bold;
   ${({ disabled }) =>
     disabled &&
     css`
-      color: ${({ theme }) => theme.color.system.disabledDefault.value};
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     `}
 `;
 
 export const StyledError = styled.label`
   font-family: inherit;
-  color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
+  color: ${({ theme }) => theme.colors.colours.system.fail.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
 `;
 export const StyledSuccess = styled.label`
   font-family: inherit;
-  color: ${({ theme }) => theme.color.system.successStrong.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
+  color: ${({ theme }) => theme.colors.colours.system.success.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
 `;
 
@@ -71,40 +71,41 @@ export const StyledButton = styled.button<{
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  padding: 0 16px;
+  padding: 0 ${({ theme }) => theme.sizes.s.value};
   height: ${({ height }) => height}px;
   font-weight: normal;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
   transition-property: border-color, color;
   color: ${({ isActive, theme }) =>
-    isActive ? theme.color.button.primaryDefault.value : theme.color.button.primaryDisable.value};
-  border: 1px solid ${({ theme }) => theme.color.form.calendarAvailable.value};
-  background: ${({ theme }) => theme.color.white.value};
+    isActive ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[60].value};
+  border: 1px solid ${({ theme }) => theme.colors.colours.support[60].value};
+  background: ${({ theme }) => theme.colors.colours.default.white.value};
   ${({ selectStyle, theme }) =>
     selectStyle === 'inline' &&
     css`
-      border: 0px transparent;
-      background: ${theme.color.button.primaryNegativeDefault.value};
+      border: 0 transparent;
+      background: ${theme.colors.colours.default.white.value};
       width: fit-content;
       padding: 0;
       height: 28px;
-      padding: 0 12px;
+      padding: 0 ${theme.sizes.xs.value};
       &:hover {
-        background-color: rgba(33, 40, 51, 0.05);
+        background-color: ${theme.colors.colours.overlay['digital-black'][5].value};
       }
       &:focus {
-        background-color: ${theme.color.overlay.opacity10.default.value};
+        background-color: ${theme.colors.colours.overlay['digital-black'][10].value};
       }
     `}
   ${({ isSuccess, theme }) =>
     isSuccess &&
     css`
-      border: 1px solid ${theme.color.system.successStrong.value};
+      border: 1px solid ${theme.colors.colours.system.success.value};
     `}
      ${({ isError, theme }) =>
     isError &&
     css`
-      border: 1px solid ${theme.color.system.failStrong.value};
+      border: 1px solid ${theme.colors.colours.system.fail.value};
     `}
   display: flex;
   align-items: center;
@@ -115,15 +116,15 @@ export const StyledButton = styled.button<{
   ${({ open }) =>
     open &&
     css`
-      border-color: ${({ theme }) => theme.color.form.calendarSelect.value};
-      color: ${({ theme }) => theme.color.form.calendarSelect.value};
+      border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+      color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
       border-bottom: 0;
     `}
   ${({ disabled }) =>
     disabled
       ? css`
-          border-color: ${({ theme }) => theme.color.system.disabledDefault.value};
-          color: ${({ theme }) => theme.color.system.disabledDefault.value};
+          border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+          color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
           background-color: transparent !important;
         `
       : css`
@@ -132,11 +133,11 @@ export const StyledButton = styled.button<{
             outline: none;
           }
           &:hover {
-            border-color: ${({ theme }) => theme.color.support.support60.value};
+            border-color: ${({ theme }) => theme.colors.colours.support[60].value};
           }
           &:focus {
-            border-color: ${({ theme }) => theme.color.form.calendarSelect.value};
-            color: ${({ theme }) => theme.color.form.calendarSelect.value};
+            border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+            color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
           }
         `}
 `;
@@ -147,17 +148,17 @@ export const StyledOptionsWrapper = styled.ul<{
   isOpen?: boolean;
 }>`
   position: absolute;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   width: 100%;
   margin-top: 0;
-  background: white;
+  background: ${({ theme }) => theme.colors.colours.default.white.value};
   overflow-y: auto;
   padding: 0;
   z-index: 2;
   transform-origin: top center;
   visibility: hidden;
   box-sizing: border-box;
-  border: 1px solid ${({ theme }) => theme.color.form.calendarSelect.value};
+  border: 1px solid ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   animation-name: ${fadeOut};
   opacity: 0;
   transition: all 0.3s ease-in-out;
@@ -194,16 +195,16 @@ export const StyledOption = styled.li<{
   cursor: pointer;
   height: ${({ height }) => height}px;
   font-weight: normal;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
-  line-height: 18px;
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  color: #212833;
+  padding: 0 ${({ theme }) => theme.sizes.s.value};
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.support.support20.value};
+    background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   }
   ${({ selected }) =>
     selected &&
@@ -226,7 +227,7 @@ export const StyledChevronDown = styled(ChevronDown)<{
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
-      margin-left: 12px;
+      margin-left: ${({ theme }) => theme.sizes.xs.value};
     `}
   ${({ open }) =>
     open &&
@@ -238,7 +239,7 @@ export const StyledChevronDown = styled(ChevronDown)<{
   ${({ disabled }) =>
     disabled &&
     css`
-      fill: ${({ theme }) => theme.color.system.disabledDefault.value};
+      fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     `}
 `;
 export const StyledCheck = styled(Check)<{
@@ -247,7 +248,7 @@ export const StyledCheck = styled(Check)<{
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
-      margin-left: 16px;
+      margin-left: ${({ theme }) => theme.sizes.s.value};
     `}
 `;
 
@@ -256,7 +257,7 @@ export const StyledWrapper = styled.div`
   align-items: center;
   width: fit-content;
   svg {
-    margin-right: 4px;
+    margin-right: ${({ theme }) => theme.sizes['4xs'].value};
   }
 `;
 export const StyledSelectedOptionsWrapper = styled.div`
