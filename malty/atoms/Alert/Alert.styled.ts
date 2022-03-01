@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { AlertBackgroundColor, AlertHeightSizeTypes, AlertType } from './Alert.types';
+import styled, { keyframes } from 'styled-components';
+import { AlertColor, AlertSize, AlertType } from './Alert.types';
 
 export const StyledWrapper = styled.div<{
   type?: AlertType;
@@ -17,24 +17,34 @@ export const StyledAlertBannerWrapper = styled(StyledWrapper)`
   margin-top: 0;
 `;
 
+// Toast
+const fadeInBottomUpAnimation = keyframes`
+  0% {
+    bottom: 0;
+    opacity: 0.3
+  }
+  100% {
+    bottom: 32px;
+    opacity: 1
+  }
+`;
 export const StyledAlertToastWrapper = styled(StyledWrapper)`
-  margin-top: 8px;
-
-  ${({ theme }) => css`
-    @media screen and (min-width: ${theme.variables.global.breakpoints.medium.value}px) {
-    margin-top: 16px
-  `}
+  position: absolute;
+  margin: auto;
+  left: 0;
+  bottom: 32px;
+  animation-name: ${fadeInBottomUpAnimation};
+  animation-duration: 0.5s;
 `;
 
 export const StyledContainer = styled.div<{
-  color?: AlertBackgroundColor;
-  heightSize?: AlertHeightSizeTypes;
+  color?: AlertColor;
+  heightSize?: AlertSize;
 }>`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  word-break: break-all;
   padding: 8px 16px;
   box-sizing: border-box;
   row-gap: 4px;
@@ -47,29 +57,24 @@ export const StyledContainer = styled.div<{
 
 export const StyledAlertInLine = styled(StyledContainer)`
   background-color: ${({ color, theme }) => {
-    if (color === AlertBackgroundColor.Alert) {
-      return theme.color.system.alertBackground.value;
+    if (color === AlertColor.Alert) {
+      return theme.colors.colours.system['alert-light'].value;
     }
-    if (color === AlertBackgroundColor.Success) {
-      return theme.color.system.successBackground.value;
+    if (color === AlertColor.Success) {
+      return theme.colors.colours.system['success-light'].value;
     }
-    if (color === AlertBackgroundColor.Fail) {
-      return theme.color.system.failBackground.value;
+    if (color === AlertColor.Fail) {
+      return theme.colors.colours.system['fail-light'].value;
     }
-    return theme.color.system.notificationBackground.value;
+    return theme.colors.colours.system['notification-light'].value;
   }};
-  color: ${({ theme }) => theme.color.default.value};
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   height: ${({ heightSize, theme }) => {
-    if (heightSize === AlertHeightSizeTypes.Small) {
-      return `${theme.variables.container.size.small.value}px`;
+    if (heightSize === AlertSize.Small) {
+      return `${theme.sizes.l.value}`;
     }
-    return `${theme.variables.container.size.medium.value}px`;
+    return `${theme.sizes.xl.value}`;
   }};
-  p {
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-  }
 `;
 
 export const StyledAlertInLineWithActions = styled(StyledAlertInLine)`
@@ -79,32 +84,28 @@ export const StyledAlertInLineWithActions = styled(StyledAlertInLine)`
 export const StyledAlert = styled(StyledContainer)`
   flex-direction: row;
   background-color: ${({ color, theme }) => {
-    if (color === AlertBackgroundColor.Alert) {
-      return theme.color.system.alertStrong.value;
+    if (color === AlertColor.Alert) {
+      return theme.colors.colours.system['alert-strong'].value;
     }
-    if (color === AlertBackgroundColor.Success) {
-      return theme.color.system.successStrong.value;
+    if (color === AlertColor.Success) {
+      return theme.colors.colours.system.success.value;
     }
-    if (color === AlertBackgroundColor.Fail) {
-      return theme.color.system.failStrong.value;
+    if (color === AlertColor.Fail) {
+      return theme.colors.colours.system.fail.value;
     }
-    return theme.color.system.notificationStrong.value;
+    return theme.colors.colours.system['notification-strong'].value;
   }};
-  color: ${({ theme }) => theme.color.white.value};
+  color: ${({ theme }) => theme.colors.colours.default.white.value};
+`;
 
-  p {
-    white-space: nowrap;
-  }
+export const StyledToast = styled(StyledAlert)`
+  width: min(736px, 90vw);
+  margin: auto;
 `;
 
 export const StyledTextContainer = styled.div`
   min-width: 30px;
   overflow: hidden;
-
-  p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 `;
 
 export const StyledActionContainer = styled.div`
@@ -112,13 +113,18 @@ export const StyledActionContainer = styled.div`
   column-gap: 8px;
   justify-content: flex-end;
   box-sizing: border-box;
+  height: 100%;
+  align-items: center;
 `;
 
-export const StyledActionItem = styled.div`
+export const StyledActionItem = styled.div.attrs((props: { alertType: AlertType }) => props)`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   box-sizing: border-box;
+  button {
+    text-decoration: ${(props) => (props.alertType === AlertType.Toast ? `none` : `underline`)};
+  }
 `;
 
 export const StyledButton = styled.button`
@@ -152,4 +158,12 @@ export const StyledAlertContent = styled(StyledContent)`
   width: 80%;
   margin: 0 auto;
   justify-content: center;
+`;
+export const StyledAlertToastContent = styled(StyledAlertContent)`
+  width: 100%;
+  justify-content: space-between;
+
+  p {
+    white-space: normal;
+  }
 `;

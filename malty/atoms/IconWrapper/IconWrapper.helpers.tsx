@@ -1,14 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Colors, IconWrapperInterface, SizesTypes } from './IconWrapper.types';
+import { IconColor, IconSize, IconWrapperProps } from './IconWrapper.types';
 
-export const IconComposition = (Icon: React.FC<IconWrapperInterface>) => (
-  <Icon color={Colors.Primary} size={SizesTypes.Medium} />
-);
-
-export const IconStories = (name: string, Icon: React.FC<IconWrapperInterface>) => {
+export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
   const storyMeta = {
-    title: `Icons/${name}`,
+    title: `Icons/Individual Icons/${name}`,
     component: Icon,
     parameters: {
       importObject: 'Icon',
@@ -16,30 +12,34 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperInterface>) 
     },
     argTypes: {
       color: {
-        options: Object.values(Colors),
         description: 'Color options are',
-        defaultValue: Colors.Primary,
+        options: Object.keys(IconColor),
+        mapping: IconColor,
+        control: {
+          type: 'radio',
+          label: Object.values(IconColor)
+        },
         table: {
           defaultValue: {
-            summary: 'Primary'
+            summary: 'IconColor.Primary'
           }
         },
-        control: {
-          type: 'radio'
-        }
+        defaultValue: 'Primary'
       },
       size: {
-        options: Object.values(SizesTypes),
-        defaultValue: SizesTypes.Medium,
         description: 'Size options are',
+        options: Object.keys(IconSize),
+        mapping: IconSize,
+        control: {
+          type: 'radio',
+          label: Object.values(IconSize)
+        },
         table: {
           defaultValue: {
-            summary: 'Medium'
+            summary: 'IconSize.Medium'
           }
         },
-        control: {
-          type: 'radio'
-        }
+        defaultValue: 'Medium'
       },
       viewBox: {
         table: {
@@ -54,12 +54,12 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperInterface>) 
     }
   } as Meta;
 
-  const Template: Story<IconWrapperInterface> = ({ color, size }) => <Icon color={color} size={size} />;
+  const Template: Story<IconWrapperProps> = ({ color, size }) => <Icon color={color} size={size} />;
 
   const story = Template.bind({});
   story.parameters = {
-    color: Colors.Primary,
-    size: SizesTypes.Large
+    color: IconColor.Primary,
+    size: IconSize.Large
   };
   return [storyMeta, story];
 };

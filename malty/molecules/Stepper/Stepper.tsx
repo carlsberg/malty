@@ -1,4 +1,6 @@
-import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
+/* eslint-disable no-plusplus */
+/* eslint-disable no-loop-func */
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -17,12 +19,12 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
           <StyledStepperCircle
             key={`progressStep_circle_${step}`}
             active={currentStep >= step}
-            currentStep={currentStep == step}
+            currentStep={currentStep === step}
             theme={theme}
           >
             <>
               {currentStep > step && (
-                <Icon name={IconNamesTypes.ItemCheckFilled} size={IconSizesTypes.Small} color={IconColors.Primary} />
+                <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.Primary} />
               )}
               {currentStep <= step && !isMultiStep && (
                 <StyledStepperNumber theme={theme} active={currentStep >= step}>
@@ -36,7 +38,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
               key={`progressStep_line_${step}`}
               theme={theme}
               active={currentStep > step && !isMultiStep}
-            ></StyledStepperLine>
+            />
           )}
         </>
       ]);

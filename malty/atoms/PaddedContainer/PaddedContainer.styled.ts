@@ -8,5 +8,5 @@ export const StyledPaddedContainer = styled.div<{ padding: string }>`
   left: 0;
   margin: 0;
   border: 0;
-  padding: ${({ padding }) => padding}px;
+  padding: ${({ padding }) => padding};
 `;

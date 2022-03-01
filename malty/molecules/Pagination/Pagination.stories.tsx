@@ -4,7 +4,7 @@ import { Pagination as PaginationComponent } from './Pagination';
 import { PaginationProps } from './Pagination.types';
 
 export default {
-  title: 'Molecules/Pagination',
+  title: 'Navigation/Pagination',
   component: PaginationComponent,
   parameters: {
     importObject: 'Pagination',

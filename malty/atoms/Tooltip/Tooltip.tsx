@@ -1,12 +1,12 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-console */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { StyledParagraph } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
-import { Position, Toggle, TooltipProps } from './Tooltip.types';
+import { TooltipPosition, TooltipProps, TooltipToggle } from './Tooltip.types';
 
 export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -19,25 +19,25 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
       const width = box?.offsetWidth;
       const height = box?.offsetHeight;
       switch (position) {
-        case Position.Top:
+        case TooltipPosition.Top:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
           });
           break;
-        case Position.Right:
+        case TooltipPosition.Right:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
           });
           break;
-        case Position.Bottom:
+        case TooltipPosition.Bottom:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
           });
           break;
-        case Position.Left:
+        case TooltipPosition.Left:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
@@ -66,7 +66,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
       setShowTooltip(!showTooltip);
     };
 
-    if (toggle === Toggle.Hover) {
+    if (toggle === TooltipToggle.Hover) {
       const hoverEl = anchor ? document.getElementById(anchor) : false;
 
       if (hoverEl) {
@@ -82,7 +82,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
       };
     }
 
-    if (toggle === Toggle.Click) {
+    if (toggle === TooltipToggle.Click) {
       const hoverEl = anchor ? document.getElementById(anchor) : false;
 
       if (hoverEl) {
@@ -96,7 +96,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
       };
     }
 
-    if (toggle === Toggle.Persist) {
+    if (toggle === TooltipToggle.Persist) {
       handleMouseEnter();
     }
     return returnFn;
@@ -111,7 +111,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
           open={isOpen === true ? isOpen : showTooltip}
           theme={theme}
         >
-          <StyledParagraph theme={theme}>{children}</StyledParagraph>
+          <Text textStyle={TextStyle.MediumDefault}>{children}</Text>
         </StyledTooltip>
       </StyledTooltipWrapper>
     </TypographyProvider>

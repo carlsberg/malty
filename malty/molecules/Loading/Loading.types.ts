@@ -1,16 +1,16 @@
 export interface LoadingProps {
   text?: string;
-  size?: SizeTypes;
+  size?: LoadingSize;
   status: LoadingStatus;
 }
 
-export enum SizeTypes {
+export enum LoadingSize {
   Small = 'Small',
   Medium = 'Medium',
   Large = 'Large'
 }
 
-export enum Sizes {
+export enum LoadingSizeNumber {
   Small = 16,
   Medium = 24,
   Large = 48

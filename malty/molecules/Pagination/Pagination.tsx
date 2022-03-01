@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { Colors, SizesTypes } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import ChevronLeft from '@carlsberggroup/malty.icons.chevron-left';
 import ChevronRight from '@carlsberggroup/malty.icons.chevron-right';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -67,7 +67,7 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
               onClick={onPrevious}
               onKeyUp={onPreviousKeyUp}
             >
-              <ChevronLeft size={SizesTypes.Medium} color={Colors.Primary} />
+              <ChevronLeft size={IconSize.Medium} color={IconColor.Primary} />
             </StyledChevron>
           </li>
           {paginationRange?.map((pageNr, idx) => {
@@ -103,7 +103,7 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
               onClick={onNext}
               onKeyUp={onNextKeyUp}
             >
-              <ChevronRight size={SizesTypes.Medium} color={Colors.Primary} />
+              <ChevronRight size={IconSize.Medium} color={IconColor.Primary} />
             </StyledChevron>
           </li>
         </ul>
