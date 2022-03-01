@@ -4,7 +4,7 @@ import { Toggle as ToggleComponent } from './Toggle';
 import { ToggleProps } from './Toggle.types';
 
 export default {
-  title: 'Atoms/Toggle',
+  title: 'Forms/Toggle',
   component: ToggleComponent,
   parameters: {
     importObject: 'Toggle',

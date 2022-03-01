@@ -5,23 +5,23 @@ exports[`toggle matches snapshot 1`] = `
   className="sc-bdvvtL iouZXA"
 >
   <label
-    className="sc-dkPtRN gpRhZw"
+    className="sc-dkPtRN bgsLfT"
   >
     <div
-      className="sc-hKwDye cNZSkx"
+      className="sc-hKwDye dntFYa"
     >
       <input
         checked={false}
-        className="sc-jRQBWg hwCJiG"
+        className="sc-jRQBWg hMnLjN"
         onChange={[Function]}
         type="checkbox"
       />
       <span
-        className="sc-gKclnd lcqVmS switch"
+        className="sc-gKclnd echrrP switch"
       />
     </div>
     <label
-      className="sc-eCImPb bFPtCB"
+      className="sc-eCImPb iTRTch"
     >
       Label text
     </label>
