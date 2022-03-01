@@ -11,7 +11,7 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.Radio'
   },
   argTypes: {
-    labelText: {
+    label: {
       description: 'label text radio',
       control: 'text'
     },
@@ -40,12 +40,12 @@ export default {
     }
   }
 };
-const Template: Story<RadioProps> = ({ value, labelText, selected, onValueChange, name, error, disabled }) => (
+const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, name, error, disabled }) => (
   <>
     <RadioComponent
       id={value.toString()}
       value={value}
-      labelText={labelText}
+      label={label}
       selected={selected}
       onValueChange={onValueChange}
       name={name}
@@ -56,7 +56,7 @@ const Template: Story<RadioProps> = ({ value, labelText, selected, onValueChange
 );
 export const Radio = Template.bind({});
 Radio.args = {
-  labelText: 'Option 1',
+  label: 'Option 1',
   name: 'radioOptions',
   value: 'Option 1',
   selected: true,

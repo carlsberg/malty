@@ -4,7 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
 import { RadioProps } from './Radio.types';
 
-export const Radio = ({ value, labelText, onValueChange, selected, error, name, disabled, ...props }: RadioProps) => {
+export const Radio = ({ value, label, onValueChange, selected, error, name, disabled, ...props }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
@@ -27,7 +27,7 @@ export const Radio = ({ value, labelText, onValueChange, selected, error, name, 
           {...props}
         />
         <StyledLabel htmlFor={value.toString()} disabled={disabled} theme={theme}>
-          {labelText}
+          {label}
         </StyledLabel>
       </StyledRadioContainer>
       {error && <StyledError theme={theme}>{error}</StyledError>}
