@@ -10,7 +10,8 @@ export default {
   component: ButtonComponent,
   parameters: {
     importObject: 'Button',
-    importPath: '@carlsberggroup/malty.atoms.button'
+    importPath: '@carlsberggroup/malty.atoms.button',
+    variants: ['primary', 'secondary', 'floater', 'link']
   },
   argTypes: {
     text: {
@@ -189,7 +190,7 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'Link':
+  case 'link':
     Button.args = {
       style: ButtonStyle.Link,
       type: ButtonType.Submit,
@@ -211,7 +212,7 @@ switch (variant) {
     };
     break;
 
-  case 'Secondary':
+  case 'secondary':
     Button.args = {
       style: ButtonStyle.Secondary,
       text: 'Secondary',
@@ -233,7 +234,7 @@ switch (variant) {
     };
     break;
 
-  case 'Floater':
+  case 'floater':
     Button.args = {
       style: ButtonStyle.Floater,
       icon: IconName.ArrowSmallUp,
@@ -256,7 +257,7 @@ switch (variant) {
     };
     break;
 
-  case 'Transparent':
+  case 'transparent':
     Button.args = {
       style: ButtonStyle.Transparent,
       text: 'Transparent',
