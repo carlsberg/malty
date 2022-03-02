@@ -18557,7 +18557,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ssri@npm:^8.0.1":
+"ssri@npm:^8.0.0, ssri@npm:^8.0.1":
   version: 8.0.1
   resolution: "ssri@npm:8.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fssri%2F-%2Fssri-8.0.1.tgz"
   dependencies:
