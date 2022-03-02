@@ -45,6 +45,7 @@ export const parameters = {
   },
   docs: {
     theme: maltyTheme,
+    source: { code: '' },
     container: ({ children, ...rest }) =>
       (!plain && !options && (
         <DocsContainer {...rest}>
