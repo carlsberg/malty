@@ -6809,7 +6809,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"agentkeepalive@npm:^4.2.0":
+"agentkeepalive@npm:^4.2.1":
   version: 4.2.1
   resolution: "agentkeepalive@npm:4.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fagentkeepalive%2F-%2Fagentkeepalive-4.2.1.tgz"
   dependencies:
@@ -10396,7 +10396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"encoding@npm:^0.1.12":
+"encoding@npm:^0.1.13":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fencoding%2F-%2Fencoding-0.1.13.tgz"
   dependencies:
@@ -14701,7 +14701,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^7.3.1":
+"lru-cache@npm:^7.4.0":
   version: 7.4.0
   resolution: "lru-cache@npm:7.4.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Flru-cache%2F-%2Flru-cache-7.4.0.tgz"
   checksum: f966d8b6832ae4b6d454b96b5814a81fdd7312d393208c8ff1456981bafa7c6d5e28f8814813ec196ffac4e33a57c22c7daa24e79192f4c7f0b16acb1b9e7ed1
@@ -14744,26 +14744,26 @@ __metadata:
   linkType: hard
 
 "make-fetch-happen@npm:^10.0.3":
-  version: 10.0.3
-  resolution: "make-fetch-happen@npm:10.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fmake-fetch-happen%2F-%2Fmake-fetch-happen-10.0.3.tgz"
+  version: 10.0.4
+  resolution: "make-fetch-happen@npm:10.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fmake-fetch-happen%2F-%2Fmake-fetch-happen-10.0.4.tgz"
   dependencies:
-    agentkeepalive: ^4.2.0
+    agentkeepalive: ^4.2.1
     cacache: ^15.3.0
     http-cache-semantics: ^4.1.0
     http-proxy-agent: ^5.0.0
     https-proxy-agent: ^5.0.0
     is-lambda: ^1.0.1
-    lru-cache: ^7.3.1
+    lru-cache: ^7.4.0
     minipass: ^3.1.6
     minipass-collect: ^1.0.2
-    minipass-fetch: ^1.4.1
+    minipass-fetch: ^2.0.1
     minipass-flush: ^1.0.5
     minipass-pipeline: ^1.2.4
     negotiator: ^0.6.3
     promise-retry: ^2.0.1
     socks-proxy-agent: ^6.1.1
     ssri: ^8.0.1
-  checksum: edf3ba5119c7cf528485dbeafd14dc84c01c97038c13696d20ff5edb5274d9fddc418be3dffe7c542f7dc4691dc221e9faf913b207f6ccb7c81b43f479525c0c
+  checksum: 036fcfaec18b69ce6384644275850b0871aff105663aecc0130b5c45fe318542d7e2004cf1f4cd26b7c6842c282f8b37f00da67aa3bae13c13693e405480ac74
   languageName: node
   linkType: hard
 
@@ -15154,18 +15154,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass-fetch@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "minipass-fetch@npm:1.4.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fminipass-fetch%2F-%2Fminipass-fetch-1.4.1.tgz"
+"minipass-fetch@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "minipass-fetch@npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fminipass-fetch%2F-%2Fminipass-fetch-2.0.1.tgz"
   dependencies:
-    encoding: ^0.1.12
-    minipass: ^3.1.0
+    encoding: ^0.1.13
+    minipass: ^3.1.6
     minipass-sized: ^1.0.3
-    minizlib: ^2.0.0
+    minizlib: ^2.1.2
   dependenciesMeta:
     encoding:
       optional: true
-  checksum: ec93697bdb62129c4e6c0104138e681e30efef8c15d9429dd172f776f83898471bc76521b539ff913248cc2aa6d2b37b652c993504a51cc53282563640f29216
+  checksum: 2a032e94def4c4a89ef6553fd10c563fefffafd16d6d95527ab132e2895fcf731b73a0ab3712f236e82c4467afb41148c2d272c319351f1a23d9524b399c6bba
   languageName: node
   linkType: hard
 
@@ -15196,7 +15196,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass@npm:^3.0.0, minipass@npm:^3.1.0, minipass@npm:^3.1.1, minipass@npm:^3.1.6":
+"minipass@npm:^3.0.0, minipass@npm:^3.1.1, minipass@npm:^3.1.6":
   version: 3.1.6
   resolution: "minipass@npm:3.1.6::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fminipass%2F-%2Fminipass-3.1.6.tgz"
   dependencies:
@@ -15205,7 +15205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minizlib@npm:^2.0.0, minizlib@npm:^2.1.1":
+"minizlib@npm:^2.1.1, minizlib@npm:^2.1.2":
   version: 2.1.2
   resolution: "minizlib@npm:2.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fminizlib%2F-%2Fminizlib-2.1.2.tgz"
   dependencies:
@@ -18557,7 +18557,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ssri@npm:^8.0.0, ssri@npm:^8.0.1":
+"ssri@npm:^8.0.1":
   version: 8.0.1
   resolution: "ssri@npm:8.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fssri%2F-%2Fssri-8.0.1.tgz"
   dependencies:
