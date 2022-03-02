@@ -31,6 +31,7 @@ const StyledDocsContainer = styled.div`
 
 export const parameters = {
   viewMode: 'docs',
+  layout: 'centered',
   controls: { expanded: true },
   previewTabs: {
     canvas: {
