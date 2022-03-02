@@ -8,7 +8,8 @@ export default {
   component: CheckboxComponent,
   parameters: {
     importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.checkbox'
+    importPath: '@carlsberggroup/malty.atoms.checkbox',
+    variants: ['undetermined', 'checked', 'unchecked']
   },
   argTypes: {
     value: {

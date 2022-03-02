@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ImportPath } from './importPath';
+import { StoryToggle } from './storyToggle';
+import { ThemedComponent } from './themedComponent';
 import { DocsContainer } from '@storybook/addon-docs';
 import { ArgsTable, Description, Primary, Stories, Subtitle, Title, PRIMARY_STORY } from '@storybook/addon-docs';
 import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -29,6 +31,7 @@ const StyledDocsContainer = styled.div`
 
 export const parameters = {
   viewMode: 'docs',
+  layout: 'centered',
   controls: { expanded: true },
   previewTabs: {
     canvas: {
@@ -45,14 +48,17 @@ export const parameters = {
   },
   docs: {
     theme: maltyTheme,
+    source: { code: '' },
     container: ({ children, ...rest }) =>
       (!plain && !options && (
         <DocsContainer {...rest}>
           <Title />
           <Subtitle />
+          <ThemedComponent />
           <Description />
           <ImportPath />
           <Primary />
+          <StoryToggle />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories />
         </DocsContainer>
