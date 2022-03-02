@@ -23,7 +23,8 @@ export default {
   component: Icon,
   parameters: {
     importObject: 'CarlsbergFilled',
-    importPath: '@carlsberggroup/malty.atoms.icons.add-content'
+    importPath: '@carlsberggroup/malty.atoms.icons.add-content',
+    variants: Object.keys(IconName)
   },
   argTypes: {
     name: {

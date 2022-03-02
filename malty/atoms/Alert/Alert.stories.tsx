@@ -10,7 +10,8 @@ export default {
   component: AlertComponent,
   parameters: {
     importObject: 'Alert',
-    importPath: '@carlsberggroup/malty.atoms.alert'
+    importPath: '@carlsberggroup/malty.atoms.alert',
+    variants: ['inline', 'toast', 'banner']
   },
   argTypes: {
     type: {

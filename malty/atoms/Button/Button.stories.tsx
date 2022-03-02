@@ -10,7 +10,8 @@ export default {
   component: ButtonComponent,
   parameters: {
     importObject: 'Button',
-    importPath: '@carlsberggroup/malty.atoms.button'
+    importPath: '@carlsberggroup/malty.atoms.button',
+    variants: ['primary', 'secondary', 'floater', 'link']
   },
   argTypes: {
     text: {
