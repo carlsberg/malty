@@ -82,8 +82,7 @@ export const Select = ({
   useEffect(() => {
     switch (size) {
       case SelectSize.Large: {
-        // eslint-disable-next-line radix
-        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', '')));
+        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', '')), 10);
         break;
       }
       default: {
