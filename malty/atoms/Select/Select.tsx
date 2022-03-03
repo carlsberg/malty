@@ -36,8 +36,7 @@ export const Select = ({
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  // eslint-disable-next-line radix
-  const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', '')));
+  const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
   const [showOptionList, setShowOptionList] = useState(false);
   const [selectedValueState, setSelectedValueState] = useState(defaultValue || []);
 
