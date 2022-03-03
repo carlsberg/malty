@@ -7,7 +7,7 @@ export default create({
 
   brandTitle: 'Malty',
   brandUrl: 'https://malty.carlsberggroup.com',
-  brandImage: './malty-logo.png',
+  brandImage: './malty-logo@2x.svg',
 
   //   colorPrimary: 'hotpink',
   //   colorSecondary: 'deepskyblue',

@@ -73,7 +73,7 @@ export const StyledPill = styled.div<{
       `;
     }
     return css`
-      padding: 0 ${padding}px;
+      padding: 0 ${padding};
     `;
   }}
 `;
