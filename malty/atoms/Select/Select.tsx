@@ -81,11 +81,11 @@ export const Select = ({
   useEffect(() => {
     switch (size) {
       case SelectSize.Large: {
-        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', '')), 10);
+        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', ''), 10));
         break;
       }
       default: {
-        setNumSize(parseInt(theme.sizes.xl.value.replace('px', '')), 10);
+        setNumSize(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
         break;
       }
     }
