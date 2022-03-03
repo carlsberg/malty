@@ -10,11 +10,11 @@ import {
   StyledCheck,
   StyledChevronDown,
   StyledError,
+  StyledHint,
   StyledLabel,
   StyledOption,
   StyledOptionsWrapper,
   StyledSelectedOptionsWrapper,
-  StyledSuccess,
   StyledWrapper
 } from './Select.styled';
 import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
@@ -27,7 +27,7 @@ export const Select = ({
   label,
   type,
   error,
-  success,
+  hint,
   disabled = false,
   size = SelectSize.Medium,
   children,
@@ -164,7 +164,6 @@ export const Select = ({
           onClick={() => toggleOptionList()}
           disabled={disabled}
           isError={!!error && type !== SelectType.Inline}
-          isSuccess={!!success && type !== SelectType.Inline}
           open={showOptionList}
         >
           <StyledSelectedOptionsWrapper data-testid="selected-value">
@@ -184,7 +183,11 @@ export const Select = ({
       </StyledButtonContainer>
 
       {error && type !== SelectType.Inline && <StyledError theme={theme}>{error}</StyledError>}
-      {success && !error && type !== SelectType.Inline && <StyledSuccess theme={theme}>{success}</StyledSuccess>}
+      {hint && !error && type !== SelectType.Inline && (
+        <StyledHint disabled={disabled} theme={theme}>
+          {hint}
+        </StyledHint>
+      )}
     </TypographyProvider>
   );
 };

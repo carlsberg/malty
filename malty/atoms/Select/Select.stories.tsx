@@ -26,8 +26,8 @@ export default {
       description: 'Error message to be displayed when error is present.',
       control: 'text'
     },
-    success: {
-      description: 'success message to be displayed',
+    hint: {
+      description: 'helper message to be displayed',
       control: 'text'
     },
     size: {
@@ -80,7 +80,7 @@ const Template: Story<SelectProps> = ({
   disabled,
   placeholder,
   multiple,
-  success,
+  hint,
   selectionText
 }: SelectProps) => (
   <SelectComponent
@@ -94,7 +94,7 @@ const Template: Story<SelectProps> = ({
     defaultValue={defaultValue}
     onValueChange={() => null}
     multiple={multiple}
-    success={success}
+    hint={hint}
     selectionText={selectionText}
   />
 );
@@ -131,7 +131,7 @@ Select.args = {
   label: 'Label',
   type: SelectType.Default,
   error: 'Error text',
-  success: 'Success text',
+  hint: 'hint text',
   disabled: false,
   placeholder: 'Placeholder',
   multiple: false,

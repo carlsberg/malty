@@ -8,7 +8,7 @@ export interface SelectProps {
   placeholder?: string;
   type: SelectType;
   error?: string;
-  success?: string;
+  hint?: string;
   disabled?: boolean;
   size?: SelectSize;
   children?: React.Component;

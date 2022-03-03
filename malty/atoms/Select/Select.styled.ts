@@ -49,20 +49,26 @@ export const StyledError = styled.label`
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
 `;
-export const StyledSuccess = styled.label`
+export const StyledHint = styled.label<{
+  disabled?: boolean;
+}>`
   font-family: inherit;
-  color: ${({ theme }) => theme.colors.colours.system.success.value};
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
 `;
 
 export const StyledButton = styled.button<{
   disabled?: boolean;
   height: number;
   isError?: boolean;
-  isSuccess?: boolean;
   isActive?: boolean;
   selectStyle: string;
   open?: boolean;
@@ -97,12 +103,8 @@ export const StyledButton = styled.button<{
         background-color: ${theme.colors.colours.overlay['digital-black'][10].value};
       }
     `}
-  ${({ isSuccess, theme }) =>
-    isSuccess &&
-    css`
-      border: 1px solid ${theme.colors.colours.system.success.value};
-    `}
-     ${({ isError, theme }) =>
+
+  ${({ isError, theme }) =>
     isError &&
     css`
       border: 1px solid ${theme.colors.colours.system.fail.value};
