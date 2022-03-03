@@ -86,8 +86,7 @@ export const Select = ({
         break;
       }
       default: {
-        // eslint-disable-next-line radix
-        setNumSize(parseInt(theme.sizes.xl.value.replace('px', '')));
+        setNumSize(parseInt(theme.sizes.xl.value.replace('px', '')), 10);
         break;
       }
     }
