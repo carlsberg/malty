@@ -3,22 +3,29 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Alert as AlertComponent } from './Alert';
-import { AlertBackgroundColor, AlertHeightSizeTypes, AlertProps, AlertType } from './Alert.types';
+import { AlertColor, AlertProps, AlertSize, AlertType } from './Alert.types';
 
 export default {
-  title: 'Atoms/Alert',
+  title: 'Information/Alert',
   component: AlertComponent,
   parameters: {
     importObject: 'Alert',
-    importPath: '@carlsberggroup/malty.atoms.alert'
+    importPath: '@carlsberggroup/malty.atoms.alert',
+    variants: ['inline', 'toast', 'banner']
   },
   argTypes: {
     type: {
       description: 'Types of Alert',
-      options: Object.values(AlertType),
-      table: { defaultValue: { summary: 'Banner' } },
+      options: Object.keys(AlertType),
+      mapping: AlertType,
       control: {
-        type: 'radio'
+        type: 'select',
+        label: Object.values(AlertType)
+      },
+      table: {
+        defaultValue: {
+          summary: 'AlertType.Banner'
+        }
       }
     },
     children: {
@@ -37,26 +44,30 @@ export default {
       table: { defaultValue: { summary: 'true' } }
     },
     heightSize: {
-      options: Object.values(AlertHeightSizeTypes),
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
+      options: Object.keys(AlertSize),
+      mapping: AlertSize,
+      control: {
+        type: 'select',
+        label: Object.values(AlertSize)
+      },
       table: {
         defaultValue: {
-          summary: 'medium'
+          summary: 'AlertSize.Medium'
         }
-      },
-      control: {
-        type: 'radio'
       }
     },
     color: {
-      options: Object.values(AlertBackgroundColor),
-      control: {
-        type: 'select'
-      },
       description: 'Alert colors, from design predefined colors, as follows.',
+      options: Object.keys(AlertColor),
+      mapping: AlertColor,
+      control: {
+        type: 'select',
+        label: Object.values(AlertColor)
+      },
       table: {
         defaultValue: {
-          summary: 'Notification'
+          summary: 'AlertColor.Notification'
         }
       }
     },
@@ -104,8 +115,8 @@ switch (variant) {
       children: 'Hello, Im the In Line Alert! Play with me.',
       action: false,
       icon: false,
-      heightSize: AlertHeightSizeTypes.Medium,
-      color: AlertBackgroundColor.Notification,
+      heightSize: AlertSize.Medium,
+      color: AlertColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',
@@ -119,7 +130,7 @@ switch (variant) {
       children: 'Hello, Im the Toast Alert! Play with me.',
       action: true,
       heightSize: undefined,
-      color: AlertBackgroundColor.Notification,
+      color: AlertColor.Notification,
       dataQaId: 'toast-alert',
       firstAction: action('Undo Action clicked'),
       firstActionText: 'Undo',
@@ -132,8 +143,8 @@ switch (variant) {
       children: 'Hello, Im the Banner Alert! Play with me.',
       action: true,
       icon: true,
-      heightSize: AlertHeightSizeTypes.Medium,
-      color: AlertBackgroundColor.Notification,
+      heightSize: AlertSize.Medium,
+      color: AlertColor.Notification,
       dataQaId: 'banner-alert',
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',

@@ -1,6 +1,6 @@
-import { Button, ButtonStyle, ButtonTypes, SizeTypes } from '@carlsberggroup/malty.atoms.button';
-import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
-import { Color, Size, Text } from '@carlsberggroup/malty.atoms.text';
+import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -20,7 +20,7 @@ import {
   StyledTextContainer,
   StyledToast
 } from './Alert.styled';
-import { AlertBackgroundColor, AlertProps, AlertType } from './Alert.types';
+import { AlertColor, AlertProps, AlertType } from './Alert.types';
 
 export const Alert = ({
   type,
@@ -28,7 +28,7 @@ export const Alert = ({
   icon,
   dismiss,
   heightSize,
-  color = AlertBackgroundColor.Notification,
+  color = AlertColor.Notification,
   dataQaId,
   firstAction,
   firstActionText,
@@ -39,8 +39,8 @@ export const Alert = ({
   onHideToast
 }: AlertProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const labelFontColor = type !== AlertType.InLine ? Color.White : Color.Default;
-  const alertIconColor = type !== AlertType.InLine ? IconColors.White : IconColors.Primary;
+  const labelFontColor = type !== AlertType.InLine ? TextColor.White : TextColor.DigitalBlack;
+  const alertIconColor = type !== AlertType.InLine ? IconColor.White : IconColor.Primary;
   const actionButtonColor = action && type !== AlertType.InLine && true;
 
   // Toast auto hide setup
@@ -129,8 +129,8 @@ export const Alert = ({
   const renderAlertIcon = () => (
     <Icon
       className="inline-alert-icon"
-      name={IconNamesTypes.Alert}
-      size={IconSizesTypes.Medium}
+      name={IconName.Alert}
+      size={IconSize.Medium}
       color={alertIconColor}
       data-testid={`${dataQaId}-icon`}
     />
@@ -138,7 +138,7 @@ export const Alert = ({
 
   const renderLabel = () => (
     <StyledTextContainer data-alert-label-container>
-      <Text color={labelFontColor} size={Size.MediumSmall}>
+      <Text color={labelFontColor} textStyle={TextStyle.MediumSmallDefault}>
         {children}
       </Text>
     </StyledTextContainer>
@@ -146,12 +146,7 @@ export const Alert = ({
 
   const renderDismissContainer = () => (
     <StyledDismissContainer data-testid={`${dataQaId}-close-icon`} onClick={onDismissAction}>
-      <Icon
-        className="inline-alert-icon"
-        name={IconNamesTypes.Close}
-        size={IconSizesTypes.Medium}
-        color={IconColors.White}
-      />
+      <Icon className="inline-alert-icon" name={IconName.Close} size={IconSize.Medium} color={IconColor.White} />
     </StyledDismissContainer>
   );
 
@@ -160,8 +155,8 @@ export const Alert = ({
       <StyledActionItem alertType={type}>
         <Button
           isWhite={actionButtonColor}
-          size={SizeTypes.Small}
-          type={ButtonTypes.Button}
+          size={ButtonSize.Small}
+          type={ButtonType.Button}
           style={ButtonStyle.Link}
           onClick={onFirstAction}
           data-testid={`${dataQaId}-first-action`}
@@ -174,7 +169,7 @@ export const Alert = ({
         <StyledActionItem alertType={type}>
           <Button
             isWhite={actionButtonColor}
-            type={ButtonTypes.Button}
+            type={ButtonType.Button}
             style={ButtonStyle.Link}
             onClick={onSecondAction}
             data-testid={`${dataQaId}-second-action`}

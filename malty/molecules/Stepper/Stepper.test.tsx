@@ -1,6 +1,6 @@
 import { jsonRenderer } from '@carlsberggroup/malty.utils.test';
-import { Stepper } from './Stepper';
 import React from 'react';
+import { Stepper } from './Stepper';
 
 describe('molecule stepper', () => {
   it('matches snapshot', () => {

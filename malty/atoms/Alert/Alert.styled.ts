@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { AlertBackgroundColor, AlertHeightSizeTypes, AlertType } from './Alert.types';
+import { AlertColor, AlertSize, AlertType } from './Alert.types';
 
 export const StyledWrapper = styled.div<{
   type?: AlertType;
@@ -38,8 +38,8 @@ export const StyledAlertToastWrapper = styled(StyledWrapper)`
 `;
 
 export const StyledContainer = styled.div<{
-  color?: AlertBackgroundColor;
-  heightSize?: AlertHeightSizeTypes;
+  color?: AlertColor;
+  heightSize?: AlertSize;
 }>`
   width: 100%;
   display: flex;
@@ -57,23 +57,23 @@ export const StyledContainer = styled.div<{
 
 export const StyledAlertInLine = styled(StyledContainer)`
   background-color: ${({ color, theme }) => {
-    if (color === AlertBackgroundColor.Alert) {
-      return theme.color.system.alertBackground.value;
+    if (color === AlertColor.Alert) {
+      return theme.colors.colours.system['alert-light'].value;
     }
-    if (color === AlertBackgroundColor.Success) {
-      return theme.color.system.successBackground.value;
+    if (color === AlertColor.Success) {
+      return theme.colors.colours.system['success-light'].value;
     }
-    if (color === AlertBackgroundColor.Fail) {
-      return theme.color.system.failBackground.value;
+    if (color === AlertColor.Fail) {
+      return theme.colors.colours.system['fail-light'].value;
     }
-    return theme.color.system.notificationBackground.value;
+    return theme.colors.colours.system['notification-light'].value;
   }};
-  color: ${({ theme }) => theme.color.default.value};
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   height: ${({ heightSize, theme }) => {
-    if (heightSize === AlertHeightSizeTypes.Small) {
-      return `${theme.variables.container.size.small.value}px`;
+    if (heightSize === AlertSize.Small) {
+      return `${theme.sizes.l.value}`;
     }
-    return `${theme.variables.container.size.medium.value}px`;
+    return `${theme.sizes.xl.value}`;
   }};
 `;
 
@@ -84,18 +84,18 @@ export const StyledAlertInLineWithActions = styled(StyledAlertInLine)`
 export const StyledAlert = styled(StyledContainer)`
   flex-direction: row;
   background-color: ${({ color, theme }) => {
-    if (color === AlertBackgroundColor.Alert) {
-      return theme.color.system.alertStrong.value;
+    if (color === AlertColor.Alert) {
+      return theme.colors.colours.system['alert-strong'].value;
     }
-    if (color === AlertBackgroundColor.Success) {
-      return theme.color.system.successStrong.value;
+    if (color === AlertColor.Success) {
+      return theme.colors.colours.system.success.value;
     }
-    if (color === AlertBackgroundColor.Fail) {
-      return theme.color.system.failStrong.value;
+    if (color === AlertColor.Fail) {
+      return theme.colors.colours.system.fail.value;
     }
-    return theme.color.system.notificationStrong.value;
+    return theme.colors.colours.system['notification-strong'].value;
   }};
-  color: ${({ theme }) => theme.color.white.value};
+  color: ${({ theme }) => theme.colors.colours.default.white.value};
 `;
 
 export const StyledToast = styled(StyledAlert)`

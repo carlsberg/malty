@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Icon as IconComponent } from './Icon';
-import { Colors, IconInterface, NamesTypes, SizesTypes } from './Icon.types';
+import { IconColor, IconName, IconProps, IconSize } from './Icon.types';
 
 const StyledAllIconsWrapper = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const StyledAllIconsWrapper = styled.div`
 `;
 
 export default {
-  title: 'Atoms/Icons/All Icons',
+  title: 'Icons/All Icons',
   component: IconComponent,
   parameters: {
     importObject: 'Icon',
@@ -22,39 +22,45 @@ export default {
   },
   argTypes: {
     name: {
-      options: Object.values(NamesTypes),
       description:
         'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
-      defaultValue: NamesTypes.AddContent,
+      options: Object.keys(IconName),
+      mapping: IconName,
       control: {
-        disable: true
-      }
+        disable: true,
+        label: Object.values(IconName)
+      },
+      defaultValue: 'CarlsbergFilled'
     },
     color: {
-      options: Object.values(Colors),
       description: 'Icon color, options are',
-      defaultValue: Colors.Primary,
+      options: Object.keys(IconColor),
+      mapping: IconColor,
+      control: {
+        type: 'radio',
+        label: Object.values(IconColor)
+      },
       table: {
         defaultValue: {
-          summary: 'Primary'
+          summary: 'IconColor.Primary'
         }
       },
-      control: {
-        type: 'radio'
-      }
+      defaultValue: 'Primary'
     },
     size: {
-      options: Object.values(SizesTypes),
-      defaultValue: SizesTypes.Medium,
       description: 'Icon size, options are',
+      options: Object.keys(IconSize),
+      mapping: IconSize,
+      control: {
+        type: 'radio',
+        label: Object.values(IconSize)
+      },
       table: {
         defaultValue: {
-          summary: 'medium'
+          summary: 'IconSize.Medium'
         }
       },
-      control: {
-        type: 'radio'
-      }
+      defaultValue: 'Medium'
     },
     viewBox: {
       table: {
@@ -67,9 +73,9 @@ export default {
   }
 } as Meta;
 
-const Template: Story<IconInterface> = (args) => (
+const Template: Story<IconProps> = (args) => (
   <StyledAllIconsWrapper>
-    {Object.values(NamesTypes).map((name, index) => (
+    {Object.values(IconName).map((name, index) => (
       <div title={name} key={index}>
         <IconComponent {...args} name={name} />
       </div>
@@ -78,8 +84,3 @@ const Template: Story<IconInterface> = (args) => (
 );
 
 export const AllIcons = Template.bind({});
-AllIcons.parameters = {
-  color: Colors.Primary,
-  size: SizesTypes.Medium,
-  name: NamesTypes.AddContent
-};

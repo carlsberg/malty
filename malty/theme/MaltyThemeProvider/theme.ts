@@ -14,17 +14,26 @@ TODO: Change require() to import statements
 
 const nonThemeColors = require('./colors.json');
 const nonThemeTypography = require('./typography.json');
+const nonThemeSizes = require('./sizes.json');
+const nonThemeLayout = require('./layout.json');
+const nonThemeBorders = require('./borders.json');
+const nonThemeGradients = require('./gradients.json');
 const nonThemeVariables = require('./variables.json');
+
+const globalMarket = require('./themes/global.json');
 const baltikaMarket = require('./themes/baltika.json');
 const cadiMarket = require('./themes/cadi.json');
 const carlsbergMarket = require('./themes/carlsberg.json');
-const globalMarket = require('./themes/global.json');
 const lbcMarket = require('./themes/lbc.json');
 
 const defaultTheme: DefaultTheme = {
-  ...nonThemeColors,
-  ...nonThemeVariables,
-  ...nonThemeTypography
+  colors: { ...nonThemeColors },
+  typography: { ...nonThemeTypography },
+  sizes: { ...nonThemeSizes },
+  layout: { ...nonThemeLayout },
+  borders: { ...nonThemeBorders },
+  gradients: { ...nonThemeGradients },
+  variables: { ...nonThemeVariables }
 };
 
 /*
@@ -41,10 +50,10 @@ const defaultTheme: DefaultTheme = {
   to a more efficient way of doing this.
 */
 
+const globalTheme = JSON.parse(JSON.stringify(defaultTheme));
 const baltikaTheme = JSON.parse(JSON.stringify(defaultTheme));
 const cadiTheme = JSON.parse(JSON.stringify(defaultTheme));
 const carlsbergTheme = JSON.parse(JSON.stringify(defaultTheme));
-const globalTheme = JSON.parse(JSON.stringify(defaultTheme));
 const lbcTheme = JSON.parse(JSON.stringify(defaultTheme));
 
 /*
@@ -60,10 +69,10 @@ const lbcTheme = JSON.parse(JSON.stringify(defaultTheme));
 
 /* eslint-disable dot-notation */
 
-baltikaTheme['color']['theme'] = { ...baltikaMarket.color.theme.baltika };
-cadiTheme['color']['theme'] = { ...cadiMarket.color.theme.cadi };
-carlsbergTheme['color']['theme'] = { ...carlsbergMarket.color.theme.carlsberg };
-globalTheme['color']['theme'] = { ...globalMarket.color.theme.global };
-lbcTheme['color']['theme'] = { ...lbcMarket.color.theme.lbc };
+globalTheme['colors']['theme'] = { ...globalMarket.color.theme.global };
+baltikaTheme['colors']['theme'] = { ...baltikaMarket.color.theme.baltika };
+cadiTheme['colors']['theme'] = { ...cadiMarket.color.theme.cadi };
+carlsbergTheme['colors']['theme'] = { ...carlsbergMarket.color.theme.carlsberg };
+lbcTheme['colors']['theme'] = { ...lbcMarket.color.theme.lbc };
 
 export { baltikaTheme, cadiTheme, carlsbergTheme, globalTheme, lbcTheme };
