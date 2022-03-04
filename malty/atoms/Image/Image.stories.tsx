@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import dedent from 'ts-dedent';
 import { Image as ImageComponent, ImageProps } from '.';
 import { ImageEffectPosition, ImageOverlay } from './Image.types';
 
@@ -10,14 +9,17 @@ export default {
   parameters: {
     importObject: 'Image',
     importPath: '@carlsberggroup/malty.atoms.image',
-    docs: {
-      description: {
-        component: dedent`
-          >###This is a themed component
-          >To see the Theme menu, and be able to change the theme for the _MaltyThemeProvider_, please press the 'T' key on your keyboard, and the toolbar should appear above. For more details, or if this doesn't work, please read here.
-          `
-      }
-    }
+    variants: [
+      'topborder',
+      'rightborder',
+      'bottomborder',
+      'leftborder',
+      'topgradient',
+      'rightgradient',
+      'bottomgradient',
+      'leftgradient'
+    ],
+    themed: true
   },
   argTypes: {
     cover: {
@@ -98,6 +100,62 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
+  case 'topborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Top,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'rightborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Right,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'bottomborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Bottom,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'leftborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Left,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'topgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Top,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'rightgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Right,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'bottomgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Bottom,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'leftgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Left,
+      alt: 'This is a sample image'
+    };
+    break;
   default:
     Image.args = {
       src: 'https://via.placeholder.com/400',

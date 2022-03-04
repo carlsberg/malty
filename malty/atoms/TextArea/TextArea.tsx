@@ -25,30 +25,15 @@ export const TextArea = ({
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [textAreaCount, setTextAreaCount] = useState(0);
-  const [rows, setRows] = useState(3);
-  const [minRows] = useState(3);
-  const [maxRows] = useState(6);
+  const [textAreaCount, setTextAreaCount] = useState(maxLength || 0);
 
   const handleCarachterCounter = (e: React.FormEvent<HTMLTextAreaElement>) => {
-    const textareaLineHeight = 18;
-    setTextAreaCount(e.currentTarget.value.length);
+    if (maxLength) {
+      setTextAreaCount(maxLength - e.currentTarget.value.length);
+    } else {
+      setTextAreaCount(e.currentTarget.value.length);
+    }
     onValueChange(e.currentTarget.value as string);
-
-    const previousRows = e.currentTarget.rows;
-    e.currentTarget.rows = minRows; // reset number of rows in textarea
-    // eslint-disable-next-line no-bitwise
-    const currentRows = ~~(e.currentTarget.scrollHeight / textareaLineHeight) - 1;
-
-    if (currentRows === previousRows) {
-      e.currentTarget.rows = currentRows;
-    }
-
-    if (currentRows >= maxRows) {
-      e.currentTarget.rows = maxRows;
-      e.currentTarget.scrollTop = e.currentTarget.scrollHeight;
-    }
-    setRows(currentRows < maxRows ? currentRows : maxRows);
   };
 
   return (
@@ -63,7 +48,6 @@ export const TextArea = ({
           <StyledtextArea
             name={id}
             id={id}
-            rows={rows}
             value={value}
             placeholder={placeholder}
             onChange={handleCarachterCounter}

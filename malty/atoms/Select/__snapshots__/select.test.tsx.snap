@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`select matches snapshot 1`] = `
+<span
+  className="sc-bdvvtL iouZXA"
+>
+  <label
+    className="sc-pVTFL fRmKZw"
+    disabled={false}
+    htmlFor="00000000-0000-0000-0000-000000000000"
+  >
+    Label text
+  </label>
+  <div
+    className="sc-furwcr jJkSds"
+  >
+    <button
+      className="sc-iqseJM frivHQ"
+      disabled={false}
+      height={40}
+      id="00000000-0000-0000-0000-000000000000"
+      name="00000000-0000-0000-0000-000000000000"
+      onClick={[Function]}
+      open={false}
+    >
+      <div
+        className="sc-fFeiMQ dkmTRP"
+        data-testid="selected-value"
+      >
+        Placeholder text
+      </div>
+      <svg
+        className="sc-iCfMLu eXhZRn sc-ksdxgE jfziNX"
+        color="digital-black"
+        data-testid="svg-component"
+        size="24px"
+        version="1.1"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fillRule="evenodd"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M12 13.586L6.707 8.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 10-1.414-1.414z"
+          />
+        </g>
+      </svg>
+    </button>
+    <span
+      className="sc-bdvvtL iouZXA"
+    >
+      <ul
+        className="sc-crHmcD bkLbkv"
+        height={40}
+      >
+        <li
+          className="sc-bqiRlB cKxEQb"
+          data-testid="select-option-0"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 1"
+        >
+          <div
+            className="sc-fotOHu eJXfpT"
+          >
+            name 1
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB cKxEQb"
+          data-testid="select-option-1"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 2"
+        >
+          <div
+            className="sc-fotOHu eJXfpT"
+          >
+            name 2
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB cKxEQb"
+          data-testid="select-option-2"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 3"
+        >
+          <div
+            className="sc-fotOHu eJXfpT"
+          >
+            name 3
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB cKxEQb"
+          data-testid="select-option-3"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 4"
+        >
+          <div
+            className="sc-fotOHu eJXfpT"
+          >
+            name 4
+          </div>
+        </li>
+        <li
+          className="sc-bqiRlB cKxEQb"
+          data-testid="select-option-4"
+          disabled={false}
+          height={40}
+          onClick={[Function]}
+          selected={false}
+          value="value 5"
+        >
+          <div
+            className="sc-fotOHu eJXfpT"
+          >
+            name 5
+          </div>
+        </li>
+      </ul>
+    </span>
+  </div>
+</span>
+`;

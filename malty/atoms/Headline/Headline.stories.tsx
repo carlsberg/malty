@@ -8,7 +8,8 @@ export default {
   component: HeadlineComponent,
   parameters: {
     importObject: 'Headline',
-    importPath: '@carlsberggroup/malty.atoms.headline'
+    importPath: '@carlsberggroup/malty.atoms.headline',
+    themed: true
   },
   argTypes: {
     color: {
