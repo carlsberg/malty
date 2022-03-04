@@ -1,6 +1,6 @@
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  value: string;
-  label?: string;
+  value?: string;
+  label: string;
   placeholder?: string;
   resize?: boolean;
   disabled?: boolean;
