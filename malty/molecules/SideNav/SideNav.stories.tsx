@@ -6,7 +6,7 @@ import { SideNav as SideNavComponent } from './SideNav';
 import { SideNavProps } from './SideNav.types';
 
 export default {
-  title: 'Molecules/Side Nav',
+  title: 'Navigation/Side Nav',
   component: SideNavComponent,
   parameters: {
     importObject: 'SideNav',
