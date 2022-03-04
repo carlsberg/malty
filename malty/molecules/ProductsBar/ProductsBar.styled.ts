@@ -8,7 +8,7 @@ export const StyledProductsBar = styled.div`
   border-color: rgb(49, 69, 80);
   border-style: solid;
   box-sizing: border-box;
-  padding: ${({ theme }) => theme.sizes.m.value + ' ' + theme.sizes.l.value};
+  padding: ${({ theme }) => `${theme.sizes.m.value} ${theme.sizes.l.value}`};
   overflow-y: hidden;
 `;
 export const StyledSystemWrapper = styled.div`
@@ -85,7 +85,7 @@ export const StyledProfileHeader = styled.div`
   padding-left: ${({ theme }) => theme.sizes[`4xl`].value};
   top: 0;
   position: absolute;
-  padding-top: 20px;
+  padding-top: ${({ theme }) => theme.sizes.m.value};
 `;
 
 export const StyledRoleLabel = styled.p`

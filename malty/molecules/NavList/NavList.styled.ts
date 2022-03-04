@@ -11,9 +11,11 @@ export const StyledNavList = styled.ul`
 export const StyledNavItem = styled.li<{
   selected: boolean;
 }>`
+  display: flex;
+  align-items: center;
   width: 100%;
   height: ${({ theme }) => theme.sizes[`3xl`].value};
-  padding: ${({ theme }) => `21px ${theme.sizes.l.value}`};
+  padding: ${({ theme }) => `0 ${theme.sizes.l.value}`};
   text-transform: capitalize;
   position: relative;
   box-sizing: border-box;
@@ -33,6 +35,8 @@ export const StyledNavItem = styled.li<{
   & svg {
     position: absolute;
     left: ${({ theme }) => theme.sizes[`2xs`].value};
+    top: 50%;
+    transform: translateY(-50%);
   }
   & p {
     margin: 0;
@@ -58,6 +62,7 @@ export const StyledRightArrow = styled.span`
   & svg {
     left: initial;
     right: ${({ theme }) => theme.sizes.s.value};
-    top: 22px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;
