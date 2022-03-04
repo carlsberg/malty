@@ -117,7 +117,7 @@ export const StyledProfileItem = styled.li`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 35px;
+    left: ${({ theme }) => theme.sizes.l.value};
   }
   & span p {
     margin: 0;
