@@ -85,7 +85,7 @@ export const StyledProfileHeader = styled.div`
   padding-left: ${({ theme }) => theme.sizes[`4xl`].value};
   top: 0;
   position: absolute;
-  padding-top: 20px;
+  padding-top: ${({ theme }) => theme.sizes.m.value};
 `;
 
 export const StyledRoleLabel = styled.p`
