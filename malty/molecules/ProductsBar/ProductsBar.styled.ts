@@ -8,7 +8,7 @@ export const StyledProductsBar = styled.div`
   border-color: rgb(49, 69, 80);
   border-style: solid;
   box-sizing: border-box;
-  padding: 24px 32px; //REPLACE BY TOKEN
+  padding: ${({ theme }) => theme.sizes.m.value + ' ' + theme.sizes.l.value};
   overflow-y: hidden;
 `;
 export const StyledSystemWrapper = styled.div`
