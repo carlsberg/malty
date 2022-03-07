@@ -5,9 +5,6 @@ import { DocsContext, Canvas, Description } from '@storybook/addon-docs';
 const StyledCanvas = styled(Canvas)`
   background-color: #d5eaff;
   padding: 0;
-  > div:first-child > div:first-child {
-    padding: 15px;
-  }
   p.sbdocs.sbdocs-p {
     margin: 0px !important;
   }

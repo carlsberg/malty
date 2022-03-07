@@ -9,7 +9,7 @@ const mockFn = jest.fn();
 
 describe('textarea', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(<TextArea value="Value" onValueChange={mockFn} />);
+    const view = jsonRenderer(<TextArea value="Value" onValueChange={mockFn} label="Label text" />);
     expect(view).toMatchSnapshot();
   });
 
