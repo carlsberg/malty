@@ -37,14 +37,11 @@ export default {
     },
 
     value: {
-      table: {
-        disable: true
-      }
+      description: 'Default value of textarea',
+      control: 'text'
     },
     onValueChange: {
-      table: {
-        disable: true
-      }
+      description: 'Function to be executed when textarea state changes'
     }
   }
 } as Meta;
@@ -80,5 +77,6 @@ TextArea.args = {
   resize: false,
   placeholder: 'Placeholder',
   disabled: false,
-  error: 'Error text'
+  error: 'Error text',
+  value: ''
 };
