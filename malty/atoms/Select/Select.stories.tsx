@@ -70,35 +70,6 @@ export default {
   }
 } as Meta;
 
-const Template: Story<SelectProps> = ({
-  options,
-  defaultValue,
-  size,
-  label,
-  type,
-  error,
-  disabled,
-  placeholder,
-  multiple,
-  hint,
-  selectionText
-}: SelectProps) => (
-  <SelectComponent
-    options={options}
-    size={size}
-    label={label}
-    type={type}
-    error={error}
-    disabled={disabled}
-    placeholder={placeholder}
-    defaultValue={defaultValue}
-    onValueChange={() => null}
-    multiple={multiple}
-    hint={hint}
-    selectionText={selectionText}
-  />
-);
-
 const testOptions: SelectOptionsType[] = [
   {
     value: 'value 1',
@@ -124,17 +95,44 @@ const testOptions: SelectOptionsType[] = [
   }
 ];
 
+const Template: Story<SelectProps> = (args) => <SelectComponent {...args} />;
+
 export const Select = Template.bind({});
-Select.args = {
-  options: testOptions,
-  size: SelectSize.Medium,
-  label: 'Label',
-  type: SelectType.Default,
-  error: 'Error text',
-  hint: 'hint text',
-  disabled: false,
-  placeholder: 'Placeholder',
-  multiple: false,
-  defaultValue: [testOptions[0]],
-  selectionText: 'options selected'
-};
+
+const params = new URLSearchParams(window.location.search);
+const type = params.get('type');
+const multiple = params.get('multiple');
+const error = params.get('error');
+
+switch (type) {
+  case 'inline':
+    Select.args = {
+      options: testOptions,
+      size: SelectSize.Medium,
+      label: 'Label',
+      type: SelectType.Inline,
+      hint: 'hint text',
+      disabled: false,
+      placeholder: 'Placeholder',
+      multiple: !!multiple,
+      defaultValue: [testOptions[0]],
+      selectionText: 'options selected'
+    };
+    break;
+
+  default:
+    Select.args = {
+      options: testOptions,
+      size: SelectSize.Medium,
+      label: 'Label',
+      type: SelectType.Default,
+      hint: 'hint text',
+      disabled: false,
+      placeholder: 'Placeholder',
+      multiple: !!multiple,
+      defaultValue: [testOptions[0]],
+      selectionText: 'options selected',
+      error: error ? 'error text' : ''
+    };
+    break;
+}
