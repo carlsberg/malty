@@ -31,6 +31,10 @@ export default {
       description: 'Error message to be displayed when error is present.',
       control: 'text'
     },
+    hint: {
+      description: 'helper message to be displayed',
+      control: 'text'
+    },
     maxLength: {
       description: 'Maxium characters of textarea ',
       control: 'number'
@@ -46,37 +50,26 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TextAreaProps> = ({
-  label,
-  placeholder,
-  resize,
-  disabled,
-  value,
-  error,
-  maxLength
-}: TextAreaProps) => {
+const Template: Story<TextAreaProps> = ({ value, onValueChange, ...args }) => {
   const [stateValue, setStateValue] = useState(value);
   return (
-    <TextAreaComponent
-      maxLength={maxLength}
-      label={label}
-      placeholder={placeholder}
-      resize={resize}
-      disabled={disabled}
-      value={stateValue}
-      onValueChange={(newValue: string) => setStateValue(newValue)}
-      error={error}
-    />
+    <TextAreaComponent value={stateValue} onValueChange={(newValue: string) => setStateValue(newValue)} {...args} />
   );
 };
 
 export const TextArea = Template.bind({});
+
+const params = new URLSearchParams(window.location.search);
+const error = params.get('error');
+const resizable = params.get('resizable');
+
 TextArea.args = {
   label: 'Label',
   maxLength: 20,
-  resize: false,
+  resize: !!resizable,
   placeholder: 'Placeholder',
   disabled: false,
-  error: 'Error text',
-  value: ''
+  error: error ? 'Error text' : '',
+  value: '',
+  hint: 'hint text'
 };
