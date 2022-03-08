@@ -7,12 +7,19 @@ export const StyledTextareaContainer = styled.div`
   flex-direction: column;
 `;
 
-export const StyledLabel = styled.label`
+export const StyledLabel = styled.label<{
+  disabled?: boolean;
+}>`
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
   padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
   font-weight: bold;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
 `;
 export const StyledError = styled.label`
   font-family: inherit;
@@ -21,6 +28,23 @@ export const StyledError = styled.label`
   font-weight: bold;
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
+  margin-top: ${({ theme }) => theme.sizes['4xs'].value};
+`;
+export const StyledHint = styled.label<{
+  disabled?: boolean;
+}>`
+  font-family: inherit;
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
+  font-weight: bold;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
+  letter-spacing: 0;
+  margin-top: ${({ theme }) => theme.sizes['4xs'].value};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
 `;
 
 export const StyledtextArea = styled.textarea<{
@@ -30,6 +54,7 @@ export const StyledtextArea = styled.textarea<{
   height: calc(100% - 22px);
   box-sizing: border-box;
   font-weight: normal;
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
@@ -52,7 +77,7 @@ export const StyledtextArea = styled.textarea<{
   ${({ disabled }) =>
     disabled &&
     css`
-      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      background-color: transparent;
     `}
 `;
 
@@ -83,7 +108,7 @@ export const StyledTextAreaWrapper = styled.div<{
   ${({ theme, disabled }) =>
     disabled
       ? css`
-          background-color: ${theme.colors.colours.support[20].value};
+          background-color: ${theme.colors.colours.system['disable-light-theme'].value};
         `
       : css`
           &:hover,
@@ -104,7 +129,9 @@ export const StyledTextAreaCharacterCounterContainer = styled.div`
   display: flex;
   flex: 1 1 auto;
 `;
-export const StyledTextAreaCharacterCounter = styled.div`
+export const StyledTextAreaCharacterCounter = styled.div<{
+  disabled?: boolean;
+}>`
   margin-top: 5px;
   position: relative;
   width: fit-content;
@@ -119,4 +146,9 @@ export const StyledTextAreaCharacterCounter = styled.div`
   align-items: center;
   height: 14px;
   font-weight: bold;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
 `;
