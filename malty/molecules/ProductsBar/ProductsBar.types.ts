@@ -2,6 +2,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon';
 
 export type SystemItemProps = {
   icon: IconName;
+  key?: string;
   href?: string;
   component?: React.ReactNode | JSX.Element;
 };
@@ -16,6 +17,7 @@ export interface ProfileMenuProps {
 
 type ProfileItemProps = {
   icon: IconName;
+  key?: string;
   name?: string;
   href?: string;
   component?: React.ReactNode | JSX.Element;
