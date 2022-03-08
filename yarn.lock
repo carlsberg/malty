@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 5
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -6000,6 +6000,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"NavList-90d20e@workspace:malty/molecules/NavList":
+  version: 0.0.0-use.local
+  resolution: "NavList-90d20e@workspace:malty/molecules/NavList"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Notepad-308927@workspace:malty/icons/Notepad":
   version: 0.0.0-use.local
   resolution: "Notepad-308927@workspace:malty/icons/Notepad"
@@ -6252,6 +6261,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"ProductsBar-02d40e@workspace:malty/molecules/ProductsBar":
+  version: 0.0.0-use.local
+  resolution: "ProductsBar-02d40e@workspace:malty/molecules/ProductsBar"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "ProgressBar-7b0b05@workspace:malty/atoms/ProgressBar":
   version: 0.0.0-use.local
   resolution: "ProgressBar-7b0b05@workspace:malty/atoms/ProgressBar"
@@ -6390,6 +6408,15 @@ __metadata:
 "Shop-a97039@workspace:malty/icons/Shop":
   version: 0.0.0-use.local
   resolution: "Shop-a97039@workspace:malty/icons/Shop"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"SideNav-bf03d9@workspace:malty/molecules/SideNav":
+  version: 0.0.0-use.local
+  resolution: "SideNav-bf03d9@workspace:malty/molecules/SideNav"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -11775,6 +11802,8 @@ __metadata:
 "fsevents@npm:^2.1.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ffsevents%2F-%2Ffsevents-2.3.2.tgz"
+  dependencies:
+    node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
   conditions: os=darwin
   languageName: node
@@ -11793,6 +11822,8 @@ __metadata:
 "fsevents@patch:fsevents@^2.1.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ffsevents%252F-%252Ffsevents-2.3.2.tgz#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
+  dependencies:
+    node-gyp: latest
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -15001,6 +15032,21 @@ __metadata:
   dependencies:
     minipass: ^3.0.0
   checksum: 14df761028f3e47293aee72888f2657695ec66bd7d09cae7ad558da30415fdc4752bbfee66287dcc6fd5e6a2fa3466d6c484dc1cbd986525d9393b9523d97f10
+  languageName: node
+  linkType: hard
+
+"minipass-fetch@npm:^2.0.1":
+  version: 2.0.2
+  resolution: "minipass-fetch@npm:2.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fminipass-fetch%2F-%2Fminipass-fetch-2.0.2.tgz"
+  dependencies:
+    encoding: ^0.1.13
+    minipass: ^3.1.6
+    minipass-sized: ^1.0.3
+    minizlib: ^2.1.2
+  dependenciesMeta:
+    encoding:
+      optional: true
+  checksum: 0613b0a6ef427609707c2b73b69230348fe3c24b33c144622e8e248404534fa1f125b94c324c555cd665ef623abedab0f7891e460b1c9ac6babc3ab2385b3c18
   languageName: node
   linkType: hard
 
@@ -19319,7 +19365,7 @@ __metadata:
 
 "typescript@patch:typescript@^4.2.3#~builtin<compat/typescript>":
   version: 4.6.2
-  resolution: "typescript@patch:typescript@npm%3A4.6.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.6.2.tgz#~builtin<compat/typescript>::version=4.6.2&hash=142761"
+  resolution: "typescript@patch:typescript@npm%3A4.6.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.6.2.tgz#~builtin<compat/typescript>::version=4.6.2&hash=de8f8a"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
