@@ -2,10 +2,10 @@
 
 exports[`select matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL iouZXA"
+  className="sc-bdvvtL bWTUHG"
 >
   <label
-    className="sc-pVTFL fRmKZw"
+    className="sc-pVTFL iwJkkj"
     disabled={false}
     htmlFor="00000000-0000-0000-0000-000000000000"
   >
@@ -24,13 +24,13 @@ exports[`select matches snapshot 1`] = `
       open={false}
     >
       <div
-        className="sc-fFeiMQ dkmTRP"
+        className="sc-fFeiMQ hkcOBY"
         data-testid="selected-value"
       >
         Placeholder text
       </div>
       <svg
-        className="sc-iCfMLu eXhZRn sc-ksdxgE jfziNX"
+        className="sc-iCfMLu eXhZRn sc-ksdxgE hMjUBG"
         color="digital-black"
         data-testid="svg-component"
         size="24px"
@@ -53,14 +53,14 @@ exports[`select matches snapshot 1`] = `
       </svg>
     </button>
     <span
-      className="sc-bdvvtL iouZXA"
+      className="sc-bdvvtL bWTUHG"
     >
       <ul
-        className="sc-crHmcD bkLbkv"
+        className="sc-crHmcD bhNmfy"
         height={40}
       >
         <li
-          className="sc-bqiRlB cKxEQb"
+          className="sc-bqiRlB llEdsA"
           data-testid="select-option-0"
           disabled={false}
           height={40}
@@ -75,7 +75,7 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-bqiRlB cKxEQb"
+          className="sc-bqiRlB llEdsA"
           data-testid="select-option-1"
           disabled={false}
           height={40}
@@ -90,7 +90,7 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-bqiRlB cKxEQb"
+          className="sc-bqiRlB llEdsA"
           data-testid="select-option-2"
           disabled={false}
           height={40}
@@ -105,7 +105,7 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-bqiRlB cKxEQb"
+          className="sc-bqiRlB llEdsA"
           data-testid="select-option-3"
           disabled={false}
           height={40}
@@ -120,7 +120,7 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-bqiRlB cKxEQb"
+          className="sc-bqiRlB llEdsA"
           data-testid="select-option-4"
           disabled={false}
           height={40}
