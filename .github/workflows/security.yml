@@ -10,4 +10,4 @@ jobs:
   security:
     uses: carlsberggbs/cx-github-workflows/.github/workflows/security.yml@main
     with:
-      config-file: ./security-config.yml
+      config-file: ./.github/workflows/security-config.yml
