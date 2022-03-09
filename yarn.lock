@@ -10337,9 +10337,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.76":
-  version: 1.4.77
-  resolution: "electron-to-chromium@npm:1.4.77::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.77.tgz"
-  checksum: df2311dee07ed1b0203978429f3b5c703cee7e2c8f90e480ca8cadc9d8e33ffe606fcdd4099cf0f4318c6ee9cee50aabeaee22e5588b0bb1cc29cb8742953cb4
+  version: 1.4.78
+  resolution: "electron-to-chromium@npm:1.4.78::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.78.tgz"
+  checksum: 3a579fe3c6626dc3a311566cd41ee6cbf2dc2666285c5e329784f4a9329a572b9b5f73c717db4466fdc8d295e0b7a6ee23ad1b5160771979c4a9fd9f8667c681
   languageName: node
   linkType: hard
 
@@ -15354,6 +15354,8 @@ __metadata:
 "nan@npm:^2.12.1":
   version: 2.15.0
   resolution: "nan@npm:2.15.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnan%2F-%2Fnan-2.15.0.tgz"
+  dependencies:
+    node-gyp: latest
   checksum: 33e1bb4dfca447fe37d4bb5889be55de154828632c8d38646db67293a21afd61ed9909cdf1b886214a64707d935926c4e60e2b09de9edfc2ad58de31d6ce8f39
   languageName: node
   linkType: hard
