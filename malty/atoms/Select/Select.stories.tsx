@@ -4,8 +4,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon/Icon.types';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Select as SelectComponent } from './Select';
-import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
+import { Select as SelectComponent, SelectOptionsType, SelectProps, SelectSize, SelectType } from '.';
 
 const StyledContainer = styled.div`
   display: flex;
