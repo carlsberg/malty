@@ -21,6 +21,9 @@ export const decorators = [
 ];
 
 const StyledDocsContainer = styled.div`
+  .sbdocs-content {
+    max-width: 846px;
+  }
   .sbdocs-wrapper {
     padding: 0;
   }
