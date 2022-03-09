@@ -1,6 +1,5 @@
-import { Icon } from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
-import { IconName } from '@carlsberggroup/malty.atoms.icon/Icon.types';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
