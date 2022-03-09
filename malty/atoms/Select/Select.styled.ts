@@ -164,7 +164,7 @@ export const StyledOptionsWrapper = styled.ul<{
   visibility: hidden;
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  border-top: 0;
+
   animation-name: ${fadeOut};
   opacity: 0;
   transition: all 0.3s ease-in-out;
@@ -183,6 +183,11 @@ export const StyledOptionsWrapper = styled.ul<{
       width: 100%;
       max-width: 400px;
       min-width: max-content;
+    `}
+     ${({ selectStyle }) =>
+    selectStyle === 'default' &&
+    css`
+      border-top: 0;
     `}
 `;
 export const StyledValuesName = styled.div`
