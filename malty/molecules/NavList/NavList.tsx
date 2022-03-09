@@ -143,7 +143,7 @@ export const NavList = ({
               setActiveNavItem={setActiveNavItem}
               openSubNav={openSubNav}
               selected={selected}
-              key={`navItem${index}`}
+              key={item.key || `navItem${index}`}
               className={className}
             />
           );
@@ -166,7 +166,7 @@ export const NavList = ({
                 itemIndex={index}
                 setActiveNavItem={setActiveSubItem}
                 selected={selected}
-                key={`subNavItem${index}`}
+                key={item.key || `subNavItem${index}`}
               />
             );
           })}

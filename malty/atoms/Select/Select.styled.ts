@@ -164,7 +164,6 @@ export const StyledOptionsWrapper = styled.ul<{
   visibility: hidden;
   box-sizing: border-box;
   border: 1px solid ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-
   animation-name: ${fadeOut};
   opacity: 0;
   transition: all 0.3s ease-in-out;

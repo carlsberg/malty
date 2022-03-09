@@ -3,6 +3,7 @@ import React from 'react';
 
 export interface SubItemProps {
   name: string;
+  key?: string;
   href?: string;
   component?: React.ReactNode | JSX.Element;
 }
@@ -10,6 +11,7 @@ export interface SubItemProps {
 export type ItemProps = {
   name: string;
   icon: IconName;
+  key?: string;
   href?: string;
   component?: React.ReactNode | JSX.Element;
   subItems?: SubItemProps[];

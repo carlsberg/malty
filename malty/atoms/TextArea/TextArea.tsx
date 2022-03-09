@@ -4,6 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
   StyledError,
+  StyledHint,
   StyledLabel,
   StyledtextArea,
   StyledTextAreaCharacterCounter,
@@ -21,6 +22,7 @@ export const TextArea = ({
   onValueChange,
   error,
   maxLength,
+  hint,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -40,7 +42,7 @@ export const TextArea = ({
     <TypographyProvider>
       <StyledTextareaContainer theme={theme}>
         {label && (
-          <StyledLabel htmlFor={id} theme={theme}>
+          <StyledLabel disabled={disabled} htmlFor={id} theme={theme}>
             {label}
           </StyledLabel>
         )}
@@ -57,11 +59,16 @@ export const TextArea = ({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />
-          <StyledTextAreaCharacterCounter theme={theme} data-testid="TextAreaCounter">
+          <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid="TextAreaCounter">
             {textAreaCount}
           </StyledTextAreaCharacterCounter>
         </StyledTextAreaWrapper>
         {error && <StyledError theme={theme}>{error}</StyledError>}
+        {hint && !error && (
+          <StyledHint disabled={disabled} theme={theme}>
+            {hint}
+          </StyledHint>
+        )}
       </StyledTextareaContainer>
     </TypographyProvider>
   );
