@@ -1,0 +1,13 @@
+name: Security
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+  schedule:
+    - cron: '30 19 * * 1'
+paths-ignore:
+  - docs
+jobs:
+  security:
+    uses: carlsberggbs/cx-github-workflows/.github/workflows/security.yml@main

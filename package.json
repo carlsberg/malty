@@ -2,7 +2,7 @@
   "name": "carlsberg-malty",
   "homepage": "https://carlsberggbs.atlassian.net/servicedesk/customer/portal/24",
   "url": "https://carlsberggbs.atlassian.net/servicedesk/customer/portal/24",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "private": true,
   "keywords": [
     "carlsberg",
@@ -27,6 +27,7 @@
     "serve": "bit install && bit compile && bit start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --docs -o docs",
+    "build": "bit build",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\""
