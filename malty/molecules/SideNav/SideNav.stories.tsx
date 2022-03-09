@@ -10,7 +10,7 @@ export default {
   component: SideNavComponent,
   parameters: {
     importObject: 'SideNav',
-    importPath: '@carlsberggroup/malty.molecules.sideNav'
+    importPath: '@carlsberggroup/malty.molecules.side-nav'
   },
   argTypes: {
     productName: {

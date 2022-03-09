@@ -115,11 +115,11 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
       <Icon color={IconColor.White} name={IconName.CarlsbergFilled} size={IconSize.Medium} />
       <StyledSystemWrapper theme={theme}>
         <StyledSystemMenu theme={theme} data-testid="system-options">
-          {systemOptions?.map((option) => {
+          {systemOptions?.map((option, index) => {
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
             return (
-              <StyledSystemOption theme={theme} onClick={resetNavState}>
+              <StyledSystemOption theme={theme} onClick={resetNavState} key={option.key || `systemOption${index}`}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
                     <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Medium} />
@@ -151,12 +151,12 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
             setProfileMenuOpen={setProfileMenuOpen}
           >
             <ul data-testid="profile-options">
-              {profileActions.map((action) => {
+              {profileActions.map((action, index) => {
                 const { name = 'item', icon, component, href, ...customProps } = action;
                 const componentProps = { ...customProps };
 
                 return (
-                  <StyledProfileItem theme={theme} onClick={resetNavState}>
+                  <StyledProfileItem theme={theme} onClick={resetNavState} key={action.key || `profileOption${index}`}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
                       <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Small} />
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
