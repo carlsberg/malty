@@ -1389,6 +1389,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Stepper"
     },
+    "select": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Select"
+    },
     "theme/malty-theme-provider": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.17",
