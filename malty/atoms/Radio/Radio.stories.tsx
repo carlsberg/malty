@@ -8,7 +8,7 @@ export default {
   component: RadioComponent,
   parameters: {
     importObject: 'Radio',
-    importPath: '@carlsberggroup/malty.atoms.Radio'
+    importPath: '@carlsberggroup/malty.atoms.radio'
   },
   argTypes: {
     label: {
