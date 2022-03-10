@@ -13,7 +13,7 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      description: 'Progress indeicating text'
+      description: 'Progress indicating text'
     },
     checked: {
       control: 'boolean',
