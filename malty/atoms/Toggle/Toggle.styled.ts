@@ -42,7 +42,7 @@ export const StyledInput = styled.input<{
 }>`
   display: none;
   &:checked + .switch::before {
-    transform: translateX(13px);
+    transform: translateX(14px);
     background-color: ${({ theme }) => theme.colors.colours.default.white.value};
     border: none;
     top: 1px;
@@ -50,8 +50,13 @@ export const StyledInput = styled.input<{
   &:checked + .switch {
     background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     &:hover {
-      background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
-      border: 2px solid transparent;
+      ${({ theme }) =>
+        theme &&
+        css`
+          background-color: ${theme.colors.colours.overlay['digital-black'][75].value};
+          border: ${theme.borders['border-2px--solid']['border-width'].value}
+            ${theme.borders['border-2px--solid']['border-style'].value} transparent;
+        `}
     }
   }
   ${({ disabled, theme }) =>
@@ -72,7 +77,7 @@ export const StyledSwitch = styled.span<{
   position: absolute;
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-  border-radius: 25px;
+  border-radius: ${({ theme }) => theme.sizes.m.value};
   top: 0;
   right: 0;
   bottom: 0;
