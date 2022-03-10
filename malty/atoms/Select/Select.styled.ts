@@ -91,20 +91,19 @@ export const StyledButton = styled.button<{
     isActive ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[60].value};
   border: 1px solid ${({ theme }) => theme.colors.colours.support[60].value};
   background: ${({ theme }) => theme.colors.colours.default.white.value};
-  ${({ selectStyle, theme }) =>
+  ${({ selectStyle, theme, open }) =>
     selectStyle === 'inline' &&
     css`
       border: 0 transparent;
-      background: ${theme.colors.colours.default.white.value};
+      background: ${open
+        ? theme.colors.colours.overlay['digital-black'][10].value
+        : theme.colors.colours.default.white.value};
       width: fit-content;
       padding: 0;
       height: 28px;
       padding: 0 ${theme.sizes.xs.value};
       &:hover {
         background-color: ${theme.colors.colours.overlay['digital-black'][5].value};
-      }
-      &:focus {
-        background-color: ${theme.colors.colours.overlay['digital-black'][10].value};
       }
     `}
 
@@ -179,7 +178,7 @@ export const StyledOptionsWrapper = styled.ul<{
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
-      width: 100%;
+      width: max-content;
       max-width: 400px;
       min-width: max-content;
     `}
