@@ -13,6 +13,7 @@ export const StyledLabelWrapper = styled.label`
   align-items: center;
   display: inline-block;
   display: flex;
+  // using hardcoded values due to not having token value and design team thinking on implementation with icons
   height: 14px;
   position: relative;
   width: auto;
@@ -21,6 +22,7 @@ export const StyledToggleSwitch = styled.div`
   position: relative;
   display: inline-block;
   width: ${({ theme }) => theme.sizes.m.value};
+  // using hardcoded values due to not having token value and design team thinking on implementation with icons
   height: 14px;
 `;
 export const StyledLabel = styled.label<{
