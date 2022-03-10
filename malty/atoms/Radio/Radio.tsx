@@ -2,7 +2,7 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
-import { RadioProps } from './Radio.types';
+import { RadioProps } from '.';
 
 export const Radio = ({ value, label, onValueChange, selected, error, name, disabled, ...props }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
