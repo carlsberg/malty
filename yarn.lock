@@ -6367,6 +6367,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Select-d84d52@workspace:malty/atoms/Select":
+  version: 0.0.0-use.local
+  resolution: "Select-d84d52@workspace:malty/atoms/Select"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Sent-a031fd@workspace:malty/icons/Sent":
   version: 0.0.0-use.local
   resolution: "Sent-a031fd@workspace:malty/icons/Sent"
@@ -8852,6 +8861,7 @@ __metadata:
     prettier-plugin-organize-imports: ^1.1.1
     react: ^17.0.2
     react-dom: ^17.0.2
+    react-router-dom: 6.2.2
     react-test-renderer: ^17.0.2
     styled-components: ^5.2.3
     styled-normalize: ^8.0.7
@@ -17195,7 +17205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.0.0":
+"react-router-dom@npm:6.2.2, react-router-dom@npm:^6.0.0":
   version: 6.2.2
   resolution: "react-router-dom@npm:6.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-router-dom%2F-%2Freact-router-dom-6.2.2.tgz"
   dependencies:
