@@ -14,7 +14,13 @@ export const StyledRadio = styled.input`
       background: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
     }
     &:after {
-      border: 2px solid ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
+      ${({ theme }) =>
+        theme &&
+        css`
+          border: ${theme.borders['border-2px--solid']['border-width'].value}
+            ${theme.borders['border-2px--solid']['border-style'].value}
+            ${theme.colors.colours.overlay['digital-black'][75].value};
+        `}
     }
   }
 
@@ -68,8 +74,14 @@ export const StyledRadio = styled.input`
         background: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
       }
       &:after {
-        background: ${({ theme }) => theme.colors.colours.default.white.value};
-        border: 2px solid ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+        ${({ theme }) =>
+          theme &&
+          css`
+            background: ${theme.colors.colours.default.white.value};
+            border: ${theme.borders['border-2px--solid']['border-width'].value}
+              ${theme.borders['border-2px--solid']['border-style'].value}
+              ${theme.colors.colours.system['disable-light-theme'].value};
+          `}
       }
     `}
 `;

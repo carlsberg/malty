@@ -1,8 +1,8 @@
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
 import { RadioProps } from '.';
+import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
 
 export const Radio = ({ value, label, onValueChange, selected, error, name, disabled, ...props }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
