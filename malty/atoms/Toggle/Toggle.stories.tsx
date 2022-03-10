@@ -17,7 +17,7 @@ export default {
     },
     checked: {
       control: 'boolean',
-      description: 'If toggle is checked or not'
+      description: 'If toggle is on (checked) or off (unchecked)'
     },
     disabled: {
       control: 'boolean',
