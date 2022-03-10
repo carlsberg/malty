@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 export const StyledRadio = styled.input`
   display: inline-block;
+  // using hardcoded values due to not having token value and design team thinking on implementation with icons
   height: 18px;
   width: 18px;
   margin: 0;
@@ -51,7 +52,7 @@ export const StyledRadio = styled.input`
     content: '';
 
     position: absolute;
-
+    // using hardcoded values due to not having token value and design team thinking on implementation with icons
     width: 18px;
     height: 18px;
     box-sizing: border-box;
@@ -93,6 +94,7 @@ export const StyledLabel = styled.label<{
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
   font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
+  // using hardcoded values due to not having token value and design team thinking on implementation with icons
   padding-left: 10px;
   cursor: pointer;
   ${({ disabled }) =>
