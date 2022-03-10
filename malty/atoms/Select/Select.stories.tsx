@@ -1,11 +1,15 @@
-import { Icon } from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
-import { IconName } from '@carlsberggroup/malty.atoms.icon/Icon.types';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Select as SelectComponent } from './Select';
-import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
+import styled from 'styled-components';
+import { Select as SelectComponent, SelectOptionsType, SelectProps, SelectSize, SelectType } from '.';
 
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+`;
 export default {
   title: 'Forms/Select',
   component: SelectComponent,
@@ -95,7 +99,11 @@ const testOptions: SelectOptionsType[] = [
   }
 ];
 
-const Template: Story<SelectProps> = (args) => <SelectComponent {...args} />;
+const Template: Story<SelectProps> = (args) => (
+  <StyledContainer>
+    <SelectComponent {...args} />
+  </StyledContainer>
+);
 
 export const Select = Template.bind({});
 
