@@ -1,5 +1,5 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
@@ -55,7 +55,7 @@ export const Loading = ({ text, size = LoadingSize.Medium, status = LoadingStatu
               className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
             />
           </StyledLoading>
-          {text}
+          <TypographyProvider>{text}</TypographyProvider>
         </StyledLoadingContainer>
       )}
     </>
