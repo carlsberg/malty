@@ -21,19 +21,18 @@ const fadeIn = keyframes`
 `;
 
 export const StyledLoadingContainer = styled.div`
-  font-family: inherit;
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.sizes['3xs'].value};
   align-items: center;
   justify-content: center;
   padding: ${({ theme }) => theme.sizes['3xs'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  color: ${({ theme }) => theme.colors.colours.information.close.value};
-  font-weight: bold;
   letter-spacing: 0;
-  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
-  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
+  font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_bold['line-height'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
 `;
 
 export const StyledLoading = styled.div<{
