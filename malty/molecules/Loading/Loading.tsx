@@ -14,18 +14,13 @@ export const Loading = ({ text, size = LoadingSize.Medium, status = LoadingStatu
   useEffect(() => {
     switch (size) {
       case LoadingSize.Small: {
-        setNumSize(theme.sizes.s.value);
-        setIconSize(IconSize.Small);
-        break;
-      }
-      case LoadingSize.Large: {
-        setNumSize(theme.sizes['2xl'].value);
-        setIconSize(IconSize.Large);
+        setNumSize(theme.sizes.m.value);
+        setIconSize(IconSize.Medium);
         break;
       }
       default: {
-        setNumSize(theme.sizes.m.value);
-        setIconSize(IconSize.Medium);
+        setNumSize(theme.sizes['2xl'].value);
+        setIconSize(IconSize.Large);
         break;
       }
     }

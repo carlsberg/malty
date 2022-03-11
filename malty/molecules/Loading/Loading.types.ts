@@ -6,14 +6,12 @@ export interface LoadingProps {
 
 export enum LoadingSize {
   Small = 'Small',
-  Medium = 'Medium',
-  Large = 'Large'
+  Medium = 'Medium'
 }
 
 export enum LoadingSizeNumber {
-  Small = 16,
-  Medium = 24,
-  Large = 48
+  Small = 24,
+  Medium = 48
 }
 
 export enum LoadingStatus {
