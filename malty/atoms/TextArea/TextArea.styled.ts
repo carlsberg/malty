@@ -73,11 +73,17 @@ export const StyledtextArea = styled.textarea<{
   ::placeholder {
     opacity: 0.8;
     color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+    ${({ disabled, theme }) =>
+      disabled &&
+      css`
+        color: ${theme.colors.colours.system['disable-light-theme'].value};
+      `}
   }
-  ${({ disabled }) =>
+  ${({ disabled, theme }) =>
     disabled &&
     css`
       background-color: transparent;
+      color: ${theme.colors.colours.system['disable-light-theme'].value};
     `}
 `;
 
@@ -108,7 +114,8 @@ export const StyledTextAreaWrapper = styled.div<{
   ${({ theme, disabled }) =>
     disabled
       ? css`
-          background-color: ${theme.colors.colours.system['disable-light-theme'].value};
+          border-color: ${theme.colors.colours.system['disable-light-theme'].value};
+          color: ${theme.colors.colours.system['disable-light-theme'].value};
         `
       : css`
           &:hover,

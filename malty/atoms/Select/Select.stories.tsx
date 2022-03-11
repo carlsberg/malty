@@ -1,5 +1,3 @@
-import { Icon, IconName } from '@carlsberggroup/malty.atoms.icon';
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
@@ -77,13 +75,11 @@ export default {
 const testOptions: SelectOptionsType[] = [
   {
     value: 'value 1',
-    name: 'name 1',
-    icon: <Icon color={IconColor.Primary} name={IconName.AddContent} onClick={() => null} size={IconSize.Medium} />
+    name: 'name 1'
   },
   {
     value: 'value 2',
-    name: 'name 2',
-    icon: <Icon color={IconColor.Primary} name={IconName.AddContent} onClick={() => null} size={IconSize.Medium} />
+    name: 'name 2'
   },
   {
     value: 'value 3',
