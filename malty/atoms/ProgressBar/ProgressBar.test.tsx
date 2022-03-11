@@ -2,7 +2,7 @@ import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { ProgressBar } from '.';
 
-describe('pill', () => {
+describe('progressBar', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(<ProgressBar progress={30} displayAmount label="Test text" />);
     expect(view).toMatchSnapshot();

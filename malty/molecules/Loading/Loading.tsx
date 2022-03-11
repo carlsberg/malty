@@ -1,5 +1,5 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
@@ -14,18 +14,13 @@ export const Loading = ({ text, size = LoadingSize.Medium, status = LoadingStatu
   useEffect(() => {
     switch (size) {
       case LoadingSize.Small: {
-        setNumSize(theme.sizes.s.value);
-        setIconSize(IconSize.Small);
-        break;
-      }
-      case LoadingSize.Large: {
-        setNumSize(theme.sizes['2xl'].value);
-        setIconSize(IconSize.Large);
+        setNumSize(theme.sizes.m.value);
+        setIconSize(IconSize.Medium);
         break;
       }
       default: {
-        setNumSize(theme.sizes.m.value);
-        setIconSize(IconSize.Medium);
+        setNumSize(theme.sizes['2xl'].value);
+        setIconSize(IconSize.Large);
         break;
       }
     }
@@ -60,7 +55,7 @@ export const Loading = ({ text, size = LoadingSize.Medium, status = LoadingStatu
               className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
             />
           </StyledLoading>
-          {text}
+          <TypographyProvider>{text}</TypographyProvider>
         </StyledLoadingContainer>
       )}
     </>
