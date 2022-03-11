@@ -34,19 +34,22 @@ export const StyledBarContainer = styled.div`
 `;
 
 export const StyledProgressAmount = styled.span`
-  margin-left: ${({ theme }) => theme.sizes.s.value};
-  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
-  line-height: 1;
-  font-weight: bold;
+  margin-left: ${({ theme }) => theme.sizes['2xs'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_bold['line-height'].value};
+  font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
   flex: 0 1 auto;
+  min-width: ${({ theme }) => theme.sizes.l.value};
 `;
 
 export const StyledText = styled.span`
   width: 100%;
   text-align: center;
-  font-weight: bold;
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  line-height: 1;
+  font-weight: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-weight'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-size'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-family'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_bold['line-height'].value};
   margin-top: ${({ theme }) => theme.sizes.xs.value};
-  color: ${({ theme }) => theme.colors.colours.support[80].value};
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
 `;
