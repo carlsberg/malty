@@ -26,6 +26,7 @@ export const StyledLoadingContainer = styled.div`
   gap: ${({ theme }) => theme.sizes['3xs'].value};
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: ${({ theme }) => theme.sizes['3xs'].value};
   letter-spacing: 0;
   color: ${({ theme }) => theme.colors.colours.support[60].value};
