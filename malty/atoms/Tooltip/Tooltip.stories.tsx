@@ -8,7 +8,13 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh;
+  height: 40vh;
+  margin-left: calc(50% - 75px);
+  p {
+    white-space: nowrap;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
 `;
 
 export default {
@@ -67,7 +73,7 @@ export default {
 
 const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipProps) => (
   <StyledContainer>
-    <div id="testId">Click here to toggle it!</div>
+    <p id="testId">Click here to toggle it!</p>
     <TooltipComponent anchor="testId" position={position} toggle={toggle}>
       {children}
     </TooltipComponent>
@@ -78,5 +84,5 @@ export const Tooltip = Template.bind({});
 
 Tooltip.args = {
   position: TooltipPosition.Top,
-  children: 'A simple Tooltip component content with some text'
+  children: 'A simple Tooltip content with some text'
 };
