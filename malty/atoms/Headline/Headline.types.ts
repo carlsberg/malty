@@ -1,26 +1,26 @@
 export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  size?: Size;
-  align?: Align;
-  color?: Color;
+  headlineStyle?: HeadlineStyle;
+  align?: HeadlineAlign;
+  color?: HeadlineColor;
   children: string | JSX.Element;
 }
 
-export enum Size {
-  Small = 'small',
-  Medium = 'medium',
-  Large = 'large',
-  XLarge = 'xlarge',
-  Huge = 'huge',
+export enum HeadlineStyle {
+  Display = 'display',
   Hero = 'hero',
-  Display = 'display'
+  Huge = 'huge',
+  Big = 'big',
+  Large = 'large',
+  MediumLarge = 'medium-large',
+  Medium = 'medium'
 }
-export enum Align {
+export enum HeadlineAlign {
   Left = 'left',
   Center = 'center',
   Right = 'right'
 }
-export enum Color {
-  White = 'white',
-  Primary = 'primary',
-  Support = 'support'
+export enum HeadlineColor {
+  ThemePrimary = 'theme-primary',
+  DigitalBlack = 'digital-black',
+  White = 'white'
 }

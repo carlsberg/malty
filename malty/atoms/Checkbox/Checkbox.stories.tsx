@@ -4,11 +4,12 @@ import { Checkbox as CheckboxComponent } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
 export default {
-  title: 'Atoms/Checkbox',
+  title: 'Forms/Checkbox',
   component: CheckboxComponent,
   parameters: {
     importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.checkbox'
+    importPath: '@carlsberggroup/malty.atoms.checkbox',
+    variants: ['undetermined', 'checked', 'unchecked']
   },
   argTypes: {
     value: {

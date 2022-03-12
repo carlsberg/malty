@@ -1,0 +1,36 @@
+{
+  "fade": {
+    "bottom-to-top": {
+      "digital-black": {
+        "value": " linear-gradient(180.0deg, rgba(33, 40, 51, 0) 0%, rgba(33, 40, 51, 1.0) 100%)"
+      },
+      "white": {
+        "value": " linear-gradient(180.0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1.0) 100%)"
+      }
+    },
+    "left-to-right": {
+      "digital-black": {
+        "value": " linear-gradient(90.0deg, rgba(33, 40, 51, 1.0) 0%, rgba(33, 40, 51, 0) 100%)"
+      },
+      "white": {
+        "value": " linear-gradient(90.0deg, rgba(255, 255, 255, 1.0) 0%, rgba(255, 255, 255, 0) 100%)"
+      }
+    },
+    "right-to-left": {
+      "digital-black": {
+        "value": " linear-gradient(90.0deg, rgba(33, 40, 51, 0) 0%, rgba(33, 40, 51, 1.0) 100%)"
+      },
+      "white": {
+        "value": " linear-gradient(90.0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1.0) 100%)"
+      }
+    },
+    "top-to-bottom": {
+      "digital-black": {
+        "value": " linear-gradient(180.0deg, rgba(33, 40, 51, 1.0) 0%, rgba(33, 40, 51, 0) 100%)"
+      },
+      "white": {
+        "value": " linear-gradient(180.0deg, rgba(255, 255, 255, 1.0) 0%, rgba(255, 255, 255, 0) 100%)"
+      }
+    }
+  }
+}
