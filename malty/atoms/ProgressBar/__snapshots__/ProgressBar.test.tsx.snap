@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pill matches snapshot 1`] = `
+exports[`progressBar matches snapshot 1`] = `
 <span
-  className="sc-bdfBQB dGZTMR"
+  className="sc-bdvvtL bWTUHG"
 >
   <div
-    className="sc-dlfnuX cNwhLM"
+    className="sc-dkPtRN gjmJjE"
   >
     <div
-      className="sc-hKgJUU ixjwbN"
+      className="sc-hKwDye grShSB"
     >
       <div
-        className="sc-gsTEea jDHeRY"
+        className="sc-gsDKAQ bELlbw"
       />
       <span
-        className="sc-eCstlR bGZnQM"
+        className="sc-eCImPb hbjloO"
       >
         30
         %
       </span>
     </div>
     <span
-      className="sc-jSgvzq jpENRW"
+      className="sc-jRQBWg fpFEWA"
     >
       Test text
     </span>

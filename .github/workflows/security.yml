@@ -1,0 +1,13 @@
+name: Security
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+  schedule:
+    - cron: '30 19 * * 1'
+jobs:
+  security:
+    uses: carlsberggbs/cx-github-workflows/.github/workflows/security.yml@main
+    with:
+      codeql-config-file: ./.github/config/security-config.yml

@@ -1,7 +1,7 @@
-import { IconWrapper, IconWrapperInterface } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import React from 'react';
 
-const Help = (props: IconWrapperInterface) =>
+const Help = (props: IconWrapperProps) =>
   IconWrapper(
     props,
     <g fillRule="evenodd">
