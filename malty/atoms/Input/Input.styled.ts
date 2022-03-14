@@ -49,17 +49,23 @@ export const StyledInputWrapper = styled.div<{
         if (addRight) right += 32;
         if (!isIconLeft && addRight) right += 8;
         return css`
-          ${clearable || addRight ? `right: ${right}` : ''}
+          ${clearable || addRight ? `right: ${right}px` : ''}
         `;
       }}
     }
 
     &:not(.clear-trigger) {
       ${({ theme, isIconLeft, addLeft }) => {
-        const pos =
-          addLeft && isIconLeft ? `${theme.sizes['5xl'].value + theme.sizes.m.value}px` : `${theme.sizes.s.value}`;
+        const pos = isIconLeft ? 'left' : 'right';
+        const value =
+          addLeft && isIconLeft
+            ? `${
+                parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+                parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
+              }px`
+            : `${theme.sizes.s.value}`;
         return css`
-          ${isIconLeft ? 'left' : 'right'}: ${pos};
+          ${pos}: ${value};
         `;
       }}
     }
@@ -75,6 +81,7 @@ export const StyledInput = styled.input<{
   disabled?: boolean;
   size: number;
   hasIcon?: boolean;
+  hasClearable?: boolean;
   isIconLeft?: boolean;
   addRight?: boolean;
   isError?: boolean;
@@ -129,13 +136,14 @@ export const StyledInput = styled.input<{
     -webkit-appearance: none;
   }
 
-  ${({ theme, hasIcon, isIconLeft, addRight }) => {
-    const rightPadding = isIconLeft ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
-    let leftPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
-    if (addRight) leftPadding = `${theme.sizes['4xl'].value}`;
-    return hasIcon
+  ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
+    const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
+    let rightPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
+    if (addRight) rightPadding = `${theme.sizes['4xl'].value}`;
+    if (hasClearable) rightPadding = `${theme.sizes['2xl'].value}`;
+    return hasIcon || hasClearable
       ? css`
-          padding: 0 ${leftPadding} 0 ${rightPadding};
+          padding: 0 ${rightPadding} 0 ${leftPadding};
         `
       : css`
           padding: 0 ${theme.sizes.s.value};
@@ -216,4 +224,8 @@ export const StyledOption = styled.option<{
   height?: string;
 }>`
   height: ${({ height }) => height};
+`;
+export const StyledClearableWrapper = styled.div`
+  width: fit-content;
+  position: relative;
 `;
