@@ -48,12 +48,13 @@ const StyledButton = styled.button<{
   }
 
   &:disabled {
+    opacity: 0.15;
     cursor: default;
-    color: ${({ theme }) => theme.colors.colours.default.white.value};
-    background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+    color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     &:hover {
-      color: ${({ theme }) => theme.colors.colours.default.white.value};
-      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     }
   }
 
@@ -73,11 +74,6 @@ const StyledButton = styled.button<{
     align-items: center;
     gap: ${({ theme }) => theme.sizes.s.value};
     animation: ${animateShow} 0.25s linear;
-  }
-
-  svg {
-    height: ${({ iconSize }) => `${iconSize}`};
-    width: ${({ iconSize }) => `${iconSize}`};
   }
 
   ${({ hasText, hasIcon, sizing }) =>

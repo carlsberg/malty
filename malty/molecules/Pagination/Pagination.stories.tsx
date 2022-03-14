@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Pagination as PaginationComponent } from './Pagination';
-import { PaginationProps } from './Pagination.types';
+import { PaginationProps, PaginationTypes } from './Pagination.types';
 
 export default {
   title: 'Navigation/Pagination',
@@ -15,11 +15,19 @@ export default {
       control: 'text',
       description: '',
       table: { defaultValue: { summary: 'none' } }
+    },
+    type: {
+      options: [PaginationTypes.default, PaginationTypes.compact, PaginationTypes.input],
+      mapping: [PaginationTypes.default, PaginationTypes.compact, PaginationTypes.input],
+      control: {
+        type: 'select',
+        labels: ['default', 'compact', 'input']
+      }
     }
   }
 } as Meta;
 
-const Template: Story<PaginationProps> = ({ count, currentPage }) => {
+const Template: Story<PaginationProps> = ({ count, currentPage, type }) => {
   const [statePage, setStatePage] = useState(currentPage);
 
   return (
@@ -29,6 +37,7 @@ const Template: Story<PaginationProps> = ({ count, currentPage }) => {
       }}
       count={count}
       currentPage={statePage}
+      type={type}
     />
   );
 };

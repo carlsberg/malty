@@ -11,6 +11,18 @@ export const StyledContainer = styled.div`
     padding: 0;
     margin: 0;
     list-style: none;
+    li:first-child {
+      & button {
+        padding: 0 8px;
+      }
+      margin-right: 8px;
+    }
+    li:last-child {
+      & button {
+        padding: 0 8px;
+      }
+      margin-left: 8px;
+    }
   }
 `;
 
