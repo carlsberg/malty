@@ -56,7 +56,7 @@ switch (variant) {
     Checkbox.args = {
       value: 'Undetermined',
       labelText: 'Undetermined label',
-      error: 'Error text'
+      error: ''
     };
     break;
 
@@ -64,7 +64,7 @@ switch (variant) {
     Checkbox.args = {
       value: 'Unchecked',
       labelText: 'Unchecked label',
-      error: 'Error text',
+      error: '',
       checked: false
     };
     break;
@@ -73,7 +73,7 @@ switch (variant) {
     Checkbox.args = {
       value: 'Checked',
       labelText: 'Checked label',
-      error: 'Error text',
+      error: '',
       checked: true
     };
     break;

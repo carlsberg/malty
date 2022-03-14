@@ -145,7 +145,7 @@ switch (variant) {
       label: 'Label',
       type: InputType.URL,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
       clearable: true
     };
@@ -157,7 +157,7 @@ switch (variant) {
       label: 'Label',
       type: InputType.Number,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
       clearable: false
     };
@@ -169,7 +169,7 @@ switch (variant) {
       label: 'Label',
       type: InputType.Email,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
       clearable: true
     };
@@ -181,7 +181,7 @@ switch (variant) {
       label: 'Label',
       type: InputType.Password,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
       clearable: false
     };
@@ -193,7 +193,7 @@ switch (variant) {
       label: 'Label',
       type: InputType.Date,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
       clearable: false
     };
@@ -205,9 +205,10 @@ switch (variant) {
       label: 'Label',
       type: InputType.Search,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
-      clearable: false
+      clearable: true,
+      icon: IconName.Search
     };
     break;
 
@@ -217,7 +218,7 @@ switch (variant) {
       label: 'Label',
       type: InputType.Telephone,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
       clearable: false
     };
@@ -229,7 +230,7 @@ switch (variant) {
       label: 'Label',
       type: InputType.Text,
       placeholder: 'Placeholder',
-      error: 'Error text',
+      error: '',
       disabled: false,
       clearable: false
     };
