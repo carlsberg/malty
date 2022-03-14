@@ -1,7 +1,7 @@
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { createRef, useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
@@ -39,7 +39,7 @@ export const Select = ({
   const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
   const [showOptionList, setShowOptionList] = useState(false);
   const [selectedValueState, setSelectedValueState] = useState(defaultValue || []);
-
+  const ref = createRef<HTMLDivElement>();
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
   };
@@ -77,6 +77,11 @@ export const Select = ({
   const update = (auxSelected: SelectOptionsType[]) => {
     setSelectedValueState(auxSelected);
   };
+  const handleClickOutside = (event: MouseEvent) => {
+    if (ref.current && !ref.current.contains((event.target as Node) || null)) {
+      setShowOptionList(false);
+    }
+  };
 
   useEffect(() => {
     switch (size) {
@@ -90,6 +95,14 @@ export const Select = ({
       }
     }
   }, [size, theme]);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  });
 
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
@@ -150,7 +163,7 @@ export const Select = ({
           {label}
         </StyledLabel>
       )}
-      <StyledButtonContainer selectStyle={type} theme={theme}>
+      <StyledButtonContainer ref={ref} selectStyle={type} theme={theme}>
         <StyledButton
           name={id}
           id={id}
@@ -163,7 +176,7 @@ export const Select = ({
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
         >
-          <StyledSelectedOptionsWrapper data-testid="selected-value">
+          <StyledSelectedOptionsWrapper theme={theme} data-testid="selected-value">
             {displaySelectedValues()}
           </StyledSelectedOptionsWrapper>
           <StyledChevronDown

@@ -86,7 +86,7 @@ export const Button = ({
         horizontalPadding={hPadding}
         fontSize={fontSize}
         iconSize={iconSize}
-        onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+        onClick={onClick}
         onKeyUp={onKeyUp}
         isWhite={isWhite}
         fullWidth={fullWidth}

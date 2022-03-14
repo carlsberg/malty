@@ -2,23 +2,24 @@ import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms
 import React, { FC } from 'react';
 import { AlertBannerType } from '../../AlertBanner.types';
 
-const iconColorMapping = {
+export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
   [AlertBannerType.Warning]: IconColor.Primary,
   [AlertBannerType.Error]: IconColor.White
 };
 
-const IconsMapping: FC<{ type: AlertBannerType }> = ({ type }) => {
-  const iconMap = {
+const IconMap: FC<{ type: AlertBannerType }> = ({ type }) => {
+  const map = {
     [AlertBannerType.Information]: (
-      <Icon name={IconName.Information} color={iconColorMapping[type]} size={IconSize.Medium} />
+      <Icon name={IconName.Information} color={iconColorsMap[type]} size={IconSize.Medium} />
     ),
-    [AlertBannerType.Warning]: <Icon name={IconName.Alert} color={iconColorMapping[type]} size={IconSize.Medium} />,
-    [AlertBannerType.Error]: <Icon name={IconName.Alert} color={iconColorMapping[type]} size={IconSize.Medium} />
+    [AlertBannerType.Warning]: <Icon name={IconName.Alert} color={iconColorsMap[type]} size={IconSize.Medium} />,
+    [AlertBannerType.Error]: <Icon name={IconName.Alert} color={iconColorsMap[type]} size={IconSize.Medium} />
   };
-  return iconMap[type];
+
+  return map[type];
 };
 
-const AlertIcon: FC<{ type: AlertBannerType }> = ({ type }) => <IconsMapping type={type} />;
+const AlertIcon: FC<{ type: AlertBannerType }> = ({ type }) => <IconMap type={type} />;
 
 export { AlertIcon };

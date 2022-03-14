@@ -27,10 +27,34 @@ bvm install
 You will then, most likely, need to run the following command in order to access the new `bit` binary:
 
 ```bash
+echo 'export PATH=$(yarn global bin):$PATH' >> ~/.zshrc && source ~/.zshrc
+```
+
+Alternatively, if the above doesn't work, you can run the following command:
+
+```bash
 echo 'export PATH=$(yarn global bin):$PATH'  >> ~/.bashrc && source ~/.bashrc
 ```
 
 For more detailed instructions on how do install Bit CLI, please [look here](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/nav/5fa7cb638c01200018358a40/folder/60819db7d0b12cc8cb95193d).
+
+## Register the Scope
+
+To install component packages, using npm or yarn, configure your package manager to use your scope owner name (Bit organization [@carlsberggroup]) as a scoped registry:
+
+```bash
+npm config set @carlsberggroup:registry https://node.bit.dev
+```
+
+### Login
+
+In order for the scope to be registered, you must first login to Bit.
+
+```bash
+bit login
+```
+
+For more details on how to Register the Scope, please [look here](https://malty.carlsberggroup.com/5715d933c/p/36d196-development-starter).
 
 ## Running local environment
 

@@ -1,6 +1,6 @@
 import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
 import React, { FC, KeyboardEvent } from 'react';
-import { StyledActionItem } from '../../AlertBanner.styled';
+import { StyledAction } from '../../AlertBanner.styled';
 import { AlertBannerI, AlertBannerType } from '../../AlertBanner.types';
 
 const Action: FC<Pick<AlertBannerI, 'type' | 'actionName' | 'action' | 'dataQaId'>> = ({
@@ -15,7 +15,7 @@ const Action: FC<Pick<AlertBannerI, 'type' | 'actionName' | 'action' | 'dataQaId
     }
   };
   return (
-    <StyledActionItem
+    <StyledAction
       data-testid={`${dataQaId}-action-container`}
       tabIndex={0}
       onClick={action}
@@ -27,11 +27,10 @@ const Action: FC<Pick<AlertBannerI, 'type' | 'actionName' | 'action' | 'dataQaId
         size={ButtonSize.Small}
         type={ButtonType.Button}
         style={ButtonStyle.Link}
-        data-testid={`${dataQaId}-first-action`}
       >
         {actionName}
       </Button>
-    </StyledActionItem>
+    </StyledAction>
   );
 };
 

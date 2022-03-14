@@ -29,11 +29,13 @@ export const StyledButtonContainer = styled.div<{
 export const StyledLabel = styled.label<{
   disabled?: boolean;
 }>`
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_default['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
   padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
   font-weight: bold;
+  display: block;
   ${({ disabled }) =>
     disabled &&
     css`
@@ -42,7 +44,7 @@ export const StyledLabel = styled.label<{
 `;
 
 export const StyledError = styled.label`
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.system.fail.value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
@@ -52,12 +54,14 @@ export const StyledError = styled.label`
 export const StyledHint = styled.label<{
   disabled?: boolean;
 }>`
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.support[60].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
+  margin-top: ${({ theme }) => theme.sizes['4xs'].value};
+  display: block;
   ${({ disabled }) =>
     disabled &&
     css`
@@ -87,20 +91,19 @@ export const StyledButton = styled.button<{
     isActive ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[60].value};
   border: 1px solid ${({ theme }) => theme.colors.colours.support[60].value};
   background: ${({ theme }) => theme.colors.colours.default.white.value};
-  ${({ selectStyle, theme }) =>
+  ${({ selectStyle, theme, open }) =>
     selectStyle === 'inline' &&
     css`
       border: 0 transparent;
-      background: ${theme.colors.colours.default.white.value};
+      background: ${open
+        ? theme.colors.colours.overlay['digital-black'][10].value
+        : theme.colors.colours.default.white.value};
       width: fit-content;
       padding: 0;
       height: 28px;
       padding: 0 ${theme.sizes.xs.value};
       &:hover {
         background-color: ${theme.colors.colours.overlay['digital-black'][5].value};
-      }
-      &:focus {
-        background-color: ${theme.colors.colours.overlay['digital-black'][10].value};
       }
     `}
 
@@ -120,7 +123,6 @@ export const StyledButton = styled.button<{
     css`
       border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
       color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-      border-bottom: 0;
     `}
   ${({ disabled }) =>
     disabled
@@ -176,9 +178,14 @@ export const StyledOptionsWrapper = styled.ul<{
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
-      width: 100%;
+      width: max-content;
       max-width: 400px;
       min-width: max-content;
+    `}
+     ${({ selectStyle }) =>
+    selectStyle === 'default' &&
+    css`
+      border-top: 0;
     `}
 `;
 export const StyledValuesName = styled.div`
@@ -197,6 +204,7 @@ export const StyledOption = styled.li<{
   cursor: pointer;
   height: ${({ height }) => height}px;
   font-weight: normal;
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
   display: flex;
@@ -204,14 +212,15 @@ export const StyledOption = styled.li<{
   justify-content: space-between;
   padding: 0 ${({ theme }) => theme.sizes.s.value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-
+  transition: all 0.3s linear;
   &:hover {
     background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   }
   ${({ selected }) =>
     selected &&
     css`
-      font-weight: bold;
+      font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
+      font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
     `}
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
@@ -225,7 +234,7 @@ export const StyledChevronDown = styled(ChevronDown)<{
   open?: boolean;
   selectStyle?: string;
 }>`
-  transition: transform 0.3s linear;
+  transition: transform 0.2s linear;
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
@@ -235,7 +244,7 @@ export const StyledChevronDown = styled(ChevronDown)<{
     open &&
     css`
       transform: rotate(-180deg);
-      transition: transform 0.3s linear;
+      transition: transform 0.2s linear;
     `}
 
   ${({ disabled }) =>
@@ -263,6 +272,7 @@ export const StyledWrapper = styled.div`
   }
 `;
 export const StyledSelectedOptionsWrapper = styled.div`
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   display: block;
   overflow: hidden;
   white-space: nowrap;

@@ -58,6 +58,7 @@ describe('<AlertBanner />', () => {
   it('should render action text', () => {
     const actionName = screen.getByText(alertsMock[0].actionName);
     fireEvent.click(actionName);
-    expect(actionMockFn).toHaveBeenCalledTimes(1);
+    fireEvent.keyUp(actionName, { key: 'Enter', code: 'Enter', charCode: 13 });
+    expect(actionMockFn).toHaveBeenCalledTimes(2);
   });
 });

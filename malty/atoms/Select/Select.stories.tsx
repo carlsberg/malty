@@ -1,11 +1,13 @@
-import { Icon } from '@carlsberggroup/malty.atoms.icon';
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
-import { IconName } from '@carlsberggroup/malty.atoms.icon/Icon.types';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Select as SelectComponent } from './Select';
-import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
+import styled from 'styled-components';
+import { Select as SelectComponent, SelectOptionsType, SelectProps, SelectSize, SelectType } from '.';
 
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 40vh;
+`;
 export default {
   title: 'Forms/Select',
   component: SelectComponent,
@@ -70,45 +72,14 @@ export default {
   }
 } as Meta;
 
-const Template: Story<SelectProps> = ({
-  options,
-  defaultValue,
-  size,
-  label,
-  type,
-  error,
-  disabled,
-  placeholder,
-  multiple,
-  hint,
-  selectionText
-}: SelectProps) => (
-  <SelectComponent
-    options={options}
-    size={size}
-    label={label}
-    type={type}
-    error={error}
-    disabled={disabled}
-    placeholder={placeholder}
-    defaultValue={defaultValue}
-    onValueChange={() => null}
-    multiple={multiple}
-    hint={hint}
-    selectionText={selectionText}
-  />
-);
-
 const testOptions: SelectOptionsType[] = [
   {
     value: 'value 1',
-    name: 'name 1',
-    icon: <Icon color={IconColor.Primary} name={IconName.AddContent} onClick={() => null} size={IconSize.Medium} />
+    name: 'name 1'
   },
   {
     value: 'value 2',
-    name: 'name 2',
-    icon: <Icon color={IconColor.Primary} name={IconName.AddContent} onClick={() => null} size={IconSize.Medium} />
+    name: 'name 2'
   },
   {
     value: 'value 3',
@@ -124,17 +95,48 @@ const testOptions: SelectOptionsType[] = [
   }
 ];
 
+const Template: Story<SelectProps> = (args) => (
+  <StyledContainer>
+    <SelectComponent {...args} />
+  </StyledContainer>
+);
+
 export const Select = Template.bind({});
-Select.args = {
-  options: testOptions,
-  size: SelectSize.Medium,
-  label: 'Label',
-  type: SelectType.Default,
-  error: 'Error text',
-  hint: 'hint text',
-  disabled: false,
-  placeholder: 'Placeholder',
-  multiple: false,
-  defaultValue: [testOptions[0]],
-  selectionText: 'options selected'
-};
+
+const params = new URLSearchParams(window.location.search);
+const type = params.get('type');
+const multiple = params.get('multiple');
+const error = params.get('error');
+
+switch (type) {
+  case 'inline':
+    Select.args = {
+      options: testOptions,
+      size: SelectSize.Medium,
+      label: 'Label',
+      type: SelectType.Inline,
+      hint: 'hint text',
+      disabled: false,
+      placeholder: 'Placeholder',
+      multiple: !!multiple,
+      defaultValue: [testOptions[0]],
+      selectionText: 'options selected'
+    };
+    break;
+
+  default:
+    Select.args = {
+      options: testOptions,
+      size: SelectSize.Medium,
+      label: 'Label',
+      type: SelectType.Default,
+      hint: 'hint text',
+      disabled: false,
+      placeholder: 'Placeholder',
+      multiple: !!multiple,
+      defaultValue: [testOptions[0]],
+      selectionText: 'options selected',
+      error: error ? 'error text' : ''
+    };
+    break;
+}

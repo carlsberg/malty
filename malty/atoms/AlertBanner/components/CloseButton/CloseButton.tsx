@@ -1,13 +1,8 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import React, { FC, KeyboardEvent } from 'react';
 import { CloseButtonContainer } from '../../AlertBanner.styled';
-import { AlertBannerI, AlertBannerType } from '../../AlertBanner.types';
-
-const iconColorMapping = {
-  [AlertBannerType.Information]: IconColor.White,
-  [AlertBannerType.Warning]: IconColor.Primary,
-  [AlertBannerType.Error]: IconColor.White
-};
+import { AlertBannerI } from '../../AlertBanner.types';
+import { iconColorsMap } from '../Icon/Icon';
 
 const CloseButton: FC<Pick<AlertBannerI, 'type' | 'dismiss' | 'dataQaId'>> = ({ type, dismiss, dataQaId }) => {
   const handleOnKeyUp = ({ key }: KeyboardEvent<HTMLDivElement>) => {
@@ -29,7 +24,7 @@ const CloseButton: FC<Pick<AlertBannerI, 'type' | 'dismiss' | 'dataQaId'>> = ({ 
           className="inline-AlertBanner-icon"
           name={IconName.Close}
           size={IconSize.Medium}
-          color={iconColorMapping[type]}
+          color={iconColorsMap[type]}
         />
       )}
     </CloseButtonContainer>

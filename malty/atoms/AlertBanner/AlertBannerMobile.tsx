@@ -20,10 +20,10 @@ export const AlertBannerMobile: FC<AlertBannerProps> = ({ alerts }) => {
     }
     return (
       <div style={{ gridArea: 'pagination' }}>
-        <button type="button" role="role" onClick={() => setActiveAlert(activeAlert - 1)}>
+        <button type="button" onClick={() => setActiveAlert(activeAlert - 1)}>
           prev
         </button>
-        <button type="button" role="role" onClick={() => setActiveAlert(activeAlert + 1)}>
+        <button type="button" onClick={() => setActiveAlert(activeAlert + 1)}>
           next
         </button>
       </div>

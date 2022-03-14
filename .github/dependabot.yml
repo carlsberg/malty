@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    ignore:
+      - dependency-name: '@storybook/*'
+      - dependency-name: '@testing-library/*'
+      - dependency-name: '@types/*'
+      - dependency-name: '*eslint*'

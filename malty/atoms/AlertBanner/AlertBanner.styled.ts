@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { AlertBannerType } from './AlertBanner.types';
 
-export const StyledActionItem = styled.div`
+export const StyledAction = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -35,7 +35,7 @@ export const StyledMessage = styled.div`
 
 export const MessageMobileContainer = styled.div`
   display: flex;
-  align-items: center ;
+  align-items: center;
 `;
 
 export const Container = styled.div<{

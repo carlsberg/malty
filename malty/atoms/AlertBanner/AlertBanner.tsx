@@ -6,9 +6,10 @@ import { AlertBannerMobile } from './AlertBannerMobile';
 export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) => {
   const [width, setWidth] = useState<number>(window.innerWidth);
 
-  function handleWindowSizeChange() {
+  const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
-  }
+  };
+
   useEffect(() => {
     window.addEventListener('resize', handleWindowSizeChange);
     return () => {
@@ -22,9 +23,9 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
     return null;
   }
 
-  if (!isMobile) {
-    return <AlertBannerDesktop alerts={alerts} />;
+  if (isMobile) {
+    return <AlertBannerMobile alerts={alerts} />;
   }
 
-  return <AlertBannerMobile alerts={alerts} />;
+  return <AlertBannerDesktop alerts={alerts} />;
 };
