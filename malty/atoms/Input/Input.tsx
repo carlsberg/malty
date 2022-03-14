@@ -6,6 +6,7 @@ import { v4 as uuid } from 'uuid';
 import { emojiFlag } from './emojiFlag';
 import {
   StyledButton,
+  StyledClearableWrapper,
   StyledError,
   StyledInput,
   StyledInputContainer,
@@ -86,23 +87,26 @@ export const Input = ({
 
   const renderInput = () => (
     <TypographyProvider>
-      <StyledInput
-        name={id}
-        id={id}
-        value={value}
-        placeholder={placeholder}
-        disabled={disabled}
-        size={parseInt(numSize, 10)}
-        hasIcon={!!icon}
-        isError={!!error}
-        isIconLeft={iconPosition === InputIconPosition.Left}
-        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
-        onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-        type={type}
-        theme={theme}
-      />
-      {renderClearable()}
-      {renderIcon()}
+      <StyledClearableWrapper>
+        <StyledInput
+          name={id}
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          disabled={disabled}
+          size={parseInt(numSize, 10)}
+          hasIcon={!!icon}
+          hasClearable={clearable}
+          isError={!!error}
+          isIconLeft={iconPosition === InputIconPosition.Left}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+          onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+          type={type}
+          theme={theme}
+        />
+        {renderClearable()}
+        {renderIcon()}
+      </StyledClearableWrapper>
     </TypographyProvider>
   );
 
@@ -125,6 +129,7 @@ export const Input = ({
         disabled={disabled}
         size={parseInt(numSize, 10)}
         hasIcon={!!icon}
+        hasClearable={clearable}
         isError={!!error}
         isIconLeft={iconPosition === InputIconPosition.Left}
         addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
@@ -149,41 +154,44 @@ export const Input = ({
     return (
       // TO FOLLOW: Convert the select to DSM dropdown
       <TypographyProvider>
-        <StyledSelect theme={theme} height={height} disabled={disabled} isError={!!error}>
-          {Object.keys(InputCountry)
-            .sort((a, b) => {
-              const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
-              const newB = InputPrefixes[InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes];
-              return newA - newB;
-            })
-            .map((country) => {
-              const code =
-                InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
-              return (
-                <StyledOption key={`option-value-${country}`} value={code} height={height}>
-                  {emojiFlag(country)}
-                  &nbsp;&nbsp;&nbsp;+{code}
-                </StyledOption>
-              );
-            })}
-        </StyledSelect>
-        <StyledInput
-          name={id}
-          id={id}
-          value={value}
-          placeholder={placeholder}
-          disabled={disabled}
-          size={parseInt(numSize, 10)}
-          hasIcon={!!icon}
-          isError={!!error}
-          isIconLeft={iconPosition === InputIconPosition.Left}
-          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
-          onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-          type={type}
-          theme={theme}
-        />
-        {renderClearable()}
-        {renderIcon()}
+        <StyledClearableWrapper>
+          <StyledSelect theme={theme} height={height} disabled={disabled} isError={!!error}>
+            {Object.keys(InputCountry)
+              .sort((a, b) => {
+                const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+                const newB = InputPrefixes[InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+                return newA - newB;
+              })
+              .map((country) => {
+                const code =
+                  InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+                return (
+                  <StyledOption key={`option-value-${country}`} value={code} height={height}>
+                    {emojiFlag(country)}
+                    &nbsp;&nbsp;&nbsp;+{code}
+                  </StyledOption>
+                );
+              })}
+          </StyledSelect>
+          <StyledInput
+            name={id}
+            id={id}
+            value={value}
+            placeholder={placeholder}
+            disabled={disabled}
+            size={parseInt(numSize, 10)}
+            hasIcon={!!icon}
+            hasClearable={clearable}
+            isError={!!error}
+            isIconLeft={iconPosition === InputIconPosition.Left}
+            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+            onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+            type={type}
+            theme={theme}
+          />
+          {renderClearable()}
+          {renderIcon()}
+        </StyledClearableWrapper>
       </TypographyProvider>
     );
   };
