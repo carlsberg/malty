@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Pagination as PaginationComponent } from './Pagination';
-import { PaginationProps, PaginationTypes } from './Pagination.types';
+import { PaginationProps, PaginationType } from './Pagination.types';
 
 export default {
   title: 'Navigation/Pagination',
@@ -17,8 +17,8 @@ export default {
       table: { defaultValue: { summary: 'none' } }
     },
     type: {
-      options: [PaginationTypes.default, PaginationTypes.compact, PaginationTypes.input],
-      mapping: [PaginationTypes.default, PaginationTypes.compact, PaginationTypes.input],
+      options: [PaginationType.default, PaginationType.compact],
+      mapping: [PaginationType.default, PaginationType.compact],
       control: {
         type: 'select',
         labels: ['default', 'compact', 'input']

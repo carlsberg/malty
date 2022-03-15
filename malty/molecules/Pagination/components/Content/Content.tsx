@@ -1,16 +1,16 @@
 /* eslint-disable react/no-array-index-key */
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { PaginationType } from '@carlsberggroup/malty.molecules.pagination';
+import { DOTS } from '@carlsberggroup/malty.molecules.pagination/Pagination.helper';
+import { StyledDots } from '@carlsberggroup/malty.molecules.pagination/Pagination.styled';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { FC, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { DOTS } from '../../Pagination.helper';
-import { StyledDots } from '../../Pagination.styled';
-import { PaginationTypes } from '../../Pagination.types';
 
 interface Props {
   paginationRange: (string | number)[];
-  type?: PaginationTypes;
+  type?: PaginationType;
   onPageClick: (pageNr: number) => void;
   onPageKeyUp: (pageNr: number) => void;
   currentPage: number;
@@ -19,14 +19,14 @@ interface Props {
 
 const Content: FC<Props> = ({
   paginationRange,
-  type = PaginationTypes.default,
+  type = PaginationType.default,
   onPageClick,
   onPageKeyUp,
   currentPage,
   count
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const isCompact = type === PaginationTypes.compact;
+  const isCompact = type === PaginationType.compact;
 
   if (isCompact) {
     return (

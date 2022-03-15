@@ -7,7 +7,7 @@ import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-prov
 import React from 'react';
 import { Content } from './components/Content';
 import { StyledContainer } from './Pagination.styled';
-import { PaginationProps, PaginationTypes } from './Pagination.types';
+import { PaginationProps, PaginationType } from './Pagination.types';
 import { usePagination } from './usePagination';
 
 export const Pagination = ({
@@ -15,7 +15,7 @@ export const Pagination = ({
   currentPage,
   onChange,
   siblingCount,
-  type = PaginationTypes.default
+  type = PaginationType.default
 }: PaginationProps) => {
   const paginationRange = usePagination({
     totalPageCount: count,
@@ -26,7 +26,7 @@ export const Pagination = ({
   const isFirstPage = currentPage === 1;
   const isLastPage = lastPage === currentPage;
 
-  const isCompact = type === PaginationTypes.compact;
+  const isCompact = type === PaginationType.compact;
 
   if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
     return null;
