@@ -1,8 +1,6 @@
 /* eslint-disable react/no-array-index-key */
-import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
-import ChevronLeft from '@carlsberggroup/malty.icons.chevron-left';
-import ChevronRight from '@carlsberggroup/malty.icons.chevron-right';
+import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React from 'react';
 import { Content } from './components/Content';
@@ -74,9 +72,9 @@ export const Pagination = ({
               tabIndex={isFirstPage ? -1 : 0}
               onClick={onPrevious}
               onKeyUp={onPreviousKeyUp}
-            >
-              <ChevronLeft size={isCompact ? IconSize.Small : IconSize.Medium} color={IconColor.Primary} />
-            </Button>
+              icon={IconName.ChevronLeft}
+              size={isCompact ? ButtonSize.Small : ButtonSize.Medium}
+            />
           </li>
           <Content
             currentPage={currentPage}
@@ -93,9 +91,9 @@ export const Pagination = ({
               tabIndex={isLastPage ? -1 : 0}
               onClick={onNext}
               onKeyUp={onNextKeyUp}
-            >
-              <ChevronRight size={isCompact ? IconSize.Small : IconSize.Medium} color={IconColor.Primary} />
-            </Button>
+              icon={IconName.ChevronRight}
+              size={isCompact ? ButtonSize.Small : ButtonSize.Medium}
+            />
           </li>
         </ul>
       </StyledContainer>

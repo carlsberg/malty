@@ -48,13 +48,12 @@ const StyledButton = styled.button<{
   }
 
   &:disabled {
-    opacity: 0.15;
     cursor: default;
-    background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-    color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    color: ${({ theme }) => theme.colors.colours.default.white.value};
+    background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     &:hover {
-      background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      color: ${({ theme }) => theme.colors.colours.default.white.value};
+      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     }
   }
 
@@ -74,6 +73,11 @@ const StyledButton = styled.button<{
     align-items: center;
     gap: ${({ theme }) => theme.sizes.s.value};
     animation: ${animateShow} 0.25s linear;
+  }
+
+  svg {
+    height: ${({ iconSize }) => `${iconSize}`};
+    width: ${({ iconSize }) => `${iconSize}`};
   }
 
   ${({ hasText, hasIcon, sizing }) =>
@@ -127,6 +131,14 @@ export const StyledTransparentButton = styled(StyledButton)`
   :focus-visible {
     outline: 0;
     background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
+  }
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+    color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    }
   }
 `;
 
