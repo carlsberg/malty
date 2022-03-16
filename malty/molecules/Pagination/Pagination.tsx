@@ -1,10 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React from 'react';
-import { Content } from './components/Content';
-import { StyledContainer } from './Pagination.styled';
+import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+import { DOTS } from './Pagination.helper';
+import { StyledContainer, StyledDots } from './Pagination.styled';
 import { PaginationProps, PaginationType } from './Pagination.types';
 import { usePagination } from './usePagination';
 
@@ -15,6 +17,8 @@ export const Pagination = ({
   siblingCount,
   type = PaginationType.default
 }: PaginationProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const paginationRange = usePagination({
     totalPageCount: count,
     siblingCount,
@@ -61,6 +65,44 @@ export const Pagination = ({
     onPageKeyUp(currentPage + 1);
   };
 
+  const renderContent = () => {
+    if (isCompact) {
+      return (
+        <li>
+          <Text textStyle={TextStyle.SmallDefault}>{`${currentPage} of ${count}`}</Text>
+        </li>
+      );
+    }
+    return (
+      <>
+        {paginationRange.map((pageNr, idx) => {
+          const isCurrentPage = pageNr === currentPage;
+          if (pageNr === DOTS) {
+            return (
+              <li key={`dots-${idx}`} tabIndex={-1}>
+                <StyledDots theme={theme}>&#8230;</StyledDots>
+              </li>
+            );
+          }
+          return (
+            <li key={pageNr}>
+              <Button
+                style={ButtonStyle.Transparent}
+                selected={isCurrentPage}
+                onClick={() => onPageClick(Number(pageNr))}
+                onKeyUp={() => onPageKeyUp(Number(pageNr))}
+                aria-current={isCurrentPage}
+                aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
+                tabIndex={0}
+                text={pageNr}
+              />
+            </li>
+          );
+        })}
+      </>
+    );
+  };
+
   return (
     <TypographyProvider>
       <StyledContainer>
@@ -76,14 +118,7 @@ export const Pagination = ({
               size={isCompact ? ButtonSize.Small : ButtonSize.Medium}
             />
           </li>
-          <Content
-            currentPage={currentPage}
-            paginationRange={paginationRange}
-            count={count}
-            onPageClick={onPageClick}
-            onPageKeyUp={onPageKeyUp}
-            type={type}
-          />
+          {renderContent()}
           <li>
             <Button
               style={ButtonStyle.Transparent}
