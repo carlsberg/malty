@@ -55,6 +55,9 @@ const StyledButton = styled.button<{
       color: ${({ theme }) => theme.colors.colours.default.white.value};
       background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     }
+    svg {
+      opacity: 0.15;
+    }
   }
 
   .text-container {
