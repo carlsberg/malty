@@ -5,10 +5,9 @@ import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { DOTS } from './Pagination.helper';
+import { DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots } from './Pagination.styled';
 import { PaginationProps, PaginationType } from './Pagination.types';
-import { usePagination } from './usePagination';
 
 export const Pagination = ({
   count,

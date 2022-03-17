@@ -135,12 +135,10 @@ export const StyledTransparentButton = styled(StyledButton)`
     outline: 0;
     background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
   }
-  &:disabled {
-    background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-    color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-    &:hover {
-      background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+  :disabled {
+    background-color: transparent;
+    :hover {
+      background-color: transparent;
     }
   }
 `;
