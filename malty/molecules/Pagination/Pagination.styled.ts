@@ -4,6 +4,14 @@ export const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  button {
+    :disabled {
+      background-color: transparent;
+      :hover {
+        background-color: transparent;
+      }
+    }
+  }
   ul {
     display: flex;
     flex-wrap: wrap;

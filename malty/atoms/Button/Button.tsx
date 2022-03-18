@@ -48,7 +48,6 @@ export const Button = ({
       break;
     case ButtonStyle.Transparent:
       Component = StyledTransparentButton;
-      iconColor = isWhite ? IconColor.White : IconColor.Primary;
       break;
     case ButtonStyle.Floater:
       Component = StyledFloaterButton;

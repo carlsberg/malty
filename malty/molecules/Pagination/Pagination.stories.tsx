@@ -21,23 +21,23 @@ export default {
       mapping: [PaginationType.default, PaginationType.compact],
       control: {
         type: 'select',
-        labels: ['default', 'compact', 'input']
+        labels: ['default', 'compact']
       }
     }
   }
 } as Meta;
 
-const Template: Story<PaginationProps> = ({ count, currentPage, type }) => {
+const Template: Story<PaginationProps> = (args) => {
+  const { currentPage } = args;
   const [statePage, setStatePage] = useState(currentPage);
 
   return (
     <PaginationComponent
+      {...args}
       onChange={(page) => {
         setStatePage(page);
       }}
-      count={count}
       currentPage={statePage}
-      type={type}
     />
   );
 };

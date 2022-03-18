@@ -135,12 +135,6 @@ export const StyledTransparentButton = styled(StyledButton)`
     outline: 0;
     background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
   }
-  :disabled {
-    background-color: transparent;
-    :hover {
-      background-color: transparent;
-    }
-  }
 `;
 
 export const StyledFloaterButton = styled(StyledButton)`

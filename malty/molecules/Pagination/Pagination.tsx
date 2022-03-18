@@ -14,7 +14,8 @@ export const Pagination = ({
   currentPage,
   onChange,
   siblingCount,
-  type = PaginationType.default
+  type = PaginationType.default,
+  dataQaId
 }: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -104,7 +105,7 @@ export const Pagination = ({
 
   return (
     <TypographyProvider>
-      <StyledContainer>
+      <StyledContainer data-testid={dataQaId}>
         <ul>
           <li>
             <Button
