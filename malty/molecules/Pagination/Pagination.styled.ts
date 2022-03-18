@@ -5,7 +5,13 @@ export const StyledContainer = styled.div`
   justify-content: center;
   align-items: center;
   button {
+    svg {
+      fill: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    }
     :disabled {
+      svg {
+        fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
       background-color: transparent;
       :hover {
         background-color: transparent;
