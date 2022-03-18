@@ -10,7 +10,7 @@ export default {
   component: AlertBannerComponent,
   parameters: {
     importObject: 'AlertBanner',
-    importPath: '@carlsberggroup/malty.atoms.AlertBanner'
+    importPath: '@carlsberggroup/malty.atoms.alert-banner'
   },
   argTypes: {
     message: {
