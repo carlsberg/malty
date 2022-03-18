@@ -6,7 +6,7 @@ import { AlertBanner as AlertBannerComponent } from './AlertBanner';
 import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
 
 export default {
-  title: 'Information/AlertBanner',
+  title: 'Information/Alert Banner',
   component: AlertBannerComponent,
   parameters: {
     importObject: 'AlertBanner',
