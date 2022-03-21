@@ -25,7 +25,7 @@ export default {
     },
     dataQaId: {
       control: 'text',
-      description: 'AlertBanner data-qi-id, can be',
+      description: 'AlertBanner data-testid, can be',
       table: { defaultValue: { summary: 'none' } }
     },
     actionName: {
