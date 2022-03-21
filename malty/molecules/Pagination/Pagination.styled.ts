@@ -31,7 +31,7 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
     list-style: none;
     li:first-child {
       & button {
-        padding: 0 8px;
+        padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
       }
       margin-right: 8px;
     }
