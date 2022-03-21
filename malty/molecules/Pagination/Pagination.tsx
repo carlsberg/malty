@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -15,7 +15,8 @@ export const Pagination = ({
   onChange,
   siblingCount,
   type = PaginationType.default,
-  dataQaId
+  dataQaId,
+  isWhite = false
 }: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -69,7 +70,10 @@ export const Pagination = ({
     if (isCompact) {
       return (
         <li>
-          <Text textStyle={TextStyle.SmallDefault}>{`${currentPage} of ${count}`}</Text>
+          <Text
+            textStyle={TextStyle.SmallDefault}
+            color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+          >{`${currentPage} of ${count}`}</Text>
         </li>
       );
     }
@@ -80,7 +84,9 @@ export const Pagination = ({
           if (pageNr === DOTS) {
             return (
               <li key={`dots-${idx}`} tabIndex={-1}>
-                <StyledDots theme={theme}>&#8230;</StyledDots>
+                <StyledDots theme={theme} isWhite={isWhite}>
+                  &#8230;
+                </StyledDots>
               </li>
             );
           }
@@ -95,6 +101,7 @@ export const Pagination = ({
                 aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
                 tabIndex={0}
                 text={pageNr}
+                isWhite={isWhite}
               />
             </li>
           );
@@ -104,8 +111,8 @@ export const Pagination = ({
   };
 
   return (
-    <TypographyProvider>
-      <StyledContainer data-testid={dataQaId}>
+    <StyledContainer data-testid={dataQaId} isWhite={isWhite}>
+      <TypographyProvider>
         <ul>
           <li>
             <Button
@@ -115,7 +122,8 @@ export const Pagination = ({
               onClick={onPrevious}
               onKeyUp={onPreviousKeyUp}
               icon={IconName.ChevronLeft}
-              size={isCompact ? ButtonSize.Small : ButtonSize.Medium}
+              size={ButtonSize.Medium}
+              isWhite={isWhite}
             />
           </li>
           {renderContent()}
@@ -127,11 +135,12 @@ export const Pagination = ({
               onClick={onNext}
               onKeyUp={onNextKeyUp}
               icon={IconName.ChevronRight}
-              size={isCompact ? ButtonSize.Small : ButtonSize.Medium}
+              size={ButtonSize.Medium}
+              isWhite={isWhite}
             />
           </li>
         </ul>
-      </StyledContainer>
-    </TypographyProvider>
+      </TypographyProvider>
+    </StyledContainer>
   );
 };

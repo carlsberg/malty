@@ -23,6 +23,15 @@ export default {
         type: 'select',
         labels: ['default', 'compact']
       }
+    },
+    isWhite: {
+      table: {
+        defaultValue: {
+          summary: 'false'
+        }
+      },
+      description: '',
+      control: 'boolean'
     }
   }
 } as Meta;
