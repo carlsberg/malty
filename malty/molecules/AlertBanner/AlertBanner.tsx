@@ -1,8 +1,10 @@
 import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import React, { FC, KeyboardEvent, useEffect, useState } from 'react';
-import { Pagination, PaginationType } from '../Pagination';
+import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { FC, KeyboardEvent, useContext, useEffect, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   CloseButtonContainer,
   Container,
@@ -26,6 +28,8 @@ const textColorsMap = {
 };
 
 export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
   const currentAlert = alerts[activeAlert - 1];
@@ -118,7 +122,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
   );
 
   return (
-    <Container type={currentAlert.type}>
+    <Container type={currentAlert.type} theme={theme}>
       <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`}>
         {!isMobile && (
           <Pagination
