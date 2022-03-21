@@ -123,7 +123,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
 
   return (
     <Container type={currentAlert.type} theme={theme}>
-      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`}>
+      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme}>
         {!isMobile && (
           <Pagination
             count={alerts.length}
@@ -133,7 +133,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
         )}
-        <MessageContainer>
+        <MessageContainer theme={theme}>
           {currentAlert.icon && renderIcon()}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}
@@ -141,7 +141,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         {renderCloseButton()}
       </ContentRow>
       {isMobile && (
-        <ContentRow>
+        <ContentRow theme={theme}>
           <Pagination
             count={alerts.length}
             onChange={(pageNr) => setActiveAlert(pageNr)}
