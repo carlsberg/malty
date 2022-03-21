@@ -39,7 +39,7 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
       & button {
         padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
       }
-      margin-left: 8px;
+      margin-left: ${({ theme }) => theme.sizes['2xs'].value};
     }
   }
 `;
