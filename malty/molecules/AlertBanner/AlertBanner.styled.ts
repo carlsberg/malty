@@ -34,10 +34,10 @@ export const MessageContainer = styled.div`
   display: flex;
   align-items: center;
   svg {
-    padding-right: 12px;
+    padding-right: ${({ theme }) => theme.sizes.xs.value};
   }
   div {
-    padding-right: 16px;
+    padding-right: ${({ theme }) => theme.sizes.s.value};
   }
 `;
 
