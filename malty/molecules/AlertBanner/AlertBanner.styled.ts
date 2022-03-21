@@ -25,8 +25,8 @@ export const ContentRow = styled.div`
   align-items: center;
   justify-content: space-between;
   :not(:last-child) {
-    padding-bottom: 12px;
-    padding-left: 8px;
+    padding-bottom: ${({ theme }) => theme.sizes.xs.value};
+    padding-left: ${({ theme }) => theme.sizes['2xs'].value};
   }
 `;
 
