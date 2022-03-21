@@ -2,6 +2,7 @@ import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/mal
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import React, { FC, KeyboardEvent, useEffect, useState } from 'react';
+import { Pagination, PaginationType } from '../Pagination';
 import {
   CloseButtonContainer,
   Container,
@@ -25,9 +26,9 @@ const textColorsMap = {
 };
 
 export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) => {
-  const [activeAlert, setActiveAlert] = useState(0);
+  const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
-  const currentAlert = alerts[activeAlert];
+  const currentAlert = alerts[activeAlert - 1];
   const isMobile = width <= breakpoint;
 
   useEffect(() => {
@@ -52,22 +53,6 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
   if (!alerts?.length) {
     return null;
   }
-
-  const Pagination: FC = () => {
-    if (alerts.length <= 1) {
-      return <div />;
-    }
-    return (
-      <div style={{ marginRight: isMobile ? 'auto' : 0 }}>
-        <button type="button" onClick={() => setActiveAlert(activeAlert - 1)}>
-          prev
-        </button>
-        <button type="button" onClick={() => setActiveAlert(activeAlert + 1)}>
-          next
-        </button>
-      </div>
-    );
-  };
 
   const renderAction = () => {
     if (!currentAlert.action) {
@@ -135,7 +120,15 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
   return (
     <Container type={currentAlert.type}>
       <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`}>
-        {!isMobile && <Pagination />}
+        {!isMobile && (
+          <Pagination
+            count={alerts.length}
+            onChange={(pageNr) => setActiveAlert(pageNr)}
+            currentPage={activeAlert}
+            type={PaginationType.compact}
+            isWhite={currentAlert.type !== AlertBannerType.Warning}
+          />
+        )}
         <MessageContainer>
           {currentAlert.icon && renderIcon()}
           {renderMessage()}
@@ -145,7 +138,13 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
       </ContentRow>
       {isMobile && (
         <ContentRow>
-          <Pagination />
+          <Pagination
+            count={alerts.length}
+            onChange={(pageNr) => setActiveAlert(pageNr)}
+            currentPage={activeAlert}
+            type={PaginationType.compact}
+            isWhite={currentAlert.type !== AlertBannerType.Warning}
+          />
           {renderAction()}
         </ContentRow>
       )}

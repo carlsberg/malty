@@ -26,6 +26,7 @@ export const ContentRow = styled.div`
   justify-content: space-between;
   :not(:last-child) {
     padding-bottom: 12px;
+    padding-left: 8px;
   }
 `;
 
