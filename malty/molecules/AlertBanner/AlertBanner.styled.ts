@@ -17,7 +17,7 @@ export const Container = styled.div<{
     return theme.colors.colours.system['notification-strong'].value;
   }};
   color: ${({ theme }) => theme.colors.colours.default.white.value};
-  padding: 12px;
+  padding: ${({ theme }) => theme.sizes.xs.value};
 `;
 
 export const ContentRow = styled.div`
