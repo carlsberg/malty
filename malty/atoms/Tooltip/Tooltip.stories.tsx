@@ -67,14 +67,19 @@ export default {
       table: {
         disable: true
       }
+    },
+    darkTheme: {
+      description: 'Dark theme for the Tooltip.',
+      control: 'boolean',
+      table: { defaultValue: { summary: 'true' } }
     }
   }
 } as Meta;
 
-const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipProps) => (
+const Template: Story<TooltipProps> = ({ position, toggle, darkTheme, children }: TooltipProps) => (
   <StyledContainer>
     <p id="testId">Click here to toggle it!</p>
-    <TooltipComponent anchor="testId" position={position} toggle={toggle}>
+    <TooltipComponent anchor="testId" position={position} toggle={toggle} darkTheme={darkTheme}>
       {children}
     </TooltipComponent>
   </StyledContainer>
@@ -83,6 +88,7 @@ const Template: Story<TooltipProps> = ({ position, toggle, children }: TooltipPr
 export const Tooltip = Template.bind({});
 
 Tooltip.args = {
-  position: TooltipPosition.Top,
-  children: 'A simple Tooltip content with some text'
+  position: TooltipPosition.TopCenter,
+  children: 'A simple Tooltip content with some text',
+  darkTheme: true
 };

@@ -3,13 +3,18 @@ export interface TooltipProps {
   isOpen?: boolean;
   toggle?: TooltipToggle;
   anchor?: string;
+  darkTheme?: boolean;
   children: string | JSX.Element;
 }
 
 export enum TooltipPosition {
-  Top = 'top',
+  TopCenter = 'top-center',
+  TopLeft = 'top-left',
+  TopRight = 'top-right',
   Right = 'right',
-  Bottom = 'bottom',
+  BottomCenter = 'bottom-center',
+  BottomLeft = 'bottom-left',
+  BottomRight = 'bottom-right',
   Left = 'left'
 }
 

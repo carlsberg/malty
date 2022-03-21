@@ -1,17 +1,27 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-console */
-/* eslint-disable react-hooks/rules-of-hooks */
-import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
+import {
+  StyledTooltip,
+  StyledTooltipPositionBottomCenter,
+  StyledTooltipPositionBottomLeft,
+  StyledTooltipPositionBottomRight,
+  StyledTooltipPositionLeft,
+  StyledTooltipPositionRight,
+  StyledTooltipPositionTopCenter,
+  StyledTooltipPositionTopLeft,
+  StyledTooltipPositionTopRight,
+  StyledTooltipWrapper
+} from './Tooltip.styled';
 import { TooltipPosition, TooltipProps, TooltipToggle } from './Tooltip.types';
 
-export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipProps) => {
+export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, children }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showTooltip, setShowTooltip] = useState(false);
   const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
+  const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
+  let StyledTooltipInner = StyledTooltip;
 
   useEffect(() => {
     if (anchor) {
@@ -19,7 +29,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
       const width = box?.offsetWidth;
       const height = box?.offsetHeight;
       switch (position) {
-        case TooltipPosition.Top:
+        case TooltipPosition.TopCenter || TooltipPosition.TopLeft || TooltipPosition.TopRight:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
@@ -31,7 +41,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
             horizontal: width || 0
           });
           break;
-        case TooltipPosition.Bottom:
+        case TooltipPosition.BottomCenter || TooltipPosition.BottomLeft || TooltipPosition.BottomRight:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
@@ -49,7 +59,37 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
           break;
       }
     }
-  }, [anchor]);
+  }, [anchor, position]);
+
+  switch (position) {
+    case TooltipPosition.TopCenter:
+      StyledTooltipInner = StyledTooltipPositionTopCenter;
+      break;
+    case TooltipPosition.TopLeft:
+      StyledTooltipInner = StyledTooltipPositionTopLeft;
+      break;
+    case TooltipPosition.TopRight:
+      StyledTooltipInner = StyledTooltipPositionTopRight;
+      break;
+    case TooltipPosition.Right:
+      StyledTooltipInner = StyledTooltipPositionRight;
+      break;
+    case TooltipPosition.BottomCenter:
+      StyledTooltipInner = StyledTooltipPositionBottomCenter;
+      break;
+    case TooltipPosition.BottomLeft:
+      StyledTooltipInner = StyledTooltipPositionBottomLeft;
+      break;
+    case TooltipPosition.BottomRight:
+      StyledTooltipInner = StyledTooltipPositionBottomRight;
+      break;
+    case TooltipPosition.Left:
+      StyledTooltipInner = StyledTooltipPositionLeft;
+      break;
+    default:
+      StyledTooltipInner = StyledTooltip;
+      break;
+  }
 
   useEffect(() => {
     let returnFn;
@@ -105,14 +145,17 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
   return (
     <TypographyProvider>
       <StyledTooltipWrapper theme={theme}>
-        <StyledTooltip
+        <StyledTooltipInner
           position={position}
           anchorOffset={anchorOffset}
           open={isOpen === true ? isOpen : showTooltip}
           theme={theme}
+          darkTheme={darkTheme}
         >
-          <Text textStyle={TextStyle.MediumDefault}>{children}</Text>
-        </StyledTooltip>
+          <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
+            {children}
+          </Text>
+        </StyledTooltipInner>
       </StyledTooltipWrapper>
     </TypographyProvider>
   );

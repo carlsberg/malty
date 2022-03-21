@@ -10,7 +10,7 @@ describe('Tooltip', () => {
         <a id="testId" onClick={() => null}>
           Click here to toggle it!
         </a>
-        <Tooltip anchor="testId" position={TooltipPosition.Bottom} isOpen toggle={TooltipToggle.Click}>
+        <Tooltip anchor="testId" position={TooltipPosition.BottomCenter} isOpen toggle={TooltipToggle.Click}>
           <button type="button">Test</button>
         </Tooltip>
       </>
@@ -24,7 +24,7 @@ describe('Tooltip', () => {
         <a id="testId" onClick={() => null}>
           Click here to toggle it!
         </a>
-        <Tooltip anchor="testId" position={TooltipPosition.Bottom} isOpen toggle={TooltipToggle.Click}>
+        <Tooltip anchor="testId" position={TooltipPosition.BottomCenter} isOpen toggle={TooltipToggle.Click}>
           <button type="button">Test</button>
         </Tooltip>
       </>
