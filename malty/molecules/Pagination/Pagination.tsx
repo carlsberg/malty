@@ -111,7 +111,7 @@ export const Pagination = ({
   };
 
   return (
-    <StyledContainer data-testid={dataQaId} isWhite={isWhite}>
+    <StyledContainer data-testid={dataQaId} isWhite={isWhite} theme={theme}>
       <TypographyProvider>
         <ul>
           <li>
