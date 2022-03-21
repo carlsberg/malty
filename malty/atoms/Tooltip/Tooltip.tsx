@@ -29,7 +29,19 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
       const width = box?.offsetWidth;
       const height = box?.offsetHeight;
       switch (position) {
-        case TooltipPosition.TopCenter || TooltipPosition.TopLeft || TooltipPosition.TopRight:
+        case TooltipPosition.TopCenter:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.TopLeft:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.TopRight:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
@@ -41,7 +53,19 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
             horizontal: width || 0
           });
           break;
-        case TooltipPosition.BottomCenter || TooltipPosition.BottomLeft || TooltipPosition.BottomRight:
+        case TooltipPosition.BottomCenter:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.BottomLeft:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.BottomRight:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
@@ -59,7 +83,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
           break;
       }
     }
-  }, [anchor, position]);
+  }, [anchor]);
 
   switch (position) {
     case TooltipPosition.TopCenter:

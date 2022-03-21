@@ -39,6 +39,7 @@ export const StyledTooltipPositionTopCenter = styled(StyledTooltip)`
   left: 50%;
   transform: translate(-50%, 0);
   margin: ${({ anchorOffset }) => `0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 2}px`};
+
   &::before {
     left: 50%;
     right: auto;
@@ -52,17 +53,19 @@ export const StyledTooltipPositionTopCenter = styled(StyledTooltip)`
 `;
 
 export const StyledTooltipPositionTopLeft = styled(StyledTooltipPositionTopCenter)`
+  margin: ${({ anchorOffset }) => `0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 1.5}px`};
   &::before {
-    left: 20%;
+    left: ${({ theme }) => theme.sizes['2xs'].value};
     right: auto;
     transform: none;
   }
 `;
 
 export const StyledTooltipPositionTopRight = styled(StyledTooltipPositionTopCenter)`
+  margin: ${({ anchorOffset }) => `0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 2.5}px`};
   &::before {
     left: auto;
-    right: 20%;
+    right: ${({ theme }) => theme.sizes['2xs'].value};
   }
 `;
 
@@ -71,6 +74,7 @@ export const StyledTooltipPositionBottomCenter = styled(StyledTooltip)`
   left: 50%;
   transform: translate(-50%, 0);
   margin: ${({ anchorOffset }) => `0 0 0 -${anchorOffset.horizontal / 2}px`};
+
   &::before {
     top: -${({ theme }) => theme.sizes['3xs'].value};
     left: 50%;
@@ -84,17 +88,19 @@ export const StyledTooltipPositionBottomCenter = styled(StyledTooltip)`
 `;
 
 export const StyledTooltipPositionBottomLeft = styled(StyledTooltipPositionBottomCenter)`
+  margin: ${({ anchorOffset }) => `0 0 0 -${anchorOffset.horizontal / 1.5}px`};
   &::before {
-    left: 20%;
+    left: ${({ theme }) => theme.sizes['2xs'].value};
     right: auto;
     transform: none;
   }
 `;
 
 export const StyledTooltipPositionBottomRight = styled(StyledTooltipPositionBottomCenter)`
+  margin: ${({ anchorOffset }) => `0 0 0 -${anchorOffset.horizontal / 2.5}px`};
   &::before {
     left: auto;
-    right: 20%;
+    right: ${({ theme }) => theme.sizes['2xs'].value};
   }
 `;
 
@@ -104,6 +110,7 @@ export const StyledTooltipPositionRight = styled(StyledTooltip)`
   right: auto;
   transform: translate(0, -50%);
   margin: ${({ anchorOffset }) => `-${anchorOffset.vertical / 2}px 0 0 0`};
+
   &::before {
     top: 50%;
     left: -${({ theme }) => theme.sizes['3xs'].value};
@@ -121,6 +128,7 @@ export const StyledTooltipPositionLeft = styled(StyledTooltip)`
   right: calc(100% + ${({ theme }) => theme.sizes.s.value});
   transform: translate(0, -50%);
   margin: ${({ anchorOffset }) => `-${anchorOffset.vertical / 2}px ${anchorOffset.horizontal}px 0 0`};
+
   &::before {
     top: 50%;
     right: -${({ theme }) => theme.sizes['3xs'].value};

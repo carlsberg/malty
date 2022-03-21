@@ -78,7 +78,7 @@ export default {
 
 const Template: Story<TooltipProps> = ({ position, toggle, darkTheme, children }: TooltipProps) => (
   <StyledContainer>
-    <p id="testId">Click here to toggle it!</p>
+    <p id="testId">Click here to toggle it! Play with me and my tooltip!!!</p>
     <TooltipComponent anchor="testId" position={position} toggle={toggle} darkTheme={darkTheme}>
       {children}
     </TooltipComponent>
