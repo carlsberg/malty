@@ -1,4 +1,3 @@
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -20,7 +19,6 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showTooltip, setShowTooltip] = useState(false);
   const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
-  const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
   let StyledTooltipInner = StyledTooltip;
 
   useEffect(() => {
@@ -176,9 +174,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
           theme={theme}
           darkTheme={darkTheme}
         >
-          <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
-            {children}
-          </Text>
+          {children}
         </StyledTooltipInner>
       </StyledTooltipWrapper>
     </TypographyProvider>

@@ -1,3 +1,4 @@
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
@@ -76,14 +77,19 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TooltipProps> = ({ position, toggle, darkTheme, children }: TooltipProps) => (
-  <StyledContainer>
-    <p id="testId">Click here to toggle it! Play with me and my tooltip!!!</p>
-    <TooltipComponent anchor="testId" position={position} toggle={toggle} darkTheme={darkTheme}>
-      {children}
-    </TooltipComponent>
-  </StyledContainer>
-);
+const Template: Story<TooltipProps> = ({ position, toggle, darkTheme, children }: TooltipProps) => {
+  const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
+  return (
+    <StyledContainer>
+      <p id="testId">Click here to toggle it! Play with me and my tooltip!!!</p>
+      <TooltipComponent anchor="testId" position={position} toggle={toggle} darkTheme={darkTheme}>
+        <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
+          {children}
+        </Text>
+      </TooltipComponent>
+    </StyledContainer>
+  );
+};
 
 export const Tooltip = Template.bind({});
 
