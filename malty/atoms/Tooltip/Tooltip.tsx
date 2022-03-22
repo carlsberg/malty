@@ -22,49 +22,18 @@ export const Tooltip = ({
   isOpen,
   anchor,
   darkTheme = true,
-  autoHideDuration = 1000,
+  autoHideDuration = 5000,
   onHideTooltip,
   children
 }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
 
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(true);
+
   const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
   // Tooltip auto hide setup
   let autoHideTimer: ReturnType<typeof setTimeout> | null = null;
-
-  // TooltipToggle.Events logic
-  const setAutoHideTimer = () => {
-    if (autoHideTimer != null) {
-      clearTimeout(autoHideTimer);
-    }
-    autoHideTimer = setTimeout(() => {
-      hideTooltip();
-    }, autoHideDuration) as unknown as ReturnType<typeof setTimeout>;
-  };
-
-  // set timeout on component mount
-  useEffect(() => {
-    setAutoHideTimer();
-    return () => {
-      if (autoHideTimer) {
-        hideTooltip();
-        clearTimeout(autoHideTimer);
-      }
-    };
-  }, []);
-
-  const hideTooltip = () => {
-    if (toggle === TooltipToggle.Event) {
-      if (onHideTooltip) {
-        onHideTooltip();
-      }
-      if (autoHideTimer) {
-        clearTimeout(autoHideTimer);
-      }
-    }
-  };
 
   // Width size anchor logic
   useEffect(() => {
@@ -162,6 +131,40 @@ export const Tooltip = ({
       break;
   }
 
+  // TooltipToggle.Events logic
+  const setAutoHideTimer = () => {
+    if (autoHideTimer != null) {
+      clearTimeout(autoHideTimer);
+    }
+    autoHideTimer = setTimeout(() => {
+      hideTooltip();
+    }, autoHideDuration) as unknown as ReturnType<typeof setTimeout>;
+  };
+
+  // set timeout on component mount
+  useEffect(() => {
+    setAutoHideTimer();
+    return () => {
+      if (autoHideTimer) {
+        hideTooltip();
+        clearTimeout(autoHideTimer);
+      }
+    };
+  }, []);
+
+  const hideTooltip = () => {
+    if (toggle === TooltipToggle.Event) {
+      setShowTooltip(false);
+      if (onHideTooltip) {
+        onHideTooltip();
+      }
+
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+      }
+    }
+  };
+
   // Tooltip events logic
   useEffect(() => {
     let returnFn;
@@ -212,10 +215,6 @@ export const Tooltip = ({
       handleMouseEnter();
     }
 
-    if (toggle === TooltipToggle.Event) {
-      setShowTooltip(true);
-      hideTooltip();
-    }
     return returnFn;
   }, [anchor, toggle, showTooltip]);
 
@@ -230,6 +229,10 @@ export const Tooltip = ({
       </Text>
     );
   };
+
+  if (!showTooltip) {
+    return null;
+  }
 
   return (
     <TypographyProvider>
