@@ -1,3 +1,4 @@
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -15,12 +16,57 @@ import {
 } from './Tooltip.styled';
 import { TooltipPosition, TooltipProps, TooltipToggle } from './Tooltip.types';
 
-export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, children }: TooltipProps) => {
+export const Tooltip = ({
+  position,
+  toggle,
+  isOpen,
+  anchor,
+  darkTheme = true,
+  autoHideDuration = 1000,
+  onHideTooltip,
+  children
+}: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
+
   const [showTooltip, setShowTooltip] = useState(false);
   const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
-  let StyledTooltipInner = StyledTooltip;
+  // Tooltip auto hide setup
+  let autoHideTimer: ReturnType<typeof setTimeout> | null = null;
 
+  // TooltipToggle.Events logic
+  const setAutoHideTimer = () => {
+    if (autoHideTimer != null) {
+      clearTimeout(autoHideTimer);
+    }
+    autoHideTimer = setTimeout(() => {
+      hideTooltip();
+    }, autoHideDuration) as unknown as ReturnType<typeof setTimeout>;
+  };
+
+  // set timeout on component mount
+  useEffect(() => {
+    setAutoHideTimer();
+    return () => {
+      if (autoHideTimer) {
+        hideTooltip();
+        clearTimeout(autoHideTimer);
+      }
+    };
+  }, []);
+
+  const hideTooltip = () => {
+    if (toggle === TooltipToggle.Event) {
+      if (onHideTooltip) {
+        onHideTooltip();
+      }
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+      }
+    }
+  };
+
+  // Width size anchor logic
   useEffect(() => {
     if (anchor) {
       const box = document.getElementById(anchor);
@@ -83,6 +129,9 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
     }
   }, [anchor]);
 
+  // Positioning logic
+  let StyledTooltipInner = StyledTooltip;
+
   switch (position) {
     case TooltipPosition.TopCenter:
       StyledTooltipInner = StyledTooltipPositionTopCenter;
@@ -113,6 +162,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
       break;
   }
 
+  // Tooltip events logic
   useEffect(() => {
     let returnFn;
 
@@ -161,8 +211,25 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
     if (toggle === TooltipToggle.Persist) {
       handleMouseEnter();
     }
+
+    if (toggle === TooltipToggle.Event) {
+      setShowTooltip(true);
+      hideTooltip();
+    }
     return returnFn;
   }, [anchor, toggle, showTooltip]);
+
+  const renderChildren = () => {
+    if (toggle === TooltipToggle.Event) {
+      return children;
+    }
+
+    return (
+      <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
+        {children}
+      </Text>
+    );
+  };
 
   return (
     <TypographyProvider>
@@ -174,7 +241,7 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, darkTheme = true, ch
           theme={theme}
           darkTheme={darkTheme}
         >
-          {children}
+          {renderChildren()}
         </StyledTooltipInner>
       </StyledTooltipWrapper>
     </TypographyProvider>

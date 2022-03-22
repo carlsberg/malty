@@ -1,9 +1,12 @@
 export interface TooltipProps {
   position: TooltipPosition;
   isOpen?: boolean;
-  toggle?: TooltipToggle;
+  toggle: TooltipToggle;
   anchor?: string;
   darkTheme?: boolean;
+  dataQaId?: string;
+  autoHideDuration?: number;
+  onHideTooltip?: () => void;
   children: string | JSX.Element;
 }
 
@@ -21,5 +24,6 @@ export enum TooltipPosition {
 export enum TooltipToggle {
   Click = 'click',
   Hover = 'hover',
-  Persist = 'persist'
+  Persist = 'persist',
+  Event = 'event'
 }

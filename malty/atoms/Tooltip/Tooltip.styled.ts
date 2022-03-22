@@ -1,10 +1,22 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { TooltipPosition } from './Tooltip.types';
+
+// Event
+const fadeInAnimation = keyframes`
+  0% {
+    opacity: 0.3
+  }
+  100% {
+    opacity: 1
+  }
+`;
 
 export const StyledTooltipWrapper = styled.div`
   display: inline-flex;
   position: relative;
   z-index: 0;
+  animation-name: ${fadeInAnimation};
+  animation-duration: 0.5s;
 `;
 
 export const StyledTooltip = styled.div<{
@@ -22,7 +34,7 @@ export const StyledTooltip = styled.div<{
   position: absolute;
   display: ${({ open }) => (open ? 'block' : 'none')};
   padding: ${({ theme }) => `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`};
-  min-width: ${({ theme }) => parseInt(theme.sizes['4xl'].value.replace('px', ''), 10) * 3}px;
+  min-width: ${({ anchorOffset }) => `${anchorOffset.horizontal / 1.5}px`};
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 
   &::before {
@@ -35,7 +47,7 @@ export const StyledTooltip = styled.div<{
 `;
 
 export const StyledTooltipPositionTopCenter = styled(StyledTooltip)`
-  bottom: calc(100% + ${({ theme }) => theme.sizes.s.value});
+  bottom: calc(100% + ${({ theme }) => theme.sizes['2xs'].value});
   left: 50%;
   transform: translate(-50%, 0);
   margin: ${({ anchorOffset }) => `0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 2}px`};
@@ -62,7 +74,7 @@ export const StyledTooltipPositionTopLeft = styled(StyledTooltipPositionTopCente
 `;
 
 export const StyledTooltipPositionTopRight = styled(StyledTooltipPositionTopCenter)`
-  margin: ${({ anchorOffset }) => `0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 2.5}px`};
+  margin: ${({ anchorOffset }) => `0 0 ${anchorOffset.vertical}px -${anchorOffset.horizontal / 3}px`};
   &::before {
     left: auto;
     right: ${({ theme }) => theme.sizes['2xs'].value};
@@ -97,7 +109,7 @@ export const StyledTooltipPositionBottomLeft = styled(StyledTooltipPositionBotto
 `;
 
 export const StyledTooltipPositionBottomRight = styled(StyledTooltipPositionBottomCenter)`
-  margin: ${({ anchorOffset }) => `0 0 0 -${anchorOffset.horizontal / 2.5}px`};
+  margin: ${({ anchorOffset }) => `0 0 0 -${anchorOffset.horizontal / 3}px`};
   &::before {
     left: auto;
     right: ${({ theme }) => theme.sizes['2xs'].value};

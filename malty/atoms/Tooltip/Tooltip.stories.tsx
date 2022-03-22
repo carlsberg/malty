@@ -9,10 +9,15 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 40vh;
-  margin-left: calc(50% - 75px);
+
+  span {
+    width: 0;
+  }
+
   p {
-    white-space: nowrap;
+    //white-space: nowrap;
     margin-block-start: 0;
     margin-block-end: 0;
   }
@@ -30,12 +35,12 @@ export default {
       description: 'Tooltip position.',
       options: Object.keys(TooltipPosition),
       mapping: TooltipPosition,
-      table: { defaultValue: { summary: 'TooltipPosition.Top' } },
+      table: { defaultValue: { summary: 'TooltipPosition.TopCEnter' } },
       control: {
         type: 'select',
         label: Object.values(TooltipPosition)
       },
-      defaultValue: 'Top'
+      defaultValue: 'TopCenter'
     },
     anchor: {
       control: {
@@ -73,19 +78,35 @@ export default {
       description: 'Dark theme for the Tooltip.',
       control: 'boolean',
       table: { defaultValue: { summary: 'true' } }
+    },
+    dataQaId: {
+      control: 'text',
+      description: 'Alert data-qi-id, can be',
+      table: { defaultValue: { summary: 'none' } }
+    },
+    autoHideDuration: {
+      control: 'number',
+      description: 'Set auto hide duration - available only for `Event` toggle',
+      table: { defaultValue: { summary: '5000' } }
+    },
+    onHideTooltip: {
+      description: 'Function to be executed when tooltip state is changed to hidden.'
     }
   }
 } as Meta;
 
 const Template: Story<TooltipProps> = ({ position, toggle, darkTheme, children }: TooltipProps) => {
   const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
+  const renderTooltipEventToggle = () => (
+    <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
+      {children}
+    </Text>
+  );
   return (
     <StyledContainer>
-      <p id="testId">Click here to toggle it! Play with me and my tooltip!!!</p>
+      <p id="testId">Choose your toggle control and play with me!!!</p>
       <TooltipComponent anchor="testId" position={position} toggle={toggle} darkTheme={darkTheme}>
-        <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
-          {children}
-        </Text>
+        {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
       </TooltipComponent>
     </StyledContainer>
   );
@@ -95,6 +116,7 @@ export const Tooltip = Template.bind({});
 
 Tooltip.args = {
   position: TooltipPosition.TopCenter,
-  children: 'A simple Tooltip content with some text',
+  toggle: TooltipToggle.Persist,
+  children: 'A simple Tooltip content with some text. Thanks for open me!',
   darkTheme: true
 };
