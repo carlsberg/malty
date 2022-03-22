@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion matches snapshot 1`] = `
+<span
+  className="sc-bdvvtL bWTUHG"
+>
+  <ul
+    className="sc-dkPtRN fQApVx"
+    data-testid="undefined-accordion-container"
+  >
+    <span
+      className="sc-bdvvtL bWTUHG"
+    >
+      <li
+        className="sc-hKwDye dgXmE"
+        data-testid="undefined-item"
+      >
+        <div
+          aria-controls="accordion-item-\\"00000000-0000-0000-0000-000000000000"
+          className="sc-eCImPb kJyoKS accordion-header"
+          onClick={[Function]}
+          size={32}
+        >
+          <span
+            className="sc-bdvvtL bWTUHG"
+          >
+            <p
+              className="sc-furwcr lnhugg"
+              color="digital-black"
+            >
+              Accordion title 1
+            </p>
+          </span>
+          <svg
+            className="sc-gsDKAQ kyUyaQ sc-iCfMLu hBqQrs"
+            color="digital-black"
+            data-testid="svg-component"
+            size="24px"
+            version="1.1"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              fillRule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M12 13.586L6.707 8.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 10-1.414-1.414z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          className="sc-jRQBWg cmRugU accordion-body"
+          data-testid="undefined-content-container"
+          id="accordion-item-\\"00000000-0000-0000-0000-000000000000"
+        >
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </div>
+        </div>
+      </li>
+    </span>
+    <span
+      className="sc-bdvvtL bWTUHG"
+    >
+      <li
+        className="sc-hKwDye dgXmE"
+        data-testid="undefined-item"
+      >
+        <div
+          aria-controls="accordion-item-\\"00000000-0000-0000-0000-000000000000"
+          className="sc-eCImPb kJyoKS accordion-header"
+          onClick={[Function]}
+          size={32}
+        >
+          <span
+            className="sc-bdvvtL bWTUHG"
+          >
+            <p
+              className="sc-furwcr lnhugg"
+              color="digital-black"
+            >
+              Accordion title 2
+            </p>
+          </span>
+          <svg
+            className="sc-gsDKAQ kyUyaQ sc-iCfMLu hBqQrs"
+            color="digital-black"
+            data-testid="svg-component"
+            size="24px"
+            version="1.1"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+          >
+            <g
+              fillRule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M12 13.586L6.707 8.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 10-1.414-1.414z"
+              />
+            </g>
+          </svg>
+        </div>
+        <div
+          className="sc-jRQBWg cmRugU accordion-body"
+          data-testid="undefined-content-container"
+          id="accordion-item-\\"00000000-0000-0000-0000-000000000000"
+        >
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </div>
+        </div>
+      </li>
+    </span>
+  </ul>
+</span>
+`;
