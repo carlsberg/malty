@@ -2,27 +2,17 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledIcon } from './IconWrapper.styled';
-import { IconWrapperInterface, SizesTypes } from './IconWrapper.types';
+import { IconColor, IconSize, IconWrapperProps } from './IconWrapper.types';
 
-const IconWrapper = ({ size, color, viewBox, className, onClick }: IconWrapperInterface, icon: JSX.Element) => {
+const IconWrapper = (
+  { size = IconSize.Medium, color = IconColor.Primary, viewBox, className, onClick }: IconWrapperProps,
+  icon: JSX.Element
+) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [numSize, setNumSize] = useState(theme.variables.button.size.medium.value);
+  const [numSize, setNumSize] = useState(theme.sizes.m.value);
 
   useEffect(() => {
-    switch (size) {
-      case SizesTypes.Small: {
-        setNumSize(theme.variables.icon.size.small.value);
-        break;
-      }
-      case SizesTypes.Large: {
-        setNumSize(theme.variables.icon.size.large.value);
-        break;
-      }
-      default: {
-        setNumSize(theme.variables.icon.size.medium.value);
-        break;
-      }
-    }
+    setNumSize(theme.sizes[size].value);
   }, [size, theme]);
 
   return (
