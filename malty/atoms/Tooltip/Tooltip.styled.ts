@@ -21,7 +21,7 @@ export const StyledTooltip = styled.div<{
     darkTheme ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
   position: absolute;
   display: ${({ open }) => (open ? 'block' : 'none')};
-  padding: ${({ theme }) => `${theme.sizes['3xs'].value} ${theme.sizes.s.value}`};
+  padding: ${({ theme }) => `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`};
   min-width: ${({ theme }) => parseInt(theme.sizes['4xl'].value.replace('px', ''), 10) * 3}px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 
