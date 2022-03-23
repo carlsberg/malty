@@ -17,7 +17,6 @@ const StyledContainer = styled.div`
   }
 
   p {
-    //white-space: nowrap;
     margin-block-start: 0;
     margin-block-end: 0;
   }
