@@ -26,7 +26,7 @@ export const StyledTooltip = styled.div<{
     horizontal: number;
   };
   open?: boolean;
-  darkTheme: boolean;
+  isDark: boolean;
 }>`
   font-family: inherit;
   background-color: ${({ darkTheme, theme }) =>
