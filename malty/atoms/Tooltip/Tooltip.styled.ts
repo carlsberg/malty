@@ -94,8 +94,8 @@ export const StyledTooltipPositionBottomCenter = styled(StyledTooltip)`
     transform: translateX(-50%);
     border-width: 0 ${({ theme }) => theme.sizes['3xs'].value} ${({ theme }) => theme.sizes['3xs'].value}
       ${({ theme }) => theme.sizes['3xs'].value};
-    border-bottom-color: ${({ theme, darkTheme }) =>
-      darkTheme ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
+    border-bottom-color: ${({ theme, isDark }) =>
+      isDark ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
   }
 `;
 
