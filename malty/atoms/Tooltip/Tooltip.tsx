@@ -27,7 +27,7 @@ export const Tooltip = ({
   children
 }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
+  const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
 
   const [showTooltip, setShowTooltip] = useState(true);
 
