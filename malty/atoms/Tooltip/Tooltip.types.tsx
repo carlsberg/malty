@@ -3,7 +3,7 @@ export interface TooltipProps {
   isOpen?: boolean;
   toggle: TooltipToggle;
   anchor?: string;
-  darkTheme?: boolean;
+  isDark?: boolean;
   dataQaId?: string;
   autoHideDuration?: number;
   onHideTooltip?: () => void;
