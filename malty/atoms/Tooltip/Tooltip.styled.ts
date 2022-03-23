@@ -29,8 +29,8 @@ export const StyledTooltip = styled.div<{
   isDark: boolean;
 }>`
   font-family: inherit;
-  background-color: ${({ darkTheme, theme }) =>
-    darkTheme ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
+  background-color: ${({ isDark, theme }) =>
+    isDark ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
   position: absolute;
   display: ${({ open }) => (open ? 'block' : 'none')};
   padding: ${({ theme }) => `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`};
