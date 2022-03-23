@@ -94,8 +94,8 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TooltipProps> = ({ position, toggle, darkTheme, children, autoHideDuration }: TooltipProps) => {
-  const tooltipTextColor = darkTheme ? TextColor.White : TextColor.DigitalBlack;
+const Template: Story<TooltipProps> = ({ position, toggle, isDark, children, autoHideDuration }: TooltipProps) => {
+  const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
   const renderTooltipEventToggle = () => (
     <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
       {children}
