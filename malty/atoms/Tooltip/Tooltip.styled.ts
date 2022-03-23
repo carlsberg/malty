@@ -129,8 +129,8 @@ export const StyledTooltipPositionRight = styled(StyledTooltip)`
     transform: translateY(-50%);
     border-width: ${({ theme }) => theme.sizes['3xs'].value} ${({ theme }) => theme.sizes['3xs'].value}
       ${({ theme }) => theme.sizes['3xs'].value} 0;
-    border-right-color: ${({ theme, darkTheme }) =>
-      darkTheme ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
+    border-right-color: ${({ theme, isDark }) =>
+      isDark ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
   }
 `;
 
@@ -147,7 +147,7 @@ export const StyledTooltipPositionLeft = styled(StyledTooltip)`
     transform: translateY(-50%);
     border-width: ${({ theme }) => theme.sizes['3xs'].value} 0 ${({ theme }) => theme.sizes['3xs'].value}
       ${({ theme }) => theme.sizes['3xs'].value};
-    border-left-color: ${({ theme, darkTheme }) =>
-      darkTheme ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
+    border-left-color: ${({ theme, isDark }) =>
+      isDark ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
   }
 `;

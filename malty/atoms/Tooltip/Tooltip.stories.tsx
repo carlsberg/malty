@@ -96,6 +96,7 @@ export default {
 
 const Template: Story<TooltipProps> = ({ position, toggle, isDark, children, autoHideDuration }: TooltipProps) => {
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
+  const tooltipAnchorRef = React.useRef<HTMLParagraphElement>(null);
   const renderTooltipEventToggle = () => (
     <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
       {children}
@@ -103,13 +104,13 @@ const Template: Story<TooltipProps> = ({ position, toggle, isDark, children, aut
   );
   return (
     <StyledContainer>
-      <p id="testId">Choose your toggle control and play with me!!!</p>
+      <p ref={tooltipAnchorRef}>Choose your toggle control and play with me!!!</p>
       <TooltipComponent
-        anchor="testId"
         position={position}
         toggle={toggle}
         isDark={isDark}
         autoHideDuration={autoHideDuration}
+        anchor={tooltipAnchorRef}
       >
         {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
       </TooltipComponent>

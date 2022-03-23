@@ -30,7 +30,6 @@ export const Tooltip = ({
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
 
   const [showTooltip, setShowTooltip] = useState(true);
-
   const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
   // Tooltip auto hide setup
   let autoHideTimer: ReturnType<typeof setTimeout> | null = null;
@@ -38,9 +37,10 @@ export const Tooltip = ({
   // Width size anchor logic
   useEffect(() => {
     if (anchor) {
-      const box = document.getElementById(anchor);
+      const box = anchor.current;
       const width = box?.offsetWidth;
       const height = box?.offsetHeight;
+
       switch (position) {
         case TooltipPosition.TopCenter:
           setAnchorOffset({
@@ -182,7 +182,7 @@ export const Tooltip = ({
     };
 
     if (toggle === TooltipToggle.Hover) {
-      const hoverEl = anchor ? document.getElementById(anchor) : false;
+      const hoverEl = anchor ? anchor.current : false;
 
       if (hoverEl) {
         hoverEl.addEventListener('mouseenter', handleMouseEnter);
@@ -198,7 +198,7 @@ export const Tooltip = ({
     }
 
     if (toggle === TooltipToggle.Click) {
-      const hoverEl = anchor ? document.getElementById(anchor) : false;
+      const hoverEl = anchor ? anchor.current : false;
 
       if (hoverEl) {
         hoverEl.addEventListener('click', handleTooltipToggle);

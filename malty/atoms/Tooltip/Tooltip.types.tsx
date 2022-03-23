@@ -2,7 +2,7 @@ export interface TooltipProps {
   position: TooltipPosition;
   isOpen?: boolean;
   toggle: TooltipToggle;
-  anchor?: string;
+  anchor?: React.RefObject<HTMLElement>;
   isDark?: boolean;
   dataQaId?: string;
   autoHideDuration?: number;
