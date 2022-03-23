@@ -73,7 +73,7 @@ export default {
         disable: true
       }
     },
-    darkTheme: {
+    isDark: {
       description: 'Dark theme for the Tooltip.',
       control: 'boolean',
       table: { defaultValue: { summary: 'true' } }
