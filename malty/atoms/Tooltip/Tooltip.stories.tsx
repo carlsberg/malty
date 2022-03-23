@@ -123,5 +123,5 @@ Tooltip.args = {
   position: TooltipPosition.TopCenter,
   toggle: TooltipToggle.Persist,
   children: 'A simple Tooltip content with some text. Thanks for open me!',
-  darkTheme: true
+  isDark: true
 };
