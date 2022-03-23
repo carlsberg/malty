@@ -21,7 +21,7 @@ export const Tooltip = ({
   toggle,
   isOpen,
   anchor,
-  darkTheme = true,
+  isDark = true,
   autoHideDuration = 5000,
   onHideTooltip,
   children
