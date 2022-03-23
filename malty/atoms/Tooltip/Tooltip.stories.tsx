@@ -108,7 +108,7 @@ const Template: Story<TooltipProps> = ({ position, toggle, darkTheme, children, 
         anchor="testId"
         position={position}
         toggle={toggle}
-        darkTheme={darkTheme}
+        isDark={isDark}
         autoHideDuration={autoHideDuration}
       >
         {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
