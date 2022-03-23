@@ -242,7 +242,7 @@ export const Tooltip = ({
           anchorOffset={anchorOffset}
           open={isOpen === true ? isOpen : showTooltip}
           theme={theme}
-          darkTheme={darkTheme}
+          isDark={isDark}
         >
           {renderChildren()}
         </StyledTooltipInner>
