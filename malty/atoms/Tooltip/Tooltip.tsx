@@ -34,6 +34,8 @@ export const Tooltip = ({
   // Tooltip auto hide setup
   let autoHideTimer: ReturnType<typeof setTimeout> | null = null;
 
+  const tooltipHoverRef = React.useRef<null | HTMLDivElement>(null);
+
   // Width size anchor logic
   useEffect(() => {
     if (anchor) {
@@ -169,12 +171,26 @@ export const Tooltip = ({
   useEffect(() => {
     let returnFn;
 
-    const handleMouseEnter = () => {
+    const handleAnchorMouseEnter = () => {
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+      }
       setShowTooltip(true);
     };
 
-    const handleMouseOut = () => {
+    const handleAnchorMouseOut = () => {
       setShowTooltip(false);
+    };
+
+    const handleTooltipMouseEnter = () => {
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+      }
+      setShowTooltip(true);
+    };
+
+    const handleTooltipMouseOut = () => {
+      setAutoHideTimer();
     };
 
     const handleTooltipToggle = () => {
@@ -185,14 +201,14 @@ export const Tooltip = ({
       const hoverEl = anchor ? anchor.current : false;
 
       if (hoverEl) {
-        hoverEl.addEventListener('mouseenter', handleMouseEnter);
-        hoverEl.addEventListener('mouseout', handleMouseOut);
+        hoverEl.addEventListener('mouseenter', handleAnchorMouseEnter);
+        hoverEl.addEventListener('mouseout', handleAnchorMouseOut);
       }
 
       returnFn = () => {
         if (hoverEl) {
-          hoverEl.removeEventListener('mouseenter', handleMouseEnter);
-          hoverEl.removeEventListener('mouseout', handleMouseOut);
+          hoverEl.removeEventListener('mouseenter', handleAnchorMouseEnter);
+          hoverEl.removeEventListener('mouseout', handleAnchorMouseOut);
         }
       };
     }
@@ -212,7 +228,24 @@ export const Tooltip = ({
     }
 
     if (toggle === TooltipToggle.Persist) {
-      handleMouseEnter();
+      setShowTooltip(true);
+    }
+
+    // Handle mouse events on tooltip
+    if (toggle === TooltipToggle.Event) {
+      const hoverTooltip = tooltipHoverRef ? tooltipHoverRef.current : false;
+
+      if (hoverTooltip) {
+        hoverTooltip.addEventListener('mouseenter', handleTooltipMouseEnter);
+        hoverTooltip.addEventListener('mouseleave', handleTooltipMouseOut);
+      }
+
+      returnFn = () => {
+        if (hoverTooltip) {
+          hoverTooltip.removeEventListener('mouseenter', handleTooltipMouseEnter);
+          hoverTooltip.removeEventListener('mouseleave', handleTooltipMouseOut);
+        }
+      };
     }
 
     return returnFn;
@@ -236,7 +269,7 @@ export const Tooltip = ({
 
   return (
     <TypographyProvider>
-      <StyledTooltipWrapper theme={theme}>
+      <StyledTooltipWrapper theme={theme} ref={tooltipHoverRef}>
         <StyledTooltipInner
           position={position}
           anchorOffset={anchorOffset}
