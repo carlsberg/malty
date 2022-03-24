@@ -147,6 +147,12 @@ export const Tooltip = ({
   // set timeout on component mount
   useEffect(() => {
     setAutoHideTimer();
+
+    // initial state for tooltipToggle hover and click is hidden
+    if (toggle === TooltipToggle.Hover || toggle === TooltipToggle.Click) {
+      setShowTooltip(false);
+    }
+
     return () => {
       if (autoHideTimer) {
         hideTooltip();

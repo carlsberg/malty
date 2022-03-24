@@ -94,7 +94,14 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TooltipProps> = ({ position, toggle, isDark, children, autoHideDuration }: TooltipProps) => {
+const Template: Story<TooltipProps> = ({
+  position,
+  toggle,
+  isDark,
+  dataQaId,
+  autoHideDuration,
+  children
+}: TooltipProps) => {
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
   const tooltipAnchorRef = React.useRef<HTMLParagraphElement>(null);
   const renderTooltipEventToggle = () => (
@@ -104,13 +111,14 @@ const Template: Story<TooltipProps> = ({ position, toggle, isDark, children, aut
   );
   return (
     <StyledContainer>
-      <p ref={tooltipAnchorRef}>Choose your toggle control and play with me!!!</p>
+      <p ref={tooltipAnchorRef}>Choose </p>
       <TooltipComponent
         position={position}
         toggle={toggle}
         isDark={isDark}
         autoHideDuration={autoHideDuration}
         anchor={tooltipAnchorRef}
+        dataQaId={dataQaId}
       >
         {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
       </TooltipComponent>
@@ -123,6 +131,7 @@ export const Tooltip = Template.bind({});
 Tooltip.args = {
   position: TooltipPosition.TopCenter,
   toggle: TooltipToggle.Persist,
+  dataQaId: 'tooltip',
   children: 'A simple Tooltip content with some text. Thanks for open me!',
   isDark: true
 };
