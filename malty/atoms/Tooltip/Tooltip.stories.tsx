@@ -80,7 +80,7 @@ export default {
     },
     dataQaId: {
       control: 'text',
-      description: 'Alert data-qi-id, can be',
+      description: 'Tooltip data-testid',
       table: { defaultValue: { summary: 'none' } }
     },
     autoHideDuration: {

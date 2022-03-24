@@ -18,10 +18,11 @@ import { TooltipPosition, TooltipProps, TooltipToggle } from './Tooltip.types';
 
 export const Tooltip = ({
   position,
-  toggle,
   isOpen,
+  toggle,
   anchor,
   isDark = true,
+  dataQaId,
   autoHideDuration = 5000,
   onHideTooltip,
   children
@@ -269,7 +270,7 @@ export const Tooltip = ({
 
   return (
     <TypographyProvider>
-      <StyledTooltipWrapper theme={theme} ref={tooltipHoverRef}>
+      <StyledTooltipWrapper theme={theme} ref={tooltipHoverRef} data-testid={`${dataQaId}`}>
         <StyledTooltipInner
           position={position}
           anchorOffset={anchorOffset}
