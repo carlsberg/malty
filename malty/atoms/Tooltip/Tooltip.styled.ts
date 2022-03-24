@@ -34,7 +34,7 @@ export const StyledTooltip = styled.div<{
   position: absolute;
   display: ${({ open }) => (open ? 'block' : 'none')};
   padding: ${({ theme }) => `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`};
-  min-width: ${({ anchorOffset }) => `${anchorOffset.horizontal / 1.5}px`};
+  min-width: ${({ theme }) => theme.sizes['4xl'].value};
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 
   &::before {

@@ -111,7 +111,7 @@ const Template: Story<TooltipProps> = ({
   );
   return (
     <StyledContainer>
-      <p ref={tooltipAnchorRef}>Choose </p>
+      <p ref={tooltipAnchorRef}>Choose your toggle control and play with me!!!</p>
       <TooltipComponent
         position={position}
         toggle={toggle}
