@@ -1,24 +1,22 @@
 import React from 'react';
 
 export interface AccordionProps {
-  size?: AccordionSize;
+  size: AccordionSize;
   children: React.ReactElement<AccordionItemProps>[];
   variant?: AccordionColor;
   dataQaId?: string;
+  defaultActiveKey?: string;
+  alwaysOpen?: boolean;
 }
-
-// export interface AccordionItemProps {
-//   children: JSX.Element;
-//   title: string;
-//   open?: boolean;
-// }
 
 export interface AccordionItemProps {
   children: JSX.Element;
   title: string;
-  open?: boolean;
+
   size?: AccordionSize;
   dataQaId?: string;
+  eventKey: string;
+  onChange?: (id: string) => void;
 }
 
 export enum AccordionSize {
@@ -31,4 +29,8 @@ export enum AccordionSize {
 export enum AccordionColor {
   Transparent = 'transparent',
   Support = 'support'
+}
+export interface AccordionContext {
+  activeEventKey: string | undefined;
+  alwaysOpen: boolean;
 }

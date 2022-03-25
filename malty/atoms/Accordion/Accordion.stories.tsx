@@ -1,8 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
-import { AccordionColor, AccordionProps, AccordionSize } from '.';
+import { AccordionColor, AccordionItem, AccordionProps, AccordionSize } from '.';
 import { Accordion as AccordionComponent } from './Accordion';
-import { AccordionItem } from './AccordionItem';
 
 export default {
   title: 'Forms/Accordion',
@@ -13,6 +12,10 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.accordion'
   },
   argTypes: {
+    alwaysOpen: {
+      description: 'Allow accordion items to stay open when another item is opened',
+      control: 'boolean'
+    },
     size: {
       description: 'Accordion size. Options are',
       options: Object.values(AccordionSize),
@@ -42,17 +45,24 @@ export default {
     }
   }
 };
-const Template: Story<AccordionProps> = ({ size, variant }) => (
+const Template: Story<AccordionProps> = ({ size, variant, alwaysOpen }) => (
   <>
-    <AccordionComponent size={size} variant={variant}>
-      <AccordionItem open title="Accordion title 1">
+    <AccordionComponent alwaysOpen={alwaysOpen} size={size} variant={variant}>
+      <AccordionItem eventKey="1" title="Accordion title 1">
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
         </div>
       </AccordionItem>
-      <AccordionItem title="Accordion title 2">
+      <AccordionItem eventKey="2" title="Accordion title 2">
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </div>
+      </AccordionItem>
+      <AccordionItem eventKey="3" title="Accordion title 3">
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -64,6 +74,7 @@ const Template: Story<AccordionProps> = ({ size, variant }) => (
 );
 export const Accordion = Template.bind({});
 Accordion.args = {
-  size: AccordionSize.Medium,
-  variant: AccordionColor.Transparent
+  size: AccordionSize.Large,
+  variant: AccordionColor.Transparent,
+  alwaysOpen: false
 };

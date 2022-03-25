@@ -1,13 +1,13 @@
 import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
-import { Accordion, AccordionItem } from '.';
+import { Accordion, AccordionItem, AccordionSize } from '.';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
 describe('Accordion', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(
-      <Accordion>
+      <Accordion size={AccordionSize.Medium}>
         <AccordionItem title="Accordion title 1">
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -29,7 +29,7 @@ describe('Accordion', () => {
 
   it('renders elements', () => {
     render(
-      <Accordion>
+      <Accordion size={AccordionSize.Medium}>
         <AccordionItem title="Accordion title 1">
           <div>Accordion content 1</div>
         </AccordionItem>
@@ -42,7 +42,7 @@ describe('Accordion', () => {
   });
   it('opens accordion on click', () => {
     render(
-      <Accordion>
+      <Accordion size={AccordionSize.Medium}>
         <AccordionItem title="Accordion title 1">
           <div>Accordion content 1</div>
         </AccordionItem>

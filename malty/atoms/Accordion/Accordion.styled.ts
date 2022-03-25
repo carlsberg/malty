@@ -51,7 +51,14 @@ export const StyledAccordionBody = styled.div<{
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   visibility: hidden;
   padding: 0 ${({ paddingSize }) => paddingSize}px;
-  ${({ open, paddingSize }) =>
+  &.show {
+    padding: ${({ paddingSize }) => paddingSize}px;
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+  }
+  /* ${({ open, paddingSize }) =>
     open &&
     css`
       padding: ${paddingSize}px;
@@ -59,7 +66,7 @@ export const StyledAccordionBody = styled.div<{
       height: auto;
       opacity: 1;
       transition: all 0.2s ease-in-out;
-    `}
+    `} */
 `;
 export const StyledTitle = styled.div``;
 
