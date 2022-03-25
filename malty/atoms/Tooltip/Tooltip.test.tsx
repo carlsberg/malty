@@ -1,5 +1,6 @@
-import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
+import { fireEvent, jsonRenderer, render, screen, waitForElementToBeRemoved } from '@carlsberggroup/malty.utils.test';
 import React, { createRef, RefObject } from 'react';
+import { act } from 'react-test-renderer';
 import { Tooltip } from '.';
 import { TooltipPosition, TooltipToggle } from './Tooltip.types';
 
@@ -91,9 +92,9 @@ describe('Tooltip', () => {
     // TooltipToggle.Event - initial state is visible
     expect(screen.getByRole('button', { name: 'Button inside Tooltip' })).toBeInTheDocument();
 
-    // set autoHideDuration of 3 seconds
-    await new Promise((r) => setTimeout(r, 3000));
     // hide tooltip after 3 seconds
-    expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
+    await act(async () => {
+      await waitForElementToBeRemoved(() => screen.queryByText('Button inside Tooltip'), { timeout: 3000 });
+    });
   });
 });
