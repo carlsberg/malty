@@ -1,21 +1,29 @@
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ForwardedRef, forwardRef, useContext } from 'react';
+import React, { ForwardedRef, forwardRef, ReactNode, useContext } from 'react';
 import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { ThemeContext } from 'styled-components';
-import { StyledDatepicker, StyledInput } from './Datepicker.styled';
+import { StyledCalendar, StyledContainer, StyledDatepicker, StyledInput } from './Datepicker.styled';
 import { DatepickerProps } from './Datepicker.types';
 
-export const Datepicker = ({ startDate, onChange, label }: DatepickerProps) => {
+export const Datepicker = ({
+  startDate,
+  onChange,
+  label,
+  locale,
+  minDate,
+  maxDate,
+  disabled,
+  excludeDates
+}: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const CustomInput = forwardRef(
     ({ value, onClick }: { value: Date; onClick: () => void }, ref: ForwardedRef<HTMLButtonElement>) => (
       <StyledInput theme={theme}>
         <label htmlFor="datepicker-input" onClick={onClick}>
-          teste label {label}
+          {label}
         </label>
         <button name="datepicker-input" type="button" className="datepickerInput" onClick={onClick} ref={ref}>
           {value}
@@ -25,10 +33,33 @@ export const Datepicker = ({ startDate, onChange, label }: DatepickerProps) => {
     )
   );
 
+  const Container = ({ children }: { children: ReactNode }) => (
+    <StyledContainer>
+      <StyledCalendar>{children}</StyledCalendar>
+    </StyledContainer>
+  );
+
   return (
     <TypographyProvider>
       <StyledDatepicker>
-        <DatePicker selected={startDate} onChange={(date: Date) => onChange(date)} customInput={<CustomInput />} />
+        <DatePicker
+          selected={startDate}
+          disabled={disabled}
+          onChange={(date: Date) => onChange(date)}
+          locale={locale}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          customInput={<CustomInput />}
+          showPopperArrow={false}
+          calendarClassName="calendar"
+          calendarContainer={Container}
+          disabledKeyboardNavigation
+          calendarStartDay={1}
+          useWeekdaysShort
+          minDate={minDate}
+          maxDate={maxDate}
+          excludeDates={excludeDates}
+        />
       </StyledDatepicker>
     </TypographyProvider>
   );
