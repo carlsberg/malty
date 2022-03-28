@@ -14,7 +14,7 @@ exports[`datepicker matches snapshot 1`] = `
         className="react-datepicker__input-container"
       >
         <div
-          className="sc-hKwDye bLdbDK"
+          className="sc-hKwDye jFAzKv"
         >
           <label
             htmlFor="datepicker-input"

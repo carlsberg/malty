@@ -10,7 +10,7 @@ export const StyledDatepicker = styled.div`
 `;
 
 export const StyledInput = styled.div<{
-  disabled: boolean;
+  disabled?: boolean;
 }>`
 
   display: flex;
