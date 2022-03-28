@@ -27,6 +27,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Checkbox"
     },
+    "atoms/datepicker": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Datepicker"
+    },
     "atoms/headline": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
