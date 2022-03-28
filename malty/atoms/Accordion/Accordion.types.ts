@@ -5,14 +5,13 @@ export interface AccordionProps {
   children: React.ReactElement<AccordionItemProps>[];
   variant?: AccordionColor;
   dataQaId?: string;
-  defaultActiveKey?: string;
+  defaultActiveKey?: string | string[];
   alwaysOpen?: boolean;
 }
 
 export interface AccordionItemProps {
   children: JSX.Element;
   title: string;
-
   size?: AccordionSize;
   dataQaId?: string;
   eventKey: string;
@@ -31,6 +30,6 @@ export enum AccordionColor {
   Support = 'support'
 }
 export interface AccordionContext {
-  activeEventKey: string | undefined;
+  activeEventKey: string[];
   alwaysOpen: boolean;
 }

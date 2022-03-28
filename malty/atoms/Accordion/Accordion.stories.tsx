@@ -16,6 +16,9 @@ export default {
       description: 'Allow accordion items to stay open when another item is opened',
       control: 'boolean'
     },
+    defaultActiveKey: {
+      description: 'The default active key that is expanded on start'
+    },
     size: {
       description: 'Accordion size. Options are',
       options: Object.values(AccordionSize),
@@ -42,12 +45,16 @@ export default {
     },
     children: {
       description: 'Pass in the children that will be rendered within the Accordion'
+    },
+    dataQaId: {
+      control: 'text',
+      description: 'Accordion data-qi-id'
     }
   }
 };
-const Template: Story<AccordionProps> = ({ size, variant, alwaysOpen }) => (
+const Template: Story<AccordionProps> = (args) => (
   <>
-    <AccordionComponent alwaysOpen={alwaysOpen} size={size} variant={variant}>
+    <AccordionComponent {...args}>
       <AccordionItem eventKey="1" title="Accordion title 1">
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -72,9 +79,29 @@ const Template: Story<AccordionProps> = ({ size, variant, alwaysOpen }) => (
     </AccordionComponent>
   </>
 );
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+const alwaysOpen = params.get('alwaysOpen');
+
 export const Accordion = Template.bind({});
-Accordion.args = {
-  size: AccordionSize.Large,
-  variant: AccordionColor.Transparent,
-  alwaysOpen: false
-};
+
+switch (variant) {
+  case 'support':
+    Accordion.args = {
+      size: AccordionSize.Large,
+      variant: AccordionColor.Support,
+      alwaysOpen: !!alwaysOpen,
+      defaultActiveKey: ['1']
+    };
+    break;
+
+  default:
+    Accordion.args = {
+      size: AccordionSize.Large,
+      variant: AccordionColor.Transparent,
+      alwaysOpen: !!alwaysOpen,
+      defaultActiveKey: ['1']
+    };
+    break;
+}

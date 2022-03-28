@@ -1,5 +1,11 @@
 import React from 'react';
+import { AccordionContext } from './Accordion.types';
 
-const ActiveEventKey = React.createContext<string | undefined>(undefined);
+const defaultAccordionContext: AccordionContext = {
+  activeEventKey: [],
+  alwaysOpen: false
+};
 
-export { ActiveEventKey };
+const Context = React.createContext<AccordionContext>(defaultAccordionContext);
+
+export { Context };

@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { AccordionColor, AccordionItemProps, AccordionProps, AccordionSize } from '.';
-import { ActiveEventKey } from './Accordion-context';
+import { Context } from './Accordion-context';
 import {
   StyledAccordionBody,
   StyledAccordionHeader,
@@ -19,31 +19,47 @@ export const Accordion = ({
   size = AccordionSize.Medium,
   variant = AccordionColor.Transparent,
   dataQaId,
-  defaultActiveKey,
-  alwaysOpen
+  defaultActiveKey = [],
+  alwaysOpen = false
 }: AccordionProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const [activeEventKey, setActiveEnventKey] = useState([...defaultActiveKey]);
 
-  const [activeEventKey, setActiveEnventKey] = useState(defaultActiveKey);
   const handleAccordionItem = (itemKey: string) => {
-    // console.log(itemKey);
-    // setOpenAccordion(itemKey);
-    if (activeEventKey === itemKey) {
-      setActiveEnventKey(undefined);
+    if (alwaysOpen) {
+      if (activeEventKey?.includes(itemKey)) {
+        // if alwaysOpen & accordionItem is open => remove accordionItem key from activeEventKey state
+        const index = activeEventKey.indexOf(itemKey);
+        const auxActiveEventKey = JSON.parse(JSON.stringify(activeEventKey));
+        auxActiveEventKey.splice(index, 1);
+        handleUpdate(auxActiveEventKey);
+      } else {
+        // adds accordionItem key to activeEventKey state
+        handleUpdate([...activeEventKey, itemKey]);
+      }
+    } else if (activeEventKey?.includes(itemKey)) {
+      // if !alwaysOpen & accordionItem is open removes key (close)
+      handleUpdate([]);
     } else {
-      setActiveEnventKey(itemKey);
+      // adds accordionItem key to activeEventKey state
+      handleUpdate([itemKey]);
     }
   };
+
+  const handleUpdate = (newState: string[]) => {
+    setActiveEnventKey(newState);
+  };
+
   return (
     <TypographyProvider>
-      <ActiveEventKey.Provider value={activeEventKey}>
+      <Context.Provider value={{ activeEventKey, alwaysOpen }}>
         <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
           {children?.map((el, index) =>
             // eslint-disable-next-line react/no-array-index-key
             React.cloneElement(el, { key: `accordion-${index}`, size, onChange: handleAccordionItem })
           )}
         </StyledAccordionWrapper>
-      </ActiveEventKey.Provider>
+      </Context.Provider>
     </TypographyProvider>
   );
 };
@@ -56,22 +72,24 @@ export const AccordionItem = ({
   onChange = () => null,
   eventKey
 }: AccordionItemProps) => {
-  const activeEventKey = useContext(ActiveEventKey);
+  const accordionContext = useContext(Context);
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [activeKey] = useState(eventKey);
+  const [openAccordion, setOpenAccordion] = useState(accordionContext.activeEventKey?.includes(eventKey));
 
   const [numSize, setNumSize] = useState(theme.sizes.l.value.replace('px', ''));
   const [numPadding, setNumPadding] = useState(theme.sizes['2xs'].value.replace('px', ''));
   const id = useMemo(() => uuid(), []);
-  let openAccordion;
-  if (activeEventKey === activeKey) {
-    openAccordion = true;
-  } else {
-    openAccordion = false;
-  }
+
+  useEffect(() => {
+    if (accordionContext.activeEventKey?.includes(eventKey)) {
+      setOpenAccordion(true);
+    } else {
+      setOpenAccordion(false);
+    }
+  }, [accordionContext.activeEventKey]);
 
   const handleOpenAccordion = () => {
-    onChange(activeKey);
+    onChange(eventKey);
   };
 
   useEffect(() => {
