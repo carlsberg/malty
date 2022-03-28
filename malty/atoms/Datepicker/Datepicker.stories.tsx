@@ -18,10 +18,7 @@ export default {
       }
     },
     startDate: {
-      description: 'Initial selected date',
-      control: {
-        type: 'date'
-      }
+      description: 'Initial selected date'
     },
     onChange: {
       description: 'Action to perform when clicking a calendar day'
@@ -59,15 +56,24 @@ export default {
   }
 } as Meta;
 
-const Template: Story<DatepickerProps> = ({ label }) => {
+const Template: Story<DatepickerProps> = ({ label, minDate, maxDate, disabled, locale, excludeDates }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
     <div style={{ height: '400px' }}>
-      <DatepickerComponent label={label} onChange={(date: Date) => setStartDate(date)} startDate={startDate} />
+      <DatepickerComponent
+        label={label}
+        onChange={(date: Date) => setStartDate(date)}
+        startDate={startDate}
+        minDate={minDate}
+        maxDate={maxDate}
+        disabled={disabled}
+        locale={locale}
+        excludeDates={excludeDates}
+      />
     </div>
   );
 };
 
 export const Datepicker = Template.bind({});
-Datepicker.args = { label: 'Select date' };
+Datepicker.args = { label: 'Select date', minDate: new Date() };

@@ -1,15 +1,14 @@
 import { jsonRenderer } from '@carlsberggroup/malty.utils.test';
-import React, { useState } from 'react';
+import React from 'react';
 import { Datepicker } from './Datepicker';
 
 const label = 'Select date';
 
+const mockFn = jest.fn();
+
 describe('datepicker', () => {
   it('matches snapshot', () => {
-    const [startDate, setStartDate] = useState(new Date());
-    const view = jsonRenderer(
-      <Datepicker label={label} onChange={(date: Date) => setStartDate(date)} startDate={startDate} />
-    );
+    const view = jsonRenderer(<Datepicker label={label} onChange={mockFn} startDate={new Date()} />);
     expect(view).toMatchSnapshot();
   });
 });

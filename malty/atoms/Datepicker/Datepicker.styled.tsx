@@ -9,7 +9,10 @@ export const StyledDatepicker = styled.div`
   }
 `;
 
-export const StyledInput = styled.div`
+export const StyledInput = styled.div<{
+  disabled: boolean;
+}>`
+
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -28,16 +31,17 @@ export const StyledInput = styled.div`
     font: inherit;
     color: inherit;
     background-color: transparent;
-    cursor: pointer;
+    cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
     height: ${({ theme }) => theme.sizes['2xl'].value};
     width: 100%;
     min-width: 150px;
     box-sizing: border-box;
     text-align: left;
     padding: 0 ${({ theme }) => theme.sizes.s.value};
-    border: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}
-    ${theme.borders['border-1px--solid']['border-style'].value}
-    ${theme.colors.colours.default['digital-black'].value}`};
+    border-width: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}`};
+    border-style:  ${({ theme }) => `${theme.borders['border-1px--solid']['border-style'].value}`};
+    border-color: ${({ disabled, theme }) =>
+      `${disabled ? theme.colors.colours.support['40'].value : theme.colors.colours.default['digital-black'].value}`};
     font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
   }
   & svg {

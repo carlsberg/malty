@@ -21,7 +21,7 @@ export const Datepicker = ({
 
   const CustomInput = forwardRef(
     ({ value, onClick }: { value: Date; onClick: () => void }, ref: ForwardedRef<HTMLButtonElement>) => (
-      <StyledInput theme={theme}>
+      <StyledInput theme={theme} disabled={disabled}>
         <label htmlFor="datepicker-input" onClick={onClick}>
           {label}
         </label>
