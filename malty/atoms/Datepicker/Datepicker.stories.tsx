@@ -76,4 +76,4 @@ const Template: Story<DatepickerProps> = ({ label, minDate, maxDate, disabled, l
 };
 
 export const Datepicker = Template.bind({});
-Datepicker.args = { label: 'Select date', minDate: new Date() };
+Datepicker.args = { label: 'Select date' };
