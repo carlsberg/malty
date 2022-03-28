@@ -43,6 +43,9 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
         </>
       ]);
     }
+    return () => {
+      setElHtml([<></>]);
+    };
   }, [steps, currentStep]);
 
   return <StyledStepperContainer theme={theme}>{elHtml}</StyledStepperContainer>;
