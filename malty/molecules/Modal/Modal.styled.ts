@@ -11,54 +11,95 @@ export const StyledContainer = styled.div`
   justify-content: center;
 `;
 
-export const StyledModalWrapper = styled.div`
-  width: ${({ theme }) => theme.variables.modal.width.value}px;
+const resolveSize = (size: string) => {
+  let resolvedSize;
+  switch (size) {
+    case 'Large':
+      resolvedSize = '860px';
+      break;
+    case 'XLarge':
+      resolvedSize = '1024px';
+      break;
+    default:
+      // Medium Modal
+      resolvedSize = '640px';
+      break;
+  }
+  return resolvedSize;
+};
+
+export const StyledModalWrapper = styled.div<{
+  size: string;
+}>`
+  width: 100%;
+  max-width: ${({ size }) => resolveSize(size)};
   display: block;
-  background-color: ${({ theme }) => theme.color.white.value};
+  background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   text-align: center;
-  padding: ${({ theme }) => theme.variables.modal.padding.value}px;
+  padding: ${({ theme }) => theme.sizes.m.value} 0 ${({ theme }) => theme.sizes.l.value};
   position: relative;
+  max-height: 80vh;
+  @media (max-width: 768px) {
+    max-height: calc(100vh - 16px);
+    padding: ${({ theme }) => theme.sizes['2xs'].value} 0 ${({ theme }) => theme.sizes.s.value};
+    width: calc(100% - 16px);
+  }
 `;
 
 export const StyledCloseIconContainer = styled.div`
   cursor: pointer;
   position: absolute;
-  top: ${({ theme }) => theme.variables.modal.closeIcon.top.value}px;
-  right: ${({ theme }) => theme.variables.modal.closeIcon.right.value}px;
-`;
-
-export const StyledIconContainer = styled.div`
-  position: relative;
-  margin-top: ${({ theme }) => theme.variables.modal.mainIcon.marginTop.value}px;
+  top: ${({ theme }) => theme.sizes.m.value};
+  right: ${({ theme }) => theme.sizes.m.value};
+  @media (max-width: 768px) {
+    top: ${({ theme }) => theme.sizes['2xs'].value};
+    right: ${({ theme }) => theme.sizes.s.value};
+  }
 `;
 
 export const StyledTitleContainer = styled.div`
-  margin-top: ${({ theme }) => theme.variables.modal.title.marginTop.value}px;
-  p {
-    margin: 0px;
+  margin: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes['2xl'].value}
+    ${({ theme }) => theme.sizes.xs.value};
+  display: inherit;
+  @media (max-width: 768px) {
+    margin: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes.s.value};
   }
 `;
 
-export const StyledTextContainer = styled.div`
-  margin-top: ${({ theme }) => theme.variables.modal.text.marginTop.value}px;
-  p {
-    margin: 0px;
+export const StyledContentContainer = styled.div`
+  margin: ${({ theme }) => theme.sizes.xs.value} ${({ theme }) => theme.sizes['2xl'].value} 0;
+  @media (max-width: 768px) {
+    margin: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes.s.value} 0;
   }
-`;
-
-export const StyledImgContainer = styled.div`
-  margin-top: ${({ theme }) => theme.variables.modal.image.marginTop.value}px;
 `;
 
 export const StyledButtonsWrapper = styled.div`
-  display: inline-flex;
-  flex-wrap: wrap;
+  margin: ${({ theme }) => theme.sizes['2xl'].value} ${({ theme }) => theme.sizes['2xl'].value} 0;
+  display: flex;
   justify-content: center;
-  width: 100%;
-  margin-top: ${({ theme }) => theme.variables.modal.buttons.marginTop.value}px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin: ${({ theme }) => theme.sizes.l.value} ${({ theme }) => theme.sizes.s.value} 0;
+  }
 `;
-
 export const StyledButtonContainer = styled.div`
-  width: ${({ theme }) => theme.variables.modal.buttons.width.value}px;
-  padding: ${({ theme }) => theme.variables.modal.buttons.padding.value}px;
+  max-width: 264px;
+  width: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  :first-of-type {
+    padding-right: ${({ theme }) => theme.sizes['2xs'].value};
+    @media (max-width: 768px) {
+      padding-right: 0px;
+    }
+  }
+  :last-of-type {
+    padding-left: ${({ theme }) => theme.sizes['2xs'].value};
+    @media (max-width: 768px) {
+      padding-left: 0px;
+      margin-top: 16px;
+    }
+  }
 `;

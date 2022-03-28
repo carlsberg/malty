@@ -1,5 +1,4 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React, { useState } from 'react';
 import { Modal } from './Modal';
@@ -7,7 +6,7 @@ import { Modal } from './Modal';
 const title = 'Headline';
 const text = `Paragraph block to support main headline(optional)
 And…it can have 2 lines, more than that is just boring…`;
-const icon = IconNamesTypes.ItemCheck;
+const icon = 'ItemCheck';
 const image = 'http://placehold.it/120x120&text=image1';
 const buttons = [
   {

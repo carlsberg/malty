@@ -1,16 +1,26 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+
+export enum ModalSize {
+  Medium = 'Medium',
+  Large = 'Large',
+  XLarge = 'XLarge'
+}
 
 export interface ModalProps {
   open: boolean;
   onClose: () => void;
-  title: string;
-  text: string;
-  icon?: IconNamesTypes;
-  image?: string;
-  buttons?: {
-    variant: ButtonStyle;
-    label: string;
-    onClick: () => void;
-  }[];
+  title?: string;
+  dismissible?: boolean;
+  whiteBackground?: boolean;
+  content: React.ReactNode | JSX.Element;
+  size?: ModalSize;
+  actions?:
+    | {
+        variant: ButtonStyle;
+        label: string;
+        onClick: () => void;
+        key?: string;
+      }[]
+    | React.ReactNode
+    | JSX.Element;
 }

@@ -1,12 +1,11 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Modal as ModalComponent } from './Modal';
-import { ModalProps } from './Modal.types';
+import { ModalProps, ModalSize } from './Modal.types';
 
 export default {
-  title: 'Molecules/Modal',
+  title: 'Overlays/Modal',
   component: ModalComponent,
   parameters: {
     importObject: 'Modal',
@@ -24,45 +23,52 @@ export default {
       control: 'text',
       description: 'Modal title'
     },
-    text: {
-      control: 'text',
-      description: 'Modal text'
+    dismissible: {
+      control: 'boolean',
+      description: 'Defines if the user has the ability to close the Modal'
     },
-    icon: {
-      control: {
-        type: 'select',
-        options: IconNamesTypes
-      },
-      description: 'Main Icon displayed'
-    },
-    image: {
-      control: 'text',
-      description: 'Image source url'
-    },
-    buttons: {
+    actions: {
       control: '',
-      description: 'An array of maximum 2 buttons '
+      description: `An array of maximum 2 actions structured as such "actions?:
+    | {
+        variant: ButtonStyle;
+        label: string;
+        onClick: () => void;
+        key?: string;
+      }[]" or any html or JSX element `
+    },
+    whiteBackground: {
+      control: 'boolean',
+      description: 'If true background overlay turns white instead of grayish'
+    },
+    size: {
+      control: {
+        type: 'select'
+      },
+      options: Object.values(ModalSize),
+      description: 'Picks the size of the modal'
     }
   }
 } as Meta;
 
-const Template: Story<ModalProps> = ({ title, text, icon, image, buttons }: ModalProps) => {
+const Template: Story<ModalProps> = ({ title, content, actions, dismissible, whiteBackground, size }: ModalProps) => {
   const [open, setOpen] = useState(true);
   const toggleModal = () => setOpen(!open);
   return (
     <>
-      <div style={{ height: '600px', width: '500px' }}>
+      <div style={{ height: '600px', width: '1200px' }}>
         <button type="button" onClick={toggleModal}>
           Toggle Modal
         </button>
         <ModalComponent
           open={open}
+          content={content}
+          dismissible={dismissible}
           onClose={toggleModal}
           title={title}
-          text={text}
-          icon={icon}
-          image={image}
-          buttons={buttons}
+          actions={actions}
+          whiteBackground={whiteBackground}
+          size={size}
         />
       </div>
     </>
@@ -72,10 +78,11 @@ const Template: Story<ModalProps> = ({ title, text, icon, image, buttons }: Moda
 export const Modal = Template.bind({});
 Modal.args = {
   title: 'Headline',
-  text: `Paragraph block to support main headline(optional)
-  And…it can have 2 lines, more than that is just boring…`,
-  icon: IconNamesTypes.ItemCheck,
-  buttons: [
+  content: <p>Anything you want</p>,
+  dismissible: true,
+  whiteBackground: false,
+  size: ModalSize.Medium,
+  actions: [
     {
       variant: ButtonStyle.Secondary,
       label: 'Cancel',

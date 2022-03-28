@@ -1,12 +1,7 @@
-import { Button, SizeTypes } from '@carlsberggroup/malty.atoms.button';
-import { Icon, IconColors, IconNamesTypes, IconSizesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { Headline, HeadlineAlign, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
-import {
-  Align as TextAlignType,
-  Size as TextSizeType,
-  Text,
-  Weight as TextWeightType
-} from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -15,15 +10,22 @@ import {
   StyledButtonsWrapper,
   StyledCloseIconContainer,
   StyledContainer,
-  StyledIconContainer,
-  StyledImgContainer,
+  StyledContentContainer,
   StyledModalWrapper,
-  StyledTextContainer,
   StyledTitleContainer
 } from './Modal.styled';
-import { ModalProps } from './Modal.types';
+import { ModalProps, ModalSize } from './Modal.types';
 
-export const Modal = ({ open, onClose, text, title, icon, buttons, image }: ModalProps) => {
+export const Modal = ({
+  open,
+  onClose,
+  content,
+  title,
+  dismissible = true,
+  actions,
+  size = ModalSize.Medium,
+  whiteBackground = false
+}: ModalProps) => {
   const closeModal = () => {
     onClose();
   };
@@ -32,42 +34,32 @@ export const Modal = ({ open, onClose, text, title, icon, buttons, image }: Moda
     <>
       {open ? (
         <>
-          <Overlay />
+          <Overlay isWhite={whiteBackground} />
           <StyledContainer>
-            <StyledModalWrapper theme={theme}>
-              <StyledCloseIconContainer onClick={closeModal} theme={theme}>
-                <Icon name={IconNamesTypes.Close} size={IconSizesTypes.Large} color={IconColors.Primary} />
-              </StyledCloseIconContainer>
-              {icon && (
-                <StyledIconContainer theme={theme}>
-                  <Icon name={icon} size={IconSizesTypes.Large} color={IconColors.Primary} onClick={closeModal} />
-                </StyledIconContainer>
-              )}
-              <StyledTitleContainer theme={theme}>
-                <Text align={TextAlignType.Center} weight={TextWeightType.Bold}>
-                  {title}
-                </Text>
-              </StyledTitleContainer>
-              <StyledTextContainer theme={theme}>
-                <Text align={TextAlignType.Center} size={TextSizeType.MediumSmall}>
-                  {text}
-                </Text>
-              </StyledTextContainer>
-
-              {image && (
-                <StyledImgContainer theme={theme}>
-                  <img src={image} />
-                </StyledImgContainer>
+            <StyledModalWrapper theme={theme} size={size}>
+              {dismissible && (
+                <StyledCloseIconContainer onClick={closeModal} theme={theme}>
+                  <Icon name={IconName.Close} size={IconSize.Medium} color={IconColor.Primary} />
+                </StyledCloseIconContainer>
               )}
 
-              {buttons && (
+              {title && (
+                <StyledTitleContainer theme={theme}>
+                  <Headline align={HeadlineAlign.Left} headlineStyle={HeadlineStyle.Large}>
+                    {title}
+                  </Headline>
+                </StyledTitleContainer>
+              )}
+              <StyledContentContainer theme={theme}>{content}</StyledContentContainer>
+
+              {actions && Array.isArray(actions) ? (
                 <StyledButtonsWrapper theme={theme}>
-                  {buttons.map((btnInstance, index: number) => (
-                    <StyledButtonContainer theme={theme} key={index}>
+                  {actions.map((btnInstance, index: number) => (
+                    <StyledButtonContainer theme={theme} key={btnInstance.key || `button${index}`}>
                       <Button
                         fullWidth
-                        size={SizeTypes.Large}
-                        style={btnInstance.variant}
+                        size={ButtonSize.Large}
+                        style={ButtonStyle[btnInstance.variant]}
                         onClick={btnInstance.onClick}
                       >
                         {btnInstance.label}
@@ -75,6 +67,8 @@ export const Modal = ({ open, onClose, text, title, icon, buttons, image }: Moda
                     </StyledButtonContainer>
                   ))}
                 </StyledButtonsWrapper>
+              ) : (
+                actions
               )}
             </StyledModalWrapper>
           </StyledContainer>
