@@ -1,3 +1,4 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
 import { PillColor, PillSize } from './Pill.types';
 
@@ -6,52 +7,39 @@ export const StyledPill = styled.div<{
   fontSize: string;
   iconSize: string;
   padding: string;
-  isRounded: boolean;
-  hasOnClick: boolean;
+
   color: PillColor;
+  textColor: IconColor;
   hasText: boolean;
 }>`
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
   font-size: ${({ fontSize }) => `${fontSize}`};
   line-height: 1;
   font-weight: bold;
-  background-color: ${({ color, theme }) => theme.colors.colours.information[color].value};
-  color: ${({ theme }) => theme.colors.colours.default.white.value};
+  background-color: ${({ color, theme }) => {
+    if (color === PillColor.Primary) {
+      return theme.colors.theme.themePrimary.value;
+    }
+    if (color === PillColor.Secondary) {
+      return theme.colors.theme.themeSecondary.value;
+    }
+    if (color === PillColor.Support40) {
+      return theme.colors.colours.support[40].value;
+    }
+    return theme.colors.colours.system[color].value;
+  }};
+  color: ${({ textColor }) => textColor};
   display: inline-flex;
   align-items: center;
   height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
-
-  ${({ hasOnClick }) =>
-    hasOnClick &&
-    css`
-      cursor: pointer;
-      &:hover {
-        background: ${({ theme }) => theme.colors.colours.information.indirect.value};
-      }
-    `}
-  ${({ isRounded, size }) =>
-    isRounded &&
-    css`
-      border-radius: ${parseInt(size.replace('px', ''), 10) / 2}px;
-    `}
+  border-radius: 50px;
 
   .pill {
     &__icon {
       margin-right: ${({ hasText, theme }) => hasText && theme.sizes['2xs'].value};
       height: ${({ iconSize }) => iconSize};
       width: ${({ iconSize }) => iconSize};
-    }
-    &__remove-icon {
-      margin-left: ${({ padding }) => padding};
-      height: ${({ iconSize }) => iconSize};
-      width: ${({ iconSize }) => iconSize};
-      cursor: pointer;
-      transition: 0.25s ease-in-out;
-      transition-property: fill, transform;
-      &:hover {
-        transform: rotate(90deg);
-      }
     }
   }
 
@@ -62,14 +50,20 @@ export const StyledPill = styled.div<{
         .pill {
           &__icon {
             ${hasText && `margin-right: ${parseInt(padding.replace('px', ''), 10) / 2}px;`};
-          }
-          &__remove-icon,
-          &__icon {
             padding: ${parseInt(padding.replace('px', ''), 10) / 2}px 0;
             height: 100%;
             width: auto;
           }
         }
+      `;
+    }
+    if (!hasText) {
+      return css`
+        padding: ${({ theme }) => theme.sizes['5xs'].value};
+        width: ${size};
+        display: flex;
+        align-items: center;
+        justify-content: center;
       `;
     }
     return css`
