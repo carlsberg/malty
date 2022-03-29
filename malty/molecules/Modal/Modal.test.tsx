@@ -4,10 +4,9 @@ import React, { useState } from 'react';
 import { Modal } from './Modal';
 
 const title = 'Headline';
-const text = `Paragraph block to support main headline(optional)
-And…it can have 2 lines, more than that is just boring…`;
-const icon = 'ItemCheck';
-const image = 'http://placehold.it/120x120&text=image1';
+const text = (
+  <p>Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is just boring…</p>
+);
 const buttons = [
   {
     variant: ButtonStyle.Secondary,
@@ -27,16 +26,14 @@ const buttons = [
 
 describe('does molecule modal match snapshot?', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <Modal open setOpen={() => false} title={title} text={text} icon={icon} image={image} buttons={buttons} />
-    );
+    const view = jsonRenderer(<Modal open onClose={() => false} title={title} content={text} actions={buttons} />);
     expect(view).toMatchSnapshot();
   });
 });
 
 describe('Triggers the passed function when clicking the button', () => {
   it('OnClick function passed successfully', () => {
-    render(<Modal open setOpen={() => false} title={title} text={text} icon={icon} image={image} buttons={buttons} />);
+    render(<Modal open onClose={() => false} title={title} content={text} actions={buttons} />);
     const primaryButton = screen.getByText('Confirm');
 
     fireEvent(
@@ -54,9 +51,7 @@ describe('Does the modal close?', () => {
   it('Modal closed correctly', () => {
     const ModalTest = () => {
       const [open, setOpen] = useState(true);
-      return (
-        <Modal open={open} setOpen={setOpen} title={title} text={text} icon={icon} image={image} buttons={buttons} />
-      );
+      return <Modal open={open} onClose={() => setOpen(false)} title={title} content={text} actions={buttons} />;
     };
 
     render(

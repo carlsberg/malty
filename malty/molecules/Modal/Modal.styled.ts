@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
-  position: absolute;
+  position: fixed;
+  z-index: 1000;
   top: 0;
   bottom: 0;
   left: 0;
@@ -39,10 +40,10 @@ export const StyledModalWrapper = styled.div<{
   padding: ${({ theme }) => theme.sizes.m.value} 0 ${({ theme }) => theme.sizes.l.value};
   position: relative;
   max-height: 80vh;
-  @media (max-width: 768px) {
-    max-height: calc(100vh - 16px);
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
+    max-height: calc(100vh - ${({ theme }) => theme.sizes.s.value});
     padding: ${({ theme }) => theme.sizes['2xs'].value} 0 ${({ theme }) => theme.sizes.s.value};
-    width: calc(100% - 16px);
+    width: calc(100% - ${({ theme }) => theme.sizes.s.value});
   }
 `;
 
@@ -51,7 +52,7 @@ export const StyledCloseIconContainer = styled.div`
   position: absolute;
   top: ${({ theme }) => theme.sizes.m.value};
   right: ${({ theme }) => theme.sizes.m.value};
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     top: ${({ theme }) => theme.sizes['2xs'].value};
     right: ${({ theme }) => theme.sizes.s.value};
   }
@@ -61,14 +62,14 @@ export const StyledTitleContainer = styled.div`
   margin: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes['2xl'].value}
     ${({ theme }) => theme.sizes.xs.value};
   display: inherit;
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     margin: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes.s.value};
   }
 `;
 
 export const StyledContentContainer = styled.div`
   margin: ${({ theme }) => theme.sizes.xs.value} ${({ theme }) => theme.sizes['2xl'].value} 0;
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     margin: ${({ theme }) => theme.sizes['2xs'].value} ${({ theme }) => theme.sizes.s.value} 0;
   }
 `;
@@ -77,7 +78,7 @@ export const StyledButtonsWrapper = styled.div`
   margin: ${({ theme }) => theme.sizes['2xl'].value} ${({ theme }) => theme.sizes['2xl'].value} 0;
   display: flex;
   justify-content: center;
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     flex-direction: column;
     margin: ${({ theme }) => theme.sizes.l.value} ${({ theme }) => theme.sizes.s.value} 0;
   }
@@ -85,21 +86,21 @@ export const StyledButtonsWrapper = styled.div`
 export const StyledButtonContainer = styled.div`
   max-width: 264px;
   width: 100%;
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     flex-direction: column;
     max-width: 100%;
   }
   :first-of-type {
     padding-right: ${({ theme }) => theme.sizes['2xs'].value};
-    @media (max-width: 768px) {
+    @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
       padding-right: 0px;
     }
   }
   :last-of-type {
     padding-left: ${({ theme }) => theme.sizes['2xs'].value};
-    @media (max-width: 768px) {
+    @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
       padding-left: 0px;
-      margin-top: 16px;
+      margin-top: ${({ theme }) => theme.sizes.s.value};
     }
   }
 `;

@@ -3,23 +3,24 @@
 exports[`does molecule modal match snapshot? matches snapshot 1`] = `
 Array [
   <div
-    className="sc-kDTinF gCYFJK"
+    className="sc-iqcoie hqIuRy"
   />,
   <div
-    className="sc-crHmcD jnpmJy"
+    className="sc-crXcEl iBBsDC"
   >
     <div
-      className="sc-egiyK cWMrBl"
+      className="sc-evZas bMoggN"
+      size="Medium"
     >
       <div
-        className="sc-bqiRlB igXyNv"
+        className="sc-breuTD kUcbFk"
         onClick={[Function]}
       >
         <svg
-          className="sc-gsDKAQ rszqA"
-          color="Primary"
+          className="sc-gsnTZi ivMBgY"
+          color="digital-black"
           data-testid="svg-component"
-          size="40"
+          size="24px"
           version="1.1"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
@@ -39,79 +40,38 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-ksdxgE eUQVxm"
-      >
-        <svg
-          className="sc-gsDKAQ rszqA"
-          color="Primary"
-          data-testid="svg-component"
-          onClick={[Function]}
-          size="40"
-          version="1.1"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-        >
-          <g
-            fillRule="evenodd"
-          >
-            <path
-              d="M0 0h24v24H0z"
-              fill="none"
-            />
-            <path
-              d="M12 0c1.786 0 3.519.391 5.101 1.135a1 1 0 01-.851 1.81A9.957 9.957 0 0012 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10a9.947 9.947 0 00-1.501-5.273 1 1 0 011.698-1.056A11.947 11.947 0 0124 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0zm7.26 1.951a1 1 0 011.6 1.2L12 15.8a1 1 0 01-1.507.107L6.604 12a1 1 0 011.414-1.414l3.074 3.092z"
-            />
-          </g>
-        </svg>
-      </div>
-      <div
-        className="sc-hBUSln igFYqD"
+        className="sc-ksZaOG fTqSYy"
       >
         <span
-          className="sc-bdvvtL iouZXA"
+          className="sc-bczRLJ qaxFj"
         >
-          <p
-            className="sc-iqseJM ckvuSP"
+          <h1
+            className="sc-kDDrLX lombrt"
+            color="digital-black"
           >
             Headline
-          </p>
+          </h1>
         </span>
       </div>
       <div
-        className="sc-fotOHu hwxRYe"
+        className="sc-hAZoDl fEDBSs"
       >
-        <span
-          className="sc-bdvvtL iouZXA"
-        >
-          <p
-            className="sc-iqseJM hBJMgs"
-            size="medium-small"
-          >
-            Paragraph block to support main headline(optional)
-And…it can have 2 lines, more than that is just boring…
-          </p>
-        </span>
+        <p>
+          Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is just boring…
+        </p>
       </div>
       <div
-        className="sc-fFeiMQ zWndT"
-      >
-        <img
-          src="http://placehold.it/120x120&text=image1"
-        />
-      </div>
-      <div
-        className="sc-bkkeKt gNFrTD"
+        className="sc-fnykZs dNhcxH"
       >
         <div
-          className="sc-ieecCq hUkExA"
+          className="sc-fEOsli iRQDCu"
         >
           <span
-            className="sc-bdvvtL iouZXA"
+            className="sc-bczRLJ qaxFj"
           >
             <button
-              className="sc-jRQBWg sc-iCfMLu cFEOHH gFFFIY"
-              fontSize="16"
+              className="sc-jSMfEi sc-iBkjds dCcUHP dYmwvf"
+              fontSize="16px"
               onClick={[Function]}
               tabIndex={-1}
               type="submit"
@@ -125,14 +85,14 @@ And…it can have 2 lines, more than that is just boring…
           </span>
         </div>
         <div
-          className="sc-ieecCq hUkExA"
+          className="sc-fEOsli iRQDCu"
         >
           <span
-            className="sc-bdvvtL iouZXA"
+            className="sc-bczRLJ qaxFj"
           >
             <button
-              className="sc-jRQBWg sc-gKclnd cFEOHH daEqQf"
-              fontSize="16"
+              className="sc-jSMfEi sc-gKXOVf dCcUHP jIMPmJ"
+              fontSize="16px"
               onClick={[Function]}
               tabIndex={-1}
               type="submit"
