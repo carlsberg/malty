@@ -3946,9 +3946,9 @@ __metadata:
   linkType: hard
 
 "@types/json-schema@npm:*, @types/json-schema@npm:^7.0.4, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.7, @types/json-schema@npm:^7.0.8, @types/json-schema@npm:^7.0.9":
-  version: 7.0.10
-  resolution: "@types/json-schema@npm:7.0.10::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fjson-schema%2F-%2Fjson-schema-7.0.10.tgz"
-  checksum: 369f12207298e3c8931100ab86c9c60d9217ab930a8ae0b851495f4f30695d3f0eb431eedc8e8d9c69357869899ea0fe6f9d65ddde5ea70415d67ef340dfdd1f
+  version: 7.0.11
+  resolution: "@types/json-schema@npm:7.0.11::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fjson-schema%2F-%2Fjson-schema-7.0.11.tgz"
+  checksum: 527bddfe62db9012fccd7627794bd4c71beb77601861055d87e3ee464f2217c85fca7a4b56ae677478367bbd248dbde13553312b7d4dbc702a2f2bbf60c4018d
   languageName: node
   linkType: hard
 
@@ -10608,9 +10608,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.84":
-  version: 1.4.93
-  resolution: "electron-to-chromium@npm:1.4.93::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.93.tgz"
-  checksum: 997411da3a4dba3e7f38f5eff98f099a44d76088293982e452e886af8c5717ddbd6c9677e0e0840e51610004decb170c6a529424ba067c84eb45e303d6640224
+  version: 1.4.96
+  resolution: "electron-to-chromium@npm:1.4.96::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Felectron-to-chromium%2F-%2Felectron-to-chromium-1.4.96.tgz"
+  checksum: 6a7f97c5fc7080b8739df269a9da0047aee9153807af99e72138dc416ea1dd8ccc167812c66c49d3bb83a55098cd8669ef075515d999aad13b266da72bc98cee
   languageName: node
   linkType: hard
 
@@ -11081,8 +11081,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-jsdoc@npm:*":
-  version: 38.0.6
-  resolution: "eslint-plugin-jsdoc@npm:38.0.6::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Feslint-plugin-jsdoc%2F-%2Feslint-plugin-jsdoc-38.0.6.tgz"
+  version: 38.1.1
+  resolution: "eslint-plugin-jsdoc@npm:38.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Feslint-plugin-jsdoc%2F-%2Feslint-plugin-jsdoc-38.1.1.tgz"
   dependencies:
     "@es-joy/jsdoccomment": ~0.22.1
     comment-parser: 1.3.1
@@ -11094,7 +11094,7 @@ __metadata:
     spdx-expression-parse: ^3.0.1
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: 81c49a1949bf7d26d6ac30bb8b6277ce3dfc5e875325ac25798df1e3c0abfe254432e3747031f5eb97beedff60303570bd2c92a6b05c8435269510758d3ddfc2
+  checksum: daceb82e8aa4cceb68c63d361532a21f6eb2cefdde74bb66d3368b24178764c7e56e7a2cb2955f8390ca3d65339b091f2d4e0cba615992a72e39f56d34be5d67
   languageName: node
   linkType: hard
 
@@ -11387,7 +11387,6 @@ __metadata:
   resolution: "evp_bytestokey@npm:1.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fevp_bytestokey%2F-%2Fevp_bytestokey-1.0.3.tgz"
   dependencies:
     md5.js: ^1.3.4
-    node-gyp: latest
     safe-buffer: ^5.1.1
   checksum: ad4e1577f1a6b721c7800dcc7c733fe01f6c310732bb5bf2240245c2a5b45a38518b91d8be2c610611623160b9d1c0e91f1ce96d639f8b53e8894625cf20fa45
   languageName: node
@@ -12755,9 +12754,9 @@ __metadata:
   linkType: hard
 
 "html-entities@npm:^2.1.0, html-entities@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "html-entities@npm:2.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fhtml-entities%2F-%2Fhtml-entities-2.3.2.tgz"
-  checksum: 522d8d202df301ff51b517a379e642023ed5c81ea9fb5674ffad88cff386165733d00b6089d5c2fcc644e44777d6072017b6216d8fa40f271d3610420d00a886
+  version: 2.3.3
+  resolution: "html-entities@npm:2.3.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fhtml-entities%2F-%2Fhtml-entities-2.3.3.tgz"
+  checksum: 92521501da8aa5f66fee27f0f022d6e9ceae62667dae93aa6a2f636afa71ad530b7fb24a18d4d6c124c9885970cac5f8a52dbf1731741161002816ae43f98196
   languageName: node
   linkType: hard
 
@@ -15590,11 +15589,11 @@ __metadata:
   linkType: hard
 
 "nanoid@npm:^3.1.23, nanoid@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "nanoid@npm:3.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnanoid%2F-%2Fnanoid-3.3.1.tgz"
+  version: 3.3.2
+  resolution: "nanoid@npm:3.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnanoid%2F-%2Fnanoid-3.3.2.tgz"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 4ef0969e1bbe866fc223eb32276cbccb0961900bfe79104fa5abe34361979dead8d0e061410a5c03bc3d47455685adf32c09d6f27790f4a6898fb51f7df7ec86
+  checksum: 376717f0685251fad77850bd84c6b8d57837c71eeb1c05be7c742140cc1835a5a2953562add05166d6dbc8fb65f3fdffa356213037b967a470e1691dc3e7b9cc
   languageName: node
   linkType: hard
 
@@ -15685,7 +15684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-forge@npm:^1.2.0":
+"node-forge@npm:^1.3.0":
   version: 1.3.0
   resolution: "node-forge@npm:1.3.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnode-forge%2F-%2Fnode-forge-1.3.0.tgz"
   checksum: 3d8124168dd82006fafbb079f40a529afa0de5bf4d77e6a5a471877e9d39bece31fdc8339e8aee30d5480dc79ffcd1059cfcb21983d350dd3f2a9f226db6ca85
@@ -18191,11 +18190,11 @@ __metadata:
   linkType: hard
 
 "selfsigned@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "selfsigned@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fselfsigned%2F-%2Fselfsigned-2.0.0.tgz"
+  version: 2.0.1
+  resolution: "selfsigned@npm:2.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fselfsigned%2F-%2Fselfsigned-2.0.1.tgz"
   dependencies:
-    node-forge: ^1.2.0
-  checksum: 43fca39a5aded2a8e97c1756af74c049a9dde12d47d302820f7d507d25c2ad7da4b04bc439a36620d63b4c0149bcf34ae7a729f978bf3b1bf48859c36ae34cee
+    node-forge: ^1
+  checksum: 864e65c2f31ca877bce3ccdaa3bdef5e1e992b63b2a03641e00c24cd305bf2acce093431d1fed2e5ae9f526558db4be5e90baa2b3474c0428fcf7e25cc86ac93
   languageName: node
   linkType: hard
 
