@@ -6,6 +6,6 @@ const defaultAccordionContext: AccordionContext = {
   alwaysOpen: false
 };
 
-const Context = React.createContext<AccordionContext>(defaultAccordionContext);
+const ContextAccordion = React.createContext<AccordionContext>(defaultAccordionContext);
 
-export { Context };
+export { ContextAccordion };

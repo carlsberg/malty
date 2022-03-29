@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { AccordionColor, AccordionItemProps, AccordionProps, AccordionSize } from '.';
-import { Context } from './Accordion-context';
+import { ContextAccordion } from './Accordion.context';
 import {
   StyledAccordionBody,
   StyledAccordionHeader,
@@ -52,14 +52,14 @@ export const Accordion = ({
 
   return (
     <TypographyProvider>
-      <Context.Provider value={{ activeEventKey, alwaysOpen }}>
+      <ContextAccordion.Provider value={{ activeEventKey, alwaysOpen }}>
         <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
           {children?.map((el, index) =>
             // eslint-disable-next-line react/no-array-index-key
             React.cloneElement(el, { key: `accordion-${index}`, size, onChange: handleAccordionItem })
           )}
         </StyledAccordionWrapper>
-      </Context.Provider>
+      </ContextAccordion.Provider>
     </TypographyProvider>
   );
 };
@@ -72,7 +72,7 @@ export const AccordionItem = ({
   onChange = () => null,
   eventKey
 }: AccordionItemProps) => {
-  const accordionContext = useContext(Context);
+  const accordionContext = useContext(ContextAccordion);
   const theme = useContext(ThemeContext) || defaultTheme;
   const [openAccordion, setOpenAccordion] = useState(accordionContext.activeEventKey?.includes(eventKey));
 
