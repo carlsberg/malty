@@ -22,15 +22,15 @@ export const StyledAccordionItem = styled.li`
 `;
 export const StyledAccordionHeader = styled.div<{
   variant?: AccordionColor;
-  size?: number;
-  paddingSize?: number;
+  size?: string;
+  paddingSize?: string;
 }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  height: ${({ size }) => size}px;
-  padding: 0 ${({ paddingSize }) => paddingSize}px;
+  height: ${({ size }) => size};
+  padding: 0 ${({ paddingSize }) => paddingSize};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][5].value};
@@ -39,7 +39,7 @@ export const StyledAccordionHeader = styled.div<{
 export const StyledAccordionBody = styled.div<{
   disabled?: boolean;
   open?: boolean;
-  paddingSize?: number;
+  paddingSize?: string;
 }>`
   transition: all 0.2s ease-in-out;
   height: 0;
@@ -50,23 +50,14 @@ export const StyledAccordionBody = styled.div<{
   font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   visibility: hidden;
-  padding: 0 ${({ paddingSize }) => paddingSize}px;
+  padding: 0 ${({ paddingSize }) => paddingSize};
   &.show {
-    padding: ${({ paddingSize }) => paddingSize}px;
+    padding: ${({ paddingSize }) => paddingSize};
     visibility: visible;
     height: auto;
     opacity: 1;
     transition: all 0.2s ease-in-out;
   }
-  /* ${({ open, paddingSize }) =>
-    open &&
-    css`
-      padding: ${paddingSize}px;
-      visibility: visible;
-      height: auto;
-      opacity: 1;
-      transition: all 0.2s ease-in-out;
-    `} */
 `;
 export const StyledTitle = styled.div``;
 

@@ -18,9 +18,9 @@ exports[`Accordion matches snapshot 1`] = `
         <div
           aria-controls="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           aria-expanded={false}
-          className="sc-jRQBWg grngkp accordion-header"
+          className="sc-jRQBWg hebmQV accordion-header"
           onClick={[Function]}
-          size={32}
+          size="32px"
         >
           <span
             className="sc-bdvvtL bWTUHG"
@@ -56,7 +56,7 @@ exports[`Accordion matches snapshot 1`] = `
           </svg>
         </div>
         <div
-          className="sc-gKclnd doQXEI accordionBody"
+          className="sc-gKclnd eVPMdN accordionBody"
           data-testid="undefined-content-container"
           id="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           open={false}
@@ -77,9 +77,9 @@ exports[`Accordion matches snapshot 1`] = `
         <div
           aria-controls="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           aria-expanded={false}
-          className="sc-jRQBWg grngkp accordion-header"
+          className="sc-jRQBWg hebmQV accordion-header"
           onClick={[Function]}
-          size={32}
+          size="32px"
         >
           <span
             className="sc-bdvvtL bWTUHG"
@@ -115,7 +115,7 @@ exports[`Accordion matches snapshot 1`] = `
           </svg>
         </div>
         <div
-          className="sc-gKclnd doQXEI accordionBody"
+          className="sc-gKclnd eVPMdN accordionBody"
           data-testid="undefined-content-container"
           id="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           open={false}

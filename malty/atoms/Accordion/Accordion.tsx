@@ -76,8 +76,8 @@ export const AccordionItem = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const [openAccordion, setOpenAccordion] = useState(accordionContext.activeEventKey?.includes(eventKey));
 
-  const [numSize, setNumSize] = useState(theme.sizes.l.value.replace('px', ''));
-  const [numPadding, setNumPadding] = useState(theme.sizes['2xs'].value.replace('px', ''));
+  const [numSize, setNumSize] = useState(theme.sizes.l.value);
+  const [numPadding, setNumPadding] = useState(theme.sizes['2xs'].value);
   const id = useMemo(() => uuid(), []);
 
   useEffect(() => {
@@ -95,23 +95,23 @@ export const AccordionItem = ({
   useEffect(() => {
     switch (size) {
       case AccordionSize.Large: {
-        setNumSize(theme.sizes['2xl'].value.replace('px', ''));
-        setNumPadding(theme.sizes['2xs'].value.replace('px', ''));
+        setNumSize(theme.sizes['2xl'].value);
+        setNumPadding(theme.sizes['2xs'].value);
         break;
       }
       case AccordionSize.XLarge: {
-        setNumSize(theme.sizes['3xl'].value.replace('px', ''));
-        setNumPadding(theme.sizes.s.value.replace('px', ''));
+        setNumSize(theme.sizes['3xl'].value);
+        setNumPadding(theme.sizes.s.value);
         break;
       }
       case AccordionSize.XXLarge: {
-        setNumSize(theme.sizes['4xl'].value.replace('px', ''));
-        setNumPadding(theme.sizes.s.value.replace('px', ''));
+        setNumSize(theme.sizes['4xl'].value);
+        setNumPadding(theme.sizes.s.value);
         break;
       }
       default: {
-        setNumSize(theme.sizes.xl.value.replace('px', ''));
-        setNumPadding(theme.sizes['2xs'].value.replace('px', ''));
+        setNumSize(theme.sizes.xl.value);
+        setNumPadding(theme.sizes['2xs'].value);
         break;
       }
     }
@@ -128,8 +128,8 @@ export const AccordionItem = ({
           aria-expanded={openAccordion}
           aria-controls={`accordion-item-"${id}`}
           theme={theme}
-          paddingSize={parseInt(numPadding, 10)}
-          size={parseInt(numSize, 10)}
+          paddingSize={numPadding}
+          size={numSize}
           className="accordion-header"
           onClick={handleOpenAccordion}
         >
@@ -156,7 +156,7 @@ export const AccordionItem = ({
           data-testid={`${dataQaId}-content-container`}
           id={`accordion-item-"${id}`}
           theme={theme}
-          paddingSize={parseInt(numPadding, 10)}
+          paddingSize={numPadding}
           className={openAccordion ? 'accordionBody show' : 'accordionBody'}
           open={openAccordion}
         >
