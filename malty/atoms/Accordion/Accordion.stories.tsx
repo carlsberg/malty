@@ -4,7 +4,7 @@ import { AccordionColor, AccordionItem, AccordionProps, AccordionSize } from '.'
 import { Accordion as AccordionComponent } from './Accordion';
 
 export default {
-  title: 'Information/Accordion',
+  title: 'Layout/Accordion',
   component: AccordionComponent,
   subcomponents: { AccordionItem },
   parameters: {
