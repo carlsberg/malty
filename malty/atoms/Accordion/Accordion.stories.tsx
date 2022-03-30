@@ -48,7 +48,7 @@ export default {
     },
     dataQaId: {
       control: 'text',
-      description: 'Accordion data-qi-id'
+      description: 'Accordion data-testid'
     }
   }
 };
