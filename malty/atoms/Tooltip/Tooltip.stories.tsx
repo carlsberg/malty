@@ -130,14 +130,6 @@ const Template: Story<TooltipProps> = ({
 
 export const Tooltip = Template.bind({});
 
-Tooltip.args = {
-  position: TooltipPosition.TopCenter,
-  toggle: TooltipToggle.Persist,
-  dataQaId: 'tooltip',
-  children: 'A simple Tooltip content with some text. Thanks for open me!',
-  isDark: true
-};
-
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
