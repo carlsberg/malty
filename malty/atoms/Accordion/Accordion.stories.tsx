@@ -4,12 +4,12 @@ import { AccordionColor, AccordionItem, AccordionProps, AccordionSize } from '.'
 import { Accordion as AccordionComponent } from './Accordion';
 
 export default {
-  title: 'Forms/Accordion',
+  title: 'Information/Accordion',
   component: AccordionComponent,
   subcomponents: { AccordionItem },
   parameters: {
     importObject: 'Accordion',
-    importPath: '@carlsberggroup/malty.atoms.accordion'
+    importPath: '@carlsberggroup/malty.molecules.accordion'
   },
   argTypes: {
     alwaysOpen: {
