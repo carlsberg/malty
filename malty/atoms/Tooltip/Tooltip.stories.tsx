@@ -1,3 +1,4 @@
+import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -27,7 +28,8 @@ export default {
   component: TooltipComponent,
   parameters: {
     importObject: 'Tooltip',
-    importPath: '@carlsberggroup/malty.atoms.tooltip'
+    importPath: '@carlsberggroup/malty.atoms.tooltip',
+    variants: ['dark', 'light']
   },
   argTypes: {
     position: {
@@ -135,3 +137,32 @@ Tooltip.args = {
   children: 'A simple Tooltip content with some text. Thanks for open me!',
   isDark: true
 };
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'dark':
+    Tooltip.args = {
+      position: TooltipPosition.TopCenter,
+      toggle: TooltipToggle.Persist,
+      dataQaId: 'tooltip',
+      children: (
+        <div style={{ padding: '5px 0 0 0' }}>
+          <Image src="https://via.placeholder.com/90x?text=Any+HTML" />
+        </div>
+      ),
+      isDark: true
+    };
+    break;
+
+  default:
+    Tooltip.args = {
+      position: TooltipPosition.TopCenter,
+      toggle: TooltipToggle.Persist,
+      dataQaId: 'tooltip',
+      children: 'A simple Tooltip content with some text. Thanks for open me!',
+      isDark: false
+    };
+    break;
+}
