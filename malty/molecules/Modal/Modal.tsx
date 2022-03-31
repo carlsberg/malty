@@ -39,7 +39,7 @@ export const Modal = ({
             <StyledModalWrapper theme={theme} size={size}>
               {dismissible && (
                 <StyledCloseIconContainer onClick={closeModal} theme={theme}>
-                  <Icon name={IconName.Close} size={IconSize.Medium} color={IconColor.Primary} />
+                  <Close size={IconSize.Medium} color={IconColor.Primary} />
                 </StyledCloseIconContainer>
               )}
 
