@@ -9,7 +9,8 @@ export default {
   subcomponents: { AccordionItem },
   parameters: {
     importObject: 'Accordion',
-    importPath: '@carlsberggroup/malty.molecules.accordion'
+    importPath: '@carlsberggroup/malty.molecules.accordion',
+    variants: ['support', 'transparent']
   },
   argTypes: {
     alwaysOpen: {
