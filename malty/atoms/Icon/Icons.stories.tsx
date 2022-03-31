@@ -21,13 +21,8 @@ const convertToKebabCase = (string: string) =>
     .toLowerCase();
 
 export default {
-<<<<<<< HEAD:malty/atoms/Icon/Icons.stories.tsx
-  title: 'Atoms/Icons',
-  component: Icon,
-=======
   title: 'Icons/All Icons',
   component: IconComponent,
->>>>>>> develop:malty/atoms/Icon/Icon.AllIcons.stories.tsx
   parameters: {
     importObject: 'AddContent',
     importPath: '@carlsberggroup/malty.atoms.icons.add-content'
