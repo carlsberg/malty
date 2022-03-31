@@ -1,6 +1,6 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineAlign, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Close, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icons.close';
 import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
