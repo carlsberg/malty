@@ -1,7 +1,8 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineAlign, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
+import Close from '@carlsberggroup/malty.icons.close';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -39,7 +40,7 @@ export const Modal = ({
             <StyledModalWrapper theme={theme} size={size}>
               {dismissible && (
                 <StyledCloseIconContainer onClick={closeModal} theme={theme}>
-                  <Icon name={IconName.Close} size={IconSize.Medium} color={IconColor.Primary} />
+                  <Close size={IconSize.Medium} color={IconColor.Primary} />
                 </StyledCloseIconContainer>
               )}
 
