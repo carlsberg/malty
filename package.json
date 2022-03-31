@@ -2,7 +2,7 @@
   "name": "carlsberg-malty",
   "homepage": "https://malty.carlsberggroup.com/",
   "url": "https://malty.carlsberggroup.com",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": true,
   "keywords": [
     "carlsberg",
@@ -103,7 +103,8 @@
     "malty/*"
   ],
   "resolutions": {
-    "styled-components": "^5"
+    "styled-components": "^5",
+    "node-forge": "^1.3.0"
   },
   "bit": {
     "resolveModules": {
