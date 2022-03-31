@@ -14,7 +14,6 @@ export const StyledPill = styled.div<{
 }>`
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
   font-size: ${({ fontSize }) => `${fontSize}`};
-  line-height: 1;
   font-weight: bold;
   background-color: ${({ color, theme }) => {
     if (color === PillColor.Primary) {
@@ -33,7 +32,7 @@ export const StyledPill = styled.div<{
   align-items: center;
   height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
-  border-radius: 50px;
+  border-radius: ${({ size }) => `${size}`};
 
   .pill {
     &__icon {

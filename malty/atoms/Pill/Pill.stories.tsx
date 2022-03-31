@@ -9,7 +9,8 @@ export default {
   component: PillComponent,
   parameters: {
     importObject: 'Pill',
-    importPath: '@carlsberggroup/malty.atoms.pill'
+    importPath: '@carlsberggroup/malty.atoms.pill',
+    variants: ['text', 'icon', 'combo']
   },
   argTypes: {
     text: {
