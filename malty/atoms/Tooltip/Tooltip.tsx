@@ -49,6 +49,8 @@ const Tooltip: TooltipType = ({
       return children;
     }
 
+    const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
+
     return (
       <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
         {children}
@@ -57,8 +59,6 @@ const Tooltip: TooltipType = ({
   };
 
   const StyledTooltipInner = TooltipPositionToInnerMapper[position];
-
-  const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
 
   const box = anchorRef?.current;
   const width = box?.offsetWidth;
@@ -71,7 +71,7 @@ const Tooltip: TooltipType = ({
         theme={theme}
         onMouseEnter={handleTooltipMouseEnter}
         onMouseLeave={handleTooltipMouseOut}
-        data-testid={`${dataTestId}`}
+        data-testid={dataTestId}
       >
         <StyledTooltipInner position={position} anchorOffset={anchorOffset} theme={theme} isDark={isDark}>
           {renderChildren()}
@@ -86,7 +86,7 @@ Tooltip.startTooltipTimer = (anchorRef) => {
   window.dispatchEvent(event);
 };
 
-Tooltip.openTootip = (anchorRef) => {
+Tooltip.openTooltip = (anchorRef) => {
   const event = new window.CustomEvent(OPEN_TOOLTIP_EVENT, { detail: anchorRef });
   window.dispatchEvent(event);
 };

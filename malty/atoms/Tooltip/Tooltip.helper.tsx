@@ -12,13 +12,18 @@ import {
 import { TooltipPosition, TooltipToggle, UseTooltipProps } from './Tooltip.types';
 
 export const useToolTip = ({ anchorRef, autoHideDuration, toggleType }: UseTooltipProps) => {
-  const [isOpen, setIsOpen] = useState(toggleType === TooltipToggle.Persist);
+  const [isOpen, setIsOpen] = useState(false);
   const autoHideTimer = useRef<number | null>(null);
 
   const clearAutoHideTimer = () => {
     if (typeof autoHideTimer?.current === 'number') {
       clearTimeout(autoHideTimer.current);
     }
+  };
+
+  const setTooltipOpen = (open: boolean) => {
+    clearAutoHideTimer();
+    setIsOpen(open);
   };
 
   // TooltipToggle.Events logic
@@ -29,11 +34,6 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType }: UseToolt
         setIsOpen(false);
       }, autoHideDuration);
     }
-  };
-
-  const setTooltipOpen = (open: boolean) => {
-    clearAutoHideTimer();
-    setIsOpen(open);
   };
 
   // custom global events handling
@@ -71,7 +71,6 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType }: UseToolt
   // Tooltip events logic
   useEffect(() => {
     const anchorElement = anchorRef?.current;
-
     if (toggleType === TooltipToggle.Hover) {
       const handleAnchorMouseEnter = () => {
         setTooltipOpen(true);
@@ -96,7 +95,6 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType }: UseToolt
   // Tooltip events logic
   useEffect(() => {
     const anchorElement = anchorRef?.current;
-
     if (toggleType === TooltipToggle.Click) {
       const handleTooltipToggle = () => {
         setTooltipOpen(!isOpen);

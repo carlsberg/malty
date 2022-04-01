@@ -7,7 +7,7 @@ import { TooltipPosition, TooltipToggle } from './Tooltip.types';
 const anchorAction = jest.fn();
 const tooltipAnchorRef: RefObject<HTMLAnchorElement> = createRef();
 
-const renderTooltip = (options = { toggleType: TooltipToggle.Persist, isOpen: true }) =>
+const renderTooltip = (options = { toggleType: TooltipToggle.Click }) =>
   render(
     <div>
       <a onClick={anchorAction} ref={tooltipAnchorRef}>
@@ -35,23 +35,20 @@ describe('Tooltip', () => {
         <Tooltip
           anchorRef={tooltipAnchorRef}
           position={TooltipPosition.BottomCenter}
-          toggle={TooltipToggle.Persist}
+          toggle={TooltipToggle.Click}
           autoHideDuration={3000}
         >
           <button type="button">Button inside Tooltip</button>
         </Tooltip>
       </div>
     );
+    fireEvent.click(screen.getByText('Tooltip Anchor'));
+    expect(anchorAction).toHaveBeenCalled();
     expect(view).toMatchSnapshot();
   });
 
-  it('should renders elements inside tooltip', () => {
-    renderTooltip();
-    expect(screen.getByRole('button', { name: 'Button inside Tooltip' })).toBeInTheDocument();
-  });
-
   it('should show tooltip once anchor is clicked', () => {
-    renderTooltip({ toggleType: TooltipToggle.Click, isOpen: false });
+    renderTooltip({ toggleType: TooltipToggle.Click });
 
     // TooltipToggle.Click - initial state is hidden
     expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
@@ -68,7 +65,7 @@ describe('Tooltip', () => {
   });
 
   it('should show tooltip once anchor is hovered', () => {
-    renderTooltip({ toggleType: TooltipToggle.Hover, isOpen: false });
+    renderTooltip({ toggleType: TooltipToggle.Hover });
 
     // TooltipToggle.Hover - initial state is hidden
     expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
@@ -85,13 +82,13 @@ describe('Tooltip', () => {
   });
 
   it('should hide tooltip after finish autoHideDuration', async () => {
-    renderTooltip({ toggleType: TooltipToggle.Event, isOpen: false });
+    renderTooltip({ toggleType: TooltipToggle.Event });
 
     // TooltipToggle.Event - initial state is hidden
     expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
 
     await act(async () => {
-      Tooltip.openTootip(tooltipAnchorRef);
+      Tooltip.openTooltip(tooltipAnchorRef);
     });
     // should have opened
     const innerButton = screen.getByRole('button', { name: 'Button inside Tooltip' });

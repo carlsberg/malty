@@ -10,7 +10,7 @@ export interface TooltipProps {
 
 export type TooltipStaticProps = {
   startTooltipTimer: (anchorRef?: React.RefObject<HTMLElement>) => void;
-  openTootip: (anchorRef?: React.RefObject<HTMLElement>) => void;
+  openTooltip: (anchorRef?: React.RefObject<HTMLElement>) => void;
   closeTooltip: (anchorRef?: React.RefObject<HTMLElement>) => void;
 };
 
@@ -37,6 +37,5 @@ export enum TooltipPosition {
 export enum TooltipToggle {
   Click = 'click',
   Hover = 'hover',
-  Persist = 'persist',
   Event = 'event'
 }

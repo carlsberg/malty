@@ -43,7 +43,7 @@ export default {
       },
       defaultValue: 'TopCenter'
     },
-    anchor: {
+    anchorRef: {
       control: {
         disable: true
       },
@@ -105,7 +105,7 @@ const Template: Story<TooltipProps> = ({
   children
 }: TooltipProps) => {
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
-  const tooltipAnchorRef = React.useRef<HTMLParagraphElement>(null);
+  const tooltipAnchorRef = React.useRef<HTMLParagraphElement | null>(null);
   const renderTooltipEventToggle = () => (
     <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
       {children}
@@ -113,7 +113,7 @@ const Template: Story<TooltipProps> = ({
   );
   const toggleVisibility = (open: boolean) => () => {
     if (open) {
-      TooltipComponent.openTootip(tooltipAnchorRef);
+      TooltipComponent.openTooltip(tooltipAnchorRef);
     } else {
       TooltipComponent.closeTooltip(tooltipAnchorRef);
     }
@@ -163,7 +163,7 @@ switch (variant) {
   case 'dark':
     Tooltip.args = {
       position: TooltipPosition.TopCenter,
-      toggle: TooltipToggle.Persist,
+      toggle: TooltipToggle.Hover,
       dataTestId: 'tooltip',
       children: (
         <div style={{ padding: '5px 0 0 0' }}>
@@ -177,7 +177,7 @@ switch (variant) {
   default:
     Tooltip.args = {
       position: TooltipPosition.TopCenter,
-      toggle: TooltipToggle.Persist,
+      toggle: TooltipToggle.Hover,
       dataTestId: 'tooltip',
       children: 'A simple Tooltip content with some text. Thanks for open me!',
       isDark: false
