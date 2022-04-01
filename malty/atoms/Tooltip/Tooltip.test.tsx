@@ -1,6 +1,6 @@
 import { fireEvent, jsonRenderer, render, screen, waitForElementToBeRemoved } from '@carlsberggroup/malty.utils.test';
 import React, { createRef, RefObject } from 'react';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 import { Tooltip } from '.';
 import { TooltipPosition, TooltipToggle } from './Tooltip.types';
 
@@ -14,10 +14,9 @@ const renderTooltip = (options = { toggleType: TooltipToggle.Persist, isOpen: tr
         Tooltip Anchor
       </a>
       <Tooltip
-        anchor={tooltipAnchorRef}
+        anchorRef={tooltipAnchorRef}
         position={TooltipPosition.BottomCenter}
-        dataQaId="tooltip-test"
-        isOpen={options.isOpen}
+        dataTestId="tooltip-test"
         toggle={options.toggleType}
         autoHideDuration={3000}
       >
@@ -34,9 +33,8 @@ describe('Tooltip', () => {
           Tooltip Anchor
         </a>
         <Tooltip
-          anchor={tooltipAnchorRef}
+          anchorRef={tooltipAnchorRef}
           position={TooltipPosition.BottomCenter}
-          isOpen
           toggle={TooltipToggle.Persist}
           autoHideDuration={3000}
         >
@@ -89,12 +87,30 @@ describe('Tooltip', () => {
   it('should hide tooltip after finish autoHideDuration', async () => {
     renderTooltip({ toggleType: TooltipToggle.Event, isOpen: false });
 
-    // TooltipToggle.Event - initial state is visible
-    expect(screen.getByRole('button', { name: 'Button inside Tooltip' })).toBeInTheDocument();
+    // TooltipToggle.Event - initial state is hidden
+    expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
 
-    // hide tooltip after 3 seconds
     await act(async () => {
-      await waitForElementToBeRemoved(() => screen.queryByText('Button inside Tooltip'), { timeout: 3000 });
+      Tooltip.openTootip(tooltipAnchorRef);
     });
+    // should have opened
+    const innerButton = screen.getByRole('button', { name: 'Button inside Tooltip' });
+    expect(innerButton).toBeInTheDocument();
+
+    await act(async () => {
+      Tooltip.closeTooltip(tooltipAnchorRef);
+    });
+    // should have closed
+    expect(innerButton).not.toBeInTheDocument();
+
+    await act(async () => {
+      Tooltip.startTooltipTimer(tooltipAnchorRef);
+    });
+    // should open again
+    const newInnerButton = screen.getByRole('button', { name: 'Button inside Tooltip' });
+    expect(newInnerButton).toBeInTheDocument();
+
+    // should hide tooltip after 3 seconds
+    await waitForElementToBeRemoved(() => screen.queryByText('Button inside Tooltip'), { timeout: 3000 });
   });
 });

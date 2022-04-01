@@ -1,14 +1,27 @@
 export interface TooltipProps {
   position: TooltipPosition;
-  isOpen?: boolean;
   toggle: TooltipToggle;
-  anchor?: React.RefObject<HTMLElement>;
+  anchorRef: React.RefObject<HTMLElement>;
   isDark?: boolean;
-  dataQaId?: string;
+  dataTestId?: string;
   autoHideDuration?: number;
-  onHideTooltip?: () => void;
   children: string | JSX.Element;
 }
+
+export type TooltipStaticProps = {
+  startTooltipTimer: (anchorRef?: React.RefObject<HTMLElement>) => void;
+  openTootip: (anchorRef?: React.RefObject<HTMLElement>) => void;
+  closeTooltip: (anchorRef?: React.RefObject<HTMLElement>) => void;
+};
+
+export type TooltipType = React.FC<TooltipProps> & TooltipStaticProps;
+
+export type UseTooltipProps = {
+  toggleType: TooltipToggle;
+  anchorRef: React.RefObject<HTMLElement>;
+  autoHideDuration?: number;
+  onHideTooltip?: () => void;
+};
 
 export enum TooltipPosition {
   TopCenter = 'top-center',

@@ -80,7 +80,7 @@ export default {
       control: 'boolean',
       table: { defaultValue: { summary: 'true' } }
     },
-    dataQaId: {
+    dataTestId: {
       control: 'text',
       description: 'Tooltip data-testid',
       table: { defaultValue: { summary: 'none' } }
@@ -100,7 +100,7 @@ const Template: Story<TooltipProps> = ({
   position,
   toggle,
   isDark,
-  dataQaId,
+  dataTestId,
   autoHideDuration,
   children
 }: TooltipProps) => {
@@ -111,16 +111,42 @@ const Template: Story<TooltipProps> = ({
       {children}
     </Text>
   );
+  const toggleVisibility = (open: boolean) => () => {
+    if (open) {
+      TooltipComponent.openTootip(tooltipAnchorRef);
+    } else {
+      TooltipComponent.closeTooltip(tooltipAnchorRef);
+    }
+  };
+
+  const startTimer = () => {
+    TooltipComponent.startTooltipTimer(tooltipAnchorRef);
+  };
+
   return (
     <StyledContainer>
       <p ref={tooltipAnchorRef}>Choose your toggle control and play with me!!!</p>
+
+      {toggle === TooltipToggle.Event && (
+        <p>
+          <button onClick={toggleVisibility(true)} type="button">
+            Show
+          </button>
+          <button onClick={toggleVisibility(false)} type="button">
+            Hide
+          </button>
+          <button onClick={startTimer} type="button">
+            Open with timer
+          </button>
+        </p>
+      )}
       <TooltipComponent
         position={position}
         toggle={toggle}
         isDark={isDark}
         autoHideDuration={autoHideDuration}
-        anchor={tooltipAnchorRef}
-        dataQaId={dataQaId}
+        anchorRef={tooltipAnchorRef}
+        dataTestId={dataTestId}
       >
         {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
       </TooltipComponent>
@@ -138,7 +164,7 @@ switch (variant) {
     Tooltip.args = {
       position: TooltipPosition.TopCenter,
       toggle: TooltipToggle.Persist,
-      dataQaId: 'tooltip',
+      dataTestId: 'tooltip',
       children: (
         <div style={{ padding: '5px 0 0 0' }}>
           <Image src="https://via.placeholder.com/90x?text=Any+HTML" />
@@ -152,7 +178,7 @@ switch (variant) {
     Tooltip.args = {
       position: TooltipPosition.TopCenter,
       toggle: TooltipToggle.Persist,
-      dataQaId: 'tooltip',
+      dataTestId: 'tooltip',
       children: 'A simple Tooltip content with some text. Thanks for open me!',
       isDark: false
     };
