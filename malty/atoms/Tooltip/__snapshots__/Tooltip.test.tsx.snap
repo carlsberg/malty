@@ -1,39 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip matches snapshot 1`] = `
-Array [
+exports[`Tooltip should matches snapshot 1`] = `
+<div>
   <a
-    id="testId"
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
-    Click here to toggle it!
-  </a>,
+    Tooltip Anchor
+  </a>
   <span
-    className="sc-bdfBQB dGZTMR"
+    className="sc-bdvvtL iuuuBw"
   >
     <div
-      className="sc-hKgJUU bTWTmT"
-      style={
-        Object {
-          "--color": "dodgerblue",
-        }
-      }
+      className="sc-dkPtRN hKTYWF"
+      data-testid="undefined"
     >
       <div
-        className="sc-dlfnuX eKyIZR"
+        className="sc-hKwDye sc-iCfMLu kBCUZP huOhTS"
         open={true}
       >
-        <p
-          className="sc-gsTEea dirViS"
+        <span
+          className="sc-bdvvtL iuuuBw"
         >
-          <button
-            type="button"
+          <p
+            className="sc-gsDKAQ hUdwl"
+            color="white"
           >
-            Test
-          </button>
-        </p>
+            <button
+              type="button"
+            >
+              Button inside Tooltip
+            </button>
+          </p>
+        </span>
       </div>
     </div>
-  </span>,
-]
+  </span>
+</div>
 `;

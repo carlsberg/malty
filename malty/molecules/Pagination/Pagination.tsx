@@ -1,16 +1,23 @@
 /* eslint-disable react/no-array-index-key */
-import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
-import ChevronLeft from '@carlsberggroup/malty.icons.chevron-left';
-import ChevronRight from '@carlsberggroup/malty.icons.chevron-right';
+import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledChevron, StyledContainer, StyledDots } from './Pagination.styled';
-import { PaginationProps } from './Pagination.types';
-import { DOTS, usePagination } from './usePagination';
+import { DOTS, usePagination } from './Pagination.helper';
+import { StyledContainer, StyledDots } from './Pagination.styled';
+import { PaginationProps, PaginationType } from './Pagination.types';
 
-export const Pagination = ({ count, currentPage, onChange, siblingCount }: PaginationProps) => {
+export const Pagination = ({
+  count,
+  currentPage,
+  onChange,
+  siblingCount,
+  type = PaginationType.default,
+  dataQaId,
+  isWhite = false
+}: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const paginationRange = usePagination({
@@ -19,22 +26,14 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
     currentPage
   });
   const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
+  const isFirstPage = currentPage === 1;
+  const isLastPage = lastPage === currentPage;
 
-  if (currentPage < 1 || (paginationRange && paginationRange?.length < 2)) {
+  const isCompact = type === PaginationType.compact;
+
+  if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
     return null;
   }
-
-  const onNext = () => {
-    if (currentPage < count) {
-      onChange(currentPage + 1);
-    }
-  };
-
-  const onPrevious = () => {
-    if (currentPage > 1) {
-      onChange(currentPage - 1);
-    }
-  };
 
   const onPageClick = (targetPage: number) => {
     onChange(targetPage);
@@ -47,6 +46,18 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
     }
   };
 
+  const onPrevious = () => {
+    if (currentPage > 1) {
+      onChange(currentPage - 1);
+    }
+  };
+
+  const onNext = () => {
+    if (currentPage < count) {
+      onChange(currentPage + 1);
+    }
+  };
+
   const onPreviousKeyUp = () => {
     onPageKeyUp(currentPage - 1);
   };
@@ -55,59 +66,81 @@ export const Pagination = ({ count, currentPage, onChange, siblingCount }: Pagin
     onPageKeyUp(currentPage + 1);
   };
 
-  return (
-    <TypographyProvider>
-      <StyledContainer>
-        <ul>
-          <li>
-            <StyledChevron
-              theme={theme}
-              disabled={currentPage === 1}
-              tabIndex={0}
-              onClick={onPrevious}
-              onKeyUp={onPreviousKeyUp}
-            >
-              <ChevronLeft size={IconSize.Medium} color={IconColor.Primary} />
-            </StyledChevron>
-          </li>
-          {paginationRange?.map((pageNr, idx) => {
-            const isCurrentPage = pageNr === currentPage;
-            if (pageNr === DOTS) {
-              return (
-                <li key={`${pageNr}${idx}`} tabIndex={-1}>
-                  <StyledDots theme={theme}>&#8230;</StyledDots>
-                </li>
-              );
-            }
+  const renderContent = () => {
+    if (isCompact) {
+      return (
+        <li>
+          <Text
+            textStyle={TextStyle.SmallDefault}
+            color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+          >{`${currentPage} of ${count}`}</Text>
+        </li>
+      );
+    }
+    return (
+      <>
+        {paginationRange.map((pageNr, idx) => {
+          const isCurrentPage = pageNr === currentPage;
+          if (pageNr === DOTS) {
             return (
-              <li key={pageNr}>
-                <Button
-                  style={ButtonStyle.Transparent}
-                  selected={isCurrentPage}
-                  onClick={() => onPageClick(Number(pageNr))}
-                  onKeyUp={() => onPageKeyUp(Number(pageNr))}
-                  aria-current={isCurrentPage}
-                  aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
-                  tabIndex={0}
-                  loading={false}
-                  text={pageNr}
-                />
+              <li key={`dots-${idx}`} tabIndex={-1}>
+                <StyledDots theme={theme} isWhite={isWhite}>
+                  &#8230;
+                </StyledDots>
               </li>
             );
-          })}
+          }
+          return (
+            <li key={pageNr}>
+              <Button
+                style={ButtonStyle.Transparent}
+                selected={isCurrentPage}
+                onClick={() => onPageClick(Number(pageNr))}
+                onKeyUp={() => onPageKeyUp(Number(pageNr))}
+                aria-current={isCurrentPage}
+                aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
+                tabIndex={0}
+                text={pageNr}
+                isWhite={isWhite}
+              />
+            </li>
+          );
+        })}
+      </>
+    );
+  };
+
+  return (
+    <StyledContainer data-testid={dataQaId} isWhite={isWhite} theme={theme}>
+      <TypographyProvider>
+        <ul>
           <li>
-            <StyledChevron
-              theme={theme}
-              disabled={lastPage === currentPage}
-              tabIndex={-1}
+            <Button
+              style={ButtonStyle.Transparent}
+              disabled={isFirstPage}
+              tabIndex={isFirstPage ? -1 : 0}
+              onClick={onPrevious}
+              onKeyUp={onPreviousKeyUp}
+              icon={IconName.ChevronLeft}
+              size={ButtonSize.Medium}
+              isWhite={isWhite}
+            />
+          </li>
+          {renderContent()}
+          <li>
+            <Button
+              style={ButtonStyle.Transparent}
+              disabled={isLastPage}
+              tabIndex={isLastPage ? -1 : 0}
               onClick={onNext}
               onKeyUp={onNextKeyUp}
-            >
-              <ChevronRight size={IconSize.Medium} color={IconColor.Primary} />
-            </StyledChevron>
+              icon={IconName.ChevronRight}
+              size={ButtonSize.Medium}
+              isWhite={isWhite}
+            />
           </li>
         </ul>
-      </StyledContainer>
-    </TypographyProvider>
+      </TypographyProvider>
+    </StyledContainer>
   );
 };

@@ -1,25 +1,63 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-console */
-/* eslint-disable react-hooks/rules-of-hooks */
-import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
+import {
+  StyledTooltip,
+  StyledTooltipPositionBottomCenter,
+  StyledTooltipPositionBottomLeft,
+  StyledTooltipPositionBottomRight,
+  StyledTooltipPositionLeft,
+  StyledTooltipPositionRight,
+  StyledTooltipPositionTopCenter,
+  StyledTooltipPositionTopLeft,
+  StyledTooltipPositionTopRight,
+  StyledTooltipWrapper
+} from './Tooltip.styled';
 import { TooltipPosition, TooltipProps, TooltipToggle } from './Tooltip.types';
 
-export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipProps) => {
+export const Tooltip = ({
+  position,
+  isOpen,
+  toggle,
+  anchor,
+  isDark = true,
+  dataQaId,
+  autoHideDuration = 5000,
+  onHideTooltip,
+  children
+}: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
+  const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
 
+  const [showTooltip, setShowTooltip] = useState(true);
+  const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
+  // Tooltip auto hide setup
+  let autoHideTimer: ReturnType<typeof setTimeout> | null = null;
+
+  const tooltipHoverRef = React.useRef<null | HTMLDivElement>(null);
+
+  // Width size anchor logic
   useEffect(() => {
     if (anchor) {
-      const box = document.getElementById(anchor);
+      const box = anchor.current;
       const width = box?.offsetWidth;
       const height = box?.offsetHeight;
+
       switch (position) {
-        case TooltipPosition.Top:
+        case TooltipPosition.TopCenter:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.TopLeft:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.TopRight:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
@@ -31,7 +69,19 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
             horizontal: width || 0
           });
           break;
-        case TooltipPosition.Bottom:
+        case TooltipPosition.BottomCenter:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.BottomLeft:
+          setAnchorOffset({
+            vertical: height || 0,
+            horizontal: width || 0
+          });
+          break;
+        case TooltipPosition.BottomRight:
           setAnchorOffset({
             vertical: height || 0,
             horizontal: width || 0
@@ -51,15 +101,103 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
     }
   }, [anchor]);
 
+  // Positioning logic
+  let StyledTooltipInner = StyledTooltip;
+
+  switch (position) {
+    case TooltipPosition.TopCenter:
+      StyledTooltipInner = StyledTooltipPositionTopCenter;
+      break;
+    case TooltipPosition.TopLeft:
+      StyledTooltipInner = StyledTooltipPositionTopLeft;
+      break;
+    case TooltipPosition.TopRight:
+      StyledTooltipInner = StyledTooltipPositionTopRight;
+      break;
+    case TooltipPosition.Right:
+      StyledTooltipInner = StyledTooltipPositionRight;
+      break;
+    case TooltipPosition.BottomCenter:
+      StyledTooltipInner = StyledTooltipPositionBottomCenter;
+      break;
+    case TooltipPosition.BottomLeft:
+      StyledTooltipInner = StyledTooltipPositionBottomLeft;
+      break;
+    case TooltipPosition.BottomRight:
+      StyledTooltipInner = StyledTooltipPositionBottomRight;
+      break;
+    case TooltipPosition.Left:
+      StyledTooltipInner = StyledTooltipPositionLeft;
+      break;
+    default:
+      StyledTooltipInner = StyledTooltip;
+      break;
+  }
+
+  // TooltipToggle.Events logic
+  const setAutoHideTimer = () => {
+    if (autoHideTimer != null) {
+      clearTimeout(autoHideTimer);
+    }
+    autoHideTimer = setTimeout(() => {
+      hideTooltip();
+    }, autoHideDuration) as unknown as ReturnType<typeof setTimeout>;
+  };
+
+  // set timeout on component mount
+  useEffect(() => {
+    setAutoHideTimer();
+
+    // initial state for tooltipToggle hover and click is hidden
+    if (toggle === TooltipToggle.Hover || toggle === TooltipToggle.Click) {
+      setShowTooltip(false);
+    }
+
+    return () => {
+      if (autoHideTimer) {
+        hideTooltip();
+        clearTimeout(autoHideTimer);
+      }
+    };
+  }, []);
+
+  const hideTooltip = () => {
+    if (toggle === TooltipToggle.Event) {
+      setShowTooltip(false);
+      if (onHideTooltip) {
+        onHideTooltip();
+      }
+
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+      }
+    }
+  };
+
+  // Tooltip events logic
   useEffect(() => {
     let returnFn;
 
-    const handleMouseEnter = () => {
+    const handleAnchorMouseEnter = () => {
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+      }
       setShowTooltip(true);
     };
 
-    const handleMouseOut = () => {
+    const handleAnchorMouseOut = () => {
       setShowTooltip(false);
+    };
+
+    const handleTooltipMouseEnter = () => {
+      if (autoHideTimer) {
+        clearTimeout(autoHideTimer);
+      }
+      setShowTooltip(true);
+    };
+
+    const handleTooltipMouseOut = () => {
+      setAutoHideTimer();
     };
 
     const handleTooltipToggle = () => {
@@ -67,23 +205,23 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
     };
 
     if (toggle === TooltipToggle.Hover) {
-      const hoverEl = anchor ? document.getElementById(anchor) : false;
+      const hoverEl = anchor ? anchor.current : false;
 
       if (hoverEl) {
-        hoverEl.addEventListener('mouseenter', handleMouseEnter);
-        hoverEl.addEventListener('mouseout', handleMouseOut);
+        hoverEl.addEventListener('mouseenter', handleAnchorMouseEnter);
+        hoverEl.addEventListener('mouseout', handleAnchorMouseOut);
       }
 
       returnFn = () => {
         if (hoverEl) {
-          hoverEl.removeEventListener('mouseenter', handleMouseEnter);
-          hoverEl.removeEventListener('mouseout', handleMouseOut);
+          hoverEl.removeEventListener('mouseenter', handleAnchorMouseEnter);
+          hoverEl.removeEventListener('mouseout', handleAnchorMouseOut);
         }
       };
     }
 
     if (toggle === TooltipToggle.Click) {
-      const hoverEl = anchor ? document.getElementById(anchor) : false;
+      const hoverEl = anchor ? anchor.current : false;
 
       if (hoverEl) {
         hoverEl.addEventListener('click', handleTooltipToggle);
@@ -97,22 +235,57 @@ export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipP
     }
 
     if (toggle === TooltipToggle.Persist) {
-      handleMouseEnter();
+      setShowTooltip(true);
     }
+
+    // Handle mouse events on tooltip
+    if (toggle === TooltipToggle.Event) {
+      const hoverTooltip = tooltipHoverRef ? tooltipHoverRef.current : false;
+
+      if (hoverTooltip) {
+        hoverTooltip.addEventListener('mouseenter', handleTooltipMouseEnter);
+        hoverTooltip.addEventListener('mouseleave', handleTooltipMouseOut);
+      }
+
+      returnFn = () => {
+        if (hoverTooltip) {
+          hoverTooltip.removeEventListener('mouseenter', handleTooltipMouseEnter);
+          hoverTooltip.removeEventListener('mouseleave', handleTooltipMouseOut);
+        }
+      };
+    }
+
     return returnFn;
   }, [anchor, toggle, showTooltip]);
 
+  const renderChildren = () => {
+    if (toggle === TooltipToggle.Event) {
+      return children;
+    }
+
+    return (
+      <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
+        {children}
+      </Text>
+    );
+  };
+
+  if (!showTooltip) {
+    return null;
+  }
+
   return (
     <TypographyProvider>
-      <StyledTooltipWrapper theme={theme}>
-        <StyledTooltip
+      <StyledTooltipWrapper theme={theme} ref={tooltipHoverRef} data-testid={`${dataQaId}`}>
+        <StyledTooltipInner
           position={position}
           anchorOffset={anchorOffset}
           open={isOpen === true ? isOpen : showTooltip}
           theme={theme}
+          isDark={isDark}
         >
-          <Text textStyle={TextStyle.MediumDefault}>{children}</Text>
-        </StyledTooltip>
+          {renderChildren()}
+        </StyledTooltipInner>
       </StyledTooltipWrapper>
     </TypographyProvider>
   );
