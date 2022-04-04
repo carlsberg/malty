@@ -1,6 +1,7 @@
 import { StyledIcon } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { DocsContext } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Icon as IconComponent } from './Icon';
 import { IconColor, IconName, IconProps, IconSize } from './Icon.types';
@@ -13,12 +14,23 @@ const StyledAllIconsWrapper = styled.div`
   }
 `;
 
+const convertToKebabCase = (string: string) =>
+  string
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/\s+/g, '-')
+    .toLowerCase();
+
 export default {
+<<<<<<< HEAD:malty/atoms/Icon/Icons.stories.tsx
+  title: 'Atoms/Icons',
+  component: Icon,
+=======
   title: 'Icons/All Icons',
   component: IconComponent,
+>>>>>>> maintenance/v1_0_13_to_main:malty/atoms/Icon/Icon.AllIcons.stories.tsx
   parameters: {
-    importObject: 'Icon',
-    importPath: '@carlsberggroup/malty.atoms.icon'
+    importObject: 'AddContent',
+    importPath: '@carlsberggroup/malty.atoms.icons.add-content'
   },
   argTypes: {
     name: {
@@ -57,7 +69,11 @@ export default {
       },
       table: {
         defaultValue: {
+<<<<<<< HEAD:malty/atoms/Icon/Icons.stories.tsx
+          summary: 'Medium'
+=======
           summary: 'IconSize.Medium'
+>>>>>>> maintenance/v1_0_13_to_main:malty/atoms/Icon/Icon.AllIcons.stories.tsx
         }
       },
       defaultValue: 'Medium'
@@ -73,7 +89,38 @@ export default {
   }
 } as Meta;
 
+<<<<<<< HEAD:malty/atoms/Icon/Icons.stories.tsx
+const Template: Story<IconInterface> = (args) => {
+  const context = React.useContext(DocsContext);
+  const [story] = useState(context.getStoryContext(context.storyById(context.id)));
+  const params = story.parameters;
+  const [path, setPath] = useState(story.args.name);
+  const [object, setObject] = useState(story.args.name);
+
+  useLayoutEffect(() => {
+    setPath(story.args.name);
+    setObject(`@carlsberggroup/malty.atoms.icons.${convertToKebabCase(story.args.name)}`);
+  }, [story, story.args, story.args.name]);
+
+  useLayoutEffect(() => {
+    params.importObject = path;
+    params.importPath = object;
+  }, [path, object]);
+
+  return <Icon {...args} />;
+};
+
+export const SingleIcon = Template.bind({});
+SingleIcon.parameters = {
+  color: Colors.Primary,
+  size: SizesTypes.Large,
+  name: NamesTypes.AddContent
+};
+
+const AllIconsTemplate: Story<IconInterface> = (args) => (
+=======
 const Template: Story<IconProps> = (args) => (
+>>>>>>> maintenance/v1_0_13_to_main:malty/atoms/Icon/Icon.AllIcons.stories.tsx
   <StyledAllIconsWrapper>
     {Object.values(IconName).map((name, index) => (
       <div title={name} key={index}>

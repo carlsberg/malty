@@ -3,8 +3,8 @@ import { DocsContext } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Icon } from './Icon';
-import { Colors, IconInterface, NamesTypes, SizesTypes } from './Icon.types';
+import { Icon as IconComponent } from './Icon';
+import { IconColor, IconName, IconProps, IconSize } from './Icon.types';
 
 const StyledAllIconsWrapper = styled.div`
   display: flex;
@@ -21,47 +21,62 @@ const convertToKebabCase = (string: string) =>
     .toLowerCase();
 
 export default {
+<<<<<<< HEAD:malty/atoms/Icon/Icons.stories.tsx
   title: 'Atoms/Icons',
   component: Icon,
+=======
+  title: 'Icons/All Icons',
+  component: IconComponent,
+>>>>>>> maintenance/v1_0_13_to_main:malty/atoms/Icon/Icon.AllIcons.stories.tsx
   parameters: {
     importObject: 'AddContent',
     importPath: '@carlsberggroup/malty.atoms.icons.add-content'
   },
   argTypes: {
     name: {
-      options: Object.values(NamesTypes),
       description:
         'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
-      defaultValue: NamesTypes.AddContent,
+      options: Object.keys(IconName),
+      mapping: IconName,
       control: {
-        type: 'select'
-      }
+        disable: true,
+        label: Object.values(IconName)
+      },
+      defaultValue: 'CarlsbergFilled'
     },
     color: {
-      options: Object.values(Colors),
       description: 'Icon color, options are',
-      defaultValue: Colors.Primary,
+      options: Object.keys(IconColor),
+      mapping: IconColor,
+      control: {
+        type: 'radio',
+        label: Object.values(IconColor)
+      },
       table: {
         defaultValue: {
-          summary: 'Primary'
+          summary: 'IconColor.Primary'
         }
       },
-      control: {
-        type: 'radio'
-      }
+      defaultValue: 'Primary'
     },
     size: {
-      options: Object.values(SizesTypes),
-      defaultValue: SizesTypes.Medium,
       description: 'Icon size, options are',
+      options: Object.keys(IconSize),
+      mapping: IconSize,
+      control: {
+        type: 'radio',
+        label: Object.values(IconSize)
+      },
       table: {
         defaultValue: {
+<<<<<<< HEAD:malty/atoms/Icon/Icons.stories.tsx
           summary: 'Medium'
+=======
+          summary: 'IconSize.Medium'
+>>>>>>> maintenance/v1_0_13_to_main:malty/atoms/Icon/Icon.AllIcons.stories.tsx
         }
       },
-      control: {
-        type: 'radio'
-      }
+      defaultValue: 'Medium'
     },
     viewBox: {
       table: {
@@ -74,6 +89,7 @@ export default {
   }
 } as Meta;
 
+<<<<<<< HEAD:malty/atoms/Icon/Icons.stories.tsx
 const Template: Story<IconInterface> = (args) => {
   const context = React.useContext(DocsContext);
   const [story] = useState(context.getStoryContext(context.storyById(context.id)));
@@ -102,17 +118,16 @@ SingleIcon.parameters = {
 };
 
 const AllIconsTemplate: Story<IconInterface> = (args) => (
+=======
+const Template: Story<IconProps> = (args) => (
+>>>>>>> maintenance/v1_0_13_to_main:malty/atoms/Icon/Icon.AllIcons.stories.tsx
   <StyledAllIconsWrapper>
-    {Object.values(NamesTypes).map((name, index) => (
+    {Object.values(IconName).map((name, index) => (
       <div title={name} key={index}>
-        <Icon {...args} name={name} />
+        <IconComponent {...args} name={name} />
       </div>
     ))}
   </StyledAllIconsWrapper>
 );
 
-export const AllIcons = AllIconsTemplate.bind({});
-AllIcons.parameters = {
-  color: Colors.Primary,
-  size: SizesTypes.Large
-};
+export const AllIcons = Template.bind({});
