@@ -13,18 +13,12 @@ const StyledAllIconsWrapper = styled.div`
   }
 `;
 
-const convertToKebabCase = (string: string) =>
-  string
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/\s+/g, '-')
-    .toLowerCase();
-
 export default {
   title: 'Icons/All Icons',
   component: IconComponent,
   parameters: {
-    importObject: 'AddContent',
-    importPath: '@carlsberggroup/malty.atoms.icons.add-content'
+    importObject: 'Icon',
+    importPath: '@carlsberggroup/malty.atoms.icon'
   },
   argTypes: {
     name: {
