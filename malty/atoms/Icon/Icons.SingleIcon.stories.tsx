@@ -23,7 +23,7 @@ export default {
   component: Icon,
   parameters: {
     importObject: 'CarlsbergFilled',
-    importPath: '@carlsberggroup/malty.atoms.icons.add-content',
+    importPath: '@carlsberggroup/malty.icons.add-content',
     variants: Object.keys(IconName)
   },
   argTypes: {
@@ -89,9 +89,7 @@ const Template: Story<IconProps> = (args) => {
   const [story] = useState(context.getStoryContext(context.storyById(context.id)));
   const params = story.parameters;
   const [object, setObject] = useState(args.name);
-  const [path, setPath] = useState(
-    `@carlsberggroup/malty.atoms.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`
-  );
+  const [path, setPath] = useState(`@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
 
   useLayoutEffect(() => {
     params.importObject = object;
@@ -100,13 +98,13 @@ const Template: Story<IconProps> = (args) => {
 
   useEffect(() => {
     setObject(args.name);
-    setPath(`@carlsberggroup/malty.atoms.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
+    setPath(`@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
   }, [args.name]);
 
   useEffect(() => {
     const name: string = args.name || 'CarlsbergFilled';
     params.importObject = name;
-    params.importPath = `@carlsberggroup/malty.atoms.icons.${convertToKebabCase(name)}`;
+    params.importPath = `@carlsberggroup/malty.icons.${convertToKebabCase(name)}`;
   }, [args.name]);
 
   return <Icon name={getValueByKeyForStringEnum(args.name || 'CarlsbergFilled')} color={args.color} size={args.size} />;
