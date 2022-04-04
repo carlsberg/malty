@@ -49,7 +49,7 @@ export const StyledInputWrapper = styled.div<{
         if (addRight) right += 32;
         if (!isIconLeft && addRight) right += 8;
         return css`
-          ${clearable || addRight ? `right: ${right}` : ''}
+          ${clearable || addRight ? `right: ${right}px` : ''}
         `;
       }}
     }
