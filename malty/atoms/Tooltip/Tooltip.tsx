@@ -1,5 +1,5 @@
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -66,18 +66,15 @@ const Tooltip: TooltipType = ({
   const anchorOffset = { vertical: height || 0, horizontal: width || 0 };
 
   return (
-    <TypographyProvider>
-      <StyledTooltipWrapper
-        theme={theme}
-        onMouseEnter={handleTooltipMouseEnter}
-        onMouseLeave={handleTooltipMouseOut}
-        data-testid={dataTestId}
-      >
-        <StyledTooltipInner position={position} anchorOffset={anchorOffset} theme={theme} isDark={isDark}>
-          {renderChildren()}
-        </StyledTooltipInner>
-      </StyledTooltipWrapper>
-    </TypographyProvider>
+    <StyledTooltipWrapper
+      onMouseEnter={handleTooltipMouseEnter}
+      onMouseLeave={handleTooltipMouseOut}
+      data-testid={dataTestId}
+    >
+      <StyledTooltipInner position={position} anchorOffset={anchorOffset} theme={theme} isDark={isDark}>
+        {renderChildren()}
+      </StyledTooltipInner>
+    </StyledTooltipWrapper>
   );
 };
 
