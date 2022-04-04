@@ -5,6 +5,7 @@ export interface TooltipProps {
   isDark?: boolean;
   dataTestId?: string;
   autoHideDuration?: number;
+  onClose?: () => void;
   children: string | JSX.Element;
 }
 
@@ -20,7 +21,7 @@ export type UseTooltipProps = {
   toggleType: TooltipToggle;
   anchorRef: React.RefObject<HTMLElement>;
   autoHideDuration?: number;
-  onHideTooltip?: () => void;
+  onClose?: () => void;
 };
 
 export enum TooltipPosition {

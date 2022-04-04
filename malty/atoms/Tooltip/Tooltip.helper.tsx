@@ -11,7 +11,7 @@ import {
 } from './Tooltip.styled';
 import { TooltipPosition, TooltipToggle, UseTooltipProps } from './Tooltip.types';
 
-export const useToolTip = ({ anchorRef, autoHideDuration, toggleType }: UseTooltipProps) => {
+export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, onClose }: UseTooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const autoHideTimer = useRef<number | null>(null);
 
@@ -24,6 +24,9 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType }: UseToolt
   const setTooltipOpen = (open: boolean) => {
     clearAutoHideTimer();
     setIsOpen(open);
+    if (!open) {
+      onClose?.();
+    }
   };
 
   // TooltipToggle.Events logic
@@ -32,6 +35,7 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType }: UseToolt
       setTooltipOpen(true);
       autoHideTimer.current = setTimeout(() => {
         setIsOpen(false);
+        onClose?.();
       }, autoHideDuration);
     }
   };

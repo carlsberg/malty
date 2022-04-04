@@ -19,13 +19,15 @@ const Tooltip: TooltipType = ({
   isDark = true,
   dataTestId,
   autoHideDuration = 5000,
+  onClose,
   children
 }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const { isOpen, startAutoHideTimer, setTooltipOpen } = useToolTip({
     autoHideDuration,
     toggleType: toggle,
-    anchorRef
+    anchorRef,
+    onClose
   });
 
   if (!isOpen) {
