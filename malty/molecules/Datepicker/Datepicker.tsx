@@ -15,7 +15,8 @@ export const Datepicker = ({
   minDate,
   maxDate,
   disabled,
-  excludeDates
+  excludeDates,
+  ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -59,6 +60,8 @@ export const Datepicker = ({
           minDate={minDate}
           maxDate={maxDate}
           excludeDates={excludeDates}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...props}
         />
       </StyledDatepicker>
     </TypographyProvider>
