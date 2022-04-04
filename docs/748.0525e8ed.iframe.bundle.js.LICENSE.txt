@@ -5,18 +5,23 @@ object-assign
 */
 
 /*!
- * Fuse.js v3.6.1 - Lightweight fuzzy-search (http://fusejs.io)
- * 
- * Copyright (c) 2012-2017 Kirollos Risk (http://kiro.me)
- * All Rights Reserved. Apache Software License 2.0
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
  */
 
 /*!
  * https://github.com/es-shims/es5-shim
  * @license es5-shim Copyright 2009-2020 by contributors, MIT License
  * see https://github.com/es-shims/es5-shim/blob/master/LICENSE
+ */
+
+/*!
+ * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
  */
 
 /*!
@@ -27,11 +32,7 @@ object-assign
  */
 
 /**
-<<<<<<< HEAD:docs/630.dd353dafbf15fb09d170.manager.bundle.js.LICENSE.txt
  * React Router DOM v6.2.2
-=======
- * React Router DOM v6.3.0
->>>>>>> maintenance/v1_0_13_to_main:docs/168.a4f06329ebd904e3530d.manager.bundle.js.LICENSE.txt
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -42,11 +43,7 @@ object-assign
  */
 
 /**
-<<<<<<< HEAD:docs/630.dd353dafbf15fb09d170.manager.bundle.js.LICENSE.txt
  * React Router v6.2.2
-=======
- * React Router v6.3.0
->>>>>>> maintenance/v1_0_13_to_main:docs/168.a4f06329ebd904e3530d.manager.bundle.js.LICENSE.txt
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -93,6 +90,15 @@ object-assign
  */
 
 /** @license React v17.0.2
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v17.0.2
  * react.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -100,3 +106,7 @@ object-assign
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+//! stable.js 0.1.8, https://github.com/Two-Screen/stable
+
+//! © 2018 Angry Bytes and contributors. MIT licensed.
