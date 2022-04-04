@@ -45,7 +45,7 @@ export const Select = ({
   };
 
   const handleOptionSelected = (option: SelectOptionsType) => {
-    const auxSelected = JSON.parse(JSON.stringify(selectedValueState));
+    let auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     // eslint-disable-next-line no-restricted-globals
     event?.preventDefault();
     if (!multiple) {
@@ -54,10 +54,15 @@ export const Select = ({
     if (checkIfSelected(option)) {
       if (multiple) {
         removeSelectedOption(option);
+      } else {
+        auxSelected = [];
+
+        auxSelected.push(option);
+        update(auxSelected);
       }
     } else {
       if (!multiple) {
-        auxSelected.pop();
+        auxSelected = [];
       }
       auxSelected.push(option);
       update(auxSelected);
