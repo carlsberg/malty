@@ -8,7 +8,7 @@ export default {
   component: DatepickerComponent,
   parameters: {
     importObject: 'Datepicker',
-    importPath: '@carlsberggroup/malty.atoms.datepicker'
+    importPath: '@carlsberggroup/malty.molecules.datepicker'
   },
   argTypes: {
     label: {

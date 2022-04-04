@@ -31,7 +31,7 @@
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "malty/atoms/Datepicker"
+        "rootDir": "malty/molecules/Datepicker"
     },
     "atoms/headline": {
         "scope": "carlsberggroup.malty",
