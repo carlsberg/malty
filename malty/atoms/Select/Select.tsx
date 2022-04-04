@@ -45,8 +45,7 @@ export const Select = ({
   };
 
   const handleOptionSelected = (option: SelectOptionsType) => {
-    // eslint-disable-next-line no-restricted-globals
-    onValueChange(option);
+    const auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     // eslint-disable-next-line no-restricted-globals
     event?.preventDefault();
     if (!multiple) {
@@ -58,9 +57,10 @@ export const Select = ({
       }
     } else {
       if (!multiple) {
-        selectedValueState.pop();
+        auxSelected.pop();
       }
-      setSelectedValueState((prev) => [...prev, option]);
+      auxSelected.push(option);
+      update(auxSelected);
     }
   };
 
@@ -76,6 +76,7 @@ export const Select = ({
 
   const update = (auxSelected: SelectOptionsType[]) => {
     setSelectedValueState(auxSelected);
+    onValueChange(auxSelected);
   };
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains((event.target as Node) || null)) {
