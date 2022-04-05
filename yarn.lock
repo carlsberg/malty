@@ -3571,19 +3571,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^7.28.1":
-  version: 7.31.2
-  resolution: "@testing-library/dom@npm:7.31.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40testing-library%2Fdom%2F-%2Fdom-7.31.2.tgz"
+"@testing-library/dom@npm:^8.0.0":
+  version: 8.12.0
+  resolution: "@testing-library/dom@npm:8.12.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40testing-library%2Fdom%2F-%2Fdom-8.12.0.tgz"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/runtime": ^7.12.5
     "@types/aria-query": ^4.2.0
-    aria-query: ^4.2.2
+    aria-query: ^5.0.0
     chalk: ^4.1.0
-    dom-accessibility-api: ^0.5.6
+    dom-accessibility-api: ^0.5.9
     lz-string: ^1.4.4
-    pretty-format: ^26.6.2
-  checksum: 54fbedd1ecdfe1d47be2e592b98d18b2ab9d7e731f57231caf9b152593fe7329fe5ebe219e0e5d1e0df5b1ab803121cb8acd8b73bd1fb292bfdc2c55663eb01d
+    pretty-format: ^27.0.2
+  checksum: 2bbf5fa5c1e883571c440ccee76c0568fa5153b43c097456dd7146797256687352bfca9db574e0e78a022ce14722a6acaaba5f680ee16b95e12405501713d34d
   languageName: node
   linkType: hard
 
@@ -3604,27 +3604,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^11.2.7":
-  version: 11.2.7
-  resolution: "@testing-library/react@npm:11.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40testing-library%2Freact%2F-%2Freact-11.2.7.tgz"
+"@testing-library/react@npm:^12.1.4":
+  version: 12.1.4
+  resolution: "@testing-library/react@npm:12.1.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40testing-library%2Freact%2F-%2Freact-12.1.4.tgz"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@testing-library/dom": ^7.28.1
+    "@testing-library/dom": ^8.0.0
+    "@types/react-dom": "*"
   peerDependencies:
     react: "*"
     react-dom: "*"
-  checksum: 64e07cb96e40dbdbd3c46a09c47bed14446b30efafaa65a5d4fed5a7553878990cda108578f2b114422a775f31c635d51fd50b752f6163ddd6b8474e0e5fc2ce
+  checksum: 944c5f8d4abb22c0650c25c7ae499651828c37c0e741ff67a4635d4cd99b307d486dabec05b372aba638bd359d29cd2af97393b5055ea294a201d80b4bc384b8
   languageName: node
   linkType: hard
 
-"@testing-library/user-event@npm:^13.1.9":
-  version: 13.5.0
-  resolution: "@testing-library/user-event@npm:13.5.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40testing-library%2Fuser-event%2F-%2Fuser-event-13.5.0.tgz"
-  dependencies:
-    "@babel/runtime": ^7.12.5
+"@testing-library/user-event@npm:^14.0.4":
+  version: 14.0.4
+  resolution: "@testing-library/user-event@npm:14.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40testing-library%2Fuser-event%2F-%2Fuser-event-14.0.4.tgz"
   peerDependencies:
     "@testing-library/dom": ">=7.21.4"
-  checksum: 16319de685fbb7008f1ba667928f458b2d08196918002daca56996de80ef35e6d9de26e9e1ece7d00a004692b95a597cf9142fff0dc53f2f51606a776584f549
+  checksum: 7a99309acfd22e5173543546548ad2fe8b53466294607fdc9300e914d320f86b1631a45f2e5a695750c1067272d7b57ed541e7e3645fe1fff4de285ecdf76521
   languageName: node
   linkType: hard
 
@@ -4066,7 +4065,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.5":
+"@types/react-dom@npm:*, @types/react-dom@npm:^17.0.5":
   version: 17.0.14
   resolution: "@types/react-dom@npm:17.0.14::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Freact-dom%2F-%2Freact-dom-17.0.14.tgz"
   dependencies:
@@ -4307,7 +4306,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:4.33.0, @typescript-eslint/experimental-utils@npm:^4.30.0":
+"@typescript-eslint/experimental-utils@npm:4.33.0":
   version: 4.33.0
   resolution: "@typescript-eslint/experimental-utils@npm:4.33.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40typescript-eslint%2Fexperimental-utils%2F-%2Fexperimental-utils-4.33.0.tgz"
   dependencies:
@@ -4421,7 +4420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.18.0, @typescript-eslint/utils@npm:^5.10.0":
+"@typescript-eslint/utils@npm:5.18.0, @typescript-eslint/utils@npm:^5.10.0, @typescript-eslint/utils@npm:^5.13.0":
   version: 5.18.0
   resolution: "@typescript-eslint/utils@npm:5.18.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40typescript-eslint%2Futils%2F-%2Futils-5.18.0.tgz"
   dependencies:
@@ -9039,8 +9038,8 @@ __metadata:
     "@storybook/react": ^6.4.0
     "@storybook/theming": ^6.4.9
     "@testing-library/jest-dom": ^5.16.2
-    "@testing-library/react": ^11.2.7
-    "@testing-library/user-event": ^13.1.9
+    "@testing-library/react": ^12.1.4
+    "@testing-library/user-event": ^14.0.4
     "@types/babel__core": ^7.1.14
     "@types/jest": ^26.0.0
     "@types/node": 12.20.4
@@ -9068,7 +9067,7 @@ __metadata:
     eslint-plugin-prettier: ^3.4.0
     eslint-plugin-react: ^7.23.2
     eslint-plugin-react-hooks: ^4.2.0
-    eslint-plugin-testing-library: ^4.6.0
+    eslint-plugin-testing-library: ^5.2.1
     html-webpack-plugin: ^5.3.1
     jest: ^27.5.1
     prettier: ^2.2.1
@@ -10410,7 +10409,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dom-accessibility-api@npm:^0.5.6":
+"dom-accessibility-api@npm:^0.5.6, dom-accessibility-api@npm:^0.5.9":
   version: 0.5.13
   resolution: "dom-accessibility-api@npm:0.5.13::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fdom-accessibility-api%2F-%2Fdom-accessibility-api-0.5.13.tgz"
   checksum: a5a5f14c01e466d424750aaac9225f1dc43cf16d101a1c40e01a554abce63c48084707002c39b805f2ce212273c179dd6d2258175997cd06d5f79851bf52dd40
@@ -11083,14 +11082,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-testing-library@npm:^4.6.0":
-  version: 4.12.4
-  resolution: "eslint-plugin-testing-library@npm:4.12.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Feslint-plugin-testing-library%2F-%2Feslint-plugin-testing-library-4.12.4.tgz"
+"eslint-plugin-testing-library@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "eslint-plugin-testing-library@npm:5.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Feslint-plugin-testing-library%2F-%2Feslint-plugin-testing-library-5.2.1.tgz"
   dependencies:
-    "@typescript-eslint/experimental-utils": ^4.30.0
+    "@typescript-eslint/utils": ^5.13.0
   peerDependencies:
-    eslint: ^7.5.0
-  checksum: 8b4c65b22dd3c2bdcd51db590b0c931b9ae8f6a23b4008047e78fa3b9dde30bfc58e3539a9788a07183d23cbf40ec49f892af9ba0fc4f0d850c0eb81560627b7
+    eslint: ^7.5.0 || ^8.0.0
+  checksum: dc433a0e0033572463a859bdfb8e375885e81757b16c0d2b77a5f2cb231651962cfcaba0e1076edb4af95689aaf9fa029454c9dde3e28b6d46a4234561305b9c
   languageName: node
   linkType: hard
 
@@ -16623,7 +16622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.0.0, pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.0, pretty-format@npm:^27.0.2, pretty-format@npm:^27.5.1":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpretty-format%2F-%2Fpretty-format-27.5.1.tgz"
   dependencies:
