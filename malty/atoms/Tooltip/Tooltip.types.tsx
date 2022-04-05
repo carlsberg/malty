@@ -1,6 +1,7 @@
 export interface TooltipProps {
+  isOpen?: boolean;
   position: TooltipPosition;
-  toggle: TooltipToggle;
+  toggle?: TooltipToggle;
   anchorRef: React.RefObject<HTMLElement>;
   isDark?: boolean;
   dataTestId?: string;
@@ -18,6 +19,7 @@ export type TooltipStaticProps = {
 export type TooltipType = React.FC<TooltipProps> & TooltipStaticProps;
 
 export type UseTooltipProps = {
+  isOpenProp?: boolean;
   toggleType: TooltipToggle;
   anchorRef: React.RefObject<HTMLElement>;
   autoHideDuration?: number;

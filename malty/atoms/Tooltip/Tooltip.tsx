@@ -14,16 +14,18 @@ import { TooltipProps, TooltipToggle, TooltipType } from './Tooltip.types';
 
 const Tooltip: TooltipType = ({
   position,
-  toggle,
+  toggle = TooltipToggle.Hover,
   anchorRef,
   isDark = true,
   dataTestId,
   autoHideDuration = 5000,
   onClose,
+  isOpen: isOpenProp,
   children
 }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const { isOpen, startAutoHideTimer, setTooltipOpen } = useToolTip({
+    isOpenProp,
     autoHideDuration,
     toggleType: toggle,
     anchorRef,

@@ -11,7 +11,7 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 40vh;
+  height: 200px;
 
   span {
     width: 0;
@@ -32,6 +32,11 @@ export default {
     variants: ['dark', 'light']
   },
   argTypes: {
+    isOpen: {
+      description: 'Tooltip visibility. Overrides all variants actions that toggle visibility',
+      control: 'boolean',
+      table: { defaultValue: { summary: 'undefined' } }
+    },
     position: {
       description: 'Tooltip position.',
       options: Object.keys(TooltipPosition),
@@ -63,17 +68,12 @@ export default {
       description: 'Expected Tooltip behaviour for trigger.',
       options: Object.keys(TooltipToggle),
       mapping: TooltipToggle,
-      table: { defaultValue: { summary: 'TooltipToggle.Persist' } },
+      table: { defaultValue: { summary: 'TooltipToggle.Hover' } },
       control: {
         type: 'select',
         label: Object.values(TooltipToggle)
       },
-      defaultValue: 'Persist'
-    },
-    isOpen: {
-      table: {
-        disable: true
-      }
+      defaultValue: 'Hover'
     },
     isDark: {
       description: 'Dark theme for the Tooltip.',
@@ -90,7 +90,7 @@ export default {
       description: 'Set auto hide duration - available only for `Event` toggle',
       table: { defaultValue: { summary: '5000' } }
     },
-    onHideTooltip: {
+    onClose: {
       description: 'Function to be executed when tooltip state is changed to hidden.'
     }
   }
@@ -102,6 +102,7 @@ const Template: Story<TooltipProps> = ({
   isDark,
   dataTestId,
   autoHideDuration,
+  isOpen,
   children
 }: TooltipProps) => {
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
@@ -141,6 +142,7 @@ const Template: Story<TooltipProps> = ({
         </p>
       )}
       <TooltipComponent
+        isOpen={isOpen}
         position={position}
         toggle={toggle}
         isDark={isDark}

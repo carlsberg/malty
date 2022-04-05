@@ -11,9 +11,11 @@ import {
 } from './Tooltip.styled';
 import { TooltipPosition, TooltipToggle, UseTooltipProps } from './Tooltip.types';
 
-export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, onClose }: UseTooltipProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const autoHideTimer = useRef<number | null>(null);
+export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp, onClose }: UseTooltipProps) => {
+  const [isOpen, setIsOpen] = useState(!!isOpenProp);
+  // const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  const autoHideTimer = useRef<number | NodeJS.Timeout | null>(null);
 
   const clearAutoHideTimer = () => {
     if (typeof autoHideTimer?.current === 'number') {
@@ -22,16 +24,18 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, onClose }:
   };
 
   const setTooltipOpen = (open: boolean) => {
-    clearAutoHideTimer();
-    setIsOpen(open);
-    if (!open) {
-      onClose?.();
+    if (typeof isOpenProp !== 'boolean') {
+      clearAutoHideTimer();
+      setIsOpen(open);
+      if (!open) {
+        onClose?.();
+      }
     }
   };
 
   // TooltipToggle.Events logic
   const startAutoHideTimer = () => {
-    if (toggleType === TooltipToggle.Event) {
+    if (toggleType === TooltipToggle.Event && typeof isOpenProp !== 'boolean') {
       setTooltipOpen(true);
       autoHideTimer.current = setTimeout(() => {
         setIsOpen(false);
@@ -113,6 +117,20 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, onClose }:
 
     return () => null;
   }, [anchorRef, toggleType, isOpen]);
+
+  // forceUpdate when ref changes since it is a mutation
+  // so we can have updated tooltip position offset
+  // useEffect(() => {
+  //   if (anchorRef.current) {
+  //     forceUpdate();
+  //   }
+  // }, [anchorRef.current]);
+
+  useEffect(() => {
+    if (typeof isOpenProp === 'boolean' && isOpenProp !== isOpen) {
+      setIsOpen(isOpenProp);
+    }
+  }, [isOpenProp]);
 
   return {
     isOpen,

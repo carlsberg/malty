@@ -42,8 +42,6 @@ describe('Tooltip', () => {
         </Tooltip>
       </div>
     );
-    fireEvent.click(screen.getByText('Tooltip Anchor'));
-    expect(anchorAction).toHaveBeenCalled();
     expect(view).toMatchSnapshot();
   });
 
