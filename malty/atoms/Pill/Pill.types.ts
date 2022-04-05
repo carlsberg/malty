@@ -17,7 +17,7 @@ export enum PillSize {
 export enum PillColor {
   Primary = 'primary',
   Secondary = 'secondary',
-  Support40 = 'support40',
+  Archive = 'support40',
   Success = 'success',
   alertStrong = 'alert-strong',
   Fail = 'fail',
