@@ -7,7 +7,7 @@ export interface TooltipProps {
   dataTestId?: string;
   autoHideDuration?: number;
   onClose?: () => void;
-  children: string | JSX.Element;
+  children: React.ReactNode;
 }
 
 export type TooltipStaticProps = {
