@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
 import {
   StyledTooltipPositionBottomCenter,
   StyledTooltipPositionBottomLeft,
@@ -13,7 +13,7 @@ import { TooltipPosition, TooltipToggle, UseTooltipProps } from './Tooltip.types
 
 export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp, onClose }: UseTooltipProps) => {
   const [isOpen, setIsOpen] = useState(!!isOpenProp);
-  // const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+  const [_, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const autoHideTimer = useRef<number | NodeJS.Timeout | null>(null);
 
@@ -120,11 +120,11 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
 
   // forceUpdate when ref changes since it is a mutation
   // so we can have updated tooltip position offset
-  // useEffect(() => {
-  //   if (anchorRef.current) {
-  //     forceUpdate();
-  //   }
-  // }, [anchorRef.current]);
+  useEffect(() => {
+    if (anchorRef.current) {
+      forceUpdate();
+    }
+  }, [anchorRef.current]);
 
   useEffect(() => {
     if (typeof isOpenProp === 'boolean' && isOpenProp !== isOpen) {
