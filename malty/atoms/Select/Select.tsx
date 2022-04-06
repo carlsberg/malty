@@ -20,7 +20,7 @@ import {
 import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
 
 export const Select = ({
-  defaultValue,
+  defaultValue = [],
   onValueChange,
   options,
   placeholder,
@@ -38,7 +38,7 @@ export const Select = ({
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
   const [showOptionList, setShowOptionList] = useState(false);
-  const [selectedValueState, setSelectedValueState] = useState(defaultValue || []);
+  const [selectedValueState, setSelectedValueState] = useState(defaultValue);
   const ref = createRef<HTMLDivElement>();
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
@@ -109,6 +109,9 @@ export const Select = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+  useEffect(() => {
+    setSelectedValueState(defaultValue);
+  }, [defaultValue]);
 
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
