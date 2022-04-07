@@ -25,14 +25,12 @@ export const StyledTooltip = styled.div<{
     vertical: number;
     horizontal: number;
   };
-  open?: boolean;
   isDark: boolean;
 }>`
   font-family: inherit;
   background-color: ${({ isDark, theme }) =>
     isDark ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
   position: absolute;
-  display: ${({ open }) => (open ? 'block' : 'none')};
   padding: ${({ theme }) => `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`};
   min-width: ${({ theme }) => theme.sizes['4xl'].value};
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
