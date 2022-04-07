@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const StyledWrapper = styled.div`
+  position: relative;
+  & label {
+    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
+    font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
+    display: block;
+    margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+`;
+
 export const StyledDatepicker = styled.div`
   position: relative;
   & .react-datepicker-popper {
@@ -7,31 +20,13 @@ export const StyledDatepicker = styled.div`
     max-width: 544px;
     min-width: 304px;
   }
-`;
-
-export const StyledInput = styled.div<{
-  disabled?: boolean;
-}>`
-
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  & label {
-    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
-    font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
-    display: block;
-    margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
-    &:first-letter {
-        text-transform: capitalize;
-    }
-  }
-  & button {
+  & .datepickerInput {
     position: relative;
     padding: 0;
     font: inherit;
     color: inherit;
     background-color: transparent;
-    cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
+    cursor: pointer;
     height: ${({ theme }) => theme.sizes['2xl'].value};
     width: 100%;
     min-width: 150px;
@@ -39,18 +34,30 @@ export const StyledInput = styled.div<{
     text-align: left;
     padding: 0 ${({ theme }) => theme.sizes.s.value};
     border-width: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}`};
-    border-style:  ${({ theme }) => `${theme.borders['border-1px--solid']['border-style'].value}`};
-    border-color: ${({ disabled, theme }) =>
-      `${disabled ? theme.colors.colours.support['40'].value : theme.colors.colours.default['digital-black'].value}`};
+    border-style: ${({ theme }) => `${theme.borders['border-1px--solid']['border-style'].value}`};
+    border-color: ${({ theme }) => `${theme.colors.colours.default['digital-black'].value}`};
     font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+    outline: none;
+    &:disabled {
+      cursor: 'default';
+      border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      color: ${({ theme }) => `${theme.colors.colours.support[60].value}`};
+    }
+    &::placeholder {
+      color: ${({ theme }) => `${theme.colors.colours.support[60].value}`};
+    }
   }
-  & svg {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: ${({ theme }) => theme.sizes.s.value};
-  }
-}
+`;
+
+export const StyledInputIcon = styled.span`
+  display: inline-block;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 14px;
+  position: absolute;
+  z-index: 1;
+  ${({ theme }) => theme.sizes.xs.value};
 `;
 
 export const StyledContainer = styled.div`
@@ -101,6 +108,7 @@ export const StyledCalendar = styled.div`
   }
   & .react-datepicker__month-container {
       width 100%;
+      overflow: hidden;
   }
   & .react-datepicker__month {
     padding: 0  ${({ theme }) => theme.sizes.xs.value};
@@ -112,6 +120,7 @@ export const StyledCalendar = styled.div`
       white-space: nowrap;
   }
   & .react-datepicker__day {
+      position: relative;
       text-align: center;
       cursor: pointer;
       width: ${({ theme }) => theme.sizes.l.value};
@@ -134,13 +143,46 @@ export const StyledCalendar = styled.div`
         background-color: inherit;
       }
   }
-  & .react-datepicker__day--selected {
+  & .react-datepicker__day--in-range {
+    position: relative;
+    background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+  }
+  & .react-datepicker__day--selected, 
+  & .react-datepicker__day--range-end {
     background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     color: ${({ theme }) => theme.colors.colours.default.white.value};
     &:hover {
       background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     }
-}
+  }
+  & .react-datepicker__day--in-selecting-range:not(.react-datepicker__day--selected) {
+    background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
+  }
+  & .react-datepicker__day--in-selecting-range ~ .react-datepicker__day--in-selecting-range,  
+  & .react-datepicker__day--in-selecting-range:first-of-type,
+  & .react-datepicker__day--in-range:not(.react-datepicker__day--range-start) {
+    &::before {
+      width: 130%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      z-index: -1;
+      right: 50%;
+    }
+  }
+  & .react-datepicker__day--in-selecting-range,
+  & .react-datepicker__day--in-range:not(.react-datepicker__day--range-end) {
+    &::after{
+      width: 130%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      z-index: -1;
+      left: 50%;
+    }
+  }
   & .react-datepicker__navigation {
     width: ${({ theme }) => theme.sizes.l.value};
     height: ${({ theme }) => theme.sizes.l.value};
@@ -199,5 +241,5 @@ export const StyledCalendar = styled.div`
       transform: rotate(45deg);
       left: ${({ theme }) => `-${theme.sizes.xs.value}`};
     }
-  }
+}
 `;

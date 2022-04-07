@@ -7,4 +7,9 @@ export interface DatepickerProps {
   maxDate?: Date;
   disabled?: boolean;
   excludeDates?: Date[];
+  placeholderText?: string;
+  selectsRange?: boolean;
+  endDate?: Date | null;
+  inline?: boolean;
+  dateFormat?: string;
 }

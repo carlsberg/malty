@@ -2,56 +2,63 @@
 
 exports[`datepicker matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL iuuuBw"
+  className="sc-bczRLJ qaxFj"
 >
   <div
-    className="sc-dkPtRN hsXNXs"
+    className="sc-dkzDqf fmgSgo"
   >
-    <div
-      className="react-datepicker-wrapper"
+    <label
+      htmlFor="datepicker-input"
     >
+      Select date
+    </label>
+    <div
+      className="sc-hKMtZM euCzDg"
+    >
+      <span
+        className="sc-eCYdqJ hsrJxu"
+      >
+        <svg
+          className="sc-gsnTZi ivMBgY"
+          color="digital-black"
+          data-testid="svg-component"
+          size="24px"
+          version="1.1"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fillRule="evenodd"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M17 1a1 1 0 01.993.883L18 2v1h2a3 3 0 012.995 2.824L23 6v13a3 3 0 01-3 3H4a3 3 0 01-3-3V6a3 3 0 013-3h2V2a1 1 0 011.993-.117L8 2v1h8V2a1 1 0 011-1zm4 9H3v9a1 1 0 00.883.993L4 20h16a1 1 0 001-1zM9 16a1 1 0 010 2H7a1 1 0 010-2zm8 0a1 1 0 010 2h-2a1 1 0 010-2zm-8-4a1 1 0 010 2H7a1 1 0 010-2zm8 0a1 1 0 010 2h-2a1 1 0 010-2zM6 5H4a1 1 0 00-1 1v2h18V6a1 1 0 00-.883-.993L20 5h-2v1a1 1 0 01-1.993.117L16 6V5H8v1a1 1 0 01-1.993.117L6 6z"
+            />
+          </g>
+        </svg>
+      </span>
       <div
-        className="react-datepicker__input-container"
+        className="react-datepicker-wrapper"
       >
         <div
-          className="sc-hKwDye jFAzKv"
+          className="react-datepicker__input-container"
         >
-          <label
-            htmlFor="datepicker-input"
-            onClick={[Function]}
-          >
-            Select date
-          </label>
-          <button
+          <input
             className="datepickerInput"
-            name="datepicker-input"
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
             onClick={[Function]}
-            type="button"
-          >
-            03/28/2022
-            <svg
-              className="sc-gsDKAQ kyUyaQ"
-              color="digital-black"
-              data-testid="svg-component"
-              size="24px"
-              version="1.1"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-            >
-              <g
-                fillRule="evenodd"
-              >
-                <path
-                  d="M0 0h24v24H0z"
-                  fill="none"
-                />
-                <path
-                  d="M17 1a1 1 0 01.993.883L18 2v1h2a3 3 0 012.995 2.824L23 6v13a3 3 0 01-3 3H4a3 3 0 01-3-3V6a3 3 0 013-3h2V2a1 1 0 011.993-.117L8 2v1h8V2a1 1 0 011-1zm4 9H3v9a1 1 0 00.883.993L4 20h16a1 1 0 001-1zM9 16a1 1 0 010 2H7a1 1 0 010-2zm8 0a1 1 0 010 2h-2a1 1 0 010-2zm-8-4a1 1 0 010 2H7a1 1 0 010-2zm8 0a1 1 0 010 2h-2a1 1 0 010-2zM6 5H4a1 1 0 00-1 1v2h18V6a1 1 0 00-.883-.993L20 5h-2v1a1 1 0 01-1.993.117L16 6V5H8v1a1 1 0 01-1.993.117L6 6z"
-                />
-              </g>
-            </svg>
-          </button>
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value="04/07/2022"
+          />
         </div>
       </div>
     </div>

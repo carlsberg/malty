@@ -35,6 +35,12 @@ export default {
         type: 'date'
       }
     },
+    dateFormat: {
+      description: 'custom date format, default is MM/dd/yyyy',
+      control: {
+        type: 'string'
+      }
+    },
     excludeDates: {
       description: 'disable array of days',
       control: {
@@ -47,6 +53,24 @@ export default {
         type: 'boolean'
       }
     },
+    selectsRange: {
+      description: 'enable date range selection',
+      control: {
+        type: 'boolean'
+      }
+    },
+    inline: {
+      description: 'display calendar without input',
+      control: {
+        type: 'boolean'
+      }
+    },
+    placeholderText: {
+      description: 'input placeholder',
+      control: {
+        type: 'string'
+      }
+    },
     locale: {
       description: 'iso language code',
       control: {
@@ -56,20 +80,46 @@ export default {
   }
 } as Meta;
 
-const Template: Story<DatepickerProps> = ({ label, minDate, maxDate, disabled, locale, excludeDates }) => {
+const Template: Story<DatepickerProps> = ({
+  label,
+  minDate,
+  maxDate,
+  disabled,
+  locale,
+  excludeDates,
+  placeholderText,
+  selectsRange,
+  dateFormat
+}) => {
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  const onChange = (date: Date[] | Date) => {
+    let start;
+    let end;
+
+    if (Array.isArray(date)) {
+      [start, end] = date;
+      setStartDate(start);
+      setEndDate(end);
+    }
+  };
 
   return (
     <div style={{ height: '400px' }}>
       <DatepickerComponent
         label={label}
-        onChange={(date: Date) => setStartDate(date)}
+        onChange={selectsRange ? onChange : setStartDate}
         startDate={startDate}
+        endDate={endDate}
         minDate={minDate}
         maxDate={maxDate}
         disabled={disabled}
         locale={locale}
         excludeDates={excludeDates}
+        placeholderText={placeholderText}
+        selectsRange={selectsRange}
+        dateFormat={dateFormat}
       />
     </div>
   );
