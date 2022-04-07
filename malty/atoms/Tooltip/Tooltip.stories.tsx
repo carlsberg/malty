@@ -41,7 +41,7 @@ export default {
       description: 'Tooltip position.',
       options: Object.keys(TooltipPosition),
       mapping: TooltipPosition,
-      table: { defaultValue: { summary: 'TooltipPosition.TopCEnter' } },
+      table: { defaultValue: { summary: 'TooltipPosition.TopCenter' } },
       control: {
         type: 'select',
         label: Object.values(TooltipPosition)

@@ -1,6 +1,12 @@
-import { fireEvent, jsonRenderer, render, screen, waitForElementToBeRemoved } from '@carlsberggroup/malty.utils.test';
+import {
+  act,
+  fireEvent,
+  jsonRenderer,
+  render,
+  screen,
+  waitForElementToBeRemoved
+} from '@carlsberggroup/malty.utils.test';
 import React, { createRef, RefObject } from 'react';
-import { act } from 'react-dom/test-utils';
 import { Tooltip } from '.';
 import { TooltipPosition, TooltipToggle } from './Tooltip.types';
 
