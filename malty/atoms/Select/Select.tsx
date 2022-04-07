@@ -36,7 +36,7 @@ export const Select = ({
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
+  const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const [showOptionList, setShowOptionList] = useState(false);
   const [selectedValueState, setSelectedValueState] = useState(defaultValue);
   const ref = createRef<HTMLDivElement>();
@@ -92,11 +92,11 @@ export const Select = ({
   useEffect(() => {
     switch (size) {
       case SelectSize.Large: {
-        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', ''), 10));
+        setNumSize(theme.sizes['2xl'].value);
         break;
       }
       default: {
-        setNumSize(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
+        setNumSize(theme.sizes.xl.value);
         break;
       }
     }
@@ -110,7 +110,7 @@ export const Select = ({
     };
   });
   useEffect(() => {
-    setSelectedValueState(defaultValue);
+    if (defaultValue.length > 0) setSelectedValueState(defaultValue);
   }, [defaultValue]);
 
   const displaySelectedValues = () => {

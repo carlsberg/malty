@@ -71,7 +71,7 @@ export const StyledHint = styled.label<{
 
 export const StyledButton = styled.button<{
   disabled?: boolean;
-  height: number;
+  height: string;
   isError?: boolean;
   isActive?: boolean;
   selectStyle: string;
@@ -82,7 +82,7 @@ export const StyledButton = styled.button<{
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   padding: 0 ${({ theme }) => theme.sizes.s.value};
-  height: ${({ height }) => height}px;
+  height: ${({ height }) => height};
   font-weight: normal;
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
@@ -147,7 +147,7 @@ export const StyledButton = styled.button<{
 `;
 
 export const StyledOptionsWrapper = styled.ul<{
-  height: number;
+  height: string;
   selectStyle?: string;
   isOpen?: boolean;
 }>`
@@ -166,6 +166,7 @@ export const StyledOptionsWrapper = styled.ul<{
   animation-name: ${fadeOut};
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  max-height: calc(${({ height }) => height} * 7);
   ${({ isOpen }) =>
     isOpen &&
     css`
@@ -196,13 +197,13 @@ export const StyledValuesName = styled.div`
 
 export const StyledOption = styled.li<{
   disabled?: boolean;
-  height: number;
+  height: string;
   selected?: boolean;
   selectStyle?: string;
 }>`
   list-style-type: none;
   cursor: pointer;
-  height: ${({ height }) => height}px;
+  height: ${({ height }) => height};
   font-weight: normal;
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
