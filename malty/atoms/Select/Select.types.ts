@@ -4,6 +4,7 @@ export interface SelectProps {
   label: string;
   onValueChange: (value: SelectOptionsType[]) => void;
   defaultValue?: SelectOptionsType[];
+  value?: SelectOptionsType[];
   options?: SelectOptionsType[];
   placeholder?: string;
   type: SelectType;
