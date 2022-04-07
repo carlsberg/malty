@@ -1,5 +1,4 @@
-import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
 import { Input } from './Input';
 import { InputType } from './Input.types';
@@ -37,8 +36,8 @@ describe('input', () => {
       <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
     );
     const input = screen.getByDisplayValue('Initial value');
-    userEvent.type(input, 'Test');
-    expect(onValueChange).toHaveBeenCalledTimes(4);
+    fireEvent.input(input, { target: { value: 'Test Input' } });
+    expect(onValueChange).toHaveBeenCalledTimes(1);
 
     rerender(<Input value="Test" label="Input label" onValueChange={onValueChange} type={InputType.Text} />);
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
