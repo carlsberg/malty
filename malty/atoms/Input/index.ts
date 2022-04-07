@@ -1,2 +1,3 @@
 export { Input } from './Input';
-export type { InputIconPosition, InputMaskTypes, InputProps, InputSize, InputType } from './Input.types';
+export { InputIconPosition, InputMaskTypes, InputSize, InputType } from './Input.types';
+export type { InputProps } from './Input.types';
