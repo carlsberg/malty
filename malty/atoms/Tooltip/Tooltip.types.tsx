@@ -1,14 +1,30 @@
 export interface TooltipProps {
-  position: TooltipPosition;
   isOpen?: boolean;
-  toggle: TooltipToggle;
-  anchor?: React.RefObject<HTMLElement>;
+  position: TooltipPosition;
+  toggle?: TooltipToggle;
+  anchorRef: React.RefObject<HTMLElement>;
   isDark?: boolean;
-  dataQaId?: string;
+  dataTestId?: string;
   autoHideDuration?: number;
-  onHideTooltip?: () => void;
+  onClose?: () => void;
   children: string | JSX.Element;
 }
+
+export type TooltipStaticProps = {
+  startTooltipTimer: (anchorRef?: React.RefObject<HTMLElement>) => void;
+  openTooltip: (anchorRef?: React.RefObject<HTMLElement>) => void;
+  closeTooltip: (anchorRef?: React.RefObject<HTMLElement>) => void;
+};
+
+export type TooltipType = React.FC<TooltipProps> & TooltipStaticProps;
+
+export type UseTooltipProps = {
+  isOpenProp?: boolean;
+  toggleType: TooltipToggle;
+  anchorRef: React.RefObject<HTMLElement>;
+  autoHideDuration?: number;
+  onClose?: () => void;
+};
 
 export enum TooltipPosition {
   TopCenter = 'top-center',
@@ -24,6 +40,5 @@ export enum TooltipPosition {
 export enum TooltipToggle {
   Click = 'click',
   Hover = 'hover',
-  Persist = 'persist',
   Event = 'event'
 }
