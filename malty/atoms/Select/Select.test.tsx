@@ -1,5 +1,4 @@
 import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
-import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Select } from './Select';
 import { SelectSize, SelectType } from './Select.types';
@@ -74,9 +73,13 @@ describe('select', () => {
       />
     );
     const select = screen.getByText('select');
-    userEvent.click(select);
+    expect(select).toBeVisible();
+    // TODO: Replace with click event
+    select.click();
     const selectOption = screen.getByTestId('select-option-1');
-    userEvent.click(selectOption);
+    expect(selectOption).toBeVisible();
+    // TODO: Replace with click event
+    selectOption.click();
     expect(onValueChange).toHaveBeenCalledTimes(1);
     rerender(
       <Select
