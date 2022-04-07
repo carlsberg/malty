@@ -15,9 +15,9 @@ exports[`select matches snapshot 1`] = `
     className="sc-ftvSup fWmoZH"
   >
     <button
-      className="sc-iqcoie dSqFRn"
+      className="sc-iqcoie ixsYBD"
       disabled={false}
-      height={40}
+      height="40px"
       id="00000000-0000-0000-0000-000000000000"
       name="00000000-0000-0000-0000-000000000000"
       onClick={[Function]}
@@ -56,14 +56,14 @@ exports[`select matches snapshot 1`] = `
       className="sc-bczRLJ qaxFj"
     >
       <ul
-        className="sc-crXcEl iSrVbP"
-        height={40}
+        className="sc-crXcEl fYXfow"
+        height="40px"
       >
         <li
-          className="sc-breuTD gaRUOI"
+          className="sc-breuTD bxwAsA"
           data-testid="select-option-0"
           disabled={false}
-          height={40}
+          height="40px"
           onClick={[Function]}
           selected={false}
           value="value 1"
@@ -75,10 +75,10 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-breuTD gaRUOI"
+          className="sc-breuTD bxwAsA"
           data-testid="select-option-1"
           disabled={false}
-          height={40}
+          height="40px"
           onClick={[Function]}
           selected={false}
           value="value 2"
@@ -90,10 +90,10 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-breuTD gaRUOI"
+          className="sc-breuTD bxwAsA"
           data-testid="select-option-2"
           disabled={false}
-          height={40}
+          height="40px"
           onClick={[Function]}
           selected={false}
           value="value 3"
@@ -105,10 +105,10 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-breuTD gaRUOI"
+          className="sc-breuTD bxwAsA"
           data-testid="select-option-3"
           disabled={false}
-          height={40}
+          height="40px"
           onClick={[Function]}
           selected={false}
           value="value 4"
@@ -120,10 +120,10 @@ exports[`select matches snapshot 1`] = `
           </div>
         </li>
         <li
-          className="sc-breuTD gaRUOI"
+          className="sc-breuTD bxwAsA"
           data-testid="select-option-4"
           disabled={false}
-          height={40}
+          height="40px"
           onClick={[Function]}
           selected={false}
           value="value 5"
