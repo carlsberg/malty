@@ -17,7 +17,7 @@ export const StyledAccordionWrapper = styled.ul<{
 
 // Accordion item styles
 export const StyledAccordionItem = styled.li`
-  margin: ${({ theme }) => theme.sizes.s.value} 0;
+  margin: ${({ theme }) => theme.sizes.s.value} 0 0 0;
   list-style-type: none;
 `;
 export const StyledAccordionHeader = styled.div<{

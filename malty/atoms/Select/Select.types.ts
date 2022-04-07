@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface SelectProps {
   label: string;
-  onValueChange: (value: SelectOptionsType) => void;
+  onValueChange: (value: SelectOptionsType[]) => void;
   defaultValue?: SelectOptionsType[];
   options?: SelectOptionsType[];
   placeholder?: string;

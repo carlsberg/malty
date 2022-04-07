@@ -20,7 +20,7 @@ import {
 import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
 
 export const Select = ({
-  defaultValue,
+  defaultValue = [],
   onValueChange,
   options,
   placeholder,
@@ -38,15 +38,14 @@ export const Select = ({
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
   const [showOptionList, setShowOptionList] = useState(false);
-  const [selectedValueState, setSelectedValueState] = useState(defaultValue || []);
+  const [selectedValueState, setSelectedValueState] = useState(defaultValue);
   const ref = createRef<HTMLDivElement>();
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
   };
 
   const handleOptionSelected = (option: SelectOptionsType) => {
-    // eslint-disable-next-line no-restricted-globals
-    onValueChange(option);
+    let auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     // eslint-disable-next-line no-restricted-globals
     event?.preventDefault();
     if (!multiple) {
@@ -55,12 +54,18 @@ export const Select = ({
     if (checkIfSelected(option)) {
       if (multiple) {
         removeSelectedOption(option);
+      } else {
+        auxSelected = [];
+
+        auxSelected.push(option);
+        update(auxSelected);
       }
     } else {
       if (!multiple) {
-        selectedValueState.pop();
+        auxSelected = [];
       }
-      setSelectedValueState((prev) => [...prev, option]);
+      auxSelected.push(option);
+      update(auxSelected);
     }
   };
 
@@ -76,6 +81,7 @@ export const Select = ({
 
   const update = (auxSelected: SelectOptionsType[]) => {
     setSelectedValueState(auxSelected);
+    onValueChange(auxSelected);
   };
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains((event.target as Node) || null)) {
@@ -103,6 +109,9 @@ export const Select = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+  useEffect(() => {
+    setSelectedValueState(defaultValue);
+  }, [defaultValue]);
 
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
