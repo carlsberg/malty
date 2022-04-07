@@ -8,6 +8,7 @@ import {
   StyledButton,
   StyledClearableWrapper,
   StyledError,
+  StyledHint,
   StyledInput,
   StyledInputContainer,
   StyledInputWrapper,
@@ -38,7 +39,8 @@ export const Input = ({
   size = InputSize.Medium,
   clearable,
   mask,
-  children
+  children,
+  hint
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -217,6 +219,11 @@ export const Input = ({
           {children}
         </StyledInputWrapper>
         {error && <StyledError theme={theme}>{error}</StyledError>}
+        {hint && !error && (
+          <StyledHint disabled={disabled} theme={theme}>
+            {hint}
+          </StyledHint>
+        )}
       </StyledInputContainer>
     </TypographyProvider>
   );

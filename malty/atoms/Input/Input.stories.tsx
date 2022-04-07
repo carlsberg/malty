@@ -24,6 +24,10 @@ export default {
       description: 'Error message to be displayed when error is present.',
       control: 'text'
     },
+    hint: {
+      description: 'helper message to be displayed',
+      control: 'text'
+    },
     size: {
       description: 'Input size options, at the moment only the two below',
       options: Object.values(InputSize),
@@ -112,7 +116,8 @@ const Template: Story<InputProps> = ({
   disabled,
   iconPosition,
   clearable,
-  mask
+  mask,
+  hint
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -129,6 +134,7 @@ const Template: Story<InputProps> = ({
       clearable={clearable}
       mask={mask}
       onValueChange={(newValue: string) => setStateValue(newValue)}
+      hint={hint}
     />
   );
 };
@@ -147,7 +153,8 @@ switch (variant) {
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
-      clearable: true
+      clearable: true,
+      hint: 'hint text'
     };
     break;
 
@@ -159,7 +166,8 @@ switch (variant) {
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
-      clearable: false
+      clearable: false,
+      hint: 'hint text'
     };
     break;
 
@@ -171,7 +179,8 @@ switch (variant) {
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
-      clearable: true
+      clearable: true,
+      hint: 'hint text'
     };
     break;
 
@@ -183,7 +192,8 @@ switch (variant) {
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
-      clearable: false
+      clearable: false,
+      hint: 'hint text'
     };
     break;
 
@@ -195,7 +205,8 @@ switch (variant) {
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
-      clearable: false
+      clearable: false,
+      hint: 'hint text'
     };
     break;
 
@@ -208,7 +219,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: true,
-      icon: IconName.Search
+      icon: IconName.Search,
+      hint: 'hint text'
     };
     break;
 
@@ -220,7 +232,8 @@ switch (variant) {
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
-      clearable: false
+      clearable: false,
+      hint: 'hint text'
     };
     break;
 
@@ -232,7 +245,8 @@ switch (variant) {
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
-      clearable: false
+      clearable: false,
+      hint: 'hint text'
     };
     break;
 }
