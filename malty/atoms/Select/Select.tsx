@@ -44,8 +44,9 @@ export const Select = ({
     setShowOptionList(!showOptionList);
   };
 
+  // eslint-disable-next-line consistent-return
   const handleOptionSelected = (option: SelectOptionsType) => {
-    let auxSelected = JSON.parse(JSON.stringify(selectedValueState));
+    // let auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     // eslint-disable-next-line no-restricted-globals
     event?.preventDefault();
     if (!multiple) {
@@ -55,17 +56,13 @@ export const Select = ({
       if (multiple) {
         removeSelectedOption(option);
       } else {
-        auxSelected = [];
-
-        auxSelected.push(option);
-        update(auxSelected);
+        setSelectedValueState([option]);
       }
     } else {
       if (!multiple) {
-        auxSelected = [];
+        return setSelectedValueState([option]);
       }
-      auxSelected.push(option);
-      update(auxSelected);
+      setSelectedValueState((prev) => [...prev, option]);
     }
   };
 
@@ -81,7 +78,6 @@ export const Select = ({
 
   const update = (auxSelected: SelectOptionsType[]) => {
     setSelectedValueState(auxSelected);
-    onValueChange(auxSelected);
   };
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains((event.target as Node) || null)) {
@@ -112,6 +108,9 @@ export const Select = ({
   useEffect(() => {
     if (defaultValue.length > 0) setSelectedValueState(defaultValue);
   }, [defaultValue]);
+  useEffect(() => {
+    onValueChange(selectedValueState);
+  }, [selectedValueState]);
 
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
