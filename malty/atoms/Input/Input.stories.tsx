@@ -92,6 +92,11 @@ export default {
         description: 'RegEx to be applies as mask for input value.'
       }
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Tooltip data-testid',
+      table: { defaultValue: { summary: 'none' } }
+    },
     value: {
       table: {
         disable: true
@@ -117,7 +122,8 @@ const Template: Story<InputProps> = ({
   iconPosition,
   clearable,
   mask,
-  hint
+  hint,
+  dataTestId
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -135,6 +141,7 @@ const Template: Story<InputProps> = ({
       mask={mask}
       onValueChange={(newValue: string) => setStateValue(newValue)}
       hint={hint}
+      dataTestId={dataTestId}
     />
   );
 };

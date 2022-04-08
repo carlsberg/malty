@@ -40,7 +40,8 @@ export const Input = ({
   clearable,
   mask,
   children,
-  hint
+  hint,
+  dataTestId
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -77,6 +78,7 @@ export const Input = ({
     (clearable || type === InputType.Search) &&
     !!value && (
       <Icon
+        data-testid={`${dataTestId}-clearable-icon`}
         name={IconName.ItemClose}
         color={IconColor.Primary}
         size={IconSize.Medium}
@@ -85,12 +87,14 @@ export const Input = ({
       />
     );
 
-  const renderIcon = () => icon && <Icon name={icon} color={IconColor.Primary} size={IconSize.Medium} />;
+  const renderIcon = () =>
+    icon && <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.Primary} size={IconSize.Medium} />;
 
   const renderInput = () => (
     <TypographyProvider>
       <StyledClearableWrapper>
         <StyledInput
+          data-testid={dataTestId}
           name={id}
           id={id}
           value={value}
@@ -115,6 +119,7 @@ export const Input = ({
   const renderInputNumber = () => (
     <TypographyProvider>
       <StyledButton
+        data-testid={`${dataTestId}-quantity-minus`}
         theme={theme}
         size={numSize}
         isError={!!error}
@@ -124,6 +129,7 @@ export const Input = ({
         <Icon name={IconName.Minus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
       <StyledInput
+        data-testid={dataTestId}
         name={id}
         id={id}
         value={value}
@@ -140,6 +146,7 @@ export const Input = ({
         theme={theme}
       />
       <StyledButton
+        data-testid={`${dataTestId}-quantity-plus`}
         theme={theme}
         size={numSize}
         isError={!!error}
@@ -157,7 +164,13 @@ export const Input = ({
       // TO FOLLOW: Convert the select to DSM dropdown
       <TypographyProvider>
         <StyledClearableWrapper>
-          <StyledSelect theme={theme} height={height} disabled={disabled} isError={!!error}>
+          <StyledSelect
+            data-testid={`${dataTestId}-phone-select`}
+            theme={theme}
+            height={height}
+            disabled={disabled}
+            isError={!!error}
+          >
             {Object.keys(InputCountry)
               .sort((a, b) => {
                 const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
@@ -168,7 +181,12 @@ export const Input = ({
                 const code =
                   InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
                 return (
-                  <StyledOption key={`option-value-${country}`} value={code} height={height}>
+                  <StyledOption
+                    data-testid={`${dataTestId}-phone-option-${country}`}
+                    key={`option-value-${country}`}
+                    value={code}
+                    height={height}
+                  >
                     {emojiFlag(country)}
                     &nbsp;&nbsp;&nbsp;+{code}
                   </StyledOption>
@@ -176,6 +194,7 @@ export const Input = ({
               })}
           </StyledSelect>
           <StyledInput
+            data-testid={dataTestId}
             name={id}
             id={id}
             value={value}
@@ -202,7 +221,7 @@ export const Input = ({
     <TypographyProvider>
       <StyledInputContainer theme={theme}>
         {label && (
-          <StyledLabel htmlFor={id} theme={theme}>
+          <StyledLabel data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
             {label}
           </StyledLabel>
         )}
@@ -218,9 +237,13 @@ export const Input = ({
           {type === InputType.Number && renderInputNumber()}
           {children}
         </StyledInputWrapper>
-        {error && <StyledError theme={theme}>{error}</StyledError>}
+        {error && (
+          <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
+            {error}
+          </StyledError>
+        )}
         {hint && !error && (
-          <StyledHint disabled={disabled} theme={theme}>
+          <StyledHint data-testid={`${dataTestId}-hint`} disabled={disabled} theme={theme}>
             {hint}
           </StyledHint>
         )}
