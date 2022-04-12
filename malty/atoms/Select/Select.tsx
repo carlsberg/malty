@@ -35,7 +35,7 @@ export const Select = ({
   hint,
   disabled = false,
   size = SelectSize.Medium,
-  children,
+
   multiple = false,
   selectionText = 'selected',
   value,
@@ -182,41 +182,39 @@ export const Select = ({
             </StyledActionButtonWrapper>
           )}
         </StyledActionsWrapper>
-        {children}
-        {!children &&
-          selectOptions?.map((option: SelectOptionsType, index: number) => (
-            <StyledOption
-              theme={theme}
-              key={option.value}
-              value={option.value}
-              onClick={() => handleOptionSelected(option)}
-              height={numSize}
-              selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-              selectStyle={type}
-              disabled={disabled}
-              data-testid={`select-option-${index}`}
-            >
-              {multiple && (
-                <Checkbox
-                  labelText={option.name as string}
-                  value={option.value}
-                  onValueChange={() => null}
-                  checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-                />
-              )}
-              {!multiple && (
-                <>
-                  <StyledWrapper theme={theme}>
-                    {option.icon}
-                    {option.name}
-                  </StyledWrapper>
-                  {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                    <StyledCheck selectStyle={type} color={IconColor.Primary} size={IconSize.Small} />
-                  )}
-                </>
-              )}
-            </StyledOption>
-          ))}
+        {selectOptions?.map((option: SelectOptionsType, index: number) => (
+          <StyledOption
+            theme={theme}
+            key={option.value}
+            value={option.value}
+            onClick={() => handleOptionSelected(option)}
+            height={numSize}
+            selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+            selectStyle={type}
+            disabled={disabled}
+            data-testid={`select-option-${index}`}
+          >
+            {multiple && (
+              <Checkbox
+                labelText={option.name as string}
+                value={option.value}
+                onValueChange={() => null}
+                checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+              />
+            )}
+            {!multiple && (
+              <>
+                <StyledWrapper theme={theme}>
+                  {option.icon}
+                  {option.name}
+                </StyledWrapper>
+                {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
+                  <StyledCheck selectStyle={type} color={IconColor.Primary} size={IconSize.Small} />
+                )}
+              </>
+            )}
+          </StyledOption>
+        ))}
       </StyledOptionsWrapper>
     </TypographyProvider>
   );

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export interface SelectProps {
   label: string;
   onValueChange: (value: SelectOptionsType[]) => void;
@@ -12,7 +10,7 @@ export interface SelectProps {
   hint?: string;
   disabled?: boolean;
   size?: SelectSize;
-  children?: React.Component;
+
   multiple?: boolean;
   search?: boolean;
   selectionText?: string;
