@@ -38,7 +38,8 @@ export const Input = ({
   size = InputSize.Medium,
   clearable,
   mask,
-  children
+  children,
+  className
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -198,7 +199,7 @@ export const Input = ({
 
   return (
     <TypographyProvider>
-      <StyledInputContainer theme={theme}>
+      <StyledInputContainer className={className} theme={theme}>
         {label && (
           <StyledLabel htmlFor={id} theme={theme}>
             {label}

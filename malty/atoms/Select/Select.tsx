@@ -1,10 +1,15 @@
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
+  StyledActionButton,
+  StyledActionButtonWrapper,
+  StyledActionsWrapper,
   StyledButton,
   StyledButtonContainer,
   StyledCheck,
@@ -33,13 +38,17 @@ export const Select = ({
   children,
   multiple = false,
   selectionText = 'selected',
-  value
+  value,
+  search = false
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const [showOptionList, setShowOptionList] = useState(false);
   const [selectedValueState, setSelectedValueState] = useState(value || defaultValue);
+  const [queryText, setQueryText] = useState('');
+  const [selectOptions, setSelectOptions] = useState(options);
+
   const ref = createRef<HTMLDivElement>();
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
@@ -127,12 +136,55 @@ export const Select = ({
     }
     return type === SelectType.Inline ? label : placeholder;
   };
+
+  const handleSearch = (query: string) => {
+    setQueryText(query);
+    if (query.length >= 3) {
+      const filterOptions = options?.filter((el) => el.name.includes(query));
+
+      setSelectOptions(filterOptions);
+    } else {
+      setSelectOptions(options);
+    }
+  };
+
+  const handleSelectAll = () => {
+    if (selectOptions && selectOptions.length > 0) update(selectOptions);
+  };
+
+  const handleClearAll = () => {
+    update([]);
+  };
   const renderDefaultDropdown = () => (
     <TypographyProvider>
       <StyledOptionsWrapper isOpen={showOptionList} selectStyle={type} theme={theme} height={numSize}>
+        <StyledActionsWrapper theme={theme}>
+          {search && (
+            <Input
+              className="search-input"
+              size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
+              onValueChange={handleSearch}
+              type={InputType.Search}
+              value={queryText}
+              icon={IconName.Search}
+            />
+          )}
+          {multiple && (
+            <StyledActionButtonWrapper height={numSize} theme={theme}>
+              <StyledActionButton onClick={handleSelectAll} theme={theme}>
+                Sellect all
+              </StyledActionButton>
+              {selectedValueState.length > 0 && (
+                <StyledActionButton onClick={handleClearAll} theme={theme}>
+                  Clear all
+                </StyledActionButton>
+              )}
+            </StyledActionButtonWrapper>
+          )}
+        </StyledActionsWrapper>
         {children}
         {!children &&
-          options?.map((option: SelectOptionsType, index: number) => (
+          selectOptions?.map((option: SelectOptionsType, index: number) => (
             <StyledOption
               theme={theme}
               key={option.value}

@@ -60,14 +60,16 @@ export default {
       description: 'Select state, when active allows for multi selection',
       control: 'boolean'
     },
+    search: {
+      description: 'Select state, when active allows for multi selection',
+      control: 'boolean'
+    },
     selectionText: {
       description: 'Text to display when multiple options are selected. Ex. 3 "options selected" ',
       control: 'text'
     },
     onValueChange: {
-      table: {
-        disable: true
-      }
+      description: 'Function to be executed when a new option is selected'
     }
   }
 } as Meta;
@@ -107,6 +109,7 @@ const params = new URLSearchParams(window.location.search);
 const type = params.get('type');
 const multiple = params.get('multiple');
 const error = params.get('error');
+const search = params.get('search');
 
 switch (type) {
   case 'inline':
@@ -120,7 +123,8 @@ switch (type) {
       placeholder: 'Placeholder',
       multiple: !!multiple,
       defaultValue: [testOptions[0]],
-      selectionText: 'options selected'
+      selectionText: 'options selected',
+      search: !!search
     };
     break;
 
@@ -136,7 +140,8 @@ switch (type) {
       multiple: !!multiple,
       defaultValue: [testOptions[0]],
       selectionText: 'options selected',
-      error: error ? 'error text' : ''
+      error: error ? 'error text' : '',
+      search: !!search
     };
     break;
 }
