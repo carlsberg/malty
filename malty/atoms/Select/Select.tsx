@@ -1,3 +1,4 @@
+import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
@@ -237,6 +238,7 @@ export const Select = ({
           disabled={disabled}
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
+          type={ButtonType.Button}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid="selected-value">
             {displaySelectedValues()}

@@ -15,6 +15,8 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   mask?: InputMaskTypes;
   children?: React.Component;
   className?: string;
+  hint?: string;
+  dataTestId?: string;
 }
 
 export enum InputType {

@@ -69,7 +69,7 @@ export default {
       control: 'text'
     },
     onValueChange: {
-      description: 'Function to be executed when a new option is selected'
+      description: 'Function to be executed when an option is selected or unselected'
     }
   }
 } as Meta;
