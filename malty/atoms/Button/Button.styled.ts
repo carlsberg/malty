@@ -17,7 +17,7 @@ export const StyledAnchor = styled.a`
 const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
-  isWhite?: boolean;
+  isNegative?: boolean;
   fullWidth?: boolean;
   sizing: string;
   horizontalPadding: string;
@@ -91,57 +91,144 @@ const StyledButton = styled.button<{
 `;
 
 export const StyledPrimaryButton = styled(StyledButton)`
-  background-color: ${({ isWhite, theme }) =>
-    isWhite ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
-  color: ${({ isWhite, theme }) =>
-    isWhite ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
-  border: 1px solid
-    ${({ isWhite, theme }) =>
-      isWhite ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.transparent.value};
+  background-color: ${({ isNegative, theme }) =>
+    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  color: ${({ isNegative, theme }) =>
+    isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
+  border: 1px solid ${({ theme }) => theme.colors.colours.default.transparent.value};
+
   &:hover {
-    background-color: ${({ isWhite, theme }) =>
-      isWhite ? theme.colors.colours.support[40].value : theme.colors.colours.support[80].value};
+    ${({ isNegative, theme }) =>
+      isNegative &&
+      css`
+        /* box-shadow: inset 100px 1px ${theme.colors.colours.overlay['digital-black'][5].value}; */
+        opacity: 0.95;
+      `};
+    ${({ isNegative }) =>
+      !isNegative &&
+      css`
+        opacity: 0.95;
+      `};
+  }
+  &:active {
+    ${({ isNegative, theme }) =>
+      isNegative &&
+      css`
+        /* background-color: ${theme.colors.colours.overlay['digital-black'][10].value}; */
+        opacity: 0.9;
+      `};
+    ${({ isNegative }) =>
+      !isNegative &&
+      css`
+        opacity: 0.9;
+      `};
+  }
+  &:disabled {
+    ${({ isNegative, theme }) =>
+      isNegative &&
+      css`
+        background-color: ${theme.colors.colours.system['disable-dark-theme'].value};
+        color: ${theme.colors.colours.system['disable-dark-theme'].value};
+        &:hover {
+          background-color: ${theme.colors.colours.system['disable-dark-theme'].value};
+          color: ${theme.colors.colours.system['disable-dark-theme'].value};
+        }
+      `};
   }
 `;
 
 export const StyledSecondaryButton = styled(StyledButton)`
   background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
-  color: ${({ isWhite, theme }) =>
-    isWhite ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  color: ${({ isNegative, theme }) =>
+    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
   border: 1px solid
-    ${({ isWhite, theme }) =>
-      isWhite ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+    ${({ isNegative, theme }) =>
+      isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
   &:hover {
+    background-color: ${({ isNegative, theme }) =>
+      isNegative
+        ? theme.colors.colours.overlay.white[5].value
+        : theme.colors.colours.overlay['digital-black'][5].value};
+  }
+  &:active {
+    background-color: ${({ isNegative, theme }) =>
+      isNegative
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
+  }
+  &:disabled {
     background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
-    color: ${({ theme }) => theme.colors.colours.support[80].value};
-    border: 1px solid ${({ theme }) => theme.colors.colours.support[80].value};
+    border: 1px solid
+      ${({ isNegative, theme }) =>
+        isNegative
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
+    color: ${({ isNegative, theme }) =>
+      isNegative
+        ? theme.colors.colours.system['disable-dark-theme'].value
+        : theme.colors.colours.system['disable-light-theme'].value};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+      border: 1px solid
+        ${({ isNegative, theme }) =>
+          isNegative
+            ? theme.colors.colours.system['disable-dark-theme'].value
+            : theme.colors.colours.system['disable-light-theme'].value};
+      color: ${({ isNegative, theme }) =>
+        isNegative
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
+    }
   }
 `;
 
 export const StyledTransparentButton = styled(StyledButton)`
-  background-color: transparent;
-  &.active {
-    background-color: ${({ theme }) => theme.colors.colours.support[40].value};
-  }
-  color: ${({ isWhite, theme }) =>
-    isWhite ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+
+  color: ${({ isNegative, theme }) =>
+    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
   &:hover {
-    background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
+    background-color: ${({ isNegative, theme }) =>
+      isNegative
+        ? theme.colors.colours.overlay.white[5].value
+        : theme.colors.colours.overlay['digital-black'][5].value};
   }
-  :focus-visible {
+  &:active {
+    background-color: ${({ isNegative, theme }) =>
+      isNegative
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
+  }
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+    color: ${({ isNegative, theme }) =>
+      isNegative
+        ? theme.colors.colours.system['disable-dark-theme'].value
+        : theme.colors.colours.system['disable-light-theme'].value};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+      color: ${({ isNegative, theme }) =>
+        isNegative
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
+    }
+  }
+  /* :focus-visible {
     outline: 0;
     background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
-  }
+  } */
 `;
 
 export const StyledFloaterButton = styled(StyledButton)`
-  background-color: ${({ isWhite, theme }) =>
-    isWhite ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
-  color: ${({ isWhite, theme }) =>
-    isWhite ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
+  background-color: ${({ isNegative, theme }) =>
+    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  color: ${({ isNegative, theme }) =>
+    isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
   border: 1px solid
-    ${({ isWhite, theme }) =>
-      isWhite ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.transparent.value};
+    ${({ isNegative, theme }) =>
+      isNegative
+        ? theme.colors.colours.default['digital-black'].value
+        : theme.colors.colours.default.transparent.value};
   border-radius: ${({ sizing }) => `${parseInt(sizing, 10) / 2}px`};
   position: absolute;
   bottom: ${({ theme, showButton }) => (showButton ? theme.sizes.m.value : '-36px')};
@@ -149,8 +236,8 @@ export const StyledFloaterButton = styled(StyledButton)`
   right: ${({ theme }) => theme.sizes.m.value};
   z-index: 100;
   &:hover {
-    background-color: ${({ isWhite, theme }) =>
-      isWhite ? theme.colors.colours.support[40].value : theme.colors.colours.support[80].value};
+    background-color: ${({ isNegative, theme }) =>
+      isNegative ? theme.colors.colours.support[40].value : theme.colors.colours.support[80].value};
   }
 
   @media screen and (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
@@ -161,8 +248,8 @@ export const StyledFloaterButton = styled(StyledButton)`
 
 export const StyledLinkButton = styled(StyledButton)`
   background-color: transparent;
-  color: ${({ isWhite, theme }) =>
-    isWhite ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  color: ${({ isNegative, theme }) =>
+    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
   text-decoration: underline;
   padding: 0;
   height: auto;

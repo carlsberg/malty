@@ -69,56 +69,7 @@ export default {
       control: 'boolean',
       description: 'Is button loading?'
     },
-    success: {
-      description: 'Has button succeeded loading?',
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      }
-    },
-    successIcon: {
-      description: 'Icon for success state',
-      options: Object.values(IconName),
-      table: {
-        defaultValue: {
-          summary: 'IconName.ItemCheck'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    successText: {
-      control: 'text',
-      description: 'Button label for success state'
-    },
-    error: {
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      },
-      description: 'Has button failed loading?'
-    },
-    errorIcon: {
-      description: 'Icon for failed state',
-      options: Object.values(IconName),
-      table: {
-        defaultValue: {
-          summary: 'IconName.ItemClose'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    errorText: {
-      control: 'text',
-      description: 'Button label for failed state'
-    },
+
     size: {
       description: 'Button size. Options are',
       options: Object.values(ButtonSize),
@@ -150,7 +101,7 @@ export default {
         type: 'select'
       }
     },
-    isWhite: {
+    negative: {
       control: 'boolean',
       description: 'Should this be a white button?'
     },
@@ -171,10 +122,7 @@ export default {
       control: 'text',
       description: 'Use this component as link or button with a simple URL, no click function needed'
     },
-    selected: {
-      description: 'Add classname of "active" to element',
-      control: 'boolean'
-    },
+
     children: {
       control: 'text',
       description: 'Label your button with a child, as a string. This is an alternative to the `text` property'
@@ -198,17 +146,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+
+      negative: false,
       disabled: false,
       fullWidth: false,
-      url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: '',
-      errorIcon: IconName.ItemClose,
-      errorText: ''
+      url: ''
     };
     break;
 
@@ -220,17 +162,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+
+      negative: false,
       disabled: false,
       fullWidth: false,
-      url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
+      url: ''
     };
     break;
 
@@ -242,17 +178,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error',
       scroll: 0
     };
     break;
@@ -265,17 +195,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+
+      negative: false,
       disabled: false,
       fullWidth: false,
-      url: '',
-      selected: true,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
+      url: ''
     };
     break;
 
@@ -287,17 +211,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+
+      negative: false,
       disabled: false,
       fullWidth: false,
-      url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
+      url: ''
     };
     break;
 }
