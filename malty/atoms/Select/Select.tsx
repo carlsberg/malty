@@ -1,3 +1,4 @@
+import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -187,6 +188,7 @@ export const Select = ({
           disabled={disabled}
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
+          type={ButtonType.Button}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid="selected-value">
             {displaySelectedValues()}
