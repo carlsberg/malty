@@ -10165,7 +10165,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge-ts@npm:^4.0.2":
+"deepmerge-ts@npm:^4.0.3":
   version: 4.0.3
   resolution: "deepmerge-ts@npm:4.0.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fdeepmerge-ts%2F-%2Fdeepmerge-ts-4.0.3.tgz"
   dependencies:
