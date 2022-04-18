@@ -36,9 +36,13 @@
      * choose the package manager for Bit to use. you can choose between 'yarn', 'pnpm'
      */
     "packageManager": "teambit.dependencies/yarn",
+    "overrides": {
+      "@types/react": "17.0.3",
+      "@types/react-dom": "17.0.3"
+    },
     "policy": {
       "dependencies": {
-        "@testing-library/react": "11.2.6"
+        "@testing-library/react": "^11.2.7"
       },
       "peerDependencies": {
         "react": "17.0.2",
