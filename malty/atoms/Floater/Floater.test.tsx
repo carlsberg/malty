@@ -5,7 +5,7 @@ import { Floater } from './Floater';
 const defaultText = 'Submit';
 const newText = 'Go';
 
-describe('button', () => {
+describe('floater', () => {
   it('matches snapshot', () => {
     const onClick = jest.fn();
     const view = jsonRenderer(<Floater text={defaultText} onClick={onClick} />);
