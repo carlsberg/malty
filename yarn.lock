@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 5
   cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
@@ -5606,6 +5606,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Datepicker-5d9339@workspace:malty/atoms/Datepicker":
+  version: 0.0.0-use.local
+  resolution: "Datepicker-5d9339@workspace:malty/atoms/Datepicker"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "DiagonalDownLeft-9787eb@workspace:malty/icons/DiagonalDownLeft":
   version: 0.0.0-use.local
   resolution: "DiagonalDownLeft-9787eb@workspace:malty/icons/DiagonalDownLeft"
@@ -9097,6 +9106,7 @@ __metadata:
     "@types/jest": ^26.0.0
     "@types/node": 12.20.4
     "@types/react": ^17.0.8
+    "@types/react-datepicker": ^4.3.4
     "@types/react-dom": ^17.0.5
     "@types/react-test-renderer": ^17.0.1
     "@types/styled-components": ^5.1.9
@@ -9359,6 +9369,13 @@ __metadata:
     isobject: ^3.0.0
     static-extend: ^0.1.1
   checksum: be108900801e639e50f96a7e4bfa8867c753a7750a7603879f3981f8b0a89cba657497a2d5f40cd4ea557ff15d535a100818bb486baf6e26fe5d7872e75f1078
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.2.6":
+  version: 2.3.1
+  resolution: "classnames@npm:2.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fclassnames%2F-%2Fclassnames-2.3.1.tgz"
+  checksum: 14db8889d56c267a591f08b0834989fe542d47fac659af5a539e110cc4266694e8de86e4e3bbd271157dbd831361310a8293e0167141e80b0f03a0f175c80960
   languageName: node
   linkType: hard
 
@@ -10118,6 +10135,13 @@ __metadata:
     whatwg-mimetype: ^2.3.0
     whatwg-url: ^8.0.0
   checksum: 97caf828aac25e25e04ba6869db0f99c75e6859bb5b424ada28d3e7841941ebf08ddff3c1b1bb4585986bd507a5d54c2a716853ea6cb98af877400e637393e71
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.0.1, date-fns@npm:^2.24.0":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fdate-fns%2F-%2Fdate-fns-2.28.0.tgz"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -12049,8 +12073,6 @@ __metadata:
 "fsevents@npm:^2.1.2, fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ffsevents%2F-%2Ffsevents-2.3.2.tgz"
-  dependencies:
-    node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
   conditions: os=darwin
   languageName: node
@@ -12069,8 +12091,6 @@ __metadata:
 "fsevents@patch:fsevents@^2.1.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ffsevents%252F-%252Ffsevents-2.3.2.tgz#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
-  dependencies:
-    node-gyp: latest
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -17128,6 +17148,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-datepicker@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "react-datepicker@npm:4.7.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-datepicker%2F-%2Freact-datepicker-4.7.0.tgz"
+  dependencies:
+    "@popperjs/core": ^2.9.2
+    classnames: ^2.2.6
+    date-fns: ^2.24.0
+    prop-types: ^15.7.2
+    react-onclickoutside: ^6.12.0
+    react-popper: ^2.2.5
+  peerDependencies:
+    react: ^16.9.0 || ^17
+    react-dom: ^16.9.0 || ^17
+  checksum: e79d9c0c4832f061499296643b8ded4d5ecde3ceca0b3fff1d69669227fcd6418ce7c1c657ab672f76412507c1d47237bb327ed9d3e9b1c38b98c58c81be7aec
+  languageName: node
+  linkType: hard
+
 "react-docgen-typescript@npm:^2.0.0":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-docgen-typescript%2F-%2Freact-docgen-typescript-2.2.2.tgz"
@@ -17247,6 +17284,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-onclickoutside@npm:^6.12.0":
+  version: 6.12.1
+  resolution: "react-onclickoutside@npm:6.12.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-onclickoutside%2F-%2Freact-onclickoutside-6.12.1.tgz"
+  peerDependencies:
+    react: ^15.5.x || ^16.x || ^17.x
+    react-dom: ^15.5.x || ^16.x || ^17.x
+  checksum: aae4c1c2e77a4c601d53ba0aa0fbb4ab295a518b3f522ea29e7712c2310c57f2a051a70bdb0bc62424ca124b804a1a007ea1c32319e8c0cfbac417c601ff0f1a
+  languageName: node
+  linkType: hard
+
 "react-popper-tooltip@npm:^3.1.1":
   version: 3.1.1
   resolution: "react-popper-tooltip@npm:3.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-popper-tooltip%2F-%2Freact-popper-tooltip-3.1.1.tgz"
@@ -17261,7 +17308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-popper@npm:^2.2.4":
+"react-popper@npm:^2.2.4, react-popper@npm:^2.2.5":
   version: 2.2.5
   resolution: "react-popper@npm:2.2.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-popper%2F-%2Freact-popper-2.2.5.tgz"
   dependencies:
