@@ -11,7 +11,7 @@ export default {
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button',
-    variants: ['primary', 'secondary', 'floater', 'link']
+    variants: ['primary', 'secondary', 'link']
   },
   argTypes: {
     text: {
@@ -49,17 +49,7 @@ export default {
     onClick: {
       description: 'This is a function that will run on click. It is not a required property'
     },
-    scroll: {
-      description: 'Scroll position where will floater show',
-      table: {
-        defaultValue: {
-          summary: 0
-        }
-      },
-      control: {
-        type: 'number'
-      }
-    },
+
     loading: {
       table: {
         defaultValue: {
@@ -146,7 +136,6 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-
       negative: false,
       disabled: false,
       fullWidth: false,
@@ -162,7 +151,6 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-
       negative: false,
       disabled: false,
       fullWidth: false,
@@ -178,7 +166,6 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-
       negative: false,
       disabled: false,
       fullWidth: false,
@@ -194,7 +181,6 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-
       negative: false,
       disabled: false,
       fullWidth: false,
