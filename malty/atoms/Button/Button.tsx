@@ -16,10 +16,9 @@ import { ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 export const Button = ({
   text,
   style,
-  type = ButtonType.Submit,
+  type = ButtonType.Default,
   negative = false,
   fullWidth = false,
-
   disabled,
   onClick,
   onKeyUp,
@@ -28,9 +27,9 @@ export const Button = ({
   size = ButtonSize.Medium,
   iconPos = ButtonIconPosition.Right,
   loading,
-  scroll,
   tabIndex = -1,
-  children
+  children,
+  dataTestId
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = negative ? IconColor.Primary : IconColor.White;
@@ -54,11 +53,11 @@ export const Button = ({
   const [hPadding, _setHorizontalPadding] = useState(theme.sizes.s.value);
   const [fontSize, setFontSize] = useState(theme.typography.desktop.text.medium_default['font-size'].value);
   const [iconSize, setIconSize] = useState(theme.sizes.m.value);
-  const [showButton, setShowButton] = useState(true);
 
   const renderComponent = () => (
     <TypographyProvider>
       <Component
+        data-testid={dataTestId}
         type={type}
         disabled={disabled}
         hasText={!!text || !!children}
@@ -73,7 +72,6 @@ export const Button = ({
         fullWidth={fullWidth}
         iconPos={iconPos}
         theme={theme}
-        showButton={showButton}
         tabIndex={tabIndex}
       >
         <div className={`text-container ${loading ? 'invisible' : ''}`}>
@@ -83,7 +81,7 @@ export const Button = ({
         </div>
 
         {loading && (
-          <div className="secondary-container">
+          <div data-testid={`${dataTestId}-loading`} className="secondary-container">
             <Loading status={'Pending' as LoadingStatus} />
           </div>
         )}

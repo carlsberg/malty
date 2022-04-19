@@ -12,15 +12,12 @@ export interface ButtonProps {
   negative?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onKeyUp?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
-
-  scroll?: number;
   disabled?: boolean;
   loading?: boolean;
-
   fullWidth?: boolean;
-
   tabIndex?: number;
   children?: string | JSX.Element;
+  dataTestId?: string;
 }
 
 export enum ButtonType {
@@ -40,7 +37,6 @@ export enum ButtonStyle {
   Primary = 'Primary',
   Secondary = 'Secondary',
   Transparent = 'Transparent',
-  // Floater = 'Floater',
   Link = 'Link'
 }
 

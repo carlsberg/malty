@@ -24,7 +24,6 @@ const StyledButton = styled.button<{
   fontSize: string;
   iconSize: string;
   iconPos: ButtonIconPosition;
-  showButton: boolean;
 }>`
   font-family: inherit;
   display: inline-flex;
@@ -98,30 +97,10 @@ export const StyledPrimaryButton = styled(StyledButton)`
   border: 1px solid ${({ theme }) => theme.colors.colours.default.transparent.value};
 
   &:hover {
-    ${({ isNegative, theme }) =>
-      isNegative &&
-      css`
-        /* box-shadow: inset 100px 1px ${theme.colors.colours.overlay['digital-black'][5].value}; */
-        opacity: 0.95;
-      `};
-    ${({ isNegative }) =>
-      !isNegative &&
-      css`
-        opacity: 0.95;
-      `};
+    opacity: 0.95;
   }
   &:active {
-    ${({ isNegative, theme }) =>
-      isNegative &&
-      css`
-        /* background-color: ${theme.colors.colours.overlay['digital-black'][10].value}; */
-        opacity: 0.9;
-      `};
-    ${({ isNegative }) =>
-      !isNegative &&
-      css`
-        opacity: 0.9;
-      `};
+    opacity: 0.9;
   }
   &:disabled {
     ${({ isNegative, theme }) =>
@@ -217,33 +196,6 @@ export const StyledTransparentButton = styled(StyledButton)`
     outline: 0;
     background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
   } */
-`;
-
-export const StyledFloaterButton = styled(StyledButton)`
-  background-color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
-  color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
-  border: 1px solid
-    ${({ isNegative, theme }) =>
-      isNegative
-        ? theme.colors.colours.default['digital-black'].value
-        : theme.colors.colours.default.transparent.value};
-  border-radius: ${({ sizing }) => `${parseInt(sizing, 10) / 2}px`};
-  position: absolute;
-  bottom: ${({ theme, showButton }) => (showButton ? theme.sizes.m.value : '-36px')};
-  transition: bottom 0.25s;
-  right: ${({ theme }) => theme.sizes.m.value};
-  z-index: 100;
-  &:hover {
-    background-color: ${({ isNegative, theme }) =>
-      isNegative ? theme.colors.colours.support[40].value : theme.colors.colours.support[80].value};
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
-    bottom: ${({ theme, showButton }) => (showButton ? theme.sizes.s.value : '-36px')};
-    right: ${({ theme }) => theme.sizes.s.value};
-  }
 `;
 
 export const StyledLinkButton = styled(StyledButton)`

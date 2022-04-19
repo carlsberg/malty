@@ -28,7 +28,7 @@ export default {
       },
       table: {
         defaultValue: {
-          summary: 'ButtonType.Submit'
+          summary: 'ButtonType.Default'
         }
       }
     },
@@ -167,23 +167,6 @@ switch (variant) {
       disabled: false,
       fullWidth: false,
       url: ''
-    };
-    break;
-
-  case 'floater':
-    Button.args = {
-      style: ButtonStyle.Floater,
-      icon: IconName.ArrowSmallUp,
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      scroll: 0
     };
     break;
 
