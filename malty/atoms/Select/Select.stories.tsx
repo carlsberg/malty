@@ -65,9 +65,7 @@ export default {
       control: 'text'
     },
     onValueChange: {
-      table: {
-        disable: true
-      }
+      description: 'Function to be executed when an option is selected or unselected'
     }
   }
 } as Meta;
