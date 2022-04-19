@@ -1,3 +1,4 @@
+import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -32,20 +33,22 @@ export const Select = ({
   size = SelectSize.Medium,
   children,
   multiple = false,
-  selectionText = 'selected'
+  selectionText = 'selected',
+  value
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
+  const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const [showOptionList, setShowOptionList] = useState(false);
-  const [selectedValueState, setSelectedValueState] = useState(defaultValue);
+  const [selectedValueState, setSelectedValueState] = useState(value || defaultValue);
   const ref = createRef<HTMLDivElement>();
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
   };
 
+  // eslint-disable-next-line consistent-return
   const handleOptionSelected = (option: SelectOptionsType) => {
-    let auxSelected = JSON.parse(JSON.stringify(selectedValueState));
+    const auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     // eslint-disable-next-line no-restricted-globals
     event?.preventDefault();
     if (!multiple) {
@@ -55,17 +58,15 @@ export const Select = ({
       if (multiple) {
         removeSelectedOption(option);
       } else {
-        auxSelected = [];
-
-        auxSelected.push(option);
-        update(auxSelected);
+        update([option]);
       }
     } else {
       if (!multiple) {
-        auxSelected = [];
+        return update([option]);
       }
       auxSelected.push(option);
       update(auxSelected);
+      // setSelectedValueState((prev) => [...prev, option]);
     }
   };
 
@@ -92,11 +93,11 @@ export const Select = ({
   useEffect(() => {
     switch (size) {
       case SelectSize.Large: {
-        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', ''), 10));
+        setNumSize(theme.sizes['2xl'].value);
         break;
       }
       default: {
-        setNumSize(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
+        setNumSize(theme.sizes.xl.value);
         break;
       }
     }
@@ -110,8 +111,11 @@ export const Select = ({
     };
   });
   useEffect(() => {
-    setSelectedValueState(defaultValue);
+    if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
   }, [defaultValue]);
+  useEffect(() => {
+    if (value && value?.length > 0) setSelectedValueState(value);
+  }, [value]);
 
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
@@ -184,6 +188,7 @@ export const Select = ({
           disabled={disabled}
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
+          type={ButtonType.Button}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid="selected-value">
             {displaySelectedValues()}

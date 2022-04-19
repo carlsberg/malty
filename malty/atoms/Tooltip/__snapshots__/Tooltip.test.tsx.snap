@@ -7,33 +7,5 @@ exports[`Tooltip should matches snapshot 1`] = `
   >
     Tooltip Anchor
   </a>
-  <span
-    className="sc-bdvvtL iuuuBw"
-  >
-    <div
-      className="sc-dkPtRN hKTYWF"
-      data-testid="undefined"
-    >
-      <div
-        className="sc-hKwDye sc-iCfMLu kBCUZP huOhTS"
-        open={true}
-      >
-        <span
-          className="sc-bdvvtL iuuuBw"
-        >
-          <p
-            className="sc-gsDKAQ hUdwl"
-            color="white"
-          >
-            <button
-              type="button"
-            >
-              Button inside Tooltip
-            </button>
-          </p>
-        </span>
-      </div>
-    </div>
-  </span>
 </div>
 `;
