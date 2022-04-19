@@ -2,18 +2,18 @@
 
 exports[`sideNav molecule matches snapshot 1`] = `
 <ul
-  className="sc-hKMtZM hWSaly"
+  className="sc-hKwDye kpGpgl"
 >
   <li
-    className="sc-eCYdqJ ebehEg"
+    className="sc-eCImPb ebzDfg"
     onClick={[Function]}
     selected={false}
   >
     <svg
-      className="sc-gsnTZi iOMLMs"
-      color="white"
+      className="sc-gsDKAQ jfmKRC"
+      color="White"
       data-testid="svg-component"
-      size="24px"
+      size="40"
       version="1.1"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
@@ -26,28 +26,30 @@ exports[`sideNav molecule matches snapshot 1`] = `
     </svg>
     <a
       href="/item1"
-    />
-    <span
-      className="sc-bczRLJ qaxFj"
     >
-      <p
-        className="sc-dkzDqf jdtZuS"
-        color="white"
+      <span
+        className="sc-bdvvtL iouZXA"
       >
-        item 1
-      </p>
-    </span>
+        <p
+          className="sc-dkPtRN eGpvia"
+          color="white"
+          size="small"
+        >
+          item 1
+        </p>
+      </span>
+    </a>
   </li>
   <li
-    className="sc-eCYdqJ ebehEg"
+    className="sc-eCImPb ebzDfg"
     onClick={[Function]}
     selected={false}
   >
     <svg
-      className="sc-gsnTZi iOMLMs"
-      color="white"
+      className="sc-gsDKAQ jfmKRC"
+      color="White"
       data-testid="svg-component"
-      size="24px"
+      size="40"
       version="1.1"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
@@ -60,28 +62,30 @@ exports[`sideNav molecule matches snapshot 1`] = `
     </svg>
     <a
       href="/item2"
-    />
-    <span
-      className="sc-bczRLJ qaxFj"
     >
-      <p
-        className="sc-dkzDqf jdtZuS"
-        color="white"
+      <span
+        className="sc-bdvvtL iouZXA"
       >
-        item 2
-      </p>
-    </span>
+        <p
+          className="sc-dkPtRN eGpvia"
+          color="white"
+          size="small"
+        >
+          item 2
+        </p>
+      </span>
+    </a>
   </li>
   <li
-    className="sc-eCYdqJ ebehEg"
+    className="sc-eCImPb ebzDfg"
     onClick={[Function]}
     selected={false}
   >
     <svg
-      className="sc-gsnTZi iOMLMs"
-      color="white"
+      className="sc-gsDKAQ jfmKRC"
+      color="White"
       data-testid="svg-component"
-      size="24px"
+      size="40"
       version="1.1"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
@@ -94,17 +98,19 @@ exports[`sideNav molecule matches snapshot 1`] = `
     </svg>
     <a
       href="/item3"
-    />
-    <span
-      className="sc-bczRLJ qaxFj"
     >
-      <p
-        className="sc-dkzDqf jdtZuS"
-        color="white"
+      <span
+        className="sc-bdvvtL iouZXA"
       >
-        item 3
-      </p>
-    </span>
+        <p
+          className="sc-dkPtRN eGpvia"
+          color="white"
+          size="small"
+        >
+          item 3
+        </p>
+      </span>
+    </a>
   </li>
 </ul>
 `;
