@@ -6,7 +6,7 @@ import { Select as SelectComponent, SelectOptionsType, SelectProps, SelectSize, 
 const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 40vh;
+  height: 300px;
 `;
 export default {
   title: 'Forms/Select',
@@ -65,9 +65,7 @@ export default {
       control: 'text'
     },
     onValueChange: {
-      table: {
-        disable: true
-      }
+      description: 'Function to be executed when an option is selected or unselected'
     }
   }
 } as Meta;

@@ -1,3 +1,4 @@
+import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -20,7 +21,7 @@ import {
 import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
 
 export const Select = ({
-  defaultValue,
+  defaultValue = [],
   onValueChange,
   options,
   placeholder,
@@ -32,21 +33,22 @@ export const Select = ({
   size = SelectSize.Medium,
   children,
   multiple = false,
-  selectionText = 'selected'
+  selectionText = 'selected',
+  value
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [numSize, setNumSize] = useState(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
+  const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const [showOptionList, setShowOptionList] = useState(false);
-  const [selectedValueState, setSelectedValueState] = useState(defaultValue || []);
+  const [selectedValueState, setSelectedValueState] = useState(value || defaultValue);
   const ref = createRef<HTMLDivElement>();
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
   };
 
+  // eslint-disable-next-line consistent-return
   const handleOptionSelected = (option: SelectOptionsType) => {
-    // eslint-disable-next-line no-restricted-globals
-    onValueChange(option);
+    const auxSelected = JSON.parse(JSON.stringify(selectedValueState));
     // eslint-disable-next-line no-restricted-globals
     event?.preventDefault();
     if (!multiple) {
@@ -55,12 +57,16 @@ export const Select = ({
     if (checkIfSelected(option)) {
       if (multiple) {
         removeSelectedOption(option);
+      } else {
+        update([option]);
       }
     } else {
       if (!multiple) {
-        selectedValueState.pop();
+        return update([option]);
       }
-      setSelectedValueState((prev) => [...prev, option]);
+      auxSelected.push(option);
+      update(auxSelected);
+      // setSelectedValueState((prev) => [...prev, option]);
     }
   };
 
@@ -76,6 +82,7 @@ export const Select = ({
 
   const update = (auxSelected: SelectOptionsType[]) => {
     setSelectedValueState(auxSelected);
+    onValueChange(auxSelected);
   };
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains((event.target as Node) || null)) {
@@ -86,11 +93,11 @@ export const Select = ({
   useEffect(() => {
     switch (size) {
       case SelectSize.Large: {
-        setNumSize(parseInt(theme.sizes['2xl'].value.replace('px', ''), 10));
+        setNumSize(theme.sizes['2xl'].value);
         break;
       }
       default: {
-        setNumSize(parseInt(theme.sizes.xl.value.replace('px', ''), 10));
+        setNumSize(theme.sizes.xl.value);
         break;
       }
     }
@@ -103,6 +110,12 @@ export const Select = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+  useEffect(() => {
+    if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
+  }, [defaultValue]);
+  useEffect(() => {
+    if (value && value?.length > 0) setSelectedValueState(value);
+  }, [value]);
 
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
@@ -175,6 +188,7 @@ export const Select = ({
           disabled={disabled}
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
+          type={ButtonType.Button}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid="selected-value">
             {displaySelectedValues()}

@@ -1,34 +1,25 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { MouseEventHandler } from 'react';
+import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
 
 export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   text?: string;
   icon?: IconName;
+  iconColor?: IconColor;
   color?: PillColor;
   size?: PillSize;
-  isRounded?: boolean;
-  onClick?: MouseEventHandler<HTMLElement>;
-  onRemoveClick?: MouseEventHandler<SVGElement> | false;
 }
 
 export enum PillSize {
   ExtraSmall = 'ExtraSmall',
   Small = 'Small',
-  Medium = 'Medium',
-  Large = 'Large'
+  Medium = 'Medium'
 }
 
 export enum PillColor {
-  Archive = 'archive',
-  Close = 'close',
-  Disable = 'disable',
-  Hold = 'hold',
-  Indirect = 'indirect',
-  Live = 'live',
-  Multiple = 'multiple',
-  New = 'new',
-  Parked = 'parked',
-  Prospect = 'prospect',
-  Update = 'update',
-  Wholesaler = 'wholesaler'
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Support40 = 'support40',
+  Success = 'success',
+  alertStrong = 'alert-strong',
+  Fail = 'fail',
+  NotificationStrong = 'notification-strong'
 }

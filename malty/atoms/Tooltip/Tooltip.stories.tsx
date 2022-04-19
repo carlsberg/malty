@@ -1,3 +1,4 @@
+import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -10,7 +11,7 @@ const StyledContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 40vh;
+  height: 200px;
 
   span {
     width: 0;
@@ -27,21 +28,27 @@ export default {
   component: TooltipComponent,
   parameters: {
     importObject: 'Tooltip',
-    importPath: '@carlsberggroup/malty.atoms.tooltip'
+    importPath: '@carlsberggroup/malty.atoms.tooltip',
+    variants: ['dark', 'light']
   },
   argTypes: {
+    isOpen: {
+      description: 'Tooltip visibility. Overrides all variants actions that toggle visibility',
+      control: 'boolean',
+      table: { defaultValue: { summary: 'undefined' } }
+    },
     position: {
       description: 'Tooltip position.',
       options: Object.keys(TooltipPosition),
       mapping: TooltipPosition,
-      table: { defaultValue: { summary: 'TooltipPosition.TopCEnter' } },
+      table: { defaultValue: { summary: 'TooltipPosition.TopCenter' } },
       control: {
         type: 'select',
         label: Object.values(TooltipPosition)
       },
       defaultValue: 'TopCenter'
     },
-    anchor: {
+    anchorRef: {
       control: {
         disable: true
       },
@@ -61,24 +68,19 @@ export default {
       description: 'Expected Tooltip behaviour for trigger.',
       options: Object.keys(TooltipToggle),
       mapping: TooltipToggle,
-      table: { defaultValue: { summary: 'TooltipToggle.Persist' } },
+      table: { defaultValue: { summary: 'TooltipToggle.Hover' } },
       control: {
         type: 'select',
         label: Object.values(TooltipToggle)
       },
-      defaultValue: 'Persist'
-    },
-    isOpen: {
-      table: {
-        disable: true
-      }
+      defaultValue: 'Hover'
     },
     isDark: {
       description: 'Dark theme for the Tooltip.',
       control: 'boolean',
       table: { defaultValue: { summary: 'true' } }
     },
-    dataQaId: {
+    dataTestId: {
       control: 'text',
       description: 'Tooltip data-testid',
       table: { defaultValue: { summary: 'none' } }
@@ -88,7 +90,7 @@ export default {
       description: 'Set auto hide duration - available only for `Event` toggle',
       table: { defaultValue: { summary: '5000' } }
     },
-    onHideTooltip: {
+    onClose: {
       description: 'Function to be executed when tooltip state is changed to hidden.'
     }
   }
@@ -98,27 +100,55 @@ const Template: Story<TooltipProps> = ({
   position,
   toggle,
   isDark,
-  dataQaId,
+  dataTestId,
   autoHideDuration,
+  isOpen,
   children
 }: TooltipProps) => {
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
-  const tooltipAnchorRef = React.useRef<HTMLParagraphElement>(null);
+  const tooltipAnchorRef = React.useRef<HTMLParagraphElement | null>(null);
   const renderTooltipEventToggle = () => (
     <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
       {children}
     </Text>
   );
+  const toggleVisibility = (open: boolean) => () => {
+    if (open) {
+      TooltipComponent.openTooltip(tooltipAnchorRef);
+    } else {
+      TooltipComponent.closeTooltip(tooltipAnchorRef);
+    }
+  };
+
+  const startTimer = () => {
+    TooltipComponent.startTooltipTimer(tooltipAnchorRef);
+  };
+
   return (
     <StyledContainer>
       <p ref={tooltipAnchorRef}>Choose your toggle control and play with me!!!</p>
+
+      {toggle === TooltipToggle.Event && (
+        <p>
+          <button onClick={toggleVisibility(true)} type="button">
+            Show
+          </button>
+          <button onClick={toggleVisibility(false)} type="button">
+            Hide
+          </button>
+          <button onClick={startTimer} type="button">
+            Open with timer
+          </button>
+        </p>
+      )}
       <TooltipComponent
+        isOpen={isOpen}
         position={position}
         toggle={toggle}
         isDark={isDark}
         autoHideDuration={autoHideDuration}
-        anchor={tooltipAnchorRef}
-        dataQaId={dataQaId}
+        anchorRef={tooltipAnchorRef}
+        dataTestId={dataTestId}
       >
         {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
       </TooltipComponent>
@@ -128,10 +158,31 @@ const Template: Story<TooltipProps> = ({
 
 export const Tooltip = Template.bind({});
 
-Tooltip.args = {
-  position: TooltipPosition.TopCenter,
-  toggle: TooltipToggle.Persist,
-  dataQaId: 'tooltip',
-  children: 'A simple Tooltip content with some text. Thanks for open me!',
-  isDark: true
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'dark':
+    Tooltip.args = {
+      position: TooltipPosition.TopCenter,
+      toggle: TooltipToggle.Hover,
+      dataTestId: 'tooltip',
+      children: (
+        <div style={{ padding: '5px 0 0 0' }}>
+          <Image src="https://via.placeholder.com/90x?text=Any+HTML" />
+        </div>
+      ),
+      isDark: true
+    };
+    break;
+
+  default:
+    Tooltip.args = {
+      position: TooltipPosition.TopCenter,
+      toggle: TooltipToggle.Hover,
+      dataTestId: 'tooltip',
+      children: 'A simple Tooltip content with some text. Thanks for open me!',
+      isDark: false
+    };
+    break;
+}
