@@ -70,6 +70,10 @@ export default {
     },
     onValueChange: {
       description: 'Function to be executed when an option is selected or unselected'
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'select data-testid'
     }
   }
 } as Meta;

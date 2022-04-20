@@ -244,6 +244,5 @@ export const StyledOption = styled.option<{
   height: ${({ height }) => height};
 `;
 export const StyledClearableWrapper = styled.div`
-  /* width: fit-content; */
   position: relative;
 `;

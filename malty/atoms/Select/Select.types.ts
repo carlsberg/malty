@@ -10,10 +10,10 @@ export interface SelectProps {
   hint?: string;
   disabled?: boolean;
   size?: SelectSize;
-
   multiple?: boolean;
   search?: boolean;
   selectionText?: string;
+  dataTestId?: string;
 }
 
 export interface SelectOptionsType {
