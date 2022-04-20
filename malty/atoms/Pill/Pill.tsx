@@ -5,7 +5,14 @@ import { ThemeContext } from 'styled-components';
 import { StyledPill, StyledText } from './Pill.styled';
 import { PillColor, PillProps, PillSize } from './Pill.types';
 
-export const Pill = ({ text, icon, iconColor, color = PillColor.Primary, size = PillSize.Medium }: PillProps) => {
+export const Pill = ({
+  text,
+  icon,
+  iconColor,
+  color = PillColor.Primary,
+  size = PillSize.Medium,
+  dataTestId
+}: PillProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [numSize, setNumSize] = useState(theme.sizes.l.value);
   const [fontSize, setFontSize] = useState(theme.typography.desktop.text['medium-small_bold']['font-size'].value);
@@ -53,6 +60,7 @@ export const Pill = ({ text, icon, iconColor, color = PillColor.Primary, size = 
   return (
     <TypographyProvider>
       <StyledPill
+        data-testid={dataTestId}
         color={color}
         size={numSize}
         fontSize={fontSize}
@@ -63,8 +71,16 @@ export const Pill = ({ text, icon, iconColor, color = PillColor.Primary, size = 
         textColor={iconTextColor}
         pillSize={size}
       >
-        {icon && <Icon name={icon} size={IconSize.Small} color={iconTextColor} className="pill__icon" />}
-        <StyledText theme={theme} marginText={marginText} hasText={!!text}>
+        {icon && (
+          <Icon
+            data-testid={`${dataTestId}-icon`}
+            name={icon}
+            size={IconSize.Small}
+            color={iconTextColor}
+            className="pill__icon"
+          />
+        )}
+        <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
           {text}
         </StyledText>
       </StyledPill>

@@ -6,6 +6,7 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   iconColor?: IconColor;
   color?: PillColor;
   size?: PillSize;
+  dataTestId?: string;
 }
 
 export enum PillSize {
