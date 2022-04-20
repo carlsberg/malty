@@ -24,6 +24,23 @@ export const StyledError = styled.label`
   letter-spacing: 0;
 `;
 
+export const StyledHint = styled.label<{
+  disabled?: boolean;
+}>`
+  font-family: inherit;
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
+  font-weight: bold;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
+  letter-spacing: 0;
+  margin-top: ${({ theme }) => theme.sizes['4xs'].value};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
+`;
+
 export const StyledInputWrapper = styled.div<{
   isIconLeft?: boolean;
   clearable?: boolean;
