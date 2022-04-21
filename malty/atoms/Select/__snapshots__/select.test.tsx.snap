@@ -5,32 +5,35 @@ exports[`select matches snapshot 1`] = `
   className="sc-bczRLJ qaxFj"
 >
   <label
-    className="sc-fnykZs jMQmRa"
+    className="sc-ivTmOn fYXiZm"
+    data-testid="undefined-label"
     disabled={false}
     htmlFor="00000000-0000-0000-0000-000000000000"
   >
     Label text
   </label>
   <div
-    className="sc-hAZoDl bdTDMZ"
+    className="sc-bBrHrO eFkHu"
   >
     <button
-      className="sc-idiyUo cgavgE"
+      className="sc-iIPllB iurpEl"
+      data-testid="undefined-button"
       disabled={false}
       height="40px"
       id="00000000-0000-0000-0000-000000000000"
       name="00000000-0000-0000-0000-000000000000"
       onClick={[Function]}
       open={false}
+      type="button"
     >
       <div
-        className="sc-ivTmOn bQyqiF"
-        data-testid="selected-value"
+        className="sc-himrzO cWxDEl"
+        data-testid="undefined-selected-values"
       >
         Placeholder text
       </div>
       <svg
-        className="sc-iBkjds dPkEHg sc-kgflAQ cnjUsc"
+        className="sc-gsnTZi ivMBgY sc-kLLXSd dzWjIG"
         color="digital-black"
         data-testid="svg-component"
         size="24px"
@@ -56,15 +59,16 @@ exports[`select matches snapshot 1`] = `
       className="sc-bczRLJ qaxFj"
     >
       <ul
-        className="sc-dIouRR hQtxpU"
+        className="sc-gicCDI jOnkhs"
+        data-testid="undefined-options"
         height="40px"
       >
         <div
-          className="sc-cxabCf hquRhh"
+          className="sc-gXmSlM"
         />
         <li
-          className="sc-dmRaPn fNikAU"
-          data-testid="select-option-0"
+          className="sc-bZkfAO cqTeUr"
+          data-testid="undefined-option-0"
           disabled={false}
           height="40px"
           onClick={[Function]}
@@ -72,14 +76,15 @@ exports[`select matches snapshot 1`] = `
           value="value 1"
         >
           <div
-            className="sc-bBrHrO gxgkzZ"
+            className="sc-jIZahH jKzfhC"
+            data-testid="undefined-option-label-0"
           >
             name 1
           </div>
         </li>
         <li
-          className="sc-dmRaPn fNikAU"
-          data-testid="select-option-1"
+          className="sc-bZkfAO cqTeUr"
+          data-testid="undefined-option-1"
           disabled={false}
           height="40px"
           onClick={[Function]}
@@ -87,14 +92,15 @@ exports[`select matches snapshot 1`] = `
           value="value 2"
         >
           <div
-            className="sc-bBrHrO gxgkzZ"
+            className="sc-jIZahH jKzfhC"
+            data-testid="undefined-option-label-1"
           >
             name 2
           </div>
         </li>
         <li
-          className="sc-dmRaPn fNikAU"
-          data-testid="select-option-2"
+          className="sc-bZkfAO cqTeUr"
+          data-testid="undefined-option-2"
           disabled={false}
           height="40px"
           onClick={[Function]}
@@ -102,14 +108,15 @@ exports[`select matches snapshot 1`] = `
           value="value 3"
         >
           <div
-            className="sc-bBrHrO gxgkzZ"
+            className="sc-jIZahH jKzfhC"
+            data-testid="undefined-option-label-2"
           >
             name 3
           </div>
         </li>
         <li
-          className="sc-dmRaPn fNikAU"
-          data-testid="select-option-3"
+          className="sc-bZkfAO cqTeUr"
+          data-testid="undefined-option-3"
           disabled={false}
           height="40px"
           onClick={[Function]}
@@ -117,14 +124,15 @@ exports[`select matches snapshot 1`] = `
           value="value 4"
         >
           <div
-            className="sc-bBrHrO gxgkzZ"
+            className="sc-jIZahH jKzfhC"
+            data-testid="undefined-option-label-3"
           >
             name 4
           </div>
         </li>
         <li
-          className="sc-dmRaPn fNikAU"
-          data-testid="select-option-4"
+          className="sc-bZkfAO cqTeUr"
+          data-testid="undefined-option-4"
           disabled={false}
           height="40px"
           onClick={[Function]}
@@ -132,7 +140,8 @@ exports[`select matches snapshot 1`] = `
           value="value 5"
         >
           <div
-            className="sc-bBrHrO gxgkzZ"
+            className="sc-jIZahH jKzfhC"
+            data-testid="undefined-option-label-4"
           >
             name 5
           </div>
