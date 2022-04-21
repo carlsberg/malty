@@ -11,7 +11,8 @@ export default {
   component: AlertComponent,
   parameters: {
     importObject: 'Alert',
-    importPath: '@carlsberggroup/malty.molecules.alert'
+    importPath: '@carlsberggroup/malty.molecules.alert',
+    variants: ['icon', 'action', 'title', 'complete']
   },
   argTypes: {
     title: {
@@ -86,17 +87,64 @@ const Template: Story<AlertProps> = ({ ...args }) => (
 );
 
 export const Alert = Template.bind({});
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+switch (variant) {
+  case 'icon':
+    Alert.args = {
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: false,
+      icon: IconName.Information,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert'
+    };
+    break;
+  case 'title':
+    Alert.args = {
+      title: 'Title Alert',
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: false,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert'
+    };
+    break;
+  case 'action':
+    Alert.args = {
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: true,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert',
+      firstAction: action('First Action clicked'),
+      firstActionText: 'First Action',
+      secondAction: action('Second Action clicked'),
+      secondActionText: 'Second Action'
+    };
+    break;
+  case 'complete':
+    Alert.args = {
+      title: 'Title Alert',
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: true,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert',
+      firstAction: action('First Action clicked'),
+      firstActionText: 'First Action',
+      secondAction: action('Second Action clicked'),
+      secondActionText: 'Second Action'
+    };
+    break;
 
-Alert.args = {
-  title: 'Title',
-  message: 'Hello, Im the In Line Alert! Play with me.',
-  action: false,
-  icon: IconName.Information,
-  size: AlertSize.Medium,
-  color: AlertColor.Notification,
-  dataQaId: 'inline-alert',
-  firstAction: action('First Action clicked'),
-  firstActionText: 'First Action',
-  secondAction: action('Second Action clicked'),
-  secondActionText: 'Second Action'
-};
+  default:
+    Alert.args = {
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: false,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert'
+    };
+    break;
+}
