@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { AlertColor, AlertSize, AlertType } from './Alert.types';
+import { AlertColor, AlertSize, AlertType } from './Toast.types';
 
 export const StyledWrapper = styled.div<{
   type?: AlertType;

@@ -2,15 +2,15 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Alert as AlertComponent } from './Alert';
-import { AlertColor, AlertProps, AlertSize, AlertType } from './Alert.types';
+import { Toast as ToastComponent } from './Toast';
+import { AlertColor, AlertProps, AlertSize, AlertType } from './Toast.types';
 
 export default {
-  title: 'Information/Alert',
-  component: AlertComponent,
+  title: 'Information/Toast',
+  component: ToastComponent,
   parameters: {
-    importObject: 'Alert',
-    importPath: '@carlsberggroup/malty.atoms.alert',
+    importObject: 'Toast',
+    importPath: '@carlsberggroup/malty.atoms.toast',
     variants: ['inline', 'toast', 'banner']
   },
   argTypes: {
@@ -99,18 +99,18 @@ const StyledContainer = styled.div`
 `;
 const Template: Story<AlertProps> = ({ ...args }) => (
   <StyledContainer>
-    <AlertComponent {...args} />
+    <ToastComponent {...args} />
   </StyledContainer>
 );
 
-export const Alert = Template.bind({});
+export const Toast = Template.bind({});
 
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
   case 'inline':
-    Alert.args = {
+    Toast.args = {
       type: AlertType.InLine,
       children: 'Hello, Im the In Line Alert! Play with me.',
       action: false,
@@ -125,7 +125,7 @@ switch (variant) {
     };
     break;
   case 'toast':
-    Alert.args = {
+    Toast.args = {
       type: AlertType.Toast,
       children: 'Hello, Im the Toast Alert! Play with me.',
       action: true,
@@ -138,7 +138,7 @@ switch (variant) {
     };
     break;
   default:
-    Alert.args = {
+    Toast.args = {
       type: AlertType.Banner,
       children: 'Hello, Im the Banner Alert! Play with me.',
       action: true,

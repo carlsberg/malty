@@ -1,15 +1,15 @@
 import { fireEvent, render, screen, waitFor } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
-import { Alert } from './Alert';
-import { AlertColor, AlertType } from './Alert.types';
+import { Toast } from './Toast';
+import { AlertColor, AlertType } from './Toast.types';
 
 describe('<Alert/>', () => {
   describe('In Line Alert', () => {
     it('should render In Line Alert component with label', () => {
       render(
-        <Alert type={AlertType.InLine} color={AlertColor.Notification} dataQaId="inline">
+        <Toast type={AlertType.InLine} color={AlertColor.Notification} dataQaId="inline">
           In Line Alert Label
-        </Alert>
+        </Toast>
       );
       expect(screen.getByText('In Line Alert Label')).toBeInTheDocument();
       expect(screen.getByTestId('inline-alert-container')).toBeInTheDocument();
@@ -17,9 +17,9 @@ describe('<Alert/>', () => {
 
     it('should render In Line Alert component with label and Icon', () => {
       render(
-        <Alert type={AlertType.InLine} icon color={AlertColor.Notification} dataQaId="inline-alert-with-icon">
+        <Toast type={AlertType.InLine} icon color={AlertColor.Notification} dataQaId="inline-alert-with-icon">
           In Line Alert Label and Icon
-        </Alert>
+        </Toast>
       );
 
       expect(screen.getByText('In Line Alert Label and Icon')).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe('<Alert/>', () => {
     it('should render In Line Alert component with label, Icon and two actions', () => {
       const secondActionMock = jest.fn();
       render(
-        <Alert
+        <Toast
           type={AlertType.InLine}
           icon
           color={AlertColor.Notification}
@@ -40,7 +40,7 @@ describe('<Alert/>', () => {
           secondAction={secondActionMock}
         >
           In Line Alert with Label, Icon and two actions
-        </Alert>
+        </Toast>
       );
 
       expect(screen.getByText('ok')).toBeInTheDocument();
@@ -56,9 +56,9 @@ describe('<Alert/>', () => {
     it('should render Toast Alert component with label', () => {
       const dataQaId = 'toast';
       render(
-        <Alert type={AlertType.Toast} color={AlertColor.Notification} dataQaId={dataQaId}>
+        <Toast type={AlertType.Toast} color={AlertColor.Notification} dataQaId={dataQaId}>
           Toast Alert Label
-        </Alert>
+        </Toast>
       );
 
       expect(screen.getByText('Toast Alert Label')).toBeInTheDocument();
@@ -69,9 +69,9 @@ describe('<Alert/>', () => {
       const dismissMock = jest.fn();
       const dataQaId = 'toast-dismiss-actions';
       render(
-        <Alert type={AlertType.Toast} color={AlertColor.Notification} dataQaId={dataQaId} dismiss={dismissMock}>
+        <Toast type={AlertType.Toast} color={AlertColor.Notification} dataQaId={dataQaId} dismiss={dismissMock}>
           Toast with dismiss action
-        </Alert>
+        </Toast>
       );
 
       expect(screen.getByText('Toast with dismiss action')).toBeInTheDocument();
@@ -83,9 +83,9 @@ describe('<Alert/>', () => {
     it('Should hide the toast On time out', async () => {
       const dismissMock = jest.fn();
       render(
-        <Alert type={AlertType.Toast} color={AlertColor.Notification} dismiss={dismissMock} autoHideDuration={1000}>
+        <Toast type={AlertType.Toast} color={AlertColor.Notification} dismiss={dismissMock} autoHideDuration={1000}>
           Toast with dismiss action
-        </Alert>
+        </Toast>
       );
 
       expect(screen.getByText('Toast with dismiss action')).toBeInTheDocument();

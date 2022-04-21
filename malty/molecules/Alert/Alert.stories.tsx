@@ -7,7 +7,7 @@ import { Alert as AlertComponent } from './Alert';
 import { AlertColor, AlertProps, AlertSize } from './Alert.types';
 
 export default {
-  title: 'Information/Inline Alert',
+  title: 'Information/Alert',
   component: AlertComponent,
   parameters: {
     importObject: 'Alert',

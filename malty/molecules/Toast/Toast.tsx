@@ -19,10 +19,10 @@ import {
   StyledDismissContainer,
   StyledTextContainer,
   StyledToast
-} from './Alert.styled';
-import { AlertColor, AlertProps, AlertType } from './Alert.types';
+} from './Toast.styled';
+import { AlertColor, AlertProps, AlertType } from './Toast.types';
 
-export const Alert = ({
+export const Toast = ({
   type,
   action = true,
   icon,
