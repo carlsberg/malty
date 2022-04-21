@@ -103,6 +103,7 @@ export const StyledInput = styled.input<{
   addRight?: boolean;
   isError?: boolean;
 }>`
+  width: 100%;
   flex: 1 1 auto;
   display: inline-flex;
   box-sizing: border-box;
@@ -243,6 +244,5 @@ export const StyledOption = styled.option<{
   height: ${({ height }) => height};
 `;
 export const StyledClearableWrapper = styled.div`
-  width: fit-content;
   position: relative;
 `;
