@@ -282,8 +282,11 @@ export const StyledSelectedOptionsWrapper = styled.div`
   width: calc(100% - 36px);
 `;
 export const StyledActionsWrapper = styled.div`
-  padding: ${({ theme }) => theme.sizes.s.value} ${({ theme }) => theme.sizes.s.value} 0
-    ${({ theme }) => theme.sizes.s.value};
+  padding: 0 ${({ theme }) => theme.sizes.s.value};
+`;
+export const StyledSearchWrapper = styled.div`
+  padding-top: ${({ theme }) => theme.sizes.s.value};
+  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value}; ;
 `;
 
 export const StyledActionButtonWrapper = styled.div<{

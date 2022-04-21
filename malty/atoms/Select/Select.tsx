@@ -20,6 +20,7 @@ import {
   StyledLabel,
   StyledOption,
   StyledOptionsWrapper,
+  StyledSearchWrapper,
   StyledSelectedOptionsWrapper,
   StyledWrapper
 } from './Select.styled';
@@ -167,14 +168,16 @@ export const Select = ({
       >
         <StyledActionsWrapper theme={theme}>
           {search && (
-            <Input
-              data-testid={`${dataTestId}-search-input`}
-              size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
-              onValueChange={handleSearch}
-              type={InputType.Search}
-              value={queryText}
-              icon={IconName.Search}
-            />
+            <StyledSearchWrapper>
+              <Input
+                data-testid={`${dataTestId}-search-input`}
+                size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
+                onValueChange={handleSearch}
+                type={InputType.Search}
+                value={queryText}
+                icon={IconName.Search}
+              />
+            </StyledSearchWrapper>
           )}
           {multiple && (
             <StyledActionButtonWrapper height={numSize} theme={theme}>
