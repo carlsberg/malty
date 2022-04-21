@@ -20,6 +20,7 @@ export const Button = ({
   negative = false,
   fullWidth = false,
   disabled,
+  selected = false,
   onClick,
   onKeyUp,
   icon,
@@ -73,6 +74,7 @@ export const Button = ({
         iconPos={iconPos}
         theme={theme}
         tabIndex={tabIndex}
+        className={selected ? 'active' : ''}
       >
         <div className={`text-container ${loading ? 'invisible' : ''}`}>
           {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
@@ -120,7 +122,7 @@ export const Button = ({
 
   return url ? (
     <TypographyProvider>
-      <StyledAnchor target="_blank" href={url} rel="noreferrer">
+      <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
         {renderComponent()}
       </StyledAnchor>
     </TypographyProvider>

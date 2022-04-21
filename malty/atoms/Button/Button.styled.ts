@@ -166,6 +166,9 @@ export const StyledTransparentButton = styled(StyledButton)`
 
   color: ${({ isNegative, theme }) =>
     isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  &.active {
+    background-color: ${({ theme }) => theme.colors.colours.support[40].value};
+  }
   &:hover {
     background-color: ${({ isNegative, theme }) =>
       isNegative
@@ -192,10 +195,6 @@ export const StyledTransparentButton = styled(StyledButton)`
           : theme.colors.colours.system['disable-light-theme'].value};
     }
   }
-  /* :focus-visible {
-    outline: 0;
-    background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
-  } */
 `;
 
 export const StyledLinkButton = styled(StyledButton)`

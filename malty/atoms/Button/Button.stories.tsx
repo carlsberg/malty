@@ -112,7 +112,10 @@ export default {
       control: 'text',
       description: 'Use this component as link or button with a simple URL, no click function needed'
     },
-
+    selected: {
+      description: 'Add classname of "active" to element',
+      control: 'boolean'
+    },
     children: {
       control: 'text',
       description: 'Label your button with a child, as a string. This is an alternative to the `text` property'
@@ -139,7 +142,8 @@ switch (variant) {
       negative: false,
       disabled: false,
       fullWidth: false,
-      url: ''
+      url: '',
+      selected: false
     };
     break;
 
@@ -154,7 +158,8 @@ switch (variant) {
       negative: false,
       disabled: false,
       fullWidth: false,
-      url: ''
+      url: '',
+      selected: false
     };
     break;
 
@@ -169,7 +174,8 @@ switch (variant) {
       negative: false,
       disabled: false,
       fullWidth: false,
-      url: ''
+      url: '',
+      selected: false
     };
     break;
 
@@ -184,7 +190,8 @@ switch (variant) {
       negative: false,
       disabled: false,
       fullWidth: false,
-      url: ''
+      url: '',
+      selected: false
     };
     break;
 }

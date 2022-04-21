@@ -18,6 +18,7 @@ export interface ButtonProps {
   tabIndex?: number;
   children?: string | JSX.Element;
   dataTestId?: string;
+  selected?: boolean;
 }
 
 export enum ButtonType {
