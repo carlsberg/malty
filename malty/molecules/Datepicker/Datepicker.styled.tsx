@@ -63,6 +63,7 @@ export const StyledInputIcon = styled.span`
 export const StyledContainer = styled.div`
   //place container on top of datepicker input border
   margin-top: -1px;
+  background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   box-sizing: border-box;
   border: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}
   ${theme.borders['border-1px--solid']['border-style'].value}
