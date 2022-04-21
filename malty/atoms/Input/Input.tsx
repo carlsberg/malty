@@ -40,7 +40,7 @@ export const Input = ({
   clearable,
   mask,
   children,
-  className,
+
   hint,
   dataTestId
 }: InputProps) => {
@@ -220,7 +220,7 @@ export const Input = ({
 
   return (
     <TypographyProvider>
-      <StyledInputContainer className={className} theme={theme}>
+      <StyledInputContainer theme={theme}>
         {label && (
           <StyledLabel data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
             {label}

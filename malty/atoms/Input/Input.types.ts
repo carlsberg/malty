@@ -14,7 +14,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   clearable?: boolean;
   mask?: InputMaskTypes;
   children?: React.Component;
-  className?: string;
+
   hint?: string;
   dataTestId?: string;
 }

@@ -282,17 +282,8 @@ export const StyledSelectedOptionsWrapper = styled.div`
   width: calc(100% - 36px);
 `;
 export const StyledActionsWrapper = styled.div`
-  .search-input {
-    input {
-      outline: none !important;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      border-bottom: ${({ theme }) => theme.borders['border-1px--solid']['border-width'].value},
-        ${({ theme }) => theme.borders['border-1px--solid']['border-style'].value},
-        ${({ theme }) => theme.colors.colours.support[40].value};
-    }
-  }
+  padding: ${({ theme }) => theme.sizes.s.value} ${({ theme }) => theme.sizes.s.value} 0
+    ${({ theme }) => theme.sizes.s.value};
 `;
 
 export const StyledActionButtonWrapper = styled.div<{
@@ -300,7 +291,6 @@ export const StyledActionButtonWrapper = styled.div<{
 }>`
   display: flex;
   align-items: center;
-  padding: 0 ${({ theme }) => theme.sizes.s.value};
   height: ${({ height }) => height};
 `;
 export const StyledActionButton = styled.div`

@@ -169,7 +169,6 @@ export const Select = ({
           {search && (
             <Input
               data-testid={`${dataTestId}-search-input`}
-              className="search-input"
               size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
               onValueChange={handleSearch}
               type={InputType.Search}
