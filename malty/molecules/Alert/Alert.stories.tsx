@@ -1,3 +1,4 @@
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -23,9 +24,11 @@ export default {
       table: { defaultValue: { summary: 'true' } }
     },
     icon: {
-      description: 'Add icon',
-      control: 'boolean',
-      table: { defaultValue: { summary: 'true' } }
+      description: 'When selected, Alert label will contain the selected icon',
+      options: Object.values(IconName),
+      control: {
+        type: 'select'
+      }
     },
     size: {
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
@@ -88,7 +91,7 @@ Alert.args = {
   title: 'Title',
   message: 'Hello, Im the In Line Alert! Play with me.',
   action: false,
-  icon: false,
+  icon: IconName.Information,
   size: AlertSize.Medium,
   color: AlertColor.Notification,
   dataQaId: 'inline-alert',

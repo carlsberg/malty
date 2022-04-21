@@ -1,5 +1,5 @@
 import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
@@ -17,7 +17,7 @@ import { AlertColor, AlertProps } from './Alert.types';
 
 export const Alert = ({
   action = false,
-  icon = false,
+  icon,
   size,
   color = AlertColor.Notification,
   dataQaId,
@@ -50,7 +50,7 @@ export const Alert = ({
   const renderAlertIcon = () => (
     <Icon
       className="inline-alert-icon"
-      name={IconName.Alert}
+      name={icon}
       size={IconSize.Small}
       color={alertIconColor}
       data-testid={`${dataQaId}-icon`}
@@ -102,7 +102,7 @@ export const Alert = ({
       <StyledAlertInLine
         hasTitle={!!title}
         hasActions={action}
-        hasIcon={icon}
+        hasIcon={!!icon}
         size={size}
         data-testid={`${dataQaId}-alert-container`}
         color={color}

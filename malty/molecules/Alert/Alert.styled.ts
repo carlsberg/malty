@@ -29,24 +29,13 @@ export const StyledContainer = styled.div<{
 `;
 
 export const StyledAlertInLine = styled(StyledContainer)<{
-  color?: AlertColor;
+  color: AlertColor;
   size?: AlertSize;
   hasTitle?: boolean;
   hasActions?: boolean;
   hasIcon?: boolean;
 }>`
-  background-color: ${({ color, theme }) => {
-    if (color === AlertColor.Alert) {
-      return theme.colors.colours.system['alert-strong'].value;
-    }
-    if (color === AlertColor.Success) {
-      return theme.colors.colours.system.success.value;
-    }
-    if (color === AlertColor.Fail) {
-      return theme.colors.colours.system.fail.value;
-    }
-    return theme.colors.colours.system['notification-strong'].value;
-  }};
+  background-color: ${({ color, theme }) => theme.colors.colours.system[color].value};
 
   padding: ${({ theme, hasTitle, hasActions, hasIcon, size }) => {
     if (hasTitle || hasActions) {
