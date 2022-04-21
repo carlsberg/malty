@@ -70,12 +70,16 @@ export default {
           summary: 'IconName.CarlsbergFilled'
         }
       }
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'Pill data-testid'
     }
   }
 } as Meta;
 
-const Template: Story<PillProps> = ({ iconColor, text, icon, color, size }: PillProps) => (
-  <PillComponent iconColor={iconColor} text={text} icon={icon} color={color} size={size} />
+const Template: Story<PillProps> = ({ iconColor, text, icon, color, size, dataTestId }: PillProps) => (
+  <PillComponent iconColor={iconColor} text={text} icon={icon} color={color} size={size} dataTestId={dataTestId} />
 );
 
 let PillEl;
