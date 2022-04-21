@@ -281,12 +281,9 @@ export const StyledSelectedOptionsWrapper = styled.div`
   text-overflow: ellipsis;
   width: calc(100% - 36px);
 `;
-export const StyledActionsWrapper = styled.div`
-  padding: 0 ${({ theme }) => theme.sizes.s.value};
-`;
+export const StyledActionsWrapper = styled.div``;
 export const StyledSearchWrapper = styled.div`
-  padding-top: ${({ theme }) => theme.sizes.s.value};
-  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value}; ;
+  padding: ${({ theme }) => theme.sizes['2xs'].value}; ;
 `;
 
 export const StyledActionButtonWrapper = styled.div<{
@@ -295,6 +292,7 @@ export const StyledActionButtonWrapper = styled.div<{
   display: flex;
   align-items: center;
   height: ${({ height }) => height};
+  padding: 0 ${({ theme }) => theme.sizes.s.value};
 `;
 export const StyledActionButton = styled.div`
   color: ${({ theme }) => theme.colors.colours.support[80].value};
