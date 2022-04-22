@@ -70,6 +70,7 @@ describe('select', () => {
         onValueChange={onValueChange}
         type={SelectType.Default}
         size={SelectSize.Medium}
+        dataTestId="select"
       />
     );
     const select = screen.getByText('select');
@@ -89,9 +90,10 @@ describe('select', () => {
         onValueChange={onValueChange}
         type={SelectType.Default}
         size={SelectSize.Medium}
+        dataTestId="select"
       />
     );
-    const selectedValue = screen.getByTestId('selected-value');
+    const selectedValue = screen.getByTestId('select-selected-values');
     expect(selectedValue.innerHTML).toEqual(testOptions[1].name);
   });
 
