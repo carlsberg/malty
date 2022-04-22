@@ -11,6 +11,7 @@ export const StyledPill = styled.div<{
   color: PillColor;
   textColor: IconColor;
   hasText: boolean;
+  pillSize: PillSize;
 }>`
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
   font-size: ${({ fontSize }) => `${fontSize}`};
@@ -22,7 +23,7 @@ export const StyledPill = styled.div<{
     if (color === PillColor.Secondary) {
       return theme.colors.theme.themeSecondary.value;
     }
-    if (color === PillColor.Support40) {
+    if (color === PillColor.Archive) {
       return theme.colors.colours.support[40].value;
     }
     return theme.colors.colours.system[color].value;
@@ -36,37 +37,51 @@ export const StyledPill = styled.div<{
 
   .pill {
     &__icon {
-      margin-right: ${({ hasText, theme }) => hasText && theme.sizes['2xs'].value};
+      ${({ pillSize, hasText }) => {
+        if (pillSize === PillSize.ExtraSmall || pillSize === PillSize.Small) {
+          return css`
+            margin-right: ${({ theme }) => hasText && theme.sizes['5xs'].value};
+          `;
+        }
+
+        return css`
+          margin-right: ${({ theme }) => hasText && theme.sizes['4xs'].value};
+        `;
+      }}
+
       height: ${({ iconSize }) => iconSize};
       width: ${({ iconSize }) => iconSize};
     }
   }
 
-  ${({ size, hasText, padding }) => {
-    if (size === PillSize.ExtraSmall || size === PillSize.Small) {
-      return css`
-        padding: 0 ${padding};
-        .pill {
-          &__icon {
-            ${hasText && `margin-right: ${parseInt(padding.replace('px', ''), 10) / 2}px;`};
-            padding: ${parseInt(padding.replace('px', ''), 10) / 2}px 0;
-            height: 100%;
-            width: auto;
-          }
-        }
-      `;
-    }
+  ${({ size, hasText, padding, pillSize, theme }) => {
     if (!hasText) {
       return css`
-        padding: ${({ theme }) => theme.sizes['5xs'].value};
+        padding: ${theme.sizes['5xs'].value};
         width: ${size};
         display: flex;
         align-items: center;
         justify-content: center;
       `;
     }
+    if (pillSize === PillSize.ExtraSmall) {
+      return css`
+        padding: 0 ${padding} 0 ${theme.sizes['4xs'].value}; ;
+      `;
+    }
+    if (pillSize === PillSize.Small) {
+      return css`
+        padding: 0 ${padding} 0 ${theme.sizes['2xs'].value}; ;
+      `;
+    }
     return css`
-      padding: 0 ${padding};
+      padding: 0 ${padding} 0 ${theme.sizes.xs.value}; ;
     `;
   }}
+`;
+export const StyledText = styled.div<{
+  marginText: string;
+  hasText: boolean;
+}>`
+  margin-left: ${({ hasText, marginText }) => hasText && marginText};
 `;

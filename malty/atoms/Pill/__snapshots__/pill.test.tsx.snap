@@ -2,16 +2,16 @@
 
 exports[`pill matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL bWTUHG"
+  className="sc-bczRLJ qaxFj"
 >
   <div
-    className="sc-dkPtRN dQIpmL"
+    className="sc-dkzDqf hoMrIK"
     color="primary"
     fontSize="14px"
     size="32px"
   >
     <svg
-      className="sc-gsDKAQ iTqjuk pill__icon"
+      className="sc-gsnTZi iOMLMs pill__icon"
       color="white"
       data-testid="svg-component"
       size="24px"
@@ -25,7 +25,11 @@ exports[`pill matches snapshot 1`] = `
         fillRule="evenodd"
       />
     </svg>
-    Pill text
+    <div
+      className="sc-hKMtZM dKAPlu"
+    >
+      Pill text
+    </div>
   </div>
 </span>
 `;
