@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, useState } from 'react';
+import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import {
   StyledTooltipPositionBottomCenter,
   StyledTooltipPositionBottomLeft,
@@ -34,7 +34,7 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
   };
 
   // TooltipToggle.Events logic
-  const startAutoHideTimer = () => {
+  const startAutoHideTimer = useCallback(() => {
     if (toggleType === TooltipToggle.Event && typeof isOpenProp !== 'boolean') {
       setTooltipOpen(true);
       autoHideTimer.current = setTimeout(() => {
@@ -42,12 +42,11 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
         onClose?.();
       }, autoHideDuration);
     }
-  };
+  }, [onClose]);
 
   // custom global events handling
   useEffect(() => {
     const validateEventSource = (ev: Event) => (ev as CustomEvent).detail === anchorRef;
-
     const onStartAutoHideTimerEvent = (ev: Event) => {
       if (validateEventSource(ev)) {
         startAutoHideTimer();
@@ -74,7 +73,7 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
       window.removeEventListener(OPEN_TOOLTIP_EVENT, onOpenTooltipEvent);
       window.removeEventListener(CLOSE_TOOLTIP_EVENT, onCloseTooltipEvent);
     };
-  }, []);
+  }, [startAutoHideTimer]);
 
   // Tooltip events logic
   useEffect(() => {

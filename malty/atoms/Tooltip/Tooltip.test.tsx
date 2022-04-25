@@ -11,6 +11,7 @@ import { Tooltip } from '.';
 import { TooltipPosition, TooltipToggle } from './Tooltip.types';
 
 const anchorAction = jest.fn();
+const onClose = jest.fn();
 const tooltipAnchorRef: RefObject<HTMLAnchorElement> = createRef();
 
 const renderTooltip = (options = { toggleType: TooltipToggle.Click }) =>
@@ -25,6 +26,7 @@ const renderTooltip = (options = { toggleType: TooltipToggle.Click }) =>
         dataTestId="tooltip-test"
         toggle={options.toggleType}
         autoHideDuration={3000}
+        onClose={onClose}
       >
         <button type="button">Button inside Tooltip</button>
       </Tooltip>
@@ -113,5 +115,6 @@ describe('Tooltip', () => {
 
     // should hide tooltip after 3 seconds
     await waitForElementToBeRemoved(() => screen.queryByText('Button inside Tooltip'), { timeout: 3000 });
+    expect(onClose).toHaveBeenCalled();
   });
 });
