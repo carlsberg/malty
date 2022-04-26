@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert matches snapshot 1`] = `
+<div
+  className="sc-iqcoie sc-crXcEl gUslfD gJIXvv"
+>
+  <div
+    className="sc-evZas sc-breuTD jBTbMj jrMzi"
+    color="notification-strong"
+    data-testid="inline-alert-container"
+  >
+    <div
+      className="sc-idiyUo iyMFLp"
+      data-testid="inline-alert-content"
+    >
+      <div
+        className="sc-hAZoDl ihNuFn"
+        data-alert-label-container={true}
+      >
+        <span
+          className="sc-bczRLJ hROJNc"
+        >
+          <p
+            className="sc-kDDrLX LJBLZ"
+            color="white"
+          >
+            Hello, Im the In Line Alert! Play with me.
+          </p>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -19,6 +19,10 @@ export default {
       control: 'text',
       description: 'Title'
     },
+    message: {
+      control: 'text',
+      description: 'message'
+    },
     action: {
       description: 'Add action',
       control: 'boolean',
@@ -63,6 +67,12 @@ export default {
       control: 'text',
       description: 'Alert data-qi-id, can be',
       table: { defaultValue: { summary: 'none' } }
+    },
+    firstAction: {
+      description: 'Function to be executed when first action is clicked'
+    },
+    secondAction: {
+      description: 'Function to be executed when second action is clicked'
     },
     firstActionText: {
       control: 'text',

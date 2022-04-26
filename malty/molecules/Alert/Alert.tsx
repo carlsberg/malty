@@ -47,7 +47,7 @@ export const Alert = ({
     }
   };
 
-  const renderAlertIcon = () => (
+  const renderIcon = () => (
     <Icon
       className="inline-alert-icon"
       name={icon}
@@ -66,8 +66,8 @@ export const Alert = ({
   );
 
   const renderActions = () => (
-    <StyledActionContainer data-testid={`${dataQaId}-action-container`}>
-      <StyledActionItem>
+    <StyledActionContainer theme={theme} data-testid={`${dataQaId}-action-container`}>
+      <StyledActionItem theme={theme}>
         <Button
           isWhite={actionButtonColor}
           size={ButtonSize.Small}
@@ -79,26 +79,23 @@ export const Alert = ({
           {firstActionText}
         </Button>
       </StyledActionItem>
-
-      {secondAction && (
-        <StyledActionItem>
-          <Button
-            isWhite={actionButtonColor}
-            size={ButtonSize.Small}
-            type={ButtonType.Button}
-            style={ButtonStyle.Link}
-            onClick={onSecondAction}
-            data-testid={`${dataQaId}-second-action`}
-          >
-            {secondActionText}
-          </Button>
-        </StyledActionItem>
-      )}
+      <StyledActionItem theme={theme}>
+        <Button
+          isWhite={actionButtonColor}
+          size={ButtonSize.Small}
+          type={ButtonType.Button}
+          style={ButtonStyle.Link}
+          onClick={onSecondAction}
+          data-testid={`${dataQaId}-second-action`}
+        >
+          {secondActionText}
+        </Button>
+      </StyledActionItem>
     </StyledActionContainer>
   );
 
   return (
-    <StyledAlertInLineWrapper>
+    <StyledAlertInLineWrapper theme={theme}>
       <StyledAlertInLine
         hasTitle={!!title}
         hasActions={action}
@@ -109,14 +106,14 @@ export const Alert = ({
         theme={theme}
       >
         {title && (
-          <StyledTitle>
+          <StyledTitle theme={theme}>
             <Text textStyle={TextStyle.MediumSmallBold} color={labelFontColor}>
               {title}
             </Text>
           </StyledTitle>
         )}
-        <StyledContent data-testid={`${dataQaId}-alert-content`}>
-          {!title && icon && renderAlertIcon()}
+        <StyledContent theme={theme} data-testid={`${dataQaId}-alert-content`}>
+          {!title && icon && renderIcon()}
           {renderLabel()}
         </StyledContent>
 
