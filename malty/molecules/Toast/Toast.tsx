@@ -2,7 +2,8 @@ import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/mal
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import { StyledActionItem, StyledAlertToastWrapper, StyledDismissContainer, StyledToast } from './Toast.styled';
 import { ToastColor, ToastProps } from './Toast.types';
 
@@ -16,7 +17,7 @@ export const Toast = ({
   message,
   autoHideDuration = 5000
 }: ToastProps) => {
-  const theme = defaultTheme;
+  const theme = useContext(ThemeContext) || defaultTheme;
 
   // Toast auto hide setup
   const [isToastVisible, setToastVisible] = useState(true);
