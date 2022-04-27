@@ -71,9 +71,9 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         role="button"
       >
         <Button
-          isWhite={currentAlert.type !== AlertBannerType.Warning}
+          negative={currentAlert.type !== AlertBannerType.Warning}
           size={ButtonSize.Small}
-          type={ButtonType.Button}
+          type={ButtonType.Default}
           style={ButtonStyle.Link}
         >
           {currentAlert.actionName}
