@@ -76,12 +76,12 @@ export default {
     },
     firstActionText: {
       control: 'text',
-      description: 'Action',
+      description: 'First Action text',
       table: { defaultValue: { summary: 'none' } }
     },
     secondActionText: {
       control: 'text',
-      description: 'Second Action',
+      description: 'Second Action text',
       table: { defaultValue: { summary: 'none' } }
     }
   }

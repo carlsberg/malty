@@ -49,10 +49,6 @@ export const StyledAlertInLine = styled(StyledContainer)<{
   }};
 `;
 
-export const StyledAlertInLineWithActions = styled(StyledAlertInLine)`
-  height: auto;
-`;
-
 export const StyledTextContainer = styled.div`
   min-width: 30px;
   overflow: hidden;
@@ -76,20 +72,6 @@ export const StyledActionItem = styled.div`
   button {
     text-decoration: 'underline';
   }
-`;
-
-export const StyledButton = styled.button`
-  font-family: inherit;
-  display: flex;
-  cursor: pointer;
-  text-align: left;
-  background: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  outline: none;
-  text-decoration: underline;
 `;
 
 export const StyledContent = styled.div`
