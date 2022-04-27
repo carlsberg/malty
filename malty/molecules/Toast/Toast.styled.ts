@@ -1,12 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { ToastColor } from './Toast.types';
 
-export const StyledWrapper = styled.div`
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-`;
-
 // Toast
 const fadeInBottomUpAnimation = keyframes`
   0% {
@@ -18,7 +12,8 @@ const fadeInBottomUpAnimation = keyframes`
     opacity: 1
   }
 `;
-export const StyledAlertToastWrapper = styled(StyledWrapper)`
+export const StyledAlertToastWrapper = styled.div`
+  width: 100%;
   position: absolute;
   margin: auto;
   left: 0;
@@ -28,15 +23,9 @@ export const StyledAlertToastWrapper = styled(StyledWrapper)`
   animation-timing-function: ease-in-out;
 `;
 
-export const StyledContainer = styled.div<{
+export const StyledToast = styled.div<{
   color: ToastColor;
 }>`
-  svg {
-    flex-shrink: 0;
-  }
-`;
-
-export const StyledToast = styled(StyledContainer)`
   padding: ${({ theme }) => theme.sizes.xs.value} ${({ theme }) => theme.sizes.s.value};
   display: flex;
   justify-content: space-between;
@@ -52,11 +41,6 @@ export const StyledToast = styled(StyledContainer)`
   gap: ${({ theme }) => theme.sizes.s.value};
 `;
 
-export const StyledTextContainer = styled.div`
-  min-width: 30px;
-  overflow: hidden;
-`;
-
 export const StyledActionItem = styled.div`
   white-space: nowrap;
   overflow: hidden;
@@ -67,32 +51,9 @@ export const StyledActionItem = styled.div`
   }
 `;
 
-export const StyledButton = styled.button`
-  font-family: inherit;
-  display: flex;
-  cursor: pointer;
-  text-align: left;
-  background: transparent;
-  border: none;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  outline: none;
-  text-decoration: underline;
-`;
-
 export const StyledDismissContainer = styled.div`
   display: flex;
   align-items: center;
   column-gap: ${({ theme }) => theme.sizes.s.value};
   margin-left: auto;
-`;
-
-export const StyledAlertToastContent = styled.div`
-  width: 100%;
-  justify-content: space-between;
-  margin: 0 auto;
-  p {
-    white-space: normal;
-  }
 `;
