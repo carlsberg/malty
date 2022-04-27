@@ -1,4 +1,5 @@
-import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { screen } from '@testing-library/react';
 import React from 'react';
 import { ProgressBar } from '.';
 

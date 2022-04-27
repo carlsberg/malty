@@ -1,5 +1,6 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { jsonRenderer, render, screen, within } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { screen, within } from '@testing-library/react';
 import React from 'react';
 import { NavList } from './NavList';
 
