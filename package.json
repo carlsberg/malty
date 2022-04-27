@@ -2,7 +2,7 @@
   "name": "carlsberg-malty",
   "homepage": "https://malty.carlsberggroup.com/",
   "url": "https://malty.carlsberggroup.com",
-  "version": "1.0.16",
+  "version": "1.0.18",
   "private": true,
   "keywords": [
     "carlsberg",
@@ -20,7 +20,9 @@
     "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
   },
   "scripts": {
-    "clean": "rm -rf ./dist && rm -rf ./build",
+    "clean": "rm -rf ./dist && rm -rf ./build && rm -rf ./node_modules && rm -rf .git/bit && rm -f yarn.lock",
+    "wipe": "yarn cache clean --force && bit clear-cache",
+    "reset": "yarn clean && yarn wipe && yarn serve",
     "watch": "tsc -b -w --preserveWatchOutput",
     "compile": "tsc -b",
     "start": "bit compile && bit start",
@@ -34,7 +36,8 @@
   },
   "dependencies": {
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-datepicker": "^4.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -58,6 +61,7 @@
     "@types/jest": "^27.4.1",
     "@types/react": "17.0.3",
     "@types/react-dom": "17.0.3",
+    "@types/react-datepicker": "^4.3.4",
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.9",
     "@types/testing-library__jest-dom": "^5.14.3",
@@ -84,8 +88,8 @@
     "jest": "^27.5.1",
     "prettier": "^2.2.1",
     "prettier-plugin-organize-imports": "^1.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-test-renderer": "^17.0.2",
     "styled-components": "^5.2.3",
     "styled-normalize": "^8.0.7",
@@ -104,7 +108,10 @@
   ],
   "resolutions": {
     "styled-components": "^5",
-    "node-forge": "^1.3.0"
+    "node-forge": "^1.3.1",
+    "glob-parent": "^5.1.2",
+    "trim": "0.0.3",
+    "braces": "2.3.2"
   },
   "bit": {
     "resolveModules": {
