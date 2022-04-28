@@ -4,6 +4,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   color?: TextColor;
   italic?: boolean;
   children: string | JSX.Element;
+  dataQaId?: string;
 }
 
 export enum TextStyle {
