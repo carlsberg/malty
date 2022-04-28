@@ -115,7 +115,7 @@ export const Alert = ({
           </StyledTitle>
         )}
         <StyledContent theme={theme} data-testid={`${dataQaId}-alert-content`}>
-          {!title && icon && renderIcon()}
+          {!title && !action && icon && renderIcon()}
           {renderLabel()}
         </StyledContent>
 
