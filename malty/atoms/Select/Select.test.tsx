@@ -1,4 +1,5 @@
-import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { screen } from '@testing-library/react';
 import React from 'react';
 import { Select } from './Select';
 import { SelectSize, SelectType } from './Select.types';
@@ -70,6 +71,7 @@ describe('select', () => {
         onValueChange={onValueChange}
         type={SelectType.Default}
         size={SelectSize.Medium}
+        dataTestId="select"
       />
     );
     const select = screen.getByText('select');
@@ -89,9 +91,10 @@ describe('select', () => {
         onValueChange={onValueChange}
         type={SelectType.Default}
         size={SelectSize.Medium}
+        dataTestId="select"
       />
     );
-    const selectedValue = screen.getByTestId('selected-value');
+    const selectedValue = screen.getByTestId('select-selected-values');
     expect(selectedValue.innerHTML).toEqual(testOptions[1].name);
   });
 

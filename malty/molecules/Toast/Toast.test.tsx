@@ -1,4 +1,5 @@
-import { fireEvent, render, screen, waitFor } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Toast } from './Toast';
 import { AlertColor, AlertType } from './Toast.types';
