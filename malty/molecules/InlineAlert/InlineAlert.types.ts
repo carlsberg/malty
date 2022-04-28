@@ -1,10 +1,10 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 
-export interface AlertProps {
+export interface InlineAlertProps {
   action?: boolean;
   icon?: IconName;
-  size?: AlertSize;
-  color: AlertColor;
+  size?: InlineAlertSize;
+  color: InlineAlertColor;
   dataQaId?: string;
   firstAction?: () => void;
   firstActionText?: string;
@@ -14,7 +14,7 @@ export interface AlertProps {
   title?: string;
 }
 
-export enum AlertColor {
+export enum InlineAlertColor {
   Notification = 'notification-strong',
   NotificationLight = 'notification-light',
   Alert = 'alert-strong',
@@ -25,7 +25,7 @@ export enum AlertColor {
   FailLight = 'fail-light'
 }
 
-export enum AlertSize {
+export enum InlineAlertSize {
   Small = 'small',
   Medium = 'medium'
 }

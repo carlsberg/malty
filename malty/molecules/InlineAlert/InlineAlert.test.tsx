@@ -1,18 +1,26 @@
 import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
 import React from 'react';
-import { Alert } from './Alert';
-import { AlertColor } from './Alert.types';
+import { Alert } from './InlineAlert';
+import { InlineAlertColor } from './InlineAlert.types';
 
-describe('Alert', () => {
+describe('InlineAlert', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(
-      <Alert message="Hello, Im the In Line Alert! Play with me." color={AlertColor.Notification} dataQaId="inline" />
+      <Alert
+        message="Hello, Im the In Line Alert! Play with me."
+        color={InlineAlertColor.Notification}
+        dataQaId="inline"
+      />
     );
     expect(view).toMatchSnapshot();
   });
   it('should render In Line Alert component with label', () => {
     render(
-      <Alert message="Hello, Im the In Line Alert! Play with me." color={AlertColor.Notification} dataQaId="inline" />
+      <Alert
+        message="Hello, Im the In Line Alert! Play with me."
+        color={InlineAlertColor.Notification}
+        dataQaId="inline"
+      />
     );
     expect(screen.getByText('Hello, Im the In Line Alert! Play with me.')).toBeInTheDocument();
     expect(screen.getByTestId('inline-alert-container')).toBeInTheDocument();
@@ -23,7 +31,7 @@ describe('Alert', () => {
     render(
       <Alert
         message="Hello, Im the In Line Alert! Play with me."
-        color={AlertColor.Notification}
+        color={InlineAlertColor.Notification}
         dataQaId="inline-alert-with-icon-and-actions"
         action
         firstActionText="ok"

@@ -12,14 +12,14 @@ import {
   StyledContent,
   StyledTextContainer,
   StyledTitle
-} from './Alert.styled';
-import { AlertColor, AlertProps } from './Alert.types';
+} from './InlineAlert.styled';
+import { InlineAlertColor, InlineAlertProps } from './InlineAlert.types';
 
 export const Alert = ({
   action = false,
   icon,
   size,
-  color = AlertColor.Notification,
+  color = InlineAlertColor.Notification,
   dataQaId,
   firstAction,
   firstActionText,
@@ -27,13 +27,15 @@ export const Alert = ({
   secondActionText,
   message,
   title
-}: AlertProps) => {
+}: InlineAlertProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const labelFontColor =
-    color === AlertColor.Notification || color === AlertColor.Fail ? TextColor.White : TextColor.DigitalBlack;
+    color === InlineAlertColor.Notification || color === InlineAlertColor.Fail
+      ? TextColor.White
+      : TextColor.DigitalBlack;
   const alertIconColor =
-    color === AlertColor.Notification || color === AlertColor.Fail ? IconColor.White : IconColor.Primary;
-  const actionButtonColor = action && (color === AlertColor.Notification || color === AlertColor.Fail);
+    color === InlineAlertColor.Notification || color === InlineAlertColor.Fail ? IconColor.White : IconColor.Primary;
+  const actionButtonColor = action && (color === InlineAlertColor.Notification || color === InlineAlertColor.Fail);
 
   const onFirstAction = () => {
     if (firstAction) {

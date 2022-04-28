@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AlertColor, AlertSize } from './Alert.types';
+import { InlineAlertColor, InlineAlertSize } from './InlineAlert.types';
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -12,8 +12,8 @@ export const StyledAlertInLineWrapper = styled(StyledWrapper)`
 `;
 
 export const StyledContainer = styled.div<{
-  color?: AlertColor;
-  size?: AlertSize;
+  color?: InlineAlertColor;
+  size?: InlineAlertSize;
 }>`
   width: 100%;
   display: flex;
@@ -29,8 +29,8 @@ export const StyledContainer = styled.div<{
 `;
 
 export const StyledAlertInLine = styled(StyledContainer)<{
-  color: AlertColor;
-  size?: AlertSize;
+  color: InlineAlertColor;
+  size?: InlineAlertSize;
   hasTitle?: boolean;
   hasActions?: boolean;
   hasIcon?: boolean;
@@ -41,7 +41,7 @@ export const StyledAlertInLine = styled(StyledContainer)<{
     if (hasTitle || hasActions) {
       return theme.sizes.xs.value;
     }
-    if (!hasTitle && !hasActions && !hasIcon && size === AlertSize.Small) {
+    if (!hasTitle && !hasActions && !hasIcon && size === InlineAlertSize.Small) {
       return `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`;
     }
 
@@ -49,10 +49,7 @@ export const StyledAlertInLine = styled(StyledContainer)<{
   }};
 `;
 
-export const StyledTextContainer = styled.div`
-  min-width: 30px;
-  overflow: hidden;
-`;
+export const StyledTextContainer = styled.div``;
 
 export const StyledActionContainer = styled.div`
   display: flex;
