@@ -12,7 +12,7 @@ Malty is a Design System, and the code contained in this repository is its Compo
 
 You must have Bit CLI installed in order to run the Component Library locally. The following are the commands to run:
 
-Start installing [BVM](https://harmony-docs.bit.dev/reference/using-bvm/), Bit's Version Manager:
+Start installing [BVM](https://bit.dev/docs/reference/using-bvm), Bit's Version Manager:
 
 ```bash
 yarn global add @teambit/bvm
@@ -36,7 +36,7 @@ Alternatively, if the above doesn't work, you can run the following command:
 echo 'export PATH=$(yarn global bin):$PATH'  >> ~/.bashrc && source ~/.bashrc
 ```
 
-For more detailed instructions on how do install Bit CLI, please [look here](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/nav/5fa7cb638c01200018358a40/folder/60819db7d0b12cc8cb95193d).
+For more detailed instructions on how do install Bit CLI, please [look here](https://malty.carlsberggroup.com/5715d933c/p/36d196-development).
 
 ## Register the Scope
 
@@ -60,7 +60,7 @@ For more details on how to Register the Scope, please [look here](https://malty.
 
 ### Bit local env.
 
-Use [Bit](https://harmony-docs.bit.dev/) to install all dependencies, and compile all components locally, and run your local Dev server.
+Use [Bit](https://bit.dev/docs/quick-start) to install all dependencies, and compile all components locally, and run your local Dev server.
 
 Start installing all necessary dependencies:
 
@@ -124,4 +124,4 @@ export const component = ({
 
 ## Governance and contribution
 
-To read on this topic, please do so [here](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/nav/5fa7cb638c01200018358a40/folder/605dbbd9bc924df105728340).
+To read on this topic, please do so [here](https://carlsberggbs.atlassian.net/l/c/NsExD0AT).
