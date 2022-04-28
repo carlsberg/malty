@@ -15,7 +15,7 @@ import {
 } from './InlineAlert.styled';
 import { InlineAlertColor, InlineAlertProps } from './InlineAlert.types';
 
-export const Alert = ({
+export const InlineAlert = ({
   icon,
   size,
   color = InlineAlertColor.Notification,
