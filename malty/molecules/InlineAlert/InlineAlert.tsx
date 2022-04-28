@@ -70,9 +70,9 @@ export const Alert = ({
     <StyledActionContainer theme={theme} data-testid={`${dataQaId}-action-container`}>
       <StyledActionItem theme={theme}>
         <Button
-          isWhite={actionButtonColor}
+          negative={actionButtonColor}
           size={ButtonSize.Small}
-          type={ButtonType.Button}
+          type={ButtonType.Default}
           style={ButtonStyle.Link}
           onClick={onFirstAction}
           data-testid={`${dataQaId}-first-action`}
@@ -82,9 +82,9 @@ export const Alert = ({
       </StyledActionItem>
       <StyledActionItem theme={theme}>
         <Button
-          isWhite={actionButtonColor}
+          negative={actionButtonColor}
           size={ButtonSize.Small}
-          type={ButtonType.Button}
+          type={ButtonType.Default}
           style={ButtonStyle.Link}
           onClick={onSecondAction}
           data-testid={`${dataQaId}-second-action`}
