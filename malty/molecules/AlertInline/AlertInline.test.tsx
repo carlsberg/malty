@@ -1,14 +1,15 @@
-import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
-import { InlineAlert } from './InlineAlert';
-import { InlineAlertColor } from './InlineAlert.types';
+import { AlertInline } from './AlertInline';
+import { AlertInlineColor } from './AlertInline.types';
 
 describe('InlineAlert', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(
-      <InlineAlert
+      <AlertInline
         message="Hello, Im the In Line Alert! Play with me."
-        color={InlineAlertColor.Notification}
+        color={AlertInlineColor.Notification}
         dataQaId="inline"
       />
     );
@@ -16,9 +17,9 @@ describe('InlineAlert', () => {
   });
   it('should render In Line Alert component with label', () => {
     render(
-      <InlineAlert
+      <AlertInline
         message="Hello, Im the In Line Alert! Play with me."
-        color={InlineAlertColor.Notification}
+        color={AlertInlineColor.Notification}
         dataQaId="inline"
       />
     );
@@ -29,9 +30,9 @@ describe('InlineAlert', () => {
   it('should render In Line Alert component with label and two actions', () => {
     const secondActionMock = jest.fn();
     render(
-      <InlineAlert
+      <AlertInline
         message="Hello, Im the In Line Alert! Play with me."
-        color={InlineAlertColor.Notification}
+        color={AlertInlineColor.Notification}
         dataQaId="inline-alert-with-icon-and-actions"
         firstActionText="ok"
         secondActionText="cancel"

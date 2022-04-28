@@ -3,12 +3,12 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { InlineAlert as InlineAlertComponent } from './InlineAlert';
-import { InlineAlertColor, InlineAlertProps, InlineAlertSize } from './InlineAlert.types';
+import { AlertInline as AlertInlineComponent } from './AlertInline';
+import { AlertInlineColor, AlertInlineProps, AlertInlineSize } from './AlertInline.types';
 
 export default {
-  title: 'Information/Inline Alert',
-  component: InlineAlertComponent,
+  title: 'Information/Alert Inline ',
+  component: AlertInlineComponent,
   parameters: {
     importObject: 'InlineAlert',
     importPath: '@carlsberggroup/malty.molecules.inline-alert',
@@ -33,29 +33,29 @@ export default {
     },
     size: {
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
-      options: Object.keys(InlineAlertSize),
-      mapping: InlineAlertSize,
+      options: Object.keys(AlertInlineSize),
+      mapping: AlertInlineSize,
       control: {
         type: 'select',
-        label: Object.values(InlineAlertSize)
+        label: Object.values(AlertInlineSize)
       },
       table: {
         defaultValue: {
-          summary: 'InlineAlertSize.Medium'
+          summary: 'AlertInlineSize.Medium'
         }
       }
     },
     color: {
       description: 'Alert colors, from design predefined colors, as follows.',
-      options: Object.keys(InlineAlertColor),
-      mapping: InlineAlertColor,
+      options: Object.keys(AlertInlineColor),
+      mapping: AlertInlineColor,
       control: {
         type: 'select',
-        label: Object.values(InlineAlertColor)
+        label: Object.values(AlertInlineColor)
       },
       table: {
         defaultValue: {
-          summary: 'InlineAlertColor.Notification'
+          summary: 'AlertInlineColor.Notification'
         }
       }
     },
@@ -86,39 +86,39 @@ const StyledContainer = styled.div`
   height: 200px;
   width: 100%;
 `;
-const Template: Story<InlineAlertProps> = ({ ...args }) => (
+const Template: Story<AlertInlineProps> = ({ ...args }) => (
   <StyledContainer>
-    <InlineAlertComponent {...args} />
+    <AlertInlineComponent {...args} />
   </StyledContainer>
 );
 
-export const InlineAlert = Template.bind({});
+export const AlertInline = Template.bind({});
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 switch (variant) {
   case 'icon':
-    InlineAlert.args = {
+    AlertInline.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
       icon: IconName.Information,
-      size: InlineAlertSize.Medium,
-      color: InlineAlertColor.Notification,
+      size: AlertInlineSize.Medium,
+      color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert'
     };
     break;
   case 'title':
-    InlineAlert.args = {
+    AlertInline.args = {
       title: 'Title Alert',
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: InlineAlertSize.Medium,
-      color: InlineAlertColor.Notification,
+      size: AlertInlineSize.Medium,
+      color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert'
     };
     break;
   case 'action':
-    InlineAlert.args = {
+    AlertInline.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: InlineAlertSize.Medium,
-      color: InlineAlertColor.Notification,
+      size: AlertInlineSize.Medium,
+      color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',
@@ -127,11 +127,11 @@ switch (variant) {
     };
     break;
   case 'complete':
-    InlineAlert.args = {
+    AlertInline.args = {
       title: 'Title Alert',
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: InlineAlertSize.Medium,
-      color: InlineAlertColor.Notification,
+      size: AlertInlineSize.Medium,
+      color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',
@@ -141,10 +141,10 @@ switch (variant) {
     break;
 
   default:
-    InlineAlert.args = {
+    AlertInline.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: InlineAlertSize.Medium,
-      color: InlineAlertColor.Notification,
+      size: AlertInlineSize.Medium,
+      color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert'
     };
     break;

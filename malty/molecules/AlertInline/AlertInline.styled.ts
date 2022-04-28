@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { InlineAlertColor, InlineAlertSize } from './InlineAlert.types';
+import { AlertInlineColor, AlertInlineSize } from './AlertInline.types';
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -12,8 +12,8 @@ export const StyledAlertInLineWrapper = styled(StyledWrapper)`
 `;
 
 export const StyledContainer = styled.div<{
-  color?: InlineAlertColor;
-  size?: InlineAlertSize;
+  color?: AlertInlineColor;
+  size?: AlertInlineSize;
 }>`
   width: 100%;
   display: flex;
@@ -29,8 +29,8 @@ export const StyledContainer = styled.div<{
 `;
 
 export const StyledAlertInLine = styled(StyledContainer)<{
-  color: InlineAlertColor;
-  size?: InlineAlertSize;
+  color: AlertInlineColor;
+  size?: AlertInlineSize;
   hasTitle?: boolean;
   hasActions?: boolean;
   hasIcon?: boolean;
@@ -41,7 +41,7 @@ export const StyledAlertInLine = styled(StyledContainer)<{
     if (hasTitle || hasActions) {
       return theme.sizes.xs.value;
     }
-    if (!hasTitle && !hasActions && !hasIcon && size === InlineAlertSize.Small) {
+    if (!hasTitle && !hasActions && !hasIcon && size === AlertInlineSize.Small) {
       return `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`;
     }
 
