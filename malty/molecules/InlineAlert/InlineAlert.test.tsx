@@ -33,7 +33,6 @@ describe('InlineAlert', () => {
         message="Hello, Im the In Line Alert! Play with me."
         color={InlineAlertColor.Notification}
         dataQaId="inline-alert-with-icon-and-actions"
-        action
         firstActionText="ok"
         secondActionText="cancel"
         secondAction={secondActionMock}

@@ -16,7 +16,6 @@ import {
 import { InlineAlertColor, InlineAlertProps } from './InlineAlert.types';
 
 export const Alert = ({
-  action = false,
   icon,
   size,
   color = InlineAlertColor.Notification,
@@ -35,7 +34,7 @@ export const Alert = ({
       : TextColor.DigitalBlack;
   const alertIconColor =
     color === InlineAlertColor.Notification || color === InlineAlertColor.Fail ? IconColor.White : IconColor.Primary;
-  const actionButtonColor = action && (color === InlineAlertColor.Notification || color === InlineAlertColor.Fail);
+  const actionButtonColor = color === InlineAlertColor.Notification || color === InlineAlertColor.Fail;
 
   const onFirstAction = () => {
     if (firstAction) {
@@ -100,7 +99,7 @@ export const Alert = ({
     <StyledAlertInLineWrapper theme={theme}>
       <StyledAlertInLine
         hasTitle={!!title}
-        hasActions={action}
+        hasActions={!!firstActionText || !!secondActionText}
         hasIcon={!!icon}
         size={size}
         data-testid={`${dataQaId}-alert-container`}
@@ -115,11 +114,11 @@ export const Alert = ({
           </StyledTitle>
         )}
         <StyledContent theme={theme} data-testid={`${dataQaId}-alert-content`}>
-          {!title && !action && icon && renderIcon()}
+          {!title && !firstActionText && !secondActionText && icon && renderIcon()}
           {renderLabel()}
         </StyledContent>
 
-        {action && renderActions()}
+        {(firstActionText || secondActionText) && renderActions()}
       </StyledAlertInLine>
     </StyledAlertInLineWrapper>
   );

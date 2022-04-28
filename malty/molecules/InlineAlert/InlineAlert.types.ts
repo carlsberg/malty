@@ -1,7 +1,6 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 
 export interface InlineAlertProps {
-  action?: boolean;
   icon?: IconName;
   size?: InlineAlertSize;
   color: InlineAlertColor;

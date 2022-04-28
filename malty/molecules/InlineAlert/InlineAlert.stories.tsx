@@ -23,11 +23,7 @@ export default {
       control: 'text',
       description: 'message'
     },
-    action: {
-      description: 'Add action',
-      control: 'boolean',
-      table: { defaultValue: { summary: 'true' } }
-    },
+
     icon: {
       description: 'When selected, Alert label will contain the selected icon',
       options: Object.values(IconName),
@@ -103,7 +99,6 @@ switch (variant) {
   case 'icon':
     InlineAlert.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      action: false,
       icon: IconName.Information,
       size: InlineAlertSize.Medium,
       color: InlineAlertColor.Notification,
@@ -114,7 +109,6 @@ switch (variant) {
     InlineAlert.args = {
       title: 'Title Alert',
       message: 'Hello, Im the In Line Alert! Play with me.',
-      action: false,
       size: InlineAlertSize.Medium,
       color: InlineAlertColor.Notification,
       dataQaId: 'inline-alert'
@@ -123,7 +117,6 @@ switch (variant) {
   case 'action':
     InlineAlert.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      action: true,
       size: InlineAlertSize.Medium,
       color: InlineAlertColor.Notification,
       dataQaId: 'inline-alert',
@@ -137,7 +130,6 @@ switch (variant) {
     InlineAlert.args = {
       title: 'Title Alert',
       message: 'Hello, Im the In Line Alert! Play with me.',
-      action: true,
       size: InlineAlertSize.Medium,
       color: InlineAlertColor.Notification,
       dataQaId: 'inline-alert',
@@ -151,7 +143,6 @@ switch (variant) {
   default:
     InlineAlert.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      action: false,
       size: InlineAlertSize.Medium,
       color: InlineAlertColor.Notification,
       dataQaId: 'inline-alert'
