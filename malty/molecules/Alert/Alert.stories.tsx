@@ -1,37 +1,23 @@
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Alert as AlertComponent } from './Alert';
-import { AlertColor, AlertProps, AlertSize, AlertType } from './Alert.types';
+import { AlertColor, AlertProps, AlertSize } from './Alert.types';
 
 export default {
   title: 'Information/Alert',
   component: AlertComponent,
   parameters: {
     importObject: 'Alert',
-    importPath: '@carlsberggroup/malty.atoms.alert',
-    variants: ['inline', 'toast', 'banner']
+    importPath: '@carlsberggroup/malty.molecules.alert',
+    variants: ['icon', 'action', 'title', 'complete']
   },
   argTypes: {
-    type: {
-      description: 'Types of Alert',
-      options: Object.keys(AlertType),
-      mapping: AlertType,
-      control: {
-        type: 'select',
-        label: Object.values(AlertType)
-      },
-      table: {
-        defaultValue: {
-          summary: 'AlertType.Banner'
-        }
-      }
-    },
-    children: {
+    title: {
       control: 'text',
-      description: 'Alert children, can be',
-      table: { defaultValue: { summary: 'none' } }
+      description: 'Title'
     },
     action: {
       description: 'Add action',
@@ -39,11 +25,13 @@ export default {
       table: { defaultValue: { summary: 'true' } }
     },
     icon: {
-      description: 'Add icon',
-      control: 'boolean',
-      table: { defaultValue: { summary: 'true' } }
+      description: 'When selected, Alert label will contain the selected icon',
+      options: Object.values(IconName),
+      control: {
+        type: 'select'
+      }
     },
-    heightSize: {
+    size: {
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
       options: Object.keys(AlertSize),
       mapping: AlertSize,
@@ -85,11 +73,6 @@ export default {
       control: 'text',
       description: 'Second Action',
       table: { defaultValue: { summary: 'none' } }
-    },
-    autoHideDuration: {
-      control: 'number',
-      description: 'Set auto hide duration',
-      table: { defaultValue: { summary: '5000' } }
     }
   }
 } as Meta;
@@ -104,18 +87,34 @@ const Template: Story<AlertProps> = ({ ...args }) => (
 );
 
 export const Alert = Template.bind({});
-
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
-
 switch (variant) {
-  case 'inline':
+  case 'icon':
     Alert.args = {
-      type: AlertType.InLine,
-      children: 'Hello, Im the In Line Alert! Play with me.',
+      message: 'Hello, Im the In Line Alert! Play with me.',
       action: false,
-      icon: false,
-      heightSize: AlertSize.Medium,
+      icon: IconName.Information,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert'
+    };
+    break;
+  case 'title':
+    Alert.args = {
+      title: 'Title Alert',
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: false,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert'
+    };
+    break;
+  case 'action':
+    Alert.args = {
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: true,
+      size: AlertSize.Medium,
       color: AlertColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
@@ -124,31 +123,28 @@ switch (variant) {
       secondActionText: 'Second Action'
     };
     break;
-  case 'toast':
+  case 'complete':
     Alert.args = {
-      type: AlertType.Toast,
-      children: 'Hello, Im the Toast Alert! Play with me.',
+      title: 'Title Alert',
+      message: 'Hello, Im the In Line Alert! Play with me.',
       action: true,
-      heightSize: undefined,
+      size: AlertSize.Medium,
       color: AlertColor.Notification,
-      dataQaId: 'toast-alert',
-      firstAction: action('Undo Action clicked'),
-      firstActionText: 'Undo',
-      onHideToast: action('hideToast Action clicked')
-    };
-    break;
-  default:
-    Alert.args = {
-      type: AlertType.Banner,
-      children: 'Hello, Im the Banner Alert! Play with me.',
-      action: true,
-      icon: true,
-      heightSize: AlertSize.Medium,
-      color: AlertColor.Notification,
-      dataQaId: 'banner-alert',
+      dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',
-      dismiss: action('Dismiss button clicked')
+      secondAction: action('Second Action clicked'),
+      secondActionText: 'Second Action'
+    };
+    break;
+
+  default:
+    Alert.args = {
+      message: 'Hello, Im the In Line Alert! Play with me.',
+      action: false,
+      size: AlertSize.Medium,
+      color: AlertColor.Notification,
+      dataQaId: 'inline-alert'
     };
     break;
 }
