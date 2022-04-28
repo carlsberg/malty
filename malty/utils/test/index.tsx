@@ -9,5 +9,4 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
 
 const jsonRenderer = (ui: React.ReactNode) => renderer.create(<AllTheProviders>{ui}</AllTheProviders>).toJSON();
 
-export * from '@testing-library/react';
 export { customRender as render, jsonRenderer };

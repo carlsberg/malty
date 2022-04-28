@@ -1,5 +1,6 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { fireEvent, jsonRenderer, render, screen, within } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { fireEvent, screen, within } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { ProductsBar } from './ProductsBar';

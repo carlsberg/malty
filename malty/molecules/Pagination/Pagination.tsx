@@ -101,7 +101,7 @@ export const Pagination = ({
                 aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
                 tabIndex={0}
                 text={pageNr}
-                isWhite={isWhite}
+                negative={isWhite}
               />
             </li>
           );
@@ -123,7 +123,7 @@ export const Pagination = ({
               onKeyUp={onPreviousKeyUp}
               icon={IconName.ChevronLeft}
               size={ButtonSize.Medium}
-              isWhite={isWhite}
+              negative={isWhite}
             />
           </li>
           {renderContent()}
@@ -136,7 +136,7 @@ export const Pagination = ({
               onKeyUp={onNextKeyUp}
               icon={IconName.ChevronRight}
               size={ButtonSize.Medium}
-              isWhite={isWhite}
+              negative={isWhite}
             />
           </li>
         </ul>
