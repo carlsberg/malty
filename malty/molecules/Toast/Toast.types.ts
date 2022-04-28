@@ -1,34 +1,15 @@
-export interface AlertProps {
-  type?: AlertType;
-  action?: boolean;
-  icon?: boolean;
-  dismiss?: (state: boolean) => void;
-  heightSize?: AlertSize;
-  color: AlertColor;
-  dataQaId?: string;
-  firstAction?: () => void;
-  firstActionText?: string;
-  secondAction?: () => void;
-  secondActionText?: string;
-  children: string | JSX.Element;
+export interface ToastProps {
+  message: string;
+  color: ToastColor;
+  showCloseIcon?: boolean;
+  onClose?: (state: boolean) => void;
+  onCustomAction?: () => void;
+  customActionText?: string;
   autoHideDuration?: number;
-  onHideToast?: () => void;
+  dataQaId?: string;
 }
 
-export enum AlertType {
-  Banner = 'banner',
-  InLine = 'inline',
-  Toast = 'toast'
-}
-
-export enum AlertColor {
-  Notification = 'notification',
-  Alert = 'alert',
-  Success = 'success',
+export enum ToastColor {
+  Notification = 'notification-strong',
   Fail = 'fail'
-}
-
-export enum AlertSize {
-  Small = 'small',
-  Medium = 'medium'
 }
