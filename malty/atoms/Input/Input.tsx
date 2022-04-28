@@ -40,6 +40,7 @@ export const Input = ({
   clearable,
   mask,
   children,
+
   hint,
   dataTestId
 }: InputProps) => {

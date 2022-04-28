@@ -11,7 +11,7 @@ export default {
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button',
-    variants: ['primary', 'secondary', 'floater', 'link']
+    variants: ['primary', 'secondary', 'link']
   },
   argTypes: {
     text: {
@@ -28,7 +28,7 @@ export default {
       },
       table: {
         defaultValue: {
-          summary: 'ButtonType.Submit'
+          summary: 'ButtonType.Default'
         }
       }
     },
@@ -49,17 +49,7 @@ export default {
     onClick: {
       description: 'This is a function that will run on click. It is not a required property'
     },
-    scroll: {
-      description: 'Scroll position where will floater show',
-      table: {
-        defaultValue: {
-          summary: 0
-        }
-      },
-      control: {
-        type: 'number'
-      }
-    },
+
     loading: {
       table: {
         defaultValue: {
@@ -69,56 +59,7 @@ export default {
       control: 'boolean',
       description: 'Is button loading?'
     },
-    success: {
-      description: 'Has button succeeded loading?',
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      }
-    },
-    successIcon: {
-      description: 'Icon for success state',
-      options: Object.values(IconName),
-      table: {
-        defaultValue: {
-          summary: 'IconName.ItemCheck'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    successText: {
-      control: 'text',
-      description: 'Button label for success state'
-    },
-    error: {
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      },
-      description: 'Has button failed loading?'
-    },
-    errorIcon: {
-      description: 'Icon for failed state',
-      options: Object.values(IconName),
-      table: {
-        defaultValue: {
-          summary: 'IconName.ItemClose'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    errorText: {
-      control: 'text',
-      description: 'Button label for failed state'
-    },
+
     size: {
       description: 'Button size. Options are',
       options: Object.values(ButtonSize),
@@ -150,7 +91,7 @@ export default {
         type: 'select'
       }
     },
-    isWhite: {
+    negative: {
       control: 'boolean',
       description: 'Should this be a white button?'
     },
@@ -198,17 +139,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: '',
-      errorIcon: IconName.ItemClose,
-      errorText: ''
+      selected: false
     };
     break;
 
@@ -220,40 +155,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
-    };
-    break;
-
-  case 'floater':
-    Button.args = {
-      style: ButtonStyle.Floater,
-      icon: IconName.ArrowSmallUp,
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error',
-      scroll: 0
+      selected: false
     };
     break;
 
@@ -265,17 +171,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: true,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
+      selected: false
     };
     break;
 
@@ -287,17 +187,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
+      selected: false
     };
     break;
 }

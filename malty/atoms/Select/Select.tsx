@@ -1,11 +1,16 @@
 import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
+  StyledActionButton,
+  StyledActionButtonWrapper,
+  StyledActionsWrapper,
   StyledButton,
   StyledButtonContainer,
   StyledCheck,
@@ -15,6 +20,7 @@ import {
   StyledLabel,
   StyledOption,
   StyledOptionsWrapper,
+  StyledSearchWrapper,
   StyledSelectedOptionsWrapper,
   StyledWrapper
 } from './Select.styled';
@@ -31,16 +37,20 @@ export const Select = ({
   hint,
   disabled = false,
   size = SelectSize.Medium,
-  children,
   multiple = false,
   selectionText = 'selected',
-  value
+  value,
+  search = false,
+  dataTestId
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const [showOptionList, setShowOptionList] = useState(false);
   const [selectedValueState, setSelectedValueState] = useState(value || defaultValue);
+  const [queryText, setQueryText] = useState('');
+  const [selectOptions, setSelectOptions] = useState(options);
+
   const ref = createRef<HTMLDivElement>();
   const toggleOptionList = () => {
     setShowOptionList(!showOptionList);
@@ -128,55 +138,105 @@ export const Select = ({
     }
     return type === SelectType.Inline ? label : placeholder;
   };
+
+  const handleSearch = (query: string) => {
+    setQueryText(query);
+    if (query.length >= 3) {
+      const filterOptions = options?.filter((el) => el.name.includes(query));
+
+      setSelectOptions(filterOptions);
+    } else {
+      setSelectOptions(options);
+    }
+  };
+
+  const handleSelectAll = () => {
+    if (selectOptions && selectOptions.length > 0) update(selectOptions);
+  };
+
+  const handleClearAll = () => {
+    update([]);
+  };
   const renderDefaultDropdown = () => (
     <TypographyProvider>
-      <StyledOptionsWrapper isOpen={showOptionList} selectStyle={type} theme={theme} height={numSize}>
-        {children}
-        {!children &&
-          options?.map((option: SelectOptionsType, index: number) => (
-            <StyledOption
-              theme={theme}
-              key={option.value}
-              value={option.value}
-              onClick={() => handleOptionSelected(option)}
-              height={numSize}
-              selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-              selectStyle={type}
-              disabled={disabled}
-              data-testid={`select-option-${index}`}
-            >
-              {multiple && (
-                <Checkbox
-                  labelText={option.name as string}
-                  value={option.value}
-                  onValueChange={() => null}
-                  checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-                />
+      <StyledOptionsWrapper
+        data-testid={`${dataTestId}-options`}
+        isOpen={showOptionList}
+        selectStyle={type}
+        theme={theme}
+        height={numSize}
+      >
+        <StyledActionsWrapper theme={theme}>
+          {search && (
+            <StyledSearchWrapper>
+              <Input
+                data-testid={`${dataTestId}-search-input`}
+                size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
+                onValueChange={handleSearch}
+                type={InputType.Search}
+                value={queryText}
+                icon={IconName.Search}
+              />
+            </StyledSearchWrapper>
+          )}
+          {multiple && (
+            <StyledActionButtonWrapper height={numSize} theme={theme}>
+              <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
+                Sellect all
+              </StyledActionButton>
+              {selectedValueState.length > 0 && (
+                <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
+                  Clear all
+                </StyledActionButton>
               )}
-              {!multiple && (
-                <>
-                  <StyledWrapper theme={theme}>
-                    {option.icon}
-                    {option.name}
-                  </StyledWrapper>
-                  {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                    <StyledCheck selectStyle={type} color={IconColor.Primary} size={IconSize.Small} />
-                  )}
-                </>
-              )}
-            </StyledOption>
-          ))}
+            </StyledActionButtonWrapper>
+          )}
+        </StyledActionsWrapper>
+        {selectOptions?.map((option: SelectOptionsType, index: number) => (
+          <StyledOption
+            theme={theme}
+            key={option.value}
+            value={option.value}
+            onClick={() => handleOptionSelected(option)}
+            height={numSize}
+            selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+            selectStyle={type}
+            disabled={disabled}
+            data-testid={`${dataTestId}-option-${index}`}
+          >
+            {multiple && (
+              <Checkbox
+                data-testid={`${dataTestId}-option-checkbox-${index}`}
+                labelText={option.name as string}
+                value={option.value}
+                onValueChange={() => null}
+                checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+              />
+            )}
+            {!multiple && (
+              <>
+                <StyledWrapper data-testid={`${dataTestId}-option-label-${index}`} theme={theme}>
+                  {option.icon}
+                  {option.name}
+                </StyledWrapper>
+                {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
+                  <StyledCheck selectStyle={type} color={IconColor.Primary} size={IconSize.Small} />
+                )}
+              </>
+            )}
+          </StyledOption>
+        ))}
       </StyledOptionsWrapper>
     </TypographyProvider>
   );
   return (
     <TypographyProvider>
       {label && type !== SelectType.Inline && (
-        <StyledLabel disabled={disabled} htmlFor={id} theme={theme}>
+        <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
           {label}
         </StyledLabel>
       )}
-      <StyledButtonContainer ref={ref} selectStyle={type} theme={theme}>
+      <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
         <StyledButton
           name={id}
           id={id}
@@ -189,8 +249,9 @@ export const Select = ({
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
           type={ButtonType.Button}
+          data-testid={`${dataTestId}-button`}
         >
-          <StyledSelectedOptionsWrapper theme={theme} data-testid="selected-value">
+          <StyledSelectedOptionsWrapper theme={theme} data-testid={`${dataTestId}-selected-values`}>
             {displaySelectedValues()}
           </StyledSelectedOptionsWrapper>
           <StyledChevronDown
@@ -206,9 +267,13 @@ export const Select = ({
         {renderDefaultDropdown()}
       </StyledButtonContainer>
 
-      {error && type !== SelectType.Inline && <StyledError theme={theme}>{error}</StyledError>}
+      {error && type !== SelectType.Inline && (
+        <StyledError data-testid={`${dataTestId}-error`} theme={theme}>
+          {error}
+        </StyledError>
+      )}
       {hint && !error && type !== SelectType.Inline && (
-        <StyledHint disabled={disabled} theme={theme}>
+        <StyledHint data-testid={`${dataTestId}-hint`} disabled={disabled} theme={theme}>
           {hint}
         </StyledHint>
       )}

@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
+import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { AlertBanner } from './AlertBanner';
 import { AlertBannerType } from './AlertBanner.types';

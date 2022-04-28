@@ -72,9 +72,9 @@ export const Toast = ({
   const renderCustomAction = () => (
     <StyledActionItem>
       <Button
-        isWhite
+        negative
         size={ButtonSize.Small}
-        type={ButtonType.Button}
+        type={ButtonType.Default}
         style={ButtonStyle.Link}
         onClick={handleCustomAction}
         data-testid={`${dataQaId}-action`}
