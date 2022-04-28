@@ -3,12 +3,12 @@ import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Alert as AlertComponent } from './InlineAlert';
+import { InlineAlert as InlineAlertComponent } from './InlineAlert';
 import { InlineAlertColor, InlineAlertProps, InlineAlertSize } from './InlineAlert.types';
 
 export default {
   title: 'Information/Inline Alert',
-  component: AlertComponent,
+  component: InlineAlertComponent,
   parameters: {
     importObject: 'InlineAlert',
     importPath: '@carlsberggroup/malty.molecules.inline-alert',
@@ -88,7 +88,7 @@ const StyledContainer = styled.div`
 `;
 const Template: Story<InlineAlertProps> = ({ ...args }) => (
   <StyledContainer>
-    <AlertComponent {...args} />
+    <InlineAlertComponent {...args} />
   </StyledContainer>
 );
 
