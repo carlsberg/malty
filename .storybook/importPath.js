@@ -28,7 +28,7 @@ export const ImportPath = () => {
     <>
       <Description>
         Make sure, prior to installing any Malty components, you have [Registered the
-        Scope](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/nav/5fa7cb638c01200018358a40/folder/6149b25d01689575201f8885).
+        Scope](https://malty.carlsberggroup.com/5715d933c/p/36d196-development/b/7760a0).
       </Description>
       <Description>
         To add this package to your project, install it with [Yarn](https://classic.yarnpkg.com/lang/en/docs/install),
