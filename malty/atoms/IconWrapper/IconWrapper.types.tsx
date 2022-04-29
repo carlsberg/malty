@@ -13,7 +13,10 @@ export enum IconColor {
 }
 
 export enum IconSize {
+  ExtraSmall = 'xs',
   Small = 's',
+  MediumSmall = 'ms',
   Medium = 'm',
-  Large = 'l'
+  Large = 'l',
+  ExtraLarge = 'xl'
 }
