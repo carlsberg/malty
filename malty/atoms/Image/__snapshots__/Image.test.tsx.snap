@@ -2,13 +2,13 @@
 
 exports[`Image component matches snapshot 1`] = `
 <div
-  className="sc-dlfnuX lkspQn"
+  className="sc-dkzDqf cmapVJ"
 >
   <div
-    className="sc-hKgJUU grUOOf"
+    className="sc-hKMtZM dYgOXo"
   />
   <img
-    className="sc-gsTEea gOIeea"
+    className="sc-gsnTZi DdlAW"
     src="https://via.placeholder.com/400"
   />
 </div>

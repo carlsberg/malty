@@ -2,10 +2,10 @@
 
 exports[`select matches snapshot 1`] = `
 <span
-  className="sc-bczRLJ qaxFj"
+  className="sc-bczRLJ hROJNc"
 >
   <label
-    className="sc-ivTmOn fYXiZm"
+    className="sc-bBrHrO bKeEPu"
     data-testid="undefined-label"
     disabled={false}
     htmlFor="00000000-0000-0000-0000-000000000000"
@@ -13,10 +13,10 @@ exports[`select matches snapshot 1`] = `
     Label text
   </label>
   <div
-    className="sc-bBrHrO eFkHu"
+    className="sc-fLlhyt dzruwu"
   >
     <button
-      className="sc-iIPllB iurpEl"
+      className="sc-llJcti cZeGOv"
       data-testid="undefined-button"
       disabled={false}
       height="40px"
@@ -27,18 +27,18 @@ exports[`select matches snapshot 1`] = `
       type="button"
     >
       <div
-        className="sc-himrzO cWxDEl"
+        className="sc-jIZahH fPayJe"
         data-testid="undefined-selected-values"
       >
         Placeholder text
       </div>
       <svg
-        className="sc-gsnTZi ivMBgY sc-kLLXSd dzWjIG"
+        className="sc-gsnTZi ivMBgY sc-bZkfAO fokRGx"
         color="digital-black"
         data-testid="svg-component"
         size="24px"
         version="1.1"
-        viewBox="0 0 24 24"
+        viewBox="0 0 40 40"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
@@ -56,18 +56,18 @@ exports[`select matches snapshot 1`] = `
       </svg>
     </button>
     <span
-      className="sc-bczRLJ qaxFj"
+      className="sc-bczRLJ hROJNc"
     >
       <ul
-        className="sc-gicCDI jOnkhs"
+        className="sc-iIPllB iMCCGV"
         data-testid="undefined-options"
         height="40px"
       >
         <div
-          className="sc-gXmSlM"
+          className="sc-himrzO"
         />
         <li
-          className="sc-bZkfAO cqTeUr"
+          className="sc-ezWOiH leTsxi"
           data-testid="undefined-option-0"
           disabled={false}
           height="40px"
@@ -76,14 +76,14 @@ exports[`select matches snapshot 1`] = `
           value="value 1"
         >
           <div
-            className="sc-jIZahH jKzfhC"
+            className="sc-ikZpkk ZiOJS"
             data-testid="undefined-option-label-0"
           >
             name 1
           </div>
         </li>
         <li
-          className="sc-bZkfAO cqTeUr"
+          className="sc-ezWOiH leTsxi"
           data-testid="undefined-option-1"
           disabled={false}
           height="40px"
@@ -92,14 +92,14 @@ exports[`select matches snapshot 1`] = `
           value="value 2"
         >
           <div
-            className="sc-jIZahH jKzfhC"
+            className="sc-ikZpkk ZiOJS"
             data-testid="undefined-option-label-1"
           >
             name 2
           </div>
         </li>
         <li
-          className="sc-bZkfAO cqTeUr"
+          className="sc-ezWOiH leTsxi"
           data-testid="undefined-option-2"
           disabled={false}
           height="40px"
@@ -108,14 +108,14 @@ exports[`select matches snapshot 1`] = `
           value="value 3"
         >
           <div
-            className="sc-jIZahH jKzfhC"
+            className="sc-ikZpkk ZiOJS"
             data-testid="undefined-option-label-2"
           >
             name 3
           </div>
         </li>
         <li
-          className="sc-bZkfAO cqTeUr"
+          className="sc-ezWOiH leTsxi"
           data-testid="undefined-option-3"
           disabled={false}
           height="40px"
@@ -124,14 +124,14 @@ exports[`select matches snapshot 1`] = `
           value="value 4"
         >
           <div
-            className="sc-jIZahH jKzfhC"
+            className="sc-ikZpkk ZiOJS"
             data-testid="undefined-option-label-3"
           >
             name 4
           </div>
         </li>
         <li
-          className="sc-bZkfAO cqTeUr"
+          className="sc-ezWOiH leTsxi"
           data-testid="undefined-option-4"
           disabled={false}
           height="40px"
@@ -140,7 +140,7 @@ exports[`select matches snapshot 1`] = `
           value="value 5"
         >
           <div
-            className="sc-jIZahH jKzfhC"
+            className="sc-ikZpkk ZiOJS"
             data-testid="undefined-option-label-4"
           >
             name 5
