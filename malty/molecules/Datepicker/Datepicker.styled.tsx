@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.div`
   position: relative;
@@ -40,9 +40,15 @@ export const StyledDatepicker = styled.div`
     outline: none;
     &:disabled {
       cursor: 'default';
+      border-color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
+      background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+      color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
+    }
+    &:read-only {
+      cursor: 'default';
       border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
       background-color: ${({ theme }) => theme.colors.colours.support[20].value};
-      color: ${({ theme }) => `${theme.colors.colours.support[60].value}`};
+      color: ${({ theme }) => `${theme.colors.colours.support[80].value}`};
     }
     &::placeholder {
       color: ${({ theme }) => `${theme.colors.colours.support[60].value}`};
@@ -50,7 +56,10 @@ export const StyledDatepicker = styled.div`
   }
 `;
 
-export const StyledInputIcon = styled.span`
+export const StyledInputIcon = styled.span<{
+  disabled?: boolean;
+  readOnly?: boolean;
+}>`
   display: inline-block;
   transform: translateY(-50%);
   top: 50%;
@@ -58,6 +67,21 @@ export const StyledInputIcon = styled.span`
   position: absolute;
   z-index: 1;
   ${({ theme }) => theme.sizes.xs.value};
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      svg {
+        fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
+    `}
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      svg {
+        fill: ${({ theme }) => theme.colors.colours.support[80].value};
+      }
+    `}
 `;
 
 export const StyledContainer = styled.div`
@@ -94,7 +118,7 @@ export const StyledCalendar = styled.div`
     background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
     justify-content: space-between;
     display: flex;
-    padding: 0  ${({ theme }) => theme.sizes.xs.value};
+    padding: 0 ${({ theme }) => theme.sizes.xs.value};
     box-sizing: border-box;
   }
   & .react-datepicker__day-name {
@@ -105,50 +129,49 @@ export const StyledCalendar = styled.div`
     line-height: ${({ theme }) => theme.sizes.l.value};
     text-align: center;
     margin: 0.166rem;
-    
   }
   & .react-datepicker__month-container {
-      width 100%;
-      overflow: hidden;
+    width: 100%;
+    overflow: hidden;
   }
   & .react-datepicker__month {
-    padding: 0  ${({ theme }) => theme.sizes.xs.value};
+    padding: 0 ${({ theme }) => theme.sizes.xs.value};
   }
   & .react-datepicker__week {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: ${({ theme }) => theme.sizes['4xs'].value};
-      white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: ${({ theme }) => theme.sizes['4xs'].value};
+    white-space: nowrap;
   }
   & .react-datepicker__day {
-      position: relative;
-      text-align: center;
-      cursor: pointer;
-      width: ${({ theme }) => theme.sizes.l.value};
-      height: ${({ theme }) => theme.sizes.l.value};
-      border-radius: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-      font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
-      }
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    width: ${({ theme }) => theme.sizes.l.value};
+    height: ${({ theme }) => theme.sizes.l.value};
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
+    }
   }
   & .react-datepicker__day--today {
-      border: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}
+    border: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}
       ${theme.borders['border-1px--solid']['border-style'].value}
       ${theme.colors.colours.default['digital-black'].value}`};
-      &:hover {
-        background-color: inherit;
-      }
+    &:hover {
+      background-color: inherit;
+    }
   }
   & .react-datepicker__day--in-range {
     position: relative;
     background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   }
-  & .react-datepicker__day--selected, 
+  & .react-datepicker__day--selected,
   & .react-datepicker__day--range-end {
     background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     color: ${({ theme }) => theme.colors.colours.default.white.value};
@@ -159,13 +182,13 @@ export const StyledCalendar = styled.div`
   & .react-datepicker__day--in-selecting-range:not(.react-datepicker__day--selected) {
     background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
   }
-  & .react-datepicker__day--in-selecting-range ~ .react-datepicker__day--in-selecting-range,  
+  & .react-datepicker__day--in-selecting-range ~ .react-datepicker__day--in-selecting-range,
   & .react-datepicker__day--in-selecting-range:first-of-type,
   & .react-datepicker__day--in-range:not(.react-datepicker__day--range-start) {
     &::before {
       width: 130%;
       height: 100%;
-      content: "";
+      content: '';
       position: absolute;
       background-color: ${({ theme }) => theme.colors.colours.support[20].value};
       z-index: -1;
@@ -174,10 +197,10 @@ export const StyledCalendar = styled.div`
   }
   & .react-datepicker__day--in-selecting-range,
   & .react-datepicker__day--in-range:not(.react-datepicker__day--range-end) {
-    &::after{
+    &::after {
       width: 130%;
       height: 100%;
-      content: "";
+      content: '';
       position: absolute;
       background-color: ${({ theme }) => theme.colors.colours.support[20].value};
       z-index: -1;
@@ -207,17 +230,17 @@ export const StyledCalendar = styled.div`
     font-size: ${({ theme }) => theme.typography.desktop.headline.large['font-size'].value};
     width: 0;
     &:before {
-        border-radius: 1px;
-        border-width: ${({ theme }) =>
-          `${theme.borders['border-2px--solid']['border-width'].value} ${theme.borders['border-2px--solid']['border-width'].value} 0 0`};
-        border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-        content: "";
-        display: block;
-        height: ${({ theme }) => theme.sizes['2xs'].value};
-        position: absolute;
-        top: ${({ theme }) => theme.sizes['3xs'].value};
-        width: ${({ theme }) => theme.sizes['2xs'].value};
-        border-style: solid;
+      border-radius: 1px;
+      border-width: ${({ theme }) =>
+        `${theme.borders['border-2px--solid']['border-width'].value} ${theme.borders['border-2px--solid']['border-width'].value} 0 0`};
+      border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+      content: '';
+      display: block;
+      height: ${({ theme }) => theme.sizes['2xs'].value};
+      position: absolute;
+      top: ${({ theme }) => theme.sizes['3xs'].value};
+      width: ${({ theme }) => theme.sizes['2xs'].value};
+      border-style: solid;
     }
   }
   & .react-datepicker__day--disabled {
@@ -225,8 +248,8 @@ export const StyledCalendar = styled.div`
     color: ${({ theme }) => theme.colors.colours.support['60'].value};
   }
   & .react-datepicker__navigation--previous {
-      left: initial;
-      right: ${({ theme }) => theme.sizes['4xl'].value};
+    left: initial;
+    right: ${({ theme }) => theme.sizes['4xl'].value};
   }
   & .react-datepicker__navigation-icon--previous {
     &:before {
@@ -242,5 +265,5 @@ export const StyledCalendar = styled.div`
       transform: rotate(45deg);
       left: ${({ theme }) => `-${theme.sizes.xs.value}`};
     }
-}
+  }
 `;

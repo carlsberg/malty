@@ -19,6 +19,7 @@ export const Datepicker = ({
   excludeDates,
   selectsRange,
   inline,
+  readOnly,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -35,7 +36,7 @@ export const Datepicker = ({
         {!inline && <label htmlFor="datepicker-input">{label}</label>}
         <StyledDatepicker theme={theme}>
           {!inline && (
-            <StyledInputIcon theme={theme}>
+            <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
               <Calendar size={IconSize.Medium} color={IconColor.Primary} />
             </StyledInputIcon>
           )}
@@ -45,6 +46,7 @@ export const Datepicker = ({
             startDate={startDate}
             endDate={selectsRange ? endDate : null}
             disabled={disabled}
+            readOnly={readOnly}
             onChange={onChange}
             locale={locale}
             showPopperArrow={false}

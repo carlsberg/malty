@@ -12,4 +12,5 @@ export interface DatepickerProps {
   endDate?: Date | null;
   inline?: boolean;
   dateFormat?: string;
+  readOnly?: boolean;
 }
