@@ -9,14 +9,14 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   error?: string;
   icon?: IconName;
   iconPosition?: InputIconPosition;
-  disabled?: boolean;
   size?: InputSize;
   clearable?: boolean;
   mask?: InputMaskTypes;
   children?: React.Component;
-
   hint?: string;
   dataTestId?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
 }
 
 export enum InputType {

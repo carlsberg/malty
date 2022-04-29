@@ -40,9 +40,9 @@ export const Input = ({
   clearable,
   mask,
   children,
-
   hint,
-  dataTestId
+  dataTestId,
+  readOnly
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -101,6 +101,7 @@ export const Input = ({
           value={value}
           placeholder={placeholder}
           disabled={disabled}
+          readOnly={readOnly}
           size={parseInt(numSize, 10)}
           hasIcon={!!icon}
           hasClearable={clearable}
@@ -125,6 +126,7 @@ export const Input = ({
         size={numSize}
         isError={!!error}
         disabled={disabled}
+        readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
         <Icon name={IconName.Minus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
@@ -136,6 +138,7 @@ export const Input = ({
         value={value}
         placeholder="0"
         disabled={disabled}
+        readOnly={readOnly}
         size={parseInt(numSize, 10)}
         hasIcon={!!icon}
         hasClearable={clearable}
@@ -152,6 +155,7 @@ export const Input = ({
         size={numSize}
         isError={!!error}
         disabled={disabled}
+        readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
         <Icon name={IconName.Plus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
@@ -170,6 +174,7 @@ export const Input = ({
             theme={theme}
             height={height}
             disabled={disabled}
+            readOnly={readOnly}
             isError={!!error}
           >
             {Object.keys(InputCountry)
@@ -201,6 +206,7 @@ export const Input = ({
             value={value}
             placeholder={placeholder}
             disabled={disabled}
+            readOnly={readOnly}
             size={parseInt(numSize, 10)}
             hasIcon={!!icon}
             hasClearable={clearable}

@@ -96,6 +96,7 @@ export const StyledInputWrapper = styled.div<{
 
 export const StyledInput = styled.input<{
   disabled?: boolean;
+  readOnly?: boolean;
   size: number;
   hasIcon?: boolean;
   hasClearable?: boolean;
@@ -153,6 +154,18 @@ export const StyledInput = styled.input<{
   &[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
   }
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+  }
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  }
 
   ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
     const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
@@ -167,30 +180,45 @@ export const StyledInput = styled.input<{
           padding: 0 ${theme.sizes.s.value};
         `;
   }}
-
   ${({ disabled }) =>
-    disabled
-      ? css`
-          background-color: ${({ theme }) => theme.colors.colours.support[20].value};
-        `
-      : css`
-          &:hover,
-          &:focus {
-            outline: none;
-          }
-          &:hover {
-            border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
-          }
-          &:focus {
-            border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-            color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-          }
-        `}
+    disabled &&
+    css`
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        pointer-events: none;
+        border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+        color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+      border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      ::placeholder {
+        color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
+    `}
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        border-color: ${({ theme }) => theme.colors.colours.support[40].value};
+      }
+      color: ${({ theme }) => theme.colors.colours.support[80].value};
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      ::placeholder {
+        color: ${({ theme }) => theme.colors.colours.support[80].value};
+      }
+    `}
 `;
 
 export const StyledButton = styled.button<{
   size?: string;
   isError?: boolean;
+  readOnly?: boolean;
 }>`
   height: ${({ size }) => size}px;
   width: ${({ size }) => size}px;
@@ -212,14 +240,27 @@ export const StyledButton = styled.button<{
     border-left: 0;
   }
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.colours.information.disable.value};
+    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+    svg {
+      fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    }
   }
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      pointer-events: none;
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      svg {
+        fill: ${({ theme }) => theme.colors.colours.support[80].value};
+      }
+    `}
 `;
 
 export const StyledSelect = styled.select<{
   size?: number;
   height?: string;
   isError?: boolean;
+  readOnly?: boolean;
 }>`
   vertical-align: top;
   display: inline-flex;
@@ -234,8 +275,17 @@ export const StyledSelect = styled.select<{
   appearance: none;
   position: relative;
   &:disabled {
-    background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+    color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+    border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
   }
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      pointer-events: none;
+      color: ${({ theme }) => theme.colors.colours.support[80].value};
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+    `}
 `;
 
 export const StyledOption = styled.option<{
@@ -245,4 +295,5 @@ export const StyledOption = styled.option<{
 `;
 export const StyledClearableWrapper = styled.div`
   position: relative;
+  display: flex;
 `;
