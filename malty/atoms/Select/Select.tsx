@@ -250,7 +250,7 @@ export const Select = ({
           readOnly={readOnly}
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
-          type={ButtonType.Button}
+          type={ButtonType.Default}
           data-testid={`${dataTestId}-button`}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid={`${dataTestId}-selected-values`}>
