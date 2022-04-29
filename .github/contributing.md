@@ -53,7 +53,7 @@ At the core of our contribution model is Gitflow. We use Gitflow to manage our c
 
 ### Release branches
 
-We don't expect to use realease branches, as there is no publishing or releasing of our code. Again, packaging and distribution is handled by [Bit.dev](https://bit.dev/carlsberggroup), and official Malty releases will be marked by a release of a [DSM version](https://carlsberg.invisionapp.com/dsm/carlsberg-digital/malty-design-system/releases).
+We don't expect to use realease branches, as there is no publishing or releasing of our code. Again, packaging and distribution is handled by [Bit.dev](https://bit.dev/carlsberggroup), and official Malty releases will be marked by a release of a [DSM version](https://malty.carlsberggroup.com/5715d933c/p/65f283-release-notes).
 
 For more details on Gitflow, please [read here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 

@@ -9,13 +9,21 @@ export const Text = ({
   align = TextAlign.Left,
   color = TextColor.DigitalBlack,
   italic = false,
-  children
+  children,
+  dataQaId
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <TypographyProvider>
-      <StyledParagraph textStyle={textStyle} color={color} align={align} italic={italic} theme={theme}>
+      <StyledParagraph
+        data-testid={dataQaId}
+        textStyle={textStyle}
+        color={color}
+        align={align}
+        italic={italic}
+        theme={theme}
+      >
         {children}
       </StyledParagraph>
     </TypographyProvider>
