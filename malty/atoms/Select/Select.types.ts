@@ -14,6 +14,7 @@ export interface SelectProps {
   search?: boolean;
   selectionText?: string;
   dataTestId?: string;
+  readOnly?: boolean;
 }
 
 export interface SelectOptionsType {

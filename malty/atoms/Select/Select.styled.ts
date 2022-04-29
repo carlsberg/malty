@@ -72,6 +72,7 @@ export const StyledHint = styled.label<{
 
 export const StyledButton = styled.button<{
   disabled?: boolean;
+  readOnly?: boolean;
   height: string;
   isError?: boolean;
   isActive?: boolean;
@@ -92,6 +93,17 @@ export const StyledButton = styled.button<{
     isActive ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[60].value};
   border: 1px solid ${({ theme }) => theme.colors.colours.support[60].value};
   background: ${({ theme }) => theme.colors.colours.default.white.value};
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.colours.support[60].value};
+  }
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  }
   ${({ selectStyle, theme, open }) =>
     selectStyle === 'inline' &&
     css`
@@ -126,25 +138,30 @@ export const StyledButton = styled.button<{
       color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     `}
   ${({ disabled }) =>
-    disabled
-      ? css`
-          border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-          color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-          background-color: transparent !important;
-        `
-      : css`
-          &:hover,
-          &:focus {
-            outline: none;
-          }
-          &:hover {
-            border-color: ${({ theme }) => theme.colors.colours.support[60].value};
-          }
-          &:focus {
-            border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-            color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-          }
-        `}
+    disabled &&
+    css`
+      border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value} !important;
+      &:hover,
+      &:focus {
+        outline: none;
+        border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
+    `}
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      pointer-events: none;
+      border-color: ${({ theme }) => theme.colors.colours.support[40].value};
+      color: ${({ theme }) => theme.colors.colours.support[80].value};
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value} !important;
+      &:hover,
+      &:focus {
+        outline: none;
+        border-color: ${({ theme }) => theme.colors.colours.support[40].value};
+      }
+    `}
 `;
 
 export const StyledOptionsWrapper = styled.ul<{
@@ -233,6 +250,7 @@ export const StyledOption = styled.li<{
 `;
 export const StyledChevronDown = styled(ChevronDown)<{
   disabled?: boolean;
+  readOnly?: boolean;
   open?: boolean;
   selectStyle?: string;
 }>`
@@ -253,6 +271,11 @@ export const StyledChevronDown = styled(ChevronDown)<{
     disabled &&
     css`
       fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      fill: ${({ theme }) => theme.colors.colours.support[80].value};
     `}
 `;
 export const StyledCheck = styled(Check)<{
