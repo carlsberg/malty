@@ -1,19 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`button matches snapshot 1`] = `
+exports[`floater matches snapshot 1`] = `
 <span
   className="sc-bczRLJ hROJNc"
 >
   <button
-    className="sc-jSMfEi sc-gKXOVf kkfLpk fcGpoe"
-    disabled={true}
-    fontSize="16px"
+    className="sc-dkzDqf eIamyt"
     onClick={[MockFunction]}
     tabIndex={-1}
     type="button"
   >
     <div
-      className="text-container "
+      className="text-container"
     >
       Submit
     </div>

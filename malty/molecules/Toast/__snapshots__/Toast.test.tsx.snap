@@ -2,10 +2,10 @@
 
 exports[`Toast matches snapshot 1`] = `
 <div
-  className="sc-iqcoie sc-crXcEl gUslfD jCOGIo"
+  className="sc-kDDrLX jwOBGr"
 >
   <div
-    className="sc-evZas sc-breuTD elxmKA gffwez"
+    className="sc-iqcoie ceQVqr"
     color="notification-strong"
     data-testid="toast-container"
   >
@@ -13,7 +13,7 @@ exports[`Toast matches snapshot 1`] = `
       className="sc-bczRLJ hROJNc"
     >
       <p
-        className="sc-kDDrLX LJBLZ"
+        className="sc-jqUVSM kCAFTy"
         color="white"
         data-testid="toast-message"
       >
@@ -21,7 +21,7 @@ exports[`Toast matches snapshot 1`] = `
       </p>
     </span>
     <div
-      className="sc-fEOsli hkUdYv"
+      className="sc-evZas cWbSUu"
       data-testid="toast-close-icon"
       onClick={[Function]}
     >
@@ -31,7 +31,7 @@ exports[`Toast matches snapshot 1`] = `
         data-testid="svg-component"
         size="24px"
         version="1.1"
-        viewBox="0 0 24 24"
+        viewBox="0 0 40 40"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >

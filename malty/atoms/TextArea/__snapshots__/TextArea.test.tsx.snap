@@ -2,29 +2,29 @@
 
 exports[`textarea matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL bWTUHG"
+  className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-gsDKAQ IhRIv"
+    className="sc-gsnTZi cZoVPz"
   >
     <label
-      className="sc-dkPtRN LDOZH"
+      className="sc-dkzDqf bjGBmQ"
       htmlFor="00000000-0000-0000-0000-000000000000"
     >
       Label text
     </label>
     <div
-      className="sc-gKclnd dvYTVD"
+      className="sc-gKXOVf cpnDEv"
     >
       <textarea
-        className="sc-jRQBWg exRojm"
+        className="sc-jSMfEi bvCiYM"
         id="00000000-0000-0000-0000-000000000000"
         name="00000000-0000-0000-0000-000000000000"
         onChange={[Function]}
         value="Value"
       />
       <div
-        className="sc-furwcr eZoIgo"
+        className="sc-ftvSup fndImf"
         data-testid="TextAreaCounter"
       >
         0

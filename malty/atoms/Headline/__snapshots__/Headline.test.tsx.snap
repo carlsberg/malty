@@ -2,12 +2,11 @@
 
 exports[`Headline component matches snapshot 1`] = `
 <span
-  className="sc-bdfBQB dGZTMR"
+  className="sc-bczRLJ hROJNc"
 >
   <h1
-    className="sc-gsTEea dgJvqh"
-    color="primary"
-    size="medium"
+    className="sc-gsnTZi eBdFHM"
+    color="digital-black"
   >
     this is a headline
   </h1>
