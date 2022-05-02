@@ -2,19 +2,19 @@
 
 exports[`Products bar component matches snapshot 1`] = `
 <div
-  className="sc-hKwDye jHFkqp"
+  className="sc-hKMtZM ubCAJ"
 >
   <div
-    className="sc-bqiRlB dFqBfw"
+    className="sc-breuTD cosMe"
     open={false}
   />
   <svg
-    className="sc-gsDKAQ kZIBj"
-    color="White"
+    className="sc-gsnTZi iOMLMs"
+    color="white"
     data-testid="svg-component"
-    size="40"
+    size="24px"
     version="1.1"
-    viewBox="0 0 24 24"
+    viewBox="0 0 40 40"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
@@ -24,29 +24,29 @@ exports[`Products bar component matches snapshot 1`] = `
     />
   </svg>
   <div
-    className="sc-eCImPb gDbCDM"
+    className="sc-eCYdqJ bZezBM"
   >
     <ul
-      className="sc-jRQBWg fiwohe"
+      className="sc-jSMfEi dJEoXJ"
       data-testid="system-options"
     >
       <li
-        className="sc-gKclnd cXpswD"
+        className="sc-gKXOVf kuyIwz"
         onClick={[Function]}
       >
         <span
-          className="sc-furwcr hLlilB"
+          className="sc-ftvSup dtcHEr"
         >
           <a
             href="/iframe.html"
           >
             <svg
-              className="sc-gsDKAQ kZIBj"
-              color="White"
+              className="sc-gsnTZi iOMLMs"
+              color="white"
               data-testid="svg-component"
-              size="40"
+              size="24px"
               version="1.1"
-              viewBox="0 0 24 24"
+              viewBox="0 0 40 40"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
             >
@@ -59,23 +59,23 @@ exports[`Products bar component matches snapshot 1`] = `
         </span>
       </li>
       <li
-        className="sc-gKclnd cXpswD"
+        className="sc-gKXOVf kuyIwz"
         onClick={[Function]}
       >
         <span
-          className="sc-furwcr hLlilB"
+          className="sc-ftvSup dtcHEr"
         >
           <a
             href="/item2"
             onClick={[Function]}
           >
             <svg
-              className="sc-gsDKAQ kZIBj"
-              color="White"
+              className="sc-gsnTZi iOMLMs"
+              color="white"
               data-testid="svg-component"
-              size="40"
+              size="24px"
               version="1.1"
-              viewBox="0 0 24 24"
+              viewBox="0 0 40 40"
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
             >
@@ -89,42 +89,41 @@ exports[`Products bar component matches snapshot 1`] = `
       </li>
     </ul>
     <div
-      className="sc-jrQzAO cVfvWZ"
+      className="sc-jqUVSM cVlWPk"
       open={false}
     >
       <li
-        className="sc-gKclnd cXpswD"
+        className="sc-gKXOVf kuyIwz"
         onClick={[Function]}
       >
         <span
-          className="sc-furwcr hLlilB"
+          className="sc-ftvSup dtcHEr"
         >
           <span
-            className="sc-pVTFL egoHvt"
+            className="sc-papXJ iHFpNU"
             data-testid="avatar"
           />
         </span>
       </li>
       <div
-        className="sc-crHmcD eRBOAo"
+        className="sc-crXcEl eCrVYO"
         open={false}
       >
         <div
-          className="sc-kDTinF iRTuXR"
+          className="sc-kDDrLX kGIrKz"
         >
           <span
-            className="sc-bdvvtL iouZXA"
+            className="sc-bczRLJ hROJNc"
           >
             <p
-              className="sc-dkPtRN bZQcfC"
+              className="sc-dkzDqf eSqqkM"
               color="white"
-              size="medium"
             >
               Maria Snow
             </p>
           </span>
           <p
-            className="sc-iqseJM dmVtpS"
+            className="sc-iqcoie ctpUi"
           >
             Market director
           </p>
@@ -133,7 +132,7 @@ exports[`Products bar component matches snapshot 1`] = `
           data-testid="profile-options"
         >
           <li
-            className="sc-egiyK hbZzQD"
+            className="sc-evZas bzEkrF"
             onClick={[Function]}
           >
             <a
@@ -141,12 +140,12 @@ exports[`Products bar component matches snapshot 1`] = `
               onClick={[Function]}
             >
               <svg
-                className="sc-gsDKAQ kZIBj"
-                color="White"
+                className="sc-gsnTZi iOMLMs"
+                color="white"
                 data-testid="svg-component"
-                size="40"
+                size="24px"
                 version="1.1"
-                viewBox="0 0 24 24"
+                viewBox="0 0 40 40"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
               >
@@ -156,12 +155,11 @@ exports[`Products bar component matches snapshot 1`] = `
                 />
               </svg>
               <span
-                className="sc-bdvvtL iouZXA"
+                className="sc-bczRLJ hROJNc"
               >
                 <p
-                  className="sc-dkPtRN exrcrI"
+                  className="sc-dkzDqf jdtZuS"
                   color="white"
-                  size="medium-small"
                 >
                   User profile
                 </p>
@@ -169,7 +167,7 @@ exports[`Products bar component matches snapshot 1`] = `
             </a>
           </li>
           <li
-            className="sc-egiyK hbZzQD"
+            className="sc-evZas bzEkrF"
             onClick={[Function]}
           >
             <a
@@ -177,12 +175,12 @@ exports[`Products bar component matches snapshot 1`] = `
               onClick={[Function]}
             >
               <svg
-                className="sc-gsDKAQ kZIBj"
-                color="White"
+                className="sc-gsnTZi iOMLMs"
+                color="white"
                 data-testid="svg-component"
-                size="40"
+                size="24px"
                 version="1.1"
-                viewBox="0 0 24 24"
+                viewBox="0 0 40 40"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
               >
@@ -192,12 +190,11 @@ exports[`Products bar component matches snapshot 1`] = `
                 />
               </svg>
               <span
-                className="sc-bdvvtL iouZXA"
+                className="sc-bczRLJ hROJNc"
               >
                 <p
-                  className="sc-dkPtRN exrcrI"
+                  className="sc-dkzDqf jdtZuS"
                   color="white"
-                  size="medium-small"
                 >
                   Sign out
                 </p>

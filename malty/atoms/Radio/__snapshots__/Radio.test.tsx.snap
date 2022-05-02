@@ -2,14 +2,14 @@
 
 exports[`radio matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL iouZXA"
+  className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-eCImPb cgYwop"
+    className="sc-eCYdqJ hGxLib"
   >
     <input
       checked={true}
-      className="sc-gsDKAQ kbuuGX"
+      className="sc-gsnTZi hXyDqd"
       id="test"
       name="radio"
       onChange={[Function]}
@@ -17,7 +17,7 @@ exports[`radio matches snapshot 1`] = `
       value="test"
     />
     <label
-      className="sc-dkPtRN ljICfl"
+      className="sc-dkzDqf hTcXhs"
       htmlFor="test"
     >
       Label text

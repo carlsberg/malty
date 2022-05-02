@@ -2,7 +2,7 @@
 
 exports[`pill matches snapshot 1`] = `
 <span
-  className="sc-bczRLJ qaxFj"
+  className="sc-bczRLJ hROJNc"
 >
   <div
     className="sc-dkzDqf hoMrIK"
@@ -16,7 +16,7 @@ exports[`pill matches snapshot 1`] = `
       data-testid="svg-component"
       size="24px"
       version="1.1"
-      viewBox="0 0 24 24"
+      viewBox="0 0 40 40"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
@@ -27,6 +27,7 @@ exports[`pill matches snapshot 1`] = `
     </svg>
     <div
       className="sc-hKMtZM dKAPlu"
+      data-testid="undefined-text"
     >
       Pill text
     </div>

@@ -2,7 +2,7 @@
 
 exports[`input matches snapshot 1`] = `
 <span
-  className="sc-bczRLJ qaxFj"
+  className="sc-bczRLJ hROJNc"
 >
   <div
     className="sc-dkzDqf kdla-DI"
@@ -11,7 +11,7 @@ exports[`input matches snapshot 1`] = `
       className="sc-gKXOVf iyMGyj"
     >
       <span
-        className="sc-bczRLJ qaxFj"
+        className="sc-bczRLJ hROJNc"
       >
         <div
           className="sc-kDDrLX cnASSQ"

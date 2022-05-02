@@ -73,8 +73,5 @@
       },
       "teambit.react/react": {}
     }
-  },
-  "teambit.preview/preview": {
-    "disabled": true
   }
 }
