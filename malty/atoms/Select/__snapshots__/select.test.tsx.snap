@@ -16,7 +16,7 @@ exports[`select matches snapshot 1`] = `
     className="sc-fLlhyt dzruwu"
   >
     <button
-      className="sc-llJcti cZeGOv"
+      className="sc-llJcti jaCqFk"
       data-testid="undefined-button"
       disabled={false}
       height="40px"
@@ -33,12 +33,12 @@ exports[`select matches snapshot 1`] = `
         Placeholder text
       </div>
       <svg
-        className="sc-gsnTZi ivMBgY sc-bZkfAO fokRGx"
+        className="sc-gsnTZi ivMBgY sc-bZkfAO eHBotM"
         color="digital-black"
         data-testid="svg-component"
         size="24px"
         version="1.1"
-        viewBox="0 0 40 40"
+        viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >

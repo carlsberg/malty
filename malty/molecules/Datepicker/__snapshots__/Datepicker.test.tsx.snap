@@ -5,18 +5,19 @@ exports[`datepicker matches snapshot 1`] = `
   className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-dkzDqf fmgSgo"
+    className="sc-hKMtZM gZcLXw"
   >
     <label
+      className="sc-dkzDqf gSBfxx"
       htmlFor="datepicker-input"
     >
       Select date
     </label>
     <div
-      className="sc-hKMtZM euCzDg"
+      className="sc-eCYdqJ itCJjG"
     >
       <span
-        className="sc-eCYdqJ hsrJxu"
+        className="sc-jSMfEi eSGvOq"
       >
         <svg
           className="sc-gsnTZi ivMBgY"
@@ -24,7 +25,7 @@ exports[`datepicker matches snapshot 1`] = `
           data-testid="svg-component"
           size="24px"
           version="1.1"
-          viewBox="0 0 40 40"
+          viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
         >
@@ -57,7 +58,7 @@ exports[`datepicker matches snapshot 1`] = `
             onKeyDown={[Function]}
             readOnly={false}
             type="text"
-            value="04/29/2022"
+            value="05/02/2022"
           />
         </div>
       </div>
