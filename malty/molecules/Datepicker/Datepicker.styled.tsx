@@ -1,19 +1,31 @@
 import styled, { css } from 'styled-components';
 
+export const StyledLabel = styled.label<{
+  disabled?: boolean;
+}>`
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
+  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
+  font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
+  display: block;
+  &:first-letter {
+    text-transform: capitalize;
+  }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
+`;
 export const StyledWrapper = styled.div`
   position: relative;
-  & label {
-    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
-    font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
-    display: block;
-    margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
-    &:first-letter {
-      text-transform: capitalize;
-    }
-  }
 `;
 
-export const StyledDatepicker = styled.div`
+export const StyledDatepicker = styled.div<{
+  disabled?: boolean;
+  readOnly?: boolean;
+}>`
   position: relative;
   & .react-datepicker-popper {
     width: 100%;
@@ -38,18 +50,30 @@ export const StyledDatepicker = styled.div`
     border-color: ${({ theme }) => `${theme.colors.colours.default['digital-black'].value}`};
     font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
     outline: none;
-    &:disabled {
-      cursor: 'default';
-      border-color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
-      background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-      color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
-    }
-    &:read-only {
-      cursor: 'default';
-      border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
-      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
-      color: ${({ theme }) => `${theme.colors.colours.support[80].value}`};
-    }
+    ${({ disabled }) =>
+      disabled &&
+      css`
+        cursor: 'default';
+        border-color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
+        background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+        color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
+        svg {
+          fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+        }
+      `}
+
+    ${({ readOnly }) =>
+      readOnly &&
+      css`
+        cursor: 'default';
+        border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
+        background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+        color: ${({ theme }) => `${theme.colors.colours.support[80].value}`};
+        svg {
+          fill: ${({ theme }) => theme.colors.colours.support[80].value};
+        }
+      `}
+
     &::placeholder {
       color: ${({ theme }) => `${theme.colors.colours.support[60].value}`};
     }

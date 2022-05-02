@@ -54,7 +54,9 @@ export default {
       }
     },
     readOnly: {
-      control: 'boolean',
+      control: {
+        type: 'boolean'
+      },
       description: 'readOnly datepicker'
     },
     selectsRange: {
