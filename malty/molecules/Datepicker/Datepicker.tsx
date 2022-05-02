@@ -41,7 +41,7 @@ export const Datepicker = ({
     <TypographyProvider>
       <StyledWrapper theme={theme}>
         {!inline && (
-          <StyledLabel disabled={disabled} htmlFor="datepicker-input">
+          <StyledLabel disabled={disabled} htmlFor="datepicker-input" theme={theme}>
             {label}
           </StyledLabel>
         )}

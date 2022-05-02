@@ -14,10 +14,10 @@ exports[`input matches snapshot 1`] = `
         className="sc-bczRLJ hROJNc"
       >
         <div
-          className="sc-kDDrLX cnASSQ"
+          className="sc-kDDrLX eqjZTi"
         >
           <input
-            className="sc-iBkjds dWqBGo"
+            className="sc-iBkjds kzoqqG"
             id="00000000-0000-0000-0000-000000000000"
             name="00000000-0000-0000-0000-000000000000"
             onChange={[Function]}
