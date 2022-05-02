@@ -25,7 +25,11 @@ export default {
     },
     disabled: {
       control: 'boolean',
-      description: 'Textarea state, when disabled it is read-only.'
+      description: 'Textarea state, disabled'
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'Textarea state, readOnly'
     },
     error: {
       description: 'Error message to be displayed when error is present.',
@@ -71,5 +75,6 @@ TextArea.args = {
   disabled: false,
   error: error ? 'Error text' : '',
   value: '',
-  hint: 'hint text'
+  hint: 'hint text',
+  readOnly: false
 };

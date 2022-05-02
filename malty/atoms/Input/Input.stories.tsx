@@ -59,7 +59,11 @@ export default {
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, when disabled it is read-only.'
+      description: 'Input state, disabled'
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'Input state, readOnly'
     },
     iconPosition: {
       options: Object.keys(InputIconPosition),
@@ -98,14 +102,11 @@ export default {
       table: { defaultValue: { summary: 'none' } }
     },
     value: {
-      table: {
-        disable: true
-      }
+      description: 'value of Input',
+      control: 'text'
     },
     onValueChange: {
-      table: {
-        disable: true
-      }
+      description: 'Function to be executed when input state changes'
     }
   }
 } as Meta;
@@ -123,7 +124,8 @@ const Template: Story<InputProps> = ({
   clearable,
   mask,
   hint,
-  dataTestId
+  dataTestId,
+  readOnly
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -142,6 +144,7 @@ const Template: Story<InputProps> = ({
       onValueChange={(newValue: string) => setStateValue(newValue)}
       hint={hint}
       dataTestId={dataTestId}
+      readOnly={readOnly}
     />
   );
 };
@@ -161,7 +164,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: true,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 
@@ -174,7 +178,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: false,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 
@@ -187,7 +192,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: true,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 
@@ -200,7 +206,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: false,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 
@@ -213,7 +220,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: false,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 
@@ -227,7 +235,8 @@ switch (variant) {
       disabled: false,
       clearable: true,
       icon: IconName.Search,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 
@@ -240,7 +249,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: false,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 
@@ -253,7 +263,8 @@ switch (variant) {
       error: '',
       disabled: false,
       clearable: false,
-      hint: 'hint text'
+      hint: 'hint text',
+      readOnly: false
     };
     break;
 }
