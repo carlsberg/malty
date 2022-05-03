@@ -26,7 +26,7 @@ export default {
 
     icon: {
       description: 'When selected, Alert label will contain the selected icon',
-      options: Object.values(IconName),
+      options: Object.values({ undefined, ...IconName }),
       control: {
         type: 'select'
       }
