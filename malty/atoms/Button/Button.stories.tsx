@@ -41,17 +41,27 @@ export default {
         label: Object.values(ButtonStyle)
       },
       table: {
+        category: 'Styling',
         defaultValue: {
           summary: 'ButtonStyle.Primary'
         }
       }
     },
     onClick: {
-      description: 'This is a function that will run on click. It is not a required property'
+      description: 'This is a function that will run on click. It is not a required property',
+      table: {
+        category: 'Events'
+      }
     },
-
+    onKeyUp: {
+      description: 'This is a function that will run on onKeyUp. It is not a required property',
+      table: {
+        category: 'Events'
+      }
+    },
     loading: {
       table: {
+        category: 'State',
         defaultValue: {
           summary: 'false'
         }
@@ -59,11 +69,11 @@ export default {
       control: 'boolean',
       description: 'Is button loading?'
     },
-
     size: {
       description: 'Button size. Options are',
       options: Object.values(ButtonSize),
       table: {
+        category: 'Styling',
         defaultValue: {
           summary: 'ButtonSize.Medium'
         }
@@ -75,6 +85,9 @@ export default {
     icon: {
       description: 'When selected, button label will contain the selected icon',
       options: Object.values(IconName),
+      table: {
+        category: 'Icon'
+      },
       control: {
         type: 'select'
       }
@@ -83,6 +96,7 @@ export default {
       description: 'When icon present, position will be',
       options: Object.values(ButtonIconPosition),
       table: {
+        category: 'Icon',
         defaultValue: {
           summary: 'Right'
         }
@@ -93,10 +107,14 @@ export default {
     },
     negative: {
       control: 'boolean',
-      description: 'Should this be a white button?'
+      description: 'Should this be a white button?',
+      table: {
+        category: 'Styling'
+      }
     },
     disabled: {
       table: {
+        category: 'State',
         defaultValue: {
           summary: 'false'
         }
@@ -106,7 +124,10 @@ export default {
     },
     fullWidth: {
       control: 'boolean',
-      description: 'Should this be a full width button, that will stretch to 100% of its wrapper?'
+      description: 'Should this be a full width button, that will stretch to 100% of its wrapper?',
+      table: {
+        category: 'Styling'
+      }
     },
     url: {
       control: 'text',
@@ -114,7 +135,10 @@ export default {
     },
     selected: {
       description: 'Add classname of "active" to element',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'Styling'
+      }
     },
     children: {
       control: 'text',
