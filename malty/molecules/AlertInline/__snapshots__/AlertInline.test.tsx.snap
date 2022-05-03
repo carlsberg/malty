@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InlineAlert matches snapshot 1`] = `
+exports[`alertInline matches snapshot 1`] = `
 <div
   className="sc-kDDrLX sc-iqcoie klQtIm fmCTLE"
 >
@@ -8,6 +8,7 @@ exports[`InlineAlert matches snapshot 1`] = `
     className="sc-crXcEl sc-evZas lcuFxT cieHDJ"
     color="notification-strong"
     data-testid="inline-alert-container"
+    size="medium"
   >
     <div
       className="sc-fnykZs iQJZjt"

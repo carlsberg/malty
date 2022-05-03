@@ -25,6 +25,6 @@ export enum AlertInlineColor {
 }
 
 export enum AlertInlineSize {
-  Small = 'small',
-  Medium = 'medium'
+  Compact = 'small',
+  Default = 'medium'
 }

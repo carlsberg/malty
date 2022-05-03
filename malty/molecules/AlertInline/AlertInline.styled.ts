@@ -41,7 +41,7 @@ export const StyledAlertInLine = styled(StyledContainer)<{
     if (hasTitle || hasActions) {
       return theme.sizes.xs.value;
     }
-    if (!hasTitle && !hasActions && !hasIcon && size === AlertInlineSize.Small) {
+    if (!hasTitle && !hasActions && !hasIcon && size === AlertInlineSize.Compact) {
       return `${theme.sizes['4xs'].value} ${theme.sizes['2xs'].value}`;
     }
 
