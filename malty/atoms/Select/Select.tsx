@@ -41,7 +41,8 @@ export const Select = ({
   selectionText = 'selected',
   value,
   search = false,
-  dataTestId
+  dataTestId,
+  readOnly
 }: SelectProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -246,6 +247,7 @@ export const Select = ({
           height={numSize}
           onClick={() => toggleOptionList()}
           disabled={disabled}
+          readOnly={readOnly}
           isError={!!error && type !== SelectType.Inline}
           open={showOptionList}
           type={ButtonType.Default}
@@ -258,6 +260,7 @@ export const Select = ({
             theme={theme}
             selectStyle={type}
             disabled={disabled}
+            readOnly={readOnly}
             open={showOptionList}
             color={IconColor.Primary}
             size={IconSize.Medium}

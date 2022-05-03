@@ -4,7 +4,14 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { ReactNode, useContext } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
-import { StyledCalendar, StyledContainer, StyledDatepicker, StyledInputIcon, StyledWrapper } from './Datepicker.styled';
+import {
+  StyledCalendar,
+  StyledContainer,
+  StyledDatepicker,
+  StyledInputIcon,
+  StyledLabel,
+  StyledWrapper
+} from './Datepicker.styled';
 import { DatepickerProps } from './Datepicker.types';
 
 export const Datepicker = ({
@@ -19,6 +26,7 @@ export const Datepicker = ({
   excludeDates,
   selectsRange,
   inline,
+  readOnly,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -32,10 +40,14 @@ export const Datepicker = ({
   return (
     <TypographyProvider>
       <StyledWrapper theme={theme}>
-        {!inline && <label htmlFor="datepicker-input">{label}</label>}
-        <StyledDatepicker theme={theme}>
+        {!inline && (
+          <StyledLabel disabled={disabled} htmlFor="datepicker-input" theme={theme}>
+            {label}
+          </StyledLabel>
+        )}
+        <StyledDatepicker disabled={disabled} readOnly={readOnly} theme={theme}>
           {!inline && (
-            <StyledInputIcon theme={theme}>
+            <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
               <Calendar size={IconSize.Medium} color={IconColor.Primary} />
             </StyledInputIcon>
           )}
@@ -45,6 +57,7 @@ export const Datepicker = ({
             startDate={startDate}
             endDate={selectsRange ? endDate : null}
             disabled={disabled}
+            readOnly={readOnly}
             onChange={onChange}
             locale={locale}
             showPopperArrow={false}

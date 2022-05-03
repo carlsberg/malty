@@ -53,6 +53,12 @@ export default {
         type: 'boolean'
       }
     },
+    readOnly: {
+      control: {
+        type: 'boolean'
+      },
+      description: 'readOnly datepicker'
+    },
     selectsRange: {
       description: 'enable date range selection',
       control: {
@@ -89,7 +95,8 @@ const Template: Story<DatepickerProps> = ({
   excludeDates,
   placeholderText,
   selectsRange,
-  dateFormat
+  dateFormat,
+  readOnly
 }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -120,6 +127,7 @@ const Template: Story<DatepickerProps> = ({
         placeholderText={placeholderText}
         selectsRange={selectsRange}
         dateFormat={dateFormat}
+        readOnly={readOnly}
       />
     </div>
   );

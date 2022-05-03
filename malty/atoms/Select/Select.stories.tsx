@@ -47,8 +47,12 @@ export default {
       }
     },
     disabled: {
-      description: 'Select state, when disabled it is read-only.',
+      description: 'Select state, disabled.',
       control: 'boolean'
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'Select state, readOnly.'
     },
     defaultValue: {
       description: 'Initial selected option'
@@ -128,7 +132,8 @@ switch (type) {
       multiple: !!multiple,
       defaultValue: [testOptions[0]],
       selectionText: 'options selected',
-      search: !!search
+      search: !!search,
+      readOnly: false
     };
     break;
 
@@ -145,7 +150,8 @@ switch (type) {
       defaultValue: [testOptions[0]],
       selectionText: 'options selected',
       error: error ? 'error text' : '',
-      search: !!search
+      search: !!search,
+      readOnly: false
     };
     break;
 }
