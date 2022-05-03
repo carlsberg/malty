@@ -8,7 +8,7 @@ const mockFn = jest.fn();
 
 describe('datepicker', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(<Datepicker label={label} onChange={mockFn} startDate={new Date()} />);
+    const view = jsonRenderer(<Datepicker label={label} onChange={mockFn} startDate={new Date(0)} />);
     expect(view).toMatchSnapshot();
   });
 });
