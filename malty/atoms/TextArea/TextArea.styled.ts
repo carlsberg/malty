@@ -49,6 +49,7 @@ export const StyledHint = styled.label<{
 
 export const StyledtextArea = styled.textarea<{
   disabled?: boolean;
+  readOnly?: boolean;
 }>`
   width: 100%;
   height: calc(100% - 22px);
@@ -82,14 +83,21 @@ export const StyledtextArea = styled.textarea<{
   ${({ disabled, theme }) =>
     disabled &&
     css`
-      background-color: transparent;
+      background-color: ${theme.colors.colours.default.transparent.value};
       color: ${theme.colors.colours.system['disable-light-theme'].value};
+    `}
+  ${({ readOnly, theme }) =>
+    readOnly &&
+    css`
+      background-color: ${theme.colors.colours.support[20].value};
+      color: ${theme.colors.colours.support[80].value};
     `}
 `;
 
 export const StyledTextAreaWrapper = styled.div<{
   resize?: boolean;
   disabled?: boolean;
+  readOnly?: boolean;
   isError?: boolean;
 }>`
   min-height: 96px;
@@ -103,6 +111,17 @@ export const StyledTextAreaWrapper = styled.div<{
       isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+  }
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  }
   ${({ resize }) =>
     resize
       ? css`
@@ -112,24 +131,28 @@ export const StyledTextAreaWrapper = styled.div<{
           resize: none;
         `}
   ${({ theme, disabled }) =>
-    disabled
-      ? css`
-          border-color: ${theme.colors.colours.system['disable-light-theme'].value};
-          color: ${theme.colors.colours.system['disable-light-theme'].value};
-        `
-      : css`
-          &:hover,
-          &:focus {
-            outline: none;
-          }
-          &:hover {
-            border-color: ${theme.colors.colours.information.indirect.value};
-          }
-          &:focus {
-            border-color: ${theme.colors.colours.default['digital-black'].value};
-            color: ${theme.colors.colours.default['digital-black'].value};
-          }
-        `}
+    disabled &&
+    css`
+      border-color: ${theme.colors.colours.system['disable-light-theme'].value};
+      color: ${theme.colors.colours.system['disable-light-theme'].value};
+      &:hover,
+      &:focus {
+        outline: none;
+        border-color: inherit;
+      }
+    `}
+  ${({ theme, readOnly }) =>
+    readOnly &&
+    css`
+      border-color: ${theme.colors.colours.support[40].value};
+      color: ${theme.colors.colours.support[80].value};
+      background-color: ${theme.colors.colours.support[20].value};
+      &:hover,
+      &:focus {
+        outline: none;
+        border-color: ${theme.colors.colours.support[40].value};
+      }
+    `}
 `;
 export const StyledTextAreaCharacterCounterContainer = styled.div`
   position: relative;

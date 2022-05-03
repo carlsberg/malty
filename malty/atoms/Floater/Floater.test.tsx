@@ -1,4 +1,5 @@
-import { fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Floater } from './Floater';
 
@@ -36,6 +37,6 @@ describe('floater', () => {
     const onClick = jest.fn();
     render(<Floater text={defaultText} onClick={onClick} />);
     fireEvent.click(screen.getByText(defaultText));
-    expect(onClick).toHaveBeenCalledTimes(0);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

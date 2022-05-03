@@ -1,4 +1,5 @@
-import { act, fireEvent, jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { act, fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Toast } from './Toast';
 import { ToastColor } from './Toast.types';

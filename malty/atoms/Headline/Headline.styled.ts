@@ -37,7 +37,7 @@ export const StyledHeadline = styled.h1<{
     css`
       text-decoration: ${theme.typography.desktop.headline[headlineStyle]['text-decoration']?.value};
     `}
-${({ headlineStyle, theme }) => css`
+  ${({ headlineStyle, theme }) => css`
     @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
       ${css`
         font-size: ${theme.typography.tablet.headline[headlineStyle]['font-size'].value};

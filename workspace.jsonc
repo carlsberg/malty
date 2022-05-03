@@ -1,6 +1,6 @@
 /**
  * this is the main configuration file of your bit workspace.
- * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
+ * for full documentation, please see: https://bit.dev/docs/workspace/workspace-json
  **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
@@ -73,8 +73,5 @@
       },
       "teambit.react/react": {}
     }
-  },
-  "teambit.preview/preview": {
-    "disabled": true
   }
 }

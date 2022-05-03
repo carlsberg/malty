@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`floater matches snapshot 1`] = `
+<span
+  className="sc-bczRLJ hROJNc"
+>
+  <button
+    className="sc-dkzDqf eIamyt"
+    onClick={[MockFunction]}
+    tabIndex={-1}
+    type="button"
+  >
+    <div
+      className="text-container"
+    >
+      Submit
+    </div>
+  </button>
+</span>
+`;
