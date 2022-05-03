@@ -35,7 +35,13 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'labels':
+  case 'number':
+    Stepper.args = {
+      steps: 5,
+      currentStep: 2
+    };
+    break;
+  default:
     Stepper.args = {
       steps: [
         { key: 0, label: 'label 1' },
@@ -44,12 +50,6 @@ switch (variant) {
         { key: 3, label: 'label 4' },
         { key: 4, label: 'label 5' }
       ],
-      currentStep: 2
-    };
-    break;
-  default:
-    Stepper.args = {
-      steps: 5,
       currentStep: 2
     };
     break;

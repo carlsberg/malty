@@ -65,23 +65,25 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
         setElHtml((prevState: Array<JSX.Element>) => [
           ...prevState,
           <React.Fragment key={`step_${step}`}>
-            <StyledStepperCircle
-              key={`progressStep_circle_${step}`}
-              active={currentStep >= step}
-              currentStep={currentStep === step}
-              theme={theme}
-            >
-              <>
-                {currentStep > step && (
-                  <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.Primary} />
-                )}
-                {currentStep <= step && !isMultiStep && (
-                  <StyledStepperNumber theme={theme} active={currentStep >= step}>
-                    {step}
-                  </StyledStepperNumber>
-                )}
-              </>
-            </StyledStepperCircle>
+            <StyledStep>
+              <StyledStepperCircle
+                key={`progressStep_circle_${step}`}
+                active={currentStep >= step}
+                currentStep={currentStep === step}
+                theme={theme}
+              >
+                <>
+                  {currentStep > step && (
+                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.Primary} />
+                  )}
+                  {currentStep <= step && !isMultiStep && (
+                    <StyledStepperNumber theme={theme} active={currentStep >= step}>
+                      {step}
+                    </StyledStepperNumber>
+                  )}
+                </>
+              </StyledStepperCircle>
+            </StyledStep>
             {step < steps && (
               <StyledStepperLine key={`progressStep_line_${step}`} theme={theme} active={currentStep > step} />
             )}

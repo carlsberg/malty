@@ -12,6 +12,7 @@ export const StyledStep = styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
+  margin: auto ${({ theme }) => theme.sizes['4xs'].value};
 `;
 export const StyledStepsWrapper = styled.div`
   display: flex;
