@@ -7,12 +7,21 @@ export const StyledStepperContainer = styled.div`
 `;
 export const StyledText = styled.div`
   margin-top: ${({ theme }) => theme.sizes['4xs'].value} !important;
+  position: absolute;
+  white-space: nowrap;
+
+  text-align: center;
+
+  left: 50%;
+  top: 16px;
+  transform: translatex(-50%);
 `;
 export const StyledStep = styled.div`
   display: flex;
   flex-direction: column;
   align-self: center;
   margin: auto ${({ theme }) => theme.sizes['4xs'].value};
+  position: relative;
 `;
 export const StyledStepsWrapper = styled.div`
   display: flex;
