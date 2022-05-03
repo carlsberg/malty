@@ -2,26 +2,26 @@
 
 exports[`progressBar matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL bWTUHG"
+  className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-dkPtRN gjmJjE"
+    className="sc-dkzDqf iljPaL"
   >
     <div
-      className="sc-hKwDye grShSB"
+      className="sc-hKMtZM hBbZGS"
     >
       <div
-        className="sc-gsDKAQ bELlbw"
+        className="sc-gsnTZi fOnBrM"
       />
       <span
-        className="sc-eCImPb hbjloO"
+        className="sc-eCYdqJ cClzUE"
       >
         30
         %
       </span>
     </div>
     <span
-      className="sc-jRQBWg fpFEWA"
+      className="sc-jSMfEi JyUeP"
     >
       Test text
     </span>

@@ -2,38 +2,38 @@
 
 exports[`Accordion matches snapshot 1`] = `
 <span
-  className="sc-bdvvtL bWTUHG"
+  className="sc-bczRLJ hROJNc"
 >
   <ul
-    className="sc-hKwDye hIPHGy"
+    className="sc-hKMtZM gGkXTB"
     data-testid="undefined-accordion-container"
   >
     <span
-      className="sc-bdvvtL bWTUHG"
+      className="sc-bczRLJ hROJNc"
     >
       <li
-        className="sc-eCImPb hzDfcQ accordionItem"
+        className="sc-eCYdqJ lgICAm accordionItem"
         data-testid="undefined-item"
       >
         <div
           aria-controls="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           aria-expanded={false}
-          className="sc-jRQBWg hebmQV accordion-header"
+          className="sc-jSMfEi iujwhi accordion-header"
           onClick={[Function]}
           size="32px"
         >
           <span
-            className="sc-bdvvtL bWTUHG"
+            className="sc-bczRLJ hROJNc"
           >
             <p
-              className="sc-dkPtRN shXMM"
+              className="sc-dkzDqf cchzTL"
               color="digital-black"
             >
               Accordion title 1
             </p>
           </span>
           <svg
-            className="sc-gsDKAQ kyUyaQ sc-furwcr hySztn"
+            className="sc-gsnTZi ivMBgY sc-ftvSup kTJVVU"
             color="digital-black"
             data-testid="svg-component"
             size="24px"
@@ -56,7 +56,7 @@ exports[`Accordion matches snapshot 1`] = `
           </svg>
         </div>
         <div
-          className="sc-gKclnd eVPMdN accordionBody"
+          className="sc-gKXOVf qEXDZ accordionBody"
           data-testid="undefined-content-container"
           id="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           open={false}
@@ -68,31 +68,31 @@ exports[`Accordion matches snapshot 1`] = `
       </li>
     </span>
     <span
-      className="sc-bdvvtL bWTUHG"
+      className="sc-bczRLJ hROJNc"
     >
       <li
-        className="sc-eCImPb hzDfcQ accordionItem"
+        className="sc-eCYdqJ lgICAm accordionItem"
         data-testid="undefined-item"
       >
         <div
           aria-controls="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           aria-expanded={false}
-          className="sc-jRQBWg hebmQV accordion-header"
+          className="sc-jSMfEi iujwhi accordion-header"
           onClick={[Function]}
           size="32px"
         >
           <span
-            className="sc-bdvvtL bWTUHG"
+            className="sc-bczRLJ hROJNc"
           >
             <p
-              className="sc-dkPtRN shXMM"
+              className="sc-dkzDqf cchzTL"
               color="digital-black"
             >
               Accordion title 2
             </p>
           </span>
           <svg
-            className="sc-gsDKAQ kyUyaQ sc-furwcr hySztn"
+            className="sc-gsnTZi ivMBgY sc-ftvSup kTJVVU"
             color="digital-black"
             data-testid="svg-component"
             size="24px"
@@ -115,7 +115,7 @@ exports[`Accordion matches snapshot 1`] = `
           </svg>
         </div>
         <div
-          className="sc-gKclnd eVPMdN accordionBody"
+          className="sc-gKXOVf qEXDZ accordionBody"
           data-testid="undefined-content-container"
           id="accordion-item-\\"00000000-0000-0000-0000-000000000000"
           open={false}

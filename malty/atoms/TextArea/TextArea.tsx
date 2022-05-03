@@ -16,13 +16,14 @@ import { TextAreaProps } from './TextArea.types';
 export const TextArea = ({
   label,
   placeholder,
-  resize,
-  disabled,
+  resize = false,
+  disabled = false,
   value,
   onValueChange,
   error,
   maxLength,
   hint,
+  readOnly = false,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -46,7 +47,7 @@ export const TextArea = ({
             {label}
           </StyledLabel>
         )}
-        <StyledTextAreaWrapper disabled={disabled} isError={!!error} resize={resize} theme={theme}>
+        <StyledTextAreaWrapper readOnly={readOnly} disabled={disabled} isError={!!error} resize={resize} theme={theme}>
           <StyledtextArea
             name={id}
             id={id}
@@ -55,6 +56,7 @@ export const TextArea = ({
             onChange={handleCarachterCounter}
             theme={theme}
             disabled={disabled}
+            readOnly={readOnly}
             maxLength={maxLength}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}

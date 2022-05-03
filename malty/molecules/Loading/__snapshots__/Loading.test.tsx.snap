@@ -2,14 +2,14 @@
 
 exports[`molecule loading matches snapshot 1`] = `
 <div
-  className="sc-dkPtRN dAZxbL"
+  className="sc-dkzDqf gVKwSZ"
 >
   <div
-    className="sc-hKwDye ejyGmF"
+    className="sc-hKMtZM epATTu"
     size="24"
   >
     <svg
-      className="sc-gsDKAQ kyUyaQ spinning Pending"
+      className="sc-gsnTZi ivMBgY spinning Pending"
       color="digital-black"
       data-testid="svg-component"
       size="24px"
@@ -35,6 +35,10 @@ exports[`molecule loading matches snapshot 1`] = `
       </g>
     </svg>
   </div>
-  Loading...
+  <span
+    className="sc-bczRLJ hROJNc"
+  >
+    Loading...
+  </span>
 </div>
 `;

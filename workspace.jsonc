@@ -1,6 +1,6 @@
 /**
  * this is the main configuration file of your bit workspace.
- * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
+ * for full documentation, please see: https://bit.dev/docs/workspace/workspace-json
  **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
@@ -37,16 +37,16 @@
      */
     "packageManager": "teambit.dependencies/yarn",
     "overrides": {
-      "@types/react": "17.0.3",
-      "@types/react-dom": "17.0.3"
+      "@types/react": "^17.0.2",
+      "@types/react-dom": "^17.0.2"
     },
     "policy": {
       "dependencies": {
-        "@testing-library/react": "^11.2.7"
+        "@testing-library/react": "11.2.7"
       },
       "peerDependencies": {
-        "react": "17.0.2",
-        "react-dom": "17.0.2"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
       }
     },
     "packageManagerArgs": [],

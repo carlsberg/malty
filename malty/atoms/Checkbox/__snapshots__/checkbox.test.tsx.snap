@@ -2,27 +2,27 @@
 
 exports[`checkbox matches snapshot 1`] = `
 <span
-  className="sc-bdfBQB dGZTMR"
+  className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-gsTEea iCcuFk"
+    className="sc-gsnTZi kNfNwg"
   >
     <label
-      className="sc-gKseQn nYnaa"
+      className="sc-gKXOVf jNuicC"
     >
       <input
         checked={true}
-        className="sc-eCstlR lfRepL"
+        className="sc-eCYdqJ kROcDg"
         onChange={[Function]}
         type="checkbox"
         value="test"
       />
       <div
         checked={true}
-        className="sc-jSgvzq goUOvp"
+        className="sc-jSMfEi iLXOdT"
       />
       <span
-        className="sc-hKgJUU lhWjMd"
+        className="sc-hKMtZM fmUliG"
       >
         Label text
       </span>

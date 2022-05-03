@@ -3,17 +3,17 @@
 exports[`does molecule modal match snapshot? matches snapshot 1`] = `
 Array [
   <div
-    className="sc-iqcoie hqIuRy"
+    className="sc-kDDrLX cxbmWb"
   />,
   <div
-    className="sc-crXcEl iBBsDC"
+    className="sc-iqcoie icYzvN"
   >
     <div
-      className="sc-evZas bMoggN"
+      className="sc-crXcEl kMIvft"
       size="Medium"
     >
       <div
-        className="sc-breuTD kUcbFk"
+        className="sc-evZas kAxUXz"
         onClick={[Function]}
       >
         <svg
@@ -40,41 +40,41 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-ksZaOG fTqSYy"
+        className="sc-breuTD irOBpF"
       >
         <span
-          className="sc-bczRLJ qaxFj"
+          className="sc-bczRLJ hROJNc"
         >
-          <h1
-            className="sc-kDDrLX lombrt"
+          <h5
+            className="sc-bjUoiL cxsTAv sc-jqUVSM ccNCBa"
             color="digital-black"
           >
             Headline
-          </h1>
+          </h5>
         </span>
       </div>
       <div
-        className="sc-hAZoDl fEDBSs"
+        className="sc-ksZaOG fVkfGD"
       >
         <p>
           Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is just boring…
         </p>
       </div>
       <div
-        className="sc-fnykZs dNhcxH"
+        className="sc-hAZoDl cYsulU"
       >
         <div
-          className="sc-fEOsli iRQDCu"
+          className="sc-fnykZs jJYqjP"
         >
           <span
-            className="sc-bczRLJ qaxFj"
+            className="sc-bczRLJ hROJNc"
           >
             <button
-              className="sc-jSMfEi sc-iBkjds dCcUHP dYmwvf"
+              className="sc-jSMfEi sc-iBkjds dCcUHP hlHhcU"
               fontSize="16px"
               onClick={[Function]}
               tabIndex={-1}
-              type="submit"
+              type="button"
             >
               <div
                 className="text-container "
@@ -85,17 +85,17 @@ Array [
           </span>
         </div>
         <div
-          className="sc-fEOsli iRQDCu"
+          className="sc-fnykZs jJYqjP"
         >
           <span
-            className="sc-bczRLJ qaxFj"
+            className="sc-bczRLJ hROJNc"
           >
             <button
-              className="sc-jSMfEi sc-gKXOVf dCcUHP jIMPmJ"
+              className="sc-jSMfEi sc-gKXOVf dCcUHP fcGpoe"
               fontSize="16px"
               onClick={[Function]}
               tabIndex={-1}
-              type="submit"
+              type="button"
             >
               <div
                 className="text-container "

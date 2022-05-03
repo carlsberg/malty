@@ -16,7 +16,7 @@ const TypographyProvider = styled.span`
   font-size: 100%;
   vertical-align: baseline;
   line-height: 1;
-  width: 100%;
+  width: auto;
 `;
 
 export { TypographyProvider };

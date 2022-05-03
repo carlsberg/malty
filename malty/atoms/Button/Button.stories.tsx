@@ -11,7 +11,7 @@ export default {
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button',
-    variants: ['primary', 'secondary', 'floater', 'link']
+    variants: ['primary', 'secondary', 'link']
   },
   argTypes: {
     text: {
@@ -28,7 +28,7 @@ export default {
       },
       table: {
         defaultValue: {
-          summary: 'ButtonType.Submit'
+          summary: 'ButtonType.Default'
         }
       }
     },
@@ -41,27 +41,27 @@ export default {
         label: Object.values(ButtonStyle)
       },
       table: {
+        category: 'Styling',
         defaultValue: {
           summary: 'ButtonStyle.Primary'
         }
       }
     },
     onClick: {
-      description: 'This is a function that will run on click. It is not a required property'
-    },
-    scroll: {
-      description: 'Scroll position where will floater show',
+      description: 'This is a function that will run on click. It is not a required property',
       table: {
-        defaultValue: {
-          summary: 0
-        }
-      },
-      control: {
-        type: 'number'
+        category: 'Events'
+      }
+    },
+    onKeyUp: {
+      description: 'This is a function that will run on onKeyUp. It is not a required property',
+      table: {
+        category: 'Events'
       }
     },
     loading: {
       table: {
+        category: 'State',
         defaultValue: {
           summary: 'false'
         }
@@ -69,60 +69,11 @@ export default {
       control: 'boolean',
       description: 'Is button loading?'
     },
-    success: {
-      description: 'Has button succeeded loading?',
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      }
-    },
-    successIcon: {
-      description: 'Icon for success state',
-      options: Object.values(IconName),
-      table: {
-        defaultValue: {
-          summary: 'IconName.ItemCheck'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    successText: {
-      control: 'text',
-      description: 'Button label for success state'
-    },
-    error: {
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      },
-      description: 'Has button failed loading?'
-    },
-    errorIcon: {
-      description: 'Icon for failed state',
-      options: Object.values(IconName),
-      table: {
-        defaultValue: {
-          summary: 'IconName.ItemClose'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    errorText: {
-      control: 'text',
-      description: 'Button label for failed state'
-    },
     size: {
       description: 'Button size. Options are',
       options: Object.values(ButtonSize),
       table: {
+        category: 'Styling',
         defaultValue: {
           summary: 'ButtonSize.Medium'
         }
@@ -134,6 +85,9 @@ export default {
     icon: {
       description: 'When selected, button label will contain the selected icon',
       options: Object.values(IconName),
+      table: {
+        category: 'Icon'
+      },
       control: {
         type: 'select'
       }
@@ -142,6 +96,7 @@ export default {
       description: 'When icon present, position will be',
       options: Object.values(ButtonIconPosition),
       table: {
+        category: 'Icon',
         defaultValue: {
           summary: 'Right'
         }
@@ -150,12 +105,16 @@ export default {
         type: 'select'
       }
     },
-    isWhite: {
+    negative: {
       control: 'boolean',
-      description: 'Should this be a white button?'
+      description: 'Should this be a white button?',
+      table: {
+        category: 'Styling'
+      }
     },
     disabled: {
       table: {
+        category: 'State',
         defaultValue: {
           summary: 'false'
         }
@@ -165,7 +124,10 @@ export default {
     },
     fullWidth: {
       control: 'boolean',
-      description: 'Should this be a full width button, that will stretch to 100% of its wrapper?'
+      description: 'Should this be a full width button, that will stretch to 100% of its wrapper?',
+      table: {
+        category: 'Styling'
+      }
     },
     url: {
       control: 'text',
@@ -173,7 +135,10 @@ export default {
     },
     selected: {
       description: 'Add classname of "active" to element',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'Styling'
+      }
     },
     children: {
       control: 'text',
@@ -198,17 +163,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: '',
-      errorIcon: IconName.ItemClose,
-      errorText: ''
+      selected: false
     };
     break;
 
@@ -220,40 +179,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
-    };
-    break;
-
-  case 'floater':
-    Button.args = {
-      style: ButtonStyle.Floater,
-      icon: IconName.ArrowSmallUp,
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error',
-      scroll: 0
+      selected: false
     };
     break;
 
@@ -265,17 +195,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: true,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
+      selected: false
     };
     break;
 
@@ -287,17 +211,11 @@ switch (variant) {
       size: ButtonSize.Medium,
       iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconName.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconName.ItemClose,
-      errorText: 'Error'
+      selected: false
     };
     break;
 }

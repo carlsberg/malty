@@ -9,27 +9,21 @@ export interface ButtonProps {
   type?: ButtonType;
   style: ButtonStyle;
   size?: ButtonSize;
-  isWhite?: boolean;
+  negative?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onKeyUp?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
-  selected?: boolean;
-  scroll?: number;
   disabled?: boolean;
   loading?: boolean;
-  error?: boolean;
-  success?: boolean;
   fullWidth?: boolean;
-  successIcon?: IconName;
-  successText?: string;
-  errorIcon?: IconName;
-  errorText?: string;
   tabIndex?: number;
   children?: string | JSX.Element;
+  dataTestId?: string;
+  selected?: boolean;
 }
 
 export enum ButtonType {
   Submit = 'submit',
-  Button = 'button',
+  Default = 'button',
   Reset = 'reset'
 }
 
@@ -44,7 +38,6 @@ export enum ButtonStyle {
   Primary = 'Primary',
   Secondary = 'Secondary',
   Transparent = 'Transparent',
-  Floater = 'Floater',
   Link = 'Link'
 }
 

@@ -12,9 +12,35 @@ export const Headline = ({
 }: HeadlineProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
+  let StyledTagHeadline = StyledHeadline.withComponent('h1');
+
+  switch (headlineStyle) {
+    case 'hero':
+      StyledTagHeadline = StyledHeadline.withComponent('h2');
+      break;
+    case 'huge':
+      StyledTagHeadline = StyledHeadline.withComponent('h3');
+      break;
+    case 'big':
+      StyledTagHeadline = StyledHeadline.withComponent('h4');
+      break;
+    case 'large':
+      StyledTagHeadline = StyledHeadline.withComponent('h5');
+      break;
+    case 'medium-large':
+      StyledTagHeadline = StyledHeadline.withComponent('h6');
+      break;
+    case 'medium':
+      StyledTagHeadline = StyledHeadline.withComponent('p');
+      break;
+    default:
+      StyledTagHeadline = StyledHeadline.withComponent('h1');
+      break;
+  }
+
   return (
     <TypographyProvider>
-      <StyledHeadline headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
+      <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
         {children}
       </StyledHeadline>
     </TypographyProvider>
