@@ -13,7 +13,6 @@ const fadeInAnimation = keyframes`
 export const StyledArrow = styled.div<{
   isDark: boolean;
 }>`
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   border-style: solid;
   border-color: transparent;
 `;

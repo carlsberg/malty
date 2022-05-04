@@ -31,8 +31,8 @@ export type UseTooltipProps = {
 };
 
 export enum TooltipPositionStrategy {
-  ABSOLUTE = 'absolute',
-  FIXED = 'fixed'
+  Absolute = 'absolute',
+  Fixed = 'fixed'
 }
 
 export enum TooltipPlacement {

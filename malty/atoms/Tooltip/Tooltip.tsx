@@ -16,7 +16,7 @@ const Tooltip: TooltipType = ({
   isOpen: isOpenProp,
   triggerComponent,
   tooltipId,
-  positionStrategy = TooltipPositionStrategy.ABSOLUTE,
+  positionStrategy = TooltipPositionStrategy.Absolute,
   children
 }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;

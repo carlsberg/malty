@@ -3,7 +3,7 @@ import { usePopper } from 'react-popper';
 import { TooltipPositionStrategy, TooltipToggle, UseTooltipProps } from './Tooltip.types';
 
 export const useToolTip = ({
-  positionStrategy = TooltipPositionStrategy.ABSOLUTE,
+  positionStrategy = TooltipPositionStrategy.Absolute,
   placement,
   toggleType,
   isOpenProp,
@@ -19,7 +19,15 @@ export const useToolTip = ({
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
     strategy: positionStrategy,
     placement,
-    modifiers: [{ name: 'arrow', options: { element: arrowElement, padding: 5 } }]
+    modifiers: [
+      { name: 'arrow', options: { element: arrowElement, padding: 5 } },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 8]
+        }
+      }
+    ]
   });
 
   const autoHideTimer = useRef<number | NodeJS.Timeout | null>(null);

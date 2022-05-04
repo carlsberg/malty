@@ -38,6 +38,13 @@ export default {
       table: { defaultValue: { summary: 'tooltip' } },
       defaultValue: 'tooltip'
     },
+    triggerComponent: {
+      control: {
+        disable: true
+      },
+      description:
+        "Anchor element to have Tooltip anchor to. The position is based on this element. If no anchor provided the Tooltip will show in it's corresponding position on the markup, and anchor on itself."
+    },
     isOpen: {
       description: 'Tooltip visibility. Overrides all variants actions that toggle visibility',
       control: 'boolean',
@@ -45,25 +52,25 @@ export default {
     },
     placement: {
       description: 'Tooltip position.',
-      options: Object.keys(TooltipPlacement),
-      table: { defaultValue: { summary: TooltipPlacement.Bottom } },
+      options: Object.values(TooltipPlacement),
+      table: { defaultValue: { summary: 'TooltipPlacement.Bottom' } },
       control: {
         type: 'select',
-        label: Object.values(TooltipPlacement)
+        label: Object.keys(TooltipPlacement)
       },
-      defaultValue: TooltipPlacement.Bottom
+      defaultValue: 'bottom'
     },
 
     positionStrategy: {
       description: 'Tooltip positioning strategy.',
-      options: Object.keys(TooltipPositionStrategy),
+      options: Object.values(TooltipPositionStrategy),
       mapping: TooltipPositionStrategy,
-      table: { defaultValue: { summary: TooltipPositionStrategy.ABSOLUTE } },
+      table: { defaultValue: { summary: 'TooltipPositionStrategy.ABSOLUTE' } },
       control: {
         type: 'select',
-        label: Object.values(TooltipPositionStrategy)
+        label: Object.keys(TooltipPositionStrategy)
       },
-      defaultValue: TooltipPositionStrategy.ABSOLUTE
+      defaultValue: 'absolute'
     },
     children: {
       description: 'Content for the Tooltip, can be a `string`, a `React Element` or just simply `HTML`.',
@@ -76,12 +83,12 @@ export default {
     },
     toggle: {
       description: 'Expected Tooltip behaviour for trigger.',
-      options: Object.keys(TooltipToggle),
+      options: Object.values(TooltipToggle),
       mapping: TooltipToggle,
       table: { defaultValue: { summary: 'TooltipToggle.Hover' } },
       control: {
         type: 'select',
-        label: Object.values(TooltipToggle)
+        label: Object.keys(TooltipToggle)
       },
       defaultValue: 'Hover'
     },
