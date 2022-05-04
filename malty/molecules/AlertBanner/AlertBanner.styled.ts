@@ -17,26 +17,31 @@ export const Container = styled.div<{
     return theme.colors.colours.system['notification-strong'].value;
   }};
   color: ${({ theme }) => theme.colors.colours.default.white.value};
-  padding: ${({ theme }) => theme.sizes.xs.value};
 `;
 
 export const ContentRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  :not(:last-child) {
-    padding-bottom: ${({ theme }) => theme.sizes.xs.value};
-    padding-left: ${({ theme }) => theme.sizes['2xs'].value};
-  }
+  position: relative;
+  height: 40px;
+  padding-left: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 
-export const MessageContainer = styled.div`
+export const MessageContainer = styled.div<{
+  isMobile: boolean;
+}>`
   display: flex;
   align-items: center;
+
+  position: ${({ isMobile }) => (isMobile ? null : `absolute`)};
+  top: ${({ isMobile }) => (isMobile ? null : `50%`)};
+  left: ${({ isMobile }) => (isMobile ? null : `50%`)};
+  transform: ${({ isMobile }) => (isMobile ? null : `translate(-50%, -50%)`)};
   svg {
     padding-right: ${({ theme }) => theme.sizes.xs.value};
   }
-  div {
+  div:not(:last-child) {
     padding-right: ${({ theme }) => theme.sizes.s.value};
   }
 `;
@@ -47,7 +52,9 @@ export const StyledMessage = styled.div`
   align-items: center;
 `;
 
-export const StyledAction = styled.div`
+export const StyledAction = styled.div<{
+  isMobile: boolean;
+}>`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -56,9 +63,13 @@ export const StyledAction = styled.div`
   button {
     text-decoration: underline;
   }
+  margin-right: ${({ theme, isMobile }) => (isMobile ? theme.sizes.s.value : 0)};
 `;
 
 export const CloseButtonContainer = styled.div`
   cursor: Pointer;
+  margin-left: auto;
+  margin-right: ${({ theme }) => theme.sizes['2xs'].value};
   display: flex;
+  align-items: center;
 `;
