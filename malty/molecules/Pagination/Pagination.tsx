@@ -3,10 +3,10 @@ import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.but
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
+import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { DOTS, usePagination } from './Pagination.helper';
-import { StyledContainer, StyledDots } from './Pagination.styled';
+import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationType } from './Pagination.types';
 
 export const Pagination = ({
@@ -14,11 +14,12 @@ export const Pagination = ({
   currentPage,
   onChange,
   siblingCount,
-  type = PaginationType.default,
+  type = PaginationType.Default,
   dataQaId,
   isWhite = false
 }: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const [inputValue, setInputValue] = useState<string | number>(currentPage);
 
   const paginationRange = usePagination({
     totalPageCount: count,
@@ -26,14 +27,15 @@ export const Pagination = ({
     currentPage
   });
   const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
-  const isFirstPage = currentPage === 1;
-  const isLastPage = lastPage === currentPage;
+  const isFirstPage = type === PaginationType.Input ? inputValue === 1 || inputValue === '' : currentPage === 1;
+  const isLastPage = type === PaginationType.Input ? lastPage === inputValue : lastPage === currentPage;
 
-  const isCompact = type === PaginationType.compact;
+  const isCompact = type === PaginationType.Compact;
+  const isInput = type === PaginationType.Input;
 
-  if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
-    return null;
-  }
+  // if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
+  //   return null;
+  // }
 
   const onPageClick = (targetPage: number) => {
     onChange(targetPage);
@@ -46,15 +48,29 @@ export const Pagination = ({
     }
   };
 
+  // eslint-disable-next-line consistent-return
   const onPrevious = () => {
+    if (type === PaginationType.Input) {
+      if (inputValue > count && inputValue === '') {
+        return setInputValue(1);
+      }
+      return setInputValue((inputValue as number) - 1);
+    }
     if (currentPage > 1) {
       onChange(currentPage - 1);
     }
   };
 
+  // eslint-disable-next-line consistent-return
   const onNext = () => {
+    if (type === PaginationType.Input) {
+      if (inputValue < count && inputValue === '') {
+        return setInputValue(1);
+      }
+      return setInputValue((inputValue as number) + 1);
+    }
     if (currentPage < count) {
-      onChange(currentPage + 1);
+      return onChange(currentPage + 1);
     }
   };
 
@@ -65,12 +81,55 @@ export const Pagination = ({
   const onNextKeyUp = () => {
     onPageKeyUp(currentPage + 1);
   };
+  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+    if (!Number.isNaN(parseInt(event.target.value, 10))) {
+      setInputValue(parseInt(event.target.value, 10));
+    } else {
+      setInputValue('');
+    }
+  };
+  useEffect(() => {
+    let timeOutId: NodeJS.Timeout;
+    if (type === PaginationType.Input) {
+      if (!Number.isNaN(parseInt(inputValue.toString(), 10))) {
+        timeOutId = setTimeout(() => onChange(inputValue as number), 350);
+      }
+    }
+
+    return () => clearTimeout(timeOutId);
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (type === PaginationType.Input) {
+      setInputValue(currentPage);
+    }
+  }, [currentPage]);
 
   const renderContent = () => {
+    if (isInput) {
+      return (
+        <StyledInputPagination>
+          <StyledInput
+            data-testid={`${dataQaId}-input`}
+            value={inputValue}
+            onChange={(e) => handleInput(e)}
+            max={count}
+            min={1}
+            type="number"
+          />
+          <Text
+            dataQaId={`${dataQaId}-input-count`}
+            textStyle={TextStyle.MediumSmallDefault}
+            color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+          >{` / ${count}`}</Text>
+        </StyledInputPagination>
+      );
+    }
     if (isCompact) {
       return (
         <li>
           <Text
+            dataQaId={`${dataQaId}-pagination-compact`}
             textStyle={TextStyle.SmallDefault}
             color={isWhite ? TextColor.White : TextColor.DigitalBlack}
           >{`${currentPage} of ${count}`}</Text>
@@ -79,11 +138,11 @@ export const Pagination = ({
     }
     return (
       <>
-        {paginationRange.map((pageNr, idx) => {
+        {paginationRange?.map((pageNr, idx) => {
           const isCurrentPage = pageNr === currentPage;
           if (pageNr === DOTS) {
             return (
-              <li key={`dots-${idx}`} tabIndex={-1}>
+              <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
                 <StyledDots theme={theme} isWhite={isWhite}>
                   &#8230;
                 </StyledDots>
@@ -93,6 +152,7 @@ export const Pagination = ({
           return (
             <li key={pageNr}>
               <Button
+                dataTestId={`${dataQaId}-page-${pageNr}`}
                 style={ButtonStyle.Transparent}
                 selected={isCurrentPage}
                 onClick={() => onPageClick(Number(pageNr))}
@@ -116,6 +176,7 @@ export const Pagination = ({
         <ul>
           <li>
             <Button
+              dataTestId={`${dataQaId}-button-previous`}
               style={ButtonStyle.Transparent}
               disabled={isFirstPage}
               tabIndex={isFirstPage ? -1 : 0}
@@ -129,6 +190,7 @@ export const Pagination = ({
           {renderContent()}
           <li>
             <Button
+              dataTestId={`${dataQaId}-button-next`}
               style={ButtonStyle.Transparent}
               disabled={isLastPage}
               tabIndex={isLastPage ? -1 : 0}
