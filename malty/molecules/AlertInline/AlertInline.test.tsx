@@ -4,7 +4,7 @@ import React from 'react';
 import { AlertInline } from './AlertInline';
 import { AlertInlineColor } from './AlertInline.types';
 
-describe('InlineAlert', () => {
+describe('alertInline', () => {
   it('matches snapshot', () => {
     const view = jsonRenderer(
       <AlertInline

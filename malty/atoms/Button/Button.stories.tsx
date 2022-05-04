@@ -84,7 +84,7 @@ export default {
     },
     icon: {
       description: 'When selected, button label will contain the selected icon',
-      options: Object.values(IconName),
+      options: Object.values({ undefined, ...IconName }),
       table: {
         category: 'Icon'
       },

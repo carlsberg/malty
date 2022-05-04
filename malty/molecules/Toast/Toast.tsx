@@ -15,7 +15,7 @@ export const Toast = ({
   onCustomAction,
   customActionText,
   message,
-  autoHideDuration = 5000
+  autoHideDuration
 }: ToastProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -27,9 +27,11 @@ export const Toast = ({
     if (autoHideTimer != null) {
       clearTimeout(autoHideTimer);
     }
-    autoHideTimer = setTimeout(() => {
-      hideToast();
-    }, autoHideDuration) as unknown as ReturnType<typeof setTimeout>;
+    if (autoHideDuration) {
+      autoHideTimer = setTimeout(() => {
+        hideToast();
+      }, autoHideDuration) as unknown as ReturnType<typeof setTimeout>;
+    }
   };
 
   // set timeout on component mount

@@ -12,8 +12,8 @@ export default {
   },
   argTypes: {
     steps: {
-      control: 'number',
-      description: 'Total number of steps'
+      control: 'object',
+      description: 'Array of objects defining the steps or number of steps '
     },
     currentStep: {
       control: 'number',
@@ -31,7 +31,26 @@ const Template: Story<StepperProps> = ({ steps, currentStep, isMultiStep }: Step
 );
 
 export const Stepper = Template.bind({});
-Stepper.args = {
-  steps: 5,
-  currentStep: 2
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'number':
+    Stepper.args = {
+      steps: 5,
+      currentStep: 2
+    };
+    break;
+  default:
+    Stepper.args = {
+      steps: [
+        { key: 0, label: 'label 1' },
+        { key: 1, label: 'label 2' },
+        { key: 2, label: 'label 3' },
+        { key: 3, label: 'label 4' },
+        { key: 4, label: 'label 5' }
+      ],
+      currentStep: 2
+    };
+    break;
+}

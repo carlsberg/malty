@@ -11,7 +11,7 @@
 {
     "atoms/button": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.40",
+        "version": "0.0.41",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Button"
     },
@@ -23,7 +23,7 @@
     },
     "atoms/datepicker": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.6",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Datepicker"
     },
@@ -53,7 +53,7 @@
     },
     "atoms/input": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.39",
+        "version": "0.0.40",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
@@ -77,7 +77,7 @@
     },
     "atoms/pill": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.39",
+        "version": "0.0.40",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Pill"
     },
@@ -95,7 +95,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1373,13 +1373,13 @@
     },
     "molecules/alert-banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertBanner"
     },
     "molecules/alert-inline": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertInline"
     },
@@ -1391,7 +1391,7 @@
     },
     "molecules/modal": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Modal"
     },
@@ -1403,7 +1403,7 @@
     },
     "molecules/pagination": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.12",
+        "version": "0.0.13",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
     },
@@ -1421,13 +1421,13 @@
     },
     "molecules/stepper": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.23",
+        "version": "0.0.24",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Stepper"
     },
     "molecules/toast": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Toast"
     },

@@ -58,7 +58,7 @@ exports[`datepicker matches snapshot 1`] = `
             onKeyDown={[Function]}
             readOnly={false}
             type="text"
-            value="05/02/2022"
+            value="01/01/1970"
           />
         </div>
       </div>
