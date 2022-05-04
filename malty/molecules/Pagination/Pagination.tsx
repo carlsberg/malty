@@ -33,9 +33,9 @@ export const Pagination = ({
   const isCompact = type === PaginationType.Compact;
   const isInput = type === PaginationType.Input;
 
-  // if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
-  //   return null;
-  // }
+  if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
+    return null;
+  }
 
   const onPageClick = (targetPage: number) => {
     onChange(targetPage);
