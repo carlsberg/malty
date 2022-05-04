@@ -1,48 +1,49 @@
 import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
 import { act, fireEvent, screen, waitForElementToBeRemoved } from '@testing-library/react';
-import React, { createRef, RefObject } from 'react';
+import React from 'react';
 import { Tooltip } from '.';
-import { TooltipPosition, TooltipToggle } from './Tooltip.types';
+import { TooltipPlacement, TooltipToggle } from './Tooltip.types';
 
 const anchorAction = jest.fn();
 const onClose = jest.fn();
-const tooltipAnchorRef: RefObject<HTMLAnchorElement> = createRef();
 
 const renderTooltip = (options = { toggleType: TooltipToggle.Click }) =>
   render(
-    <div>
-      <a onClick={anchorAction} ref={tooltipAnchorRef}>
-        Tooltip Anchor
-      </a>
-      <Tooltip
-        anchorRef={tooltipAnchorRef}
-        position={TooltipPosition.BottomCenter}
-        dataTestId="tooltip-test"
-        toggle={options.toggleType}
-        autoHideDuration={3000}
-        onClose={onClose}
-      >
-        <button type="button">Button inside Tooltip</button>
-      </Tooltip>
-    </div>
+    <Tooltip
+      tooltipId="tooltip"
+      triggerComponent={(setTriggerElement) => (
+        <a onClick={anchorAction} ref={setTriggerElement}>
+          Tooltip Anchor
+        </a>
+      )}
+      placement={TooltipPlacement.Top}
+      dataTestId="tooltip-test"
+      toggle={options.toggleType}
+      autoHideDuration={3000}
+      onClose={onClose}
+    >
+      <button type="button">Button inside Tooltip</button>
+    </Tooltip>
   );
 
 describe('Tooltip', () => {
   it('should matches snapshot', () => {
     const view = jsonRenderer(
-      <div>
-        <a onClick={anchorAction} ref={tooltipAnchorRef}>
-          Tooltip Anchor
-        </a>
-        <Tooltip
-          anchorRef={tooltipAnchorRef}
-          position={TooltipPosition.BottomCenter}
-          toggle={TooltipToggle.Click}
-          autoHideDuration={3000}
-        >
-          <button type="button">Button inside Tooltip</button>
-        </Tooltip>
-      </div>
+      <Tooltip
+        tooltipId="tooltip"
+        triggerComponent={(setTriggerElement) => (
+          <a onClick={anchorAction} ref={setTriggerElement}>
+            Tooltip Anchor
+          </a>
+        )}
+        placement={TooltipPlacement.Bottom}
+        dataTestId="tooltip-test"
+        toggle={TooltipToggle.Click}
+        autoHideDuration={3000}
+        onClose={onClose}
+      >
+        <button type="button">Button inside Tooltip</button>
+      </Tooltip>
     );
     expect(view).toMatchSnapshot();
   });
@@ -88,20 +89,20 @@ describe('Tooltip', () => {
     expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
 
     await act(async () => {
-      Tooltip.openTooltip(tooltipAnchorRef);
+      Tooltip.openTooltip('tooltip');
     });
     // should have opened
     const innerButton = screen.getByRole('button', { name: 'Button inside Tooltip' });
     expect(innerButton).toBeInTheDocument();
 
     await act(async () => {
-      Tooltip.closeTooltip(tooltipAnchorRef);
+      Tooltip.closeTooltip('tooltip');
     });
     // should have closed
     expect(innerButton).not.toBeInTheDocument();
 
     await act(async () => {
-      Tooltip.startTooltipTimer(tooltipAnchorRef);
+      Tooltip.startTooltipTimer('tooltip');
     });
     // should open again
     const newInnerButton = screen.getByRole('button', { name: 'Button inside Tooltip' });

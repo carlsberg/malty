@@ -1,19 +1,26 @@
-import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
-import {
-  StyledTooltipPositionBottomCenter,
-  StyledTooltipPositionBottomLeft,
-  StyledTooltipPositionBottomRight,
-  StyledTooltipPositionLeft,
-  StyledTooltipPositionRight,
-  StyledTooltipPositionTopCenter,
-  StyledTooltipPositionTopLeft,
-  StyledTooltipPositionTopRight
-} from './Tooltip.styled';
-import { TooltipPosition, TooltipToggle, UseTooltipProps } from './Tooltip.types';
+import { useEffect, useRef, useState } from 'react';
+import { usePopper } from 'react-popper';
+import { TooltipPositionStrategy, TooltipToggle, UseTooltipProps } from './Tooltip.types';
 
-export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp, onClose }: UseTooltipProps) => {
+export const useToolTip = ({
+  positionStrategy = TooltipPositionStrategy.ABSOLUTE,
+  placement,
+  toggleType,
+  isOpenProp,
+  onClose,
+  autoHideDuration,
+  tooltipId
+}: UseTooltipProps) => {
+  const didMountRef = useRef(false);
   const [isOpen, setIsOpen] = useState(!!isOpenProp);
-  const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null);
+  const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+  const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
+  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    strategy: positionStrategy,
+    placement,
+    modifiers: [{ name: 'arrow', options: { element: arrowElement, padding: 5 } }]
+  });
 
   const autoHideTimer = useRef<number | NodeJS.Timeout | null>(null);
 
@@ -27,26 +34,20 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
     if (typeof isOpenProp !== 'boolean') {
       clearAutoHideTimer();
       setIsOpen(open);
-      if (!open) {
-        onClose?.();
-      }
     }
   };
 
-  // TooltipToggle.Events logic
-  const startAutoHideTimer = useCallback(() => {
+  const startAutoHideTimer = () => {
     if (toggleType === TooltipToggle.Event && typeof isOpenProp !== 'boolean') {
       setTooltipOpen(true);
       autoHideTimer.current = setTimeout(() => {
         setIsOpen(false);
-        onClose?.();
       }, autoHideDuration);
     }
-  }, [onClose]);
+  };
 
-  // custom global events handling
   useEffect(() => {
-    const validateEventSource = (ev: Event) => (ev as CustomEvent).detail === anchorRef;
+    const validateEventSource = (ev: Event) => (ev as CustomEvent).detail === tooltipId;
     const onStartAutoHideTimerEvent = (ev: Event) => {
       if (validateEventSource(ev)) {
         startAutoHideTimer();
@@ -73,11 +74,9 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
       window.removeEventListener(OPEN_TOOLTIP_EVENT, onOpenTooltipEvent);
       window.removeEventListener(CLOSE_TOOLTIP_EVENT, onCloseTooltipEvent);
     };
-  }, [startAutoHideTimer]);
+  }, []);
 
-  // Tooltip events logic
   useEffect(() => {
-    const anchorElement = anchorRef?.current;
     if (toggleType === TooltipToggle.Hover) {
       const handleAnchorMouseEnter = () => {
         setTooltipOpen(true);
@@ -87,43 +86,33 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
         setTooltipOpen(false);
       };
 
-      anchorElement?.addEventListener('mouseenter', handleAnchorMouseEnter);
-      anchorElement?.addEventListener('mouseout', handleAnchorMouseOut);
+      referenceElement?.addEventListener('mouseenter', handleAnchorMouseEnter);
+      referenceElement?.addEventListener('mouseout', handleAnchorMouseOut);
 
       return () => {
-        anchorElement?.removeEventListener('mouseenter', handleAnchorMouseEnter);
-        anchorElement?.removeEventListener('mouseout', handleAnchorMouseOut);
+        referenceElement?.removeEventListener('mouseenter', handleAnchorMouseEnter);
+        referenceElement?.removeEventListener('mouseout', handleAnchorMouseOut);
       };
     }
 
     return () => null;
-  }, [anchorRef, toggleType]);
+  }, [referenceElement, toggleType]);
 
-  // Tooltip events logic
   useEffect(() => {
-    const anchorElement = anchorRef?.current;
     if (toggleType === TooltipToggle.Click) {
       const handleTooltipToggle = () => {
         setTooltipOpen(!isOpen);
       };
 
-      anchorElement?.addEventListener('click', handleTooltipToggle);
+      referenceElement?.addEventListener('click', handleTooltipToggle);
 
       return () => {
-        anchorElement?.removeEventListener('click', handleTooltipToggle);
+        referenceElement?.removeEventListener('click', handleTooltipToggle);
       };
     }
 
     return () => null;
-  }, [anchorRef, toggleType, isOpen]);
-
-  // forceUpdate when ref changes since it is a mutation
-  // so we can have updated tooltip position offset
-  useEffect(() => {
-    if (anchorRef.current) {
-      forceUpdate();
-    }
-  }, [anchorRef.current]);
+  }, [referenceElement, toggleType, isOpen]);
 
   useEffect(() => {
     if (typeof isOpenProp === 'boolean' && isOpenProp !== isOpen) {
@@ -131,22 +120,23 @@ export const useToolTip = ({ anchorRef, autoHideDuration, toggleType, isOpenProp
     }
   }, [isOpenProp]);
 
-  return {
-    isOpen,
-    startAutoHideTimer,
-    setTooltipOpen
-  };
-};
+  useEffect(() => {
+    if (didMountRef.current && !isOpen) {
+      onClose?.();
+    }
+    didMountRef.current = true;
+  }, [isOpen]);
 
-export const TooltipPositionToInnerMapper = {
-  [TooltipPosition.TopCenter]: StyledTooltipPositionTopCenter,
-  [TooltipPosition.TopLeft]: StyledTooltipPositionTopLeft,
-  [TooltipPosition.TopRight]: StyledTooltipPositionTopRight,
-  [TooltipPosition.Right]: StyledTooltipPositionRight,
-  [TooltipPosition.BottomCenter]: StyledTooltipPositionBottomCenter,
-  [TooltipPosition.BottomLeft]: StyledTooltipPositionBottomLeft,
-  [TooltipPosition.BottomRight]: StyledTooltipPositionBottomRight,
-  [TooltipPosition.Left]: StyledTooltipPositionLeft
+  return {
+    styles,
+    attributes,
+    isOpen,
+    setTooltipOpen,
+    setReferenceElement,
+    setPopperElement,
+    setArrowElement,
+    startAutoHideTimer
+  };
 };
 
 export const START_TOOLTIP_TIMER_EVENT = 'START_TOOLTIP_TIMER_EVENT';

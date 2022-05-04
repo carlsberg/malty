@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Tooltip as TooltipComponent } from './Tooltip';
-import { TooltipPosition, TooltipProps, TooltipToggle } from './Tooltip.types';
+import { TooltipPlacement, TooltipPositionStrategy, TooltipProps, TooltipToggle } from './Tooltip.types';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -32,28 +32,38 @@ export default {
     variants: ['dark', 'light']
   },
   argTypes: {
+    tooltipId: {
+      control: 'text',
+      description: 'Tooltip Id',
+      table: { defaultValue: { summary: 'tooltip' } },
+      defaultValue: 'tooltip'
+    },
     isOpen: {
       description: 'Tooltip visibility. Overrides all variants actions that toggle visibility',
       control: 'boolean',
       table: { defaultValue: { summary: 'undefined' } }
     },
-    position: {
+    placement: {
       description: 'Tooltip position.',
-      options: Object.keys(TooltipPosition),
-      mapping: TooltipPosition,
-      table: { defaultValue: { summary: 'TooltipPosition.TopCenter' } },
+      options: Object.keys(TooltipPlacement),
+      table: { defaultValue: { summary: TooltipPlacement.Bottom } },
       control: {
         type: 'select',
-        label: Object.values(TooltipPosition)
+        label: Object.values(TooltipPlacement)
       },
-      defaultValue: 'TopCenter'
+      defaultValue: TooltipPlacement.Bottom
     },
-    anchorRef: {
+
+    positionStrategy: {
+      description: 'Tooltip positioning strategy.',
+      options: Object.keys(TooltipPositionStrategy),
+      mapping: TooltipPositionStrategy,
+      table: { defaultValue: { summary: TooltipPositionStrategy.ABSOLUTE } },
       control: {
-        disable: true
+        type: 'select',
+        label: Object.values(TooltipPositionStrategy)
       },
-      description:
-        "Anchor element to have Tooltip anchor to. The position is based on this element. If no anchor provided the Tooltip will show in it's corresponding position on the markup, and anchor on itself."
+      defaultValue: TooltipPositionStrategy.ABSOLUTE
     },
     children: {
       description: 'Content for the Tooltip, can be a `string`, a `React Element` or just simply `HTML`.',
@@ -97,7 +107,7 @@ export default {
 } as Meta;
 
 const Template: Story<TooltipProps> = ({
-  position,
+  placement,
   toggle,
   isDark,
   dataTestId,
@@ -106,7 +116,6 @@ const Template: Story<TooltipProps> = ({
   children
 }: TooltipProps) => {
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
-  const tooltipAnchorRef = React.useRef<HTMLParagraphElement | null>(null);
   const renderTooltipEventToggle = () => (
     <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
       {children}
@@ -114,19 +123,32 @@ const Template: Story<TooltipProps> = ({
   );
   const toggleVisibility = (open: boolean) => () => {
     if (open) {
-      TooltipComponent.openTooltip(tooltipAnchorRef);
+      TooltipComponent.openTooltip('tooltip');
     } else {
-      TooltipComponent.closeTooltip(tooltipAnchorRef);
+      TooltipComponent.closeTooltip('tooltip');
     }
   };
 
   const startTimer = () => {
-    TooltipComponent.startTooltipTimer(tooltipAnchorRef);
+    TooltipComponent.startTooltipTimer('tooltip');
   };
 
   return (
     <StyledContainer>
-      <p ref={tooltipAnchorRef}>Choose your toggle control and play with me!!!</p>
+      <TooltipComponent
+        tooltipId="tooltip"
+        triggerComponent={(setTriggerElement) => (
+          <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
+        )}
+        placement={placement}
+        toggle={toggle}
+        isOpen={isOpen}
+        isDark={isDark}
+        autoHideDuration={autoHideDuration}
+        dataTestId={dataTestId}
+      >
+        {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
+      </TooltipComponent>
 
       {toggle === TooltipToggle.Event && (
         <p>
@@ -141,17 +163,6 @@ const Template: Story<TooltipProps> = ({
           </button>
         </p>
       )}
-      <TooltipComponent
-        isOpen={isOpen}
-        position={position}
-        toggle={toggle}
-        isDark={isDark}
-        autoHideDuration={autoHideDuration}
-        anchorRef={tooltipAnchorRef}
-        dataTestId={dataTestId}
-      >
-        {toggle === TooltipToggle.Event ? renderTooltipEventToggle() : children}
-      </TooltipComponent>
     </StyledContainer>
   );
 };
@@ -164,7 +175,7 @@ const variant = params.get('variant');
 switch (variant) {
   case 'dark':
     Tooltip.args = {
-      position: TooltipPosition.TopCenter,
+      placement: TooltipPlacement.Top,
       toggle: TooltipToggle.Hover,
       dataTestId: 'tooltip',
       children: (
@@ -172,17 +183,25 @@ switch (variant) {
           <Image src="https://via.placeholder.com/90x?text=Any+HTML" />
         </div>
       ),
-      isDark: true
+      isDark: true,
+      tooltipId: 'tooltip',
+      triggerComponent: (setTriggerElement) => (
+        <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
+      )
     };
     break;
 
   default:
     Tooltip.args = {
-      position: TooltipPosition.TopCenter,
+      placement: TooltipPlacement.Top,
       toggle: TooltipToggle.Hover,
       dataTestId: 'tooltip',
       children: 'A simple Tooltip content with some text. Thanks for open me!',
-      isDark: false
+      isDark: false,
+      tooltipId: 'tooltip',
+      triggerComponent: (setTriggerElement) => (
+        <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
+      )
     };
     break;
 }
