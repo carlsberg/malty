@@ -9,6 +9,7 @@ export interface PaginationProps {
 }
 
 export enum PaginationType {
-  default,
-  compact
+  Default = 'default',
+  Compact = 'compact',
+  Input = 'input'
 }

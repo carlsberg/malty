@@ -51,7 +51,7 @@ export default {
       defaultValue: 'Text'
     },
     icon: {
-      options: Object.values(IconName),
+      options: Object.values({ undefined, ...IconName }),
       control: {
         type: 'select'
       },
