@@ -2,39 +2,42 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  CLOSE_TOOLTIP_EVENT,
-  OPEN_TOOLTIP_EVENT,
-  START_TOOLTIP_TIMER_EVENT,
-  TooltipPositionToInnerMapper,
-  useToolTip
-} from './Tooltip.helper';
-import { StyledTooltipWrapper } from './Tooltip.styled';
-import { TooltipProps, TooltipToggle, TooltipType } from './Tooltip.types';
+import { CLOSE_TOOLTIP_EVENT, OPEN_TOOLTIP_EVENT, START_TOOLTIP_TIMER_EVENT, useToolTip } from './Tooltip.helper';
+import { StyledArrow, StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
+import { TooltipPositionStrategy, TooltipProps, TooltipToggle, TooltipType } from './Tooltip.types';
 
 const Tooltip: TooltipType = ({
-  position,
+  placement,
   toggle = TooltipToggle.Hover,
-  anchorRef,
   isDark = true,
   dataTestId,
   autoHideDuration = 5000,
   onClose,
   isOpen: isOpenProp,
+  triggerComponent,
+  tooltipId,
+  positionStrategy = TooltipPositionStrategy.Absolute,
   children
 }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const { isOpen, startAutoHideTimer, setTooltipOpen } = useToolTip({
+  const {
+    isOpen,
+    startAutoHideTimer,
+    setTooltipOpen,
+    setReferenceElement,
+    setPopperElement,
+    setArrowElement,
+    styles,
+    attributes
+  } = useToolTip({
+    placement,
     isOpenProp,
     autoHideDuration,
     toggleType: toggle,
-    anchorRef,
-    onClose
+    onClose,
+    tooltipId,
+    positionStrategy
   });
-
-  if (!isOpen) {
-    return null;
-  }
 
   const handleTooltipMouseEnter = () => {
     if (toggle === TooltipToggle.Event) {
@@ -62,38 +65,41 @@ const Tooltip: TooltipType = ({
     );
   };
 
-  const StyledTooltipInner = TooltipPositionToInnerMapper[position];
-
-  const box = anchorRef?.current;
-  const width = box?.offsetWidth;
-  const height = box?.offsetHeight;
-  const anchorOffset = { vertical: height || 0, horizontal: width || 0 };
-
   return (
-    <StyledTooltipWrapper
-      onMouseEnter={handleTooltipMouseEnter}
-      onMouseLeave={handleTooltipMouseOut}
-      data-testid={dataTestId}
-    >
-      <StyledTooltipInner position={position} anchorOffset={anchorOffset} theme={theme} isDark={isDark}>
-        {renderChildren()}
-      </StyledTooltipInner>
-    </StyledTooltipWrapper>
+    <>
+      {triggerComponent(setReferenceElement)}
+      {isOpen && (
+        <StyledTooltipWrapper
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...attributes.popper}
+          ref={setPopperElement}
+          style={styles.popper}
+          data-testid={dataTestId}
+          theme={theme}
+          isDark={isDark}
+          onMouseEnter={handleTooltipMouseEnter}
+          onMouseOut={handleTooltipMouseOut}
+        >
+          <StyledTooltip theme={theme}>{renderChildren()}</StyledTooltip>
+          <StyledArrow theme={theme} isDark={isDark} ref={setArrowElement} style={styles.arrow} />
+        </StyledTooltipWrapper>
+      )}
+    </>
   );
 };
 
-Tooltip.startTooltipTimer = (anchorRef) => {
-  const event = new window.CustomEvent(START_TOOLTIP_TIMER_EVENT, { detail: anchorRef });
+Tooltip.startTooltipTimer = (triggerElement) => {
+  const event = new window.CustomEvent(START_TOOLTIP_TIMER_EVENT, { detail: triggerElement });
   window.dispatchEvent(event);
 };
 
-Tooltip.openTooltip = (anchorRef) => {
-  const event = new window.CustomEvent(OPEN_TOOLTIP_EVENT, { detail: anchorRef });
+Tooltip.openTooltip = (triggerElement) => {
+  const event = new window.CustomEvent(OPEN_TOOLTIP_EVENT, { detail: triggerElement });
   window.dispatchEvent(event);
 };
 
-Tooltip.closeTooltip = (anchorRef) => {
-  const event = new window.CustomEvent(CLOSE_TOOLTIP_EVENT, { detail: anchorRef });
+Tooltip.closeTooltip = (triggerElement) => {
+  const event = new window.CustomEvent(CLOSE_TOOLTIP_EVENT, { detail: triggerElement });
   window.dispatchEvent(event);
 };
 export { Tooltip };
