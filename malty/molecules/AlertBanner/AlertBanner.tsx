@@ -70,7 +70,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         onKeyUp={handleOnKeyUp(currentAlert.action)}
         role="button"
         theme={theme}
-        isMobile={isMobile}
+        breakpoint={breakpoint}
       >
         <Button
           negative={currentAlert.type !== AlertBannerType.Warning}
@@ -136,7 +136,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
         )}
-        <MessageContainer theme={theme} isMobile={isMobile}>
+        <MessageContainer theme={theme} breakpoint={breakpoint}>
           {currentAlert.icon && renderIcon()}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}

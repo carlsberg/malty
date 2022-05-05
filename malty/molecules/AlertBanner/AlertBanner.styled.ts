@@ -24,21 +24,27 @@ export const ContentRow = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 40px;
+  height: 100%;
+  min-height: ${({ theme }) => theme.sizes.xl.value};
   padding-left: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 
 export const MessageContainer = styled.div<{
-  isMobile: boolean;
+  breakpoint: number;
 }>`
   display: flex;
   align-items: center;
-
-  position: ${({ isMobile }) => (isMobile ? null : `absolute`)};
-  top: ${({ isMobile }) => (isMobile ? null : `50%`)};
-  left: ${({ isMobile }) => (isMobile ? null : `50%`)};
-  transform: ${({ isMobile }) => (isMobile ? null : `translate(-50%, -50%)`)};
+  @media (min-width: ${({ breakpoint }) => breakpoint}px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    max-width: calc(100% - 300px);
+  }
   svg {
+    min-height: ${({ theme }) => theme.sizes.m.value};
+    min-width: ${({ theme }) => theme.sizes.m.value};
     padding-right: ${({ theme }) => theme.sizes.xs.value};
   }
   div:not(:last-child) {
@@ -53,17 +59,18 @@ export const StyledMessage = styled.div`
 `;
 
 export const StyledAction = styled.div<{
-  isMobile: boolean;
+  breakpoint: number;
 }>`
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   box-sizing: border-box;
   margin-left: auto;
   button {
     text-decoration: underline;
   }
-  margin-right: ${({ theme, isMobile }) => (isMobile ? theme.sizes.s.value : 0)};
+  @media (max-width: ${({ breakpoint }) => breakpoint}px) {
+    margin-right: ${({ theme }) => theme.sizes.s.value};
+  }
 `;
 
 export const CloseButtonContainer = styled.div`
