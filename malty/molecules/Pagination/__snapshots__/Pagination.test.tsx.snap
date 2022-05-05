@@ -14,6 +14,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kXxjEf ffHOdq"
+            data-testid="undefined-button-previous"
             disabled={true}
             fontSize="16px"
             onClick={[Function]}
@@ -56,6 +57,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq active"
+            data-testid="undefined-page-1"
             fontSize="16px"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -76,6 +78,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            data-testid="undefined-page-2"
             fontSize="16px"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -96,6 +99,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            data-testid="undefined-page-3"
             fontSize="16px"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -116,6 +120,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            data-testid="undefined-page-4"
             fontSize="16px"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -136,6 +141,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            data-testid="undefined-page-5"
             fontSize="16px"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -151,6 +157,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         </span>
       </li>
       <li
+        data-testid="undefined-dots"
         tabIndex={-1}
       >
         <div
@@ -165,6 +172,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            data-testid="undefined-page-10"
             fontSize="16px"
             onClick={[Function]}
             onKeyUp={[Function]}
@@ -185,6 +193,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         >
           <button
             className="sc-jSMfEi sc-ftvSup kXxjEf ffHOdq"
+            data-testid="undefined-button-next"
             disabled={false}
             fontSize="16px"
             onClick={[Function]}

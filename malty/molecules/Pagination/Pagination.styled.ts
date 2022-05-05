@@ -54,3 +54,43 @@ export const StyledDots = styled.div<{ isWhite?: boolean }>`
   color: ${({ theme, isWhite }) =>
     isWhite ? theme.colors['text-colours'].white.value : theme.colors['text-colours']['digital-black'].value};
 `;
+export const StyledInputPagination = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const StyledInput = styled.input`
+  width: ${({ theme }) => theme.sizes['3xl'].value};
+  height: ${({ theme }) => theme.sizes.xl.value};
+
+  box-sizing: border-box;
+  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  transition: 0.25s ease-in-out;
+  transition-property: border-color, color;
+  border: 1px solid ${({ theme }) => theme.colors.colours.support[40].value};
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  flex-grow: unset;
+  text-align: center;
+  vertical-align: top;
+  padding: 0;
+  margin-right: ${({ theme }) => theme.sizes['2xs'].value};
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+  }
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  }
+`;

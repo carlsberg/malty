@@ -60,7 +60,7 @@ export default {
     icon: {
       description: 'Icon to be displayed',
       options: Object.keys({ undefined, ...IconName }),
-      mapping: IconName,
+      mapping: { undefined, ...IconName },
       control: {
         type: 'select',
         label: Object.values({ undefined, ...IconName })

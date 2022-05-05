@@ -49,8 +49,7 @@ export default {
     },
     autoHideDuration: {
       control: 'number',
-      description: 'Set auto hide duration',
-      table: { defaultValue: { summary: '5000' } }
+      description: 'Set auto hide duration'
     },
     dataQaId: {
       control: 'text',

@@ -26,7 +26,7 @@ export default {
 
     icon: {
       description: 'When selected, Alert label will contain the selected icon',
-      options: Object.values(IconName),
+      options: Object.values({ undefined, ...IconName }),
       control: {
         type: 'select'
       }
@@ -41,7 +41,7 @@ export default {
       },
       table: {
         defaultValue: {
-          summary: 'AlertInlineSize.Medium'
+          summary: 'AlertInlineSize.Default'
         }
       }
     },
@@ -100,7 +100,7 @@ switch (variant) {
     AlertInline.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
       icon: IconName.Information,
-      size: AlertInlineSize.Medium,
+      size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert'
     };
@@ -109,7 +109,7 @@ switch (variant) {
     AlertInline.args = {
       title: 'Title Alert',
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: AlertInlineSize.Medium,
+      size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert'
     };
@@ -117,7 +117,7 @@ switch (variant) {
   case 'action':
     AlertInline.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: AlertInlineSize.Medium,
+      size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
@@ -130,7 +130,7 @@ switch (variant) {
     AlertInline.args = {
       title: 'Title Alert',
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: AlertInlineSize.Medium,
+      size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert',
       firstAction: action('First Action clicked'),
@@ -143,7 +143,7 @@ switch (variant) {
   default:
     AlertInline.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      size: AlertInlineSize.Medium,
+      size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert'
     };

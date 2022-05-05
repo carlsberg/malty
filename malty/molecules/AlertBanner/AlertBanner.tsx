@@ -129,7 +129,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
             count={alerts.length}
             onChange={(pageNr) => setActiveAlert(pageNr)}
             currentPage={activeAlert}
-            type={PaginationType.compact}
+            type={PaginationType.Compact}
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
         )}
@@ -146,7 +146,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
             count={alerts.length}
             onChange={(pageNr) => setActiveAlert(pageNr)}
             currentPage={activeAlert}
-            type={PaginationType.compact}
+            type={PaginationType.Compact}
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
           {renderAction()}

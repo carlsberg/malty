@@ -13,11 +13,11 @@ import {
   StyledTextContainer,
   StyledTitle
 } from './AlertInline.styled';
-import { AlertInlineColor, AlertInlineProps } from './AlertInline.types';
+import { AlertInlineColor, AlertInlineProps, AlertInlineSize } from './AlertInline.types';
 
 export const AlertInline = ({
   icon,
-  size,
+  size = AlertInlineSize.Default,
   color = AlertInlineColor.Notification,
   dataQaId,
   firstAction,
@@ -60,7 +60,10 @@ export const AlertInline = ({
 
   const renderLabel = () => (
     <StyledTextContainer data-alert-label-container>
-      <Text color={labelFontColor} textStyle={TextStyle.MediumSmallDefault}>
+      <Text
+        color={labelFontColor}
+        textStyle={size === AlertInlineSize.Default ? TextStyle.MediumSmallDefault : TextStyle.SmallDefault}
+      >
         {message}
       </Text>
     </StyledTextContainer>
