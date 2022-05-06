@@ -68,6 +68,7 @@ export const Toast = ({
   const renderDismissContainer = () => (
     <StyledDismissContainer theme={theme} data-testid={`${dataQaId}-close-icon`} onClick={handleDismiss}>
       <Button
+        negative
         icon={IconName.Close}
         size={ButtonSize.Small}
         type={ButtonType.Default}
