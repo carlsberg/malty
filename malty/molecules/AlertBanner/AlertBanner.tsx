@@ -69,6 +69,8 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         onClick={currentAlert.action}
         onKeyUp={handleOnKeyUp(currentAlert.action)}
         role="button"
+        theme={theme}
+        breakpoint={breakpoint}
       >
         <Button
           negative={currentAlert.type !== AlertBannerType.Warning}
@@ -89,6 +91,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
       onKeyUp={handleOnKeyUp(currentAlert.dismiss)}
       tabIndex={0}
       role="button"
+      theme={theme}
     >
       {currentAlert.dismiss && (
         <Icon
@@ -133,7 +136,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
         )}
-        <MessageContainer theme={theme}>
+        <MessageContainer theme={theme} breakpoint={breakpoint}>
           {currentAlert.icon && renderIcon()}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}

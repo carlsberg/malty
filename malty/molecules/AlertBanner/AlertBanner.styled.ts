@@ -17,26 +17,37 @@ export const Container = styled.div<{
     return theme.colors.colours.system['notification-strong'].value;
   }};
   color: ${({ theme }) => theme.colors.colours.default.white.value};
-  padding: ${({ theme }) => theme.sizes.xs.value};
 `;
 
 export const ContentRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  :not(:last-child) {
-    padding-bottom: ${({ theme }) => theme.sizes.xs.value};
-    padding-left: ${({ theme }) => theme.sizes['2xs'].value};
-  }
+  position: relative;
+  height: 100%;
+  min-height: ${({ theme }) => theme.sizes.xl.value};
+  padding-left: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 
-export const MessageContainer = styled.div`
+export const MessageContainer = styled.div<{
+  breakpoint: number;
+}>`
   display: flex;
   align-items: center;
+  @media (min-width: ${({ breakpoint }) => breakpoint}px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    max-width: calc(100% - 300px);
+  }
   svg {
+    min-height: ${({ theme }) => theme.sizes.m.value};
+    min-width: ${({ theme }) => theme.sizes.m.value};
     padding-right: ${({ theme }) => theme.sizes.xs.value};
   }
-  div {
+  div:not(:last-child) {
     padding-right: ${({ theme }) => theme.sizes.s.value};
   }
 `;
@@ -47,18 +58,25 @@ export const StyledMessage = styled.div`
   align-items: center;
 `;
 
-export const StyledAction = styled.div`
+export const StyledAction = styled.div<{
+  breakpoint: number;
+}>`
   white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   box-sizing: border-box;
   margin-left: auto;
   button {
     text-decoration: underline;
   }
+  @media (max-width: ${({ breakpoint }) => breakpoint}px) {
+    margin-right: ${({ theme }) => theme.sizes.s.value};
+  }
 `;
 
 export const CloseButtonContainer = styled.div`
   cursor: Pointer;
+  margin-left: auto;
+  margin-right: ${({ theme }) => theme.sizes['2xs'].value};
   display: flex;
+  align-items: center;
 `;
