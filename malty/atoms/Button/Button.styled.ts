@@ -17,7 +17,7 @@ export const StyledAnchor = styled.a`
 const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
-  loading?: boolean;
+  loading: boolean;
   isNegative?: boolean;
   fullWidth?: boolean;
   sizing: string;

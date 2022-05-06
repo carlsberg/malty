@@ -27,7 +27,7 @@ export const Button = ({
   url,
   size = ButtonSize.Medium,
   iconPos = ButtonIconPosition.Right,
-  loading,
+  loading = false,
   tabIndex = -1,
   children,
   dataTestId
