@@ -20,6 +20,7 @@ declare module 'styled-components' {
     '2xs': PropValue;
     xs: PropValue;
     s: PropValue;
+    ms: PropValue;
     m: PropValue;
     l: PropValue;
     xl: PropValue;
