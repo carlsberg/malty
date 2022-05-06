@@ -41,6 +41,11 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
       }
       margin-left: ${({ theme }) => theme.sizes['2xs'].value};
     }
+    .default-pagination {
+      button {
+        margin: 0;
+      }
+    }
   }
 `;
 
