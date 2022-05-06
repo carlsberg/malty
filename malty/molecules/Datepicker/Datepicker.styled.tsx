@@ -53,7 +53,7 @@ export const StyledDatepicker = styled.div<{
     ${({ disabled }) =>
       disabled &&
       css`
-        cursor: 'default';
+        cursor: default;
         border-color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
         background-color: ${({ theme }) => theme.colors.colours.default.white.value};
         color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
@@ -65,7 +65,7 @@ export const StyledDatepicker = styled.div<{
     ${({ readOnly }) =>
       readOnly &&
       css`
-        cursor: 'default';
+        cursor: default;
         border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
         background-color: ${({ theme }) => theme.colors.colours.support[20].value};
         color: ${({ theme }) => `${theme.colors.colours.support[80].value}`};
