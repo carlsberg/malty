@@ -70,8 +70,9 @@ Array [
             className="sc-bczRLJ hROJNc"
           >
             <button
-              className="sc-jSMfEi sc-iBkjds dCcUHP hlHhcU"
+              className="sc-jSMfEi sc-iBkjds jHXzsG gJsYLW"
               fontSize="16px"
+              loading={false}
               onClick={[Function]}
               tabIndex={-1}
               type="button"
@@ -91,8 +92,9 @@ Array [
             className="sc-bczRLJ hROJNc"
           >
             <button
-              className="sc-jSMfEi sc-gKXOVf dCcUHP fcGpoe"
+              className="sc-jSMfEi sc-gKXOVf jHXzsG fcGpoe"
               fontSize="16px"
+              loading={false}
               onClick={[Function]}
               tabIndex={-1}
               type="button"
