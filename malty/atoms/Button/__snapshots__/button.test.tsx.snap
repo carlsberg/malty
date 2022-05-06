@@ -5,9 +5,10 @@ exports[`button matches snapshot 1`] = `
   className="sc-bczRLJ hROJNc"
 >
   <button
-    className="sc-jSMfEi sc-gKXOVf kkfLpk fcGpoe"
+    className="sc-jSMfEi sc-gKXOVf cFGKmZ fcGpoe"
     disabled={true}
     fontSize="16px"
+    loading={false}
     onClick={[MockFunction]}
     tabIndex={-1}
     type="button"
