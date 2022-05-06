@@ -1,5 +1,5 @@
 import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
@@ -67,7 +67,15 @@ export const Toast = ({
 
   const renderDismissContainer = () => (
     <StyledDismissContainer theme={theme} data-testid={`${dataQaId}-close-icon`} onClick={handleDismiss}>
-      <Icon name={IconName.Close} size={IconSize.Medium} color={IconColor.White} />
+      <Button
+        negative
+        icon={IconName.Close}
+        size={ButtonSize.Small}
+        type={ButtonType.Default}
+        style={ButtonStyle.Transparent}
+        onClick={handleCustomAction}
+        data-testid={`${dataQaId}-close-icon`}
+      />
     </StyledDismissContainer>
   );
 
@@ -77,7 +85,7 @@ export const Toast = ({
         negative
         size={ButtonSize.Small}
         type={ButtonType.Default}
-        style={ButtonStyle.Link}
+        style={ButtonStyle.Transparent}
         onClick={handleCustomAction}
         data-testid={`${dataQaId}-action`}
       >
