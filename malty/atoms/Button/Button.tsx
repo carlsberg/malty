@@ -27,7 +27,7 @@ export const Button = ({
   url,
   size = ButtonSize.Medium,
   iconPos = ButtonIconPosition.Right,
-  loading,
+  loading = false,
   tabIndex = -1,
   children,
   dataTestId
@@ -41,6 +41,7 @@ export const Button = ({
       break;
     case ButtonStyle.Transparent:
       Component = StyledTransparentButton;
+      iconColor = negative ? IconColor.White : IconColor.Primary;
       break;
     case ButtonStyle.Link:
       Component = StyledLinkButton;
@@ -61,6 +62,7 @@ export const Button = ({
         data-testid={dataTestId}
         type={type}
         disabled={disabled}
+        loading={loading}
         hasText={!!text || !!children}
         hasIcon={!!icon}
         sizing={numSize}
@@ -76,12 +78,17 @@ export const Button = ({
         tabIndex={tabIndex}
         className={selected ? 'active' : ''}
       >
-        <div className={`text-container ${loading ? 'invisible' : ''}`}>
-          {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
-          {text || children}
-          {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
-        </div>
-
+        {!loading && (
+          <div className={`text-container ${loading ? 'invisible' : ''}`}>
+            {icon && iconPos === ButtonIconPosition.Left && (
+              <Icon name={icon} color={iconColor} size={IconSize.Small} />
+            )}
+            {text || children}
+            {icon && iconPos === ButtonIconPosition.Right && (
+              <Icon name={icon} color={iconColor} size={IconSize.Small} />
+            )}
+          </div>
+        )}
         {loading && (
           <div data-testid={`${dataTestId}-loading`} className="secondary-container">
             <Loading status={'Pending' as LoadingStatus} />
@@ -96,7 +103,7 @@ export const Button = ({
       case ButtonSize.Small: {
         setNumSize(theme.sizes.l.value);
         setFontSize(theme.typography.desktop.text['medium-small_bold']['font-size'].value);
-        setIconSize(theme.sizes.s.value);
+        setIconSize(theme.sizes.ms.value);
         break;
       }
       case ButtonSize.Large: {
