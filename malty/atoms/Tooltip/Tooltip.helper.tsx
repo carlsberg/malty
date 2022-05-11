@@ -20,11 +20,16 @@ export const useToolTip = ({
     strategy: positionStrategy,
     placement,
     modifiers: [
-      { name: 'arrow', options: { element: arrowElement, padding: 5 } },
       {
         name: 'offset',
         options: {
-          offset: [0, 8]
+          offset: [-8, 8]
+        }
+      },
+      {
+        name: 'arrow',
+        options: {
+          element: arrowElement
         }
       }
     ]
@@ -90,16 +95,16 @@ export const useToolTip = ({
         setTooltipOpen(true);
       };
 
-      const handleAnchorMouseOut = () => {
+      const handleAnchorMouseLeave = () => {
         setTooltipOpen(false);
       };
 
       referenceElement?.addEventListener('mouseenter', handleAnchorMouseEnter);
-      referenceElement?.addEventListener('mouseout', handleAnchorMouseOut);
+      referenceElement?.addEventListener('mouseleave', handleAnchorMouseLeave);
 
       return () => {
         referenceElement?.removeEventListener('mouseenter', handleAnchorMouseEnter);
-        referenceElement?.removeEventListener('mouseout', handleAnchorMouseOut);
+        referenceElement?.removeEventListener('mouseleave', handleAnchorMouseLeave);
       };
     }
 
