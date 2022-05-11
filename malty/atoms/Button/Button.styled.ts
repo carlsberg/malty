@@ -17,6 +17,7 @@ export const StyledAnchor = styled.a`
 const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
+  loading: boolean;
   isNegative?: boolean;
   fullWidth?: boolean;
   sizing: string;
@@ -59,7 +60,7 @@ const StyledButton = styled.button<{
   .text-container {
     display: flex;
     align-items: center;
-    gap: ${({ theme }) => theme.sizes.s.value};
+    gap: ${({ theme }) => theme.sizes['2xs'].value};
     opacity: 1;
     &.invisible {
       opacity: 0;
@@ -67,11 +68,14 @@ const StyledButton = styled.button<{
   }
 
   .secondary-container {
-    position: absolute;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: ${({ theme }) => theme.sizes.s.value};
     animation: ${animateShow} 0.25s linear;
+    > div {
+      gap: 0;
+      padding: 0;
+    }
   }
 
   svg {
@@ -79,9 +83,8 @@ const StyledButton = styled.button<{
     width: ${({ iconSize }) => `${iconSize}`};
   }
 
-  ${({ hasText, hasIcon, sizing }) =>
-    !hasText &&
-    hasIcon &&
+  ${({ hasText, hasIcon, sizing, loading }) =>
+    ((!hasText && hasIcon) || loading) &&
     css`
       padding: 0;
       justify-content: center;
@@ -112,6 +115,10 @@ export const StyledPrimaryButton = styled(StyledButton)`
           background-color: ${theme.colors.colours.system['disable-dark-theme'].value};
           color: ${theme.colors.colours.system['disable-dark-theme'].value};
         }
+        svg {
+          fill: ${theme.colors.colours.system['disable-dark-theme'].value};
+          color: ${theme.colors.colours.system['disable-dark-theme'].value};
+        }
       `};
   }
 `;
@@ -136,6 +143,16 @@ export const StyledSecondaryButton = styled(StyledButton)`
         : theme.colors.colours.overlay['digital-black'][10].value};
   }
   &:disabled {
+    svg {
+      fill: ${({ isNegative, theme }) =>
+        isNegative
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
+      color: ${({ isNegative, theme }) =>
+        isNegative
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
+    }
     background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
     border: 1px solid
       ${({ isNegative, theme }) =>
@@ -182,6 +199,16 @@ export const StyledTransparentButton = styled(StyledButton)`
         : theme.colors.colours.overlay['digital-black'][10].value};
   }
   &:disabled {
+    svg {
+      fill: ${({ isNegative, theme }) =>
+        isNegative
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
+      color: ${({ isNegative, theme }) =>
+        isNegative
+          ? theme.colors.colours.system['disable-dark-theme'].value
+          : theme.colors.colours.system['disable-light-theme'].value};
+    }
     background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
     color: ${({ isNegative, theme }) =>
       isNegative

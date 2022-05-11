@@ -150,7 +150,7 @@ export const Pagination = ({
             );
           }
           return (
-            <li key={pageNr}>
+            <li className="default-pagination" key={pageNr}>
               <Button
                 dataTestId={`${dataQaId}-page-${pageNr}`}
                 style={ButtonStyle.Transparent}

@@ -2,7 +2,7 @@
 
 exports[`molecule pagination matches snapshot 1`] = `
 <div
-  className="sc-kDDrLX jJWuNp"
+  className="sc-kDDrLX kGuhpW"
 >
   <span
     className="sc-bczRLJ hROJNc"
@@ -13,10 +13,11 @@ exports[`molecule pagination matches snapshot 1`] = `
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kXxjEf ffHOdq"
+            className="sc-jSMfEi sc-ftvSup gJXBfu hcgwTV"
             data-testid="undefined-button-previous"
             disabled={true}
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={-1}
@@ -26,8 +27,8 @@ exports[`molecule pagination matches snapshot 1`] = `
               className="text-container "
             >
               <svg
-                className="sc-gsnTZi iOMLMs"
-                color="white"
+                className="sc-gsnTZi ivMBgY"
+                color="digital-black"
                 data-testid="svg-component"
                 size="24px"
                 version="1.1"
@@ -51,14 +52,17 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq active"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV active"
             data-testid="undefined-page-1"
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
@@ -72,14 +76,17 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
             data-testid="undefined-page-2"
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
@@ -93,14 +100,17 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
             data-testid="undefined-page-3"
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
@@ -114,14 +124,17 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
             data-testid="undefined-page-4"
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
@@ -135,14 +148,17 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
             data-testid="undefined-page-5"
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
@@ -166,14 +182,17 @@ exports[`molecule pagination matches snapshot 1`] = `
           …
         </div>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kkfLpk ffHOdq"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
             data-testid="undefined-page-10"
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
@@ -192,10 +211,11 @@ exports[`molecule pagination matches snapshot 1`] = `
           className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jSMfEi sc-ftvSup kXxjEf ffHOdq"
+            className="sc-jSMfEi sc-ftvSup gJXBfu hcgwTV"
             data-testid="undefined-button-next"
             disabled={false}
             fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
@@ -205,8 +225,8 @@ exports[`molecule pagination matches snapshot 1`] = `
               className="text-container "
             >
               <svg
-                className="sc-gsnTZi iOMLMs"
-                color="white"
+                className="sc-gsnTZi ivMBgY"
+                color="digital-black"
                 data-testid="svg-component"
                 size="24px"
                 version="1.1"
