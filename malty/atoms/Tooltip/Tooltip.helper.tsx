@@ -90,16 +90,16 @@ export const useToolTip = ({
         setTooltipOpen(true);
       };
 
-      const handleAnchorMouseOut = () => {
+      const handleAnchorMouseLeave = () => {
         setTooltipOpen(false);
       };
 
       referenceElement?.addEventListener('mouseenter', handleAnchorMouseEnter);
-      referenceElement?.addEventListener('mouseout', handleAnchorMouseOut);
+      referenceElement?.addEventListener('mouseleave', handleAnchorMouseLeave);
 
       return () => {
         referenceElement?.removeEventListener('mouseenter', handleAnchorMouseEnter);
-        referenceElement?.removeEventListener('mouseout', handleAnchorMouseOut);
+        referenceElement?.removeEventListener('mouseleave', handleAnchorMouseLeave);
       };
     }
 
