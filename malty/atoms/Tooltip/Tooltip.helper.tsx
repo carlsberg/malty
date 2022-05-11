@@ -20,11 +20,16 @@ export const useToolTip = ({
     strategy: positionStrategy,
     placement,
     modifiers: [
-      { name: 'arrow', options: { element: arrowElement, padding: 5 } },
       {
         name: 'offset',
         options: {
-          offset: [0, 8]
+          offset: [-8, 8]
+        }
+      },
+      {
+        name: 'arrow',
+        options: {
+          element: arrowElement
         }
       }
     ]
