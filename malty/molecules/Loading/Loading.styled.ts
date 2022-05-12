@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { LoadingSize } from './Loading.types';
 
 const rotate = keyframes`
     from {
@@ -20,34 +21,35 @@ const fadeIn = keyframes`
     }
 `;
 
-export const StyledLoadingContainer = styled.div`
+export const StyledLoadingContainer = styled.div<{
+  size: LoadingSize;
+}>`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.sizes['3xs'].value};
+  gap: ${({ theme, size }) => (size === LoadingSize.Small ? theme.sizes['4xs'].value : theme.sizes['2xs'].value)};
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: ${({ theme }) => theme.sizes['3xs'].value};
-  letter-spacing: 0;
-  color: ${({ theme }) => theme.colors.colours.support[60].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
-  font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text.small_bold['line-height'].value};
-  font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
 `;
 
 export const StyledLoading = styled.div<{
   size: string;
 }>`
   display: flex;
+
   svg {
-    &.fade-in {
-      animation: ${fadeIn} 1s;
-    }
-    &.spinning {
-      animation: ${rotate} 2s linear infinite;
-    }
     height: ${({ size }) => size};
     width: ${({ size }) => size};
+  }
+  &.fade-in {
+    svg {
+      animation: ${fadeIn} 1s;
+    }
+  }
+  &.spinning {
+    svg {
+      animation: ${rotate} 2s linear infinite;
+    }
   }
 `;
