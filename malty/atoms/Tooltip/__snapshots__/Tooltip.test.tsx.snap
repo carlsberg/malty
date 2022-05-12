@@ -1,9 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tooltip should matches snapshot 1`] = `
-<a
-  onClick={[MockFunction]}
->
-  Tooltip Anchor
-</a>
+Array [
+  <a
+    onClick={[MockFunction]}
+  >
+    Tooltip Anchor
+  </a>,
+  <div
+    className="sc-hKMtZM liiOdb"
+    data-testid="tooltip-test"
+    onMouseEnter={[Function]}
+    onMouseOut={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="sc-eCYdqJ dgBTTW"
+    >
+      <button
+        type="button"
+      >
+        Button inside Tooltip
+      </button>
+    </div>
+    <div
+      className="sc-dkzDqf lhBUwo"
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </div>,
+]
 `;
