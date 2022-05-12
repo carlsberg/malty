@@ -2,26 +2,30 @@
 
 exports[`input matches snapshot 1`] = `
 <span
-  className="sc-bdfBQB dGZTMR"
+  className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-dlfnuX gsbWOj"
+    className="sc-dkzDqf kdla-DI"
   >
     <div
-      className="sc-jSgvzq iYlHTr"
+      className="sc-gKXOVf iyMGyj"
     >
       <span
-        className="sc-bdfBQB dGZTMR"
+        className="sc-bczRLJ hROJNc"
       >
-        <input
-          className="sc-gKseQn eQyXbZ"
-          id="00000000-0000-0000-0000-000000000000"
-          name="00000000-0000-0000-0000-000000000000"
-          onChange={[Function]}
-          size={40}
-          type="text"
-          value="Value"
-        />
+        <div
+          className="sc-kDDrLX eqjZTi"
+        >
+          <input
+            className="sc-iBkjds kzoqqG"
+            id="00000000-0000-0000-0000-000000000000"
+            name="00000000-0000-0000-0000-000000000000"
+            onChange={[Function]}
+            size={40}
+            type="text"
+            value="Value"
+          />
+        </div>
       </span>
     </div>
   </div>

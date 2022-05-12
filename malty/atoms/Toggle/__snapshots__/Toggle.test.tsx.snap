@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toggle matches snapshot 1`] = `
+<span
+  className="sc-bczRLJ hROJNc"
+>
+  <label
+    className="sc-dkzDqf gWKurO"
+  >
+    <div
+      className="sc-hKMtZM GTTLb"
+    >
+      <input
+        checked={false}
+        className="sc-jSMfEi jwiPhP"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="sc-gKXOVf kHFmuB switch"
+      />
+    </div>
+    <label
+      className="sc-eCYdqJ dXEYVD"
+    >
+      Label text
+    </label>
+  </label>
+</span>
+`;

@@ -1,6 +1,6 @@
 import { rgbToHex } from '@carlsberggroup/malty.utils.colors';
 import styled, { css } from 'styled-components';
-import { Overlay, Position } from './Image.types';
+import { ImageEffectPosition, ImageOverlay } from './Image.types';
 
 export const StyledImage = styled.img<{ isCover?: boolean }>`
   display: flex;
@@ -11,13 +11,13 @@ export const StyledImage = styled.img<{ isCover?: boolean }>`
 
 export const StyledContainer = styled.div<{
   isCover?: boolean;
-  borderPosition?: Position;
+  borderPosition?: ImageEffectPosition;
   height?: string;
   width?: string;
 }>`
   position: relative;
   display: inline-flex;
-  background-color: ${({ theme }) => theme.color.support.support20.value};
+  background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   ${({ height, width }) => {
     let dimensions;
     if (height || width) {
@@ -30,31 +30,31 @@ export const StyledContainer = styled.div<{
   }}
 
   ${({ borderPosition }) => {
-    if (borderPosition === Position.Top) {
+    if (borderPosition === ImageEffectPosition.Top) {
       return css`
-        border-top: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
+        border-top: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
-    if (borderPosition === Position.Right) {
+    if (borderPosition === ImageEffectPosition.Right) {
       return css`
-        border-right: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
+        border-right: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
-    if (borderPosition === Position.Bottom) {
+    if (borderPosition === ImageEffectPosition.Bottom) {
       return css`
-        border-bottom: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
+        border-bottom: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
-    if (borderPosition === Position.Left) {
+    if (borderPosition === ImageEffectPosition.Left) {
       return css`
-        border-left: ${({ theme }) => `8px solid ${theme.color.theme.themePrimary.value}`};
+        border-left: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     return ``;
   }}
 `;
 
-export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?: Overlay }>`
+export const StyledOverlay = styled.div<{ gradientPosition?: ImageEffectPosition; overlay?: ImageOverlay }>`
   position: absolute;
   height: 100%;
   width: 100%;
@@ -62,51 +62,51 @@ export const StyledOverlay = styled.div<{ gradientPosition?: Position; overlay?:
   top: 0;
   ${({ theme, gradientPosition, overlay }) => {
     if (gradientPosition && !overlay) {
-      const primaryFadedHex = `${rgbToHex(theme.color.theme.themePrimary.value)}00`;
-      if (gradientPosition === Position.Top) {
+      const primaryFadedHex = `${rgbToHex(theme.colors.theme.themePrimary.value)}00`;
+      if (gradientPosition === ImageEffectPosition.Top) {
         return css`
           background: linear-gradient(
             0deg,
             ${primaryFadedHex} 0%,
             ${primaryFadedHex} 43.23%,
-            ${theme.color.theme.themePrimary.value} 100%
+            ${theme.colors.theme.themePrimary.value} 100%
           );
         `;
       }
-      if (gradientPosition === Position.Right) {
+      if (gradientPosition === ImageEffectPosition.Right) {
         return css`
           background: linear-gradient(
             90deg,
             ${primaryFadedHex} 0%,
             ${primaryFadedHex} 43.23%,
-            ${theme.color.theme.themePrimary.value} 100%
+            ${theme.colors.theme.themePrimary.value} 100%
           );
         `;
       }
-      if (gradientPosition === Position.Bottom) {
+      if (gradientPosition === ImageEffectPosition.Bottom) {
         return css`
           background: linear-gradient(
             180deg,
             ${primaryFadedHex} 0%,
             ${primaryFadedHex} 43.23%,
-            ${theme.color.theme.themePrimary.value} 100%
+            ${theme.colors.theme.themePrimary.value} 100%
           );
         `;
       }
-      if (gradientPosition === Position.Left) {
+      if (gradientPosition === ImageEffectPosition.Left) {
         return css`
           background: linear-gradient(
             270deg,
             ${primaryFadedHex} 0%,
             ${primaryFadedHex} 43.23%,
-            ${theme.color.theme.themePrimary.value} 100%
+            ${theme.colors.theme.themePrimary.value} 100%
           );
         `;
       }
     }
     if (overlay) {
       return css`
-        background: ${theme.color.theme.themePrimary.value};
+        background: ${theme.colors.theme.themePrimary.value};
         opacity: ${overlay}%;
       `;
     }

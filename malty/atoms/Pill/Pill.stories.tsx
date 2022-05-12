@@ -1,15 +1,16 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Pill as PillComponent } from './Pill';
-import { PillColor, PillProps, PillSizeType } from './Pill.types';
+import { PillColor, PillProps, PillSize } from './Pill.types';
 
 export default {
-  title: 'Atoms/Pill',
+  title: 'Information/Pill',
   component: PillComponent,
   parameters: {
     importObject: 'Pill',
-    importPath: '@carlsberggroup/malty.atoms.pill'
+    importPath: '@carlsberggroup/malty.atoms.pill',
+    variants: ['text', 'icon', 'combo']
   },
   argTypes: {
     text: {
@@ -17,91 +18,68 @@ export default {
       description: 'Pill content text.'
     },
     size: {
-      options: Object.values(PillSizeType),
+      description: 'Pill size, options below.',
+      options: Object.values(PillSize),
       control: {
         type: 'select'
       },
-      description: 'Pill size, options below.',
       table: {
         defaultValue: {
-          summary: 'medium'
+          summary: 'PillSize.Medium'
         }
       }
     },
     color: {
-      options: Object.values(PillColor),
-      control: {
-        type: 'select'
-      },
       description: 'Pill colors, from design predefined colors, as follows.',
+      options: Object.keys(PillColor),
+      mapping: PillColor,
+      control: {
+        type: 'select',
+        label: Object.values(PillColor)
+      },
       table: {
         defaultValue: {
-          summary: 'closed'
+          summary: 'PillColor.Closed'
+        }
+      }
+    },
+    iconColor: {
+      description: 'Pill text color',
+      options: Object.keys(IconColor),
+      mapping: IconColor,
+      control: {
+        type: 'select',
+        label: Object.values(IconColor)
+      },
+      table: {
+        defaultValue: {
+          summary: 'IconColor.White'
         }
       }
     },
     icon: {
-      options: Object.values({ undefined, ...IconNamesTypes }),
-      control: {
-        type: 'select'
-      },
       description: 'Icon to be displayed',
+      options: Object.keys({ undefined, ...IconName }),
+      mapping: { undefined, ...IconName },
+      control: {
+        type: 'select',
+        label: Object.values({ undefined, ...IconName })
+      },
       table: {
         defaultValue: {
-          summary: false
+          summary: 'IconName.CarlsbergFilled'
         }
       }
     },
-    isRounded: {
-      control: 'boolean',
-      description: 'Is pill to have rounded corners?'
-    },
-    onClick: {
-      table: {
-        disable: true
-      }
-    },
-    onRemoveClick: {
-      options: Object.values([false, () => null]),
-      defaultValue: false,
-      control: {
-        type: 'radio'
-      },
-      description: 'Function to run when pill is removed.'
+    dataTestId: {
+      control: 'text',
+      description: 'Pill data-testid'
     }
   }
 } as Meta;
 
-const Template: Story<PillProps> = ({ text, icon, color, isRounded, onRemoveClick, onClick, size }: PillProps) => (
-  <PillComponent
-    text={text}
-    onRemoveClick={onRemoveClick}
-    onClick={onClick}
-    icon={icon}
-    color={color}
-    isRounded={isRounded}
-    size={size}
-  />
-);
-
-const TemplateRemovable: Story<PillProps> = ({
-  text,
-  icon,
-  color,
-  isRounded,
-  onRemoveClick,
-  onClick,
-  size
-}: PillProps) => (
-  <Pill
-    text={text}
-    onRemoveClick={onRemoveClick}
-    onClick={onClick}
-    icon={icon}
-    color={color}
-    isRounded={isRounded}
-    size={size}
-  />
+const Template: Story<PillProps> = ({ iconColor, text, icon, color, size, dataTestId }: PillProps) => (
+  <PillComponent iconColor={iconColor} text={text} icon={icon} color={color} size={size} dataTestId={dataTestId} />
 );
 
 let PillEl;
@@ -113,33 +91,18 @@ switch (variant) {
   case 'icon':
     PillEl = Template.bind({});
     PillEl.args = {
-      icon: IconNamesTypes.CarlsbergFilled,
-      color: PillColor.New,
-      isRounded: true,
-      size: PillSizeType.Medium,
-      onRemoveClick: false
+      icon: IconName.CarlsbergFilled,
+      color: PillColor.Success,
+      size: PillSize.Medium
     };
     break;
 
-  case 'iconlabel':
+  case 'text':
     PillEl = Template.bind({});
     PillEl.args = {
-      text: 'P',
-      color: PillColor.Archive,
-      isRounded: false,
-      size: PillSizeType.Medium,
-      onRemoveClick: false
-    };
-    break;
-
-  case 'removable':
-    PillEl = TemplateRemovable.bind({});
-    PillEl.args = {
-      text: 'Removeable',
-      color: PillColor.Hold,
-      isRounded: false,
-      size: PillSizeType.Medium,
-      onRemoveClick: () => null
+      text: 'Text',
+      color: PillColor.Fail,
+      size: PillSize.Medium
     };
     break;
 
@@ -147,11 +110,9 @@ switch (variant) {
     PillEl = Template.bind({});
     PillEl.args = {
       text: 'Text',
-      icon: IconNamesTypes.AddContent,
-      color: PillColor.Closed,
-      isRounded: true,
-      size: PillSizeType.Medium,
-      onRemoveClick: false
+      icon: IconName.CarlsbergFilled,
+      color: PillColor.Primary,
+      size: PillSize.Medium
     };
     break;
 }

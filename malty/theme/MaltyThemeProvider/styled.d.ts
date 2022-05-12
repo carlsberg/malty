@@ -1,424 +1,244 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable camelcase */
 import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    color: Colors;
-    typography: TypographyTypes;
+    colors: ColorsType;
+    sizes: SizesType;
+    layout: LayoutType;
+    borders: BordersType;
+    gradients: GradientsType;
+    typography: TypographyType;
     variables: VariablesType;
   }
 
-  interface GlobalTypes {
-    breakpoints: BreakPointsType;
+  interface SizesType {
+    '5xs': PropValue;
+    '4xs': PropValue;
+    '3xs': PropValue;
+    '2xs': PropValue;
+    xs: PropValue;
+    s: PropValue;
+    ms: PropValue;
+    m: PropValue;
+    l: PropValue;
+    xl: PropValue;
+    '2xl': PropValue;
+    '3xl': PropValue;
+    '4xl': PropValue;
+    '5xl': PropValue;
   }
 
-  interface PaginationTypes {
-    height: PropValue;
-    width: PropValue;
+  interface LayoutType {
+    xsmall: LayoutSizeType;
+    small: LayoutSizeType;
+    medium: LayoutSizeType;
+    large: LayoutSizeType;
+    xlarge: LayoutSizeType;
   }
 
-  interface VariablesType {
-    textarea: TextareaType;
-    alert: AlertType;
-    button: ButtonType;
-    checkbox: CheckboxType;
-    icon: IconType;
-    input: InputType;
-    pill: PillType;
-    progressBar: ProgressBarType;
-    tooltip: TooltipType;
-    select: SelectType;
-    codeInput: CodeInputType;
-    loading: LoadingType;
-    container: ContainerType;
-    image: ImageType;
-    global: GlobalTypes;
-    pagination: PaginationTypes;
-  }
-
-  interface BreakPointsType {
-    xsmall: PropValue;
-    small: PropValue;
-    medium: PropValue;
-    large: PropValue;
-    xlarge: PropValue;
-  }
-
-  interface TextareaType {
-    padding: PropValue;
-    counter: TextareaCounterType;
-  }
-
-  interface TextareaCounterType {
-    borderRadius: PropValue;
-    padding: PropValue;
-    height: PropValue;
-  }
-
-  interface ImageType {
-    border: PropValue;
-  }
-
-  interface AlertType {
-    size: AlertHeightSize;
-  }
-
-  interface AlertHeightSize {
-    small: PropValue;
-    medium: PropValue;
-  }
-
-  interface ButtonType {
-    icon: ButtonIconType;
-    horizontalPadding: PropValue;
-    size: ButtonSize;
-  }
-
-  interface ButtonSize {
-    small: PropValue;
-    medium: PropValue;
-    large: PropValue;
-    xlarge: PropValue;
-  }
-
-  interface ButtonIconType {
-    size: ButtonIconSizeType;
+  interface LayoutSizeType {
+    'device-max-width'?: PropValue;
+    'device-min-width'?: PropValue;
+    'grid-width': PropValue;
+    columns: PropValue;
+    gutter: PropValue;
     margin: PropValue;
   }
 
-  interface ButtonIconSizeType {
-    medium: PropValue;
-    small: PropValue;
+  interface BordersType {
+    'border-1px--solid': {
+      'border-width': PropValue;
+      'border-style': PropValue;
+    };
+    'border-2px--solid': {
+      'border-width': PropValue;
+      'border-style': PropValue;
+    };
   }
 
-  interface CheckboxType {
-    size: PropValue;
-    label: CheckboxLabelType;
-    border: PropValue;
-    borderRadius: PropValue;
-    error: CheckboxErrorType;
+  interface GradientsType {
+    fade: {
+      'bottom-to-top': {
+        'digital-black': PropValue;
+        white: PropValue;
+      };
+      'left-to-right': {
+        'digital-black': PropValue;
+        white: PropValue;
+      };
+      'right-to-left': {
+        'digital-black': PropValue;
+        white: PropValue;
+      };
+      'top-to-bottom': {
+        'digital-black': PropValue;
+        white: PropValue;
+      };
+    };
   }
 
-  interface CheckboxLabelType {
-    leftPadding: PropValue;
+  interface ColorsType {
+    theme: {
+      themePrimary: PropValue;
+      themeSecondary: PropValue;
+      themeTertiary: PropValue;
+    };
+    colours: {
+      default: {
+        'digital-black': PropValue;
+        transparent: PropValue;
+        white: PropValue;
+      };
+      information: {
+        archive: PropValue;
+        close: PropValue;
+        disable: PropValue;
+        hold: PropValue;
+        indirect: PropValue;
+        live: PropValue;
+        multiple: PropValue;
+        new: PropValue;
+        parked: PropValue;
+        prospect: PropValue;
+        update: PropValue;
+        wholesaler: PropValue;
+      };
+      overlay: {
+        'digital-black': {
+          '5': PropValue;
+          '10': PropValue;
+          '25': PropValue;
+          '50': PropValue;
+          '75': PropValue;
+          '90': PropValue;
+        };
+        white: {
+          '5': PropValue;
+          '10': PropValue;
+          '25': PropValue;
+          '50': PropValue;
+          '75': PropValue;
+          '90': PropValue;
+        };
+      };
+      support: {
+        '20': PropValue;
+        '40': PropValue;
+        '60': PropValue;
+        '80': PropValue;
+        '100': PropValue;
+      };
+      system: {
+        'alert-light': PropValue;
+        'alert-strong': PropValue;
+        'disable-light-theme': PropValue;
+        'disable-dark-theme': PropValue;
+        fail: PropValue;
+        'fail-light': PropValue;
+        'notification-light': PropValue;
+        'notification-strong': PropValue;
+        success: PropValue;
+        'success-light': PropValue;
+      };
+    };
+    'headline-colours': {
+      'digital-black': PropValue;
+      white: PropValue;
+    };
+    'text-colours': {
+      'digital-black': PropValue;
+      white: PropValue;
+      '20': PropValue;
+      '40': PropValue;
+      '60': PropValue;
+      '80': PropValue;
+      '100': PropValue;
+      'alert-light': PropValue;
+      'alert-strong': PropValue;
+      'disable-light-theme': PropValue;
+      'disable-dark-theme': PropValue;
+      fail: PropValue;
+      'fail-light': PropValue;
+      'notification-light': PropValue;
+      'notification-strong': PropValue;
+      success: PropValue;
+      'success-light': PropValue;
+    };
   }
 
-  interface CheckboxErrorType {
-    padding: PropValue;
+  interface TypographyType {
+    desktop: TypographyObjectType;
+    tablet: TypographyObjectType;
+    mobile: TypographyObjectType;
   }
 
-  interface IconType {
-    size: IconSizeType;
+  interface TypographyObjectType {
+    headline: TypographyHeadlineType;
+    text: TypographyTextType;
   }
 
-  interface InputType {
-    size: InputSizeType;
-    padding: PropValue;
-    largePadding: PropValue;
-    leftPadding: PropValue;
-    iconPadding: PropValue;
-    label: InputLabelType;
-    number: InputNumberType;
-    select: InputSelectType;
+  interface TypographyHeadlineType {
+    display: TypographyStyleType;
+    hero: TypographyStyleType;
+    huge: TypographyStyleType;
+    big: TypographyStyleType;
+    large: TypographyStyleType;
+    'medium-large': TypographyStyleType;
+    medium: TypographyStyleType;
   }
 
-  interface PillType {
-    size: PillSizeType;
-    padding: PillSizeType;
-    icon: PillIconType;
+  interface TypographyTextType {
+    medium_bold: TypographyStyleType;
+    'medium_bold--underline': TypographyStyleType;
+    medium_default: TypographyStyleType;
+    'medium_default--underline': TypographyStyleType;
+    'medium-small_bold': TypographyStyleType;
+    'medium-small_bold--underline': TypographyStyleType;
+    'medium-small_default': TypographyStyleType;
+    'medium-small_default--underline': TypographyStyleType;
+    small_bold: TypographyStyleType;
+    'small_bold--underline': TypographyStyleType;
+    small_default: TypographyStyleType;
+    'small_default--underline': TypographyStyleType;
+    tiny_bold: TypographyStyleType;
+    tiny_default: TypographyStyleType;
+    micro_bold: TypographyStyleType;
+    micro_default: TypographyStyleType;
   }
 
-  interface PillIconType {
-    size: PillSizeType;
-  }
-
-  interface PillSizeType {
-    xsmall: PropValue;
-    small: PropValue;
-    medium: PropValue;
-    large: PropValue;
-  }
-
-  interface ProgressBarType {
-    bar: ProgressBarBarType;
-    text: ProgressBarTextType;
-  }
-
-  interface ProgressBarBarType {
-    height: PropValue;
-    borderRadius: PropValue;
-  }
-
-  interface ProgressBarTextType {
-    marginLeft: PropValue;
-    fontSize: PropValue;
-    lineHeight: PropValue;
-    marginTop: PropValue;
-  }
-
-  interface TooltipType {
-    arrowSize: PropValue;
-    horizontalPosTop: PropValue;
-    horizontalPosTopTranslateY: PropValue;
-    verticalPosLeft: PropValue;
-    verticalPosLeftTranslateX: PropValue;
-    padding: PropValue;
-    minWidth: PropValue;
-    boxShadow: PropValue;
-    topPosition: TooltipPositionTopType;
-    bottomPosition: TooltipPositionBottomType;
-    rightPosition: TooltipPositionRightType;
-    leftPosition: TooltipPositionLeftType;
-  }
-
-  interface TooltipPositionTopType {
-    bottom: PropValue;
-    borderWidth: PropValue;
-  }
-
-  interface TooltipPositionBottomType {
-    top: PropValue;
-    borderWidth: PropValue;
-  }
-
-  interface TooltipPositionRightType {
-    left: PropValue;
-    borderWidth: PropValue;
-  }
-
-  interface TooltipPositionLeftType {
-    right: PropValue;
-    borderWidth: PropValue;
-  }
-  interface SelectType {
-    size: SelectSizeType;
-  }
-  interface SelectSizeType {
-    medium: PropValue;
-    large: PropValue;
-  }
-
-  interface CodeInputType {
-    size: CodeInputSizeType;
-    paddingBottom: PropValue;
-    paddingTop: PropValue;
-    icontTop: PropValue;
-    iconTopTransform: PropValue;
-    placeholderOpacity: PropValue;
-    iconLargePadding: PropValue;
-    iconSmallPadding: PropValue;
-  }
-
-  interface CodeInputSizeType {
-    large: PropValue;
-    medium: PropValue;
-  }
-
-  interface LoadingType {
-    size: LoadingSizeType;
-    gap: PropValue;
-    padding: PropValue;
-    color: PropValue;
-    letterSpacing: PropValue;
-    lineHeight: PropValue;
-  }
-
-  interface LoadingSizeType {
-    small: PropValue;
-    medium: PropValue;
-    large: PropValue;
-  }
-
-  interface ContainerType {
-    size: ContainerSizeType;
-  }
-
-  interface ContainerSizeType {
-    none: PropValue;
-    micro: PropValue;
-    tiny: PropValue;
-    xsmall: PropValue;
-    small: PropValue;
-    medium: PropValue;
-    large: PropValue;
-    xlarge: PropValue;
-  }
-
-  interface InputNumberType {
-    width: PropValue;
-  }
-
-  interface InputSelectType {
-    width: PropValue;
-  }
-
-  interface InputLabelType {
-    bottomPadding: PropValue;
-  }
-
-  interface InputSizeType {
-    medium: PropValue;
-    large: PropValue;
-  }
-
-  interface IconSizeType {
-    small: PropValue;
-    medium: PropValue;
-    large: PropValue;
-  }
-  interface TypographyTypes {
-    global: GlobalTypography;
-    headline: HeadlineTypographySizes;
-    information: InformationTypographySizes;
-    text: TextTypographySizes;
-  }
-
-  interface GlobalTypography {
+  interface TypographyStyleType {
     'font-family': PropValue;
-  }
-
-  interface HeadlineTypographySizes {
-    'font-family': PropValue;
-    display: TypographySize;
-    xlarge: TypographySize;
-    hero: TypographySize;
-    huge: TypographySize;
-    large: TypographySize;
-    medium: TypographySize;
-    small: TypographySize;
-  }
-
-  interface InformationTypographySizes {
-    'font-family': PropValue;
-    micro: TypographySize;
-    small: TypographySize;
-    tiny: TypographySize;
-  }
-
-  interface TextTypographySizes {
-    'font-family': PropValue;
-    medium: TypographySize;
-    'medium-small': TypographySize;
-    small: TypographySize;
-  }
-
-  interface TypographySize {
     'font-size': PropValue;
+    'letter-spacing': PropValue;
     'line-height': PropValue;
-    'mobile-font-size'?: PropValue;
+    'font-weight': PropValue;
+    'text-transform'?: PropValue;
+    'text-decoration'?: PropValue;
+  }
+
+  interface VariablesType {
+    global: GlobalTypes;
+  }
+
+  interface GlobalTypes {
+    'text-alignments': TypographyAlignment;
   }
 
   interface TypographyAlignment {
-    left: boolean;
-    center: boolean;
-    right: boolean;
-  }
-
-  interface Colors {
-    theme: Theme;
-    button: ButtonColors;
-    data: DataColors;
-    default: PropValue;
-    form: FormColors;
-    gradient: GradientColors;
-    information: InformationColors;
-    overlay: OverlayColors;
-    support: SupportColors;
-    system: SystemColors;
-    transparent: PropValue;
-    white: PropValue;
-    black: PropValue;
+    left: PropValue;
+    center: PropValue;
+    right: PropValue;
   }
 
   interface PropValue {
     value: string;
   }
 
-  interface OpacityPair {
-    default: PropValue;
-    white: PropValue;
-  }
-
   interface Theme {
     themePrimary: PropValue;
     themeSecondary: PropValue;
     themeTertiary: PropValue;
-  }
-
-  interface ButtonColors {
-    primaryDefault: PropValue;
-    primaryDisable: PropValue;
-    primaryHover: PropValue;
-    primaryNegativeDefault: PropValue;
-    primaryNegativeHover: PropValue;
-  }
-
-  interface DataColors {
-    lightGreen1: PropValue;
-    trueBlue2: PropValue;
-    naplesYellow3: PropValue;
-    vividRed4: PropValue;
-    skyBlue5: PropValue;
-    goldYellow6: PropValue;
-    carlsbergGreen7: PropValue;
-    apricot8: PropValue;
-  }
-
-  interface FormColors {
-    calendarAvailable: PropValue;
-    calendarSelect: PropValue;
-    calendarSpecial: PropValue;
-    formSelect: PropValue;
-  }
-
-  interface GradientColors {
-    themePrimaryHorizontal: PropValue;
-    themePrimaryVertical: PropValue;
-    transparent: PropValue;
-    whiteHorizontal: PropValue;
-    whiteVertical: PropValue;
-  }
-
-  interface InformationColors {
-    active: PropValue;
-    archive: PropValue;
-    closed: PropValue;
-    disable: PropValue;
-    hold: PropValue;
-    indirect: PropValue;
-    live: PropValue;
-    multiple: PropValue;
-    new: PropValue;
-    parked: PropValue;
-    prospect: PropValue;
-    wholesaler: PropValue;
-  }
-
-  interface OverlayColors {
-    opacity10: OpacityPair;
-    opacity50: OpacityPair;
-    opacity75: OpacityPair;
-    opacity90: OpacityPair;
-    transparent: PropValue;
-  }
-
-  interface SupportColors {
-    support20: PropValue;
-    support40: PropValue;
-    support60: PropValue;
-    support80: PropValue;
-  }
-
-  interface SystemColors {
-    alertBackground: PropValue;
-    alertStrong: PropValue;
-    disableBackground: PropValue;
-    disableStrong: PropValue;
-    failBackground: PropValue;
-    failStrong: PropValue;
-    notificationBackground: PropValue;
-    notificationStrong: PropValue;
-    notificationTest: PropValue;
-    successBackground: PropValue;
-    successStrong: PropValue;
   }
 }

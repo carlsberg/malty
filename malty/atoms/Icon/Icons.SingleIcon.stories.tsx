@@ -3,7 +3,7 @@ import { DocsContext } from '@storybook/addon-docs';
 import { Meta, Story } from '@storybook/react';
 import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { Icon } from './Icon';
-import { Colors, IconInterface, NamesTypes, SizesTypes } from './Icon.types';
+import { IconColor, IconName, IconProps, IconSize } from './Icon.types';
 
 const convertToKebabCase = (string: string) =>
   string
@@ -11,55 +11,67 @@ const convertToKebabCase = (string: string) =>
     .replace(/\s+/g, '-')
     .toLowerCase();
 
-const getValueByKeyForStringEnum = (value: string) => Object.entries(NamesTypes).find(([key]) => key === value)?.[1];
+const getValueByKeyForStringEnum = (value: string) => Object.entries(IconName).find(([key]) => key === value)?.[1];
 
 const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
-const variant: string = urlParams.get('variant') || 'AddContent';
+const variant: string = urlParams.get('variant') || 'CarlsbergFilled';
 
-const defaultIconName: NamesTypes = getValueByKeyForStringEnum(variant) || NamesTypes.AddContent;
+const defaultIconName: IconName = getValueByKeyForStringEnum(variant) || IconName.CarlsbergFilled;
 
 export default {
-  title: 'Atoms/Icons/Single Icon',
+  title: 'Icons/Single Icon',
   component: Icon,
   parameters: {
-    importObject: 'AddContent',
-    importPath: '@carlsberggroup/malty.atoms.icons.add-content'
+    importObject: 'CarlsbergFilled',
+    importPath: '@carlsberggroup/malty.icons.add-content',
+    variants: Object.keys(IconName)
   },
   argTypes: {
     name: {
-      options: Object.values(NamesTypes),
+      options: Object.keys(IconName),
+      mapping: IconName,
+      control: {
+        type: 'select',
+        label: Object.values(IconName)
+      },
       description:
         'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
-      defaultValue: defaultIconName,
-      control: {
-        type: 'select'
-      }
-    },
-    color: {
-      options: Object.values(Colors),
-      description: 'Icon color, options are',
-      defaultValue: Colors.Primary,
       table: {
         defaultValue: {
-          summary: 'Primary'
+          summary: null
         }
       },
+      defaultValue: defaultIconName
+    },
+    color: {
+      options: Object.keys(IconColor),
+      mapping: IconColor,
       control: {
-        type: 'radio'
-      }
+        type: 'radio',
+        label: Object.values(IconColor)
+      },
+      description: 'Icon color, options are',
+      table: {
+        defaultValue: {
+          summary: 'IconColor.Primary'
+        }
+      },
+      defaultValue: 'Primary'
     },
     size: {
-      options: Object.values(SizesTypes),
-      defaultValue: SizesTypes.Medium,
+      options: Object.keys(IconSize),
+      mapping: IconSize,
+      control: {
+        type: 'radio',
+        label: Object.values(IconSize)
+      },
       description: 'Icon size, options are',
       table: {
         defaultValue: {
-          summary: 'Medium'
+          summary: 'IconSize.Medium'
         }
       },
-      control: {
-        type: 'radio'
-      }
+      defaultValue: 'Medium'
     },
     viewBox: {
       table: {
@@ -72,14 +84,12 @@ export default {
   }
 } as Meta;
 
-const Template: Story<IconInterface> = (args) => {
+const Template: Story<IconProps> = (args) => {
   const context = useContext(DocsContext);
   const [story] = useState(context.getStoryContext(context.storyById(context.id)));
   const params = story.parameters;
   const [object, setObject] = useState(args.name);
-  const [path, setPath] = useState(
-    `@carlsberggroup/malty.atoms.icons.${convertToKebabCase(args.name || 'AddContent')}`
-  );
+  const [path, setPath] = useState(`@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
 
   useLayoutEffect(() => {
     params.importObject = object;
@@ -88,21 +98,16 @@ const Template: Story<IconInterface> = (args) => {
 
   useEffect(() => {
     setObject(args.name);
-    setPath(`@carlsberggroup/malty.atoms.icons.${convertToKebabCase(args.name || 'AddContent')}`);
+    setPath(`@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
   }, [args.name]);
 
   useEffect(() => {
-    const name: string = args.name || 'AddContent';
+    const name: string = args.name || 'CarlsbergFilled';
     params.importObject = name;
-    params.importPath = `@carlsberggroup/malty.atoms.icons.${convertToKebabCase(name)}`;
+    params.importPath = `@carlsberggroup/malty.icons.${convertToKebabCase(name)}`;
   }, [args.name]);
 
-  return <Icon name={getValueByKeyForStringEnum(args.name || 'AddContent')} color={args.color} size={args.size} />;
+  return <Icon name={getValueByKeyForStringEnum(args.name || 'CarlsbergFilled')} color={args.color} size={args.size} />;
 };
 
 export const SingleIcon = Template.bind({});
-
-SingleIcon.parameters = {
-  color: Colors.Primary,
-  size: SizesTypes.Large
-};

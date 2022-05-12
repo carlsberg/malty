@@ -4,4 +4,12 @@ export interface PaginationProps {
   currentPage: number;
   siblingCount?: number;
   dataQaId?: string;
+  type?: PaginationType;
+  isWhite?: boolean;
+}
+
+export enum PaginationType {
+  Default = 'default',
+  Compact = 'compact',
+  Input = 'input'
 }

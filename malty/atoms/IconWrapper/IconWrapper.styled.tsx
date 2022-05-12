@@ -1,17 +1,19 @@
-import styled from 'styled-components';
-import { Colors } from './IconWrapper.types';
+import styled, { css } from 'styled-components';
+import { IconColor } from './IconWrapper.types';
 
 export const StyledIcon = styled.svg.attrs({
   version: '1.1',
   xmlns: 'http://www.w3.org/2000/svg',
   xmlnsXlink: 'http://www.w3.org/1999/xlink'
 })<{
-  color: Colors;
+  color: IconColor;
   size: string;
 }>`
-  fill: ${({ color, theme }) => (color === Colors.Primary ? theme.color.default.value : theme.color.white.value)};
-  height: ${({ size }) => size}px;
-  width: ${({ size }) => size}px;
+  ${({ color, theme }) => css`
+    fill: ${theme.colors.colours.default[color].value};
+    color: ${theme.colors.colours.default[color].value};
+  `}
+  height: ${({ size }) => size};
+  width: ${({ size }) => size};
   transition: fill 0.25s ease-in-out;
-  color: ${({ color, theme }) => (color === Colors.Primary ? theme.color.default.value : theme.color.white.value)};
 `;

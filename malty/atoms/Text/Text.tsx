@@ -2,20 +2,26 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledParagraph } from './Text.styled';
-import { TextProps } from './Text.types';
+import { TextAlign, TextColor, TextProps, TextStyle } from './Text.types';
 
-export const Text = ({ size, weight, align, color, children, underline, italic }: TextProps) => {
+export const Text = ({
+  textStyle = TextStyle.MediumDefault,
+  align = TextAlign.Left,
+  color = TextColor.DigitalBlack,
+  italic = false,
+  children,
+  dataQaId
+}: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <TypographyProvider>
       <StyledParagraph
-        size={size}
-        weight={weight}
-        align={align}
-        underline={underline}
-        italic={italic}
+        data-testid={dataQaId}
+        textStyle={textStyle}
         color={color}
+        align={align}
+        italic={italic}
         theme={theme}
       >
         {children}

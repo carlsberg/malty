@@ -1,79 +1,87 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
-import { PillColor, PillSizeType } from './Pill.types';
+import { PillColor, PillSize } from './Pill.types';
 
 export const StyledPill = styled.div<{
   size: string;
   fontSize: string;
   iconSize: string;
   padding: string;
-  isRounded: boolean;
-  hasOnClick: boolean;
+
   color: PillColor;
+  textColor: IconColor;
   hasText: boolean;
+  pillSize: PillSize;
 }>`
-  font-family: inherit;
-  font-size: ${({ fontSize }) => `${fontSize}px`};
-  line-height: 1;
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+  font-size: ${({ fontSize }) => `${fontSize}`};
   font-weight: bold;
-  background-color: ${({ color, theme }) => theme.color.information[color].value};
-  color: ${({ theme }) => theme.color.white.value};
+  background-color: ${({ color, theme }) => {
+    if (color === PillColor.Primary) {
+      return theme.colors.theme.themePrimary.value;
+    }
+    if (color === PillColor.Secondary) {
+      return theme.colors.theme.themeSecondary.value;
+    }
+    if (color === PillColor.Archive) {
+      return theme.colors.colours.support[40].value;
+    }
+    return theme.colors.colours.system[color].value;
+  }};
+  color: ${({ textColor }) => textColor};
   display: inline-flex;
   align-items: center;
-  height: ${({ size }) => `${size}px`};
+  height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
-
-  ${({ hasOnClick }) =>
-    hasOnClick &&
-    css`
-      cursor: pointer;
-      &:hover {
-        background: ${({ theme }) => theme.color.information.indirect.value};
-      }
-    `}
-  ${({ isRounded, size }) =>
-    isRounded &&
-    css`
-      border-radius: ${parseInt(size, 10) / 2}px;
-    `}
+  border-radius: ${({ size }) => `${size}`};
 
   .pill {
     &__icon {
-      margin-right: ${({ hasText, theme }) => hasText && theme.variables.pill.icon.size.xsmall.value}px;
-      height: ${({ iconSize }) => iconSize}px;
-      width: ${({ iconSize }) => iconSize}px;
-    }
-    &__remove-icon {
-      margin-left: ${({ padding }) => padding}px;
-      height: ${({ iconSize }) => iconSize}px;
-      width: ${({ iconSize }) => iconSize}px;
-      cursor: pointer;
-      transition: 0.25s ease-in-out;
-      transition-property: fill, transform;
-      &:hover {
-        transform: rotate(90deg);
-      }
+      ${({ pillSize, hasText }) => {
+        if (pillSize === PillSize.ExtraSmall || pillSize === PillSize.Small) {
+          return css`
+            margin-right: ${({ theme }) => hasText && theme.sizes['5xs'].value};
+          `;
+        }
+
+        return css`
+          margin-right: ${({ theme }) => hasText && theme.sizes['4xs'].value};
+        `;
+      }}
+
+      height: ${({ iconSize }) => iconSize};
+      width: ${({ iconSize }) => iconSize};
     }
   }
 
-  ${({ size, hasText, padding }) => {
-    if (size === PillSizeType.ExtraSmall || size === PillSizeType.Small) {
+  ${({ size, hasText, padding, pillSize, theme }) => {
+    if (!hasText) {
       return css`
-        padding: 0 ${padding}px;
-        .pill {
-          &__icon {
-            ${hasText && `margin-right: ${parseInt(padding, 10) / 2}px;`};
-          }
-          &__remove-icon,
-          &__icon {
-            padding: ${parseInt(padding, 10) / 2}px 0;
-            height: 100%;
-            width: auto;
-          }
-        }
+        padding: ${theme.sizes['5xs'].value};
+        width: ${size};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      `;
+    }
+    if (pillSize === PillSize.ExtraSmall) {
+      return css`
+        padding: 0 ${padding} 0 ${theme.sizes['4xs'].value}; ;
+      `;
+    }
+    if (pillSize === PillSize.Small) {
+      return css`
+        padding: 0 ${padding} 0 ${theme.sizes['2xs'].value}; ;
       `;
     }
     return css`
-      padding: 0 ${padding}px;
+      padding: 0 ${padding} 0 ${theme.sizes.xs.value}; ;
     `;
   }}
+`;
+export const StyledText = styled.div<{
+  marginText: string;
+  hasText: boolean;
+}>`
+  margin-left: ${({ hasText, marginText }) => hasText && marginText};
 `;

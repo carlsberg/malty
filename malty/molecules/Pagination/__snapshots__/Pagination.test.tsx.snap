@@ -1,56 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`molecule pagination matches snapshot 1`] = `
-<span
-  className="sc-bdvvtL iouZXA"
+<div
+  className="sc-kDDrLX kGuhpW"
 >
-  <div
-    className="sc-kDTinF ptlVJ"
+  <span
+    className="sc-bczRLJ hROJNc"
   >
     <ul>
       <li>
-        <button
-          className="sc-iqseJM keKLOL"
-          disabled={true}
-          onClick={[Function]}
-          onKeyUp={[Function]}
-          tabIndex={0}
-        >
-          <svg
-            className="sc-gsDKAQ rszqA"
-            color="Primary"
-            data-testid="svg-component"
-            size="40"
-            version="1.1"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-          >
-            <g
-              fillRule="evenodd"
-            >
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
-              />
-              <path
-                d="M10.414 12l5.293-5.293a1 1 0 00-1.414-1.414l-6 6a1 1 0 000 1.414l6 6a1 1 0 101.414-1.414z"
-              />
-            </g>
-          </svg>
-        </button>
-      </li>
-      <li>
         <span
-          className="sc-bdvvtL iouZXA"
+          className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo active"
-            fontSize="16"
+            className="sc-jSMfEi sc-ftvSup gJXBfu hcgwTV"
+            data-testid="undefined-button-previous"
+            disabled={true}
+            fontSize="16px"
+            loading={false}
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              className="text-container "
+            >
+              <svg
+                className="sc-gsnTZi ivMBgY"
+                color="digital-black"
+                data-testid="svg-component"
+                size="24px"
+                version="1.1"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  fillRule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M10.414 12l5.293-5.293a1 1 0 00-1.414-1.414l-6 6a1 1 0 000 1.414l6 6a1 1 0 101.414-1.414z"
+                  />
+                </g>
+              </svg>
+            </div>
+          </button>
+        </span>
+      </li>
+      <li
+        className="default-pagination"
+      >
+        <span
+          className="sc-bczRLJ hROJNc"
+        >
+          <button
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV active"
+            data-testid="undefined-page-1"
+            fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
-            type="submit"
+            type="button"
           >
             <div
               className="text-container "
@@ -60,17 +76,21 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
-          className="sc-bdvvtL iouZXA"
+          className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
-            fontSize="16"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
+            data-testid="undefined-page-2"
+            fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
-            type="submit"
+            type="button"
           >
             <div
               className="text-container "
@@ -80,17 +100,21 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
-          className="sc-bdvvtL iouZXA"
+          className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
-            fontSize="16"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
+            data-testid="undefined-page-3"
+            fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
-            type="submit"
+            type="button"
           >
             <div
               className="text-container "
@@ -100,17 +124,21 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
-          className="sc-bdvvtL iouZXA"
+          className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
-            fontSize="16"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
+            data-testid="undefined-page-4"
+            fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
-            type="submit"
+            type="button"
           >
             <div
               className="text-container "
@@ -120,17 +148,21 @@ exports[`molecule pagination matches snapshot 1`] = `
           </button>
         </span>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
-          className="sc-bdvvtL iouZXA"
+          className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
-            fontSize="16"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
+            data-testid="undefined-page-5"
+            fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
-            type="submit"
+            type="button"
           >
             <div
               className="text-container "
@@ -141,25 +173,30 @@ exports[`molecule pagination matches snapshot 1`] = `
         </span>
       </li>
       <li
+        data-testid="undefined-dots"
         tabIndex={-1}
       >
         <div
-          className="sc-crHmcD jigcKj"
+          className="sc-iqcoie lcUdKR"
         >
           …
         </div>
       </li>
-      <li>
+      <li
+        className="default-pagination"
+      >
         <span
-          className="sc-bdvvtL iouZXA"
+          className="sc-bczRLJ hROJNc"
         >
           <button
-            className="sc-jRQBWg sc-furwcr gKJVGE hDqwdo"
-            fontSize="16"
+            className="sc-jSMfEi sc-ftvSup cFGKmZ hcgwTV"
+            data-testid="undefined-page-10"
+            fontSize="16px"
+            loading={false}
             onClick={[Function]}
             onKeyUp={[Function]}
             tabIndex={0}
-            type="submit"
+            type="button"
           >
             <div
               className="text-container "
@@ -170,38 +207,50 @@ exports[`molecule pagination matches snapshot 1`] = `
         </span>
       </li>
       <li>
-        <button
-          className="sc-iqseJM cxdiCD"
-          disabled={false}
-          onClick={[Function]}
-          onKeyUp={[Function]}
-          tabIndex={-1}
+        <span
+          className="sc-bczRLJ hROJNc"
         >
-          <svg
-            className="sc-gsDKAQ rszqA"
-            color="Primary"
-            data-testid="svg-component"
-            size="40"
-            version="1.1"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
+          <button
+            className="sc-jSMfEi sc-ftvSup gJXBfu hcgwTV"
+            data-testid="undefined-button-next"
+            disabled={false}
+            fontSize="16px"
+            loading={false}
+            onClick={[Function]}
+            onKeyUp={[Function]}
+            tabIndex={0}
+            type="button"
           >
-            <g
-              fillRule="evenodd"
+            <div
+              className="text-container "
             >
-              <path
-                d="M0 0h24v24H0z"
-                fill="none"
-              />
-              <path
-                d="M13.586 12l-5.293 5.293a1 1 0 001.414 1.414L16.414 12 9.707 5.293a1 1 0 00-1.414 1.414z"
-              />
-            </g>
-          </svg>
-        </button>
+              <svg
+                className="sc-gsnTZi ivMBgY"
+                color="digital-black"
+                data-testid="svg-component"
+                size="24px"
+                version="1.1"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <g
+                  fillRule="evenodd"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M13.586 12l-5.293 5.293a1 1 0 001.414 1.414L16.414 12 9.707 5.293a1 1 0 00-1.414 1.414z"
+                  />
+                </g>
+              </svg>
+            </div>
+          </button>
+        </span>
       </li>
     </ul>
-  </div>
-</span>
+  </span>
+</div>
 `;

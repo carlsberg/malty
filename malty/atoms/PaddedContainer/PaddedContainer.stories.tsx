@@ -1,10 +1,10 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { PaddedContainer as PaddedContainerComponent, PaddedContainerProps } from '.';
-import { PaddedContainerSizeType } from './PaddedContainer.types';
+import { PaddedContainerSize } from './PaddedContainer.types';
 
 export default {
-  title: 'Atoms/Padded Container',
+  title: 'Layout/Padded Container',
   component: PaddedContainerComponent,
   parameters: {
     importObject: 'PaddedContainer',
@@ -12,11 +12,11 @@ export default {
   },
   argTypes: {
     padding: {
-      options: Object.values(PaddedContainerSizeType),
+      options: Object.values(PaddedContainerSize),
       description: 'PaddedContainer padding size',
       table: {
         defaultValue: {
-          summary: 'None (0px)'
+          summary: 'PaddedContainerSize.None'
         }
       },
       control: {
@@ -41,5 +41,5 @@ const Template: Story<PaddedContainerProps> = (args) => (
 
 export const PaddedContainer = Template.bind({});
 PaddedContainer.args = {
-  padding: PaddedContainerSizeType.None
+  padding: PaddedContainerSize.None
 };

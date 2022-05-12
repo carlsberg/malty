@@ -1,9 +1,9 @@
 export interface PaddedContainerProps {
-  padding?: PaddedContainerSizeType;
+  padding?: PaddedContainerSize;
   children?: string | JSX.Element;
 }
 
-export enum PaddedContainerSizeType {
+export enum PaddedContainerSize {
   None = 'None',
   Micro = 'Micro',
   Tiny = 'Tiny',

@@ -1,5 +1,5 @@
-import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
-import userEvent from '@testing-library/user-event';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { TextArea } from './TextArea';
 
@@ -9,7 +9,7 @@ const mockFn = jest.fn();
 
 describe('textarea', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(<TextArea value="Value" onValueChange={mockFn} />);
+    const view = jsonRenderer(<TextArea value="Value" onValueChange={mockFn} label="Label text" />);
     expect(view).toMatchSnapshot();
   });
 
@@ -26,8 +26,8 @@ describe('textarea', () => {
       <TextArea value="Initial value" label="textarea label" onValueChange={onValueChange} />
     );
     const textarea = screen.getByDisplayValue('Initial value');
-    userEvent.type(textarea, 'Test');
-    expect(onValueChange).toHaveBeenCalledTimes(4);
+    fireEvent.input(textarea, { target: { value: 'Test' } });
+    expect(onValueChange).toHaveBeenCalledTimes(1);
 
     rerender(<TextArea value="Test" label="textarea label" onValueChange={onValueChange} />);
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();

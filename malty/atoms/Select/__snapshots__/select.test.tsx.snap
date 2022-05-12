@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`select matches snapshot 1`] = `
+<span
+  className="sc-bczRLJ hROJNc"
+>
+  <label
+    className="sc-bBrHrO bKeEPu"
+    data-testid="undefined-label"
+    disabled={false}
+    htmlFor="00000000-0000-0000-0000-000000000000"
+  >
+    Label text
+  </label>
+  <div
+    className="sc-fLlhyt dzruwu"
+  >
+    <button
+      className="sc-llJcti jaCqFk"
+      data-testid="undefined-button"
+      disabled={false}
+      height="40px"
+      id="00000000-0000-0000-0000-000000000000"
+      name="00000000-0000-0000-0000-000000000000"
+      onClick={[Function]}
+      open={false}
+      type="button"
+    >
+      <div
+        className="sc-jIZahH fPayJe"
+        data-testid="undefined-selected-values"
+      >
+        Placeholder text
+      </div>
+      <svg
+        className="sc-gsnTZi ivMBgY sc-bZkfAO eHBotM"
+        color="digital-black"
+        data-testid="svg-component"
+        size="24px"
+        version="1.1"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          fillRule="evenodd"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M12 13.586L6.707 8.293a1 1 0 00-1.414 1.414l6 6a1 1 0 001.414 0l6-6a1 1 0 10-1.414-1.414z"
+          />
+        </g>
+      </svg>
+    </button>
+    <span
+      className="sc-bczRLJ hROJNc"
+    >
+      <ul
+        className="sc-iIPllB iMCCGV"
+        data-testid="undefined-options"
+        height="40px"
+      >
+        <div
+          className="sc-himrzO"
+        />
+        <li
+          className="sc-ezWOiH leTsxi"
+          data-testid="undefined-option-0"
+          disabled={false}
+          height="40px"
+          onClick={[Function]}
+          selected={false}
+          value="value 1"
+        >
+          <div
+            className="sc-ikZpkk ZiOJS"
+            data-testid="undefined-option-label-0"
+          >
+            name 1
+          </div>
+        </li>
+        <li
+          className="sc-ezWOiH leTsxi"
+          data-testid="undefined-option-1"
+          disabled={false}
+          height="40px"
+          onClick={[Function]}
+          selected={false}
+          value="value 2"
+        >
+          <div
+            className="sc-ikZpkk ZiOJS"
+            data-testid="undefined-option-label-1"
+          >
+            name 2
+          </div>
+        </li>
+        <li
+          className="sc-ezWOiH leTsxi"
+          data-testid="undefined-option-2"
+          disabled={false}
+          height="40px"
+          onClick={[Function]}
+          selected={false}
+          value="value 3"
+        >
+          <div
+            className="sc-ikZpkk ZiOJS"
+            data-testid="undefined-option-label-2"
+          >
+            name 3
+          </div>
+        </li>
+        <li
+          className="sc-ezWOiH leTsxi"
+          data-testid="undefined-option-3"
+          disabled={false}
+          height="40px"
+          onClick={[Function]}
+          selected={false}
+          value="value 4"
+        >
+          <div
+            className="sc-ikZpkk ZiOJS"
+            data-testid="undefined-option-label-3"
+          >
+            name 4
+          </div>
+        </li>
+        <li
+          className="sc-ezWOiH leTsxi"
+          data-testid="undefined-option-4"
+          disabled={false}
+          height="40px"
+          onClick={[Function]}
+          selected={false}
+          value="value 5"
+        >
+          <div
+            className="sc-ikZpkk ZiOJS"
+            data-testid="undefined-option-label-4"
+          >
+            name 5
+          </div>
+        </li>
+      </ul>
+    </span>
+  </div>
+</span>
+`;

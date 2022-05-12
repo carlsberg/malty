@@ -1,119 +1,105 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-console */
-/* eslint-disable react-hooks/rules-of-hooks */
-import { StyledParagraph } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect, useState } from 'react';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
-import { Position, Toggle, TooltipProps } from './Tooltip.types';
+import { CLOSE_TOOLTIP_EVENT, OPEN_TOOLTIP_EVENT, START_TOOLTIP_TIMER_EVENT, useToolTip } from './Tooltip.helper';
+import { StyledArrow, StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
+import { TooltipPositionStrategy, TooltipProps, TooltipToggle, TooltipType } from './Tooltip.types';
 
-export const Tooltip = ({ position, toggle, isOpen, anchor, children }: TooltipProps) => {
+const Tooltip: TooltipType = ({
+  placement,
+  toggle = TooltipToggle.Hover,
+  isDark = true,
+  dataTestId,
+  autoHideDuration = 5000,
+  onClose,
+  isOpen: isOpenProp,
+  triggerComponent,
+  tooltipId,
+  positionStrategy = TooltipPositionStrategy.Absolute,
+  children
+}: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [anchorOffset, setAnchorOffset] = useState({ vertical: 0, horizontal: 0 });
+  const {
+    isOpen,
+    startAutoHideTimer,
+    setTooltipOpen,
+    setReferenceElement,
+    setPopperElement,
+    setArrowElement,
+    styles,
+    attributes
+  } = useToolTip({
+    placement,
+    isOpenProp,
+    autoHideDuration,
+    toggleType: toggle,
+    onClose,
+    tooltipId,
+    positionStrategy
+  });
 
-  useEffect(() => {
-    if (anchor) {
-      const box = document.getElementById(anchor);
-      const width = box?.offsetWidth;
-      const height = box?.offsetHeight;
-      switch (position) {
-        case Position.Top:
-          setAnchorOffset({
-            vertical: height || 0,
-            horizontal: width || 0
-          });
-          break;
-        case Position.Right:
-          setAnchorOffset({
-            vertical: height || 0,
-            horizontal: width || 0
-          });
-          break;
-        case Position.Bottom:
-          setAnchorOffset({
-            vertical: height || 0,
-            horizontal: width || 0
-          });
-          break;
-        case Position.Left:
-          setAnchorOffset({
-            vertical: height || 0,
-            horizontal: width || 0
-          });
-          break;
-
-        default:
-          setAnchorOffset({ vertical: 0, horizontal: 0 });
-          break;
-      }
+  const handleTooltipMouseEnter = () => {
+    if (toggle === TooltipToggle.Event) {
+      setTooltipOpen(true);
     }
-  }, [anchor]);
+  };
 
-  useEffect(() => {
-    let returnFn;
+  const handleTooltipMouseOut = () => {
+    if (toggle === TooltipToggle.Event) {
+      startAutoHideTimer();
+    }
+  };
 
-    const handleMouseEnter = () => {
-      setShowTooltip(true);
-    };
-
-    const handleMouseOut = () => {
-      setShowTooltip(false);
-    };
-
-    const handleTooltipToggle = () => {
-      setShowTooltip(!showTooltip);
-    };
-
-    if (toggle === Toggle.Hover) {
-      const hoverEl = anchor ? document.getElementById(anchor) : false;
-
-      if (hoverEl) {
-        hoverEl.addEventListener('mouseenter', handleMouseEnter);
-        hoverEl.addEventListener('mouseout', handleMouseOut);
-      }
-
-      returnFn = () => {
-        if (hoverEl) {
-          hoverEl.removeEventListener('mouseenter', handleMouseEnter);
-          hoverEl.removeEventListener('mouseout', handleMouseOut);
-        }
-      };
+  const renderChildren = () => {
+    if (typeof children !== 'string') {
+      return children;
     }
 
-    if (toggle === Toggle.Click) {
-      const hoverEl = anchor ? document.getElementById(anchor) : false;
+    const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
 
-      if (hoverEl) {
-        hoverEl.addEventListener('click', handleTooltipToggle);
-      }
-
-      returnFn = () => {
-        if (hoverEl) {
-          hoverEl.removeEventListener('click', handleTooltipToggle);
-        }
-      };
-    }
-
-    if (toggle === Toggle.Persist) {
-      handleMouseEnter();
-    }
-    return returnFn;
-  }, [anchor, toggle, showTooltip]);
+    return (
+      <Text textStyle={TextStyle.TinyBold} color={tooltipTextColor}>
+        {children}
+      </Text>
+    );
+  };
 
   return (
-    <TypographyProvider>
-      <StyledTooltipWrapper theme={theme}>
-        <StyledTooltip
-          position={position}
-          anchorOffset={anchorOffset}
-          open={isOpen === true ? isOpen : showTooltip}
-          theme={theme}
-        >
-          <StyledParagraph theme={theme}>{children}</StyledParagraph>
-        </StyledTooltip>
+    <>
+      {triggerComponent(setReferenceElement)}
+
+      <StyledTooltipWrapper
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...attributes.popper}
+        ref={setPopperElement}
+        style={styles.popper}
+        data-testid={dataTestId}
+        theme={theme}
+        isDark={isDark}
+        isOpen={isOpen}
+        onMouseEnter={handleTooltipMouseEnter}
+        onMouseOut={handleTooltipMouseOut}
+      >
+        <StyledTooltip theme={theme}>{renderChildren()}</StyledTooltip>
+        <StyledArrow theme={theme} isDark={isDark} ref={setArrowElement} style={styles.arrow} />
       </StyledTooltipWrapper>
-    </TypographyProvider>
+    </>
   );
 };
+
+Tooltip.startTooltipTimer = (triggerElement) => {
+  const event = new window.CustomEvent(START_TOOLTIP_TIMER_EVENT, { detail: triggerElement });
+  window.dispatchEvent(event);
+};
+
+Tooltip.openTooltip = (triggerElement) => {
+  const event = new window.CustomEvent(OPEN_TOOLTIP_EVENT, { detail: triggerElement });
+  window.dispatchEvent(event);
+};
+
+Tooltip.closeTooltip = (triggerElement) => {
+  const event = new window.CustomEvent(CLOSE_TOOLTIP_EVENT, { detail: triggerElement });
+  window.dispatchEvent(event);
+};
+export { Tooltip };

@@ -1,23 +1,25 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import dedent from 'ts-dedent';
 import { Image as ImageComponent, ImageProps } from '.';
-import { Overlay, Position } from './Image.types';
+import { ImageEffectPosition, ImageOverlay } from './Image.types';
 
 export default {
-  title: 'Atoms/Image',
+  title: 'Media/Image',
   component: ImageComponent,
   parameters: {
     importObject: 'Image',
     importPath: '@carlsberggroup/malty.atoms.image',
-    docs: {
-      description: {
-        component: dedent`
-          >###This is a themed component
-          >To see the Theme menu, and be able to change the theme for the _MaltyThemeProvider_, please press the 'T' key on your keyboard, and the toolbar should appear above. For more details, or if this doesn't work, please read here.
-          `
-      }
-    }
+    variants: [
+      'topborder',
+      'rightborder',
+      'bottomborder',
+      'leftborder',
+      'topgradient',
+      'rightgradient',
+      'bottomgradient',
+      'leftgradient'
+    ],
+    themed: true
   },
   argTypes: {
     cover: {
@@ -43,14 +45,14 @@ export default {
       control: 'text'
     },
     border: {
-      options: [undefined, ...Object.values(Position)],
+      options: [undefined, ...Object.values(ImageEffectPosition)],
       description: 'Images can have a styled border side, the osition options are listed below',
       control: {
         type: 'select'
       }
     },
     gradient: {
-      options: [undefined, ...Object.values(Position)],
+      options: [undefined, ...Object.values(ImageEffectPosition)],
       description:
         'Images can have a gradient overlay, the position options are listed below. Gradient will not work if overlay is defined.',
       control: {
@@ -58,7 +60,7 @@ export default {
       }
     },
     overlay: {
-      options: [undefined, ...Object.values(Overlay)],
+      options: [undefined, ...Object.values(ImageOverlay)],
       description: 'This is the overlay opacity, it accepts number string as opacity percentage.',
       control: 'select'
     },
@@ -98,10 +100,66 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
+  case 'topborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Top,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'rightborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Right,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'bottomborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Bottom,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'leftborder':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Left,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'topgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Top,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'rightgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Right,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'bottomgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Bottom,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'leftgradient':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+      gradient: ImageEffectPosition.Left,
+      alt: 'This is a sample image'
+    };
+    break;
   default:
     Image.args = {
       src: 'https://via.placeholder.com/400',
-      border: Position.Bottom,
+      border: ImageEffectPosition.Bottom,
       alt: 'This is a sample image'
     };
     break;

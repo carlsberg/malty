@@ -7,21 +7,45 @@ export const StyledInputContainer = styled.div`
   flex-direction: column;
 `;
 
-export const StyledLabel = styled.label`
-  color: ${({ theme }) => theme.color.default.value};
-  font-size: ${({ theme }) => theme.typography.information.small['font-size'].value}px;
-  line-height: ${({ theme }) => theme.typography.information.small['line-height'].value}px;
-  padding-bottom: ${({ theme }) => theme.variables.input.label.bottomPadding.value}px;
+export const StyledLabel = styled.label<{
+  disabled?: boolean;
+}>`
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
+  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
   font-weight: bold;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
 `;
 
 export const StyledError = styled.label`
   font-family: inherit;
-  color: ${({ theme }) => theme.color.system.failStrong.value};
-  font-size: ${({ theme }) => theme.typography.information.tiny['font-size'].value}px;
+  color: ${({ theme }) => theme.colors.colours.system.fail.value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
-  line-height: ${({ theme }) => theme.typography.information.tiny['line-height'].value}px;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
+`;
+
+export const StyledHint = styled.label<{
+  disabled?: boolean;
+}>`
+  font-family: inherit;
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
+  font-weight: bold;
+  line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
+  letter-spacing: 0;
+  margin-top: ${({ theme }) => theme.sizes['4xs'].value};
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
 `;
 
 export const StyledInputWrapper = styled.div<{
@@ -56,12 +80,16 @@ export const StyledInputWrapper = styled.div<{
 
     &:not(.clear-trigger) {
       ${({ theme, isIconLeft, addLeft }) => {
-        const pos =
+        const pos = isIconLeft ? 'left' : 'right';
+        const value =
           addLeft && isIconLeft
-            ? `${theme.variables.input.iconPadding.value}px`
-            : `${theme.variables.input.padding.value}px`;
+            ? `${
+                parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+                parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
+              }px`
+            : `${theme.sizes.s.value}`;
         return css`
-          ${isIconLeft ? 'left' : 'right'}: ${pos};
+          ${pos}: ${value};
         `;
       }}
     }
@@ -75,27 +103,30 @@ export const StyledInputWrapper = styled.div<{
 
 export const StyledInput = styled.input<{
   disabled?: boolean;
+  readOnly?: boolean;
   size: number;
   hasIcon?: boolean;
+  hasClearable?: boolean;
   isIconLeft?: boolean;
   addRight?: boolean;
   isError?: boolean;
 }>`
+  width: 100%;
   flex: 1 1 auto;
   display: inline-flex;
   box-sizing: border-box;
   font-weight: normal;
-  font-size: ${({ theme }) => theme.typography.text['medium-small']['font-size'].value}px;
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid
     ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.form.calendarAvailable.value};
-  color: ${({ theme }) => theme.color.button.primaryDefault.value};
+      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
+  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   height: ${({ size }) => size}px;
   ::placeholder {
     opacity: 0.8;
-    color: ${({ theme }) => theme.color.information.indirect.value};
+    color: ${({ theme }) => theme.colors.colours.information.indirect.value};
   }
   /* clears the ‘X’ from Internet Explorer */
   &[type='search']::-ms-clear {
@@ -130,55 +161,79 @@ export const StyledInput = styled.input<{
   &[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
   }
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+  }
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  }
 
-  ${({ theme, hasIcon, isIconLeft, addRight }) => {
-    const rightPadding = isIconLeft
-      ? `${theme.variables.input.largePadding.value}px`
-      : `${theme.variables.input.padding.value}px`;
-    let leftPadding = isIconLeft
-      ? `${theme.variables.input.padding.value}px`
-      : `${theme.variables.input.largePadding.value}px`;
-    if (addRight) leftPadding = `${theme.variables.input.leftPadding.value}px`;
-    return hasIcon
+  ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
+    const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
+    let rightPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
+    if (addRight) rightPadding = `${theme.sizes['4xl'].value}`;
+    if (hasClearable) rightPadding = `${theme.sizes['2xl'].value}`;
+    return hasIcon || hasClearable
       ? css`
-          padding: 0 ${leftPadding} 0 ${rightPadding};
+          padding: 0 ${rightPadding} 0 ${leftPadding};
         `
       : css`
-          padding: 0 ${theme.variables.input.padding.value}px;
+          padding: 0 ${theme.sizes.s.value};
         `;
   }}
-
   ${({ disabled }) =>
-    disabled
-      ? css`
-          background-color: ${({ theme }) => theme.color.form.formSelect.value};
-        `
-      : css`
-          &:hover,
-          &:focus {
-            outline: none;
-          }
-          &:hover {
-            border-color: ${({ theme }) => theme.color.information.indirect.value};
-          }
-          &:focus {
-            border-color: ${({ theme }) => theme.color.form.calendarSpecial.value};
-            color: ${({ theme }) => theme.color.form.calendarSpecial.value};
-          }
-        `}
+    disabled &&
+    css`
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        pointer-events: none;
+        border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+        color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
+      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+      border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      ::placeholder {
+        color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
+    `}
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        border-color: ${({ theme }) => theme.colors.colours.support[40].value};
+      }
+      color: ${({ theme }) => theme.colors.colours.support[80].value};
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      ::placeholder {
+        color: ${({ theme }) => theme.colors.colours.support[80].value};
+      }
+    `}
 `;
 
 export const StyledButton = styled.button<{
   size?: string;
   isError?: boolean;
+  readOnly?: boolean;
 }>`
   height: ${({ size }) => size}px;
   width: ${({ size }) => size}px;
   border: 1px solid
     ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
+      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   box-sizing: border-box;
-  background: ${({ theme }) => theme.color.button.primaryNegativeDefault.value};
+  background: ${({ theme }) => theme.colors.colours.default.white.value};
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -192,34 +247,60 @@ export const StyledButton = styled.button<{
     border-left: 0;
   }
   &:disabled {
-    background-color: ${({ theme }) => theme.color.button.primaryDisable.value};
+    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+    svg {
+      fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    }
   }
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      pointer-events: none;
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+      svg {
+        fill: ${({ theme }) => theme.colors.colours.support[80].value};
+      }
+    `}
 `;
 
 export const StyledSelect = styled.select<{
   size?: number;
   height?: string;
   isError?: boolean;
+  readOnly?: boolean;
 }>`
   vertical-align: top;
   display: inline-flex;
   box-sizing: border-box;
-  height: ${({ height }) => height}px;
-  width: ${({ theme }) => theme.variables.input.select.width.value}px;
+  height: ${({ height }) => height};
+  width: ${({ theme }) => theme.sizes['5xl'].value};
   border: 1px solid
     ${({ theme, isError }) =>
-      isError ? theme.color.system.failStrong.value : theme.color.button.primaryNegativeHover.value};
+      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   border-right: 0;
   text-align: center;
   appearance: none;
   position: relative;
   &:disabled {
-    background-color: ${({ theme }) => theme.color.form.formSelect.value};
+    color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+    border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
   }
+  ${({ readOnly }) =>
+    readOnly &&
+    css`
+      pointer-events: none;
+      color: ${({ theme }) => theme.colors.colours.support[80].value};
+      background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+    `}
 `;
 
 export const StyledOption = styled.option<{
   height?: string;
 }>`
-  height: ${({ height }) => height}px;
+  height: ${({ height }) => height};
+`;
+export const StyledClearableWrapper = styled.div`
+  position: relative;
+  display: flex;
 `;

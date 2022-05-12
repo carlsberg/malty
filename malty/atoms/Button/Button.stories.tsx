@@ -1,16 +1,17 @@
-import { IconNamesTypes } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Story } from '@storybook/react';
 import React from 'react';
-import { ButtonProps, SizeTypes } from '.';
+import { ButtonProps, ButtonSize } from '.';
 import { Button as ButtonComponent } from './Button';
-import { ButtonStyle, ButtonTypes, IconPosition } from './Button.types';
+import { ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
 export default {
-  title: 'Atoms/Button',
+  title: 'Forms/Button',
   component: ButtonComponent,
   parameters: {
     importObject: 'Button',
-    importPath: '@carlsberggroup/malty.atoms.button'
+    importPath: '@carlsberggroup/malty.atoms.button',
+    variants: ['primary', 'secondary', 'link']
   },
   argTypes: {
     text: {
@@ -18,43 +19,49 @@ export default {
       description: 'Button label, can be'
     },
     type: {
-      options: Object.values(ButtonTypes),
       description: 'The default behavior of the button. Possible values are',
+      options: Object.keys(ButtonType),
+      mapping: ButtonType,
       control: {
-        type: 'radio'
+        type: 'select',
+        label: Object.values(ButtonType)
       },
       table: {
         defaultValue: {
-          summary: 'submit'
+          summary: 'ButtonType.Default'
         }
       }
     },
     style: {
-      options: Object.values(ButtonStyle),
       description: 'CSS styling for the button, can be',
+      options: Object.keys(ButtonStyle),
+      mapping: ButtonStyle,
       control: {
-        type: 'radio'
+        type: 'select',
+        label: Object.values(ButtonStyle)
       },
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'primary'
+          summary: 'ButtonStyle.Primary'
         }
       }
     },
     onClick: {
-      description: 'This is a function that will run on click. It is not a required property'
-    },
-    scroll: {
-      description: 'Scroll position where will floater show',
+      description: 'This is a function that will run on click. It is not a required property',
       table: {
-        defaultValue: 0
-      },
-      control: {
-        type: 'number'
+        category: 'Events'
+      }
+    },
+    onKeyUp: {
+      description: 'This is a function that will run on onKeyUp. It is not a required property',
+      table: {
+        category: 'Events'
       }
     },
     loading: {
       table: {
+        category: 'State',
         defaultValue: {
           summary: 'false'
         }
@@ -62,93 +69,52 @@ export default {
       control: 'boolean',
       description: 'Is button loading?'
     },
-    success: {
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      },
-      description: 'Has button succeeded loading?'
-    },
-    successIcon: {
-      options: Object.values(IconNamesTypes),
-      table: {
-        defaultValue: {
-          summary: 'ItemCheck'
-        }
-      },
-      control: {
-        type: 'select'
-      },
-      description: 'Icon for success state'
-    },
-    successText: {
-      control: 'text',
-      description: 'Button label for success state'
-    },
-    error: {
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      },
-      description: 'Has button failed loading?'
-    },
-    errorIcon: {
-      options: Object.values(IconNamesTypes),
-      description: 'Icon for failed state',
-      table: {
-        defaultValue: {
-          summary: 'ItemClose'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    errorText: {
-      control: 'text',
-      description: 'Button label for failed state'
-    },
     size: {
-      options: Object.values(SizeTypes),
       description: 'Button size. Options are',
+      options: Object.values(ButtonSize),
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'Medium'
+          summary: 'ButtonSize.Medium'
         }
       },
       control: {
-        type: 'radio'
+        type: 'select'
       }
     },
     icon: {
-      options: Object.values(IconNamesTypes),
       description: 'When selected, button label will contain the selected icon',
+      options: Object.values({ undefined, ...IconName }),
+      table: {
+        category: 'Icon'
+      },
       control: {
         type: 'select'
       }
     },
     iconPos: {
-      options: Object.values(IconPosition),
       description: 'When icon present, position will be',
+      options: Object.values(ButtonIconPosition),
       table: {
+        category: 'Icon',
         defaultValue: {
           summary: 'Right'
         }
       },
       control: {
-        type: 'radio'
+        type: 'select'
       }
     },
-    isWhite: {
+    negative: {
       control: 'boolean',
-      description: 'Should this be a white button?'
+      description: 'Should this be a white button?',
+      table: {
+        category: 'Styling'
+      }
     },
     disabled: {
       table: {
+        category: 'State',
         defaultValue: {
           summary: 'false'
         }
@@ -158,7 +124,10 @@ export default {
     },
     fullWidth: {
       control: 'boolean',
-      description: 'Should this be a full width button, that will stretch to 100% of its wrapper?'
+      description: 'Should this be a full width button, that will stretch to 100% of its wrapper?',
+      table: {
+        category: 'Styling'
+      }
     },
     url: {
       control: 'text',
@@ -166,7 +135,10 @@ export default {
     },
     selected: {
       description: 'Add classname of "active" to element',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'Styling'
+      }
     },
     children: {
       control: 'text',
@@ -186,21 +158,16 @@ switch (variant) {
   case 'link':
     Button.args = {
       style: ButtonStyle.Link,
+      type: ButtonType.Submit,
       text: 'Link text',
-      size: SizeTypes.Medium,
-      iconPos: IconPosition.Right,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconNamesTypes.ItemCheck,
-      successText: '',
-      errorIcon: IconNamesTypes.ItemClose,
-      errorText: ''
+      selected: false
     };
     break;
 
@@ -208,44 +175,15 @@ switch (variant) {
     Button.args = {
       style: ButtonStyle.Secondary,
       text: 'Secondary',
-      type: ButtonTypes.Submit,
-      size: SizeTypes.Medium,
-      iconPos: IconPosition.Right,
+      type: ButtonType.Submit,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconNamesTypes.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconNamesTypes.ItemClose,
-      errorText: 'Error'
-    };
-    break;
-
-  case 'floater':
-    Button.args = {
-      style: ButtonStyle.Floater,
-      icon: IconNamesTypes.ArrowSmallUp,
-      type: ButtonTypes.Submit,
-      size: SizeTypes.Medium,
-      iconPos: IconPosition.Right,
-      loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false,
-      successIcon: IconNamesTypes.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconNamesTypes.ItemClose,
-      errorText: 'Error',
-      scroll: 0
+      selected: false
     };
     break;
 
@@ -253,43 +191,31 @@ switch (variant) {
     Button.args = {
       style: ButtonStyle.Transparent,
       text: 'Transparent',
-      type: ButtonTypes.Submit,
-      size: SizeTypes.Medium,
-      iconPos: IconPosition.Right,
+      type: ButtonType.Submit,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: true,
-      successIcon: IconNamesTypes.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconNamesTypes.ItemClose,
-      errorText: 'Error'
+      selected: false
     };
     break;
-  
+
   default:
     Button.args = {
       style: ButtonStyle.Primary,
       text: 'Primary',
-      type: ButtonTypes.Submit,
-      size: SizeTypes.Medium,
-      iconPos: IconPosition.Right,
+      type: ButtonType.Submit,
+      size: ButtonSize.Medium,
+      iconPos: ButtonIconPosition.Right,
       loading: false,
-      error: false,
-      success: false,
-      isWhite: false,
+      negative: false,
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
-      successIcon: IconNamesTypes.ItemCheck,
-      successText: 'Success',
-      errorIcon: IconNamesTypes.ItemClose,
-      errorText: 'Error'
+      selected: false
     };
     break;
 }

@@ -1,7 +1,7 @@
-import { IconWrapper, IconWrapperInterface } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import React from 'react';
 
-const Library = (props: IconWrapperInterface) =>
+const Library = (props: IconWrapperProps) =>
   IconWrapper(
     props,
     <path

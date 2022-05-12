@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`radio matches snapshot 1`] = `
+<span
+  className="sc-bczRLJ hROJNc"
+>
+  <div
+    className="sc-eCYdqJ hGxLib"
+  >
+    <input
+      checked={true}
+      className="sc-gsnTZi hXyDqd"
+      id="test"
+      name="radio"
+      onChange={[Function]}
+      type="radio"
+      value="test"
+    />
+    <label
+      className="sc-dkzDqf hTcXhs"
+      htmlFor="test"
+    >
+      Label text
+    </label>
+  </div>
+</span>
+`;
