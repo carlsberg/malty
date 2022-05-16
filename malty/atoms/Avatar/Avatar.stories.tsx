@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Avatar as AvatarComponent } from './Avatar';
-import { AvatarProps } from './Avatar.types';
+import { AvatarProps, AvatarSize } from './Avatar.types';
 
 export default {
   title: 'Atoms/Avatar',
@@ -23,22 +23,34 @@ export default {
         type: 'text'
       }
     },
-    fontSize: {
-      description: 'Customize username initials font-size, default is 12px',
+    size: {
+      description: 'Avatar size. Options are',
+      options: Object.values(AvatarSize),
+      table: {
+        defaultValue: {
+          summary: 'AvatarSize.Medium'
+        }
+      },
       control: {
-        type: 'number'
+        type: 'select'
+      }
+    },
+    editable: {
+      description: 'If true, avatar photo is editable',
+      control: {
+        type: 'boolean'
       }
     }
   }
 };
-const Template: Story<AvatarProps> = ({ profileImg, username, fontSize }) => (
+const Template: Story<AvatarProps> = ({ profileImg, username, size, editable }) => (
   <div style={{ width: '100px' }}>
-    <AvatarComponent profileImg={profileImg} username={username} fontSize={fontSize} />
+    <AvatarComponent profileImg={profileImg} username={username} size={size} editable={editable} />
   </div>
 );
 export const Avatar = Template.bind({});
 
 Avatar.args = {
   username: 'John Doe',
-  fontSize: 14
+  editable: false
 };
