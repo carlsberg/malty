@@ -21,10 +21,10 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
         },
         table: {
           defaultValue: {
-            summary: 'IconColor.Primary'
+            summary: 'IconColor.DigitalBlack'
           }
         },
-        defaultValue: 'Primary'
+        defaultValue: 'DigitalBlack'
       },
       size: {
         description: 'Size options are',
@@ -58,7 +58,7 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
 
   const story = Template.bind({});
   story.parameters = {
-    color: IconColor.Primary,
+    color: IconColor.DigitalBlack,
     size: IconSize.Large
   };
   return [storyMeta, story];

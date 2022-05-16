@@ -5,7 +5,7 @@ import { IconProps } from './Icon.types';
 
 export const Icon = ({
   size = IconSize.Medium,
-  color = IconColor.Primary,
+  color = IconColor.DigitalBlack,
   name = IconName.CarlsbergFilled,
   viewBox,
   className,

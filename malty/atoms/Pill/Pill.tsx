@@ -53,7 +53,7 @@ export const Pill = ({
 
   useEffect(() => {
     if (!iconColor && (color === PillColor.Archive || color === PillColor.Success || color === PillColor.alertStrong)) {
-      setIconTextColor(IconColor.Primary);
+      setIconTextColor(IconColor.DigitalBlack);
     }
   }, [color, theme]);
 

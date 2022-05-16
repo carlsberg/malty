@@ -33,7 +33,9 @@ export const AlertInline = ({
       ? TextColor.White
       : TextColor.DigitalBlack;
   const alertIconColor =
-    color === AlertInlineColor.Notification || color === AlertInlineColor.Fail ? IconColor.White : IconColor.Primary;
+    color === AlertInlineColor.Notification || color === AlertInlineColor.Fail
+      ? IconColor.White
+      : IconColor.DigitalBlack;
   const actionButtonColor = color === AlertInlineColor.Notification || color === AlertInlineColor.Fail;
 
   const onFirstAction = () => {
