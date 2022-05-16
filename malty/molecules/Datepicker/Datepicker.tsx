@@ -48,7 +48,7 @@ export const Datepicker = ({
         <StyledDatepicker disabled={disabled} readOnly={readOnly} theme={theme}>
           {!inline && (
             <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
-              <Calendar size={IconSize.Medium} color={IconColor.Primary} />
+              <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />
             </StyledInputIcon>
           )}
 

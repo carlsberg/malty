@@ -17,7 +17,7 @@ import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
 
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
-  [AlertBannerType.Warning]: IconColor.Primary,
+  [AlertBannerType.Warning]: IconColor.DigitalBlack,
   [AlertBannerType.Error]: IconColor.White
 };
 

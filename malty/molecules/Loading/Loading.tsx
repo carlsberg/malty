@@ -50,7 +50,7 @@ export const Loading = ({ text, size = LoadingSize.Medium, status = LoadingStatu
           <StyledLoading size={numSize}>
             <Icon
               name={icon}
-              color={IconColor.Primary}
+              color={IconColor.DigitalBlack}
               size={iconSize}
               className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
             />
