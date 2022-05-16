@@ -11,6 +11,10 @@ export const StyledIcon = styled.svg.attrs({
   ${({ color }) => css`
     fill: ${color};
     color: ${color};
+
+    .path-speach-ballon {
+      stroke: ${color};
+    }
   `}
   height: ${({ size }) => size};
   width: ${({ size }) => size};
