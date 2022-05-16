@@ -36,7 +36,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
               >
                 <>
                   {currentStep > index + 1 && (
-                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.Primary} />
+                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.DigitalBlack} />
                   )}
                   {currentStep <= index + 1 && !isMultiStep && (
                     <StyledStepperNumber theme={theme} active={currentStep >= index + 1}>
@@ -74,7 +74,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
               >
                 <>
                   {currentStep > step && (
-                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.Primary} />
+                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.DigitalBlack} />
                   )}
                   {currentStep <= step && !isMultiStep && (
                     <StyledStepperNumber theme={theme} active={currentStep >= step}>

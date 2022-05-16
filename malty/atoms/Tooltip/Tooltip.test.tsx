@@ -1,5 +1,5 @@
 import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
-import { act, fireEvent, screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Tooltip } from '.';
 import { TooltipPlacement, TooltipToggle } from './Tooltip.types';
@@ -52,64 +52,64 @@ describe('Tooltip', () => {
     renderTooltip({ toggleType: TooltipToggle.Click });
 
     // TooltipToggle.Click - initial state is hidden
-    expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
+    expect(screen.getByText('Button inside Tooltip')).not.toBeVisible();
 
     // show tooltip
     fireEvent.click(screen.getByText('Tooltip Anchor'));
     expect(anchorAction).toHaveBeenCalled();
-    expect(screen.getByRole('button', { name: 'Button inside Tooltip' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Button inside Tooltip' })).toBeVisible();
 
     // hide tooltip
     fireEvent.click(screen.getByText('Tooltip Anchor'));
     expect(anchorAction).toHaveBeenCalled();
-    expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
+    expect(screen.getByText('Button inside Tooltip')).not.toBeVisible();
   });
 
   it('should show tooltip once anchor is hovered', () => {
     renderTooltip({ toggleType: TooltipToggle.Hover });
 
     // TooltipToggle.Hover - initial state is hidden
-    expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
+    expect(screen.getByText('Button inside Tooltip')).not.toBeVisible();
 
     // show tooltip
     fireEvent.mouseEnter(screen.getByText('Tooltip Anchor'));
     expect(anchorAction).toHaveBeenCalled();
-    expect(screen.getByRole('button', { name: 'Button inside Tooltip' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Button inside Tooltip' })).toBeVisible();
 
     // hide tooltip
     fireEvent.mouseLeave(screen.getByText('Tooltip Anchor'));
     expect(anchorAction).toHaveBeenCalled();
-    expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
+    expect(screen.getByText('Button inside Tooltip')).not.toBeVisible();
   });
 
   it('should hide tooltip after finish autoHideDuration', async () => {
     renderTooltip({ toggleType: TooltipToggle.Event });
 
     // TooltipToggle.Event - initial state is hidden
-    expect(screen.queryByText('Button inside Tooltip')).not.toBeInTheDocument();
+    expect(screen.getByText('Button inside Tooltip')).not.toBeVisible();
 
     await act(async () => {
       Tooltip.openTooltip('tooltip');
     });
     // should have opened
     const innerButton = screen.getByRole('button', { name: 'Button inside Tooltip' });
-    expect(innerButton).toBeInTheDocument();
+    expect(innerButton).toBeVisible();
 
     await act(async () => {
       Tooltip.closeTooltip('tooltip');
     });
     // should have closed
-    expect(innerButton).not.toBeInTheDocument();
+    expect(innerButton).not.toBeVisible();
 
     await act(async () => {
       Tooltip.startTooltipTimer('tooltip');
     });
     // should open again
     const newInnerButton = screen.getByRole('button', { name: 'Button inside Tooltip' });
-    expect(newInnerButton).toBeInTheDocument();
+    expect(newInnerButton).toBeVisible();
 
     // should hide tooltip after 3 seconds
-    await waitForElementToBeRemoved(() => screen.queryByText('Button inside Tooltip'), { timeout: 3000 });
+    await waitFor(() => expect(screen.getByText('Button inside Tooltip')).not.toBeVisible(), { timeout: 3000 });
     expect(onClose).toHaveBeenCalled();
   });
 });

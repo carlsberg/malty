@@ -148,7 +148,7 @@ export const AccordionItem = ({
             data-testid={`${dataQaId}-item-icon`}
             open={openAccordion}
             theme={theme}
-            color={IconColor.Primary}
+            color={IconColor.DigitalBlack}
             size={IconSize.Medium}
           />
         </StyledAccordionHeader>

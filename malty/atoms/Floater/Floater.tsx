@@ -16,7 +16,7 @@ export const Floater = ({
   dataTestId,
   children
 }: FloaterProps) => {
-  const iconColor = negative ? IconColor.Primary : IconColor.White;
+  const iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showButton, setShowButton] = useState(true);
 
