@@ -53,10 +53,10 @@ export default {
       description: 'Icon color, options are',
       table: {
         defaultValue: {
-          summary: 'IconColor.Primary'
+          summary: 'IconColor.DigitalBlack'
         }
       },
-      defaultValue: 'Primary'
+      defaultValue: 'DigitalBlack'
     },
     size: {
       options: Object.keys(IconSize),

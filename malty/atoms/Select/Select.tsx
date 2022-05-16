@@ -221,7 +221,7 @@ export const Select = ({
                   {option.name}
                 </StyledWrapper>
                 {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                  <StyledCheck selectStyle={type} color={IconColor.Primary} size={IconSize.Small} />
+                  <StyledCheck selectStyle={type} color={IconColor.DigitalBlack} size={IconSize.Small} />
                 )}
               </>
             )}
@@ -262,7 +262,7 @@ export const Select = ({
             disabled={disabled}
             readOnly={readOnly}
             open={showOptionList}
-            color={IconColor.Primary}
+            color={IconColor.DigitalBlack}
             size={IconSize.Medium}
           />
         </StyledButton>

@@ -68,22 +68,22 @@ const Tooltip: TooltipType = ({
   return (
     <>
       {triggerComponent(setReferenceElement)}
-      {isOpen && (
-        <StyledTooltipWrapper
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...attributes.popper}
-          ref={setPopperElement}
-          style={styles.popper}
-          data-testid={dataTestId}
-          theme={theme}
-          isDark={isDark}
-          onMouseEnter={handleTooltipMouseEnter}
-          onMouseOut={handleTooltipMouseOut}
-        >
-          <StyledTooltip theme={theme}>{renderChildren()}</StyledTooltip>
-          <StyledArrow theme={theme} isDark={isDark} ref={setArrowElement} style={styles.arrow} />
-        </StyledTooltipWrapper>
-      )}
+
+      <StyledTooltipWrapper
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...attributes.popper}
+        ref={setPopperElement}
+        style={styles.popper}
+        data-testid={dataTestId}
+        theme={theme}
+        isDark={isDark}
+        isOpen={isOpen}
+        onMouseEnter={handleTooltipMouseEnter}
+        onMouseOut={handleTooltipMouseOut}
+      >
+        <StyledTooltip theme={theme}>{renderChildren()}</StyledTooltip>
+        <StyledArrow theme={theme} isDark={isDark} ref={setArrowElement} style={styles.arrow} />
+      </StyledTooltipWrapper>
     </>
   );
 };

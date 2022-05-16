@@ -33,19 +33,19 @@ export const Button = ({
   dataTestId
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
-  let iconColor = negative ? IconColor.Primary : IconColor.White;
+  let iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
   switch (style) {
     case ButtonStyle.Secondary:
       Component = StyledSecondaryButton;
-      iconColor = negative ? IconColor.White : IconColor.Primary;
+      iconColor = negative ? IconColor.White : IconColor.DigitalBlack;
       break;
     case ButtonStyle.Transparent:
       Component = StyledTransparentButton;
-      iconColor = negative ? IconColor.White : IconColor.Primary;
+      iconColor = negative ? IconColor.White : IconColor.DigitalBlack;
       break;
     case ButtonStyle.Link:
       Component = StyledLinkButton;
-      iconColor = negative ? IconColor.White : IconColor.Primary;
+      iconColor = negative ? IconColor.White : IconColor.DigitalBlack;
       break;
     default:
       break;

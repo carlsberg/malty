@@ -8,8 +8,26 @@ export interface IconWrapperProps extends React.HTMLAttributes<SVGElement> {
 }
 
 export enum IconColor {
-  Primary = 'digital-black',
-  White = 'white'
+  Primary = 'themePrimary',
+  Secondary = 'themeSecondary',
+  Tertiary = 'themeTertiary',
+  DigitalBlack = 'digital-black',
+  White = 'white',
+  Support20 = '20',
+  Support40 = '40',
+  Support60 = '60',
+  Support80 = '80',
+  Support100 = '100',
+  Notification = 'notification-strong',
+  NotificationLight = 'notification-light',
+  Alert = 'alert-strong',
+  AlertLight = 'alert-light',
+  Success = 'success',
+  SuccessLight = 'success-light',
+  Fail = 'fail',
+  FailLight = 'fail-light',
+  DisableDark = 'disable-dark-theme',
+  DisableLight = 'disable-light-theme'
 }
 
 export enum IconSize {

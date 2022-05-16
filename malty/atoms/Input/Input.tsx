@@ -81,7 +81,7 @@ export const Input = ({
       <Icon
         data-testid={`${dataTestId}-clearable-icon`}
         name={IconName.ItemClose}
-        color={IconColor.Primary}
+        color={IconColor.DigitalBlack}
         size={IconSize.Medium}
         className="clear-trigger"
         onClick={() => onValueChange('')}
@@ -89,7 +89,9 @@ export const Input = ({
     );
 
   const renderIcon = () =>
-    icon && <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.Primary} size={IconSize.Medium} />;
+    icon && (
+      <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+    );
 
   const renderInput = () => (
     <TypographyProvider>
@@ -129,7 +131,12 @@ export const Input = ({
         readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
-        <Icon name={IconName.Minus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
+        <Icon
+          name={IconName.Minus}
+          color={IconColor.DigitalBlack}
+          size={IconSize.Medium}
+          className="quantity-control"
+        />
       </StyledButton>
       <StyledInput
         data-testid={dataTestId}
@@ -158,7 +165,7 @@ export const Input = ({
         readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
-        <Icon name={IconName.Plus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
+        <Icon name={IconName.Plus} color={IconColor.DigitalBlack} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
     </TypographyProvider>
   );
