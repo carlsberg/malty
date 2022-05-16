@@ -81,7 +81,7 @@ export const Input = ({
       <Icon
         data-testid={`${dataTestId}-clearable-icon`}
         name={IconName.ItemClose}
-        color={IconColor.Primary}
+        color={IconColor.DigitalBlack}
         size={IconSize.Medium}
         className="clear-trigger"
         onClick={() => onValueChange('')}
@@ -89,7 +89,9 @@ export const Input = ({
     );
 
   const renderIcon = () =>
-    icon && <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.Primary} size={IconSize.Medium} />;
+    icon && (
+      <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+    );
 
   const renderInput = () => (
     <TypographyProvider>
@@ -107,7 +109,7 @@ export const Input = ({
           hasClearable={clearable}
           isError={!!error}
           isIconLeft={iconPosition === InputIconPosition.Left}
-          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
           type={type}
           theme={theme}
@@ -129,7 +131,12 @@ export const Input = ({
         readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
-        <Icon name={IconName.Minus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
+        <Icon
+          name={IconName.Minus}
+          color={IconColor.DigitalBlack}
+          size={IconSize.Medium}
+          className="quantity-control"
+        />
       </StyledButton>
       <StyledInput
         data-testid={dataTestId}
@@ -144,7 +151,7 @@ export const Input = ({
         hasClearable={clearable}
         isError={!!error}
         isIconLeft={iconPosition === InputIconPosition.Left}
-        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
         onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
         type={type}
         theme={theme}
@@ -158,7 +165,7 @@ export const Input = ({
         readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
-        <Icon name={IconName.Plus} color={IconColor.Primary} size={IconSize.Medium} className="quantity-control" />
+        <Icon name={IconName.Plus} color={IconColor.DigitalBlack} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
     </TypographyProvider>
   );
@@ -212,7 +219,7 @@ export const Input = ({
             hasClearable={clearable}
             isError={!!error}
             isIconLeft={iconPosition === InputIconPosition.Left}
-            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
             onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
             type={type}
             theme={theme}
@@ -236,7 +243,6 @@ export const Input = ({
           isIconLeft={iconPosition === InputIconPosition.Left}
           clearable={clearable || type === InputType.Search}
           addLeft={type === InputType.Telephone}
-          addRight={type === InputType.Date}
           theme={theme}
         >
           {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
