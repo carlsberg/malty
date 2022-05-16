@@ -24,7 +24,6 @@ export enum InputType {
   Number = 'number',
   Email = 'email',
   Password = 'password',
-  Date = 'date',
   Search = 'search',
   Telephone = 'tel',
   URL = 'url'
