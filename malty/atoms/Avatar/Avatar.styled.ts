@@ -56,6 +56,8 @@ export const StyledAvatar = styled.div<{
   profileImg?: string;
   size?: string;
   fontSize?: string;
+  loading: boolean;
+  editable: boolean;
 }>`
   position: relative;
   display: flex;
@@ -71,15 +73,20 @@ export const StyledAvatar = styled.div<{
   width: ${({ size }) => size};
   transition: all 0.25s ease-in-out;
   cursor: pointer;
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][25].value};
-    background-blend-mode: multiply;
-    ${StyledCamera} {
-      visibility: visible;
-      opacity: 1;
-      transition: opacity 0.25s ease-in-out;
-    }
-  }
+  ${({ editable, loading }) =>
+    editable &&
+    !loading &&
+    css`
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][25].value};
+        background-blend-mode: multiply;
+        ${StyledCamera} {
+          visibility: visible;
+          opacity: 1;
+          transition: opacity 0.25s ease-in-out;
+        }
+      }
+    `}
 
   & span {
     color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
@@ -88,4 +95,13 @@ export const StyledAvatar = styled.div<{
     text-transform: uppercase;
     white-space: nowrap;
   }
+`;
+export const StyledLoadingContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.colors.colours.overlay.white[75].value};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

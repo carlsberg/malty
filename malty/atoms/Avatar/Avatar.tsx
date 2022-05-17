@@ -1,8 +1,9 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Loading, LoadingSize, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledAvatar, StyledCamera } from './Avatar.styled';
+import { StyledAvatar, StyledCamera, StyledLoadingContainer } from './Avatar.styled';
 import { AvatarProps, AvatarSize } from './Avatar.types';
 
 const displayInitials = (username: string) => {
@@ -17,17 +18,28 @@ const displayInitials = (username: string) => {
     return firstInitial;
   }
 
-  const lastName = nameArray[nameArray.length - 1];
-  const lastInitial = lastName.charAt(0);
+  const lastName = nameArray.pop();
+  const lastInitial = lastName?.charAt(0);
 
   return `${firstInitial}${lastInitial}`;
 };
 
-export const Avatar = ({ profileImg, username, size, editable = false }: AvatarProps) => {
+export const Avatar = ({
+  profileImg,
+  userName,
+  size,
+  editable = false,
+  onClick = () => null,
+  loading = false
+}: AvatarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [NumSize, setNumSize] = useState(theme.sizes.xl.value);
   const [iconSize, setIconSize] = useState(IconSize.MediumSmall);
   const [fontSize, setfontSize] = useState(theme.typography.desktop.text.small_bold['font-size'].value);
+
+  const handleOnClick = () => {
+    onClick();
+  };
 
   useEffect(() => {
     switch (size) {
@@ -66,14 +78,28 @@ export const Avatar = ({ profileImg, username, size, editable = false }: AvatarP
 
   return (
     <TypographyProvider>
-      <StyledAvatar fontSize={fontSize} size={NumSize} profileImg={profileImg} data-testid="avatar" theme={theme}>
+      <StyledAvatar
+        onClick={handleOnClick}
+        fontSize={fontSize}
+        size={NumSize}
+        profileImg={profileImg}
+        data-testid="avatar"
+        theme={theme}
+        loading={loading}
+        editable={editable}
+      >
+        {loading && (
+          <StyledLoadingContainer>
+            <Loading size={LoadingSize.Small} status={LoadingStatus.Pending} />
+          </StyledLoadingContainer>
+        )}
         {editable && (
           <StyledCamera theme={theme} size={size}>
-            <Icon color={IconColor.Primary} size={iconSize} name={IconName.Camera} />
+            <Icon color={IconColor.Support60} size={iconSize} name={IconName.Camera} />
           </StyledCamera>
         )}
-        {!profileImg && username && <span> {displayInitials(username)} </span>}
-        {!profileImg && !username && <Icon color={IconColor.Primary} size={iconSize} name={IconName.Customer} />}
+        {!profileImg && userName && <span> {displayInitials(userName)} </span>}
+        {!profileImg && !userName && <Icon color={IconColor.Primary} size={iconSize} name={IconName.Customer} />}
       </StyledAvatar>
     </TypographyProvider>
   );

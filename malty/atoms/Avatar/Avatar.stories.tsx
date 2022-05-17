@@ -17,7 +17,7 @@ export default {
         type: 'text'
       }
     },
-    username: {
+    userName: {
       description: 'If profile image is not available the username initials will be displayed instead',
       control: {
         type: 'text'
@@ -40,17 +40,24 @@ export default {
       control: {
         type: 'boolean'
       }
+    },
+    loading: {
+      description: 'If true, avatar shows loading indicator',
+      control: {
+        type: 'boolean'
+      }
     }
   }
 };
-const Template: Story<AvatarProps> = ({ profileImg, username, size, editable }) => (
+const Template: Story<AvatarProps> = ({ profileImg, userName, size, editable, loading }) => (
   <div style={{ width: '100px' }}>
-    <AvatarComponent profileImg={profileImg} username={username} size={size} editable={editable} />
+    <AvatarComponent profileImg={profileImg} userName={userName} size={size} editable={editable} loading={loading} />
   </div>
 );
 export const Avatar = Template.bind({});
 
 Avatar.args = {
-  username: 'John Doe',
-  editable: false
+  userName: 'John Doe',
+  editable: false,
+  loading: false
 };

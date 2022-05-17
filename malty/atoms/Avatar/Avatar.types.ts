@@ -1,8 +1,10 @@
 export interface AvatarProps {
   profileImg?: string;
-  username?: string;
+  userName?: string;
   size?: AvatarSize;
   editable?: boolean;
+  loading?: boolean;
+  onClick?: () => void;
 }
 
 export enum AvatarSize {
