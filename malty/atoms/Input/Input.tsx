@@ -109,7 +109,7 @@ export const Input = ({
           hasClearable={clearable}
           isError={!!error}
           isIconLeft={iconPosition === InputIconPosition.Left}
-          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
           type={type}
           theme={theme}
@@ -151,7 +151,7 @@ export const Input = ({
         hasClearable={clearable}
         isError={!!error}
         isIconLeft={iconPosition === InputIconPosition.Left}
-        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
         onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
         type={type}
         theme={theme}
@@ -219,7 +219,7 @@ export const Input = ({
             hasClearable={clearable}
             isError={!!error}
             isIconLeft={iconPosition === InputIconPosition.Left}
-            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Date && type !== InputType.Number}
+            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
             onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
             type={type}
             theme={theme}
@@ -243,7 +243,6 @@ export const Input = ({
           isIconLeft={iconPosition === InputIconPosition.Left}
           clearable={clearable || type === InputType.Search}
           addLeft={type === InputType.Telephone}
-          addRight={type === InputType.Date}
           theme={theme}
         >
           {type !== InputType.Number && type !== InputType.Telephone && renderInput()}

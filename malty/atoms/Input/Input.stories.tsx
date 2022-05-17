@@ -211,20 +211,6 @@ switch (variant) {
     };
     break;
 
-  case 'date':
-    Input.args = {
-      size: InputSize.Medium,
-      label: 'Label',
-      type: InputType.Date,
-      placeholder: 'Placeholder',
-      error: '',
-      disabled: false,
-      clearable: false,
-      hint: 'hint text',
-      readOnly: false
-    };
-    break;
-
   case 'search':
     Input.args = {
       size: InputSize.Medium,
