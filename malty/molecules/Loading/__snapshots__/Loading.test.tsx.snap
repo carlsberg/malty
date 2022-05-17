@@ -1,44 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`molecule loading matches snapshot 1`] = `
-<div
-  className="sc-dkzDqf gVKwSZ"
+<span
+  className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-hKMtZM epATTu"
-    size="24"
+    className="sc-dkzDqf fCbHaF"
+    data-testid="undefined"
+    size="Medium"
   >
-    <svg
-      className="sc-gsnTZi ivMBgY spinning Pending"
-      color="digital-black"
-      data-testid="svg-component"
+    <div
+      className="sc-hKMtZM kPwEPU spinning Pending"
       size="24px"
-      version="1.1"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <g
-        fillRule="evenodd"
+      <svg
+        data-testid="undefined-pending-icon"
+        fill="none"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M0 0h24v24H0z"
-          fill="none"
+          clipRule="evenodd"
+          d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C34.4934 43 43 34.4934 43 24C43 13.5066 34.4934 5 24 5Z"
+          fill="#212833"
+          fillOpacity="0.1"
+          fillRule="evenodd"
         />
-        <path
-          d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 2a8 8 0 110 16 8 8 0 010-16z"
-          fill="#ffffff"
-        />
-        <path
-          d="M12 2c5.43 0 9.848 4.327 9.996 9.72L22 12h-2a8 8 0 00-7.75-7.996L12 4z"
-        />
-      </g>
-    </svg>
+        <mask
+          id="mask0_1664_614"
+          maskUnits="userSpaceOnUse"
+          style={
+            Object {
+              "maskType": "alpha",
+            }
+          }
+          x="0"
+          y="0"
+        >
+          <path
+            clipRule="evenodd"
+            d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C34.4934 43 43 34.4934 43 24C43 13.5066 34.4934 5 24 5Z"
+            fill="white"
+            fillRule="evenodd"
+          />
+        </mask>
+        <g
+          mask="url(#mask0_1664_614)"
+        >
+          <rect
+            fill="rgb(33, 40, 51)"
+            height="24"
+            width="24"
+            x="24"
+          />
+        </g>
+      </svg>
+    </div>
+    <span
+      className="sc-bczRLJ hROJNc"
+    >
+      <p
+        className="sc-gsnTZi bTqzPh"
+        color="60"
+        data-testid="undefined-label"
+      >
+        Loading...
+      </p>
+    </span>
   </div>
-  <span
-    className="sc-bczRLJ hROJNc"
-  >
-    Loading...
-  </span>
-</div>
+</span>
 `;

@@ -11,29 +11,36 @@ export default {
     importPath: '@carlsberggroup/malty.molecules.loading'
   },
   argTypes: {
-    text: { control: 'text' },
+    text: { control: 'text', description: 'label to be displayed ' },
     size: {
       options: Object.values(LoadingSize),
       control: {
         type: 'select'
-      }
+      },
+      description: 'Size of the icon'
     },
     status: {
       options: Object.values(LoadingStatus),
       control: {
         type: 'select'
-      }
+      },
+      description: 'Status of the icon'
+    },
+    dataQaId: {
+      control: 'text',
+      description: 'Alert data-qi-id, can be'
     }
   }
 } as Meta;
 
-const Template: Story<LoadingProps> = ({ text, size, status }: LoadingProps) => (
-  <LoadingComponent text={text} size={size} status={status} />
+const Template: Story<LoadingProps> = ({ text, size, status, dataQaId }: LoadingProps) => (
+  <LoadingComponent text={text} size={size} status={status} dataQaId={dataQaId} />
 );
 
 export const Loading = Template.bind({});
 Loading.args = {
-  size: LoadingSize.Medium,
+  size: LoadingSize.Small,
   text: 'Loading...',
-  status: LoadingStatus.Pending
+  status: LoadingStatus.Pending,
+  dataQaId: 'loading'
 };

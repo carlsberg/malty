@@ -16,12 +16,12 @@ describe('molecule loading', () => {
   });
 
   it('renders success icon', () => {
-    render(<Loading size={LoadingSize.Medium} status={LoadingStatus.Success} />);
-    expect(screen.getByTestId('svg-component')).toHaveClass(LoadingStatus.Success);
+    render(<Loading size={LoadingSize.Medium} status={LoadingStatus.Success} dataQaId="loading" />);
+    expect(screen.getByTestId('loading-success-icon')).toBeInTheDocument();
   });
 
   it('renders failure icon', () => {
-    render(<Loading size={LoadingSize.Medium} status={LoadingStatus.Failure} />);
-    expect(screen.getByTestId('svg-component')).toHaveClass(LoadingStatus.Failure);
+    render(<Loading size={LoadingSize.Medium} status={LoadingStatus.Failure} dataQaId="loading" />);
+    expect(screen.getByTestId('loading-failure-icon')).toBeInTheDocument();
   });
 });
