@@ -1,4 +1,5 @@
-import { jsonRenderer, render, screen } from '@carlsberggroup/malty.utils.test';
+import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { screen } from '@testing-library/react';
 import React from 'react';
 import { Avatar } from './Avatar';
 
@@ -7,27 +8,27 @@ const imageSrc =
 
 describe('Avatar component', () => {
   it('matches snapshot', () => {
-    const view = jsonRenderer(<Avatar username="John Doe" />);
+    const view = jsonRenderer(<Avatar userName="John Doe" />);
     expect(view).toMatchSnapshot();
   });
 
   it('renders with the username initials', () => {
-    render(<Avatar username="John Doe" />);
-    const initialsSpan = screen.getByText('J D');
+    render(<Avatar userName="John Doe" />);
+    const initialsSpan = screen.getByText('JD');
     expect(initialsSpan).toBeDefined();
   });
 
   it('renders with a profile image', () => {
-    render(<Avatar profileImg={imageSrc} />);
+    render(<Avatar profileImg={imageSrc} dataQaId="avatar" />);
     const avatarContainer = screen.getByTestId('avatar');
 
     expect(avatarContainer).toHaveStyle(`background-image: url(${imageSrc})`);
   });
 
   it('when profile picture is available, do not render username initials', () => {
-    render(<Avatar username="John Doe" profileImg={imageSrc} />);
+    render(<Avatar userName="John Doe" profileImg={imageSrc} />);
 
-    const elementWithInitials = screen.queryByText('J D');
+    const elementWithInitials = screen.queryByText('JD');
     expect(elementWithInitials).not.toBeInTheDocument();
   });
 });

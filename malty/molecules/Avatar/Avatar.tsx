@@ -30,7 +30,8 @@ export const Avatar = ({
   size,
   editable = false,
   onClick = () => null,
-  loading = false
+  loading = false,
+  dataQaId
 }: AvatarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [NumSize, setNumSize] = useState(theme.sizes.xl.value);
@@ -83,7 +84,7 @@ export const Avatar = ({
         fontSize={fontSize}
         size={NumSize}
         profileImg={profileImg}
-        data-testid="avatar"
+        data-testid={dataQaId}
         theme={theme}
         loading={loading}
         editable={editable}
@@ -94,11 +95,11 @@ export const Avatar = ({
           </StyledLoadingContainer>
         )}
         {editable && (
-          <StyledCamera theme={theme} size={size}>
+          <StyledCamera data-testid={`${dataQaId}-camera-icon`} theme={theme} size={size}>
             <Icon color={IconColor.Support60} size={iconSize} name={IconName.Camera} />
           </StyledCamera>
         )}
-        {!profileImg && userName && <span> {displayInitials(userName)} </span>}
+        {!profileImg && userName && <span data-testid={`${dataQaId}-name`}> {displayInitials(userName)} </span>}
         {!profileImg && !userName && <Icon color={IconColor.Primary} size={iconSize} name={IconName.Customer} />}
       </StyledAvatar>
     </TypographyProvider>

@@ -5,6 +5,7 @@ export interface AvatarProps {
   editable?: boolean;
   loading?: boolean;
   onClick?: () => void;
+  dataQaId?: string;
 }
 
 export enum AvatarSize {

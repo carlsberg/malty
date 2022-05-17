@@ -66,8 +66,8 @@ export const StyledAvatar = styled.div<{
   border-radius: 100%;
   background-color: ${({ theme }) => theme.colors.colours.support[40].value};
   background-image: ${({ profileImg }) => `${profileImg ? `url(${profileImg})` : 'unset'}`};
+
   background-size: cover;
-  background-position: center center;
   background-repeat: no-repeat;
   height: ${({ size }) => size};
   width: ${({ size }) => size};
