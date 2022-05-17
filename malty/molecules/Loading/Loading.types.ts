@@ -1,17 +1,13 @@
 export interface LoadingProps {
   text?: string;
   size?: LoadingSize;
-  status: LoadingStatus;
+  status?: LoadingStatus;
+  dataQaId?: string;
 }
 
 export enum LoadingSize {
   Small = 'Small',
   Medium = 'Medium'
-}
-
-export enum LoadingSizeNumber {
-  Small = 24,
-  Medium = 48
 }
 
 export enum LoadingStatus {

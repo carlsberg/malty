@@ -1,26 +1,26 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { ProgressSpinner, ProgressSpinnerStatus } from '@carlsberggroup/malty.atoms.progress-spinner';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect, useState } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { useEffect, useState } from 'react';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
-export const Loading = ({ text, size = LoadingSize.Medium, status = LoadingStatus.Pending }: LoadingProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-  const [icon, setIcon] = useState<IconName>(IconName.Loading);
-  const [iconSize, setIconSize] = useState<IconSize>(IconSize.Medium);
-  const [numSize, setNumSize] = useState(theme.sizes.m.value.replace('px', ''));
+export const Loading = ({ text, size = LoadingSize.Small, status = LoadingStatus.Pending, dataQaId }: LoadingProps) => {
+  const theme = defaultTheme;
+
+  const [progressStatus, setProgressStatus] = useState<ProgressSpinnerStatus>(ProgressSpinnerStatus.Pending);
+  const [iconSize, setIconSize] = useState(theme.sizes.m.value);
 
   useEffect(() => {
     switch (size) {
-      case LoadingSize.Small: {
-        setNumSize(theme.sizes.m.value);
-        setIconSize(IconSize.Medium);
+      case LoadingSize.Medium: {
+        setIconSize(theme.sizes['2xl'].value);
+
         break;
       }
       default: {
-        setNumSize(theme.sizes['2xl'].value);
-        setIconSize(IconSize.Large);
+        setIconSize(theme.sizes.m.value);
+
         break;
       }
     }
@@ -29,35 +29,38 @@ export const Loading = ({ text, size = LoadingSize.Medium, status = LoadingStatu
   useEffect(() => {
     switch (status) {
       case LoadingStatus.Success: {
-        setIcon(IconName.ItemCheck);
+        setProgressStatus(ProgressSpinnerStatus.Success);
         break;
       }
       case LoadingStatus.Failure: {
-        setIcon(IconName.ItemClose);
+        setProgressStatus(ProgressSpinnerStatus.Failure);
         break;
       }
       default: {
-        setIcon(IconName.Loading);
+        setProgressStatus(ProgressSpinnerStatus.Pending);
         break;
       }
     }
   }, [status]);
 
   return (
-    <>
+    <TypographyProvider>
       {status && (
-        <StyledLoadingContainer theme={theme}>
-          <StyledLoading size={numSize}>
-            <Icon
-              name={icon}
-              color={IconColor.DigitalBlack}
-              size={iconSize}
-              className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
-            />
+        <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme}>
+          <StyledLoading
+            size={iconSize}
+            className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
+          >
+            <ProgressSpinner dataQaId={`${dataQaId}`} status={progressStatus} />
           </StyledLoading>
-          <TypographyProvider>{text}</TypographyProvider>
+
+          {text && (
+            <Text dataQaId={`${dataQaId}-label`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
+              {text}
+            </Text>
+          )}
         </StyledLoadingContainer>
       )}
-    </>
+    </TypographyProvider>
   );
 };
