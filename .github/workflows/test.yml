@@ -43,5 +43,5 @@ jobs:
           bit config set user.token ${{ secrets.BIT_TOKEN }}
           bit install
           bit compile
-          yarn test
+          yarn test --ci --silent -u
         shell: bash
