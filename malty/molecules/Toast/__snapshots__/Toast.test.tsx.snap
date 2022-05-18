@@ -13,7 +13,7 @@ exports[`Toast matches snapshot 1`] = `
       className="sc-bczRLJ hROJNc"
     >
       <p
-        className="sc-jqUVSM kCAFTy"
+        className="sc-dkzDqf jdtZuS"
         color="white"
         data-testid="toast-message"
       >
@@ -29,7 +29,7 @@ exports[`Toast matches snapshot 1`] = `
         className="sc-bczRLJ hROJNc"
       >
         <button
-          className="sc-jSMfEi sc-ftvSup gJXBfu jJGGvw"
+          className="sc-gKXOVf sc-papXJ hQuGSn fESpCB"
           fontSize="16px"
           loading={false}
           onClick={[Function]}
@@ -40,8 +40,8 @@ exports[`Toast matches snapshot 1`] = `
             className="text-container "
           >
             <svg
-              className="sc-gsnTZi iOMLMs"
-              color="white"
+              className="sc-gsnTZi gIwTyE"
+              color="#212833"
               data-testid="svg-component"
               size="24px"
               version="1.1"
