@@ -1,0 +1,51 @@
+name: Tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+inputs:
+  node-version:
+    description: Node.js Version
+    default: '16'
+    required: false
+  bit-token:
+    description: A Bit token to fetch Malty components
+    required: false
+    
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: yarn
+
+    - run: |
+        echo "Adding bit.dev to npm registry"
+        npm config set @bit:registry https://node.bit.dev
+        npm config set @carlsberggroup:registry=https://node.bit.dev
+        npm config set @teambit:registry=https://node.bit.dev
+        npm config set //node.bit.dev/:_authToken ${{ inputs.bit-token }}
+      shell: bash
+
+    - run: |
+        echo "Installing Bit CLI"
+        npx @teambit/bvm install
+        export PATH=$HOME/bin:$PATH
+        bit config set user.token ${{ inputs.bit-token }}
+      shell: bash
+
+    - name: Install Components
+      run: bit install
+      shell: bash
+
+    - name: Compile components
+      run: bit compile
+      shell: bash
+
+    - name: Unit Tests
+      run: |
+        yarn test
+      shell: bash
