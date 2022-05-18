@@ -17,7 +17,7 @@ export const StyledAnchor = styled.a`
 const StyledButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
-  loading: boolean;
+  isLoading?: boolean;
   isNegative?: boolean;
   fullWidth?: boolean;
   sizing: string;
@@ -83,8 +83,8 @@ const StyledButton = styled.button<{
     width: ${({ iconSize }) => `${iconSize}`};
   }
 
-  ${({ hasText, hasIcon, sizing, loading }) =>
-    ((!hasText && hasIcon) || loading) &&
+  ${({ hasText, hasIcon, sizing, isLoading }) =>
+    ((!hasText && hasIcon) || isLoading) &&
     css`
       padding: 0;
       justify-content: center;
