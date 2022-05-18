@@ -1,4 +1,4 @@
-name: TestRun
+name: Unit Tests
 
 on:
   push:
@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-run:
+  pre-tests:
+    name: 'Env. Preparation'
     runs-on: ubuntu-latest
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
@@ -38,9 +39,15 @@ jobs:
         run: |
           npx @teambit/bvm install
           export PATH=$HOME/bin:$PATH
-          bit config set user.token ${{ inputs.bit-token }}
+          bit config set user.token ${{ secrets.BIT_TOKEN }}
         shell: bash
 
+  deps-install:
+    name: 'Install Dependencies'
+    runs-on: ubuntu-latest
+    env:
+      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+    steps:
       - name: Install Components
         run: bit install
         shell: bash
@@ -49,6 +56,12 @@ jobs:
         run: bit compile
         shell: bash
 
+  tests-run:
+    name: 'Run Unit Tests'
+    runs-on: ubuntu-latest
+    env:
+      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+    steps:
       - name: Unit Tests
         run: yarn test
         shell: bash
