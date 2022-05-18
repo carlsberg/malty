@@ -5,7 +5,7 @@ exports[`select matches snapshot 1`] = `
   className="sc-bczRLJ hROJNc"
 >
   <label
-    className="sc-bBrHrO bKeEPu"
+    className="sc-ivTmOn fYXiZm"
     data-testid="undefined-label"
     disabled={false}
     htmlFor="00000000-0000-0000-0000-000000000000"
@@ -13,10 +13,10 @@ exports[`select matches snapshot 1`] = `
     Label text
   </label>
   <div
-    className="sc-fLlhyt dzruwu"
+    className="sc-bBrHrO eFkHu"
   >
     <button
-      className="sc-llJcti jaCqFk"
+      className="sc-iIPllB drgmfS"
       data-testid="undefined-button"
       disabled={false}
       height="40px"
@@ -27,14 +27,14 @@ exports[`select matches snapshot 1`] = `
       type="button"
     >
       <div
-        className="sc-jIZahH fPayJe"
+        className="sc-himrzO cWxDEl"
         data-testid="undefined-selected-values"
       >
         Placeholder text
       </div>
       <svg
-        className="sc-gsnTZi ivMBgY sc-bZkfAO eHBotM"
-        color="digital-black"
+        className="sc-gsnTZi gIwTyE sc-kLLXSd eAPGvz"
+        color="#212833"
         data-testid="svg-component"
         size="24px"
         version="1.1"
@@ -59,15 +59,15 @@ exports[`select matches snapshot 1`] = `
       className="sc-bczRLJ hROJNc"
     >
       <ul
-        className="sc-iIPllB iMCCGV"
+        className="sc-gicCDI jOnkhs"
         data-testid="undefined-options"
         height="40px"
       >
         <div
-          className="sc-himrzO"
+          className="sc-gXmSlM"
         />
         <li
-          className="sc-ezWOiH leTsxi"
+          className="sc-bZkfAO cqTeUr"
           data-testid="undefined-option-0"
           disabled={false}
           height="40px"
@@ -76,14 +76,14 @@ exports[`select matches snapshot 1`] = `
           value="value 1"
         >
           <div
-            className="sc-ikZpkk ZiOJS"
+            className="sc-jIZahH jKzfhC"
             data-testid="undefined-option-label-0"
           >
             name 1
           </div>
         </li>
         <li
-          className="sc-ezWOiH leTsxi"
+          className="sc-bZkfAO cqTeUr"
           data-testid="undefined-option-1"
           disabled={false}
           height="40px"
@@ -92,14 +92,14 @@ exports[`select matches snapshot 1`] = `
           value="value 2"
         >
           <div
-            className="sc-ikZpkk ZiOJS"
+            className="sc-jIZahH jKzfhC"
             data-testid="undefined-option-label-1"
           >
             name 2
           </div>
         </li>
         <li
-          className="sc-ezWOiH leTsxi"
+          className="sc-bZkfAO cqTeUr"
           data-testid="undefined-option-2"
           disabled={false}
           height="40px"
@@ -108,14 +108,14 @@ exports[`select matches snapshot 1`] = `
           value="value 3"
         >
           <div
-            className="sc-ikZpkk ZiOJS"
+            className="sc-jIZahH jKzfhC"
             data-testid="undefined-option-label-2"
           >
             name 3
           </div>
         </li>
         <li
-          className="sc-ezWOiH leTsxi"
+          className="sc-bZkfAO cqTeUr"
           data-testid="undefined-option-3"
           disabled={false}
           height="40px"
@@ -124,14 +124,14 @@ exports[`select matches snapshot 1`] = `
           value="value 4"
         >
           <div
-            className="sc-ikZpkk ZiOJS"
+            className="sc-jIZahH jKzfhC"
             data-testid="undefined-option-label-3"
           >
             name 4
           </div>
         </li>
         <li
-          className="sc-ezWOiH leTsxi"
+          className="sc-bZkfAO cqTeUr"
           data-testid="undefined-option-4"
           disabled={false}
           height="40px"
@@ -140,7 +140,7 @@ exports[`select matches snapshot 1`] = `
           value="value 5"
         >
           <div
-            className="sc-ikZpkk ZiOJS"
+            className="sc-jIZahH jKzfhC"
             data-testid="undefined-option-label-4"
           >
             name 5

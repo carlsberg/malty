@@ -129,11 +129,11 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Tooltip"
     },
-    "atoms/avatar": {
+    "molecules/avatar": {
         "scope": "",
         "version": "",
         "mainFile": "index.tsx",
-        "rootDir": "malty/atoms/Avatar"
+        "rootDir": "malty/molecules/Avatar"
     },
     "icons/add-content": {
         "scope": "carlsberggroup.malty",
