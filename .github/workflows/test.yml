@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: '16'
 
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Register remote scopes
         run: |
           echo "Adding bit.dev to npm registry"
@@ -36,6 +41,7 @@ jobs:
           export PATH=$HOME/bin:$PATH
           echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
           bit config set user.token ${{ secrets.BIT_TOKEN }}
-          yarn reset
-          yarn test --ci --silent -u
+          bit install
+          bit compile
+          yarn test --ci --silent
         shell: bash
