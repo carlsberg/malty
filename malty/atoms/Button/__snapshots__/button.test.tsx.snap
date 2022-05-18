@@ -5,7 +5,7 @@ exports[`button matches snapshot 1`] = `
   className="sc-bczRLJ hROJNc"
 >
   <button
-    className="sc-jSMfEi sc-gKXOVf cFGKmZ fcGpoe"
+    className="sc-gKXOVf sc-iBkjds foJVnI bnLSHM"
     disabled={true}
     fontSize="16px"
     loading={false}
