@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chip matches snapshot 1`] = `
+<span
+  className="sc-bczRLJ hROJNc"
+>
+  <div
+    className="sc-kDDrLX iXChsL"
+    onClick={[Function]}
+    selected={false}
+    size="32px"
+  >
+    <div
+      className="sc-iqcoie ewUMkJ"
+      data-testid="undefined-label"
+    >
+      <span
+        className="sc-bczRLJ hROJNc"
+      >
+        <p
+          className="sc-dkzDqf hNaibD"
+          color="80"
+        >
+          label
+        </p>
+      </span>
+    </div>
+  </div>
+</span>
+`;
