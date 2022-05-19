@@ -5,21 +5,25 @@ exports[`chip matches snapshot 1`] = `
   className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-kDDrLX iXChsL"
+    className="sc-kDDrLX dAXZbo"
+    disabled={false}
+    height="32px"
     onClick={[Function]}
+    readOnly={false}
     selected={false}
-    size="32px"
+    size="Medium"
   >
     <div
-      className="sc-iqcoie ewUMkJ"
+      className="sc-iqcoie bOagcU"
       data-testid="undefined-label"
+      size="Medium"
     >
       <span
         className="sc-bczRLJ hROJNc"
       >
         <p
-          className="sc-dkzDqf hNaibD"
-          color="80"
+          className="sc-dkzDqf cchzTL"
+          color="digital-black"
         >
           label
         </p>

@@ -49,6 +49,14 @@ export default {
         type: 'select'
       }
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Disable chip'
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'readOnly chip'
+    },
     dataTestId: {
       control: 'text',
       description: 'Chip data-testid'

@@ -8,6 +8,8 @@ export interface ChipProps {
   onChange?: (selected: boolean) => void;
   icon?: IconName;
   dataTestId?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
 }
 
 export enum ChipSize {
