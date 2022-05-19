@@ -72,11 +72,11 @@ export const StyledTextContainer = styled.div<{
   hasIcon?: boolean;
   hasButton?: boolean;
 }>`
-  padding-left: ${({ size, theme, hasIcon }) => {
-    if (hasIcon && size === ChipSize.XSmall) {
+  padding-left: ${({ size, theme, hasIcon, hasButton }) => {
+    if (hasIcon && !hasButton && size === ChipSize.XSmall) {
       return theme.sizes['4xs'].value;
     }
-    return hasIcon && theme.sizes['2xs'].value;
+    return hasIcon && !hasButton && theme.sizes['2xs'].value;
   }};
   padding-right: ${({ hasButton, theme, size }) => {
     if (hasButton && size === ChipSize.XSmall) {
