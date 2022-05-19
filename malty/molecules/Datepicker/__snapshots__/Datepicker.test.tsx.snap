@@ -20,8 +20,8 @@ exports[`datepicker matches snapshot 1`] = `
         className="sc-jSMfEi eSGvOq"
       >
         <svg
-          className="sc-gsnTZi ivMBgY"
-          color="digital-black"
+          className="sc-gsnTZi gIwTyE"
+          color="#212833"
           data-testid="svg-component"
           size="24px"
           version="1.1"

@@ -1,8 +1,8 @@
 repository:
   internal: true
-  has_issues: true
-  has_projects: true
-  has_downloads: true
+  has_issues: false
+  has_projects: false
+  has_downloads: false
   default_branch: main
   allow_squash_merge: true
   allow_merge_commit: false
@@ -53,6 +53,10 @@ labels:
     color: FFFFFF
     description: This will not be worked on
 
+  - name: react18issue
+    color: BB0000
+    description: Issue related to React v18 Typescript types issue
+
 teams:
   - name: malty-maintainers
     permission: admin
@@ -80,26 +84,6 @@ branches:
         apps: []
         users: []
         teams: [malty-maintainers]
-
-  - name: develop
-    protection:
-      required_pull_request_reviews:
-        required_approving_review_count: 1
-        dismiss_stale_reviews: true
-        require_code_owner_reviews: true
-        dismissal_restrictions:
-          users: []
-          teams: []
-      required_status_checks:
-        strict: true
-        contexts: []
-      enforce_admins: true
-      required_linear_history: true
-      required_conversation_resolution: true
-      restrictions:
-        apps: []
-        users: []
-        teams: [malty-maintainers, malty-contributors]
 
   - name: feature/*
     protection:
