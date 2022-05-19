@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: '12'
+          node-version: '16'
 
       - uses: actions/cache@v2
         with:
@@ -43,5 +43,5 @@ jobs:
           bit config set user.token ${{ secrets.BIT_TOKEN }}
           bit install
           bit compile
-          yarn test --ci --silent -u
+          yarn test --ci --silent
         shell: bash
