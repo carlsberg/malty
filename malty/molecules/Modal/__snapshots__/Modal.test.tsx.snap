@@ -3,22 +3,22 @@
 exports[`does molecule modal match snapshot? matches snapshot 1`] = `
 Array [
   <div
-    className="sc-kDDrLX cxbmWb"
+    className="sc-iqcoie hqIuRy"
   />,
   <div
-    className="sc-iqcoie icYzvN"
+    className="sc-crXcEl iBBsDC"
   >
     <div
-      className="sc-crXcEl kMIvft"
+      className="sc-evZas bMoggN"
       size="Medium"
     >
       <div
-        className="sc-evZas kAxUXz"
+        className="sc-breuTD kUcbFk"
         onClick={[Function]}
       >
         <svg
-          className="sc-gsnTZi ivMBgY"
-          color="digital-black"
+          className="sc-gsnTZi gIwTyE"
+          color="#212833"
           data-testid="svg-component"
           size="24px"
           version="1.1"
@@ -40,13 +40,13 @@ Array [
         </svg>
       </div>
       <div
-        className="sc-breuTD irOBpF"
+        className="sc-ksZaOG fTqSYy"
       >
         <span
           className="sc-bczRLJ hROJNc"
         >
           <h5
-            className="sc-bjUoiL cxsTAv sc-jqUVSM ccNCBa"
+            className="sc-idiyUo dxHkCT sc-kDDrLX ftsXrt"
             color="digital-black"
           >
             Headline
@@ -54,23 +54,23 @@ Array [
         </span>
       </div>
       <div
-        className="sc-ksZaOG fVkfGD"
+        className="sc-hAZoDl fEDBSs"
       >
         <p>
           Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is just boring…
         </p>
       </div>
       <div
-        className="sc-hAZoDl cYsulU"
+        className="sc-fnykZs dNhcxH"
       >
         <div
-          className="sc-fnykZs jJYqjP"
+          className="sc-fEOsli iRQDCu"
         >
           <span
             className="sc-bczRLJ hROJNc"
           >
             <button
-              className="sc-jSMfEi sc-iBkjds jHXzsG gJsYLW"
+              className="sc-gKXOVf sc-ftvSup jYIEjz cxeTWR"
               fontSize="16px"
               loading={false}
               onClick={[Function]}
@@ -86,13 +86,13 @@ Array [
           </span>
         </div>
         <div
-          className="sc-fnykZs jJYqjP"
+          className="sc-fEOsli iRQDCu"
         >
           <span
             className="sc-bczRLJ hROJNc"
           >
             <button
-              className="sc-jSMfEi sc-gKXOVf jHXzsG fcGpoe"
+              className="sc-gKXOVf sc-iBkjds jYIEjz bnLSHM"
               fontSize="16px"
               loading={false}
               onClick={[Function]}
