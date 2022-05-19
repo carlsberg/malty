@@ -110,7 +110,7 @@ export const Chip = ({
         {showAction && (
           <Button
             disabled={disabled || readOnly}
-            negative={selected}
+            negative={selected && !disabled}
             dataTestId={`${dataTestId}-button`}
             size={buttonSize}
             style={ButtonStyle.Transparent}
