@@ -10,7 +10,7 @@ export default {
   component: ToastComponent,
   parameters: {
     importObject: 'Toast',
-    importPath: '@carlsberggroup/malty.atoms.toast',
+    importPath: '@carlsberggroup/malty.molecules.toast',
     variants: ['custom']
   },
   argTypes: {
