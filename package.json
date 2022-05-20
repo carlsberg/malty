@@ -31,6 +31,7 @@
     "build-storybook": "build-storybook --docs -o docs",
     "build": "bit build",
     "test": "jest",
+    "test:ci": "jest --silent --ci --updateSnapshot",
     "test:watch": "jest --watch",
     "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\""
   },
