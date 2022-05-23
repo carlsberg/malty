@@ -61,10 +61,7 @@ export default {
     },
     loading: {
       table: {
-        category: 'State',
-        defaultValue: {
-          summary: 'false'
-        }
+        category: 'State'
       },
       control: 'boolean',
       description: 'Is button loading?'

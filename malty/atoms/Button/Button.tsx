@@ -62,14 +62,14 @@ export const Button = ({
         data-testid={dataTestId}
         type={type}
         disabled={disabled}
-        loading={loading}
+        isLoading={loading}
         hasText={!!text || !!children}
         hasIcon={!!icon}
         sizing={numSize}
         horizontalPadding={hPadding}
         fontSize={fontSize}
         iconSize={iconSize}
-        onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+        onClick={onClick}
         onKeyUp={onKeyUp}
         isNegative={negative}
         fullWidth={fullWidth}
@@ -79,7 +79,7 @@ export const Button = ({
         className={selected ? 'active' : ''}
       >
         {!loading && (
-          <div className={`text-container ${loading ? 'invisible' : ''}`}>
+          <div className={`text-container `}>
             {icon && iconPos === ButtonIconPosition.Left && (
               <Icon name={icon} color={iconColor} size={IconSize.Small} />
             )}
@@ -91,7 +91,7 @@ export const Button = ({
         )}
         {loading && (
           <div data-testid={`${dataTestId}-loading`} className="secondary-container">
-            <Loading status={'Pending' as LoadingStatus} />
+            <Loading status={LoadingStatus.Pending} />
           </div>
         )}
       </Component>
@@ -100,6 +100,12 @@ export const Button = ({
 
   useEffect(() => {
     switch (size) {
+      case ButtonSize.XSmall: {
+        setNumSize(theme.sizes.m.value);
+        setFontSize(theme.typography.desktop.text.small_bold['font-size'].value);
+        setIconSize(theme.sizes.s.value);
+        break;
+      }
       case ButtonSize.Small: {
         setNumSize(theme.sizes.l.value);
         setFontSize(theme.typography.desktop.text['medium-small_bold']['font-size'].value);
