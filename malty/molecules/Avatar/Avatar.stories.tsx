@@ -4,11 +4,11 @@ import { Avatar as AvatarComponent } from './Avatar';
 import { AvatarProps, AvatarSize } from './Avatar.types';
 
 export default {
-  title: 'Atoms/Avatar',
+  title: 'Media/Avatar',
   component: AvatarComponent,
   parameters: {
     importObject: 'Avatar',
-    importPath: '@carlsberggroup/malty.atoms.avatar'
+    importPath: '@carlsberggroup/malty.molecules.avatar'
   },
   argTypes: {
     profileImg: {
