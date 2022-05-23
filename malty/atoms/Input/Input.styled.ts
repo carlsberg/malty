@@ -281,6 +281,7 @@ export const StyledSelect = styled.select<{
   text-align: center;
   appearance: none;
   position: relative;
+  border-radius: 0;
   &:disabled {
     color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
