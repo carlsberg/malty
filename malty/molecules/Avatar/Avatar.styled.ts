@@ -72,7 +72,7 @@ export const StyledAvatar = styled.div<{
   height: ${({ size }) => size};
   width: ${({ size }) => size};
   transition: all 0.25s ease-in-out;
-  cursor: pointer;
+  cursor: ${({ editable }) => (editable ? 'pointer' : 'default')};
   ${({ editable, loading }) =>
     editable &&
     !loading &&
