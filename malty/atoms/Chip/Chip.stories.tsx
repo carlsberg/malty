@@ -1,6 +1,6 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Chip as ChipComponent } from './Chip';
 import { ChipProps, ChipSize } from './Chip.types';
 
@@ -31,7 +31,7 @@ export default {
       }
     },
     selected: {
-      control: 'boolean',
+      control: 'none',
       description: 'state of the component, selected or not selected'
     },
     showAction: {
@@ -64,7 +64,11 @@ export default {
   }
 };
 
-const Template: Story<ChipProps> = (args) => <ChipComponent {...args} />;
+const Template: Story<ChipProps> = (args) => {
+  const [stateChecked, setStateChecked] = useState(false);
+
+  return <ChipComponent {...args} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
+};
 
 export const Chip = Template.bind({});
 

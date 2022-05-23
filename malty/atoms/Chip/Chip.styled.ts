@@ -1,6 +1,11 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { ChipSize } from './Chip.types';
 
+const fadeIn = keyframes`
+    0% {opacity: 0;}
+    
+    100% {opacity: 1;}
+`;
 export const StyledChip = styled.div<{
   height: string;
   hasButton?: boolean;
@@ -9,6 +14,8 @@ export const StyledChip = styled.div<{
   readOnly?: boolean;
   size?: ChipSize;
 }>`
+  transition: background-color 0.3s ease-in-out !important;
+  animation-name: ${fadeIn};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -87,5 +94,9 @@ export const StyledTextContainer = styled.div<{
     }
     return hasButton && theme.sizes.s.value;
   }};
+  p {
+    transition: color 0.3s ease-in-out !important;
+    animation-name: ${fadeIn};
+  }
 `;
 export const StyledIcon = styled.div``;
