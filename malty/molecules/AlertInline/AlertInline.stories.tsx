@@ -10,8 +10,8 @@ export default {
   title: 'Information/Alert Inline ',
   component: AlertInlineComponent,
   parameters: {
-    importObject: 'InlineAlert',
-    importPath: '@carlsberggroup/malty.molecules.inline-alert',
+    importObject: 'AlertInline',
+    importPath: '@carlsberggroup/malty.molecules.alert-inline',
     variants: ['icon', 'action', 'title', 'complete']
   },
   argTypes: {
