@@ -5,7 +5,7 @@ exports[`Avatar component matches snapshot 1`] = `
   className="sc-bczRLJ hROJNc"
 >
   <div
-    className="sc-gKXOVf bGFeFR"
+    className="sc-gKXOVf jQwWoq"
     fontSize="12px"
     loading={false}
     onClick={[Function]}

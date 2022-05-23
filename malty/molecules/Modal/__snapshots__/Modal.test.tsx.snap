@@ -72,7 +72,6 @@ Array [
             <button
               className="sc-gKXOVf sc-ftvSup jYIEjz cxeTWR"
               fontSize="16px"
-              loading={false}
               onClick={[Function]}
               tabIndex={-1}
               type="button"
@@ -94,7 +93,6 @@ Array [
             <button
               className="sc-gKXOVf sc-iBkjds jYIEjz bnLSHM"
               fontSize="16px"
-              loading={false}
               onClick={[Function]}
               tabIndex={-1}
               type="button"

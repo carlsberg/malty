@@ -31,7 +31,6 @@ exports[`Toast matches snapshot 1`] = `
         <button
           className="sc-gKXOVf sc-papXJ hQuGSn fESpCB"
           fontSize="16px"
-          loading={false}
           onClick={[Function]}
           tabIndex={-1}
           type="button"
