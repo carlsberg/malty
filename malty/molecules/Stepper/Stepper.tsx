@@ -16,7 +16,7 @@ import {
 } from './Stepper.styled';
 import { StepperProps } from './Stepper.types';
 
-export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
+export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [elHtml, setElHtml] = useState([<></>]);
 
@@ -27,7 +27,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
           ...prevState,
           // eslint-disable-next-line react/jsx-fragments
           <React.Fragment key={`step_${step.key}`}>
-            <StyledStep>
+            <StyledStep data-testid={`${dataQaId}-${index}`} theme={theme}>
               <StyledStepperCircle
                 key={`progressStep_circle_${step.key}`}
                 active={currentStep >= index + 1}
@@ -47,6 +47,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
               </StyledStepperCircle>
               <StyledText theme={theme}>
                 <Text
+                  dataQaId={`${dataQaId}-${index}-text`}
                   textStyle={TextStyle.MicroBold}
                   color={currentStep >= index + 1 ? TextColor.DigitalBlack : TextColor.Support60}
                 >
@@ -65,7 +66,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
         setElHtml((prevState: Array<JSX.Element>) => [
           ...prevState,
           <React.Fragment key={`step_${step}`}>
-            <StyledStep>
+            <StyledStep data-testid={`${dataQaId}-${step}`} theme={theme}>
               <StyledStepperCircle
                 key={`progressStep_circle_${step}`}
                 active={currentStep >= step}
@@ -98,7 +99,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep }: StepperProps) => {
   }, [steps, currentStep]);
 
   return (
-    <StyledStepperContainer theme={theme}>
+    <StyledStepperContainer data-testid={dataQaId} theme={theme}>
       {elHtml.map((el) => (
         <React.Fragment key={el.key}>{el}</React.Fragment>
       ))}

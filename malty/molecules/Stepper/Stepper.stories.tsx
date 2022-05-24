@@ -22,12 +22,16 @@ export default {
     isMultiStep: {
       control: 'boolean',
       description: 'Is the stepper a multi step control?'
+    },
+    dataQaId: {
+      control: 'text',
+      description: 'Stepper dataQaId'
     }
   }
 } as Meta;
 
-const Template: Story<StepperProps> = ({ steps, currentStep, isMultiStep }: StepperProps) => (
-  <StepperComponent steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} />
+const Template: Story<StepperProps> = ({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) => (
+  <StepperComponent steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} dataQaId={dataQaId} />
 );
 
 export const Stepper = Template.bind({});
@@ -38,7 +42,8 @@ switch (variant) {
   case 'number':
     Stepper.args = {
       steps: 5,
-      currentStep: 2
+      currentStep: 2,
+      dataQaId: 'stepper'
     };
     break;
   default:
@@ -50,7 +55,8 @@ switch (variant) {
         { key: 3, label: 'label 4' },
         { key: 4, label: 'label 5' }
       ],
-      currentStep: 2
+      currentStep: 2,
+      dataQaId: 'stepper'
     };
     break;
 }
