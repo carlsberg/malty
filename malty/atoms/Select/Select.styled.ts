@@ -1,5 +1,6 @@
 import Check from '@carlsberggroup/malty.icons.check';
 import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
+import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import styled, { css, keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
@@ -305,6 +306,7 @@ export const StyledSelectedOptionsWrapper = styled.div`
   width: calc(100% - 36px);
 `;
 export const StyledActionsWrapper = styled.div``;
+
 export const StyledSearchWrapper = styled.div`
   padding: ${({ theme }) => theme.sizes['2xs'].value}; ;
 `;
@@ -327,4 +329,8 @@ export const StyledActionButton = styled.div`
   &:first-child {
     margin-right: ${({ theme }) => theme.sizes.xs.value};
   }
+`;
+
+export const StyledTypographyProvider = styled(TypographyProvider)`
+  width: 100% !important;
 `;

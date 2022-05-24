@@ -22,6 +22,7 @@ import {
   StyledOptionsWrapper,
   StyledSearchWrapper,
   StyledSelectedOptionsWrapper,
+  StyledTypographyProvider,
   StyledWrapper
 } from './Select.styled';
 import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
@@ -128,6 +129,10 @@ export const Select = ({
     if (value && value?.length > 0) setSelectedValueState(value);
   }, [value]);
 
+  useEffect(() => {
+    setSelectOptions(options);
+  }, [options]);
+
   const displaySelectedValues = () => {
     if (selectedValueState.length > 0) {
       if (selectedValueState.length > 2) {
@@ -231,7 +236,7 @@ export const Select = ({
     </TypographyProvider>
   );
   return (
-    <TypographyProvider>
+    <StyledTypographyProvider>
       {label && type !== SelectType.Inline && (
         <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
           {label}
@@ -280,6 +285,6 @@ export const Select = ({
           {hint}
         </StyledHint>
       )}
-    </TypographyProvider>
+    </StyledTypographyProvider>
   );
 };
