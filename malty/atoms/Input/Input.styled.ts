@@ -53,13 +53,13 @@ export const StyledInputWrapper = styled.div<{
   clearable?: boolean;
   addRight?: boolean;
   addLeft?: boolean;
-  size?: number;
 }>`
   position: relative;
   display: flex;
   flex: 1 1 auto;
-  height: ${({ size }) => size}px;
-
+  > span {
+    width: 100% !important;
+  }
   svg {
     position: absolute;
     top: 50%;
