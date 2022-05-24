@@ -8,7 +8,6 @@ exports[`button matches snapshot 1`] = `
     className="sc-gKXOVf sc-iBkjds foJVnI bnLSHM"
     disabled={true}
     fontSize="16px"
-    loading={false}
     onClick={[MockFunction]}
     tabIndex={-1}
     type="button"
