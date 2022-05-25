@@ -26,7 +26,7 @@ export const StyledAlertToastWrapper = styled.div`
 export const StyledToast = styled.div<{
   color: ToastColor;
 }>`
-  padding: ${({ theme }) => theme.sizes.xs.value} ${({ theme }) => theme.sizes.s.value};
+  padding: ${({ theme }) => theme.sizes.xs.value} 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,6 +39,9 @@ export const StyledToast = styled.div<{
   word-break: break-word;
   box-sizing: border-box;
   gap: ${({ theme }) => theme.sizes.s.value};
+  p {
+    padding-left: ${({ theme }) => theme.sizes.s.value};
+  }
 `;
 
 export const StyledActionItem = styled.div`
