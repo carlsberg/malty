@@ -56,7 +56,7 @@ export const StyledAvatar = styled.div<{
   profileImg?: string;
   size?: string;
   fontSize?: string;
-  loading: boolean;
+  isLoading: boolean;
   editable: boolean;
 }>`
   position: relative;
@@ -73,9 +73,9 @@ export const StyledAvatar = styled.div<{
   width: ${({ size }) => size};
   transition: all 0.25s ease-in-out;
   cursor: ${({ editable }) => (editable ? 'pointer' : 'default')};
-  ${({ editable, loading }) =>
+  ${({ editable, isLoading }) =>
     editable &&
-    !loading &&
+    !isLoading &&
     css`
       &:hover {
         background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][25].value};
