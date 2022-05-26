@@ -52,6 +52,11 @@ export default {
     children: {
       description: 'This is the content of a headline component',
       control: { type: 'text' }
+    },
+    as: {
+      table: {
+        disable: true
+      }
     }
   }
 };

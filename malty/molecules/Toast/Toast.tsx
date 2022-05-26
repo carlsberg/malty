@@ -54,15 +54,15 @@ export const Toast = ({
   const handleDismiss = () => {
     if (onClose) {
       onClose();
-      hideToast();
     }
+    hideToast();
   };
 
   const handleCustomAction = () => {
     if (onCustomAction) {
       onCustomAction();
-      hideToast();
     }
+    hideToast();
   };
 
   const renderDismissContainer = () => (

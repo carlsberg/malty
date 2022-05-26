@@ -36,10 +36,6 @@
      * choose the package manager for Bit to use. you can choose between 'yarn', 'pnpm'
      */
     "packageManager": "teambit.dependencies/yarn",
-    "overrides": {
-      "@types/react": "^17.0.2",
-      "@types/react-dom": "^17.0.2"
-    },
     "policy": {
       "dependencies": {
         "@testing-library/react": "11.2.7"
@@ -48,6 +44,10 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
       }
+    },
+    "overrides": {
+      "@types/react": "^17.0.2",
+      "@types/react-dom": "^17.0.2"
     },
     "packageManagerArgs": [],
     "devFilePatterns": [
@@ -67,11 +67,29 @@
     "*": {
       "teambit.component/dev-files": {
         "devFilePatterns": [
-          "**/*.stories.+(js|ts|jsx|tsx)",
-          "**/*.helpers.+(js|ts|jsx|tsx)"
+          "**/*.stories.+(js|ts|jsx|tsx)"
         ]
       },
       "teambit.react/react": {}
+    },
+    "{atoms/tooltip}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "react-popper": "2.3.0",
+            "@popperjs/core": "^2.11.5"
+          }
+        }
+      }
+    },
+    "{molecules/datepicker}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "react-datepicker": "^4.7.0"
+          }
+        }
+      }
     }
   }
 }
