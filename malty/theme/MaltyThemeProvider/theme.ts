@@ -21,7 +21,6 @@ const nonThemeGradients = require('./gradients.json');
 const nonThemeVariables = require('./variables.json');
 
 const globalMarket = require('./themes/global.json');
-const baltikaMarket = require('./themes/baltika.json');
 const cadiMarket = require('./themes/cadi.json');
 const carlsbergMarket = require('./themes/carlsberg.json');
 const lbcMarket = require('./themes/lbc.json');
@@ -51,7 +50,6 @@ const defaultTheme: DefaultTheme = {
 */
 
 const globalTheme = JSON.parse(JSON.stringify(defaultTheme));
-const baltikaTheme = JSON.parse(JSON.stringify(defaultTheme));
 const cadiTheme = JSON.parse(JSON.stringify(defaultTheme));
 const carlsbergTheme = JSON.parse(JSON.stringify(defaultTheme));
 const lbcTheme = JSON.parse(JSON.stringify(defaultTheme));
@@ -70,9 +68,8 @@ const lbcTheme = JSON.parse(JSON.stringify(defaultTheme));
 /* eslint-disable dot-notation */
 
 globalTheme['colors']['theme'] = { ...globalMarket.color.theme.global };
-baltikaTheme['colors']['theme'] = { ...baltikaMarket.color.theme.baltika };
 cadiTheme['colors']['theme'] = { ...cadiMarket.color.theme.cadi };
 carlsbergTheme['colors']['theme'] = { ...carlsbergMarket.color.theme.carlsberg };
 lbcTheme['colors']['theme'] = { ...lbcMarket.color.theme.lbc };
 
-export { baltikaTheme, cadiTheme, carlsbergTheme, globalTheme, lbcTheme };
+export { cadiTheme, carlsbergTheme, globalTheme, lbcTheme };
