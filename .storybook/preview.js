@@ -106,7 +106,6 @@ export const globalTypes = {
     toolbar: {
       items: [
         { value: 'global', title: 'Global' },
-        { value: 'baltika', title: 'Baltika' },
         { value: 'cadi', title: 'Cadi' },
         { value: 'carlsberg', title: 'Carlsberg' },
         { value: 'lbc', title: 'LBC' }
