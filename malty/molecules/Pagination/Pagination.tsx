@@ -20,6 +20,7 @@ export const Pagination = ({
 }: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [inputValue, setInputValue] = useState<string | number>(currentPage);
+  const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
 
   const paginationRange = usePagination({
     totalPageCount: count,
@@ -105,6 +106,12 @@ export const Pagination = ({
     }
   }, [currentPage]);
 
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setButtonSize(ButtonSize.Small);
+    }
+  }, [window.innerWidth]);
+
   const renderContent = () => {
     if (isInput) {
       return (
@@ -162,6 +169,7 @@ export const Pagination = ({
                 tabIndex={0}
                 text={pageNr}
                 negative={isWhite}
+                size={buttonSize}
               />
             </li>
           );
@@ -183,7 +191,7 @@ export const Pagination = ({
               onClick={onPrevious}
               onKeyUp={onPreviousKeyUp}
               icon={IconName.ChevronLeft}
-              size={ButtonSize.Medium}
+              size={buttonSize}
               negative={isWhite}
             />
           </li>
@@ -197,7 +205,7 @@ export const Pagination = ({
               onClick={onNext}
               onKeyUp={onNextKeyUp}
               icon={IconName.ChevronRight}
-              size={ButtonSize.Medium}
+              size={buttonSize}
               negative={isWhite}
             />
           </li>
