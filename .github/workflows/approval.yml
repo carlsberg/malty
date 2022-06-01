@@ -1,0 +1,67 @@
+name: Approval
+
+on:
+  pull_request:
+    branches: [main]
+  pull_request_review:
+
+jobs:
+  require_approval:
+    name: Require Approval
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.pull_request.head.ref, 'feature/') || startsWith(github.event.pull_request.head.ref, 'ci/')
+    steps:
+      - id: token
+        name: Authenticate
+        uses: getsentry/action-github-app-token@v1
+        with:
+          app_id: ${{ secrets.CARLSBERG_SECURITY_APP_ID }}
+          private_key: "${{ secrets.CARLSBERG_SECURITY_APP_PRIVATE_KEY }}"
+
+      - id: check
+        name: Check Reviewers
+        uses: actions/github-script@v6
+        with:
+          script: |
+            let conclusion = "failure";
+
+            let { data: reviews } = await github.rest.pulls.listReviews({
+              ...context.repo,
+              pull_number: "${{ github.event.pull_request.number }}",
+              per_page: 100,
+            });
+
+            reviews = reviews.filter(({ state }) => state === "APPROVED");
+
+            if (reviews.length > 0) {
+              for (const review of reviews) {
+                const {
+                  user: { login },
+                } = review;
+
+                try {
+                  await github.rest.teams.getMembershipForUserInOrg({
+                    org: context.repo.owner,
+                    team_slug: "malty-designers",
+                    username: login,
+                  });
+
+                  conclusion = "success"
+                  break;
+                } catch (_) {}
+              }
+            }
+
+            await github.rest.checks.create({
+              ...context.repo,
+              name: "approval-workflow",
+              head_sha: "${{ github.event.pull_request.head.sha }}",
+              status: "completed",
+              conclusion: conclusion,
+              output: {
+                title: "Waiting designer approval",
+                summary: "Feature pull requests require an approval from a designer",
+              },
+            });
+        env:
+          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
