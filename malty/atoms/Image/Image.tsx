@@ -17,7 +17,8 @@ export const Image = ({
   width,
   children,
   figcaption,
-  fallbackSrc
+  fallbackSrc,
+  dataTestId
 }: ImageProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [test, setTest] = useState(false);
@@ -31,13 +32,19 @@ export const Image = ({
   return (
     <TypographyProvider>
       <StyledContainer theme={theme}>
-        <StyledFigure height={height} width={width}>
-          <StyledWrapper>
-            <StyledOverlay theme={theme} gradientPosition={gradient} overlay={overlay}>
+        <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
+          <StyledWrapper theme={theme}>
+            <StyledOverlay
+              data-testid={`${dataTestId}-overlay`}
+              theme={theme}
+              gradientPosition={gradient}
+              overlay={overlay}
+            >
               {children}
             </StyledOverlay>
             {!test && (
               <StyledImage
+                data-testid={`${dataTestId}`}
                 // eslint-disable-next-line no-return-assign
                 onError={(e) => handleError(e)}
                 height={height || '100%'}
@@ -46,11 +53,19 @@ export const Image = ({
                 borderPosition={border}
                 isCover={cover}
                 alt={alt}
+                theme={theme}
               />
             )}
-            {test && <Icon size={IconSize.ExtraLarge} name={IconName.Image} color={IconColor.Support40} />}
+            {test && (
+              <Icon
+                data-testid={`${dataTestId}-icon`}
+                size={IconSize.ExtraLarge}
+                name={IconName.Image}
+                color={IconColor.Support40}
+              />
+            )}
           </StyledWrapper>
-          <figcaption>{figcaption}</figcaption>
+          <figcaption data-testid={`${dataTestId}-figcaption`}>{figcaption}</figcaption>
         </StyledFigure>
       </StyledContainer>
     </TypographyProvider>

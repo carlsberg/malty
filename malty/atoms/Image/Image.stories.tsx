@@ -96,6 +96,10 @@ export default {
       table: {
         disable: true
       }
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'Image data-testid'
     }
   }
 } as Meta;

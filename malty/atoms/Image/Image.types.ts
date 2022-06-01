@@ -10,6 +10,7 @@ export interface ImageProps {
   width?: string;
   children?: string | JSX.Element;
   figcaption?: string;
+  dataTestId?: string;
 }
 
 export enum ImageEffectPosition {
