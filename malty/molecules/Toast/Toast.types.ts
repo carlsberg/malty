@@ -2,7 +2,7 @@ export interface ToastProps {
   message: string;
   color: ToastColor;
   showCloseIcon?: boolean;
-  onClose?: (state: boolean) => void;
+  onClose?: () => void;
   onCustomAction?: () => void;
   customActionText?: string;
   autoHideDuration?: number;

@@ -86,7 +86,7 @@ export const Avatar = ({
         profileImg={profileImg}
         data-testid={dataQaId}
         theme={theme}
-        loading={loading}
+        isLoading={loading}
         editable={editable}
       >
         {loading && (

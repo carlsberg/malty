@@ -53,28 +53,28 @@ export const Toast = ({
   // Action handlers
   const handleDismiss = () => {
     if (onClose) {
-      onClose(false);
-      hideToast();
+      onClose();
     }
+    hideToast();
   };
 
   const handleCustomAction = () => {
     if (onCustomAction) {
       onCustomAction();
-      hideToast();
     }
+    hideToast();
   };
 
   const renderDismissContainer = () => (
-    <StyledDismissContainer theme={theme} data-testid={`${dataQaId}-close-icon`} onClick={handleDismiss}>
+    <StyledDismissContainer theme={theme}>
       <Button
         negative
         icon={IconName.Close}
-        size={ButtonSize.Small}
+        size={ButtonSize.Medium}
         type={ButtonType.Default}
         style={ButtonStyle.Transparent}
-        onClick={handleCustomAction}
-        data-testid={`${dataQaId}-close-icon`}
+        onClick={handleDismiss}
+        dataTestId={`${dataQaId}-close-icon`}
       />
     </StyledDismissContainer>
   );
@@ -83,11 +83,11 @@ export const Toast = ({
     <StyledActionItem>
       <Button
         negative
-        size={ButtonSize.Small}
+        size={ButtonSize.Medium}
         type={ButtonType.Default}
         style={ButtonStyle.Transparent}
         onClick={handleCustomAction}
-        data-testid={`${dataQaId}-action`}
+        dataTestId={`${dataQaId}-custom-action`}
       >
         {customActionText}
       </Button>

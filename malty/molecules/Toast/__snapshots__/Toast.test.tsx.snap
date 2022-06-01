@@ -5,7 +5,7 @@ exports[`Toast matches snapshot 1`] = `
   className="sc-kDDrLX jwOBGr"
 >
   <div
-    className="sc-iqcoie ceQVqr"
+    className="sc-iqcoie eyjmYd"
     color="notification-strong"
     data-testid="toast-container"
   >
@@ -22,14 +22,13 @@ exports[`Toast matches snapshot 1`] = `
     </span>
     <div
       className="sc-evZas cWbSUu"
-      data-testid="toast-close-icon"
-      onClick={[Function]}
     >
       <span
         className="sc-bczRLJ hROJNc"
       >
         <button
           className="sc-gKXOVf sc-papXJ hQuGSn fESpCB"
+          data-testid="toast-close-icon"
           fontSize="16px"
           onClick={[Function]}
           tabIndex={-1}

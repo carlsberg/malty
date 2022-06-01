@@ -5,7 +5,7 @@ exports[`Headline component matches snapshot 1`] = `
   className="sc-bczRLJ hROJNc"
 >
   <p
-    className="sc-hKMtZM cfksCk sc-gsnTZi krTwcc"
+    className="sc-gsnTZi krTwcc"
     color="digital-black"
   >
     this is a headline

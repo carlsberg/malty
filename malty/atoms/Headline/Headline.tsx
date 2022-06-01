@@ -8,33 +8,34 @@ export const Headline = ({
   headlineStyle = HeadlineStyle.Medium,
   align = HeadlineAlign.Left,
   color = HeadlineColor.DigitalBlack,
+  as = 'h1',
   children
 }: HeadlineProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  let StyledTagHeadline = StyledHeadline.withComponent('h1');
+  let StyledTagHeadline = as || 'h1';
 
   switch (headlineStyle) {
     case 'hero':
-      StyledTagHeadline = StyledHeadline.withComponent('h2');
+      StyledTagHeadline = 'h2';
       break;
     case 'huge':
-      StyledTagHeadline = StyledHeadline.withComponent('h3');
+      StyledTagHeadline = 'h3';
       break;
     case 'big':
-      StyledTagHeadline = StyledHeadline.withComponent('h4');
+      StyledTagHeadline = 'h4';
       break;
     case 'large':
-      StyledTagHeadline = StyledHeadline.withComponent('h5');
+      StyledTagHeadline = 'h5';
       break;
     case 'medium-large':
-      StyledTagHeadline = StyledHeadline.withComponent('h6');
+      StyledTagHeadline = 'h6';
       break;
     case 'medium':
-      StyledTagHeadline = StyledHeadline.withComponent('p');
+      StyledTagHeadline = 'p';
       break;
     default:
-      StyledTagHeadline = StyledHeadline.withComponent('h1');
+      StyledTagHeadline = 'h1';
       break;
   }
 
