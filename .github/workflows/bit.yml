@@ -60,6 +60,11 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "${{ secrets.CX_RELEASE_APP_USER_NAME }}"
+          git config --global user.email "${{ secrets.CX_RELEASE_APP_USER_EMAIL }}"
+
       - name: Create Pull Request
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
