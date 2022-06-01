@@ -8,7 +8,7 @@ jobs:
   require_approval:
     name: Require Approval
     runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.head.label, 'feature/') || startsWith(github.event.pull_request.head.label, 'ci/')
+    if: startsWith(github.event.pull_request.head.ref, 'feature/') || startsWith(github.event.pull_request.head.ref, 'ci/')
     steps:
       - name: Check Reviewers
         run: |
