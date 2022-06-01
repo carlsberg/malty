@@ -20,59 +20,48 @@ jobs:
 
       - id: check
         name: Check Reviewers
-        run: |
-          approved=0
-          team="malty-designers"
+        uses: actions/github-script@v6
+        with:
+          script: |
+            let conclusion = "failure";
 
-          gh api "/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews" \
-          | jq -cr '.[] | (.user.login + " " + .state)' > reviews.json
+            let { data: reviews } = await github.rest.pulls.listReviews({
+              ...context.repo,
+              pull_number: context.pull_request.number,
+              per_page: 100,
+            });
 
-          cat reviews.json
+            reviews = reviews.filter(({ state }) => state === "APPROVED");
 
+            if (reviews.length > 0) {
+              for (const review of reviews) {
+                const {
+                  user: { login },
+                } = review;
 
-          IFS=$'\n' for review in "$(cat reviews.json)"; do
-              user="$(echo $review | awk '{print $1}')"
-              state="$(echo $review | awk '{print $2}')"
+                try {
+                  await github.rest.teams.getMembershipForUserInOrg({
+                    org: context.repo.owner,
+                    team_slug: "malty-designers",
+                    username: login,
+                  });
 
-              (gh api "/orgs/${{ github.repository_owner }}/teams/$team/memberships/$user" &>/dev/null) && true
-              resp_code=$?
-
-              printf "checking %s: %s" "$user" "$state"
-
-              if [[ $resp_code -eq 0 && "$state" == "APPROVED" ]]; then
-                  echo " - belongs to $team\n"
-                  approved=1
-                  break
-              else
-                  echo " - doesn't belong to $team\n"
-              fi
-          done
-
-          echo "::set-output name=approved=$approved"
-        env:
-          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
-
-      - name: Create Check
-        run: |
-          conclusion="failure"
-
-          if [[ "${{ steps.check.outputs.approved }}" == "1" ]]; then
-              conclusion="success"
-          fi
-
-          cat > check.json <<- EOF
-          {
-            "name": "approval-workflow",
-            "head_sha": "${{ github.event.pull_request.head.sha }}",
-            "status": "completed",
-            "conclusion": "$conclusion",
-            "output": {
-              "title": "Waiting designer approval",
-              "summary": "Feature pull requests require an approval from a designer"
+                  approved = true;
+                  break;
+                } catch (_) {}
+              }
             }
-          }
-          EOF
 
-          gh api "repos/${{ github.repository }}/check-runs" --input check.json
+            await github.checks.create({
+              ...context.repo,
+              name: "approval-workflow",
+              head_sha: context.pull_request.head.sha,
+              status: "completed",
+              conclusion: conclusion,
+              output: {
+                title: "Waiting designer approval",
+                summary: "Feature pull requests require an approval from a designer",
+              },
+            });
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
