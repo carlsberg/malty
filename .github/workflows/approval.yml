@@ -29,6 +29,7 @@ jobs:
 
           cat reviews.json
 
+          IFS=$'\n'
           for review in "$(cat reviews.json)"; do
               user="$(echo $review | awk '{print $1}')"
               state="$(echo $review | awk '{print $2}')"
