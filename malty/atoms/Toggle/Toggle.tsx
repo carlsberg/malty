@@ -1,6 +1,6 @@
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { useEffect, useMemo, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 import {
   StyledError,
   StyledInput,
@@ -11,25 +11,36 @@ import {
 } from './Toggle.styled';
 import { ToggleProps } from './Toggle.types';
 
-export const Toggle = ({ disabled, onValueChange, label, checked, error, ...props }: ToggleProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
+export const Toggle = ({ disabled, onValueChange, label, checked = false, error, ...props }: ToggleProps) => {
+  const theme = defaultTheme;
+  const [stateChecked, setStateChecked] = useState(checked);
+  const id = useMemo(() => uuid(), []);
+
+  const handleToggle = () => {
+    onValueChange(!stateChecked);
+  };
+  useEffect(() => {
+    setStateChecked(checked);
+  }, [checked]);
+
   return (
     <TypographyProvider>
-      <StyledLabelWrapper theme={theme}>
-        <StyledToggleSwitch theme={theme}>
+      <StyledLabelWrapper onClick={handleToggle} theme={theme}>
+        <StyledToggleSwitch id={id} theme={theme}>
           <StyledInput
+            id={id}
             theme={theme}
             disabled={disabled}
             type="checkbox"
-            checked={checked}
-            onChange={(e) => onValueChange(!(e.target as HTMLInputElement).checked)}
+            checked={stateChecked}
+            onChange={handleToggle}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />
-          <StyledSwitch theme={theme} disabled={disabled} className="switch" />
+          <StyledSwitch id={id} theme={theme} disabled={disabled} className="switch" />
         </StyledToggleSwitch>
 
-        <StyledLabel theme={theme} disabled={disabled}>
+        <StyledLabel htmlFor={id} theme={theme} disabled={disabled}>
           {label}
         </StyledLabel>
       </StyledLabelWrapper>

@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Toggle as ToggleComponent } from './Toggle';
 import { ToggleProps } from './Toggle.types';
 
@@ -16,7 +16,7 @@ export default {
       description: 'Progress indicating text'
     },
     checked: {
-      control: 'boolean',
+      control: 'none',
       description: 'If toggle is on (checked) or off (unchecked)'
     },
     disabled: {
@@ -32,14 +32,22 @@ export default {
     }
   }
 } as Meta;
-const Template: Story<ToggleProps> = ({ label, checked, onValueChange, disabled, error }: ToggleProps) => (
-  <ToggleComponent disabled={disabled} checked={checked} label={label} onValueChange={onValueChange} error={error} />
-);
-
+const Template: Story<ToggleProps> = ({ label, disabled, error }: ToggleProps) => {
+  const [stateChecked, setStateChecked] = useState(true);
+  return (
+    <ToggleComponent
+      disabled={disabled}
+      checked={stateChecked}
+      label={label}
+      onValueChange={(value) => setStateChecked(value)}
+      error={error}
+    />
+  );
+};
 export const Toggle = Template.bind({});
 Toggle.args = {
   label: 'toggle label',
-  checked: false,
+
   disabled: false,
   error: ''
 };
