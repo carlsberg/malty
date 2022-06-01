@@ -100,7 +100,7 @@ export const Avatar = ({
           </StyledCamera>
         )}
         {!profileImg && userName && <span data-testid={`${dataQaId}-name`}> {displayInitials(userName)} </span>}
-        {!profileImg && !userName && <Icon color={IconColor.Primary} size={iconSize} name={IconName.Customer} />}
+        {!profileImg && !userName && <Icon color={IconColor.Support40} size={iconSize} name={IconName.Customer} />}
       </StyledAvatar>
     </TypographyProvider>
   );
