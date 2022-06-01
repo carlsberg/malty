@@ -59,8 +59,8 @@ jobs:
 
           cat > check.json <<- EOF
           {
-            "name": "",
-            "head_sha": "",
+            "name": "approval-workflow",
+            "head_sha": "${{ github.event.pull_request.head.sha }}",
             "status": "completed",
             "conclusion": "$conclusion",
             "output": {
