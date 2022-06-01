@@ -57,7 +57,18 @@ jobs:
               conclusion="success"
           fi
 
-          echo "{\"name\": \"approval-workflow\", \"head_sha\": \"${{ github.event.pull_request.head.sha }}\", \"status\": \"completed\", \"conclusion\": \"$conclusion\", \"output\": {\"title\": \"Feature PRs require an approval from a designer\"}}" \
-          | gh api "repos/${{ github.repository }}/check-runs" --input -
+          cat > check.json <<- EOF
+          {
+            "name": "",
+            "head_sha": "",
+            "status": "completed",
+            "conclusion": "$conclusion",
+            "output": {
+              "title": "Feature PRs require an approval from a designer"
+            }
+          }
+          EOF
+
+          gh api "repos/${{ github.repository }}/check-runs" --input check.json
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
