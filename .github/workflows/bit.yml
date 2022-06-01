@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Bit Deploy
 
 on:
   push:
@@ -51,12 +51,14 @@ jobs:
           npx @teambit/bvm install
           export PATH=$HOME/bin:$PATH
           echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
-          bit config set user.token ${{ secrets.BIT_TOKEN }}
+          bit config set user.token ${BIT_TOKEN}
           bit install
           bit compile
           bit tag
           bit export
         shell: bash
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Create Pull Request
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
