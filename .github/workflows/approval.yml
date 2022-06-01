@@ -28,7 +28,7 @@ jobs:
               user="$(echo $review | awk '{print $1}')"
               state="$(echo $review | awk '{print $2}')"
 
-              (gh api "/orgs/${{ github.repository_owner }}/teams/$team/memberships/$user" &>/dev/null)
+              (gh api "/orgs/${{ github.repository_owner }}/teams/$team/memberships/$user" &>/dev/null) && true
               resp_code=$?
 
               printf "checking %s: %s" "$user" "$state"
