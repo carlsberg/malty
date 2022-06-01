@@ -5,8 +5,8 @@ on:
     branches: [main]
 
 jobs:
-  tests-run:
-    name: 'Run Unit Tests'
+  deploy:
+    name: 'Deploy Bit Packages'
     runs-on: ubuntu-latest
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
-      - name: Run Unit Tests
+      - name: Bit Tag and Export
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           npx @teambit/bvm install
