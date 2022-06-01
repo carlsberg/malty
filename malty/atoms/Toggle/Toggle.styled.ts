@@ -9,7 +9,7 @@ export const StyledError = styled.label`
   letter-spacing: 0;
 `;
 
-export const StyledLabelWrapper = styled.label`
+export const StyledLabelWrapper = styled.div`
   align-items: center;
   display: inline-block;
   display: flex;
@@ -48,9 +48,11 @@ export const StyledInput = styled.input<{
     background-color: ${({ theme }) => theme.colors.colours.default.white.value};
     border: none;
     top: 1px;
+    transition: transform 0.3s ease;
   }
   &:checked + .switch {
     background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+
     &:hover {
       ${({ theme }) =>
         theme &&
@@ -84,7 +86,8 @@ export const StyledSwitch = styled.span<{
   right: 0;
   bottom: 0;
   left: 0;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+
   ${({ theme }) =>
     theme &&
     css`
@@ -113,7 +116,7 @@ export const StyledSwitch = styled.span<{
     background-color: ${({ theme }) => theme.colors.colours.default.white.value};
 
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     ${({ theme }) =>
       theme &&
       css`
