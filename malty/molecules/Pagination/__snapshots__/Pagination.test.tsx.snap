@@ -2,7 +2,7 @@
 
 exports[`molecule pagination matches snapshot 1`] = `
 <div
-  className="sc-kDDrLX kGuhpW"
+  className="sc-kDDrLX kKGhmH"
 >
   <span
     className="sc-bczRLJ hROJNc"
@@ -171,7 +171,7 @@ exports[`molecule pagination matches snapshot 1`] = `
         tabIndex={-1}
       >
         <div
-          className="sc-iqcoie lcUdKR"
+          className="sc-iqcoie bToNZL"
         >
           …
         </div>
