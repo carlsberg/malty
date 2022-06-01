@@ -10,6 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.event.pull_request.head.ref, 'feature/') || startsWith(github.event.pull_request.head.ref, 'ci/')
     steps:
+      - id: token
+        name: Authenticate
+        uses: getsentry/action-github-app-token@v1
+        with:
+          app_id: ${{ secrets.CARLSBERG_SECURITY_APP_ID }}
+          private_key: "${{ secrets.CARLSBERG_SECURITY_APP_PRIVATE_KEY }}"
+
       - name: Check Reviewers
         run: |
           approved=0
@@ -42,3 +49,5 @@ jobs:
               # Create failure check
               echo "not approved! :("
           fi
+        env:
+          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
