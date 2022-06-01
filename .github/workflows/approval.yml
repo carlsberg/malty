@@ -64,7 +64,8 @@ jobs:
             "status": "completed",
             "conclusion": "$conclusion",
             "output": {
-              "title": "Feature PRs require an approval from a designer"
+              "title": "Waiting designer approval",
+              "summary": "Feature pull requests require an approval from a designer"
             }
           }
           EOF
