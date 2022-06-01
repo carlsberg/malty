@@ -52,7 +52,7 @@ jobs:
               }
             }
 
-            await github.checks.create({
+            await github.rest.checks.create({
               ...context.repo,
               name: "approval-workflow",
               head_sha: "${{ github.event.pull_request.head.sha }}",
