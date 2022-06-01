@@ -17,7 +17,8 @@ jobs:
           app_id: ${{ secrets.CARLSBERG_SECURITY_APP_ID }}
           private_key: "${{ secrets.CARLSBERG_SECURITY_APP_PRIVATE_KEY }}"
 
-      - name: Check Reviewers
+      - id: check
+        name: Check Reviewers
         run: |
           approved=0
           team="malty-designers"
@@ -44,13 +45,19 @@ jobs:
             done
           fi
 
+          echo "::set-output name=approved=$approved"
+        env:
+          GITHUB_TOKEN: ${{ steps.token.outputs.token }}
 
-          if [[ $approved -eq 1 ]]; then
-              # Create successful check
-              echo "approved!"
-          else
-              # Create failure check
-              echo "not approved! :("
+      - name: Create Check
+        run: |
+          conclusion="failure"
+
+          if [[ "${{ steps.check.outputs.approved }}" == "1" ]]; then
+              conclusion="success"
           fi
+
+          '{"name": "approval-workflow", "head_sha": "${{ github.event.pull_request.head.sha }}", "status": "completed", "conclusion": "$conclusion"}' \
+          | gh api "repos/${{ github.repository }}/check-runs"
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
