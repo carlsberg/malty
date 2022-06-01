@@ -24,23 +24,26 @@ jobs:
           reviews=$(gh api "/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews" | jq -cr)
           reviews=$(echo "$reviews" | jq -cr '.[] | (.user.login + " " + .state)')
 
-          for review in "$reviews"; do
-              user="$(echo $review | awk '{print $1}')"
-              state="$(echo $review | awk '{print $2}')"
+          if [[ "$reviews" != " " ]]; then
+            for review in "$reviews"; do
+                user="$(echo $review | awk '{print $1}')"
+                state="$(echo $review | awk '{print $2}')"
 
-              (gh api "/orgs/${{ github.repository_owner }}/teams/$team/memberships/$user" &>/dev/null) && true
-              resp_code=$?
+                (gh api "/orgs/${{ github.repository_owner }}/teams/$team/memberships/$user" &>/dev/null) && true
+                resp_code=$?
 
-              printf "checking %s: %s" "$user" "$state"
+                printf "checking %s: %s" "$user" "$state"
 
-              if [[ $resp_code -eq 0 && "$state" == "APPROVED" ]]; then
-                  echo " - belongs to $team\n"
-                  approved=1
-                  break
-              else
-                  echo " - doesn't belong to $team\n"
-              fi
-          done
+                if [[ $resp_code -eq 0 && "$state" == "APPROVED" ]]; then
+                    echo " - belongs to $team\n"
+                    approved=1
+                    break
+                else
+                    echo " - doesn't belong to $team\n"
+                fi
+            done
+          fi
+
 
           if [[ $approved -eq 1 ]]; then
               # Create successful check
