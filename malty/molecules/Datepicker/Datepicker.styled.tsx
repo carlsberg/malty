@@ -26,6 +26,7 @@ export const StyledDatepicker = styled.div<{
   disabled?: boolean;
   readOnly?: boolean;
 }>`
+  border-radius: 0;
   position: relative;
   & .react-datepicker-popper {
     width: 100%;

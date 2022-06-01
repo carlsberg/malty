@@ -111,6 +111,7 @@ export const StyledInput = styled.input<{
   addRight?: boolean;
   isError?: boolean;
 }>`
+  border-radius: 0;
   width: 100%;
   flex: 1 1 auto;
   display: inline-flex;
