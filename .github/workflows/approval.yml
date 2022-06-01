@@ -46,7 +46,7 @@ jobs:
                     username: login,
                   });
 
-                  approved = true;
+                  conclusion = "success"
                   break;
                 } catch (_) {}
               }
