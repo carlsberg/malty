@@ -24,9 +24,7 @@ jobs:
           reviews=$(gh api "/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/reviews" | jq -cr)
           reviews=$(echo "$reviews" | jq -cr '.[] | (.user.login + " " + .state)')
 
-          echo "reviews: $reviews."
-
-          if [[ "$reviews" != " " ]]; then
+          if [[ "$reviews" != "" ]]; then
             for review in "$reviews"; do
                 user="$(echo $review | awk '{print $1}')"
                 state="$(echo $review | awk '{print $2}')"
