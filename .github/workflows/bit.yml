@@ -73,13 +73,9 @@ jobs:
       - name: Create Pull Request
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          git checkout -b "release"
           git add .
           git commit -m "release: Bit GitHub Action"
-          git push -u origin "release"
-          gh pr create --fill --base main --head release
-          gh pr merge --rebase --admin --delete-branch
-          git push origin --delete release || true
+          git push
         shell: bash
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
