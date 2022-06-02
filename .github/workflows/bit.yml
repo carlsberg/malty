@@ -11,17 +11,20 @@ jobs:
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: '16'
-
       - id: token
         name: Token
         uses: getsentry/action-github-app-token@v1
         with:
           app_id: ${{ secrets.CX_RELEASE_APP_ID }}
           private_key: '${{ secrets.CX_RELEASE_APP_PRIVATE_KEY }}'
+
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ steps.token.outputs.token }}
+          
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '16'
 
       - uses: actions/cache@v2
         with:
