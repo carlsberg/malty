@@ -42,10 +42,11 @@ jobs:
           npm config set @teambit:registry=https://node.bit.dev
           npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
+        shell: bash
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
-      - name: Bit Tag and Export
+      - name: Bit Install Tag & Export
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           npx @teambit/bvm install
@@ -62,17 +63,30 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.name "${{ secrets.CX_RELEASE_APP_USER_NAME }}"
-          git config --global user.email "${{ secrets.CX_RELEASE_APP_USER_EMAIL }}"
+          git config --global user.name "${CX_RELEASE_APP_USER_NAME}"
+          git config --global user.email "${CX_RELEASE_APP_USER_EMAIL}"
+        shell: bash
+        env:
+          CX_RELEASE_APP_USER_NAME: ${{ secrets.CX_RELEASE_APP_USER_NAME }}
+          CX_RELEASE_APP_USER_EMAIL: ${{ secrets.CX_RELEASE_APP_USER_EMAIL }}
 
       - name: Create Pull Request
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
+          git checkout -b "release"
           git add .
-          git commit -m "Deployed via Bit GitHub Action"
+          git commit -m "release: Bit GitHub Action"
+          git push -u origin "release"
           gh pr create --fill --base main --head release
           gh pr merge --rebase --admin --delete-branch
           git push origin --delete release || true
         shell: bash
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
+
+      - name: Trigger MTA Build and Deploy
+        run: |
+          curl -X POST -d {} "https://webhooks.amplify.eu-west-1.amazonaws.com/prod/webhooks?id=${AMPLIFY_WEBHOOK_KEY}&operation=startbuild" -H "Content-Type:application/json"
+        shell: bash
+        env:
+          AMPLIFY_WEBHOOK_KEY: ${{ secrets.AMPLIFY_WEBHOOK_KEY }}
