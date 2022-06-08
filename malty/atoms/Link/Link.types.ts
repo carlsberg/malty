@@ -2,7 +2,7 @@ export interface LinkProps {
   text?: string | number;
   color?: LinkColor;
   url?: string;
-  linkStyle: LinkStyle;
+  linkStyle?: LinkStyle;
   disabled?: boolean;
   children?: string | JSX.Element;
   dataTestId?: string;
