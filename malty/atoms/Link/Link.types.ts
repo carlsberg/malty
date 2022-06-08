@@ -1,11 +1,12 @@
 export interface LinkProps {
   text?: string | number;
   color?: LinkColor;
-  url: string;
+  url?: string;
   linkStyle: LinkStyle;
   disabled?: boolean;
   children?: string | JSX.Element;
   dataTestId?: string;
+  onClick?: () => void;
 }
 
 export enum LinkColor {

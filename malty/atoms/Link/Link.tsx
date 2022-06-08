@@ -11,13 +11,15 @@ export const Link = ({
   children,
   dataTestId,
   color = LinkColor.DigitalBlack,
-  linkStyle = LinkStyle.MediumDefault
+  linkStyle = LinkStyle.MediumDefault,
+  onClick
 }: LinkProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <TypographyProvider>
       <StyledAnchor
+        onClick={onClick}
         data-testid={dataTestId}
         disabled={disabled}
         theme={theme}

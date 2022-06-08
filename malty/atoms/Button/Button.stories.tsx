@@ -11,7 +11,7 @@ export default {
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button',
-    variants: ['primary', 'secondary', 'link']
+    variants: ['primary', 'secondary', 'transparent']
   },
   argTypes: {
     text: {
@@ -152,22 +152,6 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'link':
-    Button.args = {
-      style: ButtonStyle.Link,
-      type: ButtonType.Submit,
-      text: 'Link text',
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false
-    };
-    break;
-
   case 'secondary':
     Button.args = {
       style: ButtonStyle.Secondary,

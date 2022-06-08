@@ -1,20 +1,10 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { AlertInline } from './AlertInline';
 import { AlertInlineColor } from './AlertInline.types';
 
 describe('alertInline', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <AlertInline
-        message="Hello, Im the In Line Alert! Play with me."
-        color={AlertInlineColor.Notification}
-        dataQaId="inline"
-      />
-    );
-    expect(view).toMatchSnapshot();
-  });
   it('should render In Line Alert component with label', () => {
     render(
       <AlertInline
