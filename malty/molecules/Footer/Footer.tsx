@@ -4,7 +4,8 @@ import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { StyledAdress, StyledCluster, StyledFooter, StyledRow, StyledSocialMedia } from './Footer.styled';
 import { FooterProps } from './Footer.types';
 
@@ -19,7 +20,7 @@ export const Footer = ({
   copyright = defaultCopyright,
   dataQaId
 }: FooterProps) => {
-  const theme = defaultTheme;
+  const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <TypographyProvider>
