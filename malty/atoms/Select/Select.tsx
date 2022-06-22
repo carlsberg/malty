@@ -174,7 +174,7 @@ export const Select = ({
       >
         <StyledActionsWrapper theme={theme}>
           {search && (
-            <StyledSearchWrapper>
+            <StyledSearchWrapper theme={theme}>
               <Input
                 data-testid={`${dataTestId}-search-input`}
                 size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
