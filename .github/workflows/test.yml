@@ -44,7 +44,7 @@ jobs:
 
       - name: Install dependencies (Bit CLI)
         run: |
-          export PATH=${env.PATH}
+          export PATH=${{ env.PATH }}
           bit config set user.token ${BIT_TOKEN}
           bit install
           bit compile
