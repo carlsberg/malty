@@ -39,15 +39,17 @@ jobs:
       - name: Intall Bit
         run: |
           npx @teambit/bvm install
-          export PATH=$HOME/bin:$PATH
-          echo "export PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
         shell: bash
 
       - name: Install dependencies (Bit CLI)
         run: |
-          bit config set user.token ${{ secrets.BIT_TOKEN }}
+          export PATH=${env.PATH}
+          bit config set user.token ${BIT_TOKEN}
           bit install
           bit compile
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
         shell: bash
 
       - name: Run Unit Tests
