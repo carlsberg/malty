@@ -34,12 +34,13 @@ jobs:
           echo "Completed adding bit.dev to npm registry"
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+        shell: bash
 
       - name: Intall Bit
         run: |
           npx @teambit/bvm install
           export PATH=$HOME/bin:$PATH
-          echo 'export PATH=$HOME/bin:$PATH' >> $GITHUB_ENV
+          echo "export PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
         shell: bash
 
       - name: Install dependencies (Bit CLI)
