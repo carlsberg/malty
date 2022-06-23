@@ -36,7 +36,7 @@ jobs:
         run: |
           npx @teambit/bvm install
           export PATH=$HOME/bin:$PATH
-          echo 'export PATH=$HOME/bin:$PATH' >> $GITHUB_ENV
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
           bit config set user.token ${BIT_TOKEN}
         shell: bash
         env:
@@ -54,11 +54,18 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
+      - name: Bit Deps Install & Compile
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          export PATH=${{ env.PATH }}
+          bit install
+          bit compile
+        shell: bash
+
       - name: Bit Tag & Export
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          bit install
-          bit compile
+          export PATH=${{ env.PATH }}
           bit tag
           bit export
         shell: bash
