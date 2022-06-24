@@ -95,7 +95,7 @@
     },
     "atoms/progress-bar": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.34",
+        "version": "0.0.35",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/ProgressBar"
     },
