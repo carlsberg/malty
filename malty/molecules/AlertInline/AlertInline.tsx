@@ -1,5 +1,5 @@
-import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
@@ -74,28 +74,24 @@ export const AlertInline = ({
   const renderActions = () => (
     <StyledActionContainer theme={theme} data-testid={`${dataQaId}-action-container`}>
       <StyledActionItem theme={theme}>
-        <Button
-          negative={actionButtonColor}
-          size={ButtonSize.Small}
-          type={ButtonType.Default}
-          style={ButtonStyle.Link}
+        <Link
+          color={actionButtonColor ? LinkColor.White : LinkColor.DigitalBlack}
+          linkStyle={LinkStyle.MediumSmallBold}
           onClick={onFirstAction}
-          data-testid={`${dataQaId}-first-action`}
+          dataTestId={`${dataQaId}-first-action`}
         >
           {firstActionText}
-        </Button>
+        </Link>
       </StyledActionItem>
       <StyledActionItem theme={theme}>
-        <Button
-          negative={actionButtonColor}
-          size={ButtonSize.Small}
-          type={ButtonType.Default}
-          style={ButtonStyle.Link}
+        <Link
+          color={actionButtonColor ? LinkColor.White : LinkColor.DigitalBlack}
+          linkStyle={LinkStyle.MediumSmallBold}
           onClick={onSecondAction}
-          data-testid={`${dataQaId}-second-action`}
+          dataTestId={`${dataQaId}-second-action`}
         >
           {secondActionText}
-        </Button>
+        </Link>
       </StyledActionItem>
     </StyledActionContainer>
   );
