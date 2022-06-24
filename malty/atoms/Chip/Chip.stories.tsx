@@ -9,7 +9,8 @@ export default {
   component: ChipComponent,
   parameters: {
     importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.chip'
+    importPath: '@carlsberggroup/malty.atoms.chip',
+    variants: ['button', 'icon', 'selected', 'disabled']
   },
   argTypes: {
     label: {
@@ -97,7 +98,14 @@ switch (variant) {
       showAction: false
     };
     break;
-
+  case 'disabled':
+    Chip.args = {
+      label: 'Label',
+      selected: true,
+      showAction: false,
+      disabled: true
+    };
+    break;
   default:
     Chip.args = {
       label: 'Label',
