@@ -24,6 +24,11 @@ export const StyledLabelWrapper = styled.div<{
     css`
       pointer-events: none;
     `}
+  &:focus,
+  &:focus-visible {
+    box-shadow: none;
+    outline: none;
+  }
 `;
 export const StyledToggleSwitch = styled.div`
   position: relative;
@@ -31,6 +36,11 @@ export const StyledToggleSwitch = styled.div`
   width: ${({ theme }) => theme.sizes.m.value};
   // using hardcoded values due to not having token value and design team thinking on implementation with icons
   height: 14px;
+  &:focus,
+  &:focus-visible {
+    box-shadow: none;
+    outline: none;
+  }
 `;
 export const StyledLabel = styled.label<{
   disabled?: boolean;
@@ -70,6 +80,11 @@ export const StyledInput = styled.input<{
             ${theme.borders['border-2px--solid']['border-style'].value} transparent;
         `}
     }
+  }
+  &:focus,
+  &:focus-visible {
+    box-shadow: none;
+    outline: none;
   }
   ${({ disabled, theme }) =>
     disabled &&

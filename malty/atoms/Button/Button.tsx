@@ -4,13 +4,7 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';
-import {
-  StyledAnchor,
-  StyledLinkButton,
-  StyledPrimaryButton,
-  StyledSecondaryButton,
-  StyledTransparentButton
-} from './Button.styled';
+import { StyledAnchor, StyledPrimaryButton, StyledSecondaryButton, StyledTransparentButton } from './Button.styled';
 import { ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
 export const Button = ({
@@ -43,10 +37,7 @@ export const Button = ({
       Component = StyledTransparentButton;
       iconColor = negative ? IconColor.White : IconColor.DigitalBlack;
       break;
-    case ButtonStyle.Link:
-      Component = StyledLinkButton;
-      iconColor = negative ? IconColor.White : IconColor.DigitalBlack;
-      break;
+
     default:
       break;
   }
