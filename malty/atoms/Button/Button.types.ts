@@ -38,8 +38,7 @@ export enum ButtonSize {
 export enum ButtonStyle {
   Primary = 'Primary',
   Secondary = 'Secondary',
-  Transparent = 'Transparent',
-  Link = 'Link'
+  Transparent = 'Transparent'
 }
 
 export enum ButtonIconPosition {

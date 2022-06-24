@@ -1,5 +1,5 @@
-import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -72,14 +72,12 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         theme={theme}
         breakpoint={breakpoint}
       >
-        <Button
-          negative={currentAlert.type !== AlertBannerType.Warning}
-          size={ButtonSize.Small}
-          type={ButtonType.Default}
-          style={ButtonStyle.Link}
+        <Link
+          color={currentAlert.type !== AlertBannerType.Warning ? LinkColor.White : LinkColor.DigitalBlack}
+          linkStyle={LinkStyle.MediumSmallBold}
         >
           {currentAlert.actionName}
-        </Button>
+        </Link>
       </StyledAction>
     );
   };
