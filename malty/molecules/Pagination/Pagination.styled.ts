@@ -24,7 +24,7 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
   }
   ul {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: unset;
     align-items: center;
     padding: 0;
     margin: 0;
@@ -58,6 +58,10 @@ export const StyledDots = styled.div<{ isWhite?: boolean }>`
   cursor: default;
   color: ${({ theme, isWhite }) =>
     isWhite ? theme.colors['text-colours'].white.value : theme.colors['text-colours']['digital-black'].value};
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
+    height: ${({ theme }) => theme.sizes.l.value};
+    width: ${({ theme }) => theme.sizes.l.value};
+  }
 `;
 export const StyledInputPagination = styled.div`
   display: flex;

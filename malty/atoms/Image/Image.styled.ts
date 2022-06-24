@@ -2,59 +2,68 @@ import { rgbToHex } from '@carlsberggroup/malty.utils.colors';
 import styled, { css } from 'styled-components';
 import { ImageEffectPosition, ImageOverlay } from './Image.types';
 
-export const StyledImage = styled.img<{ isCover?: boolean }>`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  object-fit: ${({ isCover }) => (isCover ? `cover` : `contain`)};
-`;
-
-export const StyledContainer = styled.div<{
+export const StyledImage = styled.img<{
   isCover?: boolean;
   borderPosition?: ImageEffectPosition;
-  height?: string;
-  width?: string;
 }>`
-  position: relative;
-  display: inline-flex;
-  background-color: ${({ theme }) => theme.colors.colours.support[20].value};
-  ${({ height, width }) => {
-    let dimensions;
-    if (height || width) {
-      dimensions = css`
-        height: ${height ? height.concat('px') : '100%'};
-        width: ${width ? width.concat('px') : '100%'};
-      `;
-    }
-    return dimensions;
-  }}
-
+  object-fit: ${({ isCover }) => (isCover ? `cover` : `contain`)};
   ${({ borderPosition }) => {
     if (borderPosition === ImageEffectPosition.Top) {
       return css`
-        border-top: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
+        border-top: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === ImageEffectPosition.Right) {
       return css`
-        border-right: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
+        border-right: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === ImageEffectPosition.Bottom) {
       return css`
-        border-bottom: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
+        border-bottom: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === ImageEffectPosition.Left) {
       return css`
-        border-left: ${({ theme }) => `8px solid ${theme.colors.theme.themePrimary.value}`};
+        border-left: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     return ``;
   }}
 `;
+export const StyledFigure = styled.figure<{
+  height?: string;
+  width?: string;
+}>`
+  height: ${({ height }) => (height ? height.replace('px', '').concat('px') : '100%')};
+  width: ${({ width }) => (width ? width.replace('px', '').concat('px') : '100%')};
+  margin: 0;
+`;
 
-export const StyledOverlay = styled.div<{ gradientPosition?: ImageEffectPosition; overlay?: ImageOverlay }>`
+export const StyledContainer = styled.div<{
+  isCover?: boolean;
+}>`
+  position: relative;
+  display: inline-block;
+`;
+export const StyledWrapper = styled.div<{
+  isCover?: boolean;
+}>`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  svg {
+    width: 1/3;
+    height: 1/3;
+  }
+`;
+
+export const StyledOverlay = styled.span<{ gradientPosition?: ImageEffectPosition; overlay?: ImageOverlay }>`
   position: absolute;
   height: 100%;
   width: 100%;

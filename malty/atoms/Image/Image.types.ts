@@ -1,5 +1,6 @@
 export interface ImageProps {
   src: string;
+  fallbackSrc?: string;
   cover?: boolean;
   border?: ImageEffectPosition;
   gradient?: ImageEffectPosition;
@@ -8,6 +9,8 @@ export interface ImageProps {
   height?: string;
   width?: string;
   children?: string | JSX.Element;
+  figcaption?: string;
+  dataTestId?: string;
 }
 
 export enum ImageEffectPosition {

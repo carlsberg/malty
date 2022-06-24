@@ -33,6 +33,7 @@ export const StyledDatepicker = styled.div<{
     min-width: 304px;
   }
   & .datepickerInput {
+    border-radius: 0;
     position: relative;
     padding: 0;
     font: inherit;

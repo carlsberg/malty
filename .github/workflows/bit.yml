@@ -11,11 +11,6 @@ jobs:
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: '16'
-
       - id: token
         name: Token
         uses: getsentry/action-github-app-token@v1
@@ -23,16 +18,29 @@ jobs:
           app_id: ${{ secrets.CX_RELEASE_APP_ID }}
           private_key: '${{ secrets.CX_RELEASE_APP_PRIVATE_KEY }}'
 
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ steps.token.outputs.token }}
+
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '16'
+
       - uses: actions/cache@v2
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: Bit Install & Setup
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          echo "$GITHUB_CONTEXT"
+          npx @teambit/bvm install
+          export PATH=$HOME/bin:$PATH
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+          bit config set user.token ${BIT_TOKEN}
+        shell: bash
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Register remote scopes
         run: |
@@ -42,37 +50,48 @@ jobs:
           npm config set @teambit:registry=https://node.bit.dev
           npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-
-      - name: Bit Tag and Export
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          npx @teambit/bvm install
-          export PATH=$HOME/bin:$PATH
-          echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
-          bit config set user.token ${BIT_TOKEN}
-          bit install
-          bit compile
-          bit tag
-          bit export
         shell: bash
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
+      - name: Bit Deps Install & Compile
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          export PATH=${{ env.PATH }}
+          bit install
+          bit compile
+        shell: bash
+
+      - name: Bit Tag & Export
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          export PATH=${{ env.PATH }}
+          bit tag
+          bit export
+        shell: bash
+
       - name: Configure Git
         run: |
-          git config --global user.name "${{ secrets.CX_RELEASE_APP_USER_NAME }}"
-          git config --global user.email "${{ secrets.CX_RELEASE_APP_USER_EMAIL }}"
+          git config --global user.name "${CX_RELEASE_APP_USER_NAME}"
+          git config --global user.email "${CX_RELEASE_APP_USER_EMAIL}"
+        shell: bash
+        env:
+          CX_RELEASE_APP_USER_NAME: ${{ secrets.CX_RELEASE_APP_USER_NAME }}
+          CX_RELEASE_APP_USER_EMAIL: ${{ secrets.CX_RELEASE_APP_USER_EMAIL }}
 
       - name: Create Pull Request
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git add .
-          git commit -m "Deployed via Bit GitHub Action"
-          gh pr create --fill --base main --head release
-          gh pr merge --rebase --admin --delete-branch
-          git push origin --delete release || true
+          git commit -m "release: Bit GitHub Action"
+          git push
         shell: bash
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
+
+      - name: Trigger MTA Build and Deploy
+        run: |
+          curl -X POST -d {} "https://webhooks.amplify.eu-west-1.amazonaws.com/prod/webhooks?id=${AMPLIFY_WEBHOOK_KEY}&operation=startbuild" -H "Content-Type:application/json"
+        shell: bash
+        env:
+          AMPLIFY_WEBHOOK_KEY: ${{ secrets.AMPLIFY_WEBHOOK_KEY }}

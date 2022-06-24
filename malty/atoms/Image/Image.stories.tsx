@@ -44,6 +44,10 @@ export default {
       required: true,
       control: 'text'
     },
+    fallbackSrc: {
+      description: 'URL of fallback image',
+      control: 'text'
+    },
     border: {
       options: [undefined, ...Object.values(ImageEffectPosition)],
       description: 'Images can have a styled border side, the osition options are listed below',
@@ -84,10 +88,18 @@ export default {
       control: 'text',
       description: 'Alt description of the image, for better a11y.'
     },
+    figcaption: {
+      control: 'text',
+      description: 'caption or legend describing the rest of the contents'
+    },
     url: {
       table: {
         disable: true
       }
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'Image data-testid'
     }
   }
 } as Meta;
@@ -100,6 +112,23 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
+  case 'fallback':
+    Image.args = {
+      src: 'https://via.placeholder.comm/400',
+      fallbackSrc: 'https://via.placeholder.com/400',
+      border: ImageEffectPosition.Top,
+      alt: 'This is a sample image'
+    };
+    break;
+  case 'figcaption':
+    Image.args = {
+      src: 'https://via.placeholder.com/400',
+
+      border: ImageEffectPosition.Top,
+      figcaption: 'This is a figcaption',
+      alt: 'This is a sample image'
+    };
+    break;
   case 'topborder':
     Image.args = {
       src: 'https://via.placeholder.com/400',
