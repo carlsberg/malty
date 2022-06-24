@@ -9,7 +9,13 @@ jobs:
   require_approval:
     name: Require Approval
     runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.head.ref, 'feature/') || startsWith(github.event.pull_request.head.ref, 'fix/') || startsWith(github.event.pull_request.head.ref, ' improvement/') ||  || startsWith(github.event.pull_request.head.ref, ' improvements/') || startsWith(github.event.pull_request.head.ref, 'bugfix/') || startsWith(github.event.pull_request.head.ref, 'hotfix/')
+    if: |
+      startsWith(github.event.pull_request.head.ref, 'feature/') || 
+      startsWith(github.event.pull_request.head.ref, 'fix/') || 
+      startsWith(github.event.pull_request.head.ref, 'improvement/') || 
+      startsWith(github.event.pull_request.head.ref, 'improvements/') || 
+      startsWith(github.event.pull_request.head.ref, 'bugfix/') || 
+      startsWith(github.event.pull_request.head.ref, 'hotfix/')
     steps:
       - id: token
         name: Authenticate
