@@ -77,7 +77,7 @@ branches:
       required_status_checks:
         strict: true
         contexts: []
-      enforce_admins: true
+      enforce_admins: false
       required_linear_history: true
       required_conversation_resolution: true
       restrictions:
@@ -97,7 +97,7 @@ branches:
       required_status_checks:
         strict: true
         contexts: []
-      enforce_admins: true
+      enforce_admins: false
       required_linear_history: true
       required_conversation_resolution: true
       restrictions:
@@ -137,7 +137,7 @@ branches:
       required_status_checks:
         strict: true
         contexts: []
-      enforce_admins: true
+      enforce_admins: false
       required_linear_history: true
       required_conversation_resolution: true
       restrictions:
