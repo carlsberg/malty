@@ -8,7 +8,8 @@ export default {
   component: RadioComponent,
   parameters: {
     importObject: 'Radio',
-    importPath: '@carlsberggroup/malty.atoms.radio'
+    importPath: '@carlsberggroup/malty.atoms.radio',
+    variants: ['disabled']
   },
   argTypes: {
     label: {
@@ -55,10 +56,27 @@ const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, na
   </>
 );
 export const Radio = Template.bind({});
-Radio.args = {
-  label: 'Option 1',
-  name: 'radioOptions',
-  value: 'Option 1',
-  selected: true,
-  disabled: false
-};
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'disabled':
+    Radio.args = {
+      label: 'Option 1',
+      name: 'radioOptions',
+      value: 'Option 1',
+      selected: true,
+      disabled: true
+    };
+    break;
+  default:
+    Radio.args = {
+      label: 'Option 1',
+      name: 'radioOptions',
+      value: 'Option 1',
+      selected: true,
+      disabled: false
+    };
+    break;
+}

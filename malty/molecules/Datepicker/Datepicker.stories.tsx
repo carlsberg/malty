@@ -8,7 +8,8 @@ export default {
   component: DatepickerComponent,
   parameters: {
     importObject: 'Datepicker',
-    importPath: '@carlsberggroup/malty.molecules.datepicker'
+    importPath: '@carlsberggroup/malty.molecules.datepicker',
+    variants: ['range', 'readonly', 'disabled']
   },
   argTypes: {
     label: {
@@ -134,4 +135,30 @@ const Template: Story<DatepickerProps> = ({
 };
 
 export const Datepicker = Template.bind({});
-Datepicker.args = { label: 'Select date' };
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'disabled':
+    Datepicker.args = {
+      label: 'Select date',
+      disabled: true
+    };
+    break;
+  case 'readonly':
+    Datepicker.args = {
+      label: 'Select date',
+      readOnly: true
+    };
+    break;
+  case 'range':
+    Datepicker.args = {
+      label: 'Select date',
+      selectsRange: true
+    };
+    break;
+  default:
+    Datepicker.args = { label: 'Select date' };
+    break;
+}

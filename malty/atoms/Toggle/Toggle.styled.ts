@@ -9,7 +9,9 @@ export const StyledError = styled.label`
   letter-spacing: 0;
 `;
 
-export const StyledLabelWrapper = styled.div`
+export const StyledLabelWrapper = styled.div<{
+  disabled?: boolean;
+}>`
   align-items: center;
   display: inline-block;
   display: flex;
@@ -17,6 +19,11 @@ export const StyledLabelWrapper = styled.div`
   height: 14px;
   position: relative;
   width: auto;
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      pointer-events: none;
+    `}
   &:focus,
   &:focus-visible {
     box-shadow: none;
@@ -46,6 +53,7 @@ export const StyledLabel = styled.label<{
   ${({ disabled }) =>
     disabled &&
     css`
+      pointer-events: none;
       color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     `}
 `;
