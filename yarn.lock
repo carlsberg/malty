@@ -5960,6 +5960,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Link-99ef1d@workspace:malty/atoms/Link":
+  version: 0.0.0-use.local
+  resolution: "Link-99ef1d@workspace:malty/atoms/Link"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Loading-348b9e@workspace:malty/molecules/Loading":
   version: 0.0.0-use.local
   resolution: "Loading-348b9e@workspace:malty/molecules/Loading"

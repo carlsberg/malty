@@ -36,7 +36,7 @@ jobs:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
         shell: bash
 
-      - name: Intall Bit
+      - name: Install Bit
         run: |
           npx @teambit/bvm install
           echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
