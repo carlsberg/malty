@@ -4062,7 +4062,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:>=5.1.9 <6.0.0":
+"@types/styled-components@npm:^5.1.9":
   version: 5.1.25
   resolution: "@types/styled-components@npm:5.1.25::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fstyled-components%2F-%2Fstyled-components-5.1.25.tgz"
   dependencies:
@@ -4114,7 +4114,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:>=8.3.0 <9.0.0":
+"@types/uuid@npm:^8.3.0":
   version: 8.3.4
   resolution: "@types/uuid@npm:8.3.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fuuid%2F-%2Fuuid-8.3.4.tgz"
   checksum: 6f11f3ff70f30210edaa8071422d405e9c1d4e53abbe50fdce365150d3c698fe7bbff65c1e71ae080cbfb8fded860dbb5e174da96fdbbdfcaa3fb3daa474d20f
@@ -9076,9 +9076,9 @@ __metadata:
     "@types/react-datepicker": ^4.3.4
     "@types/react-dom": ">=17.0.5 <18.0.0"
     "@types/react-test-renderer": ^17.0.1
-    "@types/styled-components": ">=5.1.9 <6.0.0"
+    "@types/styled-components": ^5.1.9
     "@types/testing-library__jest-dom": 5.9.5
-    "@types/uuid": ">=8.3.0 <9.0.0"
+    "@types/uuid": ^8.3.0
     "@typescript-eslint/eslint-plugin": ^4.24.0
     "@typescript-eslint/parser": ^4.24.0
     babel-jest: ^27.5.1
