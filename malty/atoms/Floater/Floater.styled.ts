@@ -11,7 +11,7 @@ export const StyledFloaterButton = styled.button<{
   showButton: boolean;
 }>`
   background-color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+    isNegative ? theme.colors.colours.default.white.value : theme.colors.theme.themePrimary.value};
   color: ${({ isNegative, theme }) =>
     isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
   font-family: inherit;
