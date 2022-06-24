@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ steps.token.outputs.token }}
-          
+
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '16'
@@ -31,11 +31,16 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: Bit Install & Setup
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          echo "$GITHUB_CONTEXT"
+          npx @teambit/bvm install
+          export PATH=$HOME/bin:$PATH
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+          bit config set user.token ${BIT_TOKEN}
+        shell: bash
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Register remote scopes
         run: |
@@ -49,20 +54,21 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
-      - name: Bit Install Tag & Export
+      - name: Bit Deps Install & Compile
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          npx @teambit/bvm install
-          export PATH=$HOME/bin:$PATH
-          echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
-          bit config set user.token ${BIT_TOKEN}
+          export PATH=${{ env.PATH }}
           bit install
           bit compile
+        shell: bash
+
+      - name: Bit Tag & Export
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          export PATH=${{ env.PATH }}
           bit tag
           bit export
         shell: bash
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Configure Git
         run: |
