@@ -10,7 +10,8 @@ export default {
   component: FloaterComponent,
   parameters: {
     importObject: 'Floater',
-    importPath: '@carlsberggroup/malty.atoms.floater'
+    importPath: '@carlsberggroup/malty.atoms.floater',
+    variants: ['text']
   },
   argTypes: {
     text: {
@@ -62,10 +63,24 @@ export default {
 const Template: Story<FloaterProps> = (args) => <FloaterComponent {...args} />;
 
 export const Floater = Template.bind({});
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
 
-Floater.args = {
-  text: '',
-  iconPos: FloaterIconPosition.Right,
-  negative: false,
-  icon: IconName.ArrowSmallUp
-};
+switch (variant) {
+  case 'text':
+    Floater.args = {
+      text: 'Floater',
+      iconPos: FloaterIconPosition.Right,
+      negative: false,
+      icon: IconName.ArrowSmallUp
+    };
+    break;
+  default:
+    Floater.args = {
+      text: '',
+      iconPos: FloaterIconPosition.Right,
+      negative: false,
+      icon: IconName.ArrowSmallUp
+    };
+    break;
+}

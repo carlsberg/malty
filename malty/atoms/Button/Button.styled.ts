@@ -223,15 +223,3 @@ export const StyledTransparentButton = styled(StyledButton)`
     }
   }
 `;
-
-export const StyledLinkButton = styled(StyledButton)`
-  background-color: transparent;
-  color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
-  text-decoration: underline;
-  padding: 0;
-  height: auto;
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
-  }
-`;
