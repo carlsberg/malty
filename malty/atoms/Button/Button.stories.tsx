@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import React from 'react';
 import { ButtonProps, ButtonSize } from '.';
 import { Button as ButtonComponent } from './Button';
-import { ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
+import { ButtonColor, ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
 export default {
   title: 'Forms/Button',
@@ -73,6 +73,19 @@ export default {
         category: 'Styling',
         defaultValue: {
           summary: 'ButtonSize.Medium'
+        }
+      },
+      control: {
+        type: 'select'
+      }
+    },
+    color: {
+      description: 'Button color. Options are',
+      options: Object.values(ButtonColor),
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: 'ButtonColor.DigitalBlack'
         }
       },
       control: {

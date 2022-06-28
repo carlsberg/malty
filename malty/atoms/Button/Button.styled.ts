@@ -1,5 +1,6 @@
+/* eslint-disable no-nested-ternary */
 import styled, { css, keyframes } from 'styled-components';
-import { ButtonIconPosition } from './Button.types';
+import { ButtonColor, ButtonIconPosition } from './Button.types';
 
 const animateShow = keyframes`
   from {
@@ -25,6 +26,7 @@ const StyledButton = styled.button<{
   fontSize: string;
   iconSize: string;
   iconPos: ButtonIconPosition;
+  color: ButtonColor;
 }>`
   font-family: inherit;
   display: inline-flex;
@@ -93,10 +95,18 @@ const StyledButton = styled.button<{
 `;
 
 export const StyledPrimaryButton = styled(StyledButton)`
-  background-color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
-  color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
+  background-color: ${({ isNegative, theme, color }) =>
+    isNegative
+      ? theme.colors.colours.default.white.value
+      : color === ButtonColor.DigitalBlack
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.theme[color].value};
+  color: ${({ isNegative, theme, color }) =>
+    isNegative
+      ? color === ButtonColor.DigitalBlack
+        ? theme.colors.colours.default['digital-black'].value
+        : theme.colors.theme[color].value
+      : theme.colors.colours.default.white.value};
   border: 1px solid ${({ theme }) => theme.colors.colours.default.transparent.value};
 
   &:hover {
@@ -125,11 +135,19 @@ export const StyledPrimaryButton = styled(StyledButton)`
 
 export const StyledSecondaryButton = styled(StyledButton)`
   background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
-  color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  color: ${({ isNegative, theme, color }) =>
+    isNegative
+      ? theme.colors.colours.default.white.value
+      : color === ButtonColor.DigitalBlack
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.theme[color].value};
   border: 1px solid
-    ${({ isNegative, theme }) =>
-      isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+    ${({ isNegative, theme, color }) =>
+      isNegative
+        ? theme.colors.colours.default.white.value
+        : color === ButtonColor.DigitalBlack
+        ? theme.colors.colours.default['digital-black'].value
+        : theme.colors.theme[color].value};
   &:hover {
     background-color: ${({ isNegative, theme }) =>
       isNegative
@@ -181,8 +199,12 @@ export const StyledSecondaryButton = styled(StyledButton)`
 export const StyledTransparentButton = styled(StyledButton)`
   background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
 
-  color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+  color: ${({ isNegative, theme, color }) =>
+    isNegative
+      ? theme.colors.colours.default.white.value
+      : color === ButtonColor.DigitalBlack
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.theme[color].value};
   &.active {
     background-color: ${({ theme }) => theme.colors.colours.support[40].value};
   }
