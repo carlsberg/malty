@@ -9,14 +9,20 @@ jobs:
   require_approval:
     name: Require Approval
     runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.head.ref, 'feature/') || startsWith(github.event.pull_request.head.ref, 'ci/')
+    if: |
+      startsWith(github.event.pull_request.head.ref, 'feature/') || 
+      startsWith(github.event.pull_request.head.ref, 'fix/') || 
+      startsWith(github.event.pull_request.head.ref, 'improvement/') || 
+      startsWith(github.event.pull_request.head.ref, 'improvements/') || 
+      startsWith(github.event.pull_request.head.ref, 'bugfix/') || 
+      startsWith(github.event.pull_request.head.ref, 'hotfix/')
     steps:
       - id: token
         name: Authenticate
         uses: getsentry/action-github-app-token@v1
         with:
           app_id: ${{ secrets.CARLSBERG_SECURITY_APP_ID }}
-          private_key: "${{ secrets.CARLSBERG_SECURITY_APP_PRIVATE_KEY }}"
+          private_key: '${{ secrets.CARLSBERG_SECURITY_APP_PRIVATE_KEY }}'
 
       - id: check
         name: Check Reviewers
@@ -59,8 +65,8 @@ jobs:
               status: "completed",
               conclusion: conclusion,
               output: {
-                title: "Waiting designer approval",
-                summary: "Feature pull requests require an approval from a designer",
+                title: "Waiting for designer's approval",
+                summary: "This pull request requires an approval from a designer",
               },
             });
         env:

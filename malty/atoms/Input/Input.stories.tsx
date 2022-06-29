@@ -9,7 +9,8 @@ export default {
   component: InputComponent,
   parameters: {
     importObject: 'Input',
-    importPath: '@carlsberggroup/malty.atoms.input'
+    importPath: '@carlsberggroup/malty.atoms.input',
+    variants: ['url', 'number', 'email', 'password', 'search', 'phone']
   },
   argTypes: {
     label: {

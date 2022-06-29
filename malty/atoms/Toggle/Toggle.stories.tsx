@@ -8,7 +8,8 @@ export default {
   component: ToggleComponent,
   parameters: {
     importObject: 'Toggle',
-    importPath: '@carlsberggroup/malty.atoms.toggle'
+    importPath: '@carlsberggroup/malty.atoms.toggle',
+    variants: ['disabled']
   },
   argTypes: {
     label: {
@@ -45,9 +46,22 @@ const Template: Story<ToggleProps> = ({ label, disabled, error }: ToggleProps) =
   );
 };
 export const Toggle = Template.bind({});
-Toggle.args = {
-  label: 'toggle label',
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
 
-  disabled: false,
-  error: ''
-};
+switch (variant) {
+  case 'disabled':
+    Toggle.args = {
+      label: 'toggle label',
+      disabled: true,
+      error: ''
+    };
+    break;
+  default:
+    Toggle.args = {
+      label: 'toggle label',
+      disabled: false,
+      error: ''
+    };
+    break;
+}
