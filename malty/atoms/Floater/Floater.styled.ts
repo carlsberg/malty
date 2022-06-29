@@ -1,17 +1,22 @@
 import styled, { css } from 'styled-components';
-import { FloaterIconPosition } from './Floater.types';
+import { FloaterColor, FloaterIconPosition } from './Floater.types';
 
 export const StyledFloaterButton = styled.button<{
   hasText: boolean;
   hasIcon: boolean;
   isNegative?: boolean;
   fullWidth?: boolean;
-
+  color: FloaterColor;
   iconPos: FloaterIconPosition;
   showButton: boolean;
 }>`
-  background-color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default.white.value : theme.colors.theme.themePrimary.value};
+  background-color: ${({ isNegative, theme, color }) =>
+    // eslint-disable-next-line no-nested-ternary
+    isNegative
+      ? theme.colors.colours.default.white.value
+      : color === FloaterColor.DigitalBlack
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.theme[color].value};
   color: ${({ isNegative, theme }) =>
     isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
   font-family: inherit;
