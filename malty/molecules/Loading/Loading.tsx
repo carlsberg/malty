@@ -1,11 +1,22 @@
-import { ProgressSpinner, ProgressSpinnerStatus } from '@carlsberggroup/malty.atoms.progress-spinner';
+import {
+  ProgressSpinner,
+  ProgressSpinnerColor,
+  ProgressSpinnerStatus
+} from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useEffect, useState } from 'react';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
-export const Loading = ({ text, size = LoadingSize.Small, status = LoadingStatus.Pending, dataQaId }: LoadingProps) => {
+export const Loading = ({
+  text,
+  size = LoadingSize.Small,
+  status = LoadingStatus.Pending,
+  dataQaId,
+  negative,
+  color = ProgressSpinnerColor.DigitalBlack
+}: LoadingProps) => {
   const theme = defaultTheme;
 
   const [progressStatus, setProgressStatus] = useState<ProgressSpinnerStatus>(ProgressSpinnerStatus.Pending);
@@ -51,7 +62,7 @@ export const Loading = ({ text, size = LoadingSize.Small, status = LoadingStatus
             size={iconSize}
             className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
           >
-            <ProgressSpinner dataQaId={`${dataQaId}`} status={progressStatus} />
+            <ProgressSpinner color={color} negative={negative} dataQaId={`${dataQaId}`} status={progressStatus} />
           </StyledLoading>
 
           {text && (

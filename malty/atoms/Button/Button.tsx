@@ -1,4 +1,5 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
@@ -118,7 +119,11 @@ export const Button = ({
         )}
         {loading && (
           <div data-testid={`${dataTestId}-loading`} className="secondary-container">
-            <Loading status={LoadingStatus.Pending} />
+            <Loading
+              color={color as unknown as ProgressSpinnerColor}
+              negative={!negative}
+              status={LoadingStatus.Pending}
+            />
           </div>
         )}
       </Component>
