@@ -1,8 +1,8 @@
 import { IconStories } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import Icon from './index';
 
-const [meta, story] = IconStories('Eye Fill', Icon);
+const [meta, story] = IconStories('Eye Hide', Icon);
 
 export default meta;
 
-export const eyeFill = story;
+export const eyeHide = story;
