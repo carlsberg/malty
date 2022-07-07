@@ -4,8 +4,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { createRef, useContext, useEffect, useMemo, useState } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { createRef, useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {
   StyledActionButton,
@@ -45,7 +44,7 @@ export const Select = ({
   dataTestId,
   readOnly
 }: SelectProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
+  const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const [showOptionList, setShowOptionList] = useState(false);
@@ -185,14 +184,16 @@ export const Select = ({
               />
             </StyledSearchWrapper>
           )}
-          {multiple && (
+          {(selectedValueState.length > 0 || multiple) && (
             <StyledActionButtonWrapper height={numSize} theme={theme}>
-              <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
-                Sellect all
-              </StyledActionButton>
+              {multiple && (
+                <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
+                  Sellect all
+                </StyledActionButton>
+              )}
               {selectedValueState.length > 0 && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
-                  Clear all
+                  Clear
                 </StyledActionButton>
               )}
             </StyledActionButtonWrapper>
