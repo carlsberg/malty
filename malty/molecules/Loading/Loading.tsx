@@ -14,7 +14,7 @@ export const Loading = ({
   size = LoadingSize.Small,
   status = LoadingStatus.Pending,
   dataQaId,
-  negative,
+  negative = false,
   color = ProgressSpinnerColor.DigitalBlack
 }: LoadingProps) => {
   const theme = defaultTheme;

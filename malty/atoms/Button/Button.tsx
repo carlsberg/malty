@@ -82,6 +82,17 @@ export const Button = ({
   const [hPadding, _setHorizontalPadding] = useState(theme.sizes.s.value);
   const [fontSize, setFontSize] = useState(theme.typography.desktop.text.medium_default['font-size'].value);
   const [iconSize, setIconSize] = useState(theme.sizes.m.value);
+  const [loadingNegative, setLoadingNegative] = useState(negative);
+  const handleLoadingColor = () => {
+    if (style !== ButtonStyle.Primary) {
+      setLoadingNegative(negative);
+    } else {
+      setLoadingNegative(!negative);
+    }
+  };
+  useEffect(() => {
+    handleLoadingColor();
+  }, [negative, style]);
 
   const renderComponent = () => (
     <TypographyProvider>
@@ -121,7 +132,7 @@ export const Button = ({
           <div data-testid={`${dataTestId}-loading`} className="secondary-container">
             <Loading
               color={color as unknown as ProgressSpinnerColor}
-              negative={!negative}
+              negative={loadingNegative}
               status={LoadingStatus.Pending}
             />
           </div>

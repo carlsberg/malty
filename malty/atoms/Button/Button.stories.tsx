@@ -18,6 +18,19 @@ export default {
       control: 'text',
       description: 'Button label, can be'
     },
+    color: {
+      description: 'Button color. Options are',
+      options: Object.values(ButtonColor),
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: 'ButtonColor.DigitalBlack'
+        }
+      },
+      control: {
+        type: 'select'
+      }
+    },
     type: {
       description: 'The default behavior of the button. Possible values are',
       options: Object.keys(ButtonType),
@@ -79,19 +92,7 @@ export default {
         type: 'select'
       }
     },
-    color: {
-      description: 'Button color. Options are',
-      options: Object.values(ButtonColor),
-      table: {
-        category: 'Styling',
-        defaultValue: {
-          summary: 'ButtonColor.DigitalBlack'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
+
     icon: {
       description: 'When selected, button label will contain the selected icon',
       options: Object.values({ undefined, ...IconName }),
@@ -167,6 +168,7 @@ const variant = params.get('variant');
 switch (variant) {
   case 'secondary':
     Button.args = {
+      color: ButtonColor.DigitalBlack,
       style: ButtonStyle.Secondary,
       text: 'Secondary',
       type: ButtonType.Submit,
@@ -183,6 +185,7 @@ switch (variant) {
 
   case 'transparent':
     Button.args = {
+      color: ButtonColor.DigitalBlack,
       style: ButtonStyle.Transparent,
       text: 'Transparent',
       type: ButtonType.Submit,
@@ -199,6 +202,7 @@ switch (variant) {
 
   default:
     Button.args = {
+      color: ButtonColor.DigitalBlack,
       style: ButtonStyle.Primary,
       text: 'Primary',
       type: ButtonType.Submit,

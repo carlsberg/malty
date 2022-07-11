@@ -1,4 +1,4 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Button } from './Button';
@@ -8,12 +8,6 @@ const defaultText = 'Submit';
 const newText = 'Go';
 
 describe('button', () => {
-  it('matches snapshot', () => {
-    const onClick = jest.fn();
-    const view = jsonRenderer(<Button text={defaultText} style={ButtonStyle.Primary} onClick={onClick} disabled />);
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders with correct text', () => {
     const { rerender } = render(<Button text={defaultText} style={ButtonStyle.Primary} />);
     expect(screen.getByText(defaultText)).not.toBeNull();
