@@ -1,16 +1,9 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Radio } from './Radio';
 
 describe('radio', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <Radio name="radio" label="Label text" value="test" onValueChange={() => null} selected />
-    );
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders elements', () => {
     const mockFn = jest.fn();
     render(
