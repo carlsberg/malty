@@ -1,9 +1,10 @@
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ReactNode, useContext } from 'react';
-import DatePicker from 'react-datepicker';
+import React, { useContext, useMemo } from 'react';
+import DatePicker, { CalendarContainerProps } from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
+import { v4 as uuid } from 'uuid';
 import {
   StyledCalendar,
   StyledContainer,
@@ -27,11 +28,12 @@ export const Datepicker = ({
   selectsRange,
   inline,
   readOnly,
+  placeholderText,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-
-  const Container = ({ children }: { children: ReactNode }) => (
+  const id = useMemo(() => uuid(), []);
+  const Container = ({ children }: CalendarContainerProps) => (
     <StyledContainer theme={theme}>
       <StyledCalendar theme={theme}>{children}</StyledCalendar>
     </StyledContainer>
@@ -41,7 +43,7 @@ export const Datepicker = ({
     <TypographyProvider>
       <StyledWrapper theme={theme}>
         {!inline && (
-          <StyledLabel disabled={disabled} htmlFor="datepicker-input" theme={theme}>
+          <StyledLabel htmlFor={id} disabled={disabled} theme={theme}>
             {label}
           </StyledLabel>
         )}
@@ -53,6 +55,7 @@ export const Datepicker = ({
           )}
 
           <DatePicker
+            id={id}
             selected={startDate}
             startDate={startDate}
             endDate={selectsRange ? endDate : null}
@@ -73,6 +76,7 @@ export const Datepicker = ({
             inline={inline}
             selectsRange={selectsRange}
             shouldCloseOnSelect={!selectsRange}
+            placeholderText={placeholderText}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />

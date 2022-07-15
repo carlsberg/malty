@@ -15,7 +15,7 @@ export default {
     label: {
       description: 'The datepicker input label',
       control: {
-        type: 'string'
+        type: 'text'
       }
     },
     startDate: {
@@ -39,7 +39,7 @@ export default {
     dateFormat: {
       description: 'custom date format, default is MM/dd/yyyy',
       control: {
-        type: 'string'
+        type: 'text'
       }
     },
     excludeDates: {
@@ -75,13 +75,13 @@ export default {
     placeholderText: {
       description: 'input placeholder',
       control: {
-        type: 'string'
+        type: 'text'
       }
     },
     locale: {
       description: 'iso language code',
       control: {
-        type: 'string'
+        type: 'text'
       }
     }
   }
