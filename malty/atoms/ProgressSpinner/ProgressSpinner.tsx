@@ -71,41 +71,40 @@ export const ProgressSpinner = ({
     );
   }
   return (
-    <>
-      <svg data-testid={`${dataQaId}-pending-icon`} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" data-testid={`${dataQaId}-pending-icon`}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C34.4934 43 43 34.4934 43 24C43 13.5066 34.4934 5 24 5Z"
+        fill={
+          negative
+            ? theme.colors.colours.overlay.white[10].value
+            : theme.colors.colours.overlay['digital-black'][10].value
+        }
+      />
+      <mask id="mask0_1664_614" maskUnits="userSpaceOnUse" x="0" y="0" style={{ maskType: 'alpha' }}>
         <path
           fillRule="evenodd"
           clipRule="evenodd"
           d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C34.4934 43 43 34.4934 43 24C43 13.5066 34.4934 5 24 5Z"
+          fill="white"
+        />
+      </mask>
+      <g mask="url(#mask0_1664_614)">
+        <rect
+          x="24"
+          width="24"
+          height="24"
           fill={
             negative
-              ? theme.colors.colours.overlay.white[10].value
-              : theme.colors.colours.overlay['digital-black'][10].value
+              ? theme.colors.colours.default.white.value
+              : color === ProgressSpinnerColor.DigitalBlack
+              ? theme.colors.colours.default['digital-black'].value
+              : theme.colors.theme[color].value
           }
         />
-        <mask id="mask0_1664_614" style={{ maskType: 'alpha' }} maskUnits="userSpaceOnUse" x="0" y="0">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M24 0C37.2548 0 48 10.7452 48 24C48 37.2548 37.2548 48 24 48C10.7452 48 0 37.2548 0 24C0 10.7452 10.7452 0 24 0ZM24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C34.4934 43 43 34.4934 43 24C43 13.5066 34.4934 5 24 5Z"
-            fill="white"
-          />
-        </mask>
-        <g mask="url(#mask0_1664_614)">
-          <rect
-            x="24"
-            width="24"
-            height="24"
-            fill={
-              negative
-                ? theme.colors.colours.default.white.value
-                : color === ProgressSpinnerColor.DigitalBlack
-                ? theme.colors.colours.default['digital-black'].value
-                : theme.colors.theme[color].value
-            }
-          />
-        </g>
-      </svg>
-    </>
+        <rect y="47" width="1" height="1" fill="transparent" />
+      </g>
+    </svg>
   );
 };
