@@ -161,6 +161,7 @@ export const Select = ({
 
   const handleClearAll = () => {
     update([]);
+    if (!multiple) setShowOptionList(false);
   };
   const renderDefaultDropdown = () => (
     <TypographyProvider>
@@ -193,7 +194,7 @@ export const Select = ({
               )}
               {selectedValueState.length > 0 && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
-                  Clear
+                  {multiple ? 'Clear all' : 'Clear'}
                 </StyledActionButton>
               )}
             </StyledActionButtonWrapper>
