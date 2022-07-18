@@ -113,7 +113,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.30",
+        "version": "0.0.31",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
