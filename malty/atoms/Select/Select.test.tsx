@@ -1,4 +1,4 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import React from 'react';
 import { Select } from './Select';
@@ -30,20 +30,6 @@ const testOptions = [
   }
 ];
 describe('select', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <Select
-        options={testOptions}
-        label="Label text"
-        placeholder="Placeholder text"
-        onValueChange={mockFn}
-        type={SelectType.Default}
-        size={SelectSize.Medium}
-      />
-    );
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders elements', () => {
     render(
       <Select
