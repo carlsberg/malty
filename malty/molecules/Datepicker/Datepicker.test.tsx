@@ -14,7 +14,7 @@ describe('datepicker', () => {
     expect(screen.getByLabelText(label)).toBeInTheDocument();
     expect(screen.getByDisplayValue('01/01/2022')).toBeInTheDocument();
   });
-  it('range', () => {
+  it('renders datepicker with range', () => {
     render(
       <Datepicker
         label={label}
