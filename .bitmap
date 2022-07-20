@@ -29,7 +29,7 @@
     },
     "atoms/floater": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Floater"
     },
