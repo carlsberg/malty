@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { FloaterIconPosition, FloaterProps } from '.';
 import { StyledFloaterButton } from './Floater.styled';
+import { FloaterColor } from './Floater.types';
 
 export const Floater = ({
   text,
@@ -14,11 +15,36 @@ export const Floater = ({
   negative,
   tabIndex = -1,
   dataTestId,
-  children
+  children,
+  color = FloaterColor.DigitalBlack
 }: FloaterProps) => {
-  const iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
+  let iconColor;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showButton, setShowButton] = useState(true);
+  switch (color) {
+    case FloaterColor.ThemePrimary:
+      iconColor = IconColor.White;
+      if (negative) {
+        iconColor = IconColor.Primary;
+      }
+      break;
+    case FloaterColor.ThemeSecondary:
+      iconColor = IconColor.White;
+      if (negative) {
+        iconColor = IconColor.Secondary;
+      }
+      break;
+    case FloaterColor.ThemeTertiary:
+      iconColor = IconColor.White;
+      if (negative) {
+        iconColor = IconColor.Tertiary;
+      }
+      break;
+
+    default:
+      iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
+      break;
+  }
 
   const handleScroll = () => {
     const st = window.pageYOffset || document.documentElement.scrollTop;
@@ -42,6 +68,7 @@ export const Floater = ({
   return (
     <TypographyProvider>
       <StyledFloaterButton
+        color={color}
         data-testid={dataTestId}
         type="button"
         hasText={!!text}

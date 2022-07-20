@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import React from 'react';
 import { FloaterProps } from '.';
 import { Floater as FloaterComponent } from './Floater';
-import { FloaterIconPosition } from './Floater.types';
+import { FloaterColor, FloaterIconPosition } from './Floater.types';
 
 export default {
   title: 'Forms/Floater',
@@ -56,6 +56,18 @@ export default {
     negative: {
       control: 'boolean',
       description: 'Should this be a white button?'
+    },
+    color: {
+      description: 'Floater color. Options are',
+      options: Object.values(FloaterColor),
+      table: {
+        defaultValue: {
+          summary: 'FloaterColor.DigitalBlack'
+        }
+      },
+      control: {
+        type: 'select'
+      }
     }
   }
 };
