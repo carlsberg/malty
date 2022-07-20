@@ -19,6 +19,14 @@ export interface ButtonProps {
   children?: string | JSX.Element;
   dataTestId?: string;
   selected?: boolean;
+  color?: ButtonColor;
+}
+
+export enum ButtonColor {
+  DigitalBlack = 'digital-black',
+  ThemePrimary = 'themePrimary',
+  ThemeSecondary = 'themeSecondary',
+  ThemeTertiary = 'themeTertiary'
 }
 
 export enum ButtonType {
