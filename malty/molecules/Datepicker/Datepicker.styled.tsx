@@ -293,16 +293,16 @@ export const StyledCalendar = styled.div`
   }
 `;
 
-export const StyledCaption = styled.div`
+export const StyledCaption = styled.div<{ color: string }>`
   position: relative;
   &::before {
     content: '';
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    -moz-border-radius: 7.5px;
-    -webkit-border-radius: 7.5px;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     border-radius: 7.5px;
-    background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    background-color: ${({ color }) => color};
   }
 `;
