@@ -4,8 +4,10 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { ReactNode, useContext } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
+import { Button, ButtonStyle } from '../../atoms/Button';
 import { Text, TextStyle } from '../../atoms/Text';
 import {
+  StyledActionsContainer,
   StyledCalendar,
   StyledCaption,
   StyledCaptionContainer,
@@ -30,7 +32,6 @@ export const Datepicker = ({
   selectsRange,
   inline,
   readOnly,
-  captions,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -44,12 +45,20 @@ export const Datepicker = ({
   // eslint-disable-next-line @typescript-eslint/no-shadow
   const renderDatepickerCaptions = (captions: Caption[]) => (
     <StyledCaptionContainer>
-      {captions.map((caption) => (
-        <StyledCaption color={caption.color} border={caption.border}>
+      {captions.map((caption, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <StyledCaption color={caption.color} border={caption.border} key={`datepicker-caption-${index}`}>
           <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
         </StyledCaption>
       ))}
     </StyledCaptionContainer>
+  );
+
+  const renderActions = () => (
+    <StyledActionsContainer>
+      {props.secondaryAction && <Button style={ButtonStyle.Secondary} text={props.secondaryAction.copy} fullWidth />}
+      {props.primaryAction && <Button style={ButtonStyle.Primary} text={props.primaryAction.copy} fullWidth />}
+    </StyledActionsContainer>
   );
 
   return (
@@ -91,7 +100,8 @@ export const Datepicker = ({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           >
-            {captions && renderDatepickerCaptions(captions)}
+            {props.captions && renderDatepickerCaptions(props.captions)}
+            {(props.primaryAction || props.secondaryAction) && renderActions()}
           </DatePicker>
         </StyledDatepicker>
       </StyledWrapper>

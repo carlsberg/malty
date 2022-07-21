@@ -298,6 +298,7 @@ export const StyledCaptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding: 0 12px;
 `;
 
 export const StyledCaption = styled.div<{ color: string; border?: string }>`
@@ -312,5 +313,18 @@ export const StyledCaption = styled.div<{ color: string; border?: string }>`
     border: 1px solid ${({ border }) => border || 'transparent'};
     border-radius: 7.5px;
     background-color: ${({ color }) => color};
+  }
+`;
+
+export const StyledActionsContainer = styled.div`
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 0 12px;
+  & > * {
+    flex: 1;
+    max-width 50%;
   }
 `;

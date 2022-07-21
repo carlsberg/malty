@@ -1,5 +1,7 @@
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Meta, Story } from '@storybook/react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ThemeContext } from 'styled-components';
 import { Datepicker as DatepickerComponent } from './Datepicker';
 import { DatepickerProps } from './Datepicker.types';
 
@@ -102,6 +104,23 @@ const Template: Story<DatepickerProps> = ({
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
+  const theme = useContext(ThemeContext) || defaultTheme;
+
+  const CAPTIONS = [
+    { color: 'white', copy: 'Today', border: theme.colors.colours.default['digital-black'].value },
+    { color: theme.colors.colours.default['digital-black'].value, copy: 'Selected' }
+  ];
+
+  const PRIMARY_ACTION = {
+    copy: 'Apply date',
+    action: () => undefined
+  };
+
+  const SECONDARY_ACTION = {
+    copy: 'Cancel',
+    action: () => undefined
+  };
+
   const onChange = (date: Date[] | Date) => {
     let start;
     let end;
@@ -114,7 +133,7 @@ const Template: Story<DatepickerProps> = ({
   };
 
   return (
-    <div style={{ height: '400px' }}>
+    <div style={{ height: '580px' }}>
       <DatepickerComponent
         label={label}
         onChange={selectsRange ? onChange : setStartDate}
@@ -129,6 +148,9 @@ const Template: Story<DatepickerProps> = ({
         selectsRange={selectsRange}
         dateFormat={dateFormat}
         readOnly={readOnly}
+        captions={CAPTIONS}
+        primaryAction={PRIMARY_ACTION}
+        secondaryAction={SECONDARY_ACTION}
       />
     </div>
   );
