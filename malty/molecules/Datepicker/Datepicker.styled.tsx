@@ -123,7 +123,7 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledCalendar = styled.div`
-  display: flex;
+  display: block;
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   position: relative;
   & .react-datepicker__header {
@@ -290,5 +290,19 @@ export const StyledCalendar = styled.div`
       transform: rotate(45deg);
       left: ${({ theme }) => `-${theme.sizes.xs.value}`};
     }
+  }
+`;
+
+export const StyledCaption = styled.div`
+  position: relative;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 7.5px;
+    -webkit-border-radius: 7.5px;
+    border-radius: 7.5px;
+    background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   }
 `;
