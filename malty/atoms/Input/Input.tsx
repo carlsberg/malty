@@ -102,6 +102,7 @@ export const Input = ({
     if (type === InputType.Password) {
       return (
         <Icon
+          className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}
           onClick={HandleTogglePassword}
           data-testid={`${dataTestId}-icon`}
           name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}

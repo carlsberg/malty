@@ -1,5 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
+const animateShow = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 export const StyledInputContainer = styled.div`
   font-family: inherit;
   display: flex;
@@ -305,4 +313,9 @@ export const StyledOption = styled.option<{
 export const StyledClearableWrapper = styled.div`
   position: relative;
   display: flex;
+  .password-icon-show,
+  .password-icon-hide {
+    /* transition: all 0.3s ease-in-out !important; */
+    animation: ${animateShow} 0.5s ease-in-out;
+  }
 `;
