@@ -18,12 +18,13 @@ export interface DatepickerProps {
   secondaryAction?: Action;
 }
 
-type Caption = {
+export type Caption = {
   color: string;
   copy: string;
+  border?: string;
 };
 
-type Action = {
+export type Action = {
   copy: string;
   action: () => void;
 };

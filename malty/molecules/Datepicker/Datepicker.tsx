@@ -4,15 +4,17 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { ReactNode, useContext } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
+import { Text, TextStyle } from '../../atoms/Text';
 import {
   StyledCalendar,
+  StyledCaption,
   StyledContainer,
   StyledDatepicker,
   StyledInputIcon,
   StyledLabel,
   StyledWrapper
 } from './Datepicker.styled';
-import { DatepickerProps } from './Datepicker.types';
+import { Caption, DatepickerProps } from './Datepicker.types';
 
 export const Datepicker = ({
   startDate,
@@ -27,6 +29,7 @@ export const Datepicker = ({
   selectsRange,
   inline,
   readOnly,
+  captions,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -36,6 +39,14 @@ export const Datepicker = ({
       <StyledCalendar theme={theme}>{children}</StyledCalendar>
     </StyledContainer>
   );
+
+  // eslint-disable-next-line @typescript-eslint/no-shadow
+  const renderDatepickerCaptions = (captions: Caption[]) =>
+    captions.map((caption) => (
+      <StyledCaption color={caption.color} border={caption.border}>
+        <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
+      </StyledCaption>
+    ));
 
   return (
     <TypographyProvider>
@@ -75,7 +86,9 @@ export const Datepicker = ({
             shouldCloseOnSelect={!selectsRange}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
-          />
+          >
+            {captions && renderDatepickerCaptions(captions)}
+          </DatePicker>
         </StyledDatepicker>
       </StyledWrapper>
     </TypographyProvider>

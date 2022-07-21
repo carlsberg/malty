@@ -293,15 +293,16 @@ export const StyledCalendar = styled.div`
   }
 `;
 
-export const StyledCaption = styled.div<{ color: string }>`
+export const StyledCaption = styled.div<{ color: string; border?: string }>`
   position: relative;
+  display: flex;
+  align-items: center;
   &::before {
     content: '';
-    display: inline-block;
     width: 8px;
     height: 8px;
     margin-right: 8px;
-    border: 1px solid ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    border: 1px solid ${({ border }) => border || 'transparent'};
     border-radius: 7.5px;
     background-color: ${({ color }) => color};
   }
