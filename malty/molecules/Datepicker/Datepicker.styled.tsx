@@ -293,6 +293,13 @@ export const StyledCalendar = styled.div`
   }
 `;
 
+export const StyledCaptionContainer = styled.div`
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+`;
+
 export const StyledCaption = styled.div<{ color: string; border?: string }>`
   position: relative;
   display: flex;

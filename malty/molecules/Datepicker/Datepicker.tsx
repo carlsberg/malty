@@ -8,6 +8,7 @@ import { Text, TextStyle } from '../../atoms/Text';
 import {
   StyledCalendar,
   StyledCaption,
+  StyledCaptionContainer,
   StyledContainer,
   StyledDatepicker,
   StyledInputIcon,
@@ -41,12 +42,15 @@ export const Datepicker = ({
   );
 
   // eslint-disable-next-line @typescript-eslint/no-shadow
-  const renderDatepickerCaptions = (captions: Caption[]) =>
-    captions.map((caption) => (
-      <StyledCaption color={caption.color} border={caption.border}>
-        <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
-      </StyledCaption>
-    ));
+  const renderDatepickerCaptions = (captions: Caption[]) => (
+    <StyledCaptionContainer>
+      {captions.map((caption) => (
+        <StyledCaption color={caption.color} border={caption.border}>
+          <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
+        </StyledCaption>
+      ))}
+    </StyledCaptionContainer>
+  );
 
   return (
     <TypographyProvider>
