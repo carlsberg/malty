@@ -66,6 +66,10 @@ export default {
       control: 'boolean',
       description: 'Input state, readOnly'
     },
+    required: {
+      control: 'boolean',
+      description: 'Makes the input required to fill'
+    },
     iconPosition: {
       options: Object.keys(InputIconPosition),
       mapping: InputIconPosition,
@@ -126,7 +130,8 @@ const Template: Story<InputProps> = ({
   mask,
   hint,
   dataTestId,
-  readOnly
+  readOnly,
+  required
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -146,6 +151,7 @@ const Template: Story<InputProps> = ({
       hint={hint}
       dataTestId={dataTestId}
       readOnly={readOnly}
+      required={required}
     />
   );
 };
@@ -166,7 +172,8 @@ switch (variant) {
       disabled: false,
       clearable: true,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -180,7 +187,8 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -194,7 +202,8 @@ switch (variant) {
       disabled: false,
       clearable: true,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -208,7 +217,8 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -223,7 +233,8 @@ switch (variant) {
       clearable: true,
       icon: IconName.Search,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -237,7 +248,8 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -251,7 +263,8 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 }

@@ -17,6 +17,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   dataTestId?: string;
   disabled?: boolean;
   readOnly?: boolean;
+  required?: boolean;
 }
 
 export enum InputType {

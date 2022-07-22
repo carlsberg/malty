@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
@@ -42,7 +43,9 @@ export const Input = ({
   children,
   hint,
   dataTestId,
-  readOnly
+  readOnly,
+  required = false,
+  ...props
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -113,6 +116,8 @@ export const Input = ({
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
           type={type}
           theme={theme}
+          required={required}
+          {...props}
         />
         {renderClearable()}
         {renderIcon()}
@@ -155,6 +160,8 @@ export const Input = ({
         onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
         type={type}
         theme={theme}
+        required={required}
+        {...props}
       />
       <StyledButton
         data-testid={`${dataTestId}-quantity-plus`}
@@ -223,6 +230,8 @@ export const Input = ({
             onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
             type={type}
             theme={theme}
+            required={required}
+            {...props}
           />
           {renderClearable()}
           {renderIcon()}
