@@ -21,7 +21,7 @@ export interface DatepickerProps {
 export type Caption = {
   color: string;
   copy: string;
-  border?: string;
+  borderColor?: string;
 };
 
 export type Action = {

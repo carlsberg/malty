@@ -294,37 +294,37 @@ export const StyledCalendar = styled.div`
 `;
 
 export const StyledCaptionContainer = styled.div`
-  margin-top: 24px;
+  margin-top: ${({ theme }) => theme.sizes.m.value};
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 0 12px;
+  gap: ${({ theme }) => theme.sizes['3xs'].value};
+  padding: 0 ${({ theme }) => theme.sizes.xs.value};
 `;
 
-export const StyledCaption = styled.div<{ color: string; border?: string }>`
+export const StyledCaption = styled.div<{ color: string; borderColor?: string }>`
   position: relative;
   display: flex;
   align-items: center;
   &::before {
     content: '';
-    width: 8px;
-    height: 8px;
-    margin-right: 8px;
-    border: 1px solid ${({ border }) => border || 'transparent'};
-    border-radius: 7.5px;
+    width: ${({ theme }) => theme.sizes['2xs'].value};
+    height: ${({ theme }) => theme.sizes['2xs'].value};
+    margin-right: ${({ theme }) => theme.sizes['2xs'].value};
+    border: 1px solid ${({ borderColor }) => borderColor || 'transparent'};
+    border-radius: ${({ theme }) => theme.sizes['2xs'].value};
     background-color: ${({ color }) => color};
   }
 `;
 
 export const StyledActionsContainer = styled.div`
-  margin-top: 24px;
+  margin-top: ${({ theme }) => theme.sizes.m.value};
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 16px;
-  padding: 0 12px;
+  gap: ${({ theme }) => theme.sizes.s.value};
+  padding: 0 ${({ theme }) => theme.sizes.xs.value};
   & > * {
     flex: 1;
-    max-width 50%;
+    max-width: 50%;
   }
 `;

@@ -32,6 +32,9 @@ export const Datepicker = ({
   selectsRange,
   inline,
   readOnly,
+  captions,
+  primaryAction,
+  secondaryAction,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -47,7 +50,7 @@ export const Datepicker = ({
     <StyledCaptionContainer>
       {captions.map((caption, index) => (
         // eslint-disable-next-line react/no-array-index-key
-        <StyledCaption color={caption.color} border={caption.border} key={`datepicker-caption-${index}`}>
+        <StyledCaption color={caption.color} borderColor={caption.borderColor} key={`datepicker-caption-${index}`}>
           <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
         </StyledCaption>
       ))}
@@ -56,8 +59,8 @@ export const Datepicker = ({
 
   const renderActions = () => (
     <StyledActionsContainer>
-      {props.secondaryAction && <Button style={ButtonStyle.Secondary} text={props.secondaryAction.copy} fullWidth />}
-      {props.primaryAction && <Button style={ButtonStyle.Primary} text={props.primaryAction.copy} fullWidth />}
+      {secondaryAction && <Button style={ButtonStyle.Secondary} text={secondaryAction.copy} fullWidth />}
+      {primaryAction && <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth />}
     </StyledActionsContainer>
   );
 
@@ -100,8 +103,8 @@ export const Datepicker = ({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           >
-            {props.captions && renderDatepickerCaptions(props.captions)}
-            {(props.primaryAction || props.secondaryAction) && renderActions()}
+            {captions && renderDatepickerCaptions(captions)}
+            {(primaryAction || secondaryAction) && renderActions()}
           </DatePicker>
         </StyledDatepicker>
       </StyledWrapper>
