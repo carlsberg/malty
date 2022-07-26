@@ -317,5 +317,6 @@ export const StyledClearableWrapper = styled.div`
   .password-icon-hide {
     /* transition: all 0.3s ease-in-out !important; */
     animation: ${animateShow} 0.5s ease-in-out;
+    cursor: pointer;
   }
 `;
