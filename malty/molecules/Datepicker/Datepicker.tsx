@@ -1,11 +1,11 @@
+import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { ReactNode, useContext } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
-import { Button, ButtonStyle } from '../../atoms/Button';
-import { Text, TextStyle } from '../../atoms/Text';
 import {
   StyledActionsContainer,
   StyledCalendar,
@@ -17,7 +17,7 @@ import {
   StyledLabel,
   StyledWrapper
 } from './Datepicker.styled';
-import { Caption, DatepickerProps } from './Datepicker.types';
+import { DatepickerProps } from './Datepicker.types';
 
 export const Datepicker = ({
   startDate,
@@ -45,24 +45,33 @@ export const Datepicker = ({
     </StyledContainer>
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-shadow
-  const renderDatepickerCaptions = (captions: Caption[]) => (
-    <StyledCaptionContainer>
-      {captions.map((caption, index) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <StyledCaption color={caption.color} borderColor={caption.borderColor} key={`datepicker-caption-${index}`}>
-          <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
-        </StyledCaption>
-      ))}
-    </StyledCaptionContainer>
-  );
+  const renderDatepickerCaptions = () => {
+    if (!captions) {
+      return null;
+    }
+    return (
+      <StyledCaptionContainer>
+        {captions.map((caption, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <StyledCaption color={caption.color} borderColor={caption.borderColor} key={`datepicker-caption-${index}`}>
+            <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
+          </StyledCaption>
+        ))}
+      </StyledCaptionContainer>
+    );
+  };
 
-  const renderActions = () => (
-    <StyledActionsContainer>
-      {secondaryAction && <Button style={ButtonStyle.Secondary} text={secondaryAction.copy} fullWidth />}
-      {primaryAction && <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth />}
-    </StyledActionsContainer>
-  );
+  const renderActions = () => {
+    if (!primaryAction && !secondaryAction) {
+      return null;
+    }
+    return (
+      <StyledActionsContainer>
+        {secondaryAction && <Button style={ButtonStyle.Secondary} text={secondaryAction.copy} fullWidth />}
+        {primaryAction && <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth />}
+      </StyledActionsContainer>
+    );
+  };
 
   return (
     <TypographyProvider>
@@ -103,8 +112,8 @@ export const Datepicker = ({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           >
-            {captions && renderDatepickerCaptions(captions)}
-            {(primaryAction || secondaryAction) && renderActions()}
+            {renderDatepickerCaptions()}
+            {renderActions()}
           </DatePicker>
         </StyledDatepicker>
       </StyledWrapper>

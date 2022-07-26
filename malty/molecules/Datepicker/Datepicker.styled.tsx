@@ -123,7 +123,8 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledCalendar = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   position: relative;
   & .react-datepicker__header {
@@ -293,7 +294,7 @@ export const StyledCalendar = styled.div`
   }
 `;
 
-export const StyledCaptionContainer = styled.div`
+export const StyledCaptionContainer = styled.ul`
   margin-top: ${({ theme }) => theme.sizes.m.value};
   display: flex;
   flex-direction: column;
@@ -301,8 +302,7 @@ export const StyledCaptionContainer = styled.div`
   padding: 0 ${({ theme }) => theme.sizes.xs.value};
 `;
 
-export const StyledCaption = styled.div<{ color: string; borderColor?: string }>`
-  position: relative;
+export const StyledCaption = styled.li<{ color: string; borderColor?: string }>`
   display: flex;
   align-items: center;
   &::before {
@@ -324,7 +324,6 @@ export const StyledActionsContainer = styled.div`
   gap: ${({ theme }) => theme.sizes.s.value};
   padding: 0 ${({ theme }) => theme.sizes.xs.value};
   & > * {
-    flex: 1;
-    max-width: 50%;
+    flex: 0.5 1 0;
   }
 `;
