@@ -124,6 +124,7 @@ export const StyledContainer = styled.div`
 
 export const StyledCalendar = styled.div`
   display: flex;
+  flex-direction: column;
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   position: relative;
   & .react-datepicker__header {
@@ -150,6 +151,7 @@ export const StyledCalendar = styled.div`
     color: ${({ theme }) => theme.colors.colours.support['60'].value};
     width: auto;
     display: inline-block;
+    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     width: ${({ theme }) => theme.sizes.l.value};
     line-height: ${({ theme }) => theme.sizes.l.value};
     text-align: center;
@@ -179,6 +181,7 @@ export const StyledCalendar = styled.div`
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
     &:hover {
       background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
@@ -290,5 +293,39 @@ export const StyledCalendar = styled.div`
       transform: rotate(45deg);
       left: ${({ theme }) => `-${theme.sizes.xs.value}`};
     }
+  }
+`;
+
+export const StyledCaptionContainer = styled.ul`
+  margin-top: ${({ theme }) => theme.sizes.m.value};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.sizes['3xs'].value};
+  padding: 0 ${({ theme }) => theme.sizes.xs.value};
+`;
+
+export const StyledCaption = styled.li<{ color: string; borderColor?: string }>`
+  display: flex;
+  align-items: center;
+  &::before {
+    content: '';
+    width: ${({ theme }) => theme.sizes['2xs'].value};
+    height: ${({ theme }) => theme.sizes['2xs'].value};
+    margin-right: ${({ theme }) => theme.sizes['2xs'].value};
+    border: 1px solid ${({ borderColor }) => borderColor || 'transparent'};
+    border-radius: ${({ theme }) => theme.sizes['2xs'].value};
+    background-color: ${({ color }) => color};
+  }
+`;
+
+export const StyledActionsContainer = styled.div`
+  margin-top: ${({ theme }) => theme.sizes.m.value};
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: ${({ theme }) => theme.sizes.s.value};
+  padding: 0 ${({ theme }) => theme.sizes.xs.value};
+  & > * {
+    flex: 0.5 1 0;
   }
 `;

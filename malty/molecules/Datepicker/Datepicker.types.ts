@@ -13,4 +13,18 @@ export interface DatepickerProps {
   inline?: boolean;
   dateFormat?: string;
   readOnly?: boolean;
+  captions?: Caption[];
+  primaryAction?: Action;
+  secondaryAction?: Action;
 }
+
+export type Caption = {
+  color: string;
+  copy: string;
+  borderColor?: string;
+};
+
+export type Action = {
+  copy: string;
+  action: () => void;
+};
