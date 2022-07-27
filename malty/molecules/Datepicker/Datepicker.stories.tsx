@@ -9,7 +9,7 @@ export default {
   parameters: {
     importObject: 'Datepicker',
     importPath: '@carlsberggroup/malty.molecules.datepicker',
-    variants: ['range', 'readonly', 'disabled']
+    variants: ['range', 'readonly', 'disabled', 'captionsAndActions']
   },
   argTypes: {
     label: {
@@ -181,6 +181,29 @@ switch (variant) {
     Datepicker.args = {
       label: 'Select date',
       selectsRange: true
+    };
+    break;
+  case 'captionsAndActions':
+    Datepicker.args = {
+      label: 'Select date',
+      captions: [
+        {
+          copy: 'caption one',
+          color: 'green'
+        },
+        {
+          copy: 'caption two',
+          color: 'blue'
+        }
+      ],
+      primaryAction: {
+        copy: 'Apply',
+        action: () => true
+      },
+      secondaryAction: {
+        copy: 'Cancel',
+        action: () => true
+      }
     };
     break;
   default:

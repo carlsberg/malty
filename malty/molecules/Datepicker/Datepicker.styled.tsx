@@ -151,6 +151,7 @@ export const StyledCalendar = styled.div`
     color: ${({ theme }) => theme.colors.colours.support['60'].value};
     width: auto;
     display: inline-block;
+    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     width: ${({ theme }) => theme.sizes.l.value};
     line-height: ${({ theme }) => theme.sizes.l.value};
     text-align: center;
@@ -180,6 +181,7 @@ export const StyledCalendar = styled.div`
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
     &:hover {
       background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
