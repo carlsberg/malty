@@ -1,8 +1,12 @@
+import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
+
 export interface LoadingProps {
   text?: string;
   size?: LoadingSize;
   status?: LoadingStatus;
   dataQaId?: string;
+  negative?: boolean;
+  color?: ProgressSpinnerColor;
 }
 
 export enum LoadingSize {

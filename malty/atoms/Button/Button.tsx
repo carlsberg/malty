@@ -1,11 +1,12 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';
 import { StyledAnchor, StyledPrimaryButton, StyledSecondaryButton, StyledTransparentButton } from './Button.styled';
-import { ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
+import { ButtonColor, ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
 export const Button = ({
   text,
@@ -24,7 +25,8 @@ export const Button = ({
   loading = false,
   tabIndex = -1,
   children,
-  dataTestId
+  dataTestId,
+  color = ButtonColor.DigitalBlack
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
@@ -32,13 +34,47 @@ export const Button = ({
     case ButtonStyle.Secondary:
       Component = StyledSecondaryButton;
       iconColor = negative ? IconColor.White : IconColor.DigitalBlack;
+      if (!negative) {
+        if (color === ButtonColor.ThemePrimary) {
+          iconColor = IconColor.Primary;
+        }
+        if (color === ButtonColor.ThemeSecondary) {
+          iconColor = IconColor.Secondary;
+        }
+        if (color === ButtonColor.ThemeTertiary) {
+          iconColor = IconColor.Tertiary;
+        }
+      }
+
       break;
     case ButtonStyle.Transparent:
       Component = StyledTransparentButton;
       iconColor = negative ? IconColor.White : IconColor.DigitalBlack;
+      if (!negative) {
+        if (color === ButtonColor.ThemePrimary) {
+          iconColor = IconColor.Primary;
+        }
+        if (color === ButtonColor.ThemeSecondary) {
+          iconColor = IconColor.Secondary;
+        }
+        if (color === ButtonColor.ThemeTertiary) {
+          iconColor = IconColor.Tertiary;
+        }
+      }
       break;
 
     default:
+      if (negative) {
+        if (color === ButtonColor.ThemePrimary) {
+          iconColor = IconColor.Primary;
+        }
+        if (color === ButtonColor.ThemeSecondary) {
+          iconColor = IconColor.Secondary;
+        }
+        if (color === ButtonColor.ThemeTertiary) {
+          iconColor = IconColor.Tertiary;
+        }
+      }
       break;
   }
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -46,10 +82,22 @@ export const Button = ({
   const [hPadding, _setHorizontalPadding] = useState(theme.sizes.s.value);
   const [fontSize, setFontSize] = useState(theme.typography.desktop.text.medium_default['font-size'].value);
   const [iconSize, setIconSize] = useState(theme.sizes.m.value);
+  const [loadingNegative, setLoadingNegative] = useState(negative);
+  const handleLoadingColor = () => {
+    if (style !== ButtonStyle.Primary) {
+      setLoadingNegative(negative);
+    } else {
+      setLoadingNegative(!negative);
+    }
+  };
+  useEffect(() => {
+    handleLoadingColor();
+  }, [negative, style]);
 
   const renderComponent = () => (
     <TypographyProvider>
       <Component
+        color={color}
         data-testid={dataTestId}
         type={type}
         disabled={disabled}
@@ -82,7 +130,11 @@ export const Button = ({
         )}
         {loading && (
           <div data-testid={`${dataTestId}-loading`} className="secondary-container">
-            <Loading status={LoadingStatus.Pending} />
+            <Loading
+              color={color as unknown as ProgressSpinnerColor}
+              negative={loadingNegative}
+              status={LoadingStatus.Pending}
+            />
           </div>
         )}
       </Component>

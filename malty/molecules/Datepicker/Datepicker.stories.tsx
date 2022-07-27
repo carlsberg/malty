@@ -9,7 +9,7 @@ export default {
   parameters: {
     importObject: 'Datepicker',
     importPath: '@carlsberggroup/malty.molecules.datepicker',
-    variants: ['range', 'readonly', 'disabled']
+    variants: ['range', 'readonly', 'disabled', 'captionsAndActions']
   },
   argTypes: {
     label: {
@@ -83,6 +83,25 @@ export default {
       control: {
         type: 'text'
       }
+    },
+    captions: {
+      description: 'captions for datepicker',
+      control: {
+        type: 'object'
+      },
+      defaultValue: []
+    },
+    primaryAction: {
+      description: 'apply date',
+      control: {
+        type: 'object'
+      }
+    },
+    secondaryAction: {
+      description: 'cancel apply date',
+      control: {
+        type: 'object'
+      }
     }
   }
 } as Meta;
@@ -97,7 +116,10 @@ const Template: Story<DatepickerProps> = ({
   placeholderText,
   selectsRange,
   dateFormat,
-  readOnly
+  readOnly,
+  captions,
+  primaryAction,
+  secondaryAction
 }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -114,7 +136,7 @@ const Template: Story<DatepickerProps> = ({
   };
 
   return (
-    <div style={{ height: '400px' }}>
+    <div style={{ height: '560px' }}>
       <DatepickerComponent
         label={label}
         onChange={selectsRange ? onChange : setStartDate}
@@ -129,6 +151,9 @@ const Template: Story<DatepickerProps> = ({
         selectsRange={selectsRange}
         dateFormat={dateFormat}
         readOnly={readOnly}
+        captions={captions}
+        primaryAction={primaryAction}
+        secondaryAction={secondaryAction}
       />
     </div>
   );
@@ -156,6 +181,29 @@ switch (variant) {
     Datepicker.args = {
       label: 'Select date',
       selectsRange: true
+    };
+    break;
+  case 'captionsAndActions':
+    Datepicker.args = {
+      label: 'Select date',
+      captions: [
+        {
+          copy: 'caption one',
+          color: 'green'
+        },
+        {
+          copy: 'caption two',
+          color: 'blue'
+        }
+      ],
+      primaryAction: {
+        copy: 'Apply',
+        action: () => true
+      },
+      secondaryAction: {
+        copy: 'Cancel',
+        action: () => true
+      }
     };
     break;
   default:
