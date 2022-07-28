@@ -69,8 +69,17 @@ export const Datepicker = ({
     }
     return (
       <StyledActionsContainer>
-        {secondaryAction && <Button style={ButtonStyle.Secondary} text={secondaryAction.copy} fullWidth />}
-        {primaryAction && <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth />}
+        {secondaryAction && (
+          <Button
+            style={ButtonStyle.Secondary}
+            text={secondaryAction.copy}
+            fullWidth
+            onClick={secondaryAction.action}
+          />
+        )}
+        {primaryAction && (
+          <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth onClick={primaryAction.action} />
+        )}
       </StyledActionsContainer>
     );
   };
