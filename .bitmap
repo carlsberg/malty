@@ -107,7 +107,7 @@
     },
     "atoms/radio": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.12",
+        "version": "0.0.13",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Radio"
     },
@@ -1415,7 +1415,7 @@
     },
     "molecules/datepicker": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.11",
+        "version": "0.0.12",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Datepicker"
     },
@@ -1485,5 +1485,5 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/utils/test"
     },
-    "$schema-version": "14.9.0"
+    "$schema-version": "15.0.0"
 }
