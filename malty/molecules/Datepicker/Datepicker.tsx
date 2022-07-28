@@ -3,10 +3,9 @@ import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useMemo } from 'react';
-import DatePicker, { CalendarContainerProps } from 'react-datepicker';
+import React, { ReactNode, useCallback, useContext, useState } from 'react';
+import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
-import { v4 as uuid } from 'uuid';
 import {
   StyledActionsContainer,
   StyledCalendar,
@@ -33,15 +32,29 @@ export const Datepicker = ({
   selectsRange,
   inline,
   readOnly,
-  placeholderText,
   captions,
   primaryAction,
   secondaryAction,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const id = useMemo(() => uuid(), []);
-  const Container = ({ children }: CalendarContainerProps) => (
+
+  const [open, setOpen] = useState(false);
+
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleOpen = useCallback(() => setOpen(true), []);
+
+  const handlePrimaryAction = () => {
+    primaryAction?.action?.();
+    handleClose();
+  };
+
+  const handleSecondaryAction = () => {
+    secondaryAction?.action?.();
+    handleClose();
+  };
+
+  const Container = ({ children }: { children: ReactNode }) => (
     <StyledContainer theme={theme}>
       <StyledCalendar theme={theme}>{children}</StyledCalendar>
     </StyledContainer>
@@ -70,15 +83,10 @@ export const Datepicker = ({
     return (
       <StyledActionsContainer>
         {secondaryAction && (
-          <Button
-            style={ButtonStyle.Secondary}
-            text={secondaryAction.copy}
-            fullWidth
-            onClick={secondaryAction.action}
-          />
+          <Button style={ButtonStyle.Secondary} text={secondaryAction.copy} fullWidth onClick={handleSecondaryAction} />
         )}
         {primaryAction && (
-          <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth onClick={primaryAction.action} />
+          <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth onClick={handlePrimaryAction} />
         )}
       </StyledActionsContainer>
     );
@@ -106,7 +114,10 @@ export const Datepicker = ({
             endDate={selectsRange ? endDate : null}
             disabled={disabled}
             readOnly={readOnly}
+            open={open}
             onChange={onChange}
+            onFocus={handleOpen}
+            onClickOutside={handleClose}
             locale={locale}
             showPopperArrow={false}
             calendarClassName="calendar"

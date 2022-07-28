@@ -26,5 +26,5 @@ export type Caption = {
 
 export type Action = {
   copy: string;
-  action: () => void;
+  action?: () => void;
 };
