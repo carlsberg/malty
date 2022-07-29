@@ -3,7 +3,7 @@ import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ReactNode, useCallback, useContext, useState } from 'react';
+import React, { ReactNode, useCallback, useContext, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
 import {
@@ -41,6 +41,9 @@ export const Datepicker = ({
 
   const [open, setOpen] = useState(false);
 
+  const start = useRef<Date | null | undefined>(startDate);
+  const end = useRef<Date | null | undefined>(endDate);
+
   const handleClose = useCallback(() => setOpen(false), []);
   const handleOpen = useCallback(() => setOpen(true), []);
 
@@ -52,6 +55,32 @@ export const Datepicker = ({
   const handleSecondaryAction = () => {
     secondaryAction?.action?.();
     handleClose();
+  };
+
+  const handleSelect = (date: Date, event: React.SyntheticEvent<HTMLDivElement, Event>) => {
+    if (event.key === 'Enter') {
+      if (!selectsRange && startDate) {
+        handleClose();
+        return;
+      }
+      if (start.current && end.current) {
+        start.current = date;
+        end.current = null;
+        return;
+      }
+      if (start.current && date < start.current) {
+        start.current = date;
+        end.current = null;
+        return;
+      }
+      if (start.current && date > start.current) {
+        end.current = date;
+        handleClose();
+      }
+    }
+    if (event.key === 'Escape') {
+      handleClose();
+    }
   };
 
   const Container = ({ children }: { children: ReactNode }) => (
@@ -117,12 +146,12 @@ export const Datepicker = ({
             open={open}
             onChange={onChange}
             onFocus={handleOpen}
+            onSelect={handleSelect}
             onClickOutside={handleClose}
             locale={locale}
             showPopperArrow={false}
             calendarClassName="calendar"
             calendarContainer={Container}
-            disabledKeyboardNavigation
             calendarStartDay={1}
             useWeekdaysShort
             minDate={minDate}
