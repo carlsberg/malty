@@ -42,7 +42,7 @@ export const Datepicker = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [open, setOpen] = useState(false);
-  const startDateRef = useRef<Date | null | undefined>(startDate);
+  const startDateRef = useRef<Date | null>(startDate);
   const endDateRef = useRef<Date | null | undefined>(endDate);
 
   const handleClose = useCallback(() => setOpen(false), []);
