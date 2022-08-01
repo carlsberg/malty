@@ -5,7 +5,7 @@ Malty is a Design System, and the code contained in this repository is its Compo
 ### Notes to keep in mind:
 
 - **You don't have to clone this repo** in order to use Malty, and this Component Library.
-- Development of components for this library **must be in close coordination with the Design System Team**, and should only happen after POs have aligned.
+- Development of components for this library **must be in close coordination with Malty's Maintainers**, and should only happen after previous coordination in [Malty's GitHub Discussions](https://github.com/CarlsbergGBS/cx-component-library/discussions) or an [issue](https://github.com/CarlsbergGBS/cx-component-library/issues) has been created and approved to move forward.
 - This repository should be considered our file system, and the means by which we manage contributions and maintainance of components in [Carlsberg Group's Bit.dev Cloud](https://bit.dev/carlsberggroup).
 
 ## Install CLI
@@ -48,7 +48,7 @@ npm config set @carlsberggroup:registry https://node.bit.dev
 
 ### Login
 
-In order for the scope to be registered, you must first login to Bit.
+:warning: **You only need a Bit account**, and to login **if you are a Malty Maintainer** :nerd_face:
 
 ```bash
 bit login
