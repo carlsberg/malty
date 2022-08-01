@@ -1,7 +1,7 @@
 export interface DatepickerProps {
   label: string;
   startDate: Date;
-  onChange: (date: Date) => void;
+  onChange: (date: (Date | null) | [Date | null, Date | null]) => void;
   locale?: string;
   minDate?: Date;
   maxDate?: Date;

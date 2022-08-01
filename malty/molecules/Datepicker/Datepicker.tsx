@@ -3,9 +3,10 @@ import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ReactNode, useCallback, useContext, useRef, useState } from 'react';
+import React, { KeyboardEvent, ReactNode, useCallback, useContext, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
+import { v4 as uuid } from 'uuid';
 import {
   StyledActionsContainer,
   StyledCalendar,
@@ -32,17 +33,17 @@ export const Datepicker = ({
   selectsRange,
   inline,
   readOnly,
+  placeholderText,
   captions,
   primaryAction,
   secondaryAction,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-
+  const id = useMemo(() => uuid(), []);
   const [open, setOpen] = useState(false);
-
-  const start = useRef<Date | null | undefined>(startDate);
-  const end = useRef<Date | null | undefined>(endDate);
+  const startDateRef = useRef<Date | null | undefined>(startDate);
+  const endDateRef = useRef<Date | null | undefined>(endDate);
 
   const handleClose = useCallback(() => setOpen(false), []);
   const handleOpen = useCallback(() => setOpen(true), []);
@@ -57,28 +58,24 @@ export const Datepicker = ({
     handleClose();
   };
 
-  const handleSelect = (date: Date, event: React.SyntheticEvent<HTMLDivElement, Event>) => {
-    if (event.key === 'Enter') {
-      if (!selectsRange && startDate) {
-        handleClose();
-        return;
-      }
-      if (start.current && end.current) {
-        start.current = date;
-        end.current = null;
-        return;
-      }
-      if (start.current && date < start.current) {
-        start.current = date;
-        end.current = null;
-        return;
-      }
-      if (start.current && date > start.current) {
-        end.current = date;
-        handleClose();
-      }
+  const handleChange = (date: (Date | null) | [Date | null, Date | null]) => {
+    if (Array.isArray(date)) {
+      [startDateRef.current, endDateRef.current] = date;
+    } else {
+      startDateRef.current = date;
     }
+
+    onChange(date);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Escape') {
+      handleClose();
+    }
+  };
+
+  const handleSelect = () => {
+    if ((!selectsRange && startDateRef.current) || (startDateRef.current && endDateRef.current)) {
       handleClose();
     }
   };
@@ -144,10 +141,11 @@ export const Datepicker = ({
             disabled={disabled}
             readOnly={readOnly}
             open={open}
-            onChange={onChange}
+            onChange={handleChange}
             onFocus={handleOpen}
             onSelect={handleSelect}
             onClickOutside={handleClose}
+            onKeyDown={handleKeyDown}
             locale={locale}
             showPopperArrow={false}
             calendarClassName="calendar"
@@ -160,7 +158,6 @@ export const Datepicker = ({
             className="datepickerInput"
             inline={inline}
             selectsRange={selectsRange}
-            shouldCloseOnSelect={!selectsRange}
             placeholderText={placeholderText}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
