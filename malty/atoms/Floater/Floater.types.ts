@@ -11,9 +11,17 @@ export interface FloaterProps {
   tabIndex?: number;
   dataTestId?: string;
   children?: string | JSX.Element;
+  color?: FloaterColor;
 }
 
 export enum FloaterIconPosition {
   Right = 'Right',
   Left = 'Left'
+}
+
+export enum FloaterColor {
+  DigitalBlack = 'digital-black',
+  ThemePrimary = 'themePrimary',
+  ThemeSecondary = 'themeSecondary',
+  ThemeTertiary = 'themeTertiary'
 }
