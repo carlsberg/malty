@@ -99,7 +99,7 @@ export const Input = ({
     );
 
   const renderIcon = () => {
-    if (type === InputType.Password) {
+    if (type === InputType.Password && value) {
       return (
         <Icon
           className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}

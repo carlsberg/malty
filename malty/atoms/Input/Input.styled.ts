@@ -2,7 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 const animateShow = keyframes`
   from {
-    opacity: 0;
+    opacity: .4;
   }
   to {
     opacity: 1;
@@ -316,7 +316,7 @@ export const StyledClearableWrapper = styled.div`
   .password-icon-show,
   .password-icon-hide {
     /* transition: all 0.3s ease-in-out !important; */
-    animation: ${animateShow} 0.5s ease-in-out;
+    animation: ${animateShow} 0.3s ease-in-out;
     cursor: pointer;
   }
 `;
