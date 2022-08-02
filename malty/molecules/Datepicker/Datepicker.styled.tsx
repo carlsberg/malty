@@ -91,7 +91,7 @@ export const StyledInputIcon = styled.span<{
   right: 14px;
   position: absolute;
   z-index: 1;
-  ${({ theme }) => theme.sizes.xs.value};
+  pointer-events: none;
 
   ${({ disabled }) =>
     disabled &&
