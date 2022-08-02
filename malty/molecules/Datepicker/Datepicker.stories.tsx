@@ -118,13 +118,14 @@ const Template: Story<DatepickerProps> = ({
   dateFormat,
   readOnly,
   captions,
+  inline,
   primaryAction,
   secondaryAction
 }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [endDate, setEndDate] = useState<Date | null>(new Date());
 
-  const onChange = (date: Date[] | Date) => {
+  const onChange = (date: (Date | null) | [Date | null, Date | null]) => {
     let start;
     let end;
 
@@ -135,11 +136,17 @@ const Template: Story<DatepickerProps> = ({
     }
   };
 
+  const onChangeStartDate = (date: (Date | null) | [Date | null, Date | null]) => {
+    if (!Array.isArray(date)) {
+      setStartDate(date);
+    }
+  };
+
   return (
     <div style={{ height: '560px' }}>
       <DatepickerComponent
         label={label}
-        onChange={selectsRange ? onChange : setStartDate}
+        onChange={selectsRange ? onChange : onChangeStartDate}
         startDate={startDate}
         endDate={endDate}
         minDate={minDate}
@@ -154,6 +161,7 @@ const Template: Story<DatepickerProps> = ({
         captions={captions}
         primaryAction={primaryAction}
         secondaryAction={secondaryAction}
+        inline={inline}
       />
     </div>
   );
