@@ -115,7 +115,11 @@
     "glob-parent": "^5.1.2",
     "trim": "^0.0.3",
     "trim-newlines": "^3.0.1",
-    "braces": "^2.3.2"
+    "braces": "^2.3.2",
+    "react": "<18.0.0",
+    "react-dom": "<18.0.0",
+    "@types/react": "<18.0.0",
+    "@types/react-dom": "<18.0.0"
   },
   "bit": {
     "resolveModules": {
