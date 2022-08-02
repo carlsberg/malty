@@ -47,7 +47,7 @@
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
-    "@carlsberg/eslint-config-carlsberg": "^0.0.1",
+    "@carlsberg/eslint-config-carlsberg": "^0.1.0",
     "@storybook/addon-actions": "^6.5.8",
     "@storybook/addon-docs": "^6.5.8",
     "@storybook/addon-essentials": "^6.5.8",
