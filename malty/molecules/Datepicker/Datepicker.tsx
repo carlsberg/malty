@@ -92,7 +92,7 @@ export const Datepicker = ({
   );
 
   const renderDatepickerCaptions = () => {
-    if (!captions) {
+    if (!captions || !captions.length) {
       return null;
     }
     return (
