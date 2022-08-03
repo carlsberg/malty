@@ -9,6 +9,7 @@ import {
   CloseButtonContainer,
   Container,
   ContentRow,
+  FadeWrapper,
   MessageContainer,
   StyledAction,
   StyledMessage
@@ -27,7 +28,27 @@ const textColorsMap = {
   [AlertBannerType.Error]: TextColor.White
 };
 
-export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) => {
+const useScrollPosition = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    const updatePosition = () => {
+      setScrollPosition(window.pageYOffset);
+    };
+    window.addEventListener('scroll', updatePosition);
+    updatePosition();
+    return () => window.removeEventListener('scroll', updatePosition);
+  }, []);
+
+  return scrollPosition;
+};
+
+export default useScrollPosition;
+
+export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768, yScroll = 0 }) => {
+  const [hideSliderOptions, setHideSliderOptions] = useState(true);
+  const yScrollPosition = useScrollPosition();
+
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const [activeAlert, setActiveAlert] = useState(1);
@@ -84,6 +105,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
 
   const renderCloseButton = () => (
     <CloseButtonContainer
+      fade={yScrollPosition > 15}
       data-testid={`${currentAlert.dataQaId}-close-icon`}
       onClick={currentAlert.dismiss || (() => null)}
       onKeyUp={handleOnKeyUp(currentAlert.dismiss)}
@@ -142,16 +164,18 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         {renderCloseButton()}
       </ContentRow>
       {isMobile && (
-        <ContentRow theme={theme}>
-          <Pagination
-            count={alerts.length}
-            onChange={(pageNr) => setActiveAlert(pageNr)}
-            currentPage={activeAlert}
-            type={PaginationType.Compact}
-            isWhite={currentAlert.type !== AlertBannerType.Warning}
-          />
-          {renderAction()}
-        </ContentRow>
+        <FadeWrapper show={hideSliderOptions} offsetY={yScrollPosition}>
+          <ContentRow theme={theme}>
+            <Pagination
+              count={alerts.length}
+              onChange={(pageNr) => setActiveAlert(pageNr)}
+              currentPage={activeAlert}
+              type={PaginationType.Compact}
+              isWhite={currentAlert.type !== AlertBannerType.Warning}
+            />
+            {renderAction()}
+          </ContentRow>
+        </FadeWrapper>
       )}
     </Container>
   );

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { AlertBannerType } from './AlertBanner.types';
 
 export const Container = styled.div<{
@@ -17,6 +17,30 @@ export const Container = styled.div<{
     return theme.colors.colours.system['notification-strong'].value;
   }};
   color: ${({ theme }) => theme.colors.colours.default.white.value};
+  position: fixed;
+  width: 100%;
+`;
+
+export const FadeWrapper = styled.div<{
+  show: boolean;
+  offsetY?: number;
+}>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  opacity: 1;
+  margin-bottom: -${({ offsetY }) => (offsetY < 20 ? offsetY : 0)}px;
+  ${(props) => {
+    if (props.show && props.offsetY > 15) {
+      return css`
+        opacity: 0.5;
+        transition: margin-bottom 0.35s ease-in-out;
+        margin-bottom: -40px;
+        visibility: hidden;
+      `;
+    }
+  }}
 `;
 
 export const ContentRow = styled.div`
@@ -72,11 +96,31 @@ export const StyledAction = styled.div<{
     margin-right: ${({ theme }) => theme.sizes.s.value};
   }
 `;
+const test2 = keyframes`
+     0% {
+       transform: translateY(0px);
+       visibility: visible;
+       opacity: 1;
+     } 
+     100% {
+        transform: translateY(-20px);
+       visibility: visible;
+       opacity: 0;
 
-export const CloseButtonContainer = styled.div`
+     }
+  
+`;
+export const CloseButtonContainer = styled.div<{ fade: boolean }>`
   cursor: Pointer;
   margin-left: auto;
   margin-right: ${({ theme }) => theme.sizes['2xs'].value};
   display: flex;
   align-items: center;
+  ${(props) =>
+    props?.fade &&
+    css`
+      animation: ${test2} 0.5s ease-in-out;
+      transition-delay: visibility 0.5s;
+      visibility: hidden;
+    `}
 `;
