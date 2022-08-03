@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 import { render } from '@carlsberggroup/malty.utils.test';
-import { screen } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import React from 'react';
 import { Select } from './Select';
-import { SelectSize, SelectType } from './Select.types';
+import { SelectProps, SelectSize, SelectType } from './Select.types';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
@@ -88,5 +90,62 @@ describe('select', () => {
     const onValueChange = jest.fn();
     render(<Select options={testOptions} label="inline" onValueChange={onValueChange} type={SelectType.Inline} />);
     expect(screen.getByText('inline')).toBeInTheDocument();
+  });
+
+  it('updates selected option correctly if external value is passed', () => {
+    const props: SelectProps = {
+      options: testOptions,
+      label: 'select label',
+      onValueChange: mockFn,
+      type: SelectType.Default
+    };
+
+    const { rerender } = render(<Select {...props} />);
+
+    let selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
+
+    expect(selectedOptionsButtonQueries.queryByText(testOptions[0].name)).not.toBeInTheDocument();
+
+    rerender(<Select {...props} value={testOptions.slice(0, 1)} />);
+
+    selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
+
+    expect(selectedOptionsButtonQueries.getByText(testOptions[0].name)).toBeVisible();
+
+    rerender(<Select {...props} value={[]} />);
+
+    selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
+
+    expect(selectedOptionsButtonQueries.queryByText(testOptions[0].name)).not.toBeInTheDocument();
+  });
+
+  it('updates selected options correctly if external value is passed with multiple enabled', () => {
+    const props: SelectProps = {
+      options: testOptions,
+      label: 'select label',
+      onValueChange: mockFn,
+      type: SelectType.Default,
+      multiple: true
+    };
+
+    const { rerender } = render(<Select {...props} />);
+
+    let selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
+
+    expect(selectedOptionsButtonQueries.queryByText(testOptions[0].name)).not.toBeInTheDocument();
+
+    rerender(<Select {...props} value={testOptions.slice(0, 3)} />);
+
+    selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
+
+    expect(selectedOptionsButtonQueries.getByText('3 selected')).toBeVisible();
+
+    rerender(
+      <Select options={testOptions} label="select label" onValueChange={mockFn} type={SelectType.Default} value={[]} />
+    );
+
+    selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
+
+    expect(selectedOptionsButtonQueries.queryByText(testOptions[0].name)).not.toBeInTheDocument();
   });
 });
