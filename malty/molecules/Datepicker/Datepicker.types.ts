@@ -16,15 +16,17 @@ export interface DatepickerProps {
   captions?: Caption[];
   primaryAction?: Action;
   secondaryAction?: Action;
+  shouldCloseOnSelect?: boolean;
 }
 
 export type Caption = {
   color: string;
-  copy: string;
+  label: string;
   borderColor?: string;
+  dotted?: boolean;
 };
 
 export type Action = {
-  copy: string;
+  label: string;
   action?: () => void;
 };

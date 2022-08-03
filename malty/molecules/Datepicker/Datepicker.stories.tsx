@@ -102,6 +102,13 @@ export default {
       control: {
         type: 'object'
       }
+    },
+    shouldCloseOnSelect: {
+      description: 'whether the datepicker should close automatically upon selection',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: true
     }
   }
 } as Meta;
@@ -120,7 +127,8 @@ const Template: Story<DatepickerProps> = ({
   captions,
   inline,
   primaryAction,
-  secondaryAction
+  secondaryAction,
+  shouldCloseOnSelect
 }) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
@@ -162,6 +170,7 @@ const Template: Story<DatepickerProps> = ({
         primaryAction={primaryAction}
         secondaryAction={secondaryAction}
         inline={inline}
+        shouldCloseOnSelect={shouldCloseOnSelect}
       />
     </div>
   );
@@ -196,20 +205,30 @@ switch (variant) {
       label: 'Select date',
       captions: [
         {
-          copy: 'caption one',
-          color: 'green'
+          label: 'Selected',
+          color: 'colours.default.digital-black'
         },
         {
-          copy: 'caption two',
-          color: 'blue'
+          label: 'Today',
+          color: 'colours.system.fail'
+        },
+        {
+          label: 'Available if you order until 5pm',
+          color: 'colours.default.white',
+          borderColor: 'colours.system.disable-light-theme',
+          dotted: true
+        },
+        {
+          label: 'Order placed',
+          color: 'colours.system.success'
         }
       ],
       primaryAction: {
-        copy: 'Apply',
+        label: 'Apply',
         action: () => true
       },
       secondaryAction: {
-        copy: 'Cancel',
+        label: 'Cancel',
         action: () => true
       }
     };

@@ -37,6 +37,7 @@ export const Datepicker = ({
   captions,
   primaryAction,
   secondaryAction,
+  shouldCloseOnSelect = true,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -75,6 +76,10 @@ export const Datepicker = ({
   };
 
   const handleSelect = () => {
+    if (!shouldCloseOnSelect) {
+      return;
+    }
+
     if ((!selectsRange && startDateRef.current) || (startDateRef.current && endDateRef.current)) {
       handleClose();
     }
@@ -92,10 +97,10 @@ export const Datepicker = ({
     }
     return (
       <StyledCaptionContainer>
-        {captions.map((caption, index) => (
+        {captions.map(({ color, borderColor, dotted, label: captionLabel }, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <StyledCaption color={caption.color} borderColor={caption.borderColor} key={`datepicker-caption-${index}`}>
-            <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
+          <StyledCaption color={color} borderColor={borderColor} dotted={dotted} key={`datepicker-caption-${index}`}>
+            <Text textStyle={TextStyle.SmallDefault}>{captionLabel}</Text>
           </StyledCaption>
         ))}
       </StyledCaptionContainer>
@@ -109,10 +114,15 @@ export const Datepicker = ({
     return (
       <StyledActionsContainer>
         {secondaryAction && (
-          <Button style={ButtonStyle.Secondary} text={secondaryAction.copy} fullWidth onClick={handleSecondaryAction} />
+          <Button
+            style={ButtonStyle.Secondary}
+            text={secondaryAction.label}
+            fullWidth
+            onClick={handleSecondaryAction}
+          />
         )}
         {primaryAction && (
-          <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth onClick={handlePrimaryAction} />
+          <Button style={ButtonStyle.Primary} text={primaryAction.label} fullWidth onClick={handlePrimaryAction} />
         )}
       </StyledActionsContainer>
     );

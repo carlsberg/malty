@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { findColor } from './Datepicker.helper';
 
 export const StyledLabel = styled.label<{
   disabled?: boolean;
@@ -304,7 +305,7 @@ export const StyledCaptionContainer = styled.ul`
   padding: 0 ${({ theme }) => theme.sizes.xs.value};
 `;
 
-export const StyledCaption = styled.li<{ color: string; borderColor?: string }>`
+export const StyledCaption = styled.li<{ color: string; borderColor?: string; dotted?: boolean }>`
   display: flex;
   align-items: center;
   &::before {
@@ -312,9 +313,15 @@ export const StyledCaption = styled.li<{ color: string; borderColor?: string }>`
     width: ${({ theme }) => theme.sizes['2xs'].value};
     height: ${({ theme }) => theme.sizes['2xs'].value};
     margin-right: ${({ theme }) => theme.sizes['2xs'].value};
-    border: 1px solid ${({ borderColor }) => borderColor || 'transparent'};
+    border: ${({ theme, borderColor = 'colours.default.transparent', dotted = false }) => {
+      const borderRootStyle = dotted ? theme.borders['border-1px--dotted'] : theme.borders['border-1px--solid'];
+
+      return `${borderRootStyle['border-width'].value} ${borderRootStyle['border-style'].value} ${
+        findColor(theme.colors, borderColor) ?? 'transparent'
+      }`;
+    }};
     border-radius: ${({ theme }) => theme.sizes['2xs'].value};
-    background-color: ${({ color }) => color};
+    background-color: ${({ theme, color }) => findColor(theme.colors, color) ?? 'transparent'};
   }
 `;
 
