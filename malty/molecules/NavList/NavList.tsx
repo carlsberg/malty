@@ -26,12 +26,13 @@ const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
-      <LinkComponent component={component} href={href} componentProps={componentProps} />
-      <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
-        {name}
-      </Text>
-    </StyledSubNavItem>
+    <LinkComponent component={component} href={href} componentProps={componentProps}>
+      <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
+        <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
+          {name}
+        </Text>
+      </StyledSubNavItem>
+    </LinkComponent>
   );
 };
 
@@ -41,27 +42,27 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledNavItem
-      onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
-      selected={selected}
-      theme={theme}
-      data-category={category}
-      className={className}
-    >
-      {icon && <Icon name={IconName[icon]} size={IconSize.Small} color={IconColor.White} />}
+    <LinkComponent component={component} href={href} componentProps={componentProps}>
+      <StyledNavItem
+        onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
+        selected={selected}
+        theme={theme}
+        data-category={category}
+        className={className}
+      >
+        {icon && <Icon name={IconName[icon]} size={IconSize.Small} color={IconColor.White} />}
 
-      <LinkComponent component={component} href={href} componentProps={componentProps} />
+        <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
+          {name}
+        </Text>
 
-      <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
-        {name}
-      </Text>
-
-      {subItems && (
-        <StyledRightArrow theme={theme}>
-          <Icon name={IconName.ArrowSmallRight} size={IconSize.Small} color={IconColor.White} />
-        </StyledRightArrow>
-      )}
-    </StyledNavItem>
+        {subItems && (
+          <StyledRightArrow theme={theme}>
+            <Icon name={IconName.ArrowSmallRight} size={IconSize.Small} color={IconColor.White} />
+          </StyledRightArrow>
+        )}
+      </StyledNavItem>
+    </LinkComponent>
   );
 };
 
@@ -151,13 +152,14 @@ export const NavList = ({
 
       {subNavIsActive && (
         <>
-          <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
-            <Icon name={IconName.ArrowSmallLeft} size={IconSize.Small} color={IconColor.White} />
-            <LinkComponent component={component} href={href} componentProps={componentProps} />
-            <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.White}>
-              {name}
-            </Text>
-          </StyledNavItem>
+          <LinkComponent component={component} href={href} componentProps={componentProps}>
+            <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
+              <Icon name={IconName.ArrowSmallLeft} size={IconSize.Small} color={IconColor.White} />
+              <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.White}>
+                {name}
+              </Text>
+            </StyledNavItem>
+          </LinkComponent>
           {subItems?.map((item, index) => {
             const selected = activeSubItem === index;
             return (
