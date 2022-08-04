@@ -56,12 +56,22 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768, yS
   const currentAlert = alerts[activeAlert - 1];
   const isMobile = width <= breakpoint;
 
+  const handleShow = () => {
+    setHideSliderOptions(false);
+  };
+
   useEffect(() => {
     window.addEventListener('resize', handleWindowSizeChange);
     return () => {
       window.removeEventListener('resize', handleWindowSizeChange);
     };
   }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setHideSliderOptions(true);
+    }
+  }, [yScrollPosition]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -105,7 +115,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768, yS
 
   const renderCloseButton = () => (
     <CloseButtonContainer
-      fade={yScrollPosition > 15}
+      fade={hideSliderOptions && yScrollPosition > 15}
       data-testid={`${currentAlert.dataQaId}-close-icon`}
       onClick={currentAlert.dismiss || (() => null)}
       onKeyUp={handleOnKeyUp(currentAlert.dismiss)}
@@ -145,7 +155,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768, yS
   );
 
   return (
-    <Container type={currentAlert.type} theme={theme}>
+    <Container type={currentAlert.type} theme={theme} onClick={handleShow}>
       <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme}>
         {!isMobile && (
           <Pagination

@@ -21,9 +21,33 @@ export const Container = styled.div<{
   width: 100%;
 `;
 
+const fadeIn2 = keyframes`
+ 0% {
+    opacity: 1;
+   visibility:visible;
+ }
+ 100% {
+    opacity: 0;
+   visibility:hidden;
+ }
+`;
+
+const fadeIn3 = keyframes`
+ 0% {
+    opacity: 0;
+   visibility: hidden;
+   margin-bottom: -40px;
+ }
+ 100% {
+    opacity: 1;
+   visibility:visible;
+   margin-bottom: 0;
+ }
+`;
+
 export const FadeWrapper = styled.div<{
   show: boolean;
-  offsetY?: number;
+  offsetY: number;
 }>`
   display: flex;
   align-items: center;
@@ -31,13 +55,15 @@ export const FadeWrapper = styled.div<{
   width: 100%;
   opacity: 1;
   margin-bottom: -${({ offsetY }) => (offsetY < 20 ? offsetY : 0)}px;
+  animation: ${fadeIn3} 0.2s ease-in-out;
+  transition: margin-bottom 0.35s ease-in-out;
   ${(props) => {
     if (props.show && props.offsetY > 15) {
       return css`
-        opacity: 0.5;
         transition: margin-bottom 0.35s ease-in-out;
-        margin-bottom: -40px;
+        animation: ${fadeIn2} 0.2s ease-in-out;
         visibility: hidden;
+        margin-bottom: -40px;
       `;
     }
   }}
@@ -62,7 +88,7 @@ export const MessageContainer = styled.div<{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    ransform: translate(-50%, -50%);
     width: fit-content;
     max-width: calc(100% - 300px);
   }
@@ -98,18 +124,15 @@ export const StyledAction = styled.div<{
 `;
 const test2 = keyframes`
      0% {
-       transform: translateY(0px);
        visibility: visible;
        opacity: 1;
      } 
      100% {
-        transform: translateY(-20px);
        visibility: visible;
        opacity: 0;
-
      }
-  
 `;
+
 export const CloseButtonContainer = styled.div<{ fade: boolean }>`
   cursor: Pointer;
   margin-left: auto;
