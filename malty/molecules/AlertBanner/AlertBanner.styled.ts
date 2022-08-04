@@ -1,6 +1,30 @@
 import styled, { css, keyframes } from 'styled-components';
 import { AlertBannerType } from './AlertBanner.types';
 
+const simpleFadeAnimation = keyframes`
+     0% {
+       visibility: visible;
+       opacity: 1;
+     } 
+     100% {
+       visibility: visible;
+        opacity: 0;
+     }
+`;
+
+const closeAnimation = keyframes`
+ 0% {
+    opacity: 0;
+   visibility: hidden;
+   height: 40px;
+ }
+ 100% {
+    opacity: 1;
+   visibility:visible;
+   height: -40px;
+ }
+`;
+
 export const Container = styled.div<{
   type?: AlertBannerType;
 }>`
@@ -19,30 +43,6 @@ export const Container = styled.div<{
   color: ${({ theme }) => theme.colors.colours.default.white.value};
 `;
 
-const fadeIn2 = keyframes`
- 0% {
-    opacity: 1;
-   visibility:visible;
- }
- 100% {
-    opacity: 0;
-   visibility:hidden;
- }
-`;
-
-const fadeIn3 = keyframes`
- 0% {
-    opacity: 0;
-   visibility: hidden;
-   height: 40px;
- }
- 100% {
-    opacity: 1;
-   visibility:visible;
-   height: -40px;
- }
-`;
-
 export const FadeWrapper = styled.div<{
   show: boolean;
   offsetY: number;
@@ -53,13 +53,13 @@ export const FadeWrapper = styled.div<{
   width: 100%;
   opacity: 1;
   height: ${({ offsetY }) => (offsetY < 20 ? `calc(40px - ${offsetY}px)` : `40px`)};
-  animation: ${fadeIn3} 0.2s ease-in-out;
+  animation: ${closeAnimation} 0.2s ease-in-out;
   transition: height 0.2s ease-in-out;
   ${(props) => {
     if (props.show && props.offsetY > 15) {
       return css`
         transition: height 0.35s ease-in-out;
-        animation: ${fadeIn2} 0.2s ease-in-out;
+        animation: ${simpleFadeAnimation} 0.2s ease-in-out;
         visibility: hidden;
         height: 0px;
       `;
@@ -120,16 +120,6 @@ export const StyledAction = styled.div<{
     margin-right: ${({ theme }) => theme.sizes.s.value};
   }
 `;
-const test2 = keyframes`
-     0% {
-       visibility: visible;
-       opacity: 1;
-     } 
-     100% {
-       visibility: visible;
-       opacity: 0;
-     }
-`;
 
 export const CloseButtonContainer = styled.div<{ fade: boolean }>`
   cursor: Pointer;
@@ -140,7 +130,7 @@ export const CloseButtonContainer = styled.div<{ fade: boolean }>`
   ${(props) =>
     props?.fade &&
     css`
-      animation: ${test2} 0.2s ease-in-out;
+      animation: ${simpleFadeAnimation} 0.2s ease-in-out;
       transition-delay: visibility 0.2s;
       visibility: hidden;
     `}
