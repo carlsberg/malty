@@ -45,7 +45,7 @@ const useScrollPosition = () => {
 
 export default useScrollPosition;
 
-export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768, yScroll = 0 }) => {
+export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) => {
   const [hideSliderOptions, setHideSliderOptions] = useState(true);
   const yScrollPosition = useScrollPosition();
 

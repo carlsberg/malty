@@ -1,7 +1,6 @@
 export interface AlertBannerProps {
   alerts: AlertBannerI[];
   breakpoint?: number;
-  yScroll: number;
 }
 export interface AlertBannerI {
   type: AlertBannerType;
