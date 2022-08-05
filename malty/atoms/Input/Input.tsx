@@ -47,6 +47,7 @@ export const Input = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(theme.sizes.xl.value.replace('px', ''));
+  const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
 
   useEffect(() => {
     switch (size) {
@@ -74,6 +75,15 @@ export const Input = ({
     }
     return text;
   };
+  const HandleTogglePassword = () => {
+    if (value) {
+      if (passwordToggleType === InputType.Password) {
+        setPasswordToggleType(InputType.Text);
+      } else {
+        setPasswordToggleType(InputType.Password);
+      }
+    }
+  };
 
   const renderClearable = () =>
     (clearable || type === InputType.Search) &&
@@ -88,10 +98,25 @@ export const Input = ({
       />
     );
 
-  const renderIcon = () =>
-    icon && (
-      <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+  const renderIcon = () => {
+    if (type === InputType.Password && value) {
+      return (
+        <Icon
+          className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}
+          onClick={HandleTogglePassword}
+          data-testid={`${dataTestId}-icon`}
+          name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}
+          color={IconColor.DigitalBlack}
+          size={IconSize.Medium}
+        />
+      );
+    }
+    return (
+      icon && (
+        <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+      )
     );
+  };
 
   const renderInput = () => (
     <TypographyProvider>
@@ -108,10 +133,12 @@ export const Input = ({
           hasIcon={!!icon}
           hasClearable={clearable}
           isError={!!error}
-          isIconLeft={iconPosition === InputIconPosition.Left}
-          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
+          isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
+          addRight={
+            (iconPosition !== InputIconPosition.Left && type !== InputType.Number) || type === InputType.Password
+          }
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-          type={type}
+          type={type === InputType.Password ? passwordToggleType : type}
           theme={theme}
         />
         {renderClearable()}
@@ -240,7 +267,7 @@ export const Input = ({
           </StyledLabel>
         )}
         <StyledInputWrapper
-          isIconLeft={iconPosition === InputIconPosition.Left}
+          isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           clearable={clearable || type === InputType.Search}
           addLeft={type === InputType.Telephone}
           theme={theme}

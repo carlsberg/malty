@@ -5711,6 +5711,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"EyeHide-5285b3@workspace:malty/icons/EyeHide":
+  version: 0.0.0-use.local
+  resolution: "EyeHide-5285b3@workspace:malty/icons/EyeHide"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"EyeShow-b42beb@workspace:malty/icons/EyeShow":
+  version: 0.0.0-use.local
+  resolution: "EyeShow-b42beb@workspace:malty/icons/EyeShow"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "File-b4bb69@workspace:malty/icons/File":
   version: 0.0.0-use.local
   resolution: "File-b4bb69@workspace:malty/icons/File"
@@ -11653,9 +11671,9 @@ __metadata:
   linkType: hard
 
 "fastest-levenshtein@npm:^1.0.12":
-  version: 1.0.14
-  resolution: "fastest-levenshtein@npm:1.0.14"
-  checksum: fb85c70e9c50d5022333ea88dc9b8a4c9a9863684a12d1de36be22647c24fa590e5b3a499d96a6d27a1083679e13d4a75b425fe32752a992736239baa9430a15
+  version: 1.0.15
+  resolution: "fastest-levenshtein@npm:1.0.15"
+  checksum: 5bbd00b7360f14f9347f50aae43d80bc49f04d967566aa8234427a16fc27909e8d63da1926efe1ba69c103252503b5efd0569c2a9bc3fa617f044c269a571846
   languageName: node
   linkType: hard
 

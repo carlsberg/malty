@@ -699,6 +699,18 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/EyeFill"
     },
+    "icons/eye-show": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/EyeShow"
+    },
+    "icons/eye-hide": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/EyeHide"
+    },
     "icons/file": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.29",
