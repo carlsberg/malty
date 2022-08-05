@@ -1,4 +1,4 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Tooltip } from '.';
@@ -27,27 +27,6 @@ const renderTooltip = (options = { toggleType: TooltipToggle.Click }) =>
   );
 
 describe('Tooltip', () => {
-  it('should matches snapshot', () => {
-    const view = jsonRenderer(
-      <Tooltip
-        tooltipId="tooltip"
-        triggerComponent={(setTriggerElement) => (
-          <a onClick={anchorAction} ref={setTriggerElement}>
-            Tooltip Anchor
-          </a>
-        )}
-        placement={TooltipPlacement.Bottom}
-        dataTestId="tooltip-test"
-        toggle={TooltipToggle.Click}
-        autoHideDuration={3000}
-        onClose={onClose}
-      >
-        <button type="button">Button inside Tooltip</button>
-      </Tooltip>
-    );
-    expect(view).toMatchSnapshot();
-  });
-
   it('should show tooltip once anchor is clicked', () => {
     renderTooltip({ toggleType: TooltipToggle.Click });
 

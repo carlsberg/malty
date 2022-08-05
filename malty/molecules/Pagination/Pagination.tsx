@@ -115,8 +115,9 @@ export const Pagination = ({
   const renderContent = () => {
     if (isInput) {
       return (
-        <StyledInputPagination>
+        <StyledInputPagination theme={theme}>
           <StyledInput
+            theme={theme}
             data-testid={`${dataQaId}-input`}
             value={inputValue}
             onChange={(e) => handleInput(e)}

@@ -85,8 +85,9 @@ const StyledButton = styled.button<{
     width: ${({ iconSize }) => `${iconSize}`};
   }
 
-  ${({ hasText, hasIcon, sizing, isLoading }) =>
+  ${({ hasText, hasIcon, sizing, isLoading, fullWidth }) =>
     ((!hasText && hasIcon) || isLoading) &&
+    !fullWidth &&
     css`
       padding: 0;
       justify-content: center;
