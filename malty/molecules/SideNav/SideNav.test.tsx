@@ -1,5 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
@@ -40,18 +40,6 @@ const profileMenu = {
 };
 
 describe('molecule sideNav', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <SideNav
-        productName="Ottilia"
-        navItems={simpleNavigation}
-        systemOptions={systemOptions}
-        profileMenu={profileMenu}
-      />
-    );
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders with correct product name', () => {
     render(
       <SideNav

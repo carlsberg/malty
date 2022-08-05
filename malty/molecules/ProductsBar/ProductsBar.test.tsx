@@ -1,5 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen, within } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
@@ -30,15 +30,6 @@ const resetNavState = () => {
 };
 
 describe('Products bar component', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
-      </BrowserRouter>
-    );
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders with correct number of system options', () => {
     render(
       <BrowserRouter>

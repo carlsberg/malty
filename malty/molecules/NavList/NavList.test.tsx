@@ -1,5 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { screen, within } from '@testing-library/react';
 import React from 'react';
 import { NavList } from './NavList';
@@ -14,22 +14,7 @@ const testHandler = () => {
   console.log('test nav list behaviour');
 };
 
-describe('sideNav molecule', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(
-      <NavList
-        navItems={simpleNavigation}
-        activeNavItem={-1}
-        activeSubItem={-1}
-        subNavIsActive={false}
-        setActiveNavItem={testHandler}
-        setActiveSubItem={testHandler}
-        toggleSubNav={testHandler}
-      />
-    );
-    expect(view).toMatchSnapshot();
-  });
-
+describe('navList molecule', () => {
   it('renders correct number of list items', () => {
     render(
       <NavList

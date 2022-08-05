@@ -1,14 +1,9 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Checkbox } from './Checkbox';
 
 describe('checkbox', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(<Checkbox labelText="Label text" value="test" onValueChange={() => null} checked />);
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders elements', () => {
     const mockFn = jest.fn();
     render(<Checkbox labelText="Label text" error="Error text" value="Test value" onValueChange={mockFn} checked />);
