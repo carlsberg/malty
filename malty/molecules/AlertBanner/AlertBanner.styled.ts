@@ -12,19 +12,6 @@ const simpleFadeAnimation = keyframes`
      }
 `;
 
-const closeAnimation = keyframes`
- 0% {
-    opacity: 0;
-   visibility: hidden;
-   height: 40px;
- }
- 100% {
-    opacity: 1;
-   visibility:visible;
-   height: -40px;
- }
-`;
-
 export const Container = styled.div<{
   type?: AlertBannerType;
 }>`
@@ -52,14 +39,14 @@ export const FadeWrapper = styled.div<{
   justify-content: space-between;
   width: 100%;
   opacity: 1;
-  height: ${({ offsetY }) => (offsetY < 20 ? `calc(40px - ${offsetY}px)` : `40px`)};
-  animation: ${closeAnimation} 0.2s ease-in-out;
+  height: ${({ offsetY, theme }) =>
+    offsetY < 20 ? `calc(${theme.sizes.xl.value} - ${offsetY}px)` : `${theme.sizes.xl.value}`};
   transition: height 0.2s ease-in-out;
   ${(props) => {
     if (props.show && props.offsetY > 15) {
       return css`
         transition: height 0.35s ease-in-out;
-        animation: ${simpleFadeAnimation} 0.2s ease-in-out;
+        animation: ${simpleFadeAnimation} 0.3s ease-in-out;
         visibility: hidden;
         height: 0px;
       `;
@@ -100,10 +87,16 @@ export const MessageContainer = styled.div<{
   }
 `;
 
-export const StyledMessage = styled.div`
+export const StyledMessage = styled.div<{ isHidden: boolean }>`
   overflow: hidden;
   display: flex;
   align-items: center;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: ${(props) => (props.isHidden ? 1 : 3)};
+  line-clamp: ${(props) => (props.isHidden ? 1 : 3)};
+  transition: all 0.2s ease-in-out;
 `;
 
 export const StyledAction = styled.div<{
