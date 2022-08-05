@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Datepicker as DatepickerComponent } from './Datepicker';
-import { DatepickerProps } from './Datepicker.types';
+import { Colors, DatepickerProps } from './Datepicker.types';
 
 export default {
   title: 'Forms/Datepicker',
@@ -206,21 +206,21 @@ switch (variant) {
       captions: [
         {
           label: 'Selected',
-          color: 'colours.default.digital-black'
+          color: Colors.DigitalBlack
         },
         {
           label: 'Today',
-          color: 'colours.system.fail'
+          color: Colors.SystemFail
         },
         {
           label: 'Available if you order until 5pm',
-          color: 'colours.default.white',
-          borderColor: 'colours.system.disable-light-theme',
+          color: Colors.White,
+          borderColor: Colors.InformationIndirect,
           dotted: true
         },
         {
           label: 'Order placed',
-          color: 'colours.system.success'
+          color: Colors.SystemSuccess
         }
       ],
       primaryAction: {

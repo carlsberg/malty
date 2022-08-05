@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { findColor } from './Datepicker.helper';
 
 export const StyledLabel = styled.label<{
   disabled?: boolean;
@@ -313,15 +312,15 @@ export const StyledCaption = styled.li<{ color: string; borderColor?: string; do
     width: ${({ theme }) => theme.sizes['2xs'].value};
     height: ${({ theme }) => theme.sizes['2xs'].value};
     margin-right: ${({ theme }) => theme.sizes['2xs'].value};
-    border: ${({ theme, borderColor = 'colours.default.transparent', dotted = false }) => {
+    border: ${({ theme, borderColor, dotted = false }) => {
       const borderRootStyle = dotted ? theme.borders['border-1px--dotted'] : theme.borders['border-1px--solid'];
 
       return `${borderRootStyle['border-width'].value} ${borderRootStyle['border-style'].value} ${
-        findColor(theme.colors, borderColor) ?? 'transparent'
+        borderColor ?? 'transparent'
       }`;
     }};
     border-radius: ${({ theme }) => theme.sizes['2xs'].value};
-    background-color: ${({ theme, color }) => findColor(theme.colors, color) ?? 'transparent'};
+    background-color: ${({ color }) => color ?? 'transparent'};
   }
 `;
 

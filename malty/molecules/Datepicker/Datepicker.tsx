@@ -7,6 +7,7 @@ import React, { KeyboardEvent, ReactNode, useCallback, useContext, useMemo, useR
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
+import { useColorsMapping } from './Datepicker.helper';
 import {
   StyledActionsContainer,
   StyledCalendar,
@@ -18,7 +19,7 @@ import {
   StyledLabel,
   StyledWrapper
 } from './Datepicker.styled';
-import { DatepickerProps } from './Datepicker.types';
+import { Colors, DatepickerProps } from './Datepicker.types';
 
 export const Datepicker = ({
   startDate,
@@ -41,6 +42,7 @@ export const Datepicker = ({
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const colors = useColorsMapping();
   const id = useMemo(() => uuid(), []);
   const [open, setOpen] = useState(false);
   const startDateRef = useRef<Date | null>(startDate);
@@ -98,8 +100,13 @@ export const Datepicker = ({
     return (
       <StyledCaptionContainer>
         {captions.map(({ color, borderColor, dotted, label: captionLabel }, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <StyledCaption color={color} borderColor={borderColor} dotted={dotted} key={`datepicker-caption-${index}`}>
+          <StyledCaption
+            color={colors[color]}
+            borderColor={borderColor ? colors[borderColor] : colors[Colors.Transparent]}
+            dotted={dotted}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`datepicker-caption-${index}`}
+          >
             <Text textStyle={TextStyle.SmallDefault}>{captionLabel}</Text>
           </StyledCaption>
         ))}
