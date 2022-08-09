@@ -56,5 +56,11 @@ AlertBanner.args = {
       dismiss: action('Dismiss button clicked'),
       icon: true
     }
-  ]
+  ],
+  breakpoint: 768,
+  animation: {
+    showAnimation: false,
+    triggerYPosition: 0,
+    currentYOffset: 0
+  }
 };

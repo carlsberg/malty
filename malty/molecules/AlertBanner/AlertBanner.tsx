@@ -28,29 +28,14 @@ const textColorsMap = {
   [AlertBannerType.Error]: TextColor.White
 };
 
-const useScrollPosition = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  useEffect(() => {
-    const updatePosition = () => {
-      setScrollPosition(window.pageYOffset);
-    };
-    window.addEventListener('scroll', updatePosition);
-    updatePosition();
-    return () => window.removeEventListener('scroll', updatePosition);
-  }, []);
-
-  return scrollPosition;
-};
-
-export default useScrollPosition;
-
-export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) => {
-  const [hideSliderOptions, setHideSliderOptions] = useState(true);
-  const yScrollPosition = useScrollPosition();
-
+export const AlertBanner: FC<AlertBannerProps> = ({
+  alerts,
+  breakpoint = 768,
+  animation = { showAnimation: false, triggerYPosition: 0, currentYOffset: 0 }
+}) => {
+  const { showAnimation, triggerYPosition, currentYOffset } = animation;
+  const [hideSliderOptions, setHideSliderOptions] = useState(showAnimation);
   const theme = useContext(ThemeContext) || defaultTheme;
-
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
   const currentAlert = alerts[activeAlert - 1];
@@ -68,10 +53,10 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
   }, []);
 
   useEffect(() => {
-    if (isMobile) {
+    if (isMobile && !hideSliderOptions) {
       setHideSliderOptions(true);
     }
-  }, [yScrollPosition]);
+  }, [isMobile, showAnimation, currentYOffset]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -84,6 +69,8 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         action();
       }
     };
+
+  const triggerAnimation = () => showAnimation && hideSliderOptions && currentYOffset > triggerYPosition;
 
   if (!alerts?.length) {
     return null;
@@ -115,7 +102,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
 
   const renderCloseButton = () => (
     <CloseButtonContainer
-      fade={hideSliderOptions && yScrollPosition > 15}
+      triggerFadeAnimation={triggerAnimation()}
       data-testid={`${currentAlert.dataQaId}-close-icon`}
       onClick={currentAlert.dismiss || (() => null)}
       onKeyUp={handleOnKeyUp(currentAlert.dismiss)}
@@ -147,7 +134,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
   };
 
   const renderMessage = () => (
-    <StyledMessage>
+    <StyledMessage hideText={triggerAnimation()}>
       <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
         {currentAlert.message}
       </Text>
@@ -174,7 +161,12 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         {renderCloseButton()}
       </ContentRow>
       {isMobile && (
-        <FadeWrapper show={hideSliderOptions} offsetY={yScrollPosition}>
+        <FadeWrapper
+          theme={theme}
+          show={hideSliderOptions}
+          offsetY={currentYOffset}
+          triggerYPosition={triggerYPosition}
+        >
           <ContentRow theme={theme}>
             <Pagination
               count={alerts.length}

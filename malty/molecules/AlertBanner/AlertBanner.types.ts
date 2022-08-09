@@ -1,7 +1,15 @@
 export interface AlertBannerProps {
   alerts: AlertBannerI[];
   breakpoint?: number;
+  animation?: AnnimatedProps;
 }
+
+export interface AnnimatedProps {
+  showAnimation: boolean;
+  triggerYPosition: number;
+  currentYOffset: number;
+}
+
 export interface AlertBannerI {
   type: AlertBannerType;
   message: string;

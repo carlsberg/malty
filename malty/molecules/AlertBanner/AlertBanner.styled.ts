@@ -33,17 +33,20 @@ export const Container = styled.div<{
 export const FadeWrapper = styled.div<{
   show: boolean;
   offsetY: number;
+  triggerYPosition: number;
 }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   opacity: 1;
-  height: ${({ offsetY, theme }) =>
-    offsetY < 20 ? `calc(${theme.sizes.xl.value} - ${offsetY}px)` : `${theme.sizes.xl.value}`};
+  height: ${({ theme }) => theme.sizes.xl.value};
   transition: height 0.2s ease-in-out;
-  ${(props) => {
-    if (props.show && props.offsetY > 15) {
+  & > div {
+    width: 100%;
+  }
+  ${({ show, offsetY, triggerYPosition }) => {
+    if (show && offsetY > triggerYPosition) {
       return css`
         transition: height 0.35s ease-in-out;
         animation: ${simpleFadeAnimation} 0.3s ease-in-out;
@@ -67,6 +70,7 @@ export const ContentRow = styled.div`
 export const MessageContainer = styled.div<{
   breakpoint: number;
 }>`
+  padding: 8px 0px;
   display: flex;
   align-items: center;
   @media (min-width: ${({ breakpoint }) => breakpoint}px) {
@@ -87,15 +91,15 @@ export const MessageContainer = styled.div<{
   }
 `;
 
-export const StyledMessage = styled.div<{ isHidden: boolean }>`
+export const StyledMessage = styled.div<{ hideText: boolean }>`
   overflow: hidden;
   display: flex;
   align-items: center;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: ${(props) => (props.isHidden ? 1 : 3)};
-  line-clamp: ${(props) => (props.isHidden ? 1 : 3)};
+  -webkit-line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
+  line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
   transition: all 0.2s ease-in-out;
 `;
 
@@ -114,14 +118,14 @@ export const StyledAction = styled.div<{
   }
 `;
 
-export const CloseButtonContainer = styled.div<{ fade: boolean }>`
+export const CloseButtonContainer = styled.div<{ triggerFadeAnimation: boolean }>`
   cursor: Pointer;
   margin-left: auto;
   margin-right: ${({ theme }) => theme.sizes['2xs'].value};
   display: flex;
   align-items: center;
-  ${(props) =>
-    props?.fade &&
+  ${({ triggerFadeAnimation }) =>
+    triggerFadeAnimation &&
     css`
       animation: ${simpleFadeAnimation} 0.2s ease-in-out;
       transition-delay: visibility 0.2s;
