@@ -125,7 +125,7 @@ export const Select = ({
     if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
   }, [defaultValue]);
   useEffect(() => {
-    if (value && value?.length > 0) setSelectedValueState(value);
+    if (value) setSelectedValueState(value);
   }, [value]);
 
   useEffect(() => {
@@ -189,7 +189,7 @@ export const Select = ({
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
                 <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
-                  Sellect all
+                  Select all
                 </StyledActionButton>
               )}
               {selectedValueState.length > 0 && (
