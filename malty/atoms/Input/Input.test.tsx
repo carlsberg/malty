@@ -1,4 +1,4 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Input } from './Input';
@@ -9,11 +9,6 @@ jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 const mockFn = jest.fn();
 
 describe('input', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(<Input value="Value" onValueChange={mockFn} type={InputType.Text} />);
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders elements', () => {
     render(
       <Input
