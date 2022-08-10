@@ -1,7 +1,7 @@
 export interface AlertBannerProps {
   alerts: AlertBannerI[];
   breakpoint?: number;
-  animation?: AnnimatedProps;
+  animation?: AnimatedProps;
 }
 
 export interface AnimatedProps {
