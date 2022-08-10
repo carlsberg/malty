@@ -4,7 +4,7 @@ export interface AlertBannerProps {
   animation?: AnnimatedProps;
 }
 
-export interface AnnimatedProps {
+export interface AnimatedProps {
   showAnimation: boolean;
   triggerYPosition: number;
   currentYOffset: number;
