@@ -70,7 +70,7 @@ export const ContentRow = styled.div`
 export const MessageContainer = styled.div<{
   breakpoint: number;
 }>`
-  padding: 8px 0px;
+  padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
   display: flex;
   align-items: center;
   @media (min-width: ${({ breakpoint }) => breakpoint}px) {
