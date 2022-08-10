@@ -91,7 +91,7 @@ export const StyledInputIcon = styled.span<{
   right: 14px;
   position: absolute;
   z-index: 1;
-  ${({ theme }) => theme.sizes.xs.value};
+  pointer-events: none;
 
   ${({ disabled }) =>
     disabled &&
@@ -304,7 +304,7 @@ export const StyledCaptionContainer = styled.ul`
   padding: 0 ${({ theme }) => theme.sizes.xs.value};
 `;
 
-export const StyledCaption = styled.li<{ color: string; borderColor?: string }>`
+export const StyledCaption = styled.li<{ color: string; borderColor: string; dotted?: boolean }>`
   display: flex;
   align-items: center;
   &::before {
@@ -312,7 +312,11 @@ export const StyledCaption = styled.li<{ color: string; borderColor?: string }>`
     width: ${({ theme }) => theme.sizes['2xs'].value};
     height: ${({ theme }) => theme.sizes['2xs'].value};
     margin-right: ${({ theme }) => theme.sizes['2xs'].value};
-    border: 1px solid ${({ borderColor }) => borderColor || 'transparent'};
+    border: ${({ theme, borderColor, dotted = false }) => {
+      const borderRootStyle = dotted ? theme.borders['border-1px--dotted'] : theme.borders['border-1px--solid'];
+
+      return `${borderRootStyle['border-width'].value} ${borderRootStyle['border-style'].value} ${borderColor}`;
+    }};
     border-radius: ${({ theme }) => theme.sizes['2xs'].value};
     background-color: ${({ color }) => color};
   }

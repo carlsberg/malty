@@ -3,10 +3,11 @@ import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useMemo } from 'react';
-import DatePicker, { CalendarContainerProps } from 'react-datepicker';
+import React, { KeyboardEvent, ReactNode, useCallback, useContext, useMemo, useRef, useState } from 'react';
+import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
+import { useColorsMapping } from './Datepicker.helper';
 import {
   StyledActionsContainer,
   StyledCalendar,
@@ -18,7 +19,7 @@ import {
   StyledLabel,
   StyledWrapper
 } from './Datepicker.styled';
-import { DatepickerProps } from './Datepicker.types';
+import { Colors, DatepickerProps } from './Datepicker.types';
 
 export const Datepicker = ({
   startDate,
@@ -37,26 +38,76 @@ export const Datepicker = ({
   captions,
   primaryAction,
   secondaryAction,
+  shouldCloseOnSelect = true,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const colors = useColorsMapping();
   const id = useMemo(() => uuid(), []);
-  const Container = ({ children }: CalendarContainerProps) => (
+  const [open, setOpen] = useState(false);
+  const startDateRef = useRef<Date | null>(startDate);
+  const endDateRef = useRef<Date | null | undefined>(endDate);
+
+  const handleClose = useCallback(() => setOpen(false), []);
+  const handleOpen = useCallback(() => setOpen(true), []);
+
+  const handlePrimaryAction = () => {
+    primaryAction?.action?.();
+    handleClose();
+  };
+
+  const handleSecondaryAction = () => {
+    secondaryAction?.action?.();
+    handleClose();
+  };
+
+  const handleChange = (date: (Date | null) | [Date | null, Date | null]) => {
+    if (Array.isArray(date)) {
+      [startDateRef.current, endDateRef.current] = date;
+    } else {
+      startDateRef.current = date;
+    }
+
+    onChange(date);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      handleClose();
+    }
+  };
+
+  const handleSelect = () => {
+    if (!shouldCloseOnSelect) {
+      return;
+    }
+
+    if ((!selectsRange && startDateRef.current) || (startDateRef.current && endDateRef.current)) {
+      handleClose();
+    }
+  };
+
+  const Container = ({ children }: { children: ReactNode }) => (
     <StyledContainer theme={theme}>
       <StyledCalendar theme={theme}>{children}</StyledCalendar>
     </StyledContainer>
   );
 
   const renderDatepickerCaptions = () => {
-    if (!captions) {
+    if (!captions || !captions.length) {
       return null;
     }
     return (
       <StyledCaptionContainer>
-        {captions.map((caption, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <StyledCaption color={caption.color} borderColor={caption.borderColor} key={`datepicker-caption-${index}`}>
-            <Text textStyle={TextStyle.SmallDefault}>{caption.copy}</Text>
+        {captions.map(({ color, borderColor, dotted, label: captionLabel }, index) => (
+          <StyledCaption
+            color={colors[color]}
+            borderColor={borderColor ? colors[borderColor] : colors[Colors.Transparent]}
+            dotted={dotted}
+            // eslint-disable-next-line react/no-array-index-key
+            key={`datepicker-caption-${index}`}
+          >
+            <Text textStyle={TextStyle.SmallDefault}>{captionLabel}</Text>
           </StyledCaption>
         ))}
       </StyledCaptionContainer>
@@ -69,8 +120,17 @@ export const Datepicker = ({
     }
     return (
       <StyledActionsContainer>
-        {secondaryAction && <Button style={ButtonStyle.Secondary} text={secondaryAction.copy} fullWidth />}
-        {primaryAction && <Button style={ButtonStyle.Primary} text={primaryAction.copy} fullWidth />}
+        {secondaryAction && (
+          <Button
+            style={ButtonStyle.Secondary}
+            text={secondaryAction.label}
+            fullWidth
+            onClick={handleSecondaryAction}
+          />
+        )}
+        {primaryAction && (
+          <Button style={ButtonStyle.Primary} text={primaryAction.label} fullWidth onClick={handlePrimaryAction} />
+        )}
       </StyledActionsContainer>
     );
   };
@@ -97,12 +157,16 @@ export const Datepicker = ({
             endDate={selectsRange ? endDate : null}
             disabled={disabled}
             readOnly={readOnly}
-            onChange={onChange}
+            open={open}
+            onChange={handleChange}
+            onFocus={!readOnly && !disabled ? handleOpen : undefined}
+            onSelect={handleSelect}
+            onClickOutside={handleClose}
+            onKeyDown={handleKeyDown}
             locale={locale}
             showPopperArrow={false}
             calendarClassName="calendar"
             calendarContainer={Container}
-            disabledKeyboardNavigation
             calendarStartDay={1}
             useWeekdaysShort
             minDate={minDate}
@@ -111,7 +175,6 @@ export const Datepicker = ({
             className="datepickerInput"
             inline={inline}
             selectsRange={selectsRange}
-            shouldCloseOnSelect={!selectsRange}
             placeholderText={placeholderText}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
