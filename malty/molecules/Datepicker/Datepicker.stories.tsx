@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Datepicker as DatepickerComponent } from './Datepicker';
-import { DatepickerProps } from './Datepicker.types';
+import { Colors, DatepickerProps } from './Datepicker.types';
 
 export default {
   title: 'Forms/Datepicker',
@@ -102,6 +102,13 @@ export default {
       control: {
         type: 'object'
       }
+    },
+    shouldCloseOnSelect: {
+      description: 'whether the datepicker should close automatically upon selection',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: true
     }
   }
 } as Meta;
@@ -118,13 +125,15 @@ const Template: Story<DatepickerProps> = ({
   dateFormat,
   readOnly,
   captions,
+  inline,
   primaryAction,
-  secondaryAction
+  secondaryAction,
+  shouldCloseOnSelect
 }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [endDate, setEndDate] = useState<Date | null>(new Date());
 
-  const onChange = (date: Date[] | Date) => {
+  const onChange = (date: (Date | null) | [Date | null, Date | null]) => {
     let start;
     let end;
 
@@ -135,11 +144,17 @@ const Template: Story<DatepickerProps> = ({
     }
   };
 
+  const onChangeStartDate = (date: (Date | null) | [Date | null, Date | null]) => {
+    if (!Array.isArray(date)) {
+      setStartDate(date);
+    }
+  };
+
   return (
     <div style={{ height: '560px' }}>
       <DatepickerComponent
         label={label}
-        onChange={selectsRange ? onChange : setStartDate}
+        onChange={selectsRange ? onChange : onChangeStartDate}
         startDate={startDate}
         endDate={endDate}
         minDate={minDate}
@@ -154,6 +169,8 @@ const Template: Story<DatepickerProps> = ({
         captions={captions}
         primaryAction={primaryAction}
         secondaryAction={secondaryAction}
+        inline={inline}
+        shouldCloseOnSelect={shouldCloseOnSelect}
       />
     </div>
   );
@@ -188,20 +205,30 @@ switch (variant) {
       label: 'Select date',
       captions: [
         {
-          copy: 'caption one',
-          color: 'green'
+          label: 'Selected',
+          color: Colors.DigitalBlack
         },
         {
-          copy: 'caption two',
-          color: 'blue'
+          label: 'Today',
+          color: Colors.SystemFail
+        },
+        {
+          label: 'Available if you order until 5pm',
+          color: Colors.White,
+          borderColor: Colors.InformationIndirect,
+          dotted: true
+        },
+        {
+          label: 'Order placed',
+          color: Colors.SystemSuccess
         }
       ],
       primaryAction: {
-        copy: 'Apply',
+        label: 'Apply',
         action: () => true
       },
       secondaryAction: {
-        copy: 'Cancel',
+        label: 'Cancel',
         action: () => true
       }
     };

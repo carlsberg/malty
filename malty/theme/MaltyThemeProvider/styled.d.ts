@@ -57,6 +57,10 @@ declare module 'styled-components' {
       'border-width': PropValue;
       'border-style': PropValue;
     };
+    'border-1px--dotted': {
+      'border-width': PropValue;
+      'border-style': PropValue;
+    };
   }
 
   interface GradientsType {
