@@ -3,6 +3,8 @@ import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
+
 import React, { FC, KeyboardEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -30,7 +32,7 @@ const textColorsMap = {
 
 export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
-  breakpoint = 768,
+  breakpoint = Number(layoutProps.small.breakpoint.value),
   animation = { showAnimation: false, triggerYPosition: 0, currentYOffset: 0 }
 }) => {
   const { showAnimation, triggerYPosition, currentYOffset } = animation;

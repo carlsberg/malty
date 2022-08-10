@@ -1,3 +1,4 @@
+import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -57,7 +58,7 @@ AlertBanner.args = {
       icon: true
     }
   ],
-  breakpoint: 768,
+  breakpoint: Number(layoutProps.small.breakpoint.value),
   animation: {
     showAnimation: false,
     triggerYPosition: 0,
