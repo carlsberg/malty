@@ -42,7 +42,6 @@ declare module 'styled-components' {
     'device-max-width'?: PropValue;
     'device-min-width'?: PropValue;
     'grid-width': PropValue;
-    breakpoint: PropValue;
     columns: PropValue;
     gutter: PropValue;
     margin: PropValue;

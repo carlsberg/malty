@@ -3,9 +3,6 @@
     "device-max-width": {
       "value": "428px"
     },
-    "breakpoint": {
-      "value": "428"
-    },
     "grid-width": {
       "value": "100%"
     },
@@ -22,9 +19,6 @@
   "small": {
     "device-max-width": {
       "value": "768px"
-    },
-    "breakpoint": {
-      "value": "768"
     },
     "grid-width": {
       "value": "100%"
@@ -43,9 +37,6 @@
     "device-max-width": {
       "value": "1024px"
     },
-    "breakpoint": {
-      "value": "1024"
-    },
     "grid-width": {
       "value": "100%"
     },
@@ -63,9 +54,6 @@
     "device-max-width": {
       "value": "1366px"
     },
-    "breakpoint": {
-      "value": "1366"
-    },
     "grid-width": {
       "value": "100%"
     },
@@ -82,9 +70,6 @@
   "xlarge": {
     "device-min-width": {
       "value": "1367px"
-    },
-    "breakpoint": {
-      "value": "1367"
     },
     "grid-width": {
       "value": "1366px"

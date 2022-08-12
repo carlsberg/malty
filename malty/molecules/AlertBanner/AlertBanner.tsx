@@ -32,7 +32,7 @@ const textColorsMap = {
 
 export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
-  breakpoint = Number(layoutProps.small.breakpoint.value),
+  breakpoint = Number(layoutProps.small['device-max-width'].value),
   animation = { showAnimation: false, triggerYPosition: 0, currentYOffset: 0 }
 }) => {
   const { showAnimation, triggerYPosition, currentYOffset } = animation;
