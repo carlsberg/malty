@@ -87,7 +87,8 @@
       "teambit.dependencies/dependency-resolver": {
         "policy": {
           "dependencies": {
-            "react-datepicker": "^4.7.0"
+            "react-datepicker": "^4.7.0",
+            "@carlsberggroup/malty.atoms.button": "^0.0.58"
           }
         }
       }
