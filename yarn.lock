@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 5
   cacheKey: 8
 
 "@adobe/css-tools@npm:^4.0.1":
@@ -95,13 +95,13 @@ __metadata:
   linkType: hard
 
 "@babel/generator@npm:^7.12.11, @babel/generator@npm:^7.12.5, @babel/generator@npm:^7.18.10, @babel/generator@npm:^7.7.2":
-  version: 7.18.10
-  resolution: "@babel/generator@npm:7.18.10"
+  version: 7.18.12
+  resolution: "@babel/generator@npm:7.18.12"
   dependencies:
     "@babel/types": ^7.18.10
     "@jridgewell/gen-mapping": ^0.3.2
     jsesc: ^2.5.1
-  checksum: 6e888448dd018571e2a36859c1722dc389e22abac99180523422112d208b9eff137da57f03325c9b1e78c2e8b9b4e7004c9a880cc04643582177b9252dd1435f
+  checksum: 07dd71d255144bb703a80ab0156c35d64172ce81ddfb70ff24e2be687b052080233840c9a28d92fa2c33f7ecb8a8b30aef03b807518afc53b74c7908bf8859b1
   languageName: node
   linkType: hard
 
@@ -1336,15 +1336,15 @@ __metadata:
   linkType: hard
 
 "@babel/plugin-transform-typescript@npm:^7.18.6":
-  version: 7.18.10
-  resolution: "@babel/plugin-transform-typescript@npm:7.18.10"
+  version: 7.18.12
+  resolution: "@babel/plugin-transform-typescript@npm:7.18.12"
   dependencies:
     "@babel/helper-create-class-features-plugin": ^7.18.9
     "@babel/helper-plugin-utils": ^7.18.9
     "@babel/plugin-syntax-typescript": ^7.18.6
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 9fba23131b747936112549f26e5007d2762c36dc2f3a753b0cded9bf220364c85fc432b45eba1848037bc9f9317c78ff0b3f88977851499ad9115f6083c0a7fb
+  checksum: 87e9b783ef712697a9d3bd72d0345ea4ea71b4676f9b88da0a30fe4b8a81f453a5badee788bb4dc849616af84d674d728a6ec4248f14a75bfb0b4de5bcce7431
   languageName: node
   linkType: hard
 
@@ -1631,6 +1631,3025 @@ __metadata:
     prettier: ^2.7.1
     prettier-plugin-organize-imports: ^1.1.1
   checksum: 49ded1c418e91f5bd330432f76fbaf0b9cc5145bd34cc207a0ddf2d5378b90ad8ead332a6c23c17ba4a79baea3a111a374ff06cf9ebdf4d748880a7640943190
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.atoms.button@npm:*":
+  version: 0.0.57
+  resolution: "@carlsberggroup/malty.atoms.button@npm:0.0.57::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.atoms.button%2F-%2F%40carlsberggroup-malty.atoms.button-0.0.57.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon": 0.0.46
+    "@carlsberggroup/malty.atoms.progress-spinner": 0.0.7
+    "@carlsberggroup/malty.molecules.loading": 0.0.48
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: eab2a7a04f64dcb4490b8fd9bcd1fd496d56a17c34a74838096d897a25acf2c88126c975c8bc24fd2bb10897e5d5c125ed84f696bd7b213d328c6c70cccbf8a4
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.atoms.icon-wrapper@npm:0.0.29":
+  version: 0.0.29
+  resolution: "@carlsberggroup/malty.atoms.icon-wrapper@npm:0.0.29::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.atoms.icon-wrapper%2F-%2F%40carlsberggroup-malty.atoms.icon-wrapper-0.0.29.tgz"
+  dependencies:
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 6accc69d97c63924a3180481e317f8a988363ec834cbc3cc668ad7a7b01e611c70a562342033ddc6b16db55d641bb9d3a9767f583da5e9356090b10533b1bb55
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.atoms.icon@npm:0.0.46":
+  version: 0.0.46
+  resolution: "@carlsberggroup/malty.atoms.icon@npm:0.0.46::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.atoms.icon%2F-%2F%40carlsberggroup-malty.atoms.icon-0.0.46.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    "@carlsberggroup/malty.icons.add-content": 0.0.31
+    "@carlsberggroup/malty.icons.add-event": 0.0.31
+    "@carlsberggroup/malty.icons.add-project": 0.0.30
+    "@carlsberggroup/malty.icons.added-document": 0.0.30
+    "@carlsberggroup/malty.icons.alert": 0.0.30
+    "@carlsberggroup/malty.icons.alert-connection": 0.0.30
+    "@carlsberggroup/malty.icons.app-dropbox": 0.0.30
+    "@carlsberggroup/malty.icons.app-facebook": 0.0.30
+    "@carlsberggroup/malty.icons.app-github": 0.0.30
+    "@carlsberggroup/malty.icons.app-instagram": 0.0.30
+    "@carlsberggroup/malty.icons.app-linkedin": 0.0.30
+    "@carlsberggroup/malty.icons.app-powerbi": 0.0.30
+    "@carlsberggroup/malty.icons.app-skype": 0.0.30
+    "@carlsberggroup/malty.icons.arrange": 0.0.30
+    "@carlsberggroup/malty.icons.arrow-small-down": 0.0.30
+    "@carlsberggroup/malty.icons.arrow-small-left": 0.0.30
+    "@carlsberggroup/malty.icons.arrow-small-right": 0.0.30
+    "@carlsberggroup/malty.icons.arrow-small-up": 0.0.30
+    "@carlsberggroup/malty.icons.at": 0.0.30
+    "@carlsberggroup/malty.icons.attachment": 0.0.30
+    "@carlsberggroup/malty.icons.badge": 0.0.30
+    "@carlsberggroup/malty.icons.balance": 0.0.30
+    "@carlsberggroup/malty.icons.bell": 0.0.31
+    "@carlsberggroup/malty.icons.bell-notification": 0.0.30
+    "@carlsberggroup/malty.icons.bold": 0.0.30
+    "@carlsberggroup/malty.icons.book": 0.0.30
+    "@carlsberggroup/malty.icons.bookmark": 0.0.30
+    "@carlsberggroup/malty.icons.bookmark-filled": 0.0.30
+    "@carlsberggroup/malty.icons.bottle": 0.0.30
+    "@carlsberggroup/malty.icons.bottle-craft": 0.0.31
+    "@carlsberggroup/malty.icons.calendar": 0.0.30
+    "@carlsberggroup/malty.icons.calendar-autumn": 0.0.30
+    "@carlsberggroup/malty.icons.calendar-confirm": 0.0.30
+    "@carlsberggroup/malty.icons.calendar-events": 0.0.30
+    "@carlsberggroup/malty.icons.calendar-spring": 0.0.30
+    "@carlsberggroup/malty.icons.calendar-summer": 0.0.30
+    "@carlsberggroup/malty.icons.calendar-whole-year": 0.0.31
+    "@carlsberggroup/malty.icons.calendar-winter": 0.0.30
+    "@carlsberggroup/malty.icons.camera": 0.0.30
+    "@carlsberggroup/malty.icons.can": 0.0.30
+    "@carlsberggroup/malty.icons.card": 0.0.30
+    "@carlsberggroup/malty.icons.card-plus": 0.0.30
+    "@carlsberggroup/malty.icons.carlsberg-filled": 0.0.30
+    "@carlsberggroup/malty.icons.carlsberg-outlined": 0.0.31
+    "@carlsberggroup/malty.icons.carret-down": 0.0.30
+    "@carlsberggroup/malty.icons.carret-left": 0.0.30
+    "@carlsberggroup/malty.icons.carret-move": 0.0.30
+    "@carlsberggroup/malty.icons.carret-right": 0.0.30
+    "@carlsberggroup/malty.icons.carret-up": 0.0.30
+    "@carlsberggroup/malty.icons.cart": 0.0.30
+    "@carlsberggroup/malty.icons.cart-added": 0.0.30
+    "@carlsberggroup/malty.icons.cart-label": 0.0.30
+    "@carlsberggroup/malty.icons.cart-notification": 0.0.30
+    "@carlsberggroup/malty.icons.change": 0.0.30
+    "@carlsberggroup/malty.icons.check": 0.0.30
+    "@carlsberggroup/malty.icons.checkbox-check": 0.0.30
+    "@carlsberggroup/malty.icons.checkbox-check-alternate": 0.0.30
+    "@carlsberggroup/malty.icons.checkbox-check-square": 0.0.30
+    "@carlsberggroup/malty.icons.checkbox-empty": 0.0.30
+    "@carlsberggroup/malty.icons.chevron-down": 0.0.30
+    "@carlsberggroup/malty.icons.chevron-left": 0.0.30
+    "@carlsberggroup/malty.icons.chevron-right": 0.0.31
+    "@carlsberggroup/malty.icons.chevron-up": 0.0.31
+    "@carlsberggroup/malty.icons.clock": 0.0.30
+    "@carlsberggroup/malty.icons.clock-filled": 0.0.30
+    "@carlsberggroup/malty.icons.clone": 0.0.30
+    "@carlsberggroup/malty.icons.close": 0.0.30
+    "@carlsberggroup/malty.icons.coin-dollar": 0.0.30
+    "@carlsberggroup/malty.icons.coin-euro": 0.0.30
+    "@carlsberggroup/malty.icons.compass": 0.0.30
+    "@carlsberggroup/malty.icons.compass-filled": 0.0.30
+    "@carlsberggroup/malty.icons.connected": 0.0.30
+    "@carlsberggroup/malty.icons.contract": 0.0.30
+    "@carlsberggroup/malty.icons.cookies": 0.0.30
+    "@carlsberggroup/malty.icons.coupon": 0.0.30
+    "@carlsberggroup/malty.icons.customer": 0.0.31
+    "@carlsberggroup/malty.icons.customer-add": 0.0.30
+    "@carlsberggroup/malty.icons.customer-question": 0.0.30
+    "@carlsberggroup/malty.icons.customers": 0.0.30
+    "@carlsberggroup/malty.icons.data-transfer": 0.0.30
+    "@carlsberggroup/malty.icons.diagonal-down-left": 0.0.30
+    "@carlsberggroup/malty.icons.diagonal-down-right": 0.0.30
+    "@carlsberggroup/malty.icons.diagonal-up-left": 0.0.30
+    "@carlsberggroup/malty.icons.diagonal-up-right": 0.0.30
+    "@carlsberggroup/malty.icons.diploma": 0.0.30
+    "@carlsberggroup/malty.icons.diploma2": 0.0.30
+    "@carlsberggroup/malty.icons.download": 0.0.30
+    "@carlsberggroup/malty.icons.draughtmaster": 0.0.30
+    "@carlsberggroup/malty.icons.edit": 0.0.30
+    "@carlsberggroup/malty.icons.email": 0.0.30
+    "@carlsberggroup/malty.icons.expand": 0.0.30
+    "@carlsberggroup/malty.icons.eye-hide": 0.0.2
+    "@carlsberggroup/malty.icons.eye-show": 0.0.2
+    "@carlsberggroup/malty.icons.file": 0.0.30
+    "@carlsberggroup/malty.icons.files-csv": 0.0.31
+    "@carlsberggroup/malty.icons.files-json": 0.0.30
+    "@carlsberggroup/malty.icons.files-pdf": 0.0.30
+    "@carlsberggroup/malty.icons.files-xls": 0.0.30
+    "@carlsberggroup/malty.icons.filters": 0.0.30
+    "@carlsberggroup/malty.icons.flash": 0.0.30
+    "@carlsberggroup/malty.icons.glass-goblet": 0.0.30
+    "@carlsberggroup/malty.icons.glass-mug": 0.0.30
+    "@carlsberggroup/malty.icons.glass-weissbier": 0.0.30
+    "@carlsberggroup/malty.icons.globe": 0.0.33
+    "@carlsberggroup/malty.icons.headline": 0.0.30
+    "@carlsberggroup/malty.icons.heart": 0.0.30
+    "@carlsberggroup/malty.icons.heart-filled": 0.0.30
+    "@carlsberggroup/malty.icons.help": 0.0.30
+    "@carlsberggroup/malty.icons.hide-menu": 0.0.30
+    "@carlsberggroup/malty.icons.history": 0.0.30
+    "@carlsberggroup/malty.icons.home": 0.0.30
+    "@carlsberggroup/malty.icons.hop": 0.0.30
+    "@carlsberggroup/malty.icons.image": 0.0.31
+    "@carlsberggroup/malty.icons.information": 0.0.30
+    "@carlsberggroup/malty.icons.italic": 0.0.30
+    "@carlsberggroup/malty.icons.item-add": 0.0.30
+    "@carlsberggroup/malty.icons.item-check": 0.0.30
+    "@carlsberggroup/malty.icons.item-check-default": 0.0.30
+    "@carlsberggroup/malty.icons.item-check-filled": 0.0.30
+    "@carlsberggroup/malty.icons.item-close": 0.0.30
+    "@carlsberggroup/malty.icons.item-close-filled": 0.0.30
+    "@carlsberggroup/malty.icons.library": 0.0.30
+    "@carlsberggroup/malty.icons.loading": 0.0.30
+    "@carlsberggroup/malty.icons.location-ip": 0.0.30
+    "@carlsberggroup/malty.icons.lock": 0.0.30
+    "@carlsberggroup/malty.icons.lock-open": 0.0.30
+    "@carlsberggroup/malty.icons.map": 0.0.30
+    "@carlsberggroup/malty.icons.market": 0.0.30
+    "@carlsberggroup/malty.icons.media-pause": 0.0.30
+    "@carlsberggroup/malty.icons.media-play": 0.0.30
+    "@carlsberggroup/malty.icons.media-sound": 0.0.30
+    "@carlsberggroup/malty.icons.media-sound-off": 0.0.30
+    "@carlsberggroup/malty.icons.media-stop": 0.0.30
+    "@carlsberggroup/malty.icons.menu": 0.0.31
+    "@carlsberggroup/malty.icons.menu-left": 0.0.30
+    "@carlsberggroup/malty.icons.menu-right": 0.0.30
+    "@carlsberggroup/malty.icons.minus": 0.0.30
+    "@carlsberggroup/malty.icons.mobile": 0.0.30
+    "@carlsberggroup/malty.icons.more": 0.0.30
+    "@carlsberggroup/malty.icons.mouse": 0.0.30
+    "@carlsberggroup/malty.icons.notepad": 0.0.30
+    "@carlsberggroup/malty.icons.outlet": 0.0.30
+    "@carlsberggroup/malty.icons.outlet-plus": 0.0.30
+    "@carlsberggroup/malty.icons.pack": 0.0.30
+    "@carlsberggroup/malty.icons.package-keg": 0.0.30
+    "@carlsberggroup/malty.icons.package-wholesaler": 0.0.30
+    "@carlsberggroup/malty.icons.paint": 0.0.30
+    "@carlsberggroup/malty.icons.pallet": 0.0.30
+    "@carlsberggroup/malty.icons.pencil": 0.0.30
+    "@carlsberggroup/malty.icons.phone-classic": 0.0.30
+    "@carlsberggroup/malty.icons.pilsner": 0.0.30
+    "@carlsberggroup/malty.icons.pin": 0.0.30
+    "@carlsberggroup/malty.icons.pin-active": 0.0.30
+    "@carlsberggroup/malty.icons.pin-churn": 0.0.30
+    "@carlsberggroup/malty.icons.pin-closed": 0.0.31
+    "@carlsberggroup/malty.icons.pin-inactive": 0.0.30
+    "@carlsberggroup/malty.icons.pin-indirect": 0.0.30
+    "@carlsberggroup/malty.icons.pin-labeling": 0.0.30
+    "@carlsberggroup/malty.icons.pin-parked": 0.0.30
+    "@carlsberggroup/malty.icons.pin-prospect": 0.0.30
+    "@carlsberggroup/malty.icons.pin-several": 0.0.31
+    "@carlsberggroup/malty.icons.pint": 0.0.30
+    "@carlsberggroup/malty.icons.plus": 0.0.30
+    "@carlsberggroup/malty.icons.power": 0.0.30
+    "@carlsberggroup/malty.icons.radiobutton-off": 0.0.30
+    "@carlsberggroup/malty.icons.radiobutton-on": 0.0.30
+    "@carlsberggroup/malty.icons.refresh": 0.0.30
+    "@carlsberggroup/malty.icons.restaurant": 0.0.30
+    "@carlsberggroup/malty.icons.retry": 0.0.30
+    "@carlsberggroup/malty.icons.salesrep": 0.0.30
+    "@carlsberggroup/malty.icons.save": 0.0.30
+    "@carlsberggroup/malty.icons.search": 0.0.30
+    "@carlsberggroup/malty.icons.search-user": 0.0.30
+    "@carlsberggroup/malty.icons.sent": 0.0.30
+    "@carlsberggroup/malty.icons.settings": 0.0.30
+    "@carlsberggroup/malty.icons.share": 0.0.30
+    "@carlsberggroup/malty.icons.shield-exclamation": 0.0.30
+    "@carlsberggroup/malty.icons.shield-security": 0.0.30
+    "@carlsberggroup/malty.icons.shop": 0.0.30
+    "@carlsberggroup/malty.icons.sign-out": 0.0.30
+    "@carlsberggroup/malty.icons.speach-balloon": 0.0.30
+    "@carlsberggroup/malty.icons.speach-balloon-complaint": 0.0.30
+    "@carlsberggroup/malty.icons.speach-balloon-livechat": 0.0.30
+    "@carlsberggroup/malty.icons.star": 0.0.30
+    "@carlsberggroup/malty.icons.star-filled": 0.0.30
+    "@carlsberggroup/malty.icons.survey": 0.0.30
+    "@carlsberggroup/malty.icons.sync": 0.0.30
+    "@carlsberggroup/malty.icons.tap": 0.0.31
+    "@carlsberggroup/malty.icons.tap-glass": 0.0.30
+    "@carlsberggroup/malty.icons.technical-support": 0.0.30
+    "@carlsberggroup/malty.icons.text": 0.0.30
+    "@carlsberggroup/malty.icons.third-party": 0.0.30
+    "@carlsberggroup/malty.icons.thumb-down": 0.0.30
+    "@carlsberggroup/malty.icons.thumb-up": 0.0.30
+    "@carlsberggroup/malty.icons.toggle-off": 0.0.30
+    "@carlsberggroup/malty.icons.toggle-on": 0.0.30
+    "@carlsberggroup/malty.icons.trash": 0.0.30
+    "@carlsberggroup/malty.icons.trophy": 0.0.31
+    "@carlsberggroup/malty.icons.truck": 0.0.30
+    "@carlsberggroup/malty.icons.tulipe": 0.0.30
+    "@carlsberggroup/malty.icons.twitter": 0.0.30
+    "@carlsberggroup/malty.icons.underline": 0.0.29
+    "@carlsberggroup/malty.icons.upload": 0.0.29
+    "@carlsberggroup/malty.icons.view-grid": 0.0.29
+    "@carlsberggroup/malty.icons.view-list": 0.0.29
+    "@carlsberggroup/malty.icons.volume": 0.0.30
+    "@carlsberggroup/malty.icons.wheat": 0.0.29
+    "@carlsberggroup/malty.icons.world": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 54d08043b9a8651d668e8b5968dca07bc8e3602c52e66c4317e64c843b2090ac097a7cec3828505edf4f9df56d2e93cc6917f7899c47025100c6f6ad1b73a9c2
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.atoms.progress-spinner@npm:0.0.7":
+  version: 0.0.7
+  resolution: "@carlsberggroup/malty.atoms.progress-spinner@npm:0.0.7::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.atoms.progress-spinner%2F-%2F%40carlsberggroup-malty.atoms.progress-spinner-0.0.7.tgz"
+  dependencies:
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7f1c6432f214f4575e92eac8f84f0ea3f1755295f8ae628a8e834eab1070a370aa9f90d9bce07019324d9ac4a5b96016f31eb5e2f910e87dc7cbd71e2c5c3f1c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.atoms.text@npm:0.0.37":
+  version: 0.0.37
+  resolution: "@carlsberggroup/malty.atoms.text@npm:0.0.37::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.atoms.text%2F-%2F%40carlsberggroup-malty.atoms.text-0.0.37.tgz"
+  dependencies:
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 8fb671473c641a45d955269129f1385e296ff2f852a23a0ab164d62e779eb78a637a1fc9bc785a145685c4a979dcf80916f752900d6e977459deae2d7ce8530a
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.add-content@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.add-content@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.add-content%2F-%2F%40carlsberggroup-malty.icons.add-content-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 5719a2c8ee0f6e508d67b9a3f0b17450d9aec6611943887f86be5fa37a69c3a2cf9b88467c77b25432e91408cc39ba255ae6ca4867fcbf13a3b2aded2db9062c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.add-event@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.add-event@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.add-event%2F-%2F%40carlsberggroup-malty.icons.add-event-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4585fdb2b929c88886aaf2c3dbc1f5ffe4de49252db2543d874f3557f5e6d9b3d523844148a3e4d90ee3f769a161d3b5148c968ed05f0b19096955e6e535536e
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.add-project@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.add-project@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.add-project%2F-%2F%40carlsberggroup-malty.icons.add-project-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 6252ed6491bfcd4f62de2594302f430d18aded000345a9d179ea1ab2370f71b9842b20904c200d89470a1c8909c5780fb4bcc659a55adb620c4060b4107307ee
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.added-document@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.added-document@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.added-document%2F-%2F%40carlsberggroup-malty.icons.added-document-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e9030277e86b3a0c5168beaff79c5b6c91739a6110422a1a8a050ab1ac553a6cbdd71fc1be941cb34bc28f2dedca6a3d5dabb43ab87153333111fadad8a38ba8
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.alert-connection@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.alert-connection@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.alert-connection%2F-%2F%40carlsberggroup-malty.icons.alert-connection-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 44bf06f7739d70b855c56c7eb627c555d3b14123e2915f32a9791b7f2a8041a54b8f512fe4946a6f1136a05aa014693835f6e7aee83190aca06cdd15ed379501
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.alert@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.alert@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.alert%2F-%2F%40carlsberggroup-malty.icons.alert-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c225484ff966027c36fc333c4f947cee8b268038f5f4bc501939a2b10ab50a94aef2798eb2eefca2948733e9a7a6e3faf501e1b3887c8aa1a73b0d8d4344413d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.app-dropbox@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.app-dropbox@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.app-dropbox%2F-%2F%40carlsberggroup-malty.icons.app-dropbox-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1b233558e892c85e121ab6c3284e600b84636f42a02f0ad01faf5dfe0aee8fb8157d159d0b709fd8cea5f26b56b588c5fdc60a23b2d2dabd5835fce483ff8601
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.app-facebook@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.app-facebook@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.app-facebook%2F-%2F%40carlsberggroup-malty.icons.app-facebook-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 5c9a73d630c91ece0927e657e1347784ab9d43f7be0d77752198ddede7e9b0f29578d48e4a14396c1c90a9a3b74fece55e5d61a8eeb1e4aceb2f5d0407932943
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.app-github@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.app-github@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.app-github%2F-%2F%40carlsberggroup-malty.icons.app-github-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 37ad065ebcc9284517b0de2a7e91a94a74ba19c60177ec9da6d0854bc527dc7647b8a455cc267f8947c9d85366598ac2fa7edfc64220af36d30621dab4e00a98
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.app-instagram@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.app-instagram@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.app-instagram%2F-%2F%40carlsberggroup-malty.icons.app-instagram-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 347348842603a6295dde342cd57f7329f003a65abb6d56b0e0939b1150aae91a88c7a50f88bb729a1bb4eb46abe0ead9f22d8372ec62dac36184f4d6a334acc8
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.app-linkedin@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.app-linkedin@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.app-linkedin%2F-%2F%40carlsberggroup-malty.icons.app-linkedin-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 56369657d05cf579ebc476e7f06395ae2e78fee90db812916207b0708747268ff70ecc851bbbd7160738af2c1033ae776247864b97242cee81a94920cd414164
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.app-powerbi@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.app-powerbi@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.app-powerbi%2F-%2F%40carlsberggroup-malty.icons.app-powerbi-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c381327d81f335884926f17e2a00c1a931c40c0bd5f2fd4f9ea879b00b4a931b512c7630385bed86452e2693281143c08fd453d39efcdcec51acec6f692e2627
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.app-skype@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.app-skype@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.app-skype%2F-%2F%40carlsberggroup-malty.icons.app-skype-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 9b926b877fbaffbe0317c3b051b60000d7e66e137dc00066b3c31a12ed529ee8848027c4d2001433ad6872e63051dcc7403972a4d5af650d8b3713938bd88012
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.arrange@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.arrange@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.arrange%2F-%2F%40carlsberggroup-malty.icons.arrange-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7e36659453e4ecd47f7b7badae045f80ad39fa28ceaff5260a69323b85897b7afef6e758141473c9c262018824e31e0282c72a73eabfb9747e677f715eff60a8
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.arrow-small-down@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.arrow-small-down@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.arrow-small-down%2F-%2F%40carlsberggroup-malty.icons.arrow-small-down-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7ed1f7c09774fe1ad1f2c3ec4962aedb2c978f7db2ea7d6bbed7e36211e214fcf3dafda4799b9a089b0b01bb8d00d9cc4993e5669603b9be42bfabbd8368ba38
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.arrow-small-left@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.arrow-small-left@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.arrow-small-left%2F-%2F%40carlsberggroup-malty.icons.arrow-small-left-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 2bb5618d2f1073833683350f2d5765154d85bb7a90ec702d8c206464ad4db6c1ca6517f09942d06410c2bb6672fe23c0cbcc9a67ff1a214baa4ee727c865b571
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.arrow-small-right@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.arrow-small-right@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.arrow-small-right%2F-%2F%40carlsberggroup-malty.icons.arrow-small-right-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 32d59cbb4baff4cf8a1cba54aa96b510be98611566832e294821a78fb79bc5de627b3e4d6fd72698c36108ecee236256092ac1c449a0ffbb3bfd3bf1699d02dd
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.arrow-small-up@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.arrow-small-up@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.arrow-small-up%2F-%2F%40carlsberggroup-malty.icons.arrow-small-up-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 79489603cc8c009b26621ad898c5ad6560b6b140d402840f530082bd30b7f0dae9c659d8b9efc26e217eb0cf9b192721fca164cb57e9f62c52852074288d97c3
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.at@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.at@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.at%2F-%2F%40carlsberggroup-malty.icons.at-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 66cd811615c3e77aaaccee4242949418e9247e71af966fc96ce6de9faa9f543eb9944ef21d2b9cebc6052b7ec133d3626fc932159ec9a27cbf77af2ed0a025de
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.attachment@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.attachment@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.attachment%2F-%2F%40carlsberggroup-malty.icons.attachment-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 324f09e7209a24b2fc1bdff03a47edfca4c4b43e1384ab8cbe07bf41c50ffeb80811d4af3005ba0c5b7df2c8a571ab149bb803257023a56c19852e1070124761
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.badge@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.badge@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.badge%2F-%2F%40carlsberggroup-malty.icons.badge-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: cbac91fca00093f55c4b28f6a7a28946054c53d52c269bf96aecef1253866a84f58f3ada50d1fe36b295f95cfe5adda737f2567764b3134949ab1872d74ef364
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.balance@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.balance@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.balance%2F-%2F%40carlsberggroup-malty.icons.balance-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4d4ee9a748b3c3549f9c9a5456dab2fede30dfacdfd8fbb47acbef0221fcd6297401d3c06d3529e7cf4e8e2dbaf21ed2e37248b7dae9a2f6b76019f180f0a83b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.bell-notification@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.bell-notification@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.bell-notification%2F-%2F%40carlsberggroup-malty.icons.bell-notification-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 953aa6aed7cfe296e052637b9439c10647cfeb7e7871245052982b5ca81942b00677fff672683b9494c22763f763f06c133e17e3139e8c2d944f4b379e76cfd1
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.bell@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.bell@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.bell%2F-%2F%40carlsberggroup-malty.icons.bell-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1710c94fe2fdffeb1286cdd1e94ded93dd2d6a80dd718a10cca260d65f5cf804799bac00151f88d892cccec478ec91e1bc4e9528e3a598faa49d67581d9c09e6
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.bold@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.bold@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.bold%2F-%2F%40carlsberggroup-malty.icons.bold-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 987875f603c8dce9e6d321b1715e4137defcd93dc4906054ff70ab218c384e294b2ee79a3c9a4b859c6ddff1261bd792ad05254fdfab8f5d1b17b3c4bafc358f
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.book@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.book@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.book%2F-%2F%40carlsberggroup-malty.icons.book-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: d94afd11b65b10092fcd99fae8371ff90544876be5f9d6cb9d300e65eb825b3fffedcee438b8cd9ec8b6a23ae9744fdeec833f0039d18b2d890f1fb16cc26231
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.bookmark-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.bookmark-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.bookmark-filled%2F-%2F%40carlsberggroup-malty.icons.bookmark-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c8bd0e0d4dd05d41f108447328342e008b3b2186e761f0d046e05420e6c47da897d7dd77f529c21e65c3f2feac3bce94e06f3738011ac16bd91a2d48c471b00f
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.bookmark@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.bookmark@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.bookmark%2F-%2F%40carlsberggroup-malty.icons.bookmark-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e604d2286f107ed9426059cf14e118ee2be592426521efc4acae7e0abfb6fa62a57ff0008b490daebf90ef287f2d4b5be894e3a67be20727ee9190477f9f57b9
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.bottle-craft@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.bottle-craft@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.bottle-craft%2F-%2F%40carlsberggroup-malty.icons.bottle-craft-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 729e676e9d81eb1d91383032f0a65139ac762a447cc6c1fc8de78b4e2e5f0e8b6133f42b208d20e5f685e3851fc6de5693788c414ce6b022d0e75ec144ab052d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.bottle@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.bottle@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.bottle%2F-%2F%40carlsberggroup-malty.icons.bottle-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: bfd3e1e1ac308682f305d8cc81d83813e1be0d1e7da29e259b111cd32166e1b9cf89aa8b1e77dca7c7ab4f48024a54c104777d198b63969fd7eaaf0c5b095211
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar-autumn@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.calendar-autumn@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar-autumn%2F-%2F%40carlsberggroup-malty.icons.calendar-autumn-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b54499700ceb7fd7b01a533f35488a4e2ca7f7ab420d99e6dbd9885298895585986a993fbfc687068c45c73c537279c369df2a8da9462be1be46920790dfbae7
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar-confirm@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.calendar-confirm@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar-confirm%2F-%2F%40carlsberggroup-malty.icons.calendar-confirm-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 78c458d1b810a345f83972333f819b9222fd292c540687583f5831e22e8f33bfe9f607ff7d2863e27380e7ecc41f7330695ebfab6768dabfce11ae96f758ffb9
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar-events@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.calendar-events@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar-events%2F-%2F%40carlsberggroup-malty.icons.calendar-events-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 20edef68d4c4098d3a2e883366af3b2344ac58c73a679a17143c0d70902f3860ef25b02934125175726565e3eca3d275409ace6e3cf02d93955171eea0c0d1ff
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar-spring@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.calendar-spring@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar-spring%2F-%2F%40carlsberggroup-malty.icons.calendar-spring-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 77ca1729bc37e6bb2968c74d42e54ee5258c3e93134b9db0c6490f204778d976080ba57dfe560b12e82714359af95b49401051e4aa6746d2833a8c2481b56477
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar-summer@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.calendar-summer@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar-summer%2F-%2F%40carlsberggroup-malty.icons.calendar-summer-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c731f3ac16f1aef2904b1c5e289a0b4ece3c1630c49497ba3eb83dd10817970f6e0296aff16c46868ca06e199f2dbf5ff354460fc46e5cf1bef2f9dc6e66f954
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar-whole-year@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.calendar-whole-year@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar-whole-year%2F-%2F%40carlsberggroup-malty.icons.calendar-whole-year-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 44560d6a48a173433cf9078fe6c05ebf5128a9615b2eb18ddb32a2bd503c29be0c775eda558e40d789d077a8f50b3ae0704155b5478b0fa5e62206c554104db1
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar-winter@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.calendar-winter@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar-winter%2F-%2F%40carlsberggroup-malty.icons.calendar-winter-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 73a3a819ce8f595b91f093e3829f59d6bb5deeebe2cfb4f86b7bb902993610f9756fcb16d758447ff6ad0fc7d7795953421585861c4bed3e95d6c8bd3b1cb4ac
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.calendar@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.calendar@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.calendar%2F-%2F%40carlsberggroup-malty.icons.calendar-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1700ad1e178ada1641982747cee0eeaa835c87424abee2c24c91da79249e38bdb57cfcb2d59b2e462310ec0efd8155e36842a2778fa6b0ec50dd8a65bf78d571
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.camera@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.camera@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.camera%2F-%2F%40carlsberggroup-malty.icons.camera-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: be475132c7c0da4c5a0cd006fd5754f42152852cca65aa54bd750d83e0a9ad563888d6d31527a1da0352d3205253bb394d467c7353c1ae840c60286b546c3821
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.can@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.can@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.can%2F-%2F%40carlsberggroup-malty.icons.can-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1101d09f9a5333579c00e158b8363df6eefbd09bdb9b625b36d6c93243b64363a282e4c15aa677e1c6ef8cf377f4986b1b4139be0821aa4cae04ca14e16bb6a7
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.card-plus@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.card-plus@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.card-plus%2F-%2F%40carlsberggroup-malty.icons.card-plus-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 6466a57f9cd6644d2bd0ff7bfe95bb9c1d5a109c9e6436583ffb5164ad29769c76d26e93ecc6e4adfd7ec38c3a5a18af8a5ad999eb762e9a9eda643af6363932
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.card@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.card@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.card%2F-%2F%40carlsberggroup-malty.icons.card-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 425c77bab0db31be9c1d599a6ca730da2474d90b1ddc88bf0baea4521af642eae812bebf859e277417bfeefe507936d252c9d8c0e16497105a07abdf5e255593
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.carlsberg-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.carlsberg-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.carlsberg-filled%2F-%2F%40carlsberggroup-malty.icons.carlsberg-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e623a42064012fb71f5986b07c070274e63ea7a4402acb0bb35735489927daa260c7cba0e83880a05590ce2adf62c2643fbf63bd2d5648eb8fcb10fc7c6ebeba
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.carlsberg-outlined@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.carlsberg-outlined@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.carlsberg-outlined%2F-%2F%40carlsberggroup-malty.icons.carlsberg-outlined-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 12046d0f0a0fbb0658892165376948e563fee65272f3f20500a4a62c795837855877f459ccd89a09f2c878828c2b7206cf773816f3dc76cfdc34ceff5483ca2d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.carret-down@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.carret-down@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.carret-down%2F-%2F%40carlsberggroup-malty.icons.carret-down-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 83cc81a2f6c93f29fc888641a67eaa61157f93b08e37e2a6778c5888f5cc4fc7ac00ddc4e6325e9e620ab55c26cdaebe3d094772c56db149199acc35f720e452
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.carret-left@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.carret-left@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.carret-left%2F-%2F%40carlsberggroup-malty.icons.carret-left-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7d033cc6634c3db49bcd6eecd3202c7b94135a0c055723262de3cb978c864cf15925180dd26280cf7092fb74e0e2ced484bb068162995b79cc003a62413b911e
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.carret-move@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.carret-move@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.carret-move%2F-%2F%40carlsberggroup-malty.icons.carret-move-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 66d834ca07a3e81a013144f1268c39392175084edd2732173ffc68da80a3e46c302382dd50aea909fc2a78f7ed823b8907db991bf29bdfafba6073062bae8e49
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.carret-right@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.carret-right@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.carret-right%2F-%2F%40carlsberggroup-malty.icons.carret-right-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1dff677a86f511c2a530ac914cf95c3b9781e55df237019ef699a8a6a4a583f90c6ac0cff8a58cc7cc714c697c1eee0d9fe69bfca987587455867ed63f852e8c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.carret-up@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.carret-up@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.carret-up%2F-%2F%40carlsberggroup-malty.icons.carret-up-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 6fa1931255d05eb3a4e3ba35f27dc14f2cddcd954ce354b925a2dc34c35b86dfb73181b7b58fd724b269c16bdd8b10f970de4c777958a0647d64697847aed721
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.cart-added@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.cart-added@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.cart-added%2F-%2F%40carlsberggroup-malty.icons.cart-added-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c09232e8bf0ec72d6c5dcdf4380416d01a9044cffcc68bacc0c4e028481fb5d7bdc740ae39b5611292e2595e6c41e1491f09403612cad88a69333b908da45e92
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.cart-label@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.cart-label@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.cart-label%2F-%2F%40carlsberggroup-malty.icons.cart-label-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b674629d70938050340e6322e88e90c65caf0eb61b85caaca2ec6f7552c8ff63b165ac6a57fb359259661a7d2a450e668a03ec38a618e5243e31a67d6049fa99
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.cart-notification@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.cart-notification@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.cart-notification%2F-%2F%40carlsberggroup-malty.icons.cart-notification-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 6526383360f5945df07657658d3e5e8c71401003d69334be4152ea619b84c3bbeea95def26e83a4568a4db99e159c5aa9297d8314dcb878ebb8db62d9ec18f80
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.cart@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.cart@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.cart%2F-%2F%40carlsberggroup-malty.icons.cart-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 727b0e13cc1732565d0a70abf3f742e56f8256ef0464ab9b7905cf8bd0da87ef7eb560ad4870c05895fa8ae6c66a370757125218aec6b17eba634502e7f8d0d0
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.change@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.change@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.change%2F-%2F%40carlsberggroup-malty.icons.change-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 99705192a7c5ec1b18c5281479951b2cb89a4dcc3370ff5ee8d7b33197c794ca93fd04b3adc575c57a35b0038ae8054195b0697e73ab172f0f69a8f2af7ad037
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.check@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.check@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.check%2F-%2F%40carlsberggroup-malty.icons.check-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 615d6d496cad73a53bb48e812e3da3760d7c905514b5a30c06403d79ed18d0c3f5f54d591142e9b5963d980c5ec0e22438f2b5413a3a55ae0118af9806d13e4e
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.checkbox-check-alternate@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.checkbox-check-alternate@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.checkbox-check-alternate%2F-%2F%40carlsberggroup-malty.icons.checkbox-check-alternate-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: a8b6575a6ab15003ba974c36ce06c7ad8fffc939ac01eb75a727c2cfe2929bbcc3aad277fa30617d8a89c4306db54d6f686687effce49f4bc0709a9c32cb49a2
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.checkbox-check-square@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.checkbox-check-square@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.checkbox-check-square%2F-%2F%40carlsberggroup-malty.icons.checkbox-check-square-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 363ed1577beded0db8f49a1b2777812b7ed2b1e748592c12b8d8ad9b239751517e0a06e2cb0ffdc5b4c51512900f5e00ca3f570ddc71421f3f6f3337b0bca794
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.checkbox-check@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.checkbox-check@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.checkbox-check%2F-%2F%40carlsberggroup-malty.icons.checkbox-check-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 16f1bfbaea4097ce0f2f91c7af1cf222b2856c2aa4b7778f29edefb6643514e4027c9c2881aeb9ee3747c13150a256bcebc7d530da4e4594bc95aca636f61724
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.checkbox-empty@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.checkbox-empty@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.checkbox-empty%2F-%2F%40carlsberggroup-malty.icons.checkbox-empty-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4a2b26c6e738cc5af8ffb546377d98b8a2ecc15694d398874f68ecbc7ce7bca70c3b2b92f02d73c1f2052f5a2ff9fa202bc08f273c8352c7e4fe1d2327100c29
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.chevron-down@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.chevron-down@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.chevron-down%2F-%2F%40carlsberggroup-malty.icons.chevron-down-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 03d9cbc188c9fbd0da7c353b23571f1a90a8cced19a684cd0af9d7d9ea10644ad0841d4fc3117b6ecb4d622134bc469062d6910359df9551f66ddacd717b5c46
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.chevron-left@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.chevron-left@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.chevron-left%2F-%2F%40carlsberggroup-malty.icons.chevron-left-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c4dd1a76fd269afde3b5b3f8136c8c62111cd38f786932e20230b30bfdd0ca719808741f80ff1ba7f61e5803c3147fdc7b45598d9b595ebf78f1ba1272c4a48c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.chevron-right@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.chevron-right@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.chevron-right%2F-%2F%40carlsberggroup-malty.icons.chevron-right-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b233be380b7f304a03be6ab923d5c66be8621dbad6150ea6f10b0bf845afbf97547104ec027760d41875e23c0ae91bb726e5070a5bd7cc119ee7aa5233990fab
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.chevron-up@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.chevron-up@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.chevron-up%2F-%2F%40carlsberggroup-malty.icons.chevron-up-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c48e522f5420ced0bbaff1be3d828cfaf64f30929aa8ba65815ab0e11c7d1281ebc1654cd7b032248f3ea1b748c9b8a6b17642422fcafbd39a39808056aa2501
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.clock-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.clock-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.clock-filled%2F-%2F%40carlsberggroup-malty.icons.clock-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 593f82ce96ebdf2c52ca73c8d2aafe2701275858915d53692448b194fbbaf1d207400cdad3652a02d8eb12b889876d2cf01c277412efd98728d1a72907b1d741
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.clock@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.clock@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.clock%2F-%2F%40carlsberggroup-malty.icons.clock-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 45623fd30e9eb998d9fbca5692185c3c14081cb8b7050fee88d6fb6e1ac65bdc1d4d097c81ef6f724148f7d5c806bf1f64370016a8415d9c9a1f0615b27486f1
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.clone@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.clone@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.clone%2F-%2F%40carlsberggroup-malty.icons.clone-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: f65d236d2e00b784f2b1821943de060ada89095fe51ca02ee391d9fc1cee8dcd135cc8f7a566dc6d22352f8d76004c3853094638d8662964849b92b1b43d2a6b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.close@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.close@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.close%2F-%2F%40carlsberggroup-malty.icons.close-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: fba74ff1e4480bc4c3c2a566becfd8a15eea683bde141680ce20ed0287c157635d6d51bb99513939ac72198298aa2592e7c4bc5deb655cfcbccde3ec77bcb506
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.coin-dollar@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.coin-dollar@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.coin-dollar%2F-%2F%40carlsberggroup-malty.icons.coin-dollar-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e067a3f36944e33b4b63f5826c921afcbc678035a06cd5d960033d8ffcb48189b53027986372fe60e1896579f808c0cbfddb0de5eb10ee6fefc7110233a66745
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.coin-euro@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.coin-euro@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.coin-euro%2F-%2F%40carlsberggroup-malty.icons.coin-euro-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: cfc1696e89bc1b3ce98ed39566ea8bb4c11b0e639e469d09d382b7acdd18360d2b8bdcf9580b3632c46808f76a9d2255aa62750e6e2ec0523c8d7f3bebfb8c2f
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.compass-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.compass-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.compass-filled%2F-%2F%40carlsberggroup-malty.icons.compass-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 602f76585af0c5ed72ec0675e7955b83526c7e3b4a90db41528ddcc53556f2ac65657db6511eccbac95fb49eeb4f804a605a85e4ab67145e36c5031bf758f3d8
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.compass@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.compass@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.compass%2F-%2F%40carlsberggroup-malty.icons.compass-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: fb0c661d4b8e7101b1a0620edbbc34662f2c8d3be14e0baaa9d5764bdefe08af4fc54411f904f8316c9c7723e447185305a5e70ae7fd05b8b99d52510f37d266
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.connected@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.connected@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.connected%2F-%2F%40carlsberggroup-malty.icons.connected-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e4fb5f98ea69f1d4bdcb304450a34116aae8859e689ef8ef76fb1d4d7444deee624238e22ecdcbf49e3807a772112e046efe1fd175692abd2ca96555aa7e925c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.contract@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.contract@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.contract%2F-%2F%40carlsberggroup-malty.icons.contract-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: d94988e80fad6be9605d30470eaa830c35d858c23174dedb3582514a1e409e6401b71a726a8dc8ecec06e84f7e2415b20c09f52a070e82e86b30593bf1e496d6
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.cookies@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.cookies@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.cookies%2F-%2F%40carlsberggroup-malty.icons.cookies-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b8813e3ab7e8d4331eb1d81304aafeeea3b7f502a40833fa10da484a5de33f93771d93e895bf265c154b38283d8e29699faace7847b19a1bd72f8b65c41b6eed
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.coupon@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.coupon@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.coupon%2F-%2F%40carlsberggroup-malty.icons.coupon-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7815b005084dfd2e97122c1fc19f2fb62ec9bc49b6f4c951784f7da70bf1e613936ff88ce369b1d289ffc1070d3263188fb2c32948148ce537d0068c178f072f
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.customer-add@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.customer-add@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.customer-add%2F-%2F%40carlsberggroup-malty.icons.customer-add-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 3b15913d0ba452f4b0e4dd3e577a65cf3639da4a824bcfdafb38b4649c0c51c022ed8e1486d780a078d0f3abdd1b82bd02d1f7b2bbc18a3e161d89c634ae123f
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.customer-question@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.customer-question@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.customer-question%2F-%2F%40carlsberggroup-malty.icons.customer-question-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7eb8974c46b1ae6da4200876567c17b008a3fd8fd183087b6ae619e68b833e3482befc126157a90383792e570556d93e13ad451a32f5e64d861f622b7a954aef
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.customer@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.customer@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.customer%2F-%2F%40carlsberggroup-malty.icons.customer-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 2fa8133c5b021ee0993728430a7bf157f914b1710012195e81cfe95bbc034c89f5d2077728a35aa2db2e415145e2e0a5dff7e60c56d83b30fd49450be98131a4
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.customers@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.customers@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.customers%2F-%2F%40carlsberggroup-malty.icons.customers-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: cfef5e3a73330d775be50b39f5879f04d515c547f791a32fe71d26b63874b077e29a51247d80e8676902856b0b34865cf31dee66ae159b9d6824e688d80a6204
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.data-transfer@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.data-transfer@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.data-transfer%2F-%2F%40carlsberggroup-malty.icons.data-transfer-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: fbef3dab17a5a9ff6aface6af5194501739543e2a5ed5030666a3652072d2a4796c53b42abaa007956e1103bfc288fd3def2f31691a07cec04a9599accae612d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.diagonal-down-left@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.diagonal-down-left@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.diagonal-down-left%2F-%2F%40carlsberggroup-malty.icons.diagonal-down-left-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7c814964f561421a4cbedadb464e3b59fd10395a43ff5de03cc4bb376812965057d9901d3c68f12198045a6a549f220f615358a1afe629470ac39b0b80133ce0
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.diagonal-down-right@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.diagonal-down-right@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.diagonal-down-right%2F-%2F%40carlsberggroup-malty.icons.diagonal-down-right-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c84475b660ad462a96b3cf932ea31b7028cd58d789048f7ab0373ca6a27af34b1fd411161d01a4edb3eeb9eb1f9c81c1c48edb1f86d111a3efd78aa093db0bae
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.diagonal-up-left@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.diagonal-up-left@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.diagonal-up-left%2F-%2F%40carlsberggroup-malty.icons.diagonal-up-left-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 879a48c0b34deded909f50268dfe5fb62113880c73abe1572053d295742971b64537203789f2a4bad42520c5bb2d5dfd567022bbe9b14f68bcb2fe57b739911f
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.diagonal-up-right@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.diagonal-up-right@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.diagonal-up-right%2F-%2F%40carlsberggroup-malty.icons.diagonal-up-right-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4af2030b6d7f71cf0ecedfb2e833f26ca16ac384dc8043009591cebfee8e1d0786e2f46e7ef3c88907b40b7188e9e77b01f9633adece62ead42f519bcd4a3bc5
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.diploma2@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.diploma2@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.diploma2%2F-%2F%40carlsberggroup-malty.icons.diploma2-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e5c1826061cdc3dab035fd1fe3f70c9cfa34ab5c3995baaf1eddae1ac4e480b2e538b10c5104add3dbde7e1681ed26e52dbcd5bcf2a5b2c43602524b944ad7b3
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.diploma@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.diploma@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.diploma%2F-%2F%40carlsberggroup-malty.icons.diploma-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 544a939ddc58c186f5171105fc6affa71c462382dd3dd82104bbef1f7b877c3afd5e9b57c8024d4f24451b1616388ad2cbcbc4e2bfc6b69824e286b5732683ac
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.download@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.download@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.download%2F-%2F%40carlsberggroup-malty.icons.download-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 0de6c68ab0d9f60c5db6b362ede8294c34c24dd9c68e3954a63867b961eccdff067fa994eda348ad8fbe4a6d8bbd191d6305acbe73d22e5943fe3b1b96bfa5ae
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.draughtmaster@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.draughtmaster@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.draughtmaster%2F-%2F%40carlsberggroup-malty.icons.draughtmaster-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 0bf6c1b969ba7c8755ee2a130a2f569f3a4a5e1a6da64befc37d006194356b22eede26239c41cd35a0b683a786c5d3bb01a122df6a45904b4f3b20954f874ce6
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.edit@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.edit@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.edit%2F-%2F%40carlsberggroup-malty.icons.edit-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7ab49ea5bfb23876044b7356e3eb4a6dccea5ca8842e88fd4b0dfb00b7c3ce943b19c4dca822f545db3d770ad16c9206961f9182279eabcaaed349454803d685
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.email@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.email@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.email%2F-%2F%40carlsberggroup-malty.icons.email-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e3dd1426f48f966e1975ddcfa50346d91ddc098d49a05c95bf681b0f457c586089db4f01200321b7243dec5958e2d4ed79510281b990cb7750262a7dfe7684d8
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.expand@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.expand@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.expand%2F-%2F%40carlsberggroup-malty.icons.expand-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b4578cf8f9c67786ada6f3de407f5a2313950eb2a2e2f91d65366d53ba1d2e3d94127d7a9943406adca76e09012bb01d65e9f5bc3036f40c003719e8a9818d53
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.eye-hide@npm:0.0.2":
+  version: 0.0.2
+  resolution: "@carlsberggroup/malty.icons.eye-hide@npm:0.0.2::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.eye-hide%2F-%2F%40carlsberggroup-malty.icons.eye-hide-0.0.2.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 6422b4154ae98410b3d463dc98afe39ab6714598de9fc8773eccb6dbf9b223e7ccd1456a3376ae8d2be2d14884ac4a8345560940430d065ac6241f6b9266feb4
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.eye-show@npm:0.0.2":
+  version: 0.0.2
+  resolution: "@carlsberggroup/malty.icons.eye-show@npm:0.0.2::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.eye-show%2F-%2F%40carlsberggroup-malty.icons.eye-show-0.0.2.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: bcbebbe739a1388fde41cb89021d63be4e59408d230fc51b1af6e9c96aea3769cc68736fbcc58114dc53c1fd0b684dc10ade03f320cd5679f80ea8a55f542a71
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.file@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.file@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.file%2F-%2F%40carlsberggroup-malty.icons.file-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 800de956ca4acf71d78ad3326f32dad0592ab5c1d7f0d75321042bd40c8fbc88d637037cc787788adff4c4aec381abcd94dfec347b5bc3bfac812ad56ecc7472
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.files-csv@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.files-csv@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.files-csv%2F-%2F%40carlsberggroup-malty.icons.files-csv-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 283e78923d4a2d21444f44f5941c42378b66a9897690b7d6a56128a5e91b9c45cb5dab603c413afbd6b999fa3ea7b47ee38e721342f0e68e32562cccdff464a1
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.files-json@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.files-json@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.files-json%2F-%2F%40carlsberggroup-malty.icons.files-json-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 5f648b11e461d268c3352b325bd42d178d219f9d7a164ef1c9a41f15910140507e5c983c97dfaea739c8c2412f69f9fbdacf98191706bd059ee5a32d58db80f7
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.files-pdf@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.files-pdf@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.files-pdf%2F-%2F%40carlsberggroup-malty.icons.files-pdf-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 0177b3eb39cf381563a2ec982f4b3cedb21e07763b8418b9d0c38bfb65c0aefc2d9940aab0d210d23edeb36c3edd9dcfe7f1f366642697f4f5c4b2ec1299624c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.files-xls@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.files-xls@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.files-xls%2F-%2F%40carlsberggroup-malty.icons.files-xls-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 01bdfa3f2fe230c7936215495a65e7b6074c4ce15dba188e1d234cd4896cd9c4725581888b90057825f4bcd9c08bbff730d8bc6789170bc239f5222066890d36
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.filters@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.filters@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.filters%2F-%2F%40carlsberggroup-malty.icons.filters-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4ff98fa1343250f0b438b81df1f2481dbd34b5e7fb4e0a9923526a7c1288150206b7707eede9a75681d9539a4894b38f11f5d18247788c4c0f398074ad15e82b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.flash@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.flash@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.flash%2F-%2F%40carlsberggroup-malty.icons.flash-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4b43bfbcaaa320543cf5a3b0b2456b7c23460be761b177ee8d4bf51b3248a7c73c1d1028392ac7defda72ffbc0bd31ea8b48114bd8a1e8effca19c7494fc3ec7
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.glass-goblet@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.glass-goblet@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.glass-goblet%2F-%2F%40carlsberggroup-malty.icons.glass-goblet-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b1814270b0343d62dfe98c0c0a719f06363942803fe12d9445c24a95b8f33728b0a72495990b7bb1d905d6aa06e5469c2021ef3ea515295cee8fa607432f26f6
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.glass-mug@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.glass-mug@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.glass-mug%2F-%2F%40carlsberggroup-malty.icons.glass-mug-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: abec8360b8bce0e8c8a56020af034ac3a0e57f4a37a1a901a2fb50f0b1698851ff3ddcbe7c8fd8904143508a78c002761e4031053daf623713335cbf4543d5ae
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.glass-weissbier@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.glass-weissbier@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.glass-weissbier%2F-%2F%40carlsberggroup-malty.icons.glass-weissbier-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: ce55bdf95c652f9a3c5edc60bf74334d689817adec90a7b2c30a825653d16b676057e09dad77722af3558a255f6bb4181d909f526d19eda1b6cb3d94bc8f5104
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.globe@npm:0.0.33":
+  version: 0.0.33
+  resolution: "@carlsberggroup/malty.icons.globe@npm:0.0.33::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.globe%2F-%2F%40carlsberggroup-malty.icons.globe-0.0.33.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b37dfb9af3f0a751b8143e1ef5c856cb0d5211f2165f100e640769a780343c63c1781a183925d5d40676844ad4d4f221be30fdaad341a63561a78eb4b0ba61ee
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.headline@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.headline@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.headline%2F-%2F%40carlsberggroup-malty.icons.headline-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: cfc9ce74d77f9c2d632a0c562f22f4b50fb62b3301a3ddd4da0e5be0190fe45c209b42d4da8378f14a11ce8b3cf5a26164a522ebf333f682e52ddfc56dc90603
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.heart-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.heart-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.heart-filled%2F-%2F%40carlsberggroup-malty.icons.heart-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b8857f2e07e018aa6b768eacac094cbd874df92082998821b1b53da32289479b3a76df971848b71227a803c415b840b7588f63b823add05207750996c8ce0de3
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.heart@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.heart@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.heart%2F-%2F%40carlsberggroup-malty.icons.heart-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 44a989ebb26e83443b5c3a292d821a4cb068a5af7f805a82f90fdf2bddedf364760588c87571c16cf11605bd6452781141a5ac5cd657b8a1948cb2fc2cbd2d4d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.help@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.help@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.help%2F-%2F%40carlsberggroup-malty.icons.help-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 035e72c80a2ac3b4e5defddca0f016a31831b9f6813b32879a5c9d1078794562e1faeb79c058a38766f574a5ab05c9db0457da7fe8736e6a24be1cc09dd7f2c0
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.hide-menu@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.hide-menu@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.hide-menu%2F-%2F%40carlsberggroup-malty.icons.hide-menu-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1b06632366a0b15ed49f806fd9d91837241431d1d67239af17eeccac94268e4102516af360d5cd8aa489c6437f93ffadfbcbaa4dd3d135e9bf238bc3e89f5f9e
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.history@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.history@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.history%2F-%2F%40carlsberggroup-malty.icons.history-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 99d1bede972803c1782bd6326651d47dadbbc8b3da8a03fa3dca9dc28ef90a6aa3783d8f55732ab26212d6a4490c2d43a5152ff6585c1d79eb5ffb936e41d438
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.home@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.home@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.home%2F-%2F%40carlsberggroup-malty.icons.home-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: d9ea83a6067daf5ccad66c531d7d9ccf2d606b009a482d3d1526a2e7fa3a391a1bee697751a95d696543033d1846c920936ea920862c5cfd413f45cc5a62d878
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.hop@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.hop@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.hop%2F-%2F%40carlsberggroup-malty.icons.hop-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 0ea1e619c7309333bf7ee1258310625e9dfacde661c30d49537507190aa35db50c4e1042a1d6e4e012fe33f5317207ccf5eba3346afe0c64aeadf7b14fdec521
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.image@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.image@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.image%2F-%2F%40carlsberggroup-malty.icons.image-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 0ef11b95e0c0de11e8d64cc54373d118d2f664d033ae80dd7767ffb4484910ca65388bf1129b4bb752b33f3cb5e87f7f8de46a7402e70f66e60b2254c7d6ea8a
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.information@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.information@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.information%2F-%2F%40carlsberggroup-malty.icons.information-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7f0b62075830d03c2ea16c2e4de46ec1e61789fc4531d88e9438e7ef852924c3c249f520104571e8f9bec6c18b07134de4cc0488461f7fb7f3644ca9ac267fb8
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.italic@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.italic@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.italic%2F-%2F%40carlsberggroup-malty.icons.italic-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 5e52c840a47b82212703cc76dcad07cc61f4a48e48c76b36dc29f8af03ac11208aea2cec9738c0ee22dba3942566ace7a5ead0f7a91cacae3aceb7e9cd52be99
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.item-add@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.item-add@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.item-add%2F-%2F%40carlsberggroup-malty.icons.item-add-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: f75a2a8ff414ba2711e03464fd8dee1223a4979b5533eb0e3b5a935216215029f66772912b315e8805520f3c1c8b1662d88982defb943bf55606dd91691a4709
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.item-check-default@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.item-check-default@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.item-check-default%2F-%2F%40carlsberggroup-malty.icons.item-check-default-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 5bc86b492ef046b7079e3c6944691f483f5428cbbb71d04f2a941585fbdff583c6f741de12763b97548f09c15949930a2a0c5d356471f5159090c1deea9c4cda
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.item-check-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.item-check-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.item-check-filled%2F-%2F%40carlsberggroup-malty.icons.item-check-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 749ae33e1c812958e6ddd24de407bee0faf9359c58781b48e7a9ff08ca4ad8cab1d5c1f6c94ad4891076f8706963f40e0668809fa194785eee215633e858940c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.item-check@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.item-check@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.item-check%2F-%2F%40carlsberggroup-malty.icons.item-check-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e64daf59f3d763ea46a719e0a18f4c7863ecfdba42715d32f2e6536554f47a1f397828a9ba124bcf454720b398a9b28b917bd7c317b4765dea7275d14f6742ec
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.item-close-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.item-close-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.item-close-filled%2F-%2F%40carlsberggroup-malty.icons.item-close-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 3061619a662cd435fc2da3d64db08f89b8d19b984ae872e949db993f8846013532307a6c3fb1a6b8be85d38cc66a87c1b3f7c41e23eebfcc8d671958a59b96d4
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.item-close@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.item-close@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.item-close%2F-%2F%40carlsberggroup-malty.icons.item-close-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c22f576c6b1651c5c76c7975224e6df87a616f770b64aacc46b4676f30341fc0b2e672caaf334cdc0e02c38a406d88c4de52059f48564c39c946c2d1b8cfceac
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.library@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.library@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.library%2F-%2F%40carlsberggroup-malty.icons.library-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 53896fd37f8deaa6e7dd2f7eaac450db80cc05856b14ab75e25193cf2cf6d52a4c42c47824c43c92c5a3f38ba8bf867b32de85c03243e9d38b258fe3ebb35331
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.loading@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.loading@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.loading%2F-%2F%40carlsberggroup-malty.icons.loading-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: f42801afb7034a396604f2abe96a5bad8fa61cdd02fea0f313e23603a636ca8186ecf4a6041853ef83036f4296205b0e7aab8ef245c20710c0926c36eb182d1b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.location-ip@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.location-ip@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.location-ip%2F-%2F%40carlsberggroup-malty.icons.location-ip-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: a4d78e8599257ce57c04c950474c91e03b22e8bdc8a9d95c127bb5bfa50feb5865f818f6fcd77a8ded5c8354f6ef8acbbd2ee08cae0c06c7483bc7aa23d1093c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.lock-open@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.lock-open@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.lock-open%2F-%2F%40carlsberggroup-malty.icons.lock-open-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4775a677d3f6e56ee8d376b0f1d997e10e26abec868f5ccca7f346a3a336b171661d1167a117fd55581e3a6acb6a9d0678b512b000ca7f1a3d1e4d04f7f9c08a
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.lock@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.lock@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.lock%2F-%2F%40carlsberggroup-malty.icons.lock-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: eb6e38fbc3640936b629f7d2e458aafc898a9fd0bd12c968c99c402b218b1ef1ac3e79704be91e9443b132d8eba774ca52566678444fcee80b61a55b906ea5d2
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.map@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.map@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.map%2F-%2F%40carlsberggroup-malty.icons.map-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 5c4edae7f2a9ca4fc692e9fabd4519410c61e8b0a64e40416d4b6112939a286ca0e26fed80739c0c19c4697106e0f84bb1d0088ced759c88781c9d3e5f9d00b8
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.market@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.market@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.market%2F-%2F%40carlsberggroup-malty.icons.market-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: da49adb2c4ac4f5e2a0056b544015e509e49305a87ee2da8c097e45006ca381ca30024681ab6f14bed4b6c91f432c590a1c3071e2a6c9072a96e197cb514224a
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.media-pause@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.media-pause@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.media-pause%2F-%2F%40carlsberggroup-malty.icons.media-pause-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 33abfb2fb931925692ff4e28452485e1b97a2570418067519fb7b1692239553439e0a3ec994fa35121418bb34f27635abe7b5bf60bcba57668fef9d3b3745137
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.media-play@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.media-play@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.media-play%2F-%2F%40carlsberggroup-malty.icons.media-play-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 62524127135cc46aea275ee8082bfffce4811b858417a87efa3a7c2ee5b47b5ee71af5c4b504692956c7905d0f98fc22215ef62d34efcd7407b0440b096cff6b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.media-sound-off@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.media-sound-off@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.media-sound-off%2F-%2F%40carlsberggroup-malty.icons.media-sound-off-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 76b2039bdbc28334aacc7325c76d8f8a6e34cda4dba631560273fae590cfa2bb4cc2d0ac5e83cbcef1606a7b630629ee28f6af8f5d3c8ad1fe5a3e9a78e30b23
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.media-sound@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.media-sound@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.media-sound%2F-%2F%40carlsberggroup-malty.icons.media-sound-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 8fc7bd42f73f636713e8c26ff11eaae24f5a4f241261d6aef0c6ca8456713e11aef5fcd74e8189c93c29b83ce129b09eff87cb2c3ce7e9fbdef2d169bd799b08
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.media-stop@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.media-stop@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.media-stop%2F-%2F%40carlsberggroup-malty.icons.media-stop-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 2e1d99dd394633542ece2cc4b4536a52c7353e0379b53fc2142293a7f64eeac15acde64cae561a63fd1bc877c55b9f0ef7843114193abe70646caa7c2682425d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.menu-left@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.menu-left@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.menu-left%2F-%2F%40carlsberggroup-malty.icons.menu-left-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1ba2253d8471028d4b5f82379fcf986eff03b30ad39eb8614b13f1f8e4e8e6e7fab9793984b4081f31a13b8cf03f74ca26d814bbd1d69e1763c201adc25690c0
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.menu-right@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.menu-right@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.menu-right%2F-%2F%40carlsberggroup-malty.icons.menu-right-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1604d0512a8d2645703bb292a138b9deba228ca4689b790fdbef8428d847d9eac68f9b1229d4b90f8cac703582d9dc27fba8b5f09a1129c0ae6d125fc9443405
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.menu@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.menu@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.menu%2F-%2F%40carlsberggroup-malty.icons.menu-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1a422ac13a6d00fa35de993c322edbc267a8ab9c8d7690aa5aa89cfa778caaf3b4d85b0b1b8fc9b87cb6a7d61b3c3471eed4cbe26b535ada11c3c8d40a909cf7
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.minus@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.minus@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.minus%2F-%2F%40carlsberggroup-malty.icons.minus-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e8a7db33372c91f38696fc1085452cd94d1d651e6b8cc2b4082e25f00ec1a51c88dc444b464f3e48d14b6b79233ce6a47358b5d8af7816e696f0d6187c35712e
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.mobile@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.mobile@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.mobile%2F-%2F%40carlsberggroup-malty.icons.mobile-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: fb81240b788d1893599962285630c5f608a4322790aaaf0cb65001da65145155921b0899049da446e8e4dd3dca63ea1746547a102323c9ca38f066da8a6ad8e6
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.more@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.more@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.more%2F-%2F%40carlsberggroup-malty.icons.more-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 907022eec0d082046d39bb835966f52cd0d1363c1b66216adc19db4f9e5b8b62b99e84edd346a79f3cbe7405dc8cb6efc4c70c43b6b5664c80ad4f7a9829367c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.mouse@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.mouse@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.mouse%2F-%2F%40carlsberggroup-malty.icons.mouse-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 78828cca9656b908fb744f0b39b85baefea92f6c0684b13e378fc035c14812bbdc87676f8160d53ce5e1f15032be2aeb3bc7c19394dab0874ac57298a11f26bd
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.notepad@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.notepad@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.notepad%2F-%2F%40carlsberggroup-malty.icons.notepad-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: a97dbef7c407bee3ef4d8a8d12b6d15e8046147cbe9863f5a5151bd4c8aa0620c7f20c60425485729ab1dd85c293681fd962efb6747ec27ebffa4f12e03fdb83
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.outlet-plus@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.outlet-plus@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.outlet-plus%2F-%2F%40carlsberggroup-malty.icons.outlet-plus-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: a04350a2b4bd2943e5605456c63ad1781507cecd5062f87d6c779df374957fa4dbdf658a57fbeba8a189e307fc0ae8874224d0dc215d7640ee9ca0e8e6257f83
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.outlet@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.outlet@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.outlet%2F-%2F%40carlsberggroup-malty.icons.outlet-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7a9de929df15df24ff4097477ad3bf1c262aacce1ad3d70acc669f169282b9354792a625acb868864016b24ef3c7bfcaadb87762e94842384422f3d1b9c1aa16
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pack@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pack@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pack%2F-%2F%40carlsberggroup-malty.icons.pack-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: a4b5c7961e69cdedfe93feb48b3dcaaa42f51666a267ae4b923f569c8fb94d6734de9cfd569ed5efd69cd7d2656dbec1fe20ff166721a84c75f019d8adbf81c9
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.package-keg@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.package-keg@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.package-keg%2F-%2F%40carlsberggroup-malty.icons.package-keg-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 901113610ebf844de1a611653bb07de30f3748f1ec116dfb1a342e8d9e04053f0b00003f08bfdc8a241ec4ab63881c45ca1f57224b09a19535ecc1e97658486d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.package-wholesaler@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.package-wholesaler@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.package-wholesaler%2F-%2F%40carlsberggroup-malty.icons.package-wholesaler-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 81e2b6242b377b11d0a6370a34960329213ee837538539b01849066aa97de1e84af83f19735096f15f8ad457a9cf360d89ee24669091ecbf4d67ac79ef094f5a
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.paint@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.paint@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.paint%2F-%2F%40carlsberggroup-malty.icons.paint-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: fa2b1c7b0410c4b3644ae4371a0dbf2edeb2d0263ed0fefdc6133792bcf5f83a1a2f23e65d5448b8e8cfd2664860e8adb48669e1a09a33326d4ab1539e5e6a8c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pallet@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pallet@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pallet%2F-%2F%40carlsberggroup-malty.icons.pallet-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c8b95a1e7ec2be00ee16b3d2a2e4d0fd0fbca199e7293d56de645c444f8f15f8e9f6c8fd47bfaaad66f33e66ca264299b02f544042852eb7141fb09c46c094bd
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pencil@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pencil@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pencil%2F-%2F%40carlsberggroup-malty.icons.pencil-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c5e38db3c7e212feca520251de63c70f0dec85e8f4fd8441a4ab0bdb094178f2d80eb4c846113d7772ac6f27d4ff08702f95c685b42c49f116cd178546bf5ffc
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.phone-classic@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.phone-classic@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.phone-classic%2F-%2F%40carlsberggroup-malty.icons.phone-classic-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 710675d77124edcf69c8b262c5f1edeca93632b96718eeb25985a79b4bc7a1bf0e1e94f3d6da82014715da8a750bb19b2a4ff0b67edf402c853280cb99af437d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pilsner@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pilsner@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pilsner%2F-%2F%40carlsberggroup-malty.icons.pilsner-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c4ce3d6b5b9eca12c31d5c75fa7bd7658b3db6f776682cbd3e76bcc61f52eb88e5db40e4702cc202d81540aa8c979c41d5e21b2752999273dc83677530334b7c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-active@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin-active@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-active%2F-%2F%40carlsberggroup-malty.icons.pin-active-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1d73271175e28ed7a495c4cb5a6828bd764ee495b1ff14d68bbaf1d1aae658fe3673817f0b93abe0249198dfccfe66148c8c67343bbad6574a04dcf5a1ba2d6b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-churn@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin-churn@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-churn%2F-%2F%40carlsberggroup-malty.icons.pin-churn-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 27d9087411944c5d05b39f1f7a84d5dc09de06d0837858a4ef8e5fb543107a60260e6634014f4bc8f07bd75640859a9d73b8e5758ea929f42acc3f7f48d2b5cb
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-closed@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.pin-closed@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-closed%2F-%2F%40carlsberggroup-malty.icons.pin-closed-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: ed1d4a95814a2c4a84cb784a911ea11cffcbd92b2ed04c9c346cd078919a80a1d9b9027e128c982059933541ff86b82ae97f62c2a1e14e8b3a33ef0baf811362
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-inactive@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin-inactive@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-inactive%2F-%2F%40carlsberggroup-malty.icons.pin-inactive-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 827048218a80a423058e573f72d999d7bf4adaffef503eaa442fdfdd8f0698bbd83bbc95e61d5ba02e2db8578a0dc62b3669e2ebe02c749ac4558b0830a2ac1d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-indirect@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin-indirect@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-indirect%2F-%2F%40carlsberggroup-malty.icons.pin-indirect-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 96d65eca8ea5927b59ba4c093879209439a8f4f6c76a8f353495aaa0ef8633b8849b115f373f01167b5596d5e402c3ac1231a4de5f91c4cf2ac3ea888b361a5a
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-labeling@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin-labeling@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-labeling%2F-%2F%40carlsberggroup-malty.icons.pin-labeling-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: f04cbaa361f06d6c5b68f80e610f35508d52e6a953e5f9039e57e3563cc4cbe9604b7397cbd3d38cff21233d199aa5efe66f56941b925f58af6460f83bf06eeb
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-parked@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin-parked@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-parked%2F-%2F%40carlsberggroup-malty.icons.pin-parked-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: bc45062b4d8dc750de69ec49a0a442ad13138ce5af9eb650667af1053aae5632ccb9bd7ca4a5cfc33abe2b9d29b3ddd89e653e3461512e943b92bc9b87e919db
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-prospect@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin-prospect@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-prospect%2F-%2F%40carlsberggroup-malty.icons.pin-prospect-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: eaeab4dfd9b5f17165398252f1cee73d349f940fa24696777a0163f2508c9f2176c4d9b32afb785fc21627d621b31ef9271c719ac8083796b9193ed94baabd81
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin-several@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.pin-several@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin-several%2F-%2F%40carlsberggroup-malty.icons.pin-several-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: e25860ee2ca5e9014b97d15ab457a8bab1e96a3396fdaee55b7af831a03db78f3d3676b78018aa3e1e5ad6648a90e677e0acc735d1a192ff89f083277f0f2a0b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pin@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pin@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pin%2F-%2F%40carlsberggroup-malty.icons.pin-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 83225ea0dafeb28fedde56dec641e148307fc219eda5d361e365011f4bab16870e479b0979c621522a02fb3c54a19a9cecd0110848a5472af024a83e7cbd174d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.pint@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.pint@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.pint%2F-%2F%40carlsberggroup-malty.icons.pint-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 938453219327bf900c51c02d1198661eb9c7065fe1931497aca1b8aab1aa7f3921c6a8f972378a14e5586b06fa4d8bb7d0ff7f9e0f40d51da0d2bf789938c029
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.plus@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.plus@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.plus%2F-%2F%40carlsberggroup-malty.icons.plus-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4464b946157bde9e919fd931a3d70e638d70fa23a25d77a113346b8fd57e886da36308dcf63a819a931e14d9c7d42c861938655c17bae048825c51f4d50e1dab
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.power@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.power@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.power%2F-%2F%40carlsberggroup-malty.icons.power-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7ec36ce84dd4f7161474b8d339784f66b381d9821ce554da10fdff60a9cd046991e646124407e2c62bc967e6a42b92ba9a536ff527ab59a20e60bebe3f016ddc
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.radiobutton-off@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.radiobutton-off@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.radiobutton-off%2F-%2F%40carlsberggroup-malty.icons.radiobutton-off-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 9edb9b697f38de5b6fa588db1add80d1a7317dae268576028cba99543ec5c85cd2bbd4f71a33a75fa0461baeaa20c2b034f1d0027cc2c15535b0560d2870c06e
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.radiobutton-on@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.radiobutton-on@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.radiobutton-on%2F-%2F%40carlsberggroup-malty.icons.radiobutton-on-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 5da94814d7fda6c538681d509419f7077469f2ea137ef93624c19cae9baf65ab463306462184497e077028e95b31328fd9359e2fd14b83bf038c4b4509df98d5
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.refresh@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.refresh@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.refresh%2F-%2F%40carlsberggroup-malty.icons.refresh-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1386b67f3376d9c67d1c5debaa8112f4563b8cc8c05ee82bc8e0891ee261a9e710fdafef7af90df981af85f872c6a3483f016120e8e1cc96fd96eea18f395f4c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.restaurant@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.restaurant@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.restaurant%2F-%2F%40carlsberggroup-malty.icons.restaurant-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c04766e71be01890c6526e5c7d9ca274197c34931ccb6c0315903545d16910cf2aa99398f8853e4dd7116a1d7e789187a7e67f55e30109c49f1aa132090a04b3
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.retry@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.retry@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.retry%2F-%2F%40carlsberggroup-malty.icons.retry-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7ab30b38dc66b2825fd7e153486f83f37a1c32aa5287e41cf599d274e4001ad010ed5304764f34b74cbc0ae6f4f9ff61e3cd4b7d8302c0d86ad4636e330f2242
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.salesrep@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.salesrep@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.salesrep%2F-%2F%40carlsberggroup-malty.icons.salesrep-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7da719d90be53e059cabc9afc1264aa4d0b73f6832ed0042d3e3cd530737b949c7fe4aefa3c81c781ce6ef35bc799ccfff1fd550cd073f81664576c4c87d53cd
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.save@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.save@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.save%2F-%2F%40carlsberggroup-malty.icons.save-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1499dcb3f6a41828e6c6f79e8c11e7e8174ac29aaf15c70c799c4a14f9cab609a2139465a42b12c6a03f479b2f4cec05c0f08cc403dd851f9bfeea047182fc91
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.search-user@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.search-user@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.search-user%2F-%2F%40carlsberggroup-malty.icons.search-user-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7d718145bd710d448f2da53bdb4d7e374716f289a9f56cb53fe94e43919b2fdd11db2ce083b589303f79e092b82847270878f30d30ea356de64ff86ac30f11f3
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.search@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.search@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.search%2F-%2F%40carlsberggroup-malty.icons.search-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: cae5f0e800cf7f0996c451a6567f9b3b9f2e69e62232a5a5bea9eebe7ad7b8fe003579cde7078d12161c7caa12e197bfae4d7c655447ff0f4941dcd86397bb04
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.sent@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.sent@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.sent%2F-%2F%40carlsberggroup-malty.icons.sent-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: dd80778ea26f58f5143a54e56e36e8495bc27ee4f1aed136b4eafbc0637678b7824fdea7788183c06c17c52c829d6d53088205ae8f0d185b92e9218d6bfd56ef
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.settings@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.settings@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.settings%2F-%2F%40carlsberggroup-malty.icons.settings-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: d9c72525dc1a9be4ca49ac9fea16606b378cde6639b0559b3f749d3d0c9622f067ebaac208559af59298a1bc15f275a549762b0b777dfb4e4776ccc1cc15e987
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.share@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.share@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.share%2F-%2F%40carlsberggroup-malty.icons.share-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 704a9049ae3198f6d9ec2a4d1f8dc8e9c37d2ea5c1278223564c5b40b4adeb1f8a694d70d03c04cd16aa1b13f004794981fb6b4771930d0b3d141793595bc144
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.shield-exclamation@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.shield-exclamation@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.shield-exclamation%2F-%2F%40carlsberggroup-malty.icons.shield-exclamation-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 3144affa5a8862abc82519e85baaabe669a24bf62a0bfeefb90e5061a66de2d7b421b344a6724f032fc3530538ab63ccf5272626f746190a77cccf5a462c371d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.shield-security@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.shield-security@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.shield-security%2F-%2F%40carlsberggroup-malty.icons.shield-security-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 59e6482b66b21cd0c0f7492abe62971c2077b18c6e3a3e18642cb4452c9cb5b4682112744d36d706652b683e6e1cdabdc1955d9fc5f60f386948664705f0f616
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.shop@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.shop@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.shop%2F-%2F%40carlsberggroup-malty.icons.shop-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: bc2e60c221bdfef6ab67759efd94fb35551669e811f674bd7264076f3b653c2eb6fa9aabfd0d1c5e1bdc400d83daa77a752c8818405d84efdd2b171259a03130
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.sign-out@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.sign-out@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.sign-out%2F-%2F%40carlsberggroup-malty.icons.sign-out-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 04c6c1a93b2e69523ea60ee855a2963e1bbd875273a2ecb02b5ed6b6ba9fdfdfe3247c7f38ca20357dd727b0f20ab45e3c4595a3c56ccdb2f7331de235e7d757
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.speach-balloon-complaint@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.speach-balloon-complaint@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.speach-balloon-complaint%2F-%2F%40carlsberggroup-malty.icons.speach-balloon-complaint-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 7d87f90b49ea3b6d364823d0c54a993f35bbb3da3a6b64f6168622715c6ae5cc9bd82a1a155a373640d347c2694a8220f8d5718d85d0c31397e0ca7266e0619b
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.speach-balloon-livechat@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.speach-balloon-livechat@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.speach-balloon-livechat%2F-%2F%40carlsberggroup-malty.icons.speach-balloon-livechat-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 282f498c87d01c01dbdcad70db68a5800624df7bd077fd9477b537134f6e291662b9363284f7e867cd9ad552839308ea9f62b42c411686690342cbdabdbec15d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.speach-balloon@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.speach-balloon@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.speach-balloon%2F-%2F%40carlsberggroup-malty.icons.speach-balloon-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 936eca8ac24481ac4204c3c4ce37ceddb8fec9433a3eb948acc81f6d4fe540467d46289ad0acb08166fd7fdd12f68aa11f070853f4d5c10da97964991c3b4182
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.star-filled@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.star-filled@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.star-filled%2F-%2F%40carlsberggroup-malty.icons.star-filled-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: d8c3cacd2a9b2132db7d8f1676dc314340b298672052194f16229bc8299a26662a16e3fbe5dfd268951210ee47407c33b94a769ef8a185890a6a30bffed58d83
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.star@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.star@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.star%2F-%2F%40carlsberggroup-malty.icons.star-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: d7dc330120cc1d002a6a2ce02ea6d1a606791d0944524a88a8a54223a36f2126cc3a594159d64f71504f239cf6d5a1d471ed1b7e768f296ab1745b8cacb6bf2c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.survey@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.survey@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.survey%2F-%2F%40carlsberggroup-malty.icons.survey-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: ac13c1e5e7cc484894ca49112e4cc0c037e838a9e968256f215bd062e72ba7b196dd752936d2d262098433563f557bd0dfaf68ca98e03697169e4f16a6f12dd3
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.sync@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.sync@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.sync%2F-%2F%40carlsberggroup-malty.icons.sync-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: df9451475a1fed8a612b875f9041b12bf7b7754e13ac7e63d4991a104c774bcedc0e3900d28a2644caaff051ec605371270f73fa7cac2fb922994fd57c2e32b9
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.tap-glass@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.tap-glass@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.tap-glass%2F-%2F%40carlsberggroup-malty.icons.tap-glass-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c7ce188e6930db353498c4e7327cb4a44e9d5f5f8c5c47789b30e28f2c05523f6537e44d6ed7182466a47be36d4713fcc50d11e676efdcf2ce8e0aad70fa268c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.tap@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.tap@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.tap%2F-%2F%40carlsberggroup-malty.icons.tap-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 02bc7426d546b44291dd13504048d1ab8249acd9ef43567c4626619e9c2477385b16bddbb97f146fc574039417de35b854e8216df0ecf317a2a438f2a2b40b04
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.technical-support@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.technical-support@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.technical-support%2F-%2F%40carlsberggroup-malty.icons.technical-support-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 386326e3b7f70f488cf985f1a4d508526ff424570ee4dc3aea14857351d5a96c2d18ba2c281ad7d91750fc21d851c292bcaf7779fefa05b39ab0931303a616fc
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.text@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.text@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.text%2F-%2F%40carlsberggroup-malty.icons.text-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 93e0f48677c8297a650184773752261705911c3e0f9328e89d71a2f168bcee84f51891f47335cfb84867fe2069ed4e3364a98fdeb4e4439decc8bb13f5e91641
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.third-party@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.third-party@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.third-party%2F-%2F%40carlsberggroup-malty.icons.third-party-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 207599339989abc4b40457c335ed55e08a76efc22ed9db358889fa8dcf8096f9ee95a243839c17c783f48d8703a0f965bea748332fe1a6b38d4f66fdbb8d87d6
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.thumb-down@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.thumb-down@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.thumb-down%2F-%2F%40carlsberggroup-malty.icons.thumb-down-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: b266c297c6504038fe6d9d81232baebbf9c09556327e368261f1a8163c178734b5a159da4cdf10e07626928a4bd4fb3136358495eeee821975b0d369ebe4039a
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.thumb-up@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.thumb-up@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.thumb-up%2F-%2F%40carlsberggroup-malty.icons.thumb-up-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 967bede8e5e54993bfd917bae1af4ba2babb2e1272ae2c26b4c026c9c1f5293cd7340c94127e93d032dac7d4f21039fd165348c9d8c2163f66d93ca6df670a5c
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.toggle-off@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.toggle-off@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.toggle-off%2F-%2F%40carlsberggroup-malty.icons.toggle-off-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c32b4bea31600774e5ff58f1e725ec7a838788386cea891f77f837d8106fb4bea3940a5ba644cf12d0faf2ea26963cdd6112da25dd1bbfc182d72c15388f55fd
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.toggle-on@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.toggle-on@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.toggle-on%2F-%2F%40carlsberggroup-malty.icons.toggle-on-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 8710aa5e7e8ef7c3b4a665e6c189136c232d7bc7ed147356a91a6a2a6ba3970af1de16aa0b43d29456e9c1a7306e1d0ca92fcb01ddc98d8e0dd8a1476aca4347
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.trash@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.trash@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.trash%2F-%2F%40carlsberggroup-malty.icons.trash-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 1c3d807af24c25d81f96a971e2d52d2a99799f5edc60f8f6271d80c0544b62ea65d97781eaddc6a62b381b570831506ecc5f3b203a92c617ad2518aabec0e355
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.trophy@npm:0.0.31":
+  version: 0.0.31
+  resolution: "@carlsberggroup/malty.icons.trophy@npm:0.0.31::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.trophy%2F-%2F%40carlsberggroup-malty.icons.trophy-0.0.31.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 98d523af94a083a9769385a74415f87ed0c63a105f34abc880382e77cc6d9c2ff0336e61adf45b7a46b1d6b146269ebb7fd6b75d776d825578bb753dae71823d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.truck@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.truck@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.truck%2F-%2F%40carlsberggroup-malty.icons.truck-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: dcaa4f1cc76887ba652f9c6abb842c46a41cd680745276a4cd77ca3339be2ba203832c2632eb5ab93fe96d66f887f0435c9609838135b02ba3a2c867ce8efdeb
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.tulipe@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.tulipe@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.tulipe%2F-%2F%40carlsberggroup-malty.icons.tulipe-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 159f00a436be34892b47bf57dafe5bff2b967e5a40325beb5b6a7b09b702981ead71aeb15155c119359e251e004c93284d6de756fd28bce819c25bd4939def25
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.twitter@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.twitter@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.twitter%2F-%2F%40carlsberggroup-malty.icons.twitter-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: df58d20c63bf42db2f5e32e1b9178d5de07b99f48c8ede38de916829a47063a547a437c8aecf2b7659c5087f119538ac7f324c06aff9012caa4fe1185d4e35fd
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.underline@npm:0.0.29":
+  version: 0.0.29
+  resolution: "@carlsberggroup/malty.icons.underline@npm:0.0.29::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.underline%2F-%2F%40carlsberggroup-malty.icons.underline-0.0.29.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 4a77a265e25153ce521b4259332dca0f3b314cdafdabf0bedbcdcc78e9e946767581a2fd0f2187a7a298a7eaac692ba7b8c90d7154a3434c29218d2f6d5b8614
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.upload@npm:0.0.29":
+  version: 0.0.29
+  resolution: "@carlsberggroup/malty.icons.upload@npm:0.0.29::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.upload%2F-%2F%40carlsberggroup-malty.icons.upload-0.0.29.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c71c0ec67d1c4eacbac7519d6e2b9842b2178ffc2a356d05e542ec7d28cb8355b4bc7f31f4d6d27a45c4833357633249a1f007d33a6e4b1bace370294f285b49
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.view-grid@npm:0.0.29":
+  version: 0.0.29
+  resolution: "@carlsberggroup/malty.icons.view-grid@npm:0.0.29::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.view-grid%2F-%2F%40carlsberggroup-malty.icons.view-grid-0.0.29.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: ac24ba15b5062eb064ef66a8367bf2d5ce816693e01a68c05327d9d47cfdbd70eee0a875097231ad7eb3ea53716640b2e455bd046b8619eb4a220096909f415d
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.view-list@npm:0.0.29":
+  version: 0.0.29
+  resolution: "@carlsberggroup/malty.icons.view-list@npm:0.0.29::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.view-list%2F-%2F%40carlsberggroup-malty.icons.view-list-0.0.29.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: c68ded11b0515c64eff5724d8f9f7f866ea03ec1f715665958a7d7b2ff2c0714d97d2b9c4e443183e7efc43d0eab732582e1903dba34f0ed0700c2b20306d215
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.volume@npm:0.0.30":
+  version: 0.0.30
+  resolution: "@carlsberggroup/malty.icons.volume@npm:0.0.30::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.volume%2F-%2F%40carlsberggroup-malty.icons.volume-0.0.30.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 61f9570e556b61bfa14a841cdbeecc53bc701cc88d30b39192a3d68f42349e5dcc1c565f7c42b6a8c78698cc20055e16f5fe6e41db96c9a296ba781e03019eea
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.wheat@npm:0.0.29":
+  version: 0.0.29
+  resolution: "@carlsberggroup/malty.icons.wheat@npm:0.0.29::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.wheat%2F-%2F%40carlsberggroup-malty.icons.wheat-0.0.29.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 13c62c6fa2c3c5fa4e6794679cf4b4fe39102e3aaf45bb6a7815e53b6a6eb326828fbccece97c4e2f13b6862dc415778e135d970daef49169db856569b583935
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.icons.world@npm:0.0.29":
+  version: 0.0.29
+  resolution: "@carlsberggroup/malty.icons.world@npm:0.0.29::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.icons.world%2F-%2F%40carlsberggroup-malty.icons.world-0.0.29.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.icon-wrapper": 0.0.29
+    core-js: ^3.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 10c62ef28f51a670245a2333af8543b89153d3d60fe8417de6940334cf2917e2b4bcc8f89b6a5124d7bb87327d009044d93d8258e334f183987eda6e114cb0d0
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.molecules.loading@npm:0.0.48":
+  version: 0.0.48
+  resolution: "@carlsberggroup/malty.molecules.loading@npm:0.0.48::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.molecules.loading%2F-%2F%40carlsberggroup-malty.molecules.loading-0.0.48.tgz"
+  dependencies:
+    "@carlsberggroup/malty.atoms.progress-spinner": 0.0.7
+    "@carlsberggroup/malty.atoms.text": 0.0.37
+    "@carlsberggroup/malty.theme.malty-theme-provider": 0.0.25
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: bc1dafbd5275b3d4b019f7bbe49c25381403a6a117e5e4ce177122d446a0adfd3d9f092b5f79e8c6b805e3d518a168598605f52bb0ddab9b1527eb5fa8b5fe53
+  languageName: node
+  linkType: hard
+
+"@carlsberggroup/malty.theme.malty-theme-provider@npm:0.0.25":
+  version: 0.0.25
+  resolution: "@carlsberggroup/malty.theme.malty-theme-provider@npm:0.0.25::__archiveUrl=https%3A%2F%2Fnode.bit.dev%2F%40carlsberggroup%2Fmalty.theme.malty-theme-provider%2F-%2F%40carlsberggroup-malty.theme.malty-theme-provider-0.0.25.tgz"
+  dependencies:
+    core-js: ^3.0.0
+    styled-components: ^5.2.3
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  checksum: 111a7171453d59abba82ba6ee86c91bb631c00047f1504be3583ebcc993c85d42b64a520d771c4a6e4250e4e08bb0707d814c9818c6f3631fbecd8a92b8b8062
   languageName: node
   linkType: hard
 
@@ -2081,12 +5100,12 @@ __metadata:
   linkType: hard
 
 "@jridgewell/trace-mapping@npm:^0.3.12, @jridgewell/trace-mapping@npm:^0.3.7, @jridgewell/trace-mapping@npm:^0.3.9":
-  version: 0.3.14
-  resolution: "@jridgewell/trace-mapping@npm:0.3.14"
+  version: 0.3.15
+  resolution: "@jridgewell/trace-mapping@npm:0.3.15"
   dependencies:
     "@jridgewell/resolve-uri": ^3.0.3
     "@jridgewell/sourcemap-codec": ^1.4.10
-  checksum: b9537b9630ffb631aef9651a085fe361881cde1772cd482c257fe3c78c8fd5388d681f504a9c9fe1081b1c05e8f75edf55ee10fdb58d92bbaa8dbf6a7bd6b18c
+  checksum: 38917e9c2b014d469a9f51c016ed506acbe44dd16ec2f6f99b553ebf3764d22abadbf992f2367b6d2b3511f3eae8ed3a8963f6c1030093fda23efd35ecab2bae
   languageName: node
   linkType: hard
 
@@ -2264,9 +5283,9 @@ __metadata:
   linkType: hard
 
 "@popperjs/core@npm:^2.11.5, @popperjs/core@npm:^2.9.2":
-  version: 2.11.5
-  resolution: "@popperjs/core@npm:2.11.5"
-  checksum: fd7f9dca3fb716d7426332b6ee283f88d2724c0ab342fb678865a640bad403dfb9eeebd8204a406986162f7e2b33394f104320008b74d0e9066d7322f70ea35d
+  version: 2.11.6
+  resolution: "@popperjs/core@npm:2.11.6"
+  checksum: 47fb328cec1924559d759b48235c78574f2d71a8a6c4c03edb6de5d7074078371633b91e39bbf3f901b32aa8af9b9d8f82834856d2f5737a23475036b16817f0
   languageName: node
   linkType: hard
 
@@ -2295,44 +5314,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:6.5.10":
+"@storybook/addon-actions@npm:6.5.10, @storybook/addon-actions@npm:^6.5.8":
   version: 6.5.10
   resolution: "@storybook/addon-actions@npm:6.5.10"
-  dependencies:
-    "@storybook/addons": 6.5.10
-    "@storybook/api": 6.5.10
-    "@storybook/client-logger": 6.5.10
-    "@storybook/components": 6.5.10
-    "@storybook/core-events": 6.5.10
-    "@storybook/csf": 0.0.2--canary.4566f4d.1
-    "@storybook/theming": 6.5.10
-    core-js: ^3.8.2
-    fast-deep-equal: ^3.1.3
-    global: ^4.4.0
-    lodash: ^4.17.21
-    polished: ^4.2.2
-    prop-types: ^15.7.2
-    react-inspector: ^5.1.0
-    regenerator-runtime: ^0.13.7
-    telejson: ^6.0.8
-    ts-dedent: ^2.0.0
-    util-deprecate: ^1.0.2
-    uuid-browser: ^3.1.0
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    react-dom:
-      optional: true
-  checksum: b864ceb0ec9aef76c438cfd55977946619954e07b2b822205e5209e3901cc9ae669babc9304026e48e3717e075212c9e5175d62fd63183cf696e3e196f1f6dd8
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-actions@npm:>=6.5.8 <7.0.0":
-  version: 6.5.10
-  resolution: "@storybook/addon-actions@npm:6.5.10::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Faddon-actions%2F-%2Faddon-actions-6.5.10.tgz"
   dependencies:
     "@storybook/addons": 6.5.10
     "@storybook/api": 6.5.10
@@ -3343,9 +6327,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:>=6.5.8 <7.0.0":
+"@storybook/react@npm:^6.5.8":
   version: 6.5.10
-  resolution: "@storybook/react@npm:6.5.10::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Freact%2F-%2Freact-6.5.10.tgz"
+  resolution: "@storybook/react@npm:6.5.10"
   dependencies:
     "@babel/preset-flow": ^7.12.1
     "@babel/preset-react": ^7.12.10
@@ -3576,9 +6560,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:>=11.2.7 <12.0.0":
+"@testing-library/react@npm:^11.2.7":
   version: 11.2.7
-  resolution: "@testing-library/react@npm:11.2.7::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40testing-library%2Freact%2F-%2Freact-11.2.7.tgz"
+  resolution: "@testing-library/react@npm:11.2.7"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@testing-library/dom": ^7.28.1
@@ -3953,9 +6937,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 18.6.4
-  resolution: "@types/node@npm:18.6.4"
-  checksum: fc453dd2b541f5812ba1a8f957f577727cf2d8aee886f1d5c03eb153b2b3373d2e0953c5bd2b7a5b184073bc317f54ec91f1ec4830a58eda4a833e90654021de
+  version: 18.7.2
+  resolution: "@types/node@npm:18.7.2"
+  checksum: 422cf95dea09959d0e809d24280b76948f60ea805e20d38f07bf9eeafeb413513b9cc365404766f7752bef9cafb8301a882d9d097f780e13f2bedf507459ebc5
   languageName: node
   linkType: hard
 
@@ -3967,9 +6951,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0":
-  version: 16.11.47
-  resolution: "@types/node@npm:16.11.47"
-  checksum: 26811000753fd1bb9a90a563fc72942ac3ad5d5b6c97609a090c1e24210e040597ba060e55a7a46cb22cc84dafee112d741f45652139c6166e8ce0c970b4f05a
+  version: 16.11.48
+  resolution: "@types/node@npm:16.11.48"
+  checksum: 10cd539cb2cf5a8f51f3c2bd761c093b752e534b1f2dc0d7193debd7986145b68db2a5fd48498af641e8641fb8d24b7c4851ea3e30fb8f56cc13ac719cad1e1f
   languageName: node
   linkType: hard
 
@@ -4048,9 +7032,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.2":
+"@types/react-dom@npm:<18.0.0":
   version: 17.0.17
-  resolution: "@types/react-dom@npm:17.0.17::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Freact-dom%2F-%2Freact-dom-17.0.17.tgz"
+  resolution: "@types/react-dom@npm:17.0.17"
   dependencies:
     "@types/react": ^17
   checksum: 23caf98aa03e968811560f92a2c8f451694253ebe16b670929b24eaf0e7fa62ba549abe9db0ac028a9d8a9086acd6ab9c6c773f163fa21224845edbc00ba6232
@@ -4066,9 +7050,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17.0.2":
+"@types/react@npm:<18.0.0":
   version: 17.0.48
-  resolution: "@types/react@npm:17.0.48::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Freact%2F-%2Freact-17.0.48.tgz"
+  resolution: "@types/react@npm:17.0.48"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
@@ -4133,14 +7117,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:>=5.1.9 <6.0.0":
-  version: 5.1.25
-  resolution: "@types/styled-components@npm:5.1.25::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fstyled-components%2F-%2Fstyled-components-5.1.25.tgz"
+"@types/styled-components@npm:^5.1.9":
+  version: 5.1.26
+  resolution: "@types/styled-components@npm:5.1.26"
   dependencies:
     "@types/hoist-non-react-statics": "*"
     "@types/react": "*"
     csstype: ^3.0.2
-  checksum: 60ce64f13283b01da54fd3a4c5703769d8575c979d5ec6b67ad124c2d4df980c9b96bb91af87e03f6447a816a5d2b0270c63eefad60cfa885091b594984525f5
+  checksum: 84f53b3101739b20d1731554fb7735bc2f3f5d050a8b392e9845403c8c8bbd729737d033978649f9195a97b557875b010d46e35a4538564a2d0dbcce661dbf76
   languageName: node
   linkType: hard
 
@@ -4185,9 +7169,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:>=8.3.0 <9.0.0":
+"@types/uuid@npm:^8.3.0":
   version: 8.3.4
-  resolution: "@types/uuid@npm:8.3.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fuuid%2F-%2Fuuid-8.3.4.tgz"
+  resolution: "@types/uuid@npm:8.3.4"
   checksum: 6f11f3ff70f30210edaa8071422d405e9c1d4e53abbe50fdce365150d3c698fe7bbff65c1e71ae080cbfb8fded860dbb5e174da96fdbbdfcaa3fb3daa474d20f
   languageName: node
   linkType: hard
@@ -4323,13 +7307,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/scope-manager@npm:5.32.0":
-  version: 5.32.0
-  resolution: "@typescript-eslint/scope-manager@npm:5.32.0"
+"@typescript-eslint/scope-manager@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/scope-manager@npm:5.33.0"
   dependencies:
-    "@typescript-eslint/types": 5.32.0
-    "@typescript-eslint/visitor-keys": 5.32.0
-  checksum: 69bdeb029f39d1112299dc0cb0ddef30e51bdb782fdb79cc4e72fa448e00d71e39938d3bff3fa4ee43b3416c2e3b4564de2c37252914772b07eeedafb14412d6
+    "@typescript-eslint/types": 5.33.0
+    "@typescript-eslint/visitor-keys": 5.33.0
+  checksum: b2cbea9abd528d01a5acb2d68a2a5be51ec6827760d3869bdd70920cf6c3a4f9f96d87c77177f8313009d9db71253e4a75f8393f38651e2abaf91ef28e60fb9d
   languageName: node
   linkType: hard
 
@@ -4340,10 +7324,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:5.32.0":
-  version: 5.32.0
-  resolution: "@typescript-eslint/types@npm:5.32.0"
-  checksum: 6758f54d8d7763893cd7c1753f525ef1777eee8b558bf3d54fd2a2ce691ca0cf813c68a26e4db83a1deae4e4a62b247f1195e15a1f3577f1293849f9e55a232c
+"@typescript-eslint/types@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/types@npm:5.33.0"
+  checksum: 8bbddda84cb3adf5c659b0d42547a2d6ab87f4eea574aca5dd63a3bd85169f32796ecbddad3b27f18a609070f6b1d18a54018d488bad746ae0f6ea5c02206109
   languageName: node
   linkType: hard
 
@@ -4365,12 +7349,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/typescript-estree@npm:5.32.0":
-  version: 5.32.0
-  resolution: "@typescript-eslint/typescript-estree@npm:5.32.0"
+"@typescript-eslint/typescript-estree@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/typescript-estree@npm:5.33.0"
   dependencies:
-    "@typescript-eslint/types": 5.32.0
-    "@typescript-eslint/visitor-keys": 5.32.0
+    "@typescript-eslint/types": 5.33.0
+    "@typescript-eslint/visitor-keys": 5.33.0
     debug: ^4.3.4
     globby: ^11.1.0
     is-glob: ^4.0.3
@@ -4379,23 +7363,23 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 6aee08be5d36603d038fb8340f324f5cb38519150c9b37c012f0c1ff2a4d8cf22fbc6835de31d069949c2b3d8ed3e729076a724ef29db4289d9fe73b97c9d310
+  checksum: 26f9005cdfb14654125a33d90d872b926820e560dff8970c4629fd5f6f47ad2a31e4c63161564d21bb42a8fc3ced0033994854ee37336ae07d90ccf6300d702b
   languageName: node
   linkType: hard
 
 "@typescript-eslint/utils@npm:^5.10.0, @typescript-eslint/utils@npm:^5.10.2":
-  version: 5.32.0
-  resolution: "@typescript-eslint/utils@npm:5.32.0"
+  version: 5.33.0
+  resolution: "@typescript-eslint/utils@npm:5.33.0"
   dependencies:
     "@types/json-schema": ^7.0.9
-    "@typescript-eslint/scope-manager": 5.32.0
-    "@typescript-eslint/types": 5.32.0
-    "@typescript-eslint/typescript-estree": 5.32.0
+    "@typescript-eslint/scope-manager": 5.33.0
+    "@typescript-eslint/types": 5.33.0
+    "@typescript-eslint/typescript-estree": 5.33.0
     eslint-scope: ^5.1.1
     eslint-utils: ^3.0.0
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: cfd88d93508c8fb0db17d2726691e1383db390357fa0637bd8111558fbe72da5130d995294001d71b1d929d620fbce3f20a70b277a77ca21a4241b3b470dc758
+  checksum: 6ce5ee5eabeb6d73538b24e6487f811ecb0ef3467bd366cbd15bf30d904bdedb73fc6f48cf2e2e742dda462b42999ea505e8b59255545825ec9db86f3d423ea7
   languageName: node
   linkType: hard
 
@@ -4409,13 +7393,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/visitor-keys@npm:5.32.0":
-  version: 5.32.0
-  resolution: "@typescript-eslint/visitor-keys@npm:5.32.0"
+"@typescript-eslint/visitor-keys@npm:5.33.0":
+  version: 5.33.0
+  resolution: "@typescript-eslint/visitor-keys@npm:5.33.0"
   dependencies:
-    "@typescript-eslint/types": 5.32.0
+    "@typescript-eslint/types": 5.33.0
     eslint-visitor-keys: ^3.3.0
-  checksum: 1f9b756d648c2346a6e8538ffde729d3d9ce6621fded3d9f15c96aa0ebf8f511daf8232470423fb36359c2113538a4daaf3336181be78a0cfbfd297af91ce9ba
+  checksum: d7e3653de6bac6841e6fcc54226b93ad6bdca4aa76ebe7d83459c016c3eebcc50d4f65ee713174bc267d765295b642d1927a778c5de707b8389e3fcc052aa4a1
   languageName: node
   linkType: hard
 
@@ -8715,35 +11699,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"braces@npm:^1.8.2":
-  version: 1.8.5
-  resolution: "braces@npm:1.8.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fbraces%2F-%2Fbraces-1.8.5.tgz"
-  dependencies:
-    expand-range: ^1.8.1
-    preserve: ^0.2.0
-    repeat-element: ^1.1.2
-  checksum: 9ea4fb6af8c0a224e515678d7be27ddc450bd974620542a3436188d7fae263f7987406d12ea36c1d92a862e7317b089aa3a0ebda7f1f1663b9332beddc92249e
-  languageName: node
-  linkType: hard
-
-"braces@npm:^2.3.1":
-  version: 2.3.2
-  resolution: "braces@npm:2.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fbraces%2F-%2Fbraces-2.3.2.tgz"
-  dependencies:
-    arr-flatten: ^1.1.0
-    array-unique: ^0.3.2
-    extend-shallow: ^2.0.1
-    fill-range: ^4.0.0
-    isobject: ^3.0.1
-    repeat-element: ^1.1.2
-    snapdragon: ^0.8.1
-    snapdragon-node: ^2.0.1
-    split-string: ^3.0.2
-    to-regex: ^3.0.1
-  checksum: e30dcb6aaf4a31c8df17d848aa283a65699782f75ad61ae93ec25c9729c66cf58e66f0000a9fec84e4add1135bb7da40f7cb9601b36bebcfa9ca58e8d5c07de0
-  languageName: node
-  linkType: hard
-
 "braces@npm:^2.3.2":
   version: 2.3.2
   resolution: "braces@npm:2.3.2"
@@ -8759,15 +11714,6 @@ __metadata:
     split-string: ^3.0.2
     to-regex: ^3.0.1
   checksum: e30dcb6aaf4a31c8df17d848aa283a65699782f75ad61ae93ec25c9729c66cf58e66f0000a9fec84e4add1135bb7da40f7cb9601b36bebcfa9ca58e8d5c07de0
-  languageName: node
-  linkType: hard
-
-"braces@npm:^3.0.2, braces@npm:~3.0.2":
-  version: 3.0.2
-  resolution: "braces@npm:3.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fbraces%2F-%2Fbraces-3.0.2.tgz"
-  dependencies:
-    fill-range: ^7.0.1
-  checksum: e2a8e769a863f3d4ee887b5fe21f63193a891c68b612ddb4b68d82d1b5f3ff9073af066c343e9867a393fe4c2555dcb33e89b937195feb9c1613d259edfcd459
   languageName: node
   linkType: hard
 
@@ -9137,9 +12083,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001370":
-  version: 1.0.30001374
-  resolution: "caniuse-lite@npm:1.0.30001374"
-  checksum: a75656e971d7ef2af4d2f3529a4620ae1a45d09460601fbc34b26f6867f31bbca006f71d8840291c471a2f01fc1994044f319a5660241ffaf35a2d84535af442
+  version: 1.0.30001375
+  resolution: "caniuse-lite@npm:1.0.30001375"
+  checksum: 6ed9cf7a3f80f5880cb021105864b869dddfdda8490559aa623e77feeca5ce8958a3b7c1cf37322e519176dcb488c99e6358b8c2de2aa4a0e08846ac122c4e75
   languageName: node
   linkType: hard
 
@@ -9162,35 +12108,36 @@ __metadata:
     "@babel/preset-typescript": ^7.13.0
     "@babel/runtime": 7.12.18
     "@carlsberg/eslint-config-carlsberg": ^0.1.0
+    "@carlsberggroup/malty.atoms.button": "*"
     "@popperjs/core": ^2.11.5
-    "@storybook/addon-actions": ">=6.5.8 <7.0.0"
+    "@storybook/addon-actions": ^6.5.8
     "@storybook/addon-docs": ^6.5.8
     "@storybook/addon-essentials": ^6.5.8
     "@storybook/addon-links": ^6.5.8
     "@storybook/addons": ^6.5.8
     "@storybook/builder-webpack5": ^6.5.8
     "@storybook/manager-webpack5": ^6.5.8
-    "@storybook/react": ">=6.5.8 <7.0.0"
+    "@storybook/react": ^6.5.8
     "@storybook/theming": ^6.5.8
     "@testing-library/jest-dom": ^5.16.2
-    "@testing-library/react": ">=11.2.7 <12.0.0"
+    "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^13.1.9
     "@types/babel__core": ^7.1.14
     "@types/jest": 26.0.20
     "@types/node": 12.20.4
-    "@types/react": ">=17.0.8 <18.0.0"
+    "@types/react": ^17.0.8
     "@types/react-datepicker": ^4.3.4
-    "@types/react-dom": ">=17.0.5 <18.0.0"
+    "@types/react-dom": ^17.0.5
     "@types/react-test-renderer": ^17.0.1
-    "@types/styled-components": ">=5.1.9 <6.0.0"
+    "@types/styled-components": ^5.1.9
     "@types/testing-library__jest-dom": 5.9.5
-    "@types/uuid": ">=8.3.0 <9.0.0"
+    "@types/uuid": ^8.3.0
     "@typescript-eslint/eslint-plugin": ^4.24.0
     "@typescript-eslint/parser": ^4.24.0
     babel-jest: ^27.5.1
     babel-loader: ^8.2.2
     babel-plugin-transform-hoist-jsx-style: ^1.0.0
-    core-js: ">=3.0.0 <4.0.0"
+    core-js: ^3.0.0
     eslint: ^7.26.0
     eslint-config-airbnb: ^18.2.1
     eslint-config-prettier: ^7.1.0
@@ -9214,17 +12161,19 @@ __metadata:
     react-popper: 2.3.0
     react-router-dom: 6.2.2
     react-test-renderer: ^17.0.2
-    styled-components: ">=5.2.3 <6.0.0"
+    styled-components: ^5.2.3
     styled-normalize: ^8.0.7
     ts-jest: ^27.1.3
     ts-loader: ^9.2.2
     ts-node: ^10.0.0
     typescript: ^4.2.3
     url-loader: ^4.1.1
-    uuid: ">=8.3.2 <9.0.0"
+    uuid: ^8.3.2
     webpack: ^5.70.0
     webpack-cli: ^4.9.2
     webpack-dev-server: ^4.7.4
+  peerDependencies:
+    "@carlsberggroup/malty.atoms.button": "*"
   languageName: unknown
   linkType: soft
 
@@ -9843,13 +12792,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:>=3.0.0 <4.0.0":
-  version: 3.24.1
-  resolution: "core-js@npm:3.24.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcore-js%2F-%2Fcore-js-3.24.1.tgz"
-  checksum: 6fb5bf0fd9e9f3e69d95616dd03332fea6758a715d2628c108b5faf17b48b0f580e90c4febb0a523c4665b0991a810de16289f86187fe79d70cc722dbd3edf0e
-  languageName: node
-  linkType: hard
-
 "core-js@npm:^2.4.0, core-js@npm:^2.5.0":
   version: 2.6.12
   resolution: "core-js@npm:2.6.12"
@@ -9857,7 +12799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.0.4, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
+"core-js@npm:^3.0.0, core-js@npm:^3.0.4, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
   version: 3.24.1
   resolution: "core-js@npm:3.24.1"
   checksum: 6fb5bf0fd9e9f3e69d95616dd03332fea6758a715d2628c108b5faf17b48b0f580e90c4febb0a523c4665b0991a810de16289f86187fe79d70cc722dbd3edf0e
@@ -10638,9 +13580,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.202":
-  version: 1.4.211
-  resolution: "electron-to-chromium@npm:1.4.211"
-  checksum: 43d983b94f5aa542926c4063bae597591458b59e96ec0ab85a62cc296b9760c447d7d0af369d3c40b44b75cfc9d3a66277495736517c370cf03e181cf3ed39f1
+  version: 1.4.217
+  resolution: "electron-to-chromium@npm:1.4.217"
+  checksum: 1902170384200c8f4bc4aa430503c527e6b8d06a63b8c604b5ede566c151c7001d93ebd1ad3d62acf2a872cbc2c8501d63fe9f99ff3b5ec84769bbbb2b36545d
   languageName: node
   linkType: hard
 
@@ -11030,12 +13972,14 @@ __metadata:
   linkType: hard
 
 "eslint-module-utils@npm:^2.7.3":
-  version: 2.7.3
-  resolution: "eslint-module-utils@npm:2.7.3"
+  version: 2.7.4
+  resolution: "eslint-module-utils@npm:2.7.4"
   dependencies:
     debug: ^3.2.7
-    find-up: ^2.1.0
-  checksum: 77048263f309167a1e6a1e1b896bfb5ddd1d3859b2e2abbd9c32c432aee13d610d46e6820b1ca81b37fba437cf423a404bc6649be64ace9148a3062d1886a678
+  peerDependenciesMeta:
+    eslint:
+      optional: true
+  checksum: 5da13645daff145a5c922896b258f8bba560722c3767254e458d894ff5fbb505d6dfd945bffa932a5b0ae06714da2379bd41011c4c20d2d59cc83e23895360f7
   languageName: node
   linkType: hard
 
@@ -11083,8 +14027,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-jest@npm:^26.1.1":
-  version: 26.7.0
-  resolution: "eslint-plugin-jest@npm:26.7.0"
+  version: 26.8.2
+  resolution: "eslint-plugin-jest@npm:26.8.2"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -11095,13 +14039,13 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 21dbeb3820a1640185e0bd3847f65feba98b479812bcaa3f353e725bd0538618b16544b4dfc74ac147b5150afed9cf28760d7aaad54158611403810776fe6353
+  checksum: 78d61467fef83fc0ce896cc54343d5b20e587baceb2e2d44f39a0c5fb1b693ee4adde7ed3b18e090381c4cd8a6b1094ad116caa502362f4152f9918b0a351a3e
   languageName: node
   linkType: hard
 
 "eslint-plugin-jsdoc@npm:*":
-  version: 39.3.4
-  resolution: "eslint-plugin-jsdoc@npm:39.3.4"
+  version: 39.3.6
+  resolution: "eslint-plugin-jsdoc@npm:39.3.6"
   dependencies:
     "@es-joy/jsdoccomment": ~0.31.0
     comment-parser: 1.3.1
@@ -11112,7 +14056,7 @@ __metadata:
     spdx-expression-parse: ^3.0.1
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: 7034532229f2da7938cd25eff591918022009b4a1a0e035e09d328dd63885052b8fde7ed7e33bd28748666bc51703ce34c99f50f63fd23ad2c0cdcdefbf9d415
+  checksum: 0825a5eba6cdcb250e45cd5ad488bd234da346f324a11160ad4b8c9fb3c76d8e1457d462fa91c24f11bdff5ef0013375d65c366b648202254c4bcc79eed89060
   languageName: node
   linkType: hard
 
@@ -11482,15 +14426,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expand-range@npm:^1.8.1":
-  version: 1.8.2
-  resolution: "expand-range@npm:1.8.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fexpand-range%2F-%2Fexpand-range-1.8.2.tgz"
-  dependencies:
-    fill-range: ^2.1.0
-  checksum: ca773ec06838d7d53cfd835b7d58c9c662a3773e5d57647ca6f83e50218efd93e29b5ee6cc1ea9c5651794e9005562cad28c4911ea06aac27323a05f3c6b787d
-  languageName: node
-  linkType: hard
-
 "expect@npm:^27.5.1":
   version: 27.5.1
   resolution: "expect@npm:27.5.1"
@@ -11748,19 +14683,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fill-range@npm:^2.1.0":
-  version: 2.2.4
-  resolution: "fill-range@npm:2.2.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ffill-range%2F-%2Ffill-range-2.2.4.tgz"
-  dependencies:
-    is-number: ^2.1.0
-    isobject: ^2.0.0
-    randomatic: ^3.0.0
-    repeat-element: ^1.1.2
-    repeat-string: ^1.5.2
-  checksum: ee7cb386c983bf7ff8aa120164c8b857a937c9d2b9c4ddf47af22f9d2bb1bd03dfa821946d7246f1631e86816562dd60059e081948d0804ce2ac0ac83f7edc61
-  languageName: node
-  linkType: hard
-
 "fill-range@npm:^4.0.0":
   version: 4.0.0
   resolution: "fill-range@npm:4.0.0"
@@ -11770,15 +14692,6 @@ __metadata:
     repeat-string: ^1.6.1
     to-regex-range: ^2.1.0
   checksum: dbb5102467786ab42bc7a3ec7380ae5d6bfd1b5177b2216de89e4a541193f8ba599a6db84651bd2c58c8921db41b8cc3d699ea83b477342d3ce404020f73c298
-  languageName: node
-  linkType: hard
-
-"fill-range@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "fill-range@npm:7.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ffill-range%2F-%2Ffill-range-7.0.1.tgz"
-  dependencies:
-    to-regex-range: ^5.0.1
-  checksum: cc283f4e65b504259e64fd969bcf4def4eb08d85565e906b7d36516e87819db52029a76b6363d0f02d0d532f0033c9603b9e2d943d56ee3b0d4f7ad3328ff917
   languageName: node
   linkType: hard
 
@@ -11826,15 +14739,6 @@ __metadata:
     path-exists: ^2.0.0
     pinkie-promise: ^2.0.0
   checksum: a2cb9f4c9f06ee3a1e92ed71d5aed41ac8ae30aefa568132f6c556fac7678a5035126153b59eaec68da78ac409eef02503b2b059706bdbf232668d7245e3240a
-  languageName: node
-  linkType: hard
-
-"find-up@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "find-up@npm:2.1.0"
-  dependencies:
-    locate-path: ^2.0.0
-  checksum: 43284fe4da09f89011f08e3c32cd38401e786b19226ea440b75386c1b12a4cb738c94969808d53a84f564ede22f732c8409e3cfc3f7fb5b5c32378ad0bbf28bd
   languageName: node
   linkType: hard
 
@@ -12110,6 +15014,8 @@ __metadata:
 "fsevents@npm:^2.1.2, fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
+  dependencies:
+    node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
   conditions: os=darwin
   languageName: node
@@ -12128,6 +15034,8 @@ __metadata:
 "fsevents@patch:fsevents@^2.1.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
+  dependencies:
+    node-gyp: latest
   conditions: os=darwin
   languageName: node
   linkType: hard
@@ -12287,37 +15195,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-parent@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "glob-parent@npm:2.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fglob-parent%2F-%2Fglob-parent-2.0.0.tgz"
-  dependencies:
-    is-glob: ^2.0.0
-  checksum: 734fc461d9d2753dd490dd072df6ce41fe4ebb60e9319b108bc538707b21780af3a61c3961ec2264131fad5d3d9a493e013a775aef11a69ac2f49fd7d8f46457
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "glob-parent@npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fglob-parent%2F-%2Fglob-parent-3.1.0.tgz"
-  dependencies:
-    is-glob: ^3.1.0
-    path-dirname: ^1.0.0
-  checksum: 653d559237e89a11b9934bef3f392ec42335602034c928590544d383ff5ef449f7b12f3cfa539708e74bc0a6c28ab1fe51d663cc07463cdf899ba92afd85a855
-  languageName: node
-  linkType: hard
-
 "glob-parent@npm:^5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
-  dependencies:
-    is-glob: ^4.0.1
-  checksum: f4f2bfe2425296e8a47e36864e4f42be38a996db40420fe434565e4480e3322f18eb37589617a98640c5dc8fdec1a387007ee18dbb1f3f5553409c34d17f425e
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:~5.1.2":
-  version: 5.1.2
-  resolution: "glob-parent@npm:5.1.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fglob-parent%2F-%2Fglob-parent-5.1.2.tgz"
   dependencies:
     is-glob: ^4.0.1
   checksum: f4f2bfe2425296e8a47e36864e4f42be38a996db40420fe434565e4480e3322f18eb37589617a98640c5dc8fdec1a387007ee18dbb1f3f5553409c34d17f425e
@@ -13520,15 +16400,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-glob@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "is-glob@npm:3.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fis-glob%2F-%2Fis-glob-3.1.0.tgz"
-  dependencies:
-    is-extglob: ^2.1.0
-  checksum: 9d483bca84f16f01230f7c7c8c63735248fe1064346f292e0f6f8c76475fd20c6f50fc19941af5bec35f85d6bf26f4b7768f39a48a5f5fdc72b408dc74e07afc
-  languageName: node
-  linkType: hard
-
 "is-glob@npm:^4.0.0, is-glob@npm:^4.0.1, is-glob@npm:^4.0.3, is-glob@npm:~4.0.1":
   version: 4.0.3
   resolution: "is-glob@npm:4.0.3"
@@ -13575,35 +16446,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-number@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "is-number@npm:2.1.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fis-number%2F-%2Fis-number-2.1.0.tgz"
-  dependencies:
-    kind-of: ^3.0.2
-  checksum: d80e041a43a8de31ecc02037d532f1f448ec9c5b6c02fe7ee67bdd45d21cd9a4b3b4cf07e428ae5adafc2f17408c49fcb0a227915916d94a16d576c39e689f60
-  languageName: node
-  linkType: hard
-
 "is-number@npm:^3.0.0":
   version: 3.0.0
   resolution: "is-number@npm:3.0.0"
   dependencies:
     kind-of: ^3.0.2
   checksum: 0c62bf8e9d72c4dd203a74d8cfc751c746e75513380fef420cda8237e619a988ee43e678ddb23c87ac24d91ac0fe9f22e4ffb1301a50310c697e9d73ca3994e9
-  languageName: node
-  linkType: hard
-
-"is-number@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "is-number@npm:4.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fis-number%2F-%2Fis-number-4.0.0.tgz"
-  checksum: e71962a5ae97400211e6be5946eff2b81d3fa85154dad498bfe2704999e63ac6b3f8591fdb7971a121122cc6e25915c2cfe882ff7b77e243d51b92ca6961267e
-  languageName: node
-  linkType: hard
-
-"is-number@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "is-number@npm:7.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fis-number%2F-%2Fis-number-7.0.0.tgz"
-  checksum: 456ac6f8e0f3111ed34668a624e45315201dff921e5ac181f8ec24923b99e9f32ca1a194912dc79d539c97d33dba17dc635202ff0b2cf98326f608323276d27a
   languageName: node
   linkType: hard
 
@@ -14716,12 +17564,12 @@ __metadata:
   linkType: hard
 
 "jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.2":
-  version: 3.3.2
-  resolution: "jsx-ast-utils@npm:3.3.2"
+  version: 3.3.3
+  resolution: "jsx-ast-utils@npm:3.3.3"
   dependencies:
     array-includes: ^3.1.5
-    object.assign: ^4.1.2
-  checksum: 61d4596d44480afc03ae0a7ebb272aa6603dc4c3645805dea0fc8d9f0693542cd0959f3ba7c0c9b16c13dd5a900c7c4310108bada273132a8355efe3fed22064
+    object.assign: ^4.1.3
+  checksum: a2ed78cac49a0f0c4be8b1eafe3c5257a1411341d8e7f1ac740debae003de04e5f6372bfcfbd9d082e954ffd99aac85bcda85b7c6bc11609992483f4cdc0f745
   languageName: node
   linkType: hard
 
@@ -14887,16 +17735,6 @@ __metadata:
     emojis-list: ^3.0.0
     json5: ^2.1.2
   checksum: 9078d1ed47cadc57f4c6ddbdb2add324ee7da544cea41de3b7f1128e8108fcd41cd3443a85b7ee8d7d8ac439148aa221922774efe4cf87506d4fb054d5889303
-  languageName: node
-  linkType: hard
-
-"locate-path@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "locate-path@npm:2.0.0"
-  dependencies:
-    p-locate: ^2.0.0
-    path-exists: ^3.0.0
-  checksum: 02d581edbbbb0fa292e28d96b7de36b5b62c2fa8b5a7e82638ebb33afa74284acf022d3b1e9ae10e3ffb7658fbc49163fcd5e76e7d1baaa7801c3e05a81da755
   languageName: node
   linkType: hard
 
@@ -15136,13 +17974,6 @@ __metadata:
   version: 1.0.4
   resolution: "markdown-escapes@npm:1.0.4"
   checksum: 6833a93d72d3f70a500658872312c6fa8015c20cc835a85ae6901fa232683fbc6ed7118ebe920fea7c80039a560f339c026597d96eee0e9de602a36921804997
-  languageName: node
-  linkType: hard
-
-"math-random@npm:^1.0.1":
-  version: 1.0.4
-  resolution: "math-random@npm:1.0.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fmath-random%2F-%2Fmath-random-1.0.4.tgz"
-  checksum: 9edf31ea337bba21994eb968218fd571d55fce86b51661158d8e241886b73121d9e1a35a5bb8997dba8ce67417a83c8dbd0811917248f886840035b7f1c667b9
   languageName: node
   linkType: hard
 
@@ -15655,6 +18486,8 @@ __metadata:
 "nan@npm:^2.12.1":
   version: 2.16.0
   resolution: "nan@npm:2.16.0"
+  dependencies:
+    node-gyp: latest
   checksum: cb16937273ea55b01ea47df244094c12297ce6b29b36e845d349f1f7c268b8d7c5abd126a102c5678a1e1afd0d36bba35ea0cc959e364928ce60561c9306064a
   languageName: node
   linkType: hard
@@ -15755,9 +18588,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-forge@npm:^1":
+"node-forge@npm:^1.3.1":
   version: 1.3.1
-  resolution: "node-forge@npm:1.3.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fnode-forge%2F-%2Fnode-forge-1.3.1.tgz"
+  resolution: "node-forge@npm:1.3.1"
   checksum: 08fb072d3d670599c89a1704b3e9c649ff1b998256737f0e06fbd1a5bf41cae4457ccaee32d95052d80bbafd9ffe01284e078c8071f0267dc9744e51c5ed42a9
   languageName: node
   linkType: hard
@@ -15986,15 +18819,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object.assign@npm:^4.1.0, object.assign@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "object.assign@npm:4.1.2"
+"object.assign@npm:^4.1.0, object.assign@npm:^4.1.2, object.assign@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "object.assign@npm:4.1.3"
   dependencies:
-    call-bind: ^1.0.0
-    define-properties: ^1.1.3
-    has-symbols: ^1.0.1
+    call-bind: ^1.0.2
+    define-properties: ^1.1.4
+    has-symbols: ^1.0.3
     object-keys: ^1.1.1
-  checksum: d621d832ed7b16ac74027adb87196804a500d80d9aca536fccb7ba48d33a7e9306a75f94c1d29cbfa324bc091bfc530bc24789568efdaee6a47fcfa298993814
+  checksum: fe87c8acd60e0d7140e1eae8886804e7497bf6a019bae715084083c2abd1760bd5aa9c3f0e5b02c82ca5cc33b641dc908c42c86c6f7d6dfd9f083a7baa95d318
   languageName: node
   linkType: hard
 
@@ -16242,15 +19075,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-limit@npm:^1.1.0":
-  version: 1.3.0
-  resolution: "p-limit@npm:1.3.0"
-  dependencies:
-    p-try: ^1.0.0
-  checksum: 281c1c0b8c82e1ac9f81acd72a2e35d402bf572e09721ce5520164e9de07d8274451378a3470707179ad13240535558f4b277f02405ad752e08c7d5b0d54fbfd
-  languageName: node
-  linkType: hard
-
 "p-limit@npm:^2.0.0, p-limit@npm:^2.2.0":
   version: 2.3.0
   resolution: "p-limit@npm:2.3.0"
@@ -16266,15 +19090,6 @@ __metadata:
   dependencies:
     yocto-queue: ^0.1.0
   checksum: 7c3690c4dbf62ef625671e20b7bdf1cbc9534e83352a2780f165b0d3ceba21907e77ad63401708145ca4e25bfc51636588d89a8c0aeb715e6c37d1c066430360
-  languageName: node
-  linkType: hard
-
-"p-locate@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "p-locate@npm:2.0.0"
-  dependencies:
-    p-limit: ^1.1.0
-  checksum: e2dceb9b49b96d5513d90f715780f6f4972f46987dc32a0e18bc6c3fc74a1a5d73ec5f81b1398af5e58b99ea1ad03fd41e9181c01fa81b4af2833958696e3081
   languageName: node
   linkType: hard
 
@@ -16346,13 +19161,6 @@ __metadata:
   dependencies:
     p-finally: ^1.0.0
   checksum: 3dd0eaa048780a6f23e5855df3dd45c7beacff1f820476c1d0d1bcd6648e3298752ba2c877aa1c92f6453c7dd23faaf13d9f5149fc14c0598a142e2c5e8d649c
-  languageName: node
-  linkType: hard
-
-"p-try@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "p-try@npm:1.0.0"
-  checksum: 3b5303f77eb7722144154288bfd96f799f8ff3e2b2b39330efe38db5dd359e4fb27012464cd85cb0a76e9b7edd1b443568cb3192c22e7cffc34989df0bafd605
   languageName: node
   linkType: hard
 
@@ -16502,13 +19310,6 @@ __metadata:
   version: 1.0.1
   resolution: "path-browserify@npm:1.0.1"
   checksum: c6d7fa376423fe35b95b2d67990060c3ee304fc815ff0a2dc1c6c3cfaff2bd0d572ee67e18f19d0ea3bbe32e8add2a05021132ac40509416459fffee35200699
-  languageName: node
-  linkType: hard
-
-"path-dirname@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "path-dirname@npm:1.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpath-dirname%2F-%2Fpath-dirname-1.0.2.tgz"
-  checksum: 0d2f6604ae05a252a0025318685f290e2764ecf9c5436f203cdacfc8c0b17c24cdedaa449d766beb94ab88cc7fc70a09ec21e7933f31abc2b719180883e5e33f
   languageName: node
   linkType: hard
 
@@ -16865,13 +19666,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:^8.2.15":
-  version: 8.4.14
-  resolution: "postcss@npm:8.4.14"
+  version: 8.4.16
+  resolution: "postcss@npm:8.4.16"
   dependencies:
     nanoid: ^3.3.4
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
-  checksum: fe58766ff32e4becf65a7d57678995cfd239df6deed2fe0557f038b47c94e4132e7e5f68b5aa820c13adfec32e523b693efaeb65798efb995ce49ccd83953816
+  checksum: 10eee25efd77868036403858577da0cefaf2e0905feeaba5770d5438ccdddba3d01cba8063e96b8aac4c6daa0ed413dd5ae0554a433a3c4db38df1d134cffc1f
   languageName: node
   linkType: hard
 
@@ -16886,13 +19687,6 @@ __metadata:
   version: 1.1.2
   resolution: "prelude-ls@npm:1.1.2"
   checksum: c4867c87488e4a0c233e158e4d0d5565b609b105d75e4c05dc760840475f06b731332eb93cc8c9cecb840aa8ec323ca3c9a56ad7820ad2e63f0261dadcb154e4
-  languageName: node
-  linkType: hard
-
-"preserve@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "preserve@npm:0.2.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fpreserve%2F-%2Fpreserve-0.2.0.tgz"
-  checksum: dd31d4fd0e6b218cac7178712ae0683c96e6eaa3e5490a37aba6d47095f87c47ffe980a3061ebe72ca07cb2a9a4f1a41bbeecee8944ec77be311c294e05b2e43
   languageName: node
   linkType: hard
 
@@ -17217,13 +20011,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"querystring@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "querystring@npm:0.2.1"
-  checksum: 7b83b45d641e75fd39cd6625ddfd44e7618e741c61e95281b57bbae8fde0afcc12cf851924559e5cc1ef9baa3b1e06e22b164ea1397d65dd94b801f678d9c8ce
-  languageName: node
-  linkType: hard
-
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -17235,17 +20022,6 @@ __metadata:
   version: 0.28.0
   resolution: "ramda@npm:0.28.0"
   checksum: 44ea6e5010bba70151b6a92d8114a91915e8b5a16105cce65fae58c9d7386b812c429645e35f21141d7087568550ce383bc10ee1a65cdec951f4b69ea457e6a4
-  languageName: node
-  linkType: hard
-
-"randomatic@npm:^3.0.0":
-  version: 3.1.1
-  resolution: "randomatic@npm:3.1.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Frandomatic%2F-%2Frandomatic-3.1.1.tgz"
-  dependencies:
-    is-number: ^4.0.0
-    kind-of: ^6.0.0
-    math-random: ^1.0.1
-  checksum: 1952baed71801d3698fe84f3ab01e25ea124fc20ce91e133aa1981268c1347647f9ae1fdc62389db2411ebdad61c0f7cea0ce840dee260ad2adadfcf27299018
   languageName: node
   linkType: hard
 
@@ -17345,9 +20121,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2":
+"react-dom@npm:<18.0.0":
   version: 17.0.2
-  resolution: "react-dom@npm:17.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact-dom%2F-%2Freact-dom-17.0.2.tgz"
+  resolution: "react-dom@npm:17.0.2"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
@@ -17494,9 +20270,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.2":
+"react@npm:<18.0.0":
   version: 17.0.2
-  resolution: "react@npm:17.0.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Freact%2F-%2Freact-17.0.2.tgz"
+  resolution: "react@npm:17.0.2"
   dependencies:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
@@ -17902,13 +20678,6 @@ __metadata:
   version: 1.1.4
   resolution: "repeat-element@npm:1.1.4"
   checksum: 1edd0301b7edad71808baad226f0890ba709443f03a698224c9ee4f2494c317892dc5211b2ba8cbea7194a9ddbcac01e283bd66de0467ab24ee1fc1a3711d8a9
-  languageName: node
-  linkType: hard
-
-"repeat-string@npm:^1.5.2":
-  version: 1.6.1
-  resolution: "repeat-string@npm:1.6.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Frepeat-string%2F-%2Frepeat-string-1.6.1.tgz"
-  checksum: 1b809fc6db97decdc68f5b12c4d1a671c8e3f65ec4a40c238bc5200e44e85bcc52a54f78268ab9c29fcf5fe4f1343e805420056d1f30fa9a9ee4c2d93e3cc6c0
   languageName: node
   linkType: hard
 
@@ -19128,9 +21897,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:>=5.2.3 <6.0.0":
+"styled-components@npm:^5":
   version: 5.3.5
-  resolution: "styled-components@npm:5.3.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstyled-components%2F-%2Fstyled-components-5.3.5.tgz"
+  resolution: "styled-components@npm:5.3.5"
   dependencies:
     "@babel/helper-module-imports": ^7.0.0
     "@babel/traverse": ^7.4.5
@@ -19496,15 +22265,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"to-regex-range@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "to-regex-range@npm:5.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fto-regex-range%2F-%2Fto-regex-range-5.0.1.tgz"
-  dependencies:
-    is-number: ^7.0.0
-  checksum: f76fa01b3d5be85db6a2a143e24df9f60dd047d151062d0ba3df62953f2f697b16fe5dad9b0ac6191c7efc7b1d9dcaa4b768174b7b29da89d4428e64bc0a20ed
-  languageName: node
-  linkType: hard
-
 "to-regex@npm:^3.0.1, to-regex@npm:^3.0.2":
   version: 3.0.2
   resolution: "to-regex@npm:3.0.2"
@@ -19551,10 +22311,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trim-newlines@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "trim-newlines@npm:1.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftrim-newlines%2F-%2Ftrim-newlines-1.0.0.tgz"
-  checksum: ed96eea318581c6f894c0a98d0c4f16dcce11a41794ce140a79db55f1cab709cd9117578ee5e49a9b52f41e9cd93eaf3efa6c4bddbc77afbf91128b396fadbc1
+"trim-newlines@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "trim-newlines@npm:3.0.1"
+  checksum: b530f3fadf78e570cf3c761fb74fef655beff6b0f84b29209bac6c9622db75ad1417f4a7b5d54c96605dcd72734ad44526fef9f396807b90839449eb543c6206
   languageName: node
   linkType: hard
 
@@ -19572,10 +22332,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trim@npm:0.0.1":
-  version: 0.0.1
-  resolution: "trim@npm:0.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftrim%2F-%2Ftrim-0.0.1.tgz"
-  checksum: 2b4646dff99a222e8e1526edd4e3a43bbd925af0b8e837c340455d250157e7deefaa4da49bb891ab841e5c27b1afc5e9e32d4b57afb875d2dfcabf4e319b8f7f
+"trim@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "trim@npm:0.0.3"
+  checksum: 9a059ba56d5e22c9e571798a7c63640cb25478c495d8a9d001f6352927207c6bd224018751a0c5145fbedc943ee2ebab1d7cc2e8ccba3121a51a7d3428dd879c
   languageName: node
   linkType: hard
 
@@ -19824,11 +22584,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.2.3#~builtin<compat/typescript>":
   version: 4.7.4
-  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=f456af"
+  resolution: "typescript@patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 9096d8f6c16cb80ef3bf96fcbbd055bf1c4a43bd14f3b7be45a9fbe7ada46ec977f604d5feed3263b4f2aa7d4c7477ce5f9cd87de0d6feedec69a983f3a4f93e
+  checksum: 96d3030cb01143570567cb4f3a616b10df65f658f0e74e853e77a089a6a954e35c800be7db8b9bfe9a1ae05d9c2897e281359f65e4caa1caf266368e1c4febd3
   languageName: node
   linkType: hard
 
@@ -20197,15 +22957,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:>=8.3.2 <9.0.0":
-  version: 8.3.2
-  resolution: "uuid@npm:8.3.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fuuid%2F-%2Fuuid-8.3.2.tgz"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
-  languageName: node
-  linkType: hard
-
 "uuid@npm:^3.3.2":
   version: 3.4.0
   resolution: "uuid@npm:3.4.0"
@@ -20511,8 +23262,8 @@ __metadata:
   linkType: hard
 
 "webpack-dev-server@npm:^4.7.4":
-  version: 4.9.3
-  resolution: "webpack-dev-server@npm:4.9.3"
+  version: 4.10.0
+  resolution: "webpack-dev-server@npm:4.10.0"
   dependencies:
     "@types/bonjour": ^3.5.9
     "@types/connect-history-api-fallback": ^1.3.5
@@ -20550,7 +23301,7 @@ __metadata:
       optional: true
   bin:
     webpack-dev-server: bin/webpack-dev-server.js
-  checksum: 845f2cc8e79a348ee7b17080eef9b332c675540888e0bc97ec6b62174882aca7995eaa7a3f49cfdd9af186da22f2f335fd03cb3c55cd49e387c8a3dc59700d66
+  checksum: ef9efac45e97cd3f258ab453039ff75423451e2cf5ee98e8cecbac24c33e5c9e1024ef1a3bca0ba12533a1d5fc0601015addef489cdb68fa8f5f2570d2220983
   languageName: node
   linkType: hard
 
@@ -20564,14 +23315,13 @@ __metadata:
   linkType: hard
 
 "webpack-hot-middleware@npm:^2.25.1":
-  version: 2.25.1
-  resolution: "webpack-hot-middleware@npm:2.25.1"
+  version: 2.25.2
+  resolution: "webpack-hot-middleware@npm:2.25.2"
   dependencies:
     ansi-html-community: 0.0.8
     html-entities: ^2.1.0
-    querystring: ^0.2.0
     strip-ansi: ^6.0.0
-  checksum: 49f05023a1e95fab2703a885c3321dfd2ff832bcece9cbfafe9dbe68bcf16a25cd5c3c455b0534e93b7448f2dd05de2ef9009394c95dfae9bbbcc740189416f7
+  checksum: 9bbcb4a3109d5efc3fedc41ab84209745e47770a205897324adff9126196d9cd086237288161d71cd7273a0154e09046d025a3c30c6938bd04e58d3b379fdcca
   languageName: node
   linkType: hard
 
