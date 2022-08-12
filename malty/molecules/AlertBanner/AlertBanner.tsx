@@ -32,7 +32,7 @@ const textColorsMap = {
 
 export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
-  breakpoint = Number(layoutProps.small['device-max-width'].value.split('px')[0]),
+  breakpoint = layoutProps.small['device-max-width'].value,
   animation = { showAnimation: false, triggerYPosition: 0, currentYOffset: 0 }
 }) => {
   const { showAnimation, triggerYPosition, currentYOffset } = animation;
@@ -41,7 +41,8 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
   const currentAlert = alerts[activeAlert - 1];
-  const isMobile = width <= breakpoint;
+  const breakpointNumber = Number(breakpoint.split('px')[0])
+  const isMobile = width <= breakpointNumber;
 
   const handleShow = () => {
     setHideSliderOptions(false);

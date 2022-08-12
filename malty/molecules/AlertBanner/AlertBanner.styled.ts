@@ -68,12 +68,12 @@ export const ContentRow = styled.div`
 `;
 
 export const MessageContainer = styled.div<{
-  breakpoint: number;
+  breakpoint: string;
 }>`
   padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
   display: flex;
   align-items: center;
-  @media (min-width: ${({ breakpoint }) => breakpoint}px) {
+  @media (min-width: ${({ breakpoint }) => breakpoint}) {
     position: absolute;
     top: 50%;
     left: 50%;

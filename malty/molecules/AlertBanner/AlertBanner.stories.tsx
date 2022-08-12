@@ -58,7 +58,7 @@ AlertBanner.args = {
       icon: true
     }
   ],
-  breakpoint: Number(layoutProps.small['device-max-width'].value.split('px')[0]),
+  breakpoint: layoutProps.small['device-max-width'].value,
   animation: {
     showAnimation: false,
     triggerYPosition: 0,
