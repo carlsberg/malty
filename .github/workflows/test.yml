@@ -40,6 +40,7 @@ jobs:
       - name: Install dependencies (Bit CLI)
         run: |
           export PATH=${{ env.PATH }}
+          yarn wipe
           bit install
           bit compile
         shell: bash
