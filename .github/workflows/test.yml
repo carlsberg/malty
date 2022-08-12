@@ -11,8 +11,6 @@ jobs:
   tests-run:
     name: 'Run Unit Tests'
     runs-on: ubuntu-latest
-    env:
-      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
@@ -27,13 +25,10 @@ jobs:
       - name: Register remote scopes
         run: |
           echo "Adding bit.dev to npm registry"
-          npm config set @bit:registry https://node.bit.dev
-          npm config set @carlsberggroup:registry=https://node.bit.dev
-          npm config set @teambit:registry=https://node.bit.dev
-          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+          npm config set @bit:registry https://node.bit.cloud
+          npm config set @carlsberggroup:registry=https://node.bit.cloud
+          npm config set @teambit:registry=https://node.bit.cloud
           echo "Completed adding bit.dev to npm registry"
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
         shell: bash
 
       - name: Install Bit
@@ -45,11 +40,8 @@ jobs:
       - name: Install dependencies (Bit CLI)
         run: |
           export PATH=${{ env.PATH }}
-          bit config set user.token ${BIT_TOKEN}
           bit install
           bit compile
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
         shell: bash
 
       - name: Run Unit Tests

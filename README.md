@@ -43,7 +43,7 @@ For more detailed instructions on how do install Bit CLI, please [look here](htt
 To install component packages, using npm or yarn, configure your package manager to use your scope owner name (Bit organization [@carlsberggroup]) as a scoped registry:
 
 ```bash
-npm config set @carlsberggroup:registry https://node.bit.dev
+npm config set @carlsberggroup:registry https://node.bit.cloud
 ```
 
 ### Login

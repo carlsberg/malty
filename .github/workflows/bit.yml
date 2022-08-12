@@ -8,8 +8,6 @@ jobs:
   deploy:
     name: 'Deploy Bit Packages'
     runs-on: ubuntu-latest
-    env:
-      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
       - id: token
         name: Token
@@ -37,22 +35,16 @@ jobs:
           npx @teambit/bvm install
           export PATH=$HOME/bin:$PATH
           echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-          bit config set user.token ${BIT_TOKEN}
         shell: bash
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Register remote scopes
         run: |
           echo "Adding bit.dev to npm registry"
-          npm config set @bit:registry https://node.bit.dev
-          npm config set @carlsberggroup:registry=https://node.bit.dev
-          npm config set @teambit:registry=https://node.bit.dev
-          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+          npm config set @bit:registry https://node.bit.cloud
+          npm config set @carlsberggroup:registry=https://node.bit.cloud
+          npm config set @teambit:registry=https://node.bit.cloud
           echo "Completed adding bit.dev to npm registry"
         shell: bash
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Bit Deps Install & Compile
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
