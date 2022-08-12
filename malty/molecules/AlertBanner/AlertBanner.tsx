@@ -3,12 +3,15 @@ import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
+
 import React, { FC, KeyboardEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   CloseButtonContainer,
   Container,
   ContentRow,
+  FadeWrapper,
   MessageContainer,
   StyledAction,
   StyledMessage
@@ -27,13 +30,23 @@ const textColorsMap = {
   [AlertBannerType.Error]: TextColor.White
 };
 
-export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) => {
+export const AlertBanner: FC<AlertBannerProps> = ({
+  alerts,
+  breakpoint = layoutProps.small['device-max-width'].value,
+  animation = { showAnimation: false, triggerYPosition: 0, currentYOffset: 0 }
+}) => {
+  const { showAnimation, triggerYPosition, currentYOffset } = animation;
+  const [hideSliderOptions, setHideSliderOptions] = useState(showAnimation);
   const theme = useContext(ThemeContext) || defaultTheme;
-
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
   const currentAlert = alerts[activeAlert - 1];
-  const isMobile = width <= breakpoint;
+  const breakpointNumber = Number(breakpoint.split('px')[0])
+  const isMobile = width <= breakpointNumber;
+
+  const handleShow = () => {
+    setHideSliderOptions(false);
+  };
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowSizeChange);
@@ -41,6 +54,12 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
       window.removeEventListener('resize', handleWindowSizeChange);
     };
   }, []);
+
+  useEffect(() => {
+    if (isMobile && !hideSliderOptions) {
+      setHideSliderOptions(true);
+    }
+  }, [isMobile, showAnimation, currentYOffset]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -53,6 +72,8 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         action();
       }
     };
+
+  const triggerAnimation = () => showAnimation && hideSliderOptions && currentYOffset > triggerYPosition;
 
   if (!alerts?.length) {
     return null;
@@ -84,6 +105,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
 
   const renderCloseButton = () => (
     <CloseButtonContainer
+      triggerFadeAnimation={triggerAnimation()}
       data-testid={`${currentAlert.dataQaId}-close-icon`}
       onClick={currentAlert.dismiss || (() => null)}
       onKeyUp={handleOnKeyUp(currentAlert.dismiss)}
@@ -115,7 +137,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
   };
 
   const renderMessage = () => (
-    <StyledMessage>
+    <StyledMessage hideText={triggerAnimation()}>
       <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
         {currentAlert.message}
       </Text>
@@ -123,7 +145,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
   );
 
   return (
-    <Container type={currentAlert.type} theme={theme}>
+    <Container type={currentAlert.type} theme={theme} onClick={handleShow}>
       <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme}>
         {!isMobile && (
           <Pagination
@@ -142,16 +164,23 @@ export const AlertBanner: FC<AlertBannerProps> = ({ alerts, breakpoint = 768 }) 
         {renderCloseButton()}
       </ContentRow>
       {isMobile && (
-        <ContentRow theme={theme}>
-          <Pagination
-            count={alerts.length}
-            onChange={(pageNr) => setActiveAlert(pageNr)}
-            currentPage={activeAlert}
-            type={PaginationType.Compact}
-            isWhite={currentAlert.type !== AlertBannerType.Warning}
-          />
-          {renderAction()}
-        </ContentRow>
+        <FadeWrapper
+          theme={theme}
+          show={hideSliderOptions}
+          offsetY={currentYOffset}
+          triggerYPosition={triggerYPosition}
+        >
+          <ContentRow theme={theme}>
+            <Pagination
+              count={alerts.length}
+              onChange={(pageNr) => setActiveAlert(pageNr)}
+              currentPage={activeAlert}
+              type={PaginationType.Compact}
+              isWhite={currentAlert.type !== AlertBannerType.Warning}
+            />
+            {renderAction()}
+          </ContentRow>
+        </FadeWrapper>
       )}
     </Container>
   );

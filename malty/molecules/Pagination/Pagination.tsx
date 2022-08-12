@@ -194,6 +194,7 @@ export const Pagination = ({
               icon={IconName.ChevronLeft}
               size={buttonSize}
               negative={isWhite}
+              aria-label={'Previous button'}
             />
           </li>
           {renderContent()}
@@ -208,6 +209,7 @@ export const Pagination = ({
               icon={IconName.ChevronRight}
               size={buttonSize}
               negative={isWhite}
+              aria-label={'Next button'}
             />
           </li>
         </ul>
