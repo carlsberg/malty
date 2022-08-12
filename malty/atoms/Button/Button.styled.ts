@@ -64,6 +64,7 @@ const StyledButton = styled.button<{
     align-items: center;
     gap: ${({ theme }) => theme.sizes['2xs'].value};
     opacity: 1;
+    font: inherit;
     &.invisible {
       opacity: 0;
     }

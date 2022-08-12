@@ -88,6 +88,9 @@
         "policy": {
           "dependencies": {
             "react-datepicker": "^4.7.0"
+          },
+          "peerDependencies": {
+            "@carlsberggroup/malty.atoms.button": "*"
           }
         }
       }
