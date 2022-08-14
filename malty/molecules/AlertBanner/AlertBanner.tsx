@@ -41,7 +41,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
   const currentAlert = alerts[activeAlert - 1];
-  const breakpointNumber = Number(breakpoint.split('px')[0])
+  const breakpointNumber = Number(breakpoint.split('px')[0]);
   const isMobile = width <= breakpointNumber;
 
   const handleShow = () => {
@@ -91,7 +91,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         onKeyUp={handleOnKeyUp(currentAlert.action)}
         role="button"
         theme={theme}
-        breakpoint={breakpoint}
+        breakpoint={breakpointNumber}
       >
         <Link
           color={currentAlert.type !== AlertBannerType.Warning ? LinkColor.White : LinkColor.DigitalBlack}
