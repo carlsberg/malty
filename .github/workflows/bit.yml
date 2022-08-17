@@ -58,6 +58,8 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           export PATH=${{ env.PATH }}
+          yarn cache clean --force
+          bit clear-cache
           bit install
           bit compile
         shell: bash
