@@ -26,11 +26,6 @@ jobs:
         with:
           node-version: '16'
 
-      - uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
       - name: Bit Install & Setup
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
@@ -58,6 +53,8 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           export PATH=${{ env.PATH }}
+          yarn cache clean --force
+          bit clear-cache
           bit install
           bit compile
         shell: bash
