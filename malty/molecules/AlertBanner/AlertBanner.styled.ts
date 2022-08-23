@@ -104,7 +104,7 @@ export const StyledMessage = styled.div<{ hideText: boolean }>`
 `;
 
 export const StyledAction = styled.div<{
-  breakpoint: number;
+  breakpoint: string;
 }>`
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -113,7 +113,7 @@ export const StyledAction = styled.div<{
   button {
     text-decoration: underline;
   }
-  @media (max-width: ${({ breakpoint }) => breakpoint}px) {
+  @media (max-width: ${({ breakpoint }) => breakpoint}) {
     margin-right: ${({ theme }) => theme.sizes.s.value};
   }
 `;
