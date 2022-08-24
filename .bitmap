@@ -1409,7 +1409,7 @@
     },
     "molecules/alert-banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.26",
+        "version": "0.0.27",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertBanner"
     },
@@ -1451,7 +1451,7 @@
     },
     "molecules/pagination": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.31",
+        "version": "0.0.32",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
     },
