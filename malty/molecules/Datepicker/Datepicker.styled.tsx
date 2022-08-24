@@ -25,12 +25,14 @@ export const StyledWrapper = styled.div`
 export const StyledDatepicker = styled.div<{
   disabled?: boolean;
   readOnly?: boolean;
+  size: string;
 }>`
   position: relative;
   & .react-datepicker-popper {
     width: 100%;
     max-width: 544px;
     min-width: 304px;
+    z-index: 1;
   }
   & .datepickerInput {
     border-radius: 0;
@@ -40,17 +42,31 @@ export const StyledDatepicker = styled.div<{
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-    height: ${({ theme }) => theme.sizes['2xl'].value};
+    height: ${({ size }) => `${size}`};
     width: 100%;
     min-width: 150px;
     box-sizing: border-box;
     text-align: left;
+    transition: 0.25s ease-in-out;
+    transition-property: border-color, color;
     padding: 0 ${({ theme }) => theme.sizes.s.value};
     border-width: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}`};
     border-style: ${({ theme }) => `${theme.borders['border-1px--solid']['border-style'].value}`};
-    border-color: ${({ theme }) => `${theme.colors.colours.default['digital-black'].value}`};
+    border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
     font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
     outline: none;
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+    }
+    &:focus {
+      border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+      color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    }
     ${({ disabled }) =>
       disabled &&
       css`
