@@ -156,7 +156,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
         )}
-        <MessageContainer theme={theme} breakpoint={breakpoint}>
+        <MessageContainer theme={theme} breakpoint={breakpoint} data-testid="alert-banner-message-content">
           {currentAlert.icon && renderIcon()}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}
