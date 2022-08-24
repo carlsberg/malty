@@ -3,7 +3,7 @@ import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { KeyboardEvent, ReactNode, useCallback, useContext, useMemo, useRef, useState } from 'react';
+import React, { KeyboardEvent, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -19,7 +19,7 @@ import {
   StyledLabel,
   StyledWrapper
 } from './Datepicker.styled';
-import { Colors, DatepickerProps } from './Datepicker.types';
+import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
 export const Datepicker = ({
   startDate,
@@ -39,9 +39,11 @@ export const Datepicker = ({
   primaryAction,
   secondaryAction,
   shouldCloseOnSelect = true,
+  size = DatepickerSize.Medium,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const colors = useColorsMapping();
   const id = useMemo(() => uuid(), []);
   const [open, setOpen] = useState(false);
@@ -86,6 +88,20 @@ export const Datepicker = ({
       handleClose();
     }
   };
+
+  useEffect(() => {
+    switch (size) {
+      case DatepickerSize.Large: {
+        setNumSize(theme.sizes['2xl'].value);
+        break;
+      }
+
+      default: {
+        setNumSize(theme.sizes.xl.value);
+        break;
+      }
+    }
+  }, [size, theme]);
 
   const Container = ({ children }: { children: ReactNode }) => (
     <StyledContainer theme={theme}>
@@ -138,12 +154,12 @@ export const Datepicker = ({
   return (
     <TypographyProvider>
       <StyledWrapper theme={theme}>
-        {!inline && (
+        {!inline && label && (
           <StyledLabel htmlFor={id} disabled={disabled} theme={theme}>
             {label}
           </StyledLabel>
         )}
-        <StyledDatepicker disabled={disabled} readOnly={readOnly} theme={theme}>
+        <StyledDatepicker size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
           {!inline && (
             <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
               <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />

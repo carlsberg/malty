@@ -17,8 +17,13 @@ export interface DatepickerProps {
   primaryAction?: Action;
   secondaryAction?: Action;
   shouldCloseOnSelect?: boolean;
+  size?: DatepickerSize;
 }
 
+export enum DatepickerSize {
+  Medium = 'Medium',
+  Large = 'Large'
+}
 export type Caption = {
   color: Colors;
   label: string;

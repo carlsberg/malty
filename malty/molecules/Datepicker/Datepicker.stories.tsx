@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Datepicker as DatepickerComponent } from './Datepicker';
-import { Colors, DatepickerProps } from './Datepicker.types';
+import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
 export default {
   title: 'Forms/Datepicker',
@@ -46,6 +46,18 @@ export default {
       description: 'disable array of days',
       control: {
         type: 'array'
+      }
+    },
+    size: {
+      description: 'Button size. Options are',
+      options: Object.values(DatepickerSize),
+      table: {
+        defaultValue: {
+          summary: 'DatepickerSize.Medium'
+        }
+      },
+      control: {
+        type: 'select'
       }
     },
     disabled: {
@@ -128,7 +140,8 @@ const Template: Story<DatepickerProps> = ({
   inline,
   primaryAction,
   secondaryAction,
-  shouldCloseOnSelect
+  shouldCloseOnSelect,
+  size
 }) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
@@ -171,6 +184,7 @@ const Template: Story<DatepickerProps> = ({
         secondaryAction={secondaryAction}
         inline={inline}
         shouldCloseOnSelect={shouldCloseOnSelect}
+        size={size}
       />
     </div>
   );
