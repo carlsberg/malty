@@ -42,7 +42,9 @@ export const Select = ({
   value,
   search = false,
   dataTestId,
-  readOnly
+  readOnly,
+  selectAllLabel = 'Select all',
+  clearAllLabel = 'Clear all'
 }: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -189,12 +191,12 @@ export const Select = ({
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
                 <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
-                  Select all
+                  {selectAllLabel}
                 </StyledActionButton>
               )}
               {selectedValueState.length > 0 && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
-                  {multiple ? 'Clear all' : 'Clear'}
+                  {clearAllLabel}
                 </StyledActionButton>
               )}
             </StyledActionButtonWrapper>
