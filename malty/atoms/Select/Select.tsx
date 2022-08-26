@@ -42,7 +42,8 @@ export const Select = ({
   value,
   search = false,
   dataTestId,
-  readOnly
+  readOnly,
+  onBlur
 }: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -259,6 +260,7 @@ export const Select = ({
           open={showOptionList}
           type={ButtonType.Default}
           data-testid={`${dataTestId}-button`}
+          onBlur={onBlur}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid={`${dataTestId}-selected-values`}>
             {displaySelectedValues()}
