@@ -20,6 +20,14 @@ export default {
       description: 'Label for the Select component',
       control: 'text'
     },
+    selectAllLabel: {
+      description: 'Label for the Select all action',
+      control: 'text'
+    },
+    clearAllLabel: {
+      description: 'Label for the Clear all action',
+      control: 'text'
+    },
     placeholder: {
       description: 'Placeholder text to go inside the Select field, when empty.',
       control: 'text'
