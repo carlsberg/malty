@@ -17,6 +17,7 @@ export interface SelectProps {
   readOnly?: boolean;
   selectAllLabel?: string;
   clearAllLabel?: string;
+  onBlur?: () => void;
 }
 
 export interface SelectOptionsType {

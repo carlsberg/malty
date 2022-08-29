@@ -44,7 +44,8 @@ export const Select = ({
   dataTestId,
   readOnly,
   selectAllLabel = 'Select all',
-  clearAllLabel = 'Clear all'
+  clearAllLabel = 'Clear all',
+  onBlur
 }: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -261,6 +262,7 @@ export const Select = ({
           open={showOptionList}
           type={ButtonType.Default}
           data-testid={`${dataTestId}-button`}
+          onBlur={onBlur}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid={`${dataTestId}-selected-values`}>
             {displaySelectedValues()}
