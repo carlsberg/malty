@@ -15,6 +15,7 @@ export interface SelectProps {
   selectionText?: string;
   dataTestId?: string;
   readOnly?: boolean;
+  onBlur?: () => void;
 }
 
 export interface SelectOptionsType {
