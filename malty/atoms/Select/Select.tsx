@@ -42,7 +42,10 @@ export const Select = ({
   value,
   search = false,
   dataTestId,
-  readOnly
+  readOnly,
+  selectAllLabel = 'Select all',
+  clearAllLabel = 'Clear all',
+  onBlur
 }: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -125,7 +128,7 @@ export const Select = ({
     if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
   }, [defaultValue]);
   useEffect(() => {
-    if (value && value?.length > 0) setSelectedValueState(value);
+    if (value) setSelectedValueState(value);
   }, [value]);
 
   useEffect(() => {
@@ -189,12 +192,12 @@ export const Select = ({
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
                 <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
-                  Sellect all
+                  {selectAllLabel}
                 </StyledActionButton>
               )}
               {selectedValueState.length > 0 && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
-                  {multiple ? 'Clear all' : 'Clear'}
+                  {clearAllLabel}
                 </StyledActionButton>
               )}
             </StyledActionButtonWrapper>
@@ -259,6 +262,7 @@ export const Select = ({
           open={showOptionList}
           type={ButtonType.Default}
           data-testid={`${dataTestId}-button`}
+          onBlur={onBlur}
         >
           <StyledSelectedOptionsWrapper theme={theme} data-testid={`${dataTestId}-selected-values`}>
             {displaySelectedValues()}

@@ -115,8 +115,9 @@ export const Pagination = ({
   const renderContent = () => {
     if (isInput) {
       return (
-        <StyledInputPagination>
+        <StyledInputPagination theme={theme}>
           <StyledInput
+            theme={theme}
             data-testid={`${dataQaId}-input`}
             value={inputValue}
             onChange={(e) => handleInput(e)}
@@ -193,6 +194,7 @@ export const Pagination = ({
               icon={IconName.ChevronLeft}
               size={buttonSize}
               negative={isWhite}
+              aria-label={'Previous button'}
             />
           </li>
           {renderContent()}
@@ -207,6 +209,7 @@ export const Pagination = ({
               icon={IconName.ChevronRight}
               size={buttonSize}
               negative={isWhite}
+              aria-label={'Next button'}
             />
           </li>
         </ul>

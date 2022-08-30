@@ -1,5 +1,16 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { AlertBannerType } from './AlertBanner.types';
+
+const simpleFadeAnimation = keyframes`
+     0% {
+       visibility: visible;
+       opacity: 1;
+     } 
+     100% {
+       visibility: visible;
+        opacity: 0;
+     }
+`;
 
 export const Container = styled.div<{
   type?: AlertBannerType;
@@ -19,6 +30,33 @@ export const Container = styled.div<{
   color: ${({ theme }) => theme.colors.colours.default.white.value};
 `;
 
+export const FadeWrapper = styled.div<{
+  show: boolean;
+  offsetY: number;
+  triggerYPosition: number;
+}>`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  opacity: 1;
+  height: ${({ theme }) => theme.sizes.xl.value};
+  transition: height 0.2s ease-in-out;
+  & > div {
+    width: 100%;
+  }
+  ${({ show, offsetY, triggerYPosition }) => {
+    if (show && offsetY > triggerYPosition) {
+      return css`
+        transition: height 0.35s ease-in-out;
+        animation: ${simpleFadeAnimation} 0.3s ease-in-out;
+        visibility: hidden;
+        height: 0px;
+      `;
+    }
+  }}
+`;
+
 export const ContentRow = styled.div`
   display: flex;
   align-items: center;
@@ -30,11 +68,12 @@ export const ContentRow = styled.div`
 `;
 
 export const MessageContainer = styled.div<{
-  breakpoint: number;
+  breakpoint: string;
 }>`
+  padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
   display: flex;
   align-items: center;
-  @media (min-width: ${({ breakpoint }) => breakpoint}px) {
+  @media (min-width: ${({ breakpoint }) => breakpoint}) {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -52,14 +91,20 @@ export const MessageContainer = styled.div<{
   }
 `;
 
-export const StyledMessage = styled.div`
+export const StyledMessage = styled.div<{ hideText: boolean }>`
   overflow: hidden;
   display: flex;
   align-items: center;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
+  line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
+  transition: all 0.2s ease-in-out;
 `;
 
 export const StyledAction = styled.div<{
-  breakpoint: number;
+  breakpoint: string;
 }>`
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -68,15 +113,22 @@ export const StyledAction = styled.div<{
   button {
     text-decoration: underline;
   }
-  @media (max-width: ${({ breakpoint }) => breakpoint}px) {
+  @media (max-width: ${({ breakpoint }) => breakpoint}) {
     margin-right: ${({ theme }) => theme.sizes.s.value};
   }
 `;
 
-export const CloseButtonContainer = styled.div`
+export const CloseButtonContainer = styled.div<{ triggerFadeAnimation: boolean }>`
   cursor: Pointer;
   margin-left: auto;
   margin-right: ${({ theme }) => theme.sizes['2xs'].value};
   display: flex;
   align-items: center;
+  ${({ triggerFadeAnimation }) =>
+    triggerFadeAnimation &&
+    css`
+      animation: ${simpleFadeAnimation} 0.2s ease-in-out;
+      transition-delay: visibility 0.2s;
+      visibility: hidden;
+    `}
 `;

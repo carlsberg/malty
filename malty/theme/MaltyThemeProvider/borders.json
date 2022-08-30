@@ -14,5 +14,13 @@
     "border-style": {
       "value": "solid"
     }
+  },
+  "border-1px--dotted": {
+    "border-width": {
+      "value": "1px"
+    },
+    "border-style": {
+      "value": "dotted"
+    }
   }
 }

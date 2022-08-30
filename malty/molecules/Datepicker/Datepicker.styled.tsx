@@ -25,12 +25,14 @@ export const StyledWrapper = styled.div`
 export const StyledDatepicker = styled.div<{
   disabled?: boolean;
   readOnly?: boolean;
+  size: string;
 }>`
   position: relative;
   & .react-datepicker-popper {
     width: 100%;
     max-width: 544px;
     min-width: 304px;
+    z-index: 1;
   }
   & .datepickerInput {
     border-radius: 0;
@@ -40,17 +42,31 @@ export const StyledDatepicker = styled.div<{
     color: inherit;
     background-color: transparent;
     cursor: pointer;
-    height: ${({ theme }) => theme.sizes['2xl'].value};
+    height: ${({ size }) => `${size}`};
     width: 100%;
     min-width: 150px;
     box-sizing: border-box;
     text-align: left;
+    transition: 0.25s ease-in-out;
+    transition-property: border-color, color;
     padding: 0 ${({ theme }) => theme.sizes.s.value};
     border-width: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}`};
     border-style: ${({ theme }) => `${theme.borders['border-1px--solid']['border-style'].value}`};
-    border-color: ${({ theme }) => `${theme.colors.colours.default['digital-black'].value}`};
+    border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
     font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
     outline: none;
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+    }
+    &:focus {
+      border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+      color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    }
     ${({ disabled }) =>
       disabled &&
       css`
@@ -91,7 +107,7 @@ export const StyledInputIcon = styled.span<{
   right: 14px;
   position: absolute;
   z-index: 1;
-  ${({ theme }) => theme.sizes.xs.value};
+  pointer-events: none;
 
   ${({ disabled }) =>
     disabled &&
@@ -124,6 +140,7 @@ export const StyledContainer = styled.div`
 
 export const StyledCalendar = styled.div`
   display: flex;
+  flex-direction: column;
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   position: relative;
   & .react-datepicker__header {
@@ -150,6 +167,7 @@ export const StyledCalendar = styled.div`
     color: ${({ theme }) => theme.colors.colours.support['60'].value};
     width: auto;
     display: inline-block;
+    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     width: ${({ theme }) => theme.sizes.l.value};
     line-height: ${({ theme }) => theme.sizes.l.value};
     text-align: center;
@@ -179,6 +197,7 @@ export const StyledCalendar = styled.div`
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
     &:hover {
       background-color: ${({ theme }) => theme.colors.colours.support['20'].value};
@@ -290,5 +309,43 @@ export const StyledCalendar = styled.div`
       transform: rotate(45deg);
       left: ${({ theme }) => `-${theme.sizes.xs.value}`};
     }
+  }
+`;
+
+export const StyledCaptionContainer = styled.ul`
+  margin-top: ${({ theme }) => theme.sizes.m.value};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.sizes['3xs'].value};
+  padding: 0 ${({ theme }) => theme.sizes.xs.value};
+`;
+
+export const StyledCaption = styled.li<{ color: string; borderColor: string; dotted?: boolean }>`
+  display: flex;
+  align-items: center;
+  &::before {
+    content: '';
+    width: ${({ theme }) => theme.sizes['2xs'].value};
+    height: ${({ theme }) => theme.sizes['2xs'].value};
+    margin-right: ${({ theme }) => theme.sizes['2xs'].value};
+    border: ${({ theme, borderColor, dotted = false }) => {
+      const borderRootStyle = dotted ? theme.borders['border-1px--dotted'] : theme.borders['border-1px--solid'];
+
+      return `${borderRootStyle['border-width'].value} ${borderRootStyle['border-style'].value} ${borderColor}`;
+    }};
+    border-radius: ${({ theme }) => theme.sizes['2xs'].value};
+    background-color: ${({ color }) => color};
+  }
+`;
+
+export const StyledActionsContainer = styled.div`
+  margin-top: ${({ theme }) => theme.sizes.m.value};
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: ${({ theme }) => theme.sizes.s.value};
+  padding: 0 ${({ theme }) => theme.sizes.xs.value};
+  & > * {
+    flex: 0.5 1 0;
   }
 `;

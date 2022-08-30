@@ -1,3 +1,4 @@
+import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -56,5 +57,11 @@ AlertBanner.args = {
       dismiss: action('Dismiss button clicked'),
       icon: true
     }
-  ]
+  ],
+  breakpoint: layoutProps.small['device-max-width'].value,
+  animation: {
+    showAnimation: false,
+    triggerYPosition: 0,
+    currentYOffset: 0
+  }
 };
