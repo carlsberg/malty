@@ -89,6 +89,7 @@ export const StyledRadio = styled.input`
 
 export const StyledLabel = styled.label<{
   disabled?: boolean;
+  required?: boolean;
 }>`
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
@@ -97,6 +98,14 @@ export const StyledLabel = styled.label<{
   // using hardcoded values due to not having token value and design team thinking on implementation with icons
   padding-left: 10px;
   cursor: pointer;
+  ${({ required }) =>
+    required &&
+    css`
+      &::after {
+        content: ' *';
+        color: ${({ theme }) => theme.colors.colours.system.fail.value};
+      }
+    `}
   ${({ disabled }) =>
     disabled &&
     css`

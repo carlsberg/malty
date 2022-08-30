@@ -27,6 +27,7 @@ export const Datepicker = ({
   selectsRange,
   inline,
   readOnly,
+  required,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -41,7 +42,7 @@ export const Datepicker = ({
     <TypographyProvider>
       <StyledWrapper theme={theme}>
         {!inline && (
-          <StyledLabel disabled={disabled} htmlFor="datepicker-input" theme={theme}>
+          <StyledLabel required={required} disabled={disabled} htmlFor="datepicker-input" theme={theme}>
             {label}
           </StyledLabel>
         )}
@@ -53,6 +54,7 @@ export const Datepicker = ({
           )}
 
           <DatePicker
+            required={required}
             selected={startDate}
             startDate={startDate}
             endDate={selectsRange ? endDate : null}

@@ -83,6 +83,10 @@ export default {
       control: {
         type: 'string'
       }
+    },
+    required: {
+      control: 'boolean',
+      description: 'Makes the Datepicker required to fill'
     }
   }
 } as Meta;
@@ -97,7 +101,8 @@ const Template: Story<DatepickerProps> = ({
   placeholderText,
   selectsRange,
   dateFormat,
-  readOnly
+  readOnly,
+  required
 }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -129,6 +134,7 @@ const Template: Story<DatepickerProps> = ({
         selectsRange={selectsRange}
         dateFormat={dateFormat}
         readOnly={readOnly}
+        required={required}
       />
     </div>
   );
@@ -143,22 +149,25 @@ switch (variant) {
   case 'disabled':
     Datepicker.args = {
       label: 'Select date',
-      disabled: true
+      disabled: true,
+      required: false
     };
     break;
   case 'readonly':
     Datepicker.args = {
       label: 'Select date',
-      readOnly: true
+      readOnly: true,
+      required: false
     };
     break;
   case 'range':
     Datepicker.args = {
       label: 'Select date',
-      selectsRange: true
+      selectsRange: true,
+      required: false
     };
     break;
   default:
-    Datepicker.args = { label: 'Select date' };
+    Datepicker.args = { label: 'Select date', required: false };
     break;
 }

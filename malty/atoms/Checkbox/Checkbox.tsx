@@ -11,19 +11,20 @@ import {
 } from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
 
-export const Checkbox = ({ id, value, checked, labelText, error, onValueChange }: CheckboxProps) => {
+export const Checkbox = ({ id, value, checked, labelText, error, onValueChange, required = false }: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <TypographyProvider>
       <StyledCheckboxContainer theme={theme}>
-        <StyledCheckboxLabel htmlFor={id} theme={theme}>
+        <StyledCheckboxLabel required={required} htmlFor={id} theme={theme}>
           <StyledCheckboxHiddenInput
             id={id}
             value={value}
             onChange={(e) => onValueChange(!(e.target as HTMLInputElement).checked)}
             checked={checked}
             theme={theme}
+            required={required}
           />
           <StyledCheckboxDisplayInput checked={checked} theme={theme} />
           <StyledCheckboxLabelText theme={theme}>{labelText}</StyledCheckboxLabelText>

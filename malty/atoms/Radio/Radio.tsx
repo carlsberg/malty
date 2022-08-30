@@ -4,7 +4,17 @@ import { ThemeContext } from 'styled-components';
 import { RadioProps } from '.';
 import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
 
-export const Radio = ({ value, label, onValueChange, selected, error, name, disabled, ...props }: RadioProps) => {
+export const Radio = ({
+  value,
+  label,
+  onValueChange,
+  selected,
+  error,
+  name,
+  disabled,
+  required = false,
+  ...props
+}: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
@@ -23,10 +33,11 @@ export const Radio = ({ value, label, onValueChange, selected, error, name, disa
           name={name}
           onChange={handleValueChange}
           disabled={disabled}
+          required={required}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
-        <StyledLabel htmlFor={value.toString()} disabled={disabled} theme={theme}>
+        <StyledLabel required={required} htmlFor={value.toString()} disabled={disabled} theme={theme}>
           {label}
         </StyledLabel>
       </StyledRadioContainer>

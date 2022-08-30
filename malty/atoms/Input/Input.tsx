@@ -244,7 +244,13 @@ export const Input = ({
     <TypographyProvider>
       <StyledInputContainer theme={theme}>
         {label && (
-          <StyledLabel disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
+          <StyledLabel
+            required={required}
+            disabled={disabled}
+            data-testid={`${dataTestId}-label`}
+            htmlFor={id}
+            theme={theme}
+          >
             {label}
           </StyledLabel>
         )}

@@ -13,4 +13,5 @@ export interface DatepickerProps {
   inline?: boolean;
   dateFormat?: string;
   readOnly?: boolean;
+  required?: boolean;
 }

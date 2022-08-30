@@ -24,6 +24,7 @@ export const TextArea = ({
   maxLength,
   hint,
   readOnly = false,
+  required,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -43,7 +44,7 @@ export const TextArea = ({
     <TypographyProvider>
       <StyledTextareaContainer theme={theme}>
         {label && (
-          <StyledLabel disabled={disabled} htmlFor={id} theme={theme}>
+          <StyledLabel required={required} disabled={disabled} htmlFor={id} theme={theme}>
             {label}
           </StyledLabel>
         )}
@@ -58,6 +59,7 @@ export const TextArea = ({
             disabled={disabled}
             readOnly={readOnly}
             maxLength={maxLength}
+            required={required}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />

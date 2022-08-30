@@ -9,4 +9,5 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   hint?: string;
   maxLength?: number;
   readOnly?: boolean;
+  required?: boolean;
 }

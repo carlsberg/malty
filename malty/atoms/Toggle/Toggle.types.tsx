@@ -4,4 +4,5 @@ export interface ToggleProps extends React.HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   checked: boolean;
   error?: string;
+  required?: boolean;
 }

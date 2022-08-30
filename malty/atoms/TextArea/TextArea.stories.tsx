@@ -50,6 +50,10 @@ export default {
     },
     onValueChange: {
       description: 'Function to be executed when textarea state changes'
+    },
+    required: {
+      control: 'boolean',
+      description: 'Makes the textarea input required to fill'
     }
   }
 } as Meta;
@@ -76,5 +80,6 @@ TextArea.args = {
   error: error ? 'Error text' : '',
   value: '',
   hint: 'hint text',
-  readOnly: false
+  readOnly: false,
+  required: false
 };
