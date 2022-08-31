@@ -60,7 +60,7 @@ export const Modal = ({
                       <Button
                         fullWidth
                         size={ButtonSize.Large}
-                        style={ButtonStyle[btnInstance.variant]}
+                        style={ButtonStyle[btnInstance.variant] as ButtonStyle}
                         onClick={btnInstance.onClick}
                       >
                         {btnInstance.label}
