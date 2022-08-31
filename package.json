@@ -109,6 +109,14 @@
   "workspaces": [
     "malty/*"
   ],
+  "resolutions": {
+    "styled-components": "^5",
+    "node-forge": "^1.3.1",
+    "glob-parent": "^5.1.2",
+    "trim": "^0.0.3",
+    "trim-newlines": "^3.0.1",
+    "braces": "^2.3.2"
+  },
   "bit": {
     "resolveModules": {
       "modulesDirectories": [
