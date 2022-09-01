@@ -34,15 +34,13 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
   animation = { 
-    showAnimation: false, 
     triggerYPosition: 0, 
     currentYOffset: 0,
     isBannerTextCompressed: false,
-    toggleBannerTextCompress: () => undefined 
+    toggleBannerTextCompress: (status: boolean) => undefined 
   }
 }) => {
-  const { showAnimation, triggerYPosition, currentYOffset } = animation;
-  const [hideSliderOptions, setHideSliderOptions] = useState(showAnimation);
+  const { triggerYPosition, currentYOffset, isBannerTextCompressed, toggleBannerTextCompress} = animation;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
@@ -50,9 +48,14 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const breakpointNumber = Number(breakpoint.split('px')[0]);
   const isMobile = width <= breakpointNumber;
 
-  const handleShow = () => {
-    setHideSliderOptions(false);
-  };
+
+  const renderFadeWrapper = () => isMobile && isBannerTextCompressed;
+
+  const handleToggleBannerTextCompress = () => {
+    if(isMobile && isBannerTextCompressed){
+      toggleBannerTextCompress(false)
+    }
+  }
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowSizeChange);
@@ -60,12 +63,6 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       window.removeEventListener('resize', handleWindowSizeChange);
     };
   }, []);
-
-  useEffect(() => {
-    if (isMobile && !hideSliderOptions) {
-      setHideSliderOptions(true);
-    }
-  }, [isMobile, showAnimation, currentYOffset]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -79,7 +76,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       }
     };
 
-  const triggerAnimation = () => showAnimation && hideSliderOptions && currentYOffset > triggerYPosition;
+  const triggerAnimation = () => isBannerTextCompressed && currentYOffset > triggerYPosition || false
 
   if (!alerts?.length) {
     return null;
@@ -150,9 +147,52 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     </StyledMessage>
   );
 
+
+ const renderMobileActionsContent = () => (
+    <>
+      {renderFadeWrapper() ? (
+        <FadeWrapper
+          theme={theme}
+          show={isBannerTextCompressed}
+          offsetY={currentYOffset}
+          triggerYPosition={triggerYPosition}
+          data-testid="fade-wrapper"
+        >
+          <ContentRow theme={theme}>
+            <Pagination
+              count={alerts.length}
+              onChange={(pageNr) => setActiveAlert(pageNr)}
+              currentPage={activeAlert}
+              type={PaginationType.Compact}
+              isWhite={currentAlert.type !== AlertBannerType.Warning}
+              dataQaId="alert-banner-pagination"
+            />
+            {renderAction()}
+          </ContentRow>
+        </FadeWrapper>
+      ) : (
+        <ContentRow theme={theme}>
+          <Pagination
+            count={alerts.length}
+            onChange={(pageNr) => setActiveAlert(pageNr)}
+            currentPage={activeAlert}
+            type={PaginationType.Compact}
+            isWhite={currentAlert.type !== AlertBannerType.Warning}
+            dataQaId="alert-banner-pagination"
+          />
+          {renderAction()}
+        </ContentRow>
+      )}
+    </>
+  );
+
+
   return (
-    <Container type={currentAlert.type} theme={theme} onClick={handleShow}>
-      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme}>
+    <Container 
+      type={currentAlert.type} 
+      theme={theme}
+    >
+      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme} onClick={handleToggleBannerTextCompress}>
         {!isMobile && (
           <Pagination
             count={alerts.length}
@@ -162,7 +202,11 @@ export const AlertBanner: FC<AlertBannerProps> = ({
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
         )}
-        <MessageContainer theme={theme} breakpoint={breakpoint} data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}>
+        <MessageContainer
+          theme={theme}
+          breakpoint={breakpoint} 
+          data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
+        >
           {currentAlert.icon && renderIcon()}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}
@@ -170,23 +214,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         {renderCloseButton()}
       </ContentRow>
       {isMobile && (
-        <FadeWrapper
-          theme={theme}
-          show={hideSliderOptions}
-          offsetY={currentYOffset}
-          triggerYPosition={triggerYPosition}
-        >
-          <ContentRow theme={theme}>
-            <Pagination
-              count={alerts.length}
-              onChange={(pageNr) => setActiveAlert(pageNr)}
-              currentPage={activeAlert}
-              type={PaginationType.Compact}
-              isWhite={currentAlert.type !== AlertBannerType.Warning}
-            />
-            {renderAction()}
-          </ContentRow>
-        </FadeWrapper>
+        renderMobileActionsContent()
       )}
     </Container>
   );

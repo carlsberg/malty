@@ -5,11 +5,10 @@ export interface AlertBannerProps {
 }
 
 export interface AnimatedProps {
-  showAnimation: boolean;
   triggerYPosition: number;
   currentYOffset: number;
   isBannerTextCompressed: boolean;
-  toggleBannerTextCompress?: () => void;
+  toggleBannerTextCompress: (arg0: boolean) => void;
 }
 
 export interface AlertBannerI {
