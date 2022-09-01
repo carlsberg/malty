@@ -62,6 +62,7 @@ AlertBanner.args = {
   animation: {
     showAnimation: false,
     triggerYPosition: 0,
-    currentYOffset: 0
+    currentYOffset: 0,
+    isTextBannerHidden: false,
   }
 };

@@ -8,6 +8,7 @@ export interface AnimatedProps {
   showAnimation: boolean;
   triggerYPosition: number;
   currentYOffset: number;
+  isTextBannerHidden: boolean;
 }
 
 export interface AlertBannerI {

@@ -33,9 +33,14 @@ const textColorsMap = {
 export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
-  animation = { showAnimation: false, triggerYPosition: 0, currentYOffset: 0 }
+  animation = { 
+    showAnimation: false, 
+    triggerYPosition: 0, 
+    currentYOffset: 0,
+    isTextBannerHidden: false,
+  }
 }) => {
-  const { showAnimation, triggerYPosition, currentYOffset } = animation;
+  const { showAnimation, triggerYPosition, currentYOffset, isTextBannerHidden } = animation;
   const [hideSliderOptions, setHideSliderOptions] = useState(showAnimation);
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
@@ -137,7 +142,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   };
 
   const renderMessage = () => (
-    <StyledMessage hideText={triggerAnimation()}>
+    <StyledMessage hideText={isTextBannerHidden && triggerAnimation()}>
       <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
         {currentAlert.message}
       </Text>

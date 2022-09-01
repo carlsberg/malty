@@ -2294,9 +2294,9 @@ __metadata:
   linkType: hard
 
 "@sinclair/typebox@npm:^0.24.1":
-  version: 0.24.32
-  resolution: "@sinclair/typebox@npm:0.24.32"
-  checksum: c6aaa363a77e220442c451dff8bf67254183b807dcd779f0b23450080c390a0fa4e9ee5475fff6f96580829f6f20f5a35ae89e40c28f85c34501b55e5b44c635
+  version: 0.24.34
+  resolution: "@sinclair/typebox@npm:0.24.34"
+  checksum: 35adcc7698fe751951e75fefe748a1d6e928afa3e52c153d1984a9d47c2a4f39e89f6adf727daef5cc12a58c71c2a0f63e3d88d105e4435252cfb68231518687
   languageName: node
   linkType: hard
 
@@ -3934,9 +3934,9 @@ __metadata:
   linkType: hard
 
 "@types/minimatch@npm:*":
-  version: 5.1.1
-  resolution: "@types/minimatch@npm:5.1.1"
-  checksum: 75d7cc5b0964dab6993dbdc7a4d0f082459260fec3210baa907856fb2cf6bca7112717422b488b81953e07f8fc36466cdaa9e9684942b9210d240ddaa2fdf42a
+  version: 5.1.2
+  resolution: "@types/minimatch@npm:5.1.2"
+  checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
   languageName: node
   linkType: hard
 
@@ -8660,14 +8660,14 @@ __metadata:
   linkType: hard
 
 "bonjour-service@npm:^1.0.11":
-  version: 1.0.13
-  resolution: "bonjour-service@npm:1.0.13"
+  version: 1.0.14
+  resolution: "bonjour-service@npm:1.0.14"
   dependencies:
     array-flatten: ^2.1.2
     dns-equal: ^1.0.0
     fast-deep-equal: ^3.1.3
     multicast-dns: ^7.2.5
-  checksum: aee186f542e0ec095d1f7fd8194182373ea4e854eef1182a3cb90e70c958deb6945de38f1a793bb43cc51f3a0044fa7eabee05a7ecb698c446aee80f00101124
+  checksum: 4a825bbf1824147ba8295a182fb3e86a8bae5159a08e2f118e829a0c988043a559f1f6e4eab425fe17ee9a1f080115d30430e78962e53f75bb03e2021ee7c5b2
   languageName: node
   linkType: hard
 
@@ -10620,9 +10620,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.202":
-  version: 1.4.237
-  resolution: "electron-to-chromium@npm:1.4.237"
-  checksum: 5f95ada8864dfa423e5fdc3ba69ee81d8229a6934079849b33125081d58f4d6243cc627bbfba8faea08fad2ed3e625cd6bcfcdfcbe6e984796e2bf9ca3ca2227
+  version: 1.4.239
+  resolution: "electron-to-chromium@npm:1.4.239"
+  checksum: 4e16eadc647d69353520a200953a76beb6557284172259703c483d4ec8302a331ff243d85b49da13d58c6c7e99f8917d26b529e6159cf69489fa62021ba25cac
   languageName: node
   linkType: hard
 
@@ -19789,11 +19789,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.2.3#~builtin<compat/typescript>":
   version: 4.8.2
-  resolution: "typescript@patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=a1c5e5"
+  resolution: "typescript@patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=7ad353"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 5cb0f02f414f5405f4b0e7ee1fd7fa9177b6a8783c9017b6cad85f56ce4c4f93e0e6f2ce37e863cb597d44227cd009474c9fbd85bf7a50004e5557426cb58079
+  checksum: 6f49363af8af2fe480da1d5fa68712644438785208b06690a3cbe5e7365fd652c3a0f1e587bc8684d78fb69de3dde4de185c0bad7bb4f3664ddfc813ce8caad6
   languageName: node
   linkType: hard
 

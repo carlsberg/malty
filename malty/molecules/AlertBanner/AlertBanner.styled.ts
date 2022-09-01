@@ -91,7 +91,7 @@ export const MessageContainer = styled.div<{
   }
 `;
 
-export const StyledMessage = styled.div<{ hideText: boolean }>`
+export const StyledMessage = styled.div<{ hideText: boolean, onClick?: () => void }>`
   overflow: hidden;
   display: flex;
   align-items: center;
