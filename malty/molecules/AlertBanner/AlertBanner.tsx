@@ -37,10 +37,11 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     showAnimation: false, 
     triggerYPosition: 0, 
     currentYOffset: 0,
-    isTextBannerHidden: false,
+    isBannerTextCompressed: false,
+    toggleBannerTextCompress: () => undefined 
   }
 }) => {
-  const { showAnimation, triggerYPosition, currentYOffset, isTextBannerHidden } = animation;
+  const { showAnimation, triggerYPosition, currentYOffset } = animation;
   const [hideSliderOptions, setHideSliderOptions] = useState(showAnimation);
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
@@ -142,7 +143,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   };
 
   const renderMessage = () => (
-    <StyledMessage hideText={isTextBannerHidden && triggerAnimation()}>
+    <StyledMessage hideText={triggerAnimation()}>
       <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
         {currentAlert.message}
       </Text>

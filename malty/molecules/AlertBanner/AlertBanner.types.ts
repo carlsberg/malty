@@ -8,7 +8,8 @@ export interface AnimatedProps {
   showAnimation: boolean;
   triggerYPosition: number;
   currentYOffset: number;
-  isTextBannerHidden: boolean;
+  isBannerTextCompressed: boolean;
+  toggleBannerTextCompress?: () => void;
 }
 
 export interface AlertBannerI {

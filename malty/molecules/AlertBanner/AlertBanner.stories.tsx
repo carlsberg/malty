@@ -63,6 +63,7 @@ AlertBanner.args = {
     showAnimation: false,
     triggerYPosition: 0,
     currentYOffset: 0,
-    isTextBannerHidden: false,
+    isBannerTextCompressed: false,
+    toggleBannerTextCompress: action('Switch banner text compresion status'),
   }
 };
