@@ -37,6 +37,14 @@ const alertsMock = [
   }
 ];
 
+const animationMock = {
+  showAnimation: true,
+  triggerYPosition: 30,
+  currentYOffset: 0,
+  isBannerTextCompressed: false,
+  toggleBannerTextCompress: () => void
+}
+
 describe('<AlertBanner />', () => {
   beforeEach(() => {
     render(<AlertBanner alerts={alertsMock} />);
@@ -62,4 +70,7 @@ describe('<AlertBanner />', () => {
     fireEvent.keyUp(actionName, { key: 'Enter', code: 'Enter', charCode: 13 });
     expect(actionMockFn).toHaveBeenCalledTimes(2);
   });
+  it("Should render compress text message", () => {
+    
+  })
 });
