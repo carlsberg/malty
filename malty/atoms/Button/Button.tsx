@@ -117,7 +117,7 @@ export const Button = ({
         tabIndex={tabIndex}
         className={selected ? 'active' : ''}
       >
-        {!loading && (
+        {(
           <div className={`text-container `}>
             {icon && iconPos === ButtonIconPosition.Left && (
               <Icon name={icon} color={iconColor} size={IconSize.Small} />

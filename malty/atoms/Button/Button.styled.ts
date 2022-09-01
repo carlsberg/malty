@@ -86,13 +86,18 @@ const StyledButton = styled.button<{
     width: ${({ iconSize }) => `${iconSize}`};
   }
 
-  ${({ hasText, hasIcon, sizing, isLoading, fullWidth }) =>
-    ((!hasText && hasIcon) || isLoading) &&
-    !fullWidth &&
+  ${({ hasText,hasIcon, isLoading }) =>
+    ((!hasText && !hasIcon) || isLoading) &&
+    
     css`
-      padding: 0;
-      justify-content: center;
-      width: ${sizing};
+    .text-container{
+      visibility: hidden;
+    }
+    .secondary-container {
+    position: absolute;
+   
+  }
+     
     `};
 `;
 
