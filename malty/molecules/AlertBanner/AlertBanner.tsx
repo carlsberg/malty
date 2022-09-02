@@ -61,15 +61,13 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   }
+  
   const prevScroll: number = usePrevious(currentYOffset ?? 0);
-
 
   const renderFadeWrapper = () => isMobile && isBannerTextCompressed;
 
-  const handleToggleBannerTextCompress = () => {
-    if(isMobile && isBannerTextCompressed){
-      toggleBannerTextCompress(false)
-    }
+  const handleToggle = (value: boolean) => {
+    return toggleBannerTextCompress ? toggleBannerTextCompress(value) : undefined
   }
 
   useEffect(() => {
@@ -79,11 +77,14 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     };
   }, []);
 
+
   useEffect(() => {
-    if(isMobile && currentYOffset > triggerYPosition && prevScroll !== currentYOffset && isBannerTextCompressed){
-      toggleBannerTextCompress(false)
+    const isScrolled = currentYOffset > triggerYPosition;
+    if(isMobile && !isBannerTextCompressed && isScrolled && !prevScroll || 
+      isMobile && isScrolled && prevScroll !== currentYOffset && !isBannerTextCompressed ){
+      handleToggle(true)
     }
-  }, [currentYOffset, prevScroll, triggerYPosition, isBannerTextCompressed])
+  }, [isMobile, currentYOffset, prevScroll, triggerYPosition, isBannerTextCompressed])
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -181,7 +182,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         >
           <ContentRow theme={theme}>
             <Pagination
-              count={alerts.length}
+              count={alerts?.length}
               onChange={(pageNr) => setActiveAlert(pageNr)}
               currentPage={activeAlert}
               type={PaginationType.Compact}
@@ -194,7 +195,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       ) : (
         <ContentRow theme={theme}>
           <Pagination
-            count={alerts.length}
+            count={alerts.length} 
             onChange={(pageNr) => setActiveAlert(pageNr)}
             currentPage={activeAlert}
             type={PaginationType.Compact}
@@ -213,7 +214,8 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       type={currentAlert.type} 
       theme={theme}
     >
-      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme} onClick={handleToggleBannerTextCompress}>
+      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme} 
+      onClick={() => handleToggle(!isBannerTextCompressed)}>
         {!isMobile && (
           <Pagination
             count={alerts.length}
