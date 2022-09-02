@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { AlertBannerType } from './AlertBanner.types';
+import { AlertBannerType } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
 
 const simpleFadeAnimation = keyframes`
      0% {

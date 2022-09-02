@@ -1,8 +1,8 @@
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
-import { AlertBanner } from './AlertBanner';
-import { AlertBannerType } from './AlertBanner.types';
+import { AlertBanner } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner';
+import { AlertBannerType } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
 
 const actionMockFn = jest.fn();
 const dismissButtonMockFn = jest.fn();
@@ -47,7 +47,7 @@ const animationMock = {
 
 describe('<AlertBanner />', () => {
   beforeEach(() => {
-    render(<AlertBanner alerts={alertsMock} animation={animationMock} />);
+    render(<AlertBanner alerts={alertsMock} />);
   });
   it('should render AlertBanner', () => {
     const message = screen.getByText(alertsMock[0].message);
@@ -80,7 +80,7 @@ const renderWithAnimation = () => {
   }
   global.innerWidth = 600;
   const utils = render(<AlertBanner alerts={alertsMock} animation={{ ...defaultAnimatedProps, ...{
-    currentYOffset: 400,
+    currentYOffset: 0,
    }}} />);
    const rerender = (override: any) => {
   
@@ -94,7 +94,10 @@ const renderWithAnimation = () => {
 
 describe("AlertBanner with animations", () => {
   test('Text is compressed and botton actions is hidden', () => {
-    renderWithAnimation();
+    const { rerender } = renderWithAnimation();
+    rerender({
+      currentYOffset: 499
+    })
     const fadeWrapper = screen.getByTestId("fade-wrapper");
     const pagination = screen.getByTestId("alert-banner-pagination");
     expect(fadeWrapper).toBeDefined();
@@ -107,7 +110,6 @@ describe("AlertBanner with animations", () => {
       currentYOffset: 499
     })
     const fadeWrapper = screen.getByTestId(/-AlertBanner-content/);
-    screen.debug(fadeWrapper)
     fireEvent.click(fadeWrapper)
     expect(toggleBannerText).toHaveBeenCalledTimes(1)
   });
@@ -120,6 +122,21 @@ describe("AlertBanner with animations", () => {
     const fadeWrapper = screen.getByTestId("fade-wrapper");
     const pagination = screen.getByTestId("alert-banner-pagination");
     expect(fadeWrapper).toBeDefined();
+    expect(pagination).toBeVisible();
+  })
+
+  test('Text is not compressed and botton options is visible', () => {
+    const { rerender } = renderWithAnimation();
+    rerender({
+      currentYOffset: 200
+    });
+    const fadeWrapper = screen.getByTestId("fade-wrapper");
+    const pagination = screen.getByTestId("alert-banner-pagination");
+    expect(fadeWrapper).toBeDefined();
+    expect(pagination).not.toBeVisible();
+    rerender({
+      currentYOffset: 0
+    });
     expect(pagination).toBeVisible();
   })
 })

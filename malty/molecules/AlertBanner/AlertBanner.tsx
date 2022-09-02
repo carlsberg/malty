@@ -5,7 +5,16 @@ import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagi
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 
-import React, { FC, KeyboardEvent, useContext, useEffect, useState } from 'react';
+
+function usePrevious(value: number) {
+  const ref = useRef<number>(0);
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
+}
+
+import React, { FC, KeyboardEvent, useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   CloseButtonContainer,
@@ -15,8 +24,8 @@ import {
   MessageContainer,
   StyledAction,
   StyledMessage
-} from './AlertBanner.styled';
-import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
+} from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.styled';
+import { AlertBannerProps, AlertBannerType } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
 
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
@@ -33,20 +42,26 @@ const textColorsMap = {
 export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
-  animation = { 
-    triggerYPosition: 0, 
-    currentYOffset: 0,
-    isBannerTextCompressed: false,
-    toggleBannerTextCompress: (status: boolean) => undefined 
-  }
+  animation
 }) => {
-  const { triggerYPosition, currentYOffset, isBannerTextCompressed, toggleBannerTextCompress} = animation;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
   const currentAlert = alerts[activeAlert - 1];
   const breakpointNumber = Number(breakpoint.split('px')[0]);
   const isMobile = width <= breakpointNumber;
+  const {
+    triggerYPosition,
+    currentYOffset,
+    isBannerTextCompressed,
+    toggleBannerTextCompress
+  } = animation || {
+    triggerYPosition: 0,
+    currentYOffset: 0,
+    isBannerTextCompressed: false,
+    toggleBannerTextCompress: undefined
+  }
+  const prevScroll: number = usePrevious(currentYOffset ?? 0);
 
 
   const renderFadeWrapper = () => isMobile && isBannerTextCompressed;
@@ -63,6 +78,12 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       window.removeEventListener('resize', handleWindowSizeChange);
     };
   }, []);
+
+  useEffect(() => {
+    if(isMobile && currentYOffset > triggerYPosition && prevScroll !== currentYOffset && isBannerTextCompressed){
+      toggleBannerTextCompress(false)
+    }
+  }, [currentYOffset, prevScroll, triggerYPosition, isBannerTextCompressed])
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
