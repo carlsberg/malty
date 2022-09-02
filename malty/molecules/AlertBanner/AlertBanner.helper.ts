@@ -1,4 +1,4 @@
-import { useRef, DependencyList, useEffect, useLayoutEffect } from 'react';
+import { DependencyList, useEffect, useLayoutEffect, useRef } from 'react';
 
 interface IPosition {
   x: number;
@@ -24,14 +24,14 @@ const getScrollPosition = () => {
   if (!targetPosition) {
     return zeroPosition;
   }
-  
+
   return { x: targetPosition.left, y: targetPosition.top };
 };
 
 export const useScrollPosition = (
   effect: (props: IScrollProps) => void,
   deps?: DependencyList,
-  wait?: number,
+  wait?: number
 ): void => {
   const position = useRef(getScrollPosition());
 
@@ -51,7 +51,7 @@ export const useScrollPosition = (
     const handleScroll = () => {
       if (wait) {
         if (throttleTimeout === null) {
-					throttleTimeout = window.setTimeout(callBack, wait);
+          throttleTimeout = window.setTimeout(callBack, wait);
         }
       } else {
         callBack();
@@ -67,11 +67,10 @@ export const useScrollPosition = (
   }, deps);
 };
 
-
 export const usePrevious = (value: number) => {
   const ref = useRef<number>(0);
   useEffect(() => {
     ref.current = value;
   }, [value]);
   return ref.current;
-}
+};

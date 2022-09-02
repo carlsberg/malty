@@ -53,7 +53,6 @@ export const FadeWrapper = styled.div<{
     `}
 `;
 
-
 export const ContentRow = styled.div`
   display: flex;
   align-items: center;
@@ -99,7 +98,6 @@ export const StyledMessage = styled.div<{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   transition: all 0.2s linear;
-
   ${({ hideText, isMobile }) => {
     if (hideText && isMobile) {
       return css`
@@ -119,7 +117,6 @@ export const StyledMessage = styled.div<{
     `;
   }}
 `;
-
 
 export const FadeText = styled.div<{ fire: boolean; currentElementHeight?: number }>`
   height: 18px;

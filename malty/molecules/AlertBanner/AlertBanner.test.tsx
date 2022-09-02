@@ -72,34 +72,40 @@ describe('<AlertBanner />', () => {
   });
 });
 
-
 const renderWithAnimation = () => {
   const defaultAnimatedProps = {
     ...animationMock,
     isBannerTextCompressed: true
-  }
+  };
   global.innerWidth = 600;
-  const utils = render(<AlertBanner alerts={alertsMock} animation={{ ...defaultAnimatedProps, ...{
-    currentYOffset: 0,
-   }}} />);
-   const rerender = (override: any) => {
-  
-    utils.rerender(<AlertBanner alerts={alertsMock} animation={{ ...defaultAnimatedProps, ...override}} />)
-   }
-  return { 
+  const utils = render(
+    <AlertBanner
+      alerts={alertsMock}
+      animation={{
+        ...defaultAnimatedProps,
+        ...{
+          currentYOffset: 0
+        }
+      }}
+    />
+  );
+  const rerender = (override: Partial<AnimatedProps>) => {
+    utils.rerender(<AlertBanner alerts={alertsMock} animation={{ ...defaultAnimatedProps, ...override }} />);
+  };
+  return {
     ...utils,
     rerender
-  }
-}
+  };
+};
 
-describe("AlertBanner with animations", () => {
+describe('AlertBanner with animations', () => {
   test('Text is compressed and botton actions is hidden', () => {
     const { rerender } = renderWithAnimation();
     rerender({
       isBannerTextCompressed: true
-    })
-    const fadeWrapper = screen.getByTestId("fade-wrapper");
-    const pagination = screen.getByTestId("alert-banner-pagination");
+    });
+    const fadeWrapper = screen.getByTestId('fade-wrapper');
+    const pagination = screen.getByTestId('alert-banner-pagination');
     expect(fadeWrapper).toBeDefined();
     expect(pagination).not.toBeVisible();
   });
@@ -108,35 +114,35 @@ describe("AlertBanner with animations", () => {
     const { rerender } = renderWithAnimation();
     rerender({
       isBannerTextCompressed: true
-    })
+    });
     const fadeWrapper = screen.getByTestId(/-AlertBanner-content/);
-    fireEvent.click(fadeWrapper)
-    expect(toggleBannerText).toHaveBeenCalledTimes(1)
+    fireEvent.click(fadeWrapper);
+    expect(toggleBannerText).toHaveBeenCalledTimes(1);
   });
-  
-  test('Text is not compressed and botton options is visible', () => {
+
+  test('Text is not compressed and bottom options is visible', () => {
     const { rerender } = renderWithAnimation();
     rerender({
       isBannerTextCompressed: false
-    })
-    const fadeWrapper = screen.getByTestId("fade-wrapper");
-    const pagination = screen.getByTestId("alert-banner-pagination");
+    });
+    const fadeWrapper = screen.getByTestId('fade-wrapper');
+    const pagination = screen.getByTestId('alert-banner-pagination');
     expect(fadeWrapper).toBeDefined();
     expect(pagination).toBeVisible();
-  })
+  });
 
-  test('Text is not compressed and botton options is visible', () => {
+  test('Text is compressed and bottom options are visible', () => {
     const { rerender } = renderWithAnimation();
     rerender({
       isBannerTextCompressed: true
     });
-    const fadeWrapper = screen.getByTestId("fade-wrapper");
-    const pagination = screen.getByTestId("alert-banner-pagination");
+    const fadeWrapper = screen.getByTestId('fade-wrapper');
+    const pagination = screen.getByTestId('alert-banner-pagination');
     expect(fadeWrapper).toBeDefined();
     expect(pagination).not.toBeVisible();
     rerender({
       isBannerTextCompressed: false
     });
     expect(pagination).toBeVisible();
-  })
-})
+  });
+});
