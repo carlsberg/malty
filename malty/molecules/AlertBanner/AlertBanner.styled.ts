@@ -91,16 +91,45 @@ export const MessageContainer = styled.div<{
   }
 `;
 
-export const StyledMessage = styled.div<{ hideText: boolean, onClick?: () => void }>`
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
-  line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
-  transition: all 0.2s ease-in-out;
+export const StyledMessage = styled.div<{ hideText: boolean, onClick?: () => void, isMobile?: boolean  }>`
+overflow: hidden;
+display: flex;
+align-items: center;
+text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+transition: all 0.2s linear;
+
+${({ hideText, isMobile }) => {
+  if (hideText && isMobile) {
+    return css`
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+    `;
+  }
+  if (!hideText && isMobile) {
+    return css`
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+    `;
+  }
+  return css`
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  `;
+}}
+`;
+
+export const FadeText = styled.div<{ fire: boolean; currentElementHeight?: number }>`
+  height: 18px;
+  transition: all 0.2s linear;
+  ${({ fire, currentElementHeight }) => {
+    if (!fire && currentElementHeight && currentElementHeight > 18) {
+      return css`
+        height: ${currentElementHeight}px;
+      `;
+    }
+  }}
 `;
 
 export const StyledAction = styled.div<{

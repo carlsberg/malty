@@ -20,6 +20,7 @@ import {
   CloseButtonContainer,
   Container,
   ContentRow,
+  FadeText,
   FadeWrapper,
   MessageContainer,
   StyledAction,
@@ -50,6 +51,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const currentAlert = alerts[activeAlert - 1];
   const breakpointNumber = Number(breakpoint.split('px')[0]);
   const isMobile = width <= breakpointNumber;
+  const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
   const {
     triggerYPosition,
     currentYOffset,
@@ -61,7 +63,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   }
-  
+  const prevAlertSelection: number = usePrevious(activeAlert)
   const prevScroll: number = usePrevious(currentYOffset ?? 0);
 
   const renderFadeWrapper = () => isMobile && isBannerTextCompressed;
@@ -77,11 +79,21 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     };
   }, []);
 
+useEffect(() => {
+  const textElement = document.querySelector('#styledMessage')?.firstElementChild?.firstElementChild?.clientHeight;
+  if(!prevAlertSelection){
+    setTextWrapperSize(textElement);
+
+  }
+  if (isMobile && prevAlertSelection && prevAlertSelection !== activeAlert && textElement)  {
+    setTextWrapperSize(textElement);
+  }
+}, [isMobile, activeAlert, prevAlertSelection]);
+
 
   useEffect(() => {
-    const isScrolled = currentYOffset > triggerYPosition;
-    if(isMobile && !isBannerTextCompressed && isScrolled && !prevScroll || 
-      isMobile && isScrolled && prevScroll !== currentYOffset && !isBannerTextCompressed ){
+    const isScrolled = currentYOffset > triggerYPosition && isMobile && !isBannerTextCompressed;
+    if(isScrolled && !prevScroll || isScrolled && prevScroll !== currentYOffset){
       handleToggle(true)
     }
   }, [isMobile, currentYOffset, prevScroll, triggerYPosition, isBannerTextCompressed])
@@ -161,18 +173,26 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     );
   };
 
-  const renderMessage = () => (
-    <StyledMessage hideText={triggerAnimation()}>
-      <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
-        {currentAlert.message}
-      </Text>
-    </StyledMessage>
-  );
+  const renderMessage = () =>
+    isMobile ? (
+      <FadeText fire={triggerAnimation()} currentElementHeight={textWrapperSize}>
+        <StyledMessage hideText={triggerAnimation()} isMobile id="styledMessage">
+          <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
+            {currentAlert.message}
+          </Text>
+        </StyledMessage>
+      </FadeText>
+    ) : (
+      <StyledMessage hideText={triggerAnimation()}>
+        <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
+          {currentAlert.message}
+        </Text>
+      </StyledMessage>
+    );
 
-
- const renderMobileActionsContent = () => (
-    <>
-      {renderFadeWrapper() ? (
+  const renderMobileActionsContent = () => {
+    if (isMobile && alerts.length > 1 || currentAlert.action) {
+      return (
         <FadeWrapper
           theme={theme}
           show={isBannerTextCompressed}
@@ -192,22 +212,10 @@ export const AlertBanner: FC<AlertBannerProps> = ({
             {renderAction()}
           </ContentRow>
         </FadeWrapper>
-      ) : (
-        <ContentRow theme={theme}>
-          <Pagination
-            count={alerts.length} 
-            onChange={(pageNr) => setActiveAlert(pageNr)}
-            currentPage={activeAlert}
-            type={PaginationType.Compact}
-            isWhite={currentAlert.type !== AlertBannerType.Warning}
-            dataQaId="alert-banner-pagination"
-          />
-          {renderAction()}
-        </ContentRow>
-      )}
-    </>
-  );
-
+      )
+    }
+    return null
+  }
 
   return (
     <Container 
