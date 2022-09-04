@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { AlertBannerType } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
+import { AlertBannerType } from './AlertBanner.types';
 
 const simpleFadeAnimation = keyframes`
      0% {
@@ -90,7 +90,6 @@ export const MessageContainer = styled.div<{
 
 export const StyledMessage = styled.div<{
   hideText: boolean;
-  onClick?: () => void;
   isMobile?: boolean;
 }>`
   overflow: hidden;

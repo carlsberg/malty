@@ -1,8 +1,8 @@
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
-import { AlertBanner } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner';
-import { AlertBannerType, AnimatedProps } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
+import { AlertBanner } from './AlertBanner';
+import { AlertBannerType, AnimatedProps } from './AlertBanner.types';
 
 const actionMockFn = jest.fn();
 const dismissButtonMockFn = jest.fn();
