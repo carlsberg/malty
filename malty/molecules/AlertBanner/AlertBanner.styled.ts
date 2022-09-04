@@ -32,8 +32,6 @@ export const Container = styled.div<{
 
 export const FadeWrapper = styled.div<{
   show: boolean;
-  offsetY: number;
-  triggerYPosition: number;
 }>`
   display: flex;
   align-items: center;
@@ -45,17 +43,16 @@ export const FadeWrapper = styled.div<{
   & > div {
     width: 100%;
   }
-  ${({ show, offsetY, triggerYPosition }) => {
-    if (show && offsetY > triggerYPosition) {
-      return css`
-        transition: height 0.35s ease-in-out;
-        animation: ${simpleFadeAnimation} 0.3s ease-in-out;
-        visibility: hidden;
-        height: 0px;
-      `;
-    }
-  }}
+  ${({ show }) =>
+    show &&
+    css`
+      transition: height 0.35s ease-in-out;
+      animation: ${simpleFadeAnimation} 0.3s ease-in-out;
+      visibility: hidden;
+      height: 0px;
+    `}
 `;
+
 
 export const ContentRow = styled.div`
   display: flex;
@@ -91,34 +88,39 @@ export const MessageContainer = styled.div<{
   }
 `;
 
-export const StyledMessage = styled.div<{ hideText: boolean, onClick?: () => void, isMobile?: boolean  }>`
-overflow: hidden;
-display: flex;
-align-items: center;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-box-orient: vertical;
-transition: all 0.2s linear;
+export const StyledMessage = styled.div<{
+  hideText: boolean;
+  onClick?: () => void;
+  isMobile?: boolean;
+}>`
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  transition: all 0.2s linear;
 
-${({ hideText, isMobile }) => {
-  if (hideText && isMobile) {
+  ${({ hideText, isMobile }) => {
+    if (hideText && isMobile) {
+      return css`
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+      `;
+    }
+    if (!hideText && isMobile) {
+      return css`
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+      `;
+    }
     return css`
-      -webkit-line-clamp: 1;
-      line-clamp: 1;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
     `;
-  }
-  if (!hideText && isMobile) {
-    return css`
-      -webkit-line-clamp: 3;
-      line-clamp: 3;
-    `;
-  }
-  return css`
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-  `;
-}}
+  }}
 `;
+
 
 export const FadeText = styled.div<{ fire: boolean; currentElementHeight?: number }>`
   height: 18px;

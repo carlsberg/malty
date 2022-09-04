@@ -5,16 +5,7 @@ import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagi
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 
-
-function usePrevious(value: number) {
-  const ref = useRef<number>(0);
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-  return ref.current;
-}
-
-import React, { FC, KeyboardEvent, useContext, useEffect, useRef, useState } from 'react';
+import React, { FC, KeyboardEvent, RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   CloseButtonContainer,
@@ -27,6 +18,8 @@ import {
   StyledMessage
 } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.styled';
 import { AlertBannerProps, AlertBannerType } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
+import { useScrollPosition } from './hooks/useScrollPosition';
+import { usePrevious } from './hooks/usePrevious';
 
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
@@ -52,25 +45,52 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const breakpointNumber = Number(breakpoint.split('px')[0]);
   const isMobile = width <= breakpointNumber;
   const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
+  const alertBannerStyledMessage: RefObject<HTMLDivElement> = useRef(null)
   const {
+    showAnimations,
     triggerYPosition,
-    currentYOffset,
     isBannerTextCompressed,
     toggleBannerTextCompress
   } = animation || {
+    showAnimations: false,
     triggerYPosition: 0,
-    currentYOffset: 0,
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   }
+  const [localCurrentY, setLocalCurrentY] = useState(0);
   const prevAlertSelection: number = usePrevious(activeAlert)
-  const prevScroll: number = usePrevious(currentYOffset ?? 0);
-
-  const renderFadeWrapper = () => isMobile && isBannerTextCompressed;
 
   const handleToggle = (value: boolean) => {
-    return toggleBannerTextCompress ? toggleBannerTextCompress(value) : undefined
+    if(isMobile){
+      return toggleBannerTextCompress ? toggleBannerTextCompress(value) : undefined
+    }
   }
+
+  const showAlertBannerDetails = () => {
+    if(isBannerTextCompressed && isMobile){
+      return handleToggle(false)
+    }
+  }
+
+  const setNewAlertBannerDetailsState = (newState: boolean, currentY: number) => {
+    handleToggle(newState)
+    setLocalCurrentY(Math.abs(currentY))
+  }
+
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const scrollBiggerThanTriggerPosition = () => isMobile && showAnimations && Math.abs(currPos.y) > triggerYPosition;
+      if (scrollBiggerThanTriggerPosition() && !isBannerTextCompressed) {
+        return setNewAlertBannerDetailsState(true, Math.abs(currPos.y));
+      }
+      if (!scrollBiggerThanTriggerPosition() && isBannerTextCompressed) {
+        return setNewAlertBannerDetailsState(false, Math.abs(currPos.y));
+      }
+    },
+    [isMobile, showAnimations, isBannerTextCompressed],
+    200
+  );
+
 
   useEffect(() => {
     window.addEventListener('resize', handleWindowSizeChange);
@@ -79,24 +99,15 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     };
   }, []);
 
-useEffect(() => {
-  const textElement = document.querySelector('#styledMessage')?.firstElementChild?.firstElementChild?.clientHeight;
-  if(!prevAlertSelection){
-    setTextWrapperSize(textElement);
-
-  }
-  if (isMobile && prevAlertSelection && prevAlertSelection !== activeAlert && textElement)  {
-    setTextWrapperSize(textElement);
-  }
-}, [isMobile, activeAlert, prevAlertSelection]);
-
-
   useEffect(() => {
-    const isScrolled = currentYOffset > triggerYPosition && isMobile && !isBannerTextCompressed;
-    if(isScrolled && !prevScroll || isScrolled && prevScroll !== currentYOffset){
-      handleToggle(true)
+    const textElement = alertBannerStyledMessage.current?.clientHeight;
+    if(isMobile && !prevAlertSelection){
+      setTextWrapperSize(textElement);
     }
-  }, [isMobile, currentYOffset, prevScroll, triggerYPosition, isBannerTextCompressed])
+    if (isMobile && prevAlertSelection && prevAlertSelection !== activeAlert && textElement)  {
+      setTextWrapperSize(textElement);
+    }
+  }, [isMobile, activeAlert, prevAlertSelection, alertBannerStyledMessage.current]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -110,7 +121,7 @@ useEffect(() => {
       }
     };
 
-  const triggerAnimation = () => isBannerTextCompressed && currentYOffset > triggerYPosition || false
+  const triggerAnimation = () => isBannerTextCompressed || false
 
   if (!alerts?.length) {
     return null;
@@ -176,7 +187,7 @@ useEffect(() => {
   const renderMessage = () =>
     isMobile ? (
       <FadeText fire={triggerAnimation()} currentElementHeight={textWrapperSize}>
-        <StyledMessage hideText={triggerAnimation()} isMobile id="styledMessage">
+        <StyledMessage hideText={triggerAnimation()} isMobile ref={alertBannerStyledMessage}>
           <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
             {currentAlert.message}
           </Text>
@@ -190,40 +201,38 @@ useEffect(() => {
       </StyledMessage>
     );
 
-  const renderMobileActionsContent = () => {
-    if (isMobile && alerts.length > 1 || currentAlert.action) {
-      return (
-        <FadeWrapper
-          theme={theme}
-          show={isBannerTextCompressed}
-          offsetY={currentYOffset}
-          triggerYPosition={triggerYPosition}
-          data-testid="fade-wrapper"
-        >
-          <ContentRow theme={theme}>
-            <Pagination
-              count={alerts?.length}
-              onChange={(pageNr) => setActiveAlert(pageNr)}
-              currentPage={activeAlert}
-              type={PaginationType.Compact}
-              isWhite={currentAlert.type !== AlertBannerType.Warning}
-              dataQaId="alert-banner-pagination"
-            />
-            {renderAction()}
-          </ContentRow>
-        </FadeWrapper>
-      )
-    }
-    return null
+const renderMobileActionsContent = () => {
+  if ((isMobile && alerts.length > 1) || currentAlert.action) {
+    return (
+      <FadeWrapper
+        theme={theme}
+        show={isBannerTextCompressed}
+        data-testid="fade-wrapper"
+      >
+        <ContentRow theme={theme}>
+          <Pagination
+            count={alerts?.length}
+            onChange={(pageNr) => setActiveAlert(pageNr)}
+            currentPage={activeAlert}
+            type={PaginationType.Compact}
+            isWhite={currentAlert.type !== AlertBannerType.Warning}
+            dataQaId="alert-banner-pagination"
+          />
+          {renderAction()}
+        </ContentRow>
+      </FadeWrapper>
+    );
   }
+  return null;
+};
+
 
   return (
     <Container 
       type={currentAlert.type} 
       theme={theme}
     >
-      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme} 
-      onClick={() => handleToggle(!isBannerTextCompressed)}>
+      <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme} onClick={showAlertBannerDetails}>
         {!isMobile && (
           <Pagination
             count={alerts.length}

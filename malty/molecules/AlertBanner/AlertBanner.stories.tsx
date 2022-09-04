@@ -60,8 +60,8 @@ AlertBanner.args = {
   ],
   breakpoint: layoutProps.small['device-max-width'].value,
   animation: {
+    showAnimations: true,
     triggerYPosition: 0,
-    currentYOffset: 0,
     isBannerTextCompressed: false,
     toggleBannerTextCompress: action('Button clicked'),
   }
