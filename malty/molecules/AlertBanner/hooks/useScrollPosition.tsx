@@ -1,4 +1,4 @@
-import { useRef, DependencyList, MutableRefObject, useLayoutEffect } from 'react';
+import { useRef, DependencyList, useLayoutEffect } from 'react';
 
 interface IPosition {
   x: number;
