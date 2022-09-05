@@ -1,11 +1,9 @@
-import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { RefObject, useState } from 'react';
 import styled from 'styled-components';
 import { AlertBanner as AlertBannerComponent } from './AlertBanner';
 import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
-
 export default {
   title: 'Information/Alert Banner',
   component: AlertBannerComponent,
@@ -17,14 +15,40 @@ export default {
 } as Meta;
 
 const StyledContainer = styled.div`
-  height: 200px;
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
-const Template: Story<AlertBannerProps> = ({ ...args }) => (
-  <StyledContainer>
-    <AlertBannerComponent {...args} />
-  </StyledContainer>
-);
+const Template: Story<AlertBannerProps> = ({ ...args }) => {
+  const [heightSize, setHeight] = useState(0);
+  const [isBannerTextCompressed, setIsBannerTextCompressed] = useState<boolean>(false);
+  const size: RefObject<HTMLDivElement> = React.useRef(null);
+  const toggleBannerTextCompress = (newStatus: boolean) => {
+    setIsBannerTextCompressed(newStatus)
+  } 
+
+  const override = {
+    ...args,
+    animation: {
+      ...args.animation,
+      showAnimations: true,
+      isBannerTextCompressed,
+      triggerYPosition: 50,
+      toggleBannerTextCompress
+    }
+  }
+
+  return (
+    <div style={{ height: '200vh' }}>
+      <StyledContainer ref={size} id="testID">
+        <AlertBannerComponent {...override} />
+      </StyledContainer>
+      <div style={{ height: heightSize }} />
+      <div><h1 style={{ margin: 0, padding: 0 }}>Foo text</h1></div>
+    </div>
+  )
+};
 
 export const AlertBanner = Template.bind({});
 
@@ -32,7 +56,7 @@ AlertBanner.args = {
   alerts: [
     {
       type: AlertBannerType.Error,
-      message: 'Hello, Im the AlertBanner!',
+      message: 'Hello, Im the das sdasdasd asdasd asdasdasdasdasdasdadad a assdsdasddass asd asdasd asdas dasd dasdasd asdasdas d!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
@@ -41,7 +65,7 @@ AlertBanner.args = {
     },
     {
       type: AlertBannerType.Information,
-      message: 'Hello, Im the AlertBanner!',
+      message: 'Hello, Im the d asasdd das sadsd asd d dsadasdasdsadas das!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
@@ -58,7 +82,7 @@ AlertBanner.args = {
       icon: true
     }
   ],
-  breakpoint: layoutProps.small['device-max-width'].value,
+  breakpoint: '768px',
   animation: {
     showAnimations: false,
     triggerYPosition: 0,
