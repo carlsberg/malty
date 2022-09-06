@@ -18,8 +18,7 @@ import {
   StyledMessage
 } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.styled';
 import { AlertBannerProps, AlertBannerType } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
-import { useScrollPosition } from './hooks/useScrollPosition';
-import { usePrevious } from './hooks/usePrevious';
+import { useScrollPosition, usePrevious } from './AlertBanner.helper';
 
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,

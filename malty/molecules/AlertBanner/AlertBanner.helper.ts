@@ -1,4 +1,4 @@
-import { useRef, DependencyList, useLayoutEffect } from 'react';
+import { useRef, DependencyList, useEffect, useLayoutEffect } from 'react';
 
 interface IPosition {
   x: number;
@@ -66,3 +66,12 @@ export const useScrollPosition = (
     };
   }, deps);
 };
+
+
+export const usePrevious = (value: number) => {
+  const ref = useRef<number>(0);
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
+}
