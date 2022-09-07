@@ -228,7 +228,7 @@ const renderMobileActionsContent = () => {
 
   return (
     <Container 
-      type={currentAlert.type} 
+      typeAlert={currentAlert.type} 
       theme={theme}
     >
       <ContentRow data-testid={`${currentAlert.dataQaId}-AlertBanner-content`} theme={theme} onClick={showAlertBannerDetails}>
