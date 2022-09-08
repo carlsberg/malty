@@ -13,16 +13,16 @@ const simpleFadeAnimation = keyframes`
 `;
 
 export const Container = styled.div<{
-  type?: AlertBannerType;
+  typeAlert?: AlertBannerType;
 }>`
-  background-color: ${({ type, theme }) => {
-    if (type === AlertBannerType.Information) {
+  background-color: ${({ typeAlert, theme }) => {
+    if (typeAlert === AlertBannerType.Information) {
       return theme.colors.colours.system['notification-strong'].value;
     }
-    if (type === AlertBannerType.Error) {
+    if (typeAlert === AlertBannerType.Error) {
       return theme.colors.colours.system.fail.value;
     }
-    if (type === AlertBannerType.Warning) {
+    if (typeAlert === AlertBannerType.Warning) {
       return theme.colors.colours.system['alert-strong'].value;
     }
     return theme.colors.colours.system['notification-strong'].value;
