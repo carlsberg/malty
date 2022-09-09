@@ -91,6 +91,15 @@
           }
         }
       }
+    },
+    "{atoms/icon}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "@carlsberggroup/malty.atoms.icon-wrapper": "^0.0.29"
+          }
+        }
+      }
     }
   }
 }
