@@ -86,7 +86,7 @@ const StyledButton = styled.button<{
     width: ${({ iconSize }) => `${iconSize}`};
   }
 
-  ${({ hasText,hasIcon, isLoading }) =>
+  ${({ hasText, hasIcon, isLoading }) =>
     ((!hasText && !hasIcon) || isLoading) &&
     
     css`
