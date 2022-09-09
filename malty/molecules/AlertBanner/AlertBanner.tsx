@@ -1,6 +1,12 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
+import React, { FC, KeyboardEvent, RefObject, useContext, useEffect, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
+import { usePrevious, useScrollPosition } from './AlertBanner.helper';
 import {
   CloseButtonContainer,
   Container,
@@ -10,14 +16,8 @@ import {
   MessageContainer,
   StyledAction,
   StyledMessage
-} from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.styled';
-import { AlertBannerProps, AlertBannerType } from '@carlsberggroup/malty.molecules.alert-banner/AlertBanner.types';
-import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
-import React, { FC, KeyboardEvent, RefObject, useContext, useEffect, useRef, useState } from 'react';
-import { ThemeContext } from 'styled-components';
-import { usePrevious, useScrollPosition } from './AlertBanner.helper';
+} from './AlertBanner.styled';
+import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
 
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
