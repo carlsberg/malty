@@ -25,9 +25,7 @@ const singleOptionConfig = {
   profileActions: [{ name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' }]
 };
 
-const resetNavState = () => {
-  console.log('reset nav state');
-};
+const resetNavState = jest.fn();
 
 describe('Products bar component', () => {
   it('renders with correct number of system options', () => {

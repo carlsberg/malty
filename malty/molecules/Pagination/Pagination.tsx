@@ -34,6 +34,29 @@ export const Pagination = ({
   const isCompact = type === PaginationType.Compact;
   const isInput = type === PaginationType.Input;
 
+  useEffect(() => {
+    let timeOutId: NodeJS.Timeout;
+    if (type === PaginationType.Input) {
+      if (!Number.isNaN(parseInt(inputValue.toString(), 10))) {
+        timeOutId = setTimeout(() => onChange(inputValue as number), 350);
+      }
+    }
+
+    return () => clearTimeout(timeOutId);
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (type === PaginationType.Input) {
+      setInputValue(currentPage);
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      setButtonSize(ButtonSize.Small);
+    }
+  }, [window.innerWidth]);
+
   if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
     return null;
   }
@@ -82,6 +105,7 @@ export const Pagination = ({
   const onNextKeyUp = () => {
     onPageKeyUp(currentPage + 1);
   };
+
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     if (!Number.isNaN(parseInt(event.target.value, 10))) {
       setInputValue(parseInt(event.target.value, 10));
@@ -89,28 +113,6 @@ export const Pagination = ({
       setInputValue('');
     }
   };
-  useEffect(() => {
-    let timeOutId: NodeJS.Timeout;
-    if (type === PaginationType.Input) {
-      if (!Number.isNaN(parseInt(inputValue.toString(), 10))) {
-        timeOutId = setTimeout(() => onChange(inputValue as number), 350);
-      }
-    }
-
-    return () => clearTimeout(timeOutId);
-  }, [inputValue]);
-
-  useEffect(() => {
-    if (type === PaginationType.Input) {
-      setInputValue(currentPage);
-    }
-  }, [currentPage]);
-
-  useEffect(() => {
-    if (window.innerWidth <= 768) {
-      setButtonSize(ButtonSize.Small);
-    }
-  }, [window.innerWidth]);
 
   const renderContent = () => {
     if (isInput) {
@@ -133,6 +135,7 @@ export const Pagination = ({
         </StyledInputPagination>
       );
     }
+
     if (isCompact) {
       return (
         <li>
@@ -144,6 +147,7 @@ export const Pagination = ({
         </li>
       );
     }
+
     return (
       <>
         {paginationRange?.map((pageNr, idx) => {
@@ -194,7 +198,7 @@ export const Pagination = ({
               icon={IconName.ChevronLeft}
               size={buttonSize}
               negative={isWhite}
-              aria-label={'Previous button'}
+              aria-label="Previous button"
             />
           </li>
           {renderContent()}
@@ -209,7 +213,7 @@ export const Pagination = ({
               icon={IconName.ChevronRight}
               size={buttonSize}
               negative={isWhite}
-              aria-label={'Next button'}
+              aria-label="Next button"
             />
           </li>
         </ul>

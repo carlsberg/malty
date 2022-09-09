@@ -86,12 +86,12 @@ Modal.args = {
     {
       variant: ButtonStyle.Secondary,
       label: 'Cancel',
-      onClick: () => alert('primay button pressed')
+      onClick: () => alert('secondary button pressed')
     },
     {
       variant: ButtonStyle.Primary,
       label: 'Confirm',
-      onClick: () => alert('primay button pressed')
+      onClick: () => alert('primary button pressed')
     }
   ]
 };

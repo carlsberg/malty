@@ -63,6 +63,6 @@ AlertBanner.args = {
     showAnimations: false,
     triggerYPosition: 0,
     isBannerTextCompressed: false,
-    toggleBannerTextCompress: action('Button clicked'),
+    toggleBannerTextCompress: action('Button clicked')
   }
 };
