@@ -31,7 +31,7 @@ const getScrollPosition = () => {
 export const useScrollPosition = (
   effect: (props: IScrollProps) => void,
   deps?: DependencyList,
-  wait?: number
+  delay?: number
 ): void => {
   const position = useRef(getScrollPosition());
 
@@ -49,9 +49,9 @@ export const useScrollPosition = (
       return undefined;
     }
     const handleScroll = () => {
-      if (wait) {
+      if (delay) {
         if (throttleTimeout === null) {
-          throttleTimeout = window.setTimeout(callBack, wait);
+          throttleTimeout = window.setTimeout(callBack, delay);
         }
       } else {
         callBack();

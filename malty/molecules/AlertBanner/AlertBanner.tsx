@@ -50,35 +50,34 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   };
-  const [localCurrentY, setLocalCurrentY] = useState(0);
   const prevAlertSelection: number = usePrevious(activeAlert);
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
-      return toggleBannerTextCompress ? toggleBannerTextCompress(value) : undefined;
+      toggleBannerTextCompress?.(value);
     }
   };
 
   const showAlertBannerDetails = () => {
     if (isBannerTextCompressed && isMobile) {
-      return handleToggle(false);
+      handleToggle(false);
     }
   };
 
-  const setNewAlertBannerDetailsState = (newState: boolean, currentY: number) => {
+  const setNewAlertBannerDetailsState = (newState: boolean) => {
     handleToggle(newState);
-    setLocalCurrentY(Math.abs(currentY));
   };
 
   useScrollPosition(
-    ({ prevPos, currPos }) => {
+    ({ currPos }) => {
       const scrollBiggerThanTriggerPosition = () =>
         isMobile && showAnimations && Math.abs(currPos.y) > triggerYPosition;
       if (scrollBiggerThanTriggerPosition() && !isBannerTextCompressed) {
-        return setNewAlertBannerDetailsState(true, Math.abs(currPos.y));
+        setNewAlertBannerDetailsState(true);
+        return;
       }
       if (!scrollBiggerThanTriggerPosition() && isBannerTextCompressed) {
-        return setNewAlertBannerDetailsState(false, Math.abs(currPos.y));
+        setNewAlertBannerDetailsState(false);
       }
     },
     [isMobile, showAnimations, isBannerTextCompressed],
