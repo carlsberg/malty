@@ -117,17 +117,15 @@ export const Button = ({
         tabIndex={tabIndex}
         className={selected ? 'active' : ''}
       >
-        {(
-          <div className={`text-container `}>
-            {icon && iconPos === ButtonIconPosition.Left && (
-              <Icon name={icon} color={iconColor} size={IconSize.Small} />
-            )}
-            {text || children}
-            {icon && iconPos === ButtonIconPosition.Right && (
-              <Icon name={icon} color={iconColor} size={IconSize.Small} />
-            )}
-          </div>
-        )}
+        <div className={`text-container `}>
+          {icon && iconPos === ButtonIconPosition.Left && (
+            <Icon name={icon} color={iconColor} size={IconSize.Small} />
+          )}
+          {text || children}
+          {icon && iconPos === ButtonIconPosition.Right && (
+            <Icon name={icon} color={iconColor} size={IconSize.Small} />
+          )}
+        </div>
         {loading && (
           <div data-testid={`${dataTestId}-loading`} className="secondary-container">
             <Loading
