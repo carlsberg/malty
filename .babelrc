@@ -1,4 +1,4 @@
 {
-  "presets": ["@babel/env", "@babel/react", "@babel/preset-typescript"],
-  "plugins": ["@babel/plugin-proposal-class-properties", "transform-hoist-jsx-style", "@babel/plugin-syntax-flow"]
+  "presets": ["@babel/env", "@babel/react", "@babel/preset-typescript", "@babel/preset-flow"],
+  "plugins": ["@babel/plugin-proposal-class-properties", "transform-hoist-jsx-style"]
 }
