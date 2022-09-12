@@ -3,7 +3,6 @@ import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledDivider, StyledSegmentController } from './SegmentController.styled';
-
 import { SegmentControllerProps, SegmentControllerSize } from './SegmentController.types';
 
 export const SegmentController = ({

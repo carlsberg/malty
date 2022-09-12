@@ -10,9 +10,7 @@ const simpleNavigation = [
   { icon: IconName.DataTransfer, name: 'item 3', href: '/item3' }
 ];
 
-const testHandler = () => {
-  console.log('test nav list behaviour');
-};
+const testHandler = jest.fn();
 
 describe('navList molecule', () => {
   it('renders correct number of list items', () => {

@@ -12,7 +12,7 @@ const buttons = [
   {
     variant: ButtonStyle.Secondary,
     label: 'Cancel',
-    onClick: () => alert('primay button pressed')
+    onClick: jest.fn()
   },
   {
     variant: ButtonStyle.Primary,

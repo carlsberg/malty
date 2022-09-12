@@ -13,16 +13,16 @@ const simpleFadeAnimation = keyframes`
 `;
 
 export const Container = styled.div<{
-  type?: AlertBannerType;
+  typeAlert?: AlertBannerType;
 }>`
-  background-color: ${({ type, theme }) => {
-    if (type === AlertBannerType.Information) {
+  background-color: ${({ typeAlert, theme }) => {
+    if (typeAlert === AlertBannerType.Information) {
       return theme.colors.colours.system['notification-strong'].value;
     }
-    if (type === AlertBannerType.Error) {
+    if (typeAlert === AlertBannerType.Error) {
       return theme.colors.colours.system.fail.value;
     }
-    if (type === AlertBannerType.Warning) {
+    if (typeAlert === AlertBannerType.Warning) {
       return theme.colors.colours.system['alert-strong'].value;
     }
     return theme.colors.colours.system['notification-strong'].value;
@@ -32,8 +32,6 @@ export const Container = styled.div<{
 
 export const FadeWrapper = styled.div<{
   show: boolean;
-  offsetY: number;
-  triggerYPosition: number;
 }>`
   display: flex;
   align-items: center;
@@ -45,16 +43,14 @@ export const FadeWrapper = styled.div<{
   & > div {
     width: 100%;
   }
-  ${({ show, offsetY, triggerYPosition }) => {
-    if (show && offsetY > triggerYPosition) {
-      return css`
-        transition: height 0.35s ease-in-out;
-        animation: ${simpleFadeAnimation} 0.3s ease-in-out;
-        visibility: hidden;
-        height: 0px;
-      `;
-    }
-  }}
+  ${({ show }) =>
+    show &&
+    css`
+      transition: height 0.35s ease-in-out;
+      animation: ${simpleFadeAnimation} 0.3s ease-in-out;
+      visibility: hidden;
+      height: 0px;
+    `}
 `;
 
 export const ContentRow = styled.div`
@@ -91,16 +87,51 @@ export const MessageContainer = styled.div<{
   }
 `;
 
-export const StyledMessage = styled.div<{ hideText: boolean }>`
+export const StyledMessage = styled.div<{
+  hideText: boolean;
+  isMobile?: boolean;
+}>`
   overflow: hidden;
   display: flex;
   align-items: center;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
-  line-clamp: ${({ hideText }) => (hideText ? 1 : 3)};
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s linear;
+  ${({ hideText, isMobile }) => {
+    if (hideText && isMobile) {
+      return css`
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+      `;
+    }
+    if (!hideText && isMobile) {
+      return css`
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+      `;
+    }
+    return css`
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+    `;
+  }}
+`;
+
+export const FadeText = styled.div<{ fire: boolean; currentElementHeight?: number }>`
+  height: 18px;
+  transition: all 0.2s linear;
+  ${({ fire, currentElementHeight }) => {
+    if (!fire && currentElementHeight && currentElementHeight > 18) {
+      return css`
+        height: ${currentElementHeight}px;
+      `;
+    }
+
+    return css`
+      height: auto;
+    `;
+  }}
 `;
 
 export const StyledAction = styled.div<{
