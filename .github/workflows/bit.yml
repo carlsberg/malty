@@ -8,7 +8,7 @@ jobs:
   deploy:
     name: 'Deploy Bit Packages'
     runs-on: ubuntu-latest
-     env:
+    env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
       - id: token
