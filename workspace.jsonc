@@ -91,6 +91,24 @@
           }
         }
       }
+    },
+    "{atoms/icon}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "@carlsberggroup/malty.atoms.icon-wrapper": "*"
+          }
+        }
+      }
+    },
+    "{icons/*}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "@carlsberggroup/malty.atoms.icon-wrapper": "*"
+          }
+        }
+      }
     }
   }
 }
