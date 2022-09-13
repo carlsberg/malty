@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://bit.dev/docs/workspace/workspace-json
- **/ {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -50,7 +50,9 @@
       "@types/react-dom": "^17.0.2"
     },
     "packageManagerArgs": [],
-    "devFilePatterns": ["**/*.spec.ts"],
+    "devFilePatterns": [
+      "**/*.spec.ts"
+    ],
     "strictPeerDependencies": true
   },
   /**
@@ -64,7 +66,10 @@
      **/
     "*": {
       "teambit.component/dev-files": {
-        "devFilePatterns": ["**/*.stories.+(js|ts|jsx|tsx)", "**/*.story.+(js|ts|jsx|tsx)"]
+        "devFilePatterns": [
+          "**/*.stories.+(js|ts|jsx|tsx)",
+          "**/*.story.+(js|ts|jsx|tsx)"
+        ]
       },
       "teambit.react/react": {}
     },
