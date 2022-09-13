@@ -121,7 +121,7 @@ export const Button = ({
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
-        <div className={`text-container `}>
+        <div className="text-container">
           {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
           {text || children}
           {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
