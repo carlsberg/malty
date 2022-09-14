@@ -151,6 +151,27 @@ export const StyledCalendar = styled.div`
   & .react-datepicker__current-month {
     font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
+    display: inline;
+  }
+  & .react-datepicker__header__dropdown {
+    display: inline;
+    & .react-datepicker__year-dropdown-container {
+      display: inline;
+      & .react-datepicker__year-select {
+        color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
+        font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
+        font-family: ${({ theme }) => theme.typography.desktop.headline.medium['font-family'].value};
+        margin-left: ${({ theme }) => theme.sizes['2xs'].value};
+        border: 0;
+        &:focus-visible {
+          outline: 0;
+        }
+        option {
+          font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
+        }
+      }
+    }
   }
   & .react-datepicker__day-names {
     font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
