@@ -31,15 +31,151 @@ const textColorsMap = {
   [AlertBannerType.Error]: TextColor.White
 };
 
+// CS-PLUS MOCKS - START
+enum DismissibleStatus {
+  DISMISSIBLE = 'DISMISSIBLE',
+  NOT_DISMISSIBLE = 'NOT_DISMISSIBLE',
+  SESSION = 'SESSION'
+}
+
+enum SeverityStatus {
+  INFO = 'INFO',
+  WARN = 'WARN',
+  CRITICAL = 'CRITICAL'
+}
+
+export interface AnnouncementContent {
+  eid: string;
+  salesOrg: string;
+  dismissible: DismissibleStatus;
+  details: AnnouncementContentDetails;
+}
+
+export interface AnnouncementContentDetails {
+  message: AnnouncementMessage[];
+  priority: number;
+  severity: SeverityStatus;
+}
+
+export interface AnnouncementMessage {
+  title: string;
+  body: string;
+  locale: string;
+}
+
+const mockedAnnoucementList: AnnouncementContent[] = [
+  {
+    eid: '32132312',
+    salesOrg: '1010',
+    dismissible: DismissibleStatus.NOT_DISMISSIBLE,
+    details: {
+      message: [
+        {
+          title: 'Announcement 1',
+          body: 'Here, take some cold beer. Cheer dklasjikdasjdisadj asijdsaid iadas dijasidjasjid jisjiadjis adjiasjidsaijdasijd ijdijasd jiasdjasjiod iasodjisadojasiodjasdioasjd iodioasjdsioas!!',
+          locale: 'en_GB'
+        },
+        {
+          title: 'Announcement 1',
+          body: 'ທົດສອບການແຈ້ງເຕືອນອັດຕະໂນມັດ',
+          locale: 'lo_LA'
+        }
+      ],
+      priority: 1,
+      severity: SeverityStatus.WARN
+    }
+  },
+  {
+    eid: 'dasdsadsaddas',
+    salesOrg: '1010',
+    dismissible: DismissibleStatus.DISMISSIBLE,
+    details: {
+      message: [
+        {
+          title: 'Announcement 1',
+          body: 'Here, take some cold beer. Cheer dklasjikdasjdisadj asijdsaid iadas dijasidjasjid jisjiadjis adjiasjidsaijdasijd ijdijasd jiasdjasjiod iasodjisadojasiodjasdioasjd iodioasjdsioas!!',
+          locale: 'en_GB'
+        },
+        {
+          title: 'Announcement 1',
+          body: 'ທົດສອບການແຈ້ງເຕືອນອັດຕະໂນມັດ',
+          locale: 'lo_LA'
+        }
+      ],
+      priority: 2,
+      severity: SeverityStatus.INFO
+    }
+  },
+  {
+    eid: 'dddssad',
+    salesOrg: '1010',
+    dismissible: DismissibleStatus.NOT_DISMISSIBLE,
+    details: {
+      message: [
+        {
+          title: 'dasdas 1',
+          body: 'Here, take some cold beer. Cheer dklasjikdasjdisadj asijdsaid iadas dijasidjasjid jisjiadjis adjiasjidsaijdasijd ijdijasd jiasdjasjiod iasodjisadojasiodjasd asdasioasjd iodioasjdsioas!!',
+          locale: 'en_GB'
+        },
+        {
+          title: 'dasdsad  1',
+          body: 'ທົດສອບການແຈ້ງເຕືອນອັດຕະໂນມັດ',
+          locale: 'lo_LA'
+        }
+      ],
+      priority: 3,
+      severity: SeverityStatus.WARN
+    }
+  }
+];
+// CS-PLUS MOCKS - END
+
 export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
   animation
 }) => {
+  const AlertType = {
+    [SeverityStatus.CRITICAL]: {
+      type: AlertBannerType.Error
+    },
+    [SeverityStatus.WARN]: {
+      type: AlertBannerType.Warning
+    },
+    [SeverityStatus.INFO]: {
+      type: AlertBannerType.Information
+    }
+  };
+
+  const [mockedAnnoucements, setMockedAnnoucements] = useState<AnnouncementContent[]>(mockedAnnoucementList);
+
+  const removeItem = (announcementContent: AnnouncementContent) => {
+    const newList = mockedAnnoucements.filter((item) => item?.eid !== announcementContent.eid);
+    setMockedAnnoucements(newList);
+  };
+
+  const items = React.useMemo(
+    () =>
+      mockedAnnoucements.map((announcementContent) => ({
+        type: AlertType[announcementContent.details.severity]?.type,
+        message: announcementContent?.details?.message[0].body,
+        dataQaId: 'announcement',
+        dismiss: () => removeItem(announcementContent),
+        icon: true
+      })),
+    [mockedAnnoucements]
+  );
+
+  const [mockedAlertsList, setMockedAlertsList] = useState(items);
+
+  useEffect(() => {
+    setMockedAlertsList(items);
+  }, [items]);
+
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
-  const currentAlert = alerts[activeAlert - 1];
+  const currentAlert = mockedAlertsList[activeAlert - 1];
   const breakpointNumber = Number(breakpoint.split('px')[0]);
   const isMobile = width <= breakpointNumber;
   const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
@@ -115,7 +251,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
 
   const triggerAnimation = () => isBannerTextCompressed || false;
 
-  if (!alerts?.length) {
+  if (!mockedAlertsList?.length) {
     return null;
   }
 
@@ -194,12 +330,12 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     );
 
   const renderMobileActionsContent = () => {
-    if ((isMobile && alerts.length > 1) || currentAlert.action) {
+    if ((isMobile && mockedAlertsList.length > 1) || currentAlert.action) {
       return (
         <FadeWrapper theme={theme} show={isBannerTextCompressed} data-testid="fade-wrapper">
           <ContentRow theme={theme}>
             <Pagination
-              count={alerts?.length}
+              count={mockedAlertsList?.length}
               onChange={(pageNr) => setActiveAlert(pageNr)}
               currentPage={activeAlert}
               type={PaginationType.Compact}
@@ -223,7 +359,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       >
         {!isMobile && (
           <Pagination
-            count={alerts.length}
+            count={mockedAlertsList.length}
             onChange={(pageNr) => setActiveAlert(pageNr)}
             currentPage={activeAlert}
             type={PaginationType.Compact}
