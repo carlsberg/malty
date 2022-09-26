@@ -15,7 +15,8 @@ const alertsMock = [
     dataQaId: 'alert-banner',
     action: actionMockFn,
     actionName: 'First Action',
-    dismiss: dismissButtonMockFn,
+    dismissible: true,
+    onDismiss: dismissButtonMockFn,
     icon: true
   },
   {
@@ -24,7 +25,8 @@ const alertsMock = [
     dataQaId: 'alert-banner',
     action: actionMockFn,
     actionName: 'Second Action',
-    dismiss: dismissButtonMockFn,
+    dismissible: true,
+    onDismiss: dismissButtonMockFn,
     icon: true
   },
   {
@@ -33,7 +35,8 @@ const alertsMock = [
     dataQaId: 'alert-banner',
     action: actionMockFn,
     actionName: 'Third Action',
-    dismiss: dismissButtonMockFn,
+    dismissible: true,
+    onDismiss: dismissButtonMockFn,
     icon: true
   }
 ];

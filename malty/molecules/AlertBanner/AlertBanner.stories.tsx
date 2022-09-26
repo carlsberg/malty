@@ -31,30 +31,36 @@ export const AlertBanner = Template.bind({});
 AlertBanner.args = {
   alerts: [
     {
+      eid: '1',
       type: AlertBannerType.Error,
       message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
-      dismiss: action('Dismiss button clicked'),
+      dismissible: true,
+      onDismiss: action('Dismiss button clicked'),
       icon: true
     },
     {
+      eid: '2',
       type: AlertBannerType.Information,
       message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
-      dismiss: action('Dismiss button clicked'),
+      dismissible: true,
+      onDismiss: action('Dismiss button clicked'),
       icon: true
     },
     {
+      eid: '3',
       type: AlertBannerType.Warning,
       message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
-      dismiss: action('Dismiss button clicked'),
+      dismissible: true,
+      onDismiss: action('Dismiss button clicked'),
       icon: true
     }
   ],
