@@ -52,6 +52,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     toggleBannerTextCompress: undefined
   };
   const prevAlertSelection: number = usePrevious(activeAlert);
+  const prevAlertArraySize: number = usePrevious(alertsArray.length);
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -92,15 +93,21 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     };
   }, []);
 
+  const changeMobileTextWrapperSize = () => {
+    if (alertBannerStyledMessage.current) {
+      setTextWrapperSize(alertBannerStyledMessage.current.clientHeight);
+    }
+  };
+
   useEffect(() => {
-    const textElement = alertBannerStyledMessage.current?.clientHeight;
-    if (isMobile && !prevAlertSelection) {
-      setTextWrapperSize(textElement);
+    if (
+      isMobile &&
+      (!prevAlertSelection || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
+    ) {
+      changeMobileTextWrapperSize();
     }
-    if (isMobile && prevAlertSelection && prevAlertSelection !== activeAlert && textElement) {
-      setTextWrapperSize(textElement);
-    }
-  }, [isMobile, activeAlert, prevAlertSelection, alertBannerStyledMessage.current]);
+  }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length]);
+  
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
