@@ -127,10 +127,7 @@ export const FadeText = styled.div<{ fire: boolean; currentElementHeight?: numbe
         height: ${currentElementHeight}px;
       `;
     }
-
-    return css`
-      height: auto;
-    `;
+    return null;
   }}
 `;
 
