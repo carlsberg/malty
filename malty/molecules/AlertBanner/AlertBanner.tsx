@@ -235,7 +235,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   };
 
   return (
-    <Container typeAlert={currentAlert.type} theme={theme}>
+    <Container type={currentAlert.type} theme={theme}>
       <ContentRow
         data-testid={`${currentAlert.dataQaId}-AlertBanner-content`}
         theme={theme}
