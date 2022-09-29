@@ -50,6 +50,10 @@ export default {
       },
       description: 'Changes color of component to white',
       control: 'boolean'
+    },
+    zeroBasedIndex: {
+      description: 'if true the first page starts on 0',
+      control: 'boolean'
     }
   }
 } as Meta;

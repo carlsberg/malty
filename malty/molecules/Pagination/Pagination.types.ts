@@ -6,6 +6,7 @@ export interface PaginationProps {
   dataQaId?: string;
   type?: PaginationType;
   isWhite?: boolean;
+  zeroBasedIndex?: boolean;
 }
 
 export enum PaginationType {
