@@ -31,15 +31,13 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
     list-style: none;
     li:first-child {
       & button {
-        padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
+        padding: 0 ${({ theme }) => theme.sizes['4xs'].value};
       }
-      margin-right: ${({ theme }) => theme.sizes['2xs'].value};
     }
     li:last-child {
       & button {
-        padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
+        padding: 0 ${({ theme }) => theme.sizes['4xs'].value};
       }
-      margin-left: ${({ theme }) => theme.sizes['2xs'].value};
     }
     .default-pagination {
       button {
