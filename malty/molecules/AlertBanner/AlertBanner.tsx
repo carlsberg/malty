@@ -206,6 +206,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       </StyledMessage>
     );
 
+  const showBottomArea = () => alertsArray.length > 1 || currentAlert.action;
   const renderMobileActionsContent = () => {
     if ((isMobile && alertsArray.length > 1) || currentAlert.action) {
       return (
@@ -245,6 +246,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         )}
         <MessageContainer
           theme={theme}
+          applyMarginBottom={!showBottomArea()}
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >
