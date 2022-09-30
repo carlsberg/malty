@@ -107,7 +107,6 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       changeMobileTextWrapperSize();
     }
   }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length]);
-  
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -220,7 +219,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
           <ContentRow theme={theme}>
             <Pagination
               count={alertsArray?.length}
-              onChange={(pageNr) => setActiveAlert(pageNr)}
+              onChange={(pageNr) => setActiveAlert(Number(pageNr))}
               currentPage={activeAlert}
               type={PaginationType.Compact}
               isWhite={currentAlert.type !== AlertBannerType.Warning}
@@ -244,7 +243,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         {!isMobile && (
           <Pagination
             count={alertsArray.length}
-            onChange={(pageNr) => setActiveAlert(pageNr)}
+            onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}
             type={PaginationType.Compact}
             isWhite={currentAlert.type !== AlertBannerType.Warning}
