@@ -78,6 +78,7 @@ export const MessageContainer = styled.div<{
     transform: translate(-50%, -50%);
     width: fit-content;
     max-width: calc(100% - 300px);
+    padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
   }
   svg {
     min-height: ${({ theme }) => theme.sizes.m.value};
