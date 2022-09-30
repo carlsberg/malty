@@ -11,7 +11,7 @@ import {
 } from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
 
-export const Checkbox = ({ id, value, checked, labelText, error, onValueChange }: CheckboxProps) => {
+export const Checkbox = ({ id, value, checked, labelText, error, onValueChange, dataTestId }: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -19,6 +19,7 @@ export const Checkbox = ({ id, value, checked, labelText, error, onValueChange }
       <StyledCheckboxContainer theme={theme}>
         <StyledCheckboxLabel htmlFor={id} theme={theme}>
           <StyledCheckboxHiddenInput
+            data-testid={dataTestId}
             id={id}
             value={value}
             onChange={(e) => onValueChange(!(e.target as HTMLInputElement).checked)}
@@ -26,7 +27,9 @@ export const Checkbox = ({ id, value, checked, labelText, error, onValueChange }
             theme={theme}
           />
           <StyledCheckboxDisplayInput checked={checked} theme={theme} />
-          <StyledCheckboxLabelText theme={theme}>{labelText}</StyledCheckboxLabelText>
+          <StyledCheckboxLabelText data-testid={`${dataTestId}-label`} theme={theme}>
+            {labelText}
+          </StyledCheckboxLabelText>
         </StyledCheckboxLabel>
         {error && <StyledError theme={theme}>{error}</StyledError>}
       </StyledCheckboxContainer>

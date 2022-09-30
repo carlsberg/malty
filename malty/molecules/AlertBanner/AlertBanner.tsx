@@ -52,6 +52,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     toggleBannerTextCompress: undefined
   };
   const prevAlertSelection: number = usePrevious(activeAlert);
+  const prevAlertArraySize: number = usePrevious(alertsArray.length);
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -92,15 +93,20 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     };
   }, []);
 
+  const changeMobileTextWrapperSize = () => {
+    if (alertBannerStyledMessage.current) {
+      setTextWrapperSize(alertBannerStyledMessage.current.clientHeight);
+    }
+  };
+
   useEffect(() => {
-    const textElement = alertBannerStyledMessage.current?.clientHeight;
-    if (isMobile && !prevAlertSelection) {
-      setTextWrapperSize(textElement);
+    if (
+      isMobile &&
+      (!prevAlertSelection || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
+    ) {
+      changeMobileTextWrapperSize();
     }
-    if (isMobile && prevAlertSelection && prevAlertSelection !== activeAlert && textElement) {
-      setTextWrapperSize(textElement);
-    }
-  }, [isMobile, activeAlert, prevAlertSelection, alertBannerStyledMessage.current]);
+  }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -206,6 +212,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       </StyledMessage>
     );
 
+  const showBottomArea = () => alertsArray.length > 1 || currentAlert.action;
   const renderMobileActionsContent = () => {
     if ((isMobile && alertsArray.length > 1) || currentAlert.action) {
       return (
@@ -213,7 +220,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
           <ContentRow theme={theme}>
             <Pagination
               count={alertsArray?.length}
-              onChange={(pageNr) => setActiveAlert(pageNr)}
+              onChange={(pageNr) => setActiveAlert(Number(pageNr))}
               currentPage={activeAlert}
               type={PaginationType.Compact}
               isWhite={currentAlert.type !== AlertBannerType.Warning}
@@ -228,7 +235,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   };
 
   return (
-    <Container typeAlert={currentAlert.type} theme={theme}>
+    <Container type={currentAlert.type} theme={theme}>
       <ContentRow
         data-testid={`${currentAlert.dataQaId}-AlertBanner-content`}
         theme={theme}
@@ -237,7 +244,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         {!isMobile && (
           <Pagination
             count={alertsArray.length}
-            onChange={(pageNr) => setActiveAlert(pageNr)}
+            onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}
             type={PaginationType.Compact}
             isWhite={currentAlert.type !== AlertBannerType.Warning}
@@ -245,6 +252,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         )}
         <MessageContainer
           theme={theme}
+          applyMarginBottom={!showBottomArea()}
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >
