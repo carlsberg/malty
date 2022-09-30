@@ -65,8 +65,10 @@ export const ContentRow = styled.div`
 
 export const MessageContainer = styled.div<{
   breakpoint: string;
+  applyMarginBottom: boolean;
 }>`
-  padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
+  padding-top: ${({ theme }) => theme.sizes['2xs'].value};
+  padding-bottom: ${({ theme, applyMarginBottom }) => applyMarginBottom && theme.sizes['2xs'].value};
   display: flex;
   align-items: center;
   @media (min-width: ${({ breakpoint }) => breakpoint}) {
@@ -76,6 +78,7 @@ export const MessageContainer = styled.div<{
     transform: translate(-50%, -50%);
     width: fit-content;
     max-width: calc(100% - 300px);
+    padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
   }
   svg {
     min-height: ${({ theme }) => theme.sizes.m.value};
