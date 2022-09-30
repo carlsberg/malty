@@ -24,6 +24,7 @@ export const TextArea = ({
   maxLength,
   hint,
   readOnly = false,
+  dataTestId,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -43,12 +44,20 @@ export const TextArea = ({
     <TypographyProvider>
       <StyledTextareaContainer theme={theme}>
         {label && (
-          <StyledLabel disabled={disabled} htmlFor={id} theme={theme}>
+          <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
             {label}
           </StyledLabel>
         )}
-        <StyledTextAreaWrapper readOnly={readOnly} disabled={disabled} isError={!!error} resize={resize} theme={theme}>
+        <StyledTextAreaWrapper
+          data-testid={`${dataTestId}-container`}
+          readOnly={readOnly}
+          disabled={disabled}
+          isError={!!error}
+          resize={resize}
+          theme={theme}
+        >
           <StyledtextArea
+            data-testid={`${dataTestId}`}
             name={id}
             id={id}
             value={value}
@@ -61,13 +70,17 @@ export const TextArea = ({
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />
-          <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid="TextAreaCounter">
+          <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
             {textAreaCount}
           </StyledTextAreaCharacterCounter>
         </StyledTextAreaWrapper>
-        {error && <StyledError theme={theme}>{error}</StyledError>}
+        {error && (
+          <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
+            {error}
+          </StyledError>
+        )}
         {hint && !error && (
-          <StyledHint disabled={disabled} theme={theme}>
+          <StyledHint data-testid={`${dataTestId}-hint-label`} disabled={disabled} theme={theme}>
             {hint}
           </StyledHint>
         )}
