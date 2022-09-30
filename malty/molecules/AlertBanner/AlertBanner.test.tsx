@@ -10,30 +10,36 @@ const toggleBannerText = jest.fn();
 
 const alertsMock = [
   {
+    eid: '1',
     type: AlertBannerType.Error,
     message: 'Hello, Im the AlertBanner!',
     dataQaId: 'alert-banner',
     action: actionMockFn,
     actionName: 'First Action',
-    dismiss: dismissButtonMockFn,
+    dismissible: true,
+    onDismiss: dismissButtonMockFn,
     icon: true
   },
   {
+    eid: '2',
     type: AlertBannerType.Information,
     message: 'Hello, Im the AlertBanner!',
     dataQaId: 'alert-banner',
     action: actionMockFn,
     actionName: 'Second Action',
-    dismiss: dismissButtonMockFn,
+    dismissible: true,
+    onDismiss: dismissButtonMockFn,
     icon: true
   },
   {
+    eid: '3',
     type: AlertBannerType.Warning,
     message: 'Hello, Im the AlertBanner!',
     dataQaId: 'alert-banner',
     action: actionMockFn,
     actionName: 'Third Action',
-    dismiss: dismissButtonMockFn,
+    dismissible: true,
+    onDismiss: dismissButtonMockFn,
     icon: true
   }
 ];
