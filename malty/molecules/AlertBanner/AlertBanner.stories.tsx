@@ -33,8 +33,7 @@ AlertBanner.args = {
     {
       eid: '1',
       type: AlertBannerType.Error,
-      message:
-        'Hello, Im the dasdasd as sdd dsddasd das d dasdsadsa dsa dasdsadas dasd asd d dsad asd sdasdasdasd dasdasdsdsadasd!',
+      message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
@@ -45,7 +44,7 @@ AlertBanner.args = {
     {
       eid: '2',
       type: AlertBannerType.Information,
-      message: 'Hello, Im sadsa dsa dasdasd2dd asd dsad2dasd ddsdsadsd asds asd AlertBanner!',
+      message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
