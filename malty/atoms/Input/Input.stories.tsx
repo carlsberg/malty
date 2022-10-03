@@ -108,6 +108,18 @@ export default {
     },
     onValueChange: {
       description: 'Function to be executed when input state changes'
+    },
+    maxLength: {
+      control: 'number',
+      description: 'Maximum length (number of characters)'
+    },
+    minLength: {
+      control: 'number',
+      description: 'Minimum length (number of characters)'
+    },
+    required: {
+      control: 'boolean',
+      description: ' A value is required'
     }
   }
 } as Meta;

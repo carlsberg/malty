@@ -231,7 +231,7 @@ export const Select = ({
                   {option.name}
                 </StyledWrapper>
                 {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                  <StyledCheck selectStyle={type} color={IconColor.DigitalBlack} size={IconSize.Small} />
+                  <StyledCheck theme={theme} selectStyle={type} color={IconColor.DigitalBlack} size={IconSize.Small} />
                 )}
               </>
             )}

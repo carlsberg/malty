@@ -13,16 +13,16 @@ const simpleFadeAnimation = keyframes`
 `;
 
 export const Container = styled.div<{
-  typeAlert?: AlertBannerType;
+  type?: AlertBannerType;
 }>`
-  background-color: ${({ typeAlert, theme }) => {
-    if (typeAlert === AlertBannerType.Information) {
+  background-color: ${({ type, theme }) => {
+    if (type === AlertBannerType.Information) {
       return theme.colors.colours.system['notification-strong'].value;
     }
-    if (typeAlert === AlertBannerType.Error) {
+    if (type === AlertBannerType.Error) {
       return theme.colors.colours.system.fail.value;
     }
-    if (typeAlert === AlertBannerType.Warning) {
+    if (type === AlertBannerType.Warning) {
       return theme.colors.colours.system['alert-strong'].value;
     }
     return theme.colors.colours.system['notification-strong'].value;
@@ -65,8 +65,10 @@ export const ContentRow = styled.div`
 
 export const MessageContainer = styled.div<{
   breakpoint: string;
+  applyMarginBottom: boolean;
 }>`
-  padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
+  padding-top: ${({ theme }) => theme.sizes['2xs'].value};
+  padding-bottom: ${({ theme, applyMarginBottom }) => applyMarginBottom && theme.sizes['2xs'].value};
   display: flex;
   align-items: center;
   @media (min-width: ${({ breakpoint }) => breakpoint}) {
@@ -76,6 +78,7 @@ export const MessageContainer = styled.div<{
     transform: translate(-50%, -50%);
     width: fit-content;
     max-width: calc(100% - 300px);
+    padding: ${({ theme }) => theme.sizes['2xs'].value} 0px;
   }
   svg {
     min-height: ${({ theme }) => theme.sizes.m.value};
@@ -127,10 +130,7 @@ export const FadeText = styled.div<{ fire: boolean; currentElementHeight?: numbe
         height: ${currentElementHeight}px;
       `;
     }
-
-    return css`
-      height: auto;
-    `;
+    return null;
   }}
 `;
 
