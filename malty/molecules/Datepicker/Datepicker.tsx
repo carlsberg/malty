@@ -192,6 +192,9 @@ export const Datepicker = ({
             inline={inline}
             selectsRange={selectsRange}
             placeholderText={placeholderText}
+            showYearDropdown
+            dropdownMode="select"
+            dateFormatCalendar="MMMM"
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           >
