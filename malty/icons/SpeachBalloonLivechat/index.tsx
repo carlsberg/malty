@@ -1,12 +1,8 @@
 import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
 
-const SpeachBalloonLivechat = (props: IconWrapperProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-
-  return IconWrapper(
+const SpeachBalloonLivechat = (props: IconWrapperProps) =>
+  IconWrapper(
     props,
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
@@ -25,6 +21,5 @@ const SpeachBalloonLivechat = (props: IconWrapperProps) => {
       </g>
     </g>
   );
-};
 
 export default SpeachBalloonLivechat;

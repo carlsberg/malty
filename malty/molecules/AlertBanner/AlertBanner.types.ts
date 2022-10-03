@@ -1,14 +1,25 @@
 export interface AlertBannerProps {
   alerts: AlertBannerI[];
-  breakpoint?: number;
+  breakpoint?: string;
+  animation?: AnimatedProps;
 }
+
+export interface AnimatedProps {
+  showAnimations: boolean;
+  triggerYPosition: number;
+  isBannerTextCompressed: boolean;
+  toggleBannerTextCompress: (arg0: boolean) => void;
+}
+
 export interface AlertBannerI {
+  eid: string;
   type: AlertBannerType;
   message: string;
   icon?: boolean;
   action?: () => void;
   actionName?: string;
-  dismiss?: () => void;
+  dismissible: boolean;
+  onDismiss?: () => void;
   dataQaId?: string;
 }
 

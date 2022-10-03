@@ -1,3 +1,4 @@
+import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -30,31 +31,44 @@ export const AlertBanner = Template.bind({});
 AlertBanner.args = {
   alerts: [
     {
+      eid: '1',
       type: AlertBannerType.Error,
       message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
-      dismiss: action('Dismiss button clicked'),
+      dismissible: true,
+      onDismiss: action('Dismiss button clicked'),
       icon: true
     },
     {
+      eid: '2',
       type: AlertBannerType.Information,
       message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
-      dismiss: action('Dismiss button clicked'),
+      dismissible: true,
+      onDismiss: action('Dismiss button clicked'),
       icon: true
     },
     {
+      eid: '3',
       type: AlertBannerType.Warning,
       message: 'Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
-      dismiss: action('Dismiss button clicked'),
+      dismissible: true,
+      onDismiss: action('Dismiss button clicked'),
       icon: true
     }
-  ]
+  ],
+  breakpoint: layoutProps.small['device-max-width'].value,
+  animation: {
+    showAnimations: false,
+    triggerYPosition: 0,
+    isBannerTextCompressed: false,
+    toggleBannerTextCompress: action('Button clicked')
+  }
 };

@@ -1,4 +1,4 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { TextArea } from './TextArea';
@@ -8,11 +8,6 @@ jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 const mockFn = jest.fn();
 
 describe('textarea', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(<TextArea value="Value" onValueChange={mockFn} label="Label text" />);
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders elements', () => {
     render(<TextArea value="Value text" label="Label text" placeholder="Placeholder text" onValueChange={mockFn} />);
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();

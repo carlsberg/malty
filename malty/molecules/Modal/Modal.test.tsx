@@ -1,5 +1,5 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React, { useState } from 'react';
 import { Modal } from './Modal';
@@ -12,7 +12,7 @@ const buttons = [
   {
     variant: ButtonStyle.Secondary,
     label: 'Cancel',
-    onClick: () => alert('primay button pressed')
+    onClick: jest.fn()
   },
   {
     variant: ButtonStyle.Primary,
@@ -25,14 +25,7 @@ const buttons = [
   }
 ];
 
-describe('does molecule modal match snapshot?', () => {
-  it('matches snapshot', () => {
-    const view = jsonRenderer(<Modal open onClose={() => false} title={title} content={text} actions={buttons} />);
-    expect(view).toMatchSnapshot();
-  });
-});
-
-describe('Triggers the passed function when clicking the button', () => {
+describe('modal', () => {
   it('OnClick function passed successfully', () => {
     render(<Modal open onClose={() => false} title={title} content={text} actions={buttons} />);
     const primaryButton = screen.getByText('Confirm');
@@ -46,9 +39,7 @@ describe('Triggers the passed function when clicking the button', () => {
     );
     expect(screen.getByText('Clicked primary')).toBeInTheDocument();
   });
-});
 
-describe('Does the modal close?', () => {
   it('Modal closed correctly', () => {
     const ModalTest = () => {
       const [open, setOpen] = useState(true);
