@@ -66,7 +66,7 @@ const Template: Story<PaginationProps> = (args) => {
     <PaginationComponent
       {...args}
       onChange={(page) => {
-        setStatePage(page);
+        setStatePage(page as number);
       }}
       currentPage={statePage}
     />

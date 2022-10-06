@@ -1,6 +1,6 @@
 export interface PaginationProps {
   count: number;
-  onChange: (page: number) => void;
+  onChange: (page: number | string) => void;
   currentPage: number;
   siblingCount?: number;
   dataQaId?: string;

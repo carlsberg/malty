@@ -24,6 +24,25 @@ export const StyledHead = styled.th`
 `;
 
 export const StyledTbody = styled.tbody``;
+export const StyledRow = styled.tr<{
+  size?: string;
+  isClickable: boolean;
+}>`
+  transition: background-color 0.2s cubic-bezier(0, 0, 0.58, 0.9);
+  height: ${({ size }) => size};
+  ${({ theme, isClickable }) =>
+    theme &&
+    isClickable &&
+    css`
+      cursor: pointer;
+      &:hover {
+        background-color: ${theme.colors.colours.overlay['digital-black'][5].value};
+      }
+      &:active {
+        background-color: ${theme.colors.colours.overlay['digital-black'][10].value};
+      }
+    `}
+`;
 export const StyledTd = styled.td`
   padding-left: ${({ theme }) => theme.sizes['2xs'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};

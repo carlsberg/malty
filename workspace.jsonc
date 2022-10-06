@@ -92,6 +92,16 @@
         }
       }
     },
+    "{organisms/table}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "@tanstack/react-table": "^8.5.13",
+            "@types/react-table": "^7.7.12"
+          }
+        }
+      }
+    },
     "{atoms/icon}": {
       "teambit.dependencies/dependency-resolver": {
         "policy": {

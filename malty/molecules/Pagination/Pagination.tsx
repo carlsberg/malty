@@ -20,7 +20,7 @@ export const Pagination = ({
   zeroBasedIndex = false
 }: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [inputValue, setInputValue] = useState<number | undefined>(currentPage);
+  const [inputValue, setInputValue] = useState<number | string>(currentPage);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
 
   const paginationRange = usePagination({
@@ -31,15 +31,22 @@ export const Pagination = ({
   const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
   const isFirstPage =
     // eslint-disable-next-line no-nested-ternary
-    type === PaginationType.Input ? (zeroBasedIndex === true ? inputValue === 0 : inputValue === 1) : inputValue === 1;
-  const isLastPage = type === PaginationType.Input ? lastPage === inputValue : lastPage === currentPage;
+    type === PaginationType.Input ? (zeroBasedIndex === true ? inputValue === 0 : inputValue === 1) : currentPage === 1;
+  const isLastPage =
+    // eslint-disable-next-line no-nested-ternary
+    type === PaginationType.Input
+      ? zeroBasedIndex === true && inputValue
+        ? lastPage === (inputValue as number) + 1
+        : lastPage === inputValue
+      : lastPage === currentPage;
   const isCompact = type === PaginationType.Compact;
   const isInput = type === PaginationType.Input;
 
   useEffect(() => {
     let timeOutId: NodeJS.Timeout;
+
     if (type === PaginationType.Input) {
-      if (inputValue || inputValue === 0) {
+      if (inputValue || inputValue === 0 || inputValue === '') {
         timeOutId = setTimeout(() => onChange(inputValue), 350);
       }
     }
@@ -84,10 +91,8 @@ export const Pagination = ({
 
       return setInputValue((inputValue as number) - 1);
     }
-    // if (currentPage > 1) {
 
     return onChange(currentPage - 1);
-    // }
   };
 
   const onNext = () => {
@@ -97,10 +102,8 @@ export const Pagination = ({
       }
       return setInputValue((inputValue as number) + 1);
     }
-    // if (currentPage < count) {
 
     return onChange(currentPage + 1);
-    // }
   };
 
   const onPreviousKeyUp = () => {
@@ -112,10 +115,10 @@ export const Pagination = ({
   };
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!Number.isNaN(parseInt(event.target.value, 10))) {
-      setInputValue(parseInt(event.target.value, 10) - 1);
+    if (event.target.value !== '') {
+      setInputValue(Number(event.target.value) - 1);
     } else {
-      setInputValue(undefined);
+      setInputValue('');
     }
   };
 
@@ -126,7 +129,8 @@ export const Pagination = ({
           <StyledInput
             theme={theme}
             data-testid={`${dataQaId}-input`}
-            value={zeroBasedIndex ? (inputValue as number) + 1 : inputValue}
+            // eslint-disable-next-line no-nested-ternary
+            value={zeroBasedIndex ? (typeof inputValue === 'string' ? inputValue : inputValue + 1) : inputValue}
             onChange={(e) => handleInput(e)}
             max={count}
             min={0}

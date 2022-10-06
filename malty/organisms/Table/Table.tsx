@@ -1,3 +1,4 @@
+import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import {
   createColumnHelper,
@@ -7,23 +8,29 @@ import {
   PaginationState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { Pagination, PaginationType } from '../../molecules/Pagination';
-import { StyledHead, StyledPaginationWrapper, StyledTable, StyledTbody, StyledTd, StyledThead } from './Table.styled';
-import { TableProps } from './Table.types';
+import {
+  StyledHead,
+  StyledPaginationWrapper,
+  StyledRow,
+  StyledTable,
+  StyledTbody,
+  StyledTd,
+  StyledThead
+} from './Table.styled';
+import { TableProps, TableRowProps, TableSize } from './Table.types';
 
-const columnHelper = createColumnHelper<any>();
-
-export const Table = ({ headers, rows }: TableProps) => {
+export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12 }: TableProps) => {
+  const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data] = useState(() => [...rows]);
+  const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   // const [rowSelection, setRowSelection] = useState({});
-  const [currentPage, setCurrentPage] = useState(0);
 
   const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
-    pageIndex: currentPage,
-    pageSize: 12
+    pageIndex: 0,
+    pageSize: paginationSize
   });
   const pagination = React.useMemo(
     () => ({
@@ -93,10 +100,27 @@ export const Table = ({ headers, rows }: TableProps) => {
     getPaginationRowModel: getPaginationRowModel()
   });
 
-  const handlePageChange = (page: number) => {
-    console.log(page);
-    table.setPageIndex(page);
+  const handlePageChange = (page: number | string) => {
+    if (typeof page !== 'string') table.setPageIndex(page);
   };
+
+  useEffect(() => {
+    switch (size) {
+      case TableSize.Large: {
+        setTableSize(theme.sizes['2xl'].value);
+        break;
+      }
+      case TableSize.XLarge: {
+        setTableSize(theme.sizes['3xl'].value);
+        break;
+      }
+
+      default: {
+        setTableSize(theme.sizes.xl.value);
+        break;
+      }
+    }
+  }, [size, theme]);
 
   return (
     <TypographyProvider>
@@ -115,11 +139,16 @@ export const Table = ({ headers, rows }: TableProps) => {
           </StyledThead>
           <StyledTbody>
             {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
+              <StyledRow
+                isClickable={!!onRowClick}
+                size={tableSize}
+                onClick={() => onRowClick && onRowClick(row.original)}
+                key={row.id}
+              >
                 {row.getVisibleCells().map((cell) => (
                   <StyledTd key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</StyledTd>
                 ))}
-              </tr>
+              </StyledRow>
             ))}
           </StyledTbody>
         </StyledTable>
@@ -127,9 +156,15 @@ export const Table = ({ headers, rows }: TableProps) => {
         <StyledPaginationWrapper>
           <Pagination
             type={PaginationType.Input}
-            count={Math.round(data.length / 12) + 1}
+            count={
+              data.length / table.getState().pagination.pageSize -
+                Math.floor(data.length / table.getState().pagination.pageSize) !==
+              0
+                ? Math.trunc(data.length / table.getState().pagination.pageSize + 1)
+                : Math.trunc(data.length / table.getState().pagination.pageSize)
+            }
             currentPage={table.getState().pagination.pageIndex}
-            onChange={handlePageChange}
+            onChange={(page) => handlePageChange(page)}
             zeroBasedIndex
           />
         </StyledPaginationWrapper>
