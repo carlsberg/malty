@@ -51,6 +51,10 @@ export default {
     onValueChange: {
       description: 'Function to be executed when textarea state changes'
     },
+    dataTestId: {
+      control: 'text',
+      description: 'select data-testid'
+    },
     required: {
       control: 'boolean',
       description: 'Makes the textarea input required to fill'
@@ -81,5 +85,6 @@ TextArea.args = {
   value: '',
   hint: 'hint text',
   readOnly: false,
+  dataTestId: 'Textarea',
   required: false
 };

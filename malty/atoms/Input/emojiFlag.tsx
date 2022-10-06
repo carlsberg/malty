@@ -8,7 +8,7 @@
  */
 export function emojiFlag(
   countryCode: string,
-  fallback: string = '🏳',
+  fallback = '🏳',
   countryFlagData: { [key: string]: string } = {
     AD: '🇦🇩',
     AE: '🇦🇪',

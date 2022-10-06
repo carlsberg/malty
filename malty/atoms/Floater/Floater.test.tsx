@@ -1,4 +1,4 @@
-import { jsonRenderer, render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Floater } from './Floater';
@@ -7,12 +7,6 @@ const defaultText = 'Submit';
 const newText = 'Go';
 
 describe('floater', () => {
-  it('matches snapshot', () => {
-    const onClick = jest.fn();
-    const view = jsonRenderer(<Floater text={defaultText} onClick={onClick} />);
-    expect(view).toMatchSnapshot();
-  });
-
   it('renders with correct text', () => {
     const { rerender } = render(<Floater text={defaultText} />);
     expect(screen.getByText(defaultText)).not.toBeNull();

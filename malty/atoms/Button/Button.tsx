@@ -26,7 +26,9 @@ export const Button = ({
   tabIndex = -1,
   children,
   dataTestId,
-  color = ButtonColor.DigitalBlack
+  color = ButtonColor.DigitalBlack,
+  className,
+  ...props
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
@@ -115,19 +117,15 @@ export const Button = ({
         iconPos={iconPos}
         theme={theme}
         tabIndex={tabIndex}
-        className={selected ? 'active' : ''}
+        className={selected ? `${className} active` : className}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
       >
-        {!loading && (
-          <div className={`text-container `}>
-            {icon && iconPos === ButtonIconPosition.Left && (
-              <Icon name={icon} color={iconColor} size={IconSize.Small} />
-            )}
-            {text || children}
-            {icon && iconPos === ButtonIconPosition.Right && (
-              <Icon name={icon} color={iconColor} size={IconSize.Small} />
-            )}
-          </div>
-        )}
+        <div className="text-container">
+          {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+          {text || children}
+          {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+        </div>
         {loading && (
           <div data-testid={`${dataTestId}-loading`} className="secondary-container">
             <Loading

@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Datepicker as DatepickerComponent } from './Datepicker';
-import { DatepickerProps } from './Datepicker.types';
+import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
 export default {
   title: 'Forms/Datepicker',
@@ -9,13 +9,13 @@ export default {
   parameters: {
     importObject: 'Datepicker',
     importPath: '@carlsberggroup/malty.molecules.datepicker',
-    variants: ['range', 'readonly', 'disabled']
+    variants: ['range', 'readonly', 'disabled', 'captionsAndActions']
   },
   argTypes: {
     label: {
       description: 'The datepicker input label',
       control: {
-        type: 'string'
+        type: 'text'
       }
     },
     startDate: {
@@ -39,13 +39,25 @@ export default {
     dateFormat: {
       description: 'custom date format, default is MM/dd/yyyy',
       control: {
-        type: 'string'
+        type: 'text'
       }
     },
     excludeDates: {
       description: 'disable array of days',
       control: {
         type: 'array'
+      }
+    },
+    size: {
+      description: 'Button size. Options are',
+      options: Object.values(DatepickerSize),
+      table: {
+        defaultValue: {
+          summary: 'DatepickerSize.Medium'
+        }
+      },
+      control: {
+        type: 'select'
       }
     },
     disabled: {
@@ -75,14 +87,40 @@ export default {
     placeholderText: {
       description: 'input placeholder',
       control: {
-        type: 'string'
+        type: 'text'
       }
     },
     locale: {
       description: 'iso language code',
       control: {
-        type: 'string'
+        type: 'text'
       }
+    },
+    captions: {
+      description: 'captions for datepicker',
+      control: {
+        type: 'object'
+      },
+      defaultValue: []
+    },
+    primaryAction: {
+      description: 'apply date',
+      control: {
+        type: 'object'
+      }
+    },
+    secondaryAction: {
+      description: 'cancel apply date',
+      control: {
+        type: 'object'
+      }
+    },
+    shouldCloseOnSelect: {
+      description: 'whether the datepicker should close automatically upon selection',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: true
     },
     required: {
       control: 'boolean',
@@ -102,12 +140,18 @@ const Template: Story<DatepickerProps> = ({
   selectsRange,
   dateFormat,
   readOnly,
+  captions,
+  inline,
+  primaryAction,
+  secondaryAction,
+  shouldCloseOnSelect,
+  size,
   required
 }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const [endDate, setEndDate] = useState<Date | null>(new Date());
 
-  const onChange = (date: Date[] | Date) => {
+  const onChange = (date: (Date | null) | [Date | null, Date | null]) => {
     let start;
     let end;
 
@@ -118,11 +162,17 @@ const Template: Story<DatepickerProps> = ({
     }
   };
 
+  const onChangeStartDate = (date: (Date | null) | [Date | null, Date | null]) => {
+    if (!Array.isArray(date)) {
+      setStartDate(date);
+    }
+  };
+
   return (
-    <div style={{ height: '400px' }}>
+    <div style={{ height: '560px' }}>
       <DatepickerComponent
         label={label}
-        onChange={selectsRange ? onChange : setStartDate}
+        onChange={selectsRange ? onChange : onChangeStartDate}
         startDate={startDate}
         endDate={endDate}
         minDate={minDate}
@@ -134,6 +184,12 @@ const Template: Story<DatepickerProps> = ({
         selectsRange={selectsRange}
         dateFormat={dateFormat}
         readOnly={readOnly}
+        captions={captions}
+        primaryAction={primaryAction}
+        secondaryAction={secondaryAction}
+        inline={inline}
+        shouldCloseOnSelect={shouldCloseOnSelect}
+        size={size}
         required={required}
       />
     </div>
@@ -165,6 +221,39 @@ switch (variant) {
       label: 'Select date',
       selectsRange: true,
       required: false
+    };
+    break;
+  case 'captionsAndActions':
+    Datepicker.args = {
+      label: 'Select date',
+      captions: [
+        {
+          label: 'Selected',
+          color: Colors.DigitalBlack
+        },
+        {
+          label: 'Today',
+          color: Colors.SystemFail
+        },
+        {
+          label: 'Available if you order until 5pm',
+          color: Colors.White,
+          borderColor: Colors.InformationIndirect,
+          dotted: true
+        },
+        {
+          label: 'Order placed',
+          color: Colors.SystemSuccess
+        }
+      ],
+      primaryAction: {
+        label: 'Apply',
+        action: () => true
+      },
+      secondaryAction: {
+        label: 'Cancel',
+        action: () => true
+      }
     };
     break;
   default:

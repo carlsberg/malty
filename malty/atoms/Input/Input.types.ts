@@ -18,6 +18,8 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   readOnly?: boolean;
   required?: boolean;
+  maxLength?: number;
+  minLength?: number;
 }
 
 export enum InputType {

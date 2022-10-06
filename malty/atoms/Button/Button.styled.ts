@@ -64,6 +64,7 @@ const StyledButton = styled.button<{
     align-items: center;
     gap: ${({ theme }) => theme.sizes['2xs'].value};
     opacity: 1;
+    font: inherit;
     &.invisible {
       opacity: 0;
     }
@@ -85,12 +86,15 @@ const StyledButton = styled.button<{
     width: ${({ iconSize }) => `${iconSize}`};
   }
 
-  ${({ hasText, hasIcon, sizing, isLoading }) =>
-    ((!hasText && hasIcon) || isLoading) &&
+  ${({ hasText, hasIcon, isLoading }) =>
+    ((!hasText && !hasIcon) || isLoading) &&
     css`
-      padding: 0;
-      justify-content: center;
-      width: ${sizing};
+      .text-container {
+        visibility: hidden;
+      }
+      .secondary-container {
+        position: absolute;
+      }
     `};
 `;
 
