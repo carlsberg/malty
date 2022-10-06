@@ -39,7 +39,8 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
-  const currentAlert = alerts[activeAlert - 1];
+  const [alertsArray, setAlertsArray] = useState(alerts);
+  const currentAlert = alertsArray[activeAlert - 1];
   const breakpointNumber = Number(breakpoint.split('px')[0]);
   const isMobile = width <= breakpointNumber;
   const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
@@ -51,6 +52,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     toggleBannerTextCompress: undefined
   };
   const prevAlertSelection: number = usePrevious(activeAlert);
+  const prevAlertArraySize: number = usePrevious(alertsArray.length);
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -91,15 +93,20 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     };
   }, []);
 
+  const changeMobileTextWrapperSize = () => {
+    if (alertBannerStyledMessage.current) {
+      setTextWrapperSize(alertBannerStyledMessage.current.clientHeight);
+    }
+  };
+
   useEffect(() => {
-    const textElement = alertBannerStyledMessage.current?.clientHeight;
-    if (isMobile && !prevAlertSelection) {
-      setTextWrapperSize(textElement);
+    if (
+      isMobile &&
+      (!prevAlertSelection || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
+    ) {
+      changeMobileTextWrapperSize();
     }
-    if (isMobile && prevAlertSelection && prevAlertSelection !== activeAlert && textElement) {
-      setTextWrapperSize(textElement);
-    }
-  }, [isMobile, activeAlert, prevAlertSelection, alertBannerStyledMessage.current]);
+  }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -115,7 +122,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
 
   const triggerAnimation = () => isBannerTextCompressed || false;
 
-  if (!alerts?.length) {
+  if (!alertsArray?.length) {
     return null;
   }
 
@@ -143,17 +150,29 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     );
   };
 
+  const handleDismiss = () => {
+    if (currentAlert.onDismiss) {
+      const newAnnouncementContentArray = alertsArray.filter((item) => item.eid !== currentAlert.eid);
+      setAlertsArray(newAnnouncementContentArray);
+      if (alertsArray.length > 1 && activeAlert === alertsArray.length) {
+        setActiveAlert(activeAlert - 1);
+      }
+      return currentAlert.onDismiss();
+    }
+    return () => null;
+  };
+
   const renderCloseButton = () => (
     <CloseButtonContainer
       triggerFadeAnimation={triggerAnimation()}
       data-testid={`${currentAlert.dataQaId}-close-icon`}
-      onClick={currentAlert.dismiss || (() => null)}
-      onKeyUp={handleOnKeyUp(currentAlert.dismiss)}
+      onClick={handleDismiss}
+      onKeyUp={handleOnKeyUp(currentAlert.onDismiss)}
       tabIndex={0}
       role="button"
       theme={theme}
     >
-      {currentAlert.dismiss && (
+      {currentAlert.dismissible && (
         <Icon
           className="inline-AlertBanner-icon"
           name={IconName.Close}
@@ -193,14 +212,15 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       </StyledMessage>
     );
 
+  const showBottomArea = () => alertsArray.length > 1 || currentAlert.action;
   const renderMobileActionsContent = () => {
-    if ((isMobile && alerts.length > 1) || currentAlert.action) {
+    if ((isMobile && alertsArray.length > 1) || currentAlert.action) {
       return (
         <FadeWrapper theme={theme} show={isBannerTextCompressed} data-testid="fade-wrapper">
           <ContentRow theme={theme}>
             <Pagination
-              count={alerts?.length}
-              onChange={(pageNr) => setActiveAlert(pageNr as number)}
+              count={alertsArray?.length}
+              onChange={(pageNr) => setActiveAlert(Number(pageNr))}
               currentPage={activeAlert}
               type={PaginationType.Compact}
               isWhite={currentAlert.type !== AlertBannerType.Warning}
@@ -215,7 +235,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   };
 
   return (
-    <Container typeAlert={currentAlert.type} theme={theme}>
+    <Container type={currentAlert.type} theme={theme}>
       <ContentRow
         data-testid={`${currentAlert.dataQaId}-AlertBanner-content`}
         theme={theme}
@@ -223,8 +243,8 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       >
         {!isMobile && (
           <Pagination
-            count={alerts.length}
-            onChange={(pageNr) => setActiveAlert(pageNr as number)}
+            count={alertsArray.length}
+            onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}
             type={PaginationType.Compact}
             isWhite={currentAlert.type !== AlertBannerType.Warning}
@@ -232,6 +252,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         )}
         <MessageContainer
           theme={theme}
+          applyMarginBottom={!showBottomArea()}
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >

@@ -12,12 +12,14 @@ export interface AnimatedProps {
 }
 
 export interface AlertBannerI {
+  eid: string;
   type: AlertBannerType;
   message: string;
   icon?: boolean;
   action?: () => void;
   actionName?: string;
-  dismiss?: () => void;
+  dismissible: boolean;
+  onDismiss?: () => void;
   dataQaId?: string;
 }
 
