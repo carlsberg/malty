@@ -200,7 +200,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
           <ContentRow theme={theme}>
             <Pagination
               count={alerts?.length}
-              onChange={(pageNr) => setActiveAlert(pageNr)}
+              onChange={(pageNr) => setActiveAlert(pageNr as number)}
               currentPage={activeAlert}
               type={PaginationType.Compact}
               isWhite={currentAlert.type !== AlertBannerType.Warning}
@@ -224,7 +224,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         {!isMobile && (
           <Pagination
             count={alerts.length}
-            onChange={(pageNr) => setActiveAlert(pageNr)}
+            onChange={(pageNr) => setActiveAlert(pageNr as number)}
             currentPage={activeAlert}
             type={PaginationType.Compact}
             isWhite={currentAlert.type !== AlertBannerType.Warning}
