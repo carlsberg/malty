@@ -5,16 +5,18 @@ export const StyledRatingContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  row-gap: 25px;
 `;
 
 export const StyledStarContainer = styled.div`
-  display: inline-block;
-  position: relative;
+  display: flex;
+  column-gap: 17px;
+  flex-direction: row-reverse;
 `;
 
 export const StyledMainContainer = styled.div`
   display: flex;
-  margin-top: 25px;
+  column-gap: 17px;
 `;
 
 export const StyledInput = styled.input`
@@ -26,10 +28,8 @@ export const StyledInput = styled.input`
 export const StyledLabel = styled.label<{
   editing: boolean;
 }>`
-  float: right;
   cursor: ${({ editing }) => (editing ? 'pointer' : 'default')};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  margin-right: 17px;
 `;
 
 export const StyledIconStarContainer = styled.i`
