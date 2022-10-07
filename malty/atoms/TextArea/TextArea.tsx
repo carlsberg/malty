@@ -25,7 +25,7 @@ export const TextArea = ({
   hint,
   readOnly = false,
   dataTestId,
-  required,
+  required = false,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;

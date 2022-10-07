@@ -19,7 +19,8 @@ export const Checkbox = ({
   error,
   onValueChange,
   required = false,
-  dataTestId
+  dataTestId,
+  ...props
 }: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -35,6 +36,8 @@ export const Checkbox = ({
             checked={checked}
             theme={theme}
             required={required}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...props}
           />
           <StyledCheckboxDisplayInput checked={checked} theme={theme} />
           <StyledCheckboxLabelText data-testid={`${dataTestId}-label`} theme={theme}>

@@ -146,7 +146,8 @@ const Template: Story<DatepickerProps> = ({
   secondaryAction,
   shouldCloseOnSelect,
   size,
-  required
+  required,
+  dataTestId
 }) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
@@ -191,6 +192,7 @@ const Template: Story<DatepickerProps> = ({
         shouldCloseOnSelect={shouldCloseOnSelect}
         size={size}
         required={required}
+        dataTestId={dataTestId}
       />
     </div>
   );

@@ -14,6 +14,7 @@ export const Radio = ({
   name,
   disabled,
   required = false,
+  dataTestId,
   ...props
 }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -27,6 +28,7 @@ export const Radio = ({
     <TypographyProvider>
       <StyledRadioContainer theme={theme}>
         <StyledRadio
+          data-testid={dataTestId}
           id={id.current}
           checked={selected}
           value={value}
@@ -39,7 +41,13 @@ export const Radio = ({
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
-        <StyledLabel required={required} htmlFor={id.current} disabled={disabled} theme={theme}>
+        <StyledLabel
+          data-testid={`${dataTestId}-label`}
+          required={required}
+          htmlFor={id.current}
+          disabled={disabled}
+          theme={theme}
+        >
           {label}
         </StyledLabel>
       </StyledRadioContainer>

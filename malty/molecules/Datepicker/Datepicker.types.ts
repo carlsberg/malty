@@ -1,5 +1,5 @@
 export interface DatepickerProps {
-  label: string;
+  label?: string;
   startDate: Date | null;
   onChange: (date: (Date | null) | [Date | null, Date | null]) => void;
   locale?: string;
@@ -19,6 +19,7 @@ export interface DatepickerProps {
   secondaryAction?: Action;
   shouldCloseOnSelect?: boolean;
   size?: DatepickerSize;
+  dataTestId?: string;
 }
 
 export enum DatepickerSize {

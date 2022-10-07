@@ -41,6 +41,7 @@ export const Datepicker = ({
   shouldCloseOnSelect = true,
   size = DatepickerSize.Medium,
   required,
+  dataTestId,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -118,6 +119,7 @@ export const Datepicker = ({
       <StyledCaptionContainer>
         {captions.map(({ color, borderColor, dotted, label: captionLabel }, index) => (
           <StyledCaption
+            data-testid={`${dataTestId}-caption-${index}`}
             color={colors[color]}
             borderColor={borderColor ? colors[borderColor] : colors[Colors.Transparent]}
             dotted={dotted}
@@ -139,6 +141,7 @@ export const Datepicker = ({
       <StyledActionsContainer>
         {secondaryAction && (
           <Button
+            dataTestId={`${dataTestId}-secondary-action`}
             style={ButtonStyle.Secondary}
             text={secondaryAction.label}
             fullWidth
@@ -146,7 +149,13 @@ export const Datepicker = ({
           />
         )}
         {primaryAction && (
-          <Button style={ButtonStyle.Primary} text={primaryAction.label} fullWidth onClick={handlePrimaryAction} />
+          <Button
+            dataTestId={`${dataTestId}-primary-action`}
+            style={ButtonStyle.Primary}
+            text={primaryAction.label}
+            fullWidth
+            onClick={handlePrimaryAction}
+          />
         )}
       </StyledActionsContainer>
     );
@@ -160,7 +169,7 @@ export const Datepicker = ({
             {label}
           </StyledLabel>
         )}
-        <StyledDatepicker size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
+        <StyledDatepicker data-testid={dataTestId} size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
           {!inline && (
             <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
               <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />
