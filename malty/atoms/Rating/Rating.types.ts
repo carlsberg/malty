@@ -13,5 +13,5 @@ export interface RatingProps {
     name: string,
     e: React.MouseEvent<HTMLLabelElement, MouseEvent>
   ) => void;
-  dataQaId?: string;
+  dataTestId?: string;
 }

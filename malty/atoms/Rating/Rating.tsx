@@ -22,7 +22,7 @@ export const Rating = ({
   onStarClick,
   onStarHover,
   onStarHoverOut,
-  dataQaId
+  dataTestId
 }: RatingProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [ratingValue, seRatingValue] = useState(value);
@@ -136,7 +136,7 @@ export const Rating = ({
 
   return (
     <TypographyProvider>
-      <StyledRatingContainer data-testid={dataQaId} theme={theme}>
+      <StyledRatingContainer data-testid={dataTestId} theme={theme}>
         <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack}>
           {label}
         </Text>
