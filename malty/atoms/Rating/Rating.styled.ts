@@ -32,7 +32,7 @@ export const StyledLabel = styled.label<{
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
 `;
 
-export const StyledIconStarContainer = styled.i`
+export const StyledIconStarContainer = styled.span`
   font-style: normal;
   font-size: 20px;
 `;

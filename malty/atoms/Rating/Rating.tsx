@@ -1,4 +1,4 @@
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextColor, TextStyle, TextAlign } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -137,7 +137,7 @@ export const Rating = ({
   return (
     <TypographyProvider>
       <StyledRatingContainer data-testid={dataTestId} theme={theme}>
-        <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack}>
+        <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack} align={TextAlign.Center}>
           {label}
         </Text>
         <StyledMainContainer>
