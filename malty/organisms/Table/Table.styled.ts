@@ -21,6 +21,13 @@ export const StyledHead = styled.th`
   height: ${({ theme }) => theme.sizes.xl.value};
   text-align: left;
   padding-left: ${({ theme }) => theme.sizes['2xs'].value};
+  padding-bottom: 0;
+  padding-top: 0;
+  > * {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const StyledTbody = styled.tbody``;
@@ -44,6 +51,8 @@ export const StyledRow = styled.tr<{
     `}
 `;
 export const StyledTd = styled.td`
+  padding-bottom: 0;
+  padding-top: 0;
   padding-left: ${({ theme }) => theme.sizes['2xs'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};

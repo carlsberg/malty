@@ -5,11 +5,12 @@ export interface TableProps {
   onRowClick?: (row: unknown) => void;
   dataTestId?: string;
   paginationSize?: number;
+  className?: string;
 }
 
 export interface TableHeaderProps {
   key: string;
-  header: Node | string;
+  header: unknown;
 }
 export interface TableRowProps {
   id: string | number;

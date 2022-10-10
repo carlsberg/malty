@@ -21,7 +21,7 @@ import {
 } from './Table.styled';
 import { TableProps, TableRowProps, TableSize } from './Table.types';
 
-export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12 }: TableProps) => {
+export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12, className }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data] = useState(() => [...rows]);
@@ -125,7 +125,7 @@ export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12 }: 
   return (
     <TypographyProvider>
       <div>
-        <StyledTable theme={theme}>
+        <StyledTable className={className} theme={theme}>
           <StyledThead theme={theme}>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
@@ -146,7 +146,7 @@ export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12 }: 
                 key={row.id}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <StyledTd key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</StyledTd>
+                  <StyledTd key={cell.id}>{cell.renderValue()}</StyledTd>
                 ))}
               </StyledRow>
             ))}

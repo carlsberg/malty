@@ -207,7 +207,7 @@ const rows: TableRowProps[] = [
 ];
 
 export default {
-  title: 'Information/Table',
+  title: 'Data and Tables/Table',
   component: TableComponent,
   parameters: {
     importObject: 'Table',
@@ -227,6 +227,10 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'Table data-testid'
+    },
+    paginationSize: {
+      control: 'number',
+      description: 'Number of rows to be displayed in a page'
     },
     onRowClick: {
       description: ''
@@ -255,5 +259,7 @@ export const Table = Template.bind({});
 Table.args = {
   headers,
   rows,
-  onRowClick: () => null
+  onRowClick: () => null,
+  paginationSize: 12,
+  className: ''
 };
