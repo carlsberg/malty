@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -41,7 +41,7 @@ export const TextArea = ({
   };
 
   return (
-    <TypographyProvider>
+    <>
       <StyledTextareaContainer theme={theme}>
         {label && (
           <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
@@ -85,6 +85,6 @@ export const TextArea = ({
           </StyledHint>
         )}
       </StyledTextareaContainer>
-    </TypographyProvider>
+    </>
   );
 };

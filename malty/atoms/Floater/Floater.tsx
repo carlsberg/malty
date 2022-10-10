@@ -1,5 +1,5 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { FloaterIconPosition, FloaterProps } from '.';
@@ -66,7 +66,7 @@ export const Floater = ({
   }, [scroll]);
 
   return (
-    <TypographyProvider>
+    <>
       <StyledFloaterButton
         color={color}
         data-testid={dataTestId}
@@ -90,6 +90,6 @@ export const Floater = ({
           )}
         </div>
       </StyledFloaterButton>
-    </TypographyProvider>
+    </>
   );
 };

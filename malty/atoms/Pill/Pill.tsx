@@ -1,5 +1,5 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledPill, StyledText } from './Pill.styled';
@@ -58,7 +58,7 @@ export const Pill = ({
   }, [color, theme]);
 
   return (
-    <TypographyProvider>
+    <>
       <StyledPill
         data-testid={dataTestId}
         color={color}
@@ -84,6 +84,6 @@ export const Pill = ({
           {text}
         </StyledText>
       </StyledPill>
-    </TypographyProvider>
+    </>
   );
 };

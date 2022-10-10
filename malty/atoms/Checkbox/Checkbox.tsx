@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -15,7 +15,7 @@ export const Checkbox = ({ id, value, checked, labelText, error, onValueChange, 
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <TypographyProvider>
+    <>
       <StyledCheckboxContainer theme={theme}>
         <StyledCheckboxLabel htmlFor={id} theme={theme}>
           <StyledCheckboxHiddenInput
@@ -33,6 +33,6 @@ export const Checkbox = ({ id, value, checked, labelText, error, onValueChange, 
         </StyledCheckboxLabel>
         {error && <StyledError theme={theme}>{error}</StyledError>}
       </StyledCheckboxContainer>
-    </TypographyProvider>
+    </>
   );
 };

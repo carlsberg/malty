@@ -3,7 +3,7 @@ import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.at
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledAdress, StyledCluster, StyledFooter, StyledRow, StyledSocialMedia } from './Footer.styled';
@@ -23,7 +23,7 @@ export const Footer = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <TypographyProvider>
+    <>
       <StyledFooter data-testid={dataQaId} theme={theme}>
         <Icon name={brandIcon} color={IconColor.Support60} size={IconSize.Medium} />
         <StyledAdress data-testid={`${dataQaId}-brand-info`} theme={theme}>
@@ -72,6 +72,6 @@ export const Footer = ({
           {copyright as string}
         </Text>
       </StyledFooter>
-    </TypographyProvider>
+    </>
   );
 };

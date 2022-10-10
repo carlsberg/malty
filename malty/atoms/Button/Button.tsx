@@ -1,7 +1,7 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';
@@ -97,7 +97,7 @@ export const Button = ({
   }, [negative, style]);
 
   const renderComponent = () => (
-    <TypographyProvider>
+    <>
       <Component
         color={color}
         data-testid={dataTestId}
@@ -136,7 +136,7 @@ export const Button = ({
           </div>
         )}
       </Component>
-    </TypographyProvider>
+    </>
   );
 
   useEffect(() => {
@@ -175,11 +175,11 @@ export const Button = ({
   }, [size, theme]);
 
   return url ? (
-    <TypographyProvider>
+    <>
       <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
         {renderComponent()}
       </StyledAnchor>
-    </TypographyProvider>
+    </>
   ) : (
     renderComponent()
   );

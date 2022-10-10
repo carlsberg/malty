@@ -1,5 +1,5 @@
 import { Chip, ChipSize } from '@carlsberggroup/malty.atoms.chip';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledDivider, StyledSegmentController } from './SegmentController.styled';
@@ -38,7 +38,7 @@ export const SegmentController = ({
   }, [size, theme]);
 
   return (
-    <TypographyProvider>
+    <>
       <StyledSegmentController data-testid={dataQaId} theme={theme}>
         {options.map((option, index) => (
           <React.Fragment key={option.value}>
@@ -54,6 +54,6 @@ export const SegmentController = ({
           </React.Fragment>
         ))}
       </StyledSegmentController>
-    </TypographyProvider>
+    </>
   );
 };

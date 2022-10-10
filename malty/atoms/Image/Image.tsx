@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ImageProps } from '.';
@@ -30,7 +30,7 @@ export const Image = ({
     }
   };
   return (
-    <TypographyProvider>
+    <>
       <StyledContainer theme={theme}>
         <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
           <StyledWrapper theme={theme}>
@@ -68,6 +68,6 @@ export const Image = ({
           <figcaption data-testid={`${dataTestId}-figcaption`}>{figcaption}</figcaption>
         </StyledFigure>
       </StyledContainer>
-    </TypographyProvider>
+    </>
   );
 };

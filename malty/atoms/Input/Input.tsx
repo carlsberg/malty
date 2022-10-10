@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -121,7 +121,7 @@ export const Input = ({
   };
 
   const renderInput = () => (
-    <TypographyProvider>
+    <>
       <StyledClearableWrapper>
         <StyledInput
           data-testid={dataTestId}
@@ -147,11 +147,11 @@ export const Input = ({
         {renderClearable()}
         {renderIcon()}
       </StyledClearableWrapper>
-    </TypographyProvider>
+    </>
   );
 
   const renderInputNumber = () => (
-    <TypographyProvider>
+    <>
       <StyledButton
         data-testid={`${dataTestId}-quantity-minus`}
         theme={theme}
@@ -198,14 +198,14 @@ export const Input = ({
       >
         <Icon name={IconName.Plus} color={IconColor.DigitalBlack} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
-    </TypographyProvider>
+    </>
   );
 
   const renderTelNumber = () => {
     const height = `${numSize}px`;
     return (
       // TO FOLLOW: Convert the select to DSM dropdown
-      <TypographyProvider>
+      <>
         <StyledClearableWrapper>
           <StyledSelect
             data-testid={`${dataTestId}-phone-select`}
@@ -259,12 +259,12 @@ export const Input = ({
           {renderClearable()}
           {renderIcon()}
         </StyledClearableWrapper>
-      </TypographyProvider>
+      </>
     );
   };
 
   return (
-    <TypographyProvider>
+    <>
       <StyledInputContainer theme={theme}>
         {label && (
           <StyledLabel disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
@@ -293,6 +293,6 @@ export const Input = ({
           </StyledHint>
         )}
       </StyledInputContainer>
-    </TypographyProvider>
+    </>
   );
 };

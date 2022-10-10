@@ -2,7 +2,7 @@ import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { KeyboardEvent, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
@@ -152,7 +152,7 @@ export const Datepicker = ({
   };
 
   return (
-    <TypographyProvider>
+    <>
       <StyledWrapper theme={theme}>
         {!inline && label && (
           <StyledLabel htmlFor={id} disabled={disabled} theme={theme}>
@@ -203,6 +203,6 @@ export const Datepicker = ({
           </DatePicker>
         </StyledDatepicker>
       </StyledWrapper>
-    </TypographyProvider>
+    </>
   );
 };

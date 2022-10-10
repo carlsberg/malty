@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledAnchor } from './Link.styled';
@@ -17,7 +17,7 @@ export const Link = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <TypographyProvider>
+    <>
       <StyledAnchor
         onClick={onClick}
         data-testid={dataTestId}
@@ -31,6 +31,6 @@ export const Link = ({
       >
         <div>{text || children}</div>
       </StyledAnchor>
-    </TypographyProvider>
+    </>
   );
 };

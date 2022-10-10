@@ -2,7 +2,7 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useEffect, useState } from 'react';
 import { StyledChip, StyledIcon, StyledTextContainer } from './Chip.styled';
 import { ChipProps, ChipSize } from './Chip.types';
@@ -51,7 +51,7 @@ export const Chip = ({
     }
   }, [size, theme]);
   return (
-    <TypographyProvider>
+    <>
       <StyledChip
         hasButton={showAction}
         disabled={disabled}
@@ -118,6 +118,6 @@ export const Chip = ({
           />
         )}
       </StyledChip>
-    </TypographyProvider>
+    </>
   );
 };

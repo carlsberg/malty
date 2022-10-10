@@ -1,6 +1,6 @@
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -51,7 +51,7 @@ export const Accordion = ({
   };
 
   return (
-    <TypographyProvider>
+    <>
       <ContextAccordion.Provider value={{ activeEventKey, alwaysOpen }}>
         <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
           {children?.map((el, index) =>
@@ -60,7 +60,7 @@ export const Accordion = ({
           )}
         </StyledAccordionWrapper>
       </ContextAccordion.Provider>
-    </TypographyProvider>
+    </>
   );
 };
 
@@ -118,7 +118,7 @@ export const AccordionItem = ({
   }, [size, theme]);
 
   return (
-    <TypographyProvider>
+    <>
       <StyledAccordionItem
         className={openAccordion ? 'accordionItem active' : 'accordionItem'}
         data-testid={`${dataQaId}-item`}
@@ -163,6 +163,6 @@ export const AccordionItem = ({
           {children}
         </StyledAccordionBody>
       </StyledAccordionItem>
-    </TypographyProvider>
+    </>
   );
 };
