@@ -1,4 +1,5 @@
-import { Text, TextColor, TextStyle, TextAlign } from '@carlsberggroup/malty.atoms.text';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -8,7 +9,8 @@ import {
   StyledLabel,
   StyledMainContainer,
   StyledRatingContainer,
-  StyledStarContainer
+  StyledStarContainer,
+  StyledTotalReviewContainer
 } from './Rating.styled';
 import { RatingProps } from './Rating.types';
 
@@ -17,7 +19,6 @@ export const Rating = ({
   label,
   value,
   editing = true,
-  className = '',
   totalReview,
   onStarClick,
   onStarHover,
@@ -25,14 +26,14 @@ export const Rating = ({
   dataTestId
 }: RatingProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [ratingValue, seRatingValue] = useState(value);
+  const [ratingValue, setRatingValue] = useState(value);
 
   const onChange = (inputValue: number) => {
     if (!editing) {
       return;
     }
 
-    seRatingValue(inputValue);
+    setRatingValue(inputValue);
   };
 
   const handleStarClick = (
@@ -46,9 +47,8 @@ export const Rating = ({
     if (!editing) {
       return;
     }
-    if (onStarClick) {
-      onStarClick(index, val, named, e);
-    }
+
+    onStarClick?.(index, val, named, e);
   };
 
   const handleStarHover = (
@@ -63,9 +63,7 @@ export const Rating = ({
       return;
     }
 
-    if (onStarHover) {
-      onStarHover(index, val, named, e);
-    }
+    onStarHover?.(index, val, named, e);
   };
 
   const handleStarHoverOut = (
@@ -79,19 +77,14 @@ export const Rating = ({
       return;
     }
 
-    if (onStarHoverOut) {
-      onStarHoverOut(index, val, named, e);
-    }
+    onStarHoverOut?.(index, val, named, e);
   };
 
   const renderStars = (): JSX.Element[] | null => {
     // populate stars
     const starNodes = [];
-    const filledStar = '★';
-    const emptyStar = '☆';
-    const starCount = 5;
 
-    for (let i = starCount; i > 0; i--) {
+    for (let i = 5; i > 0; i--) {
       const id = `${name}_${i}`;
       const starNodeInput = (
         <StyledInput
@@ -114,12 +107,18 @@ export const Rating = ({
             ratingValue >= i ? 'dv-star-rating-full-star' : 'dv-star-rating-empty-star'
           }`}
           htmlFor={id}
-          onClick={(e) => handleStarClick(i, ratingValue, name, e)}
-          onMouseOver={(e) => handleStarHover(i, ratingValue, name, e)}
-          onMouseLeave={(e) => handleStarHoverOut(i, ratingValue, name, e)}
+          onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}
+          onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, ratingValue, name, e)}
+          onMouseLeave={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) =>
+            handleStarHoverOut(i, ratingValue, name, e)
+          }
         >
           <StyledIconStarContainer key={`icon_${id}`}>
-            {i <= ratingValue ? filledStar : emptyStar}
+            {i <= ratingValue ? (
+              <Icon name={IconName.StarFilled} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+            ) : (
+              <Icon name={IconName.Star} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+            )}
           </StyledIconStarContainer>
         </StyledLabel>
       );
@@ -132,7 +131,7 @@ export const Rating = ({
   };
 
   const nonEditableClass = !editing ? 'dv-star-rating-non-editable' : '';
-  const classes = `dv-star-rating ${nonEditableClass} ${className}`;
+  const classes = `dv-star-rating ${nonEditableClass}`;
 
   return (
     <TypographyProvider>
@@ -143,9 +142,11 @@ export const Rating = ({
         <StyledMainContainer>
           <StyledStarContainer className={classes}>{renderStars()}</StyledStarContainer>
           {totalReview !== undefined && (
-            <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
-              {`(${totalReview})`}
-            </Text>
+            <StyledTotalReviewContainer>
+              <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
+                {`(${totalReview})`}
+              </Text>
+            </StyledTotalReviewContainer>
           )}
         </StyledMainContainer>
       </StyledRatingContainer>

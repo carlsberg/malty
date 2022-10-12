@@ -29,10 +29,12 @@ export const StyledLabel = styled.label<{
   editing: boolean;
 }>`
   cursor: ${({ editing }) => (editing ? 'pointer' : 'default')};
-  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
 `;
 
 export const StyledIconStarContainer = styled.span`
   font-style: normal;
-  font-size: 20px;
+`;
+
+export const StyledTotalReviewContainer = styled.span`
+  margin-top: 2px;
 `;
