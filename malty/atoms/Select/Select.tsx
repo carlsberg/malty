@@ -17,11 +17,11 @@ import {
   StyledError,
   StyledHint,
   StyledLabel,
+  StyledMainWrapper,
   StyledOption,
   StyledOptionsWrapper,
   StyledSearchWrapper,
   StyledSelectedOptionsWrapper,
-  StyledTypographyProvider,
   StyledWrapper
 } from './Select.styled';
 import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
@@ -241,7 +241,7 @@ export const Select = ({
     </>
   );
   return (
-    <StyledTypographyProvider>
+    <StyledMainWrapper>
       {label && type !== SelectType.Inline && (
         <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
           {label}
@@ -291,6 +291,6 @@ export const Select = ({
           {hint}
         </StyledHint>
       )}
-    </StyledTypographyProvider>
+    </StyledMainWrapper>
   );
 };
