@@ -2,6 +2,7 @@ import React from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { MaltyThemeProviderProps } from './MaltyThemeProvider.types';
 import { cadiTheme, carlsbergTheme, globalTheme, lbcTheme } from './theme';
+import { TypographyProvider } from './TypographyProvider';
 
 export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemeProviderProps) => {
   let selectedTheme: DefaultTheme;
@@ -19,5 +20,10 @@ export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemePro
       selectedTheme = globalTheme;
       break;
   }
-  return <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={selectedTheme}>
+      <TypographyProvider />
+      {children}
+    </ThemeProvider>
+  );
 };
