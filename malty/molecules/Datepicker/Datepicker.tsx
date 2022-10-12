@@ -1,5 +1,6 @@
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -16,7 +17,6 @@ import {
   StyledContainer,
   StyledDatepicker,
   StyledInputIcon,
-  StyledLabel,
   StyledWrapper
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
@@ -164,11 +164,7 @@ export const Datepicker = ({
   return (
     <TypographyProvider>
       <StyledWrapper theme={theme}>
-        {!inline && label && (
-          <StyledLabel htmlFor={id} required={required} disabled={disabled} theme={theme}>
-            {label}
-          </StyledLabel>
-        )}
+        {!inline && <Label label={label} htmlFor={id} required={required} disabled={disabled} />}
         <StyledDatepicker data-testid={dataTestId} size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
           {!inline && (
             <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>

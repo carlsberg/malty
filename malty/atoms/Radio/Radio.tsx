@@ -42,14 +42,13 @@ export const Radio = ({
           {...props}
         />
         <StyledLabel
+          label={label}
           data-testid={`${dataTestId}-label`}
           required={required}
           htmlFor={id.current}
           disabled={disabled}
           theme={theme}
-        >
-          {label}
-        </StyledLabel>
+        />
       </StyledRadioContainer>
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </TypographyProvider>

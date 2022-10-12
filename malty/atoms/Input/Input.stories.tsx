@@ -120,10 +120,6 @@ export default {
     minLength: {
       control: 'number',
       description: 'Minimum length (number of characters)'
-    },
-    required: {
-      control: 'boolean',
-      description: ' A value is required'
     }
   }
 } as Meta;

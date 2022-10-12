@@ -1,3 +1,4 @@
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import styled, { css } from 'styled-components';
 
 export const StyledError = styled.label`
@@ -42,29 +43,15 @@ export const StyledToggleSwitch = styled.div`
     outline: none;
   }
 `;
-export const StyledLabel = styled.label<{
+export const StyledLabel = styled(Label)<{
   disabled?: boolean;
   required?: boolean;
 }>`
   font-weight: normal;
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
-  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   margin-left: ${({ theme }) => theme.sizes['2xs'].value};
-  ${({ required }) =>
-    required &&
-    css`
-      &::after {
-        content: ' *';
-        color: ${({ theme }) => theme.colors.colours.system.fail.value};
-      }
-    `}
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      pointer-events: none;
-      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-    `}
+  margin-bottom: 0;
 `;
 export const StyledInput = styled.input<{
   disabled?: boolean;

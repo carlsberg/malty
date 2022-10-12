@@ -1,3 +1,4 @@
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import styled, { css } from 'styled-components';
 
 export const StyledRadio = styled.input`
@@ -87,31 +88,14 @@ export const StyledRadio = styled.input`
     `}
 `;
 
-export const StyledLabel = styled.label<{
-  disabled?: boolean;
-  required?: boolean;
-}>`
-  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+export const StyledLabel = styled(Label)`
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
   font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
   // using hardcoded values due to not having token value and design team thinking on implementation with icons
   padding-left: 10px;
+  margin-bottom: 0;
   cursor: pointer;
-  ${({ required }) =>
-    required &&
-    css`
-      &::after {
-        content: ' *';
-        color: ${({ theme }) => theme.colors.colours.system.fail.value};
-      }
-    `}
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-      pointer-events: none;
-    `}
 `;
 export const StyledError = styled.label`
   font-family: inherit;

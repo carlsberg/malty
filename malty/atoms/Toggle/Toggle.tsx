@@ -52,14 +52,13 @@ export const Toggle = ({
         </StyledToggleSwitch>
 
         <StyledLabel
+          label={label}
           data-testid={`${dataTestId}-label`}
           required={required}
           htmlFor={id}
-          theme={theme}
           disabled={disabled}
-        >
-          {label}
-        </StyledLabel>
+          theme={theme}
+        />
       </StyledLabelWrapper>
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </TypographyProvider>

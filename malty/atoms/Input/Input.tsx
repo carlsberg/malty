@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -13,7 +14,6 @@ import {
   StyledInput,
   StyledInputContainer,
   StyledInputWrapper,
-  StyledLabel,
   StyledOption,
   StyledSelect
 } from './Input.styled';
@@ -270,17 +270,7 @@ export const Input = ({
   return (
     <TypographyProvider>
       <StyledInputContainer theme={theme}>
-        {label && (
-          <StyledLabel
-            required={required}
-            disabled={disabled}
-            data-testid={`${dataTestId}-label`}
-            htmlFor={id}
-            theme={theme}
-          >
-            {label}
-          </StyledLabel>
-        )}
+        <Label label={label} required={required} disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} />
         <StyledInputWrapper
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           clearable={clearable || type === InputType.Search}
