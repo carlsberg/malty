@@ -78,30 +78,28 @@ export const Avatar = ({
   }, [size, theme]);
 
   return (
-    <>
-      <StyledAvatar
-        onClick={handleOnClick}
-        fontSize={fontSize}
-        size={NumSize}
-        profileImg={profileImg}
-        data-testid={dataQaId}
-        theme={theme}
-        isLoading={loading}
-        editable={editable}
-      >
-        {loading && (
-          <StyledLoadingContainer>
-            <Loading size={LoadingSize.Small} status={LoadingStatus.Pending} />
-          </StyledLoadingContainer>
-        )}
-        {editable && (
-          <StyledCamera data-testid={`${dataQaId}-camera-icon`} theme={theme} size={size}>
-            <Icon color={IconColor.Support60} size={iconSize} name={IconName.Camera} />
-          </StyledCamera>
-        )}
-        {!profileImg && userName && <span data-testid={`${dataQaId}-name`}> {displayInitials(userName)} </span>}
-        {!profileImg && !userName && <Icon color={IconColor.Support40} size={iconSize} name={IconName.Customer} />}
-      </StyledAvatar>
-    </>
+    <StyledAvatar
+      onClick={handleOnClick}
+      fontSize={fontSize}
+      size={NumSize}
+      profileImg={profileImg}
+      data-testid={dataQaId}
+      theme={theme}
+      isLoading={loading}
+      editable={editable}
+    >
+      {loading && (
+        <StyledLoadingContainer>
+          <Loading size={LoadingSize.Small} status={LoadingStatus.Pending} />
+        </StyledLoadingContainer>
+      )}
+      {editable && (
+        <StyledCamera data-testid={`${dataQaId}-camera-icon`} theme={theme} size={size}>
+          <Icon color={IconColor.Support60} size={iconSize} name={IconName.Camera} />
+        </StyledCamera>
+      )}
+      {!profileImg && userName && <span data-testid={`${dataQaId}-name`}> {displayInitials(userName)} </span>}
+      {!profileImg && !userName && <Icon color={IconColor.Support40} size={iconSize} name={IconName.Customer} />}
+    </StyledAvatar>
   );
 };

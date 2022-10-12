@@ -58,32 +58,30 @@ export const Pill = ({
   }, [color, theme]);
 
   return (
-    <>
-      <StyledPill
-        data-testid={dataTestId}
-        color={color}
-        size={numSize}
-        fontSize={fontSize}
-        iconSize={iconSize}
-        padding={padding}
-        hasText={!!text}
-        theme={theme}
-        textColor={iconTextColor}
-        pillSize={size}
-      >
-        {icon && (
-          <Icon
-            data-testid={`${dataTestId}-icon`}
-            name={icon}
-            size={IconSize.Small}
-            color={iconTextColor}
-            className="pill__icon"
-          />
-        )}
-        <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
-          {text}
-        </StyledText>
-      </StyledPill>
-    </>
+    <StyledPill
+      data-testid={dataTestId}
+      color={color}
+      size={numSize}
+      fontSize={fontSize}
+      iconSize={iconSize}
+      padding={padding}
+      hasText={!!text}
+      theme={theme}
+      textColor={iconTextColor}
+      pillSize={size}
+    >
+      {icon && (
+        <Icon
+          data-testid={`${dataTestId}-icon`}
+          name={icon}
+          size={IconSize.Small}
+          color={iconTextColor}
+          className="pill__icon"
+        />
+      )}
+      <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
+        {text}
+      </StyledText>
+    </StyledPill>
   );
 };

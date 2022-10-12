@@ -40,10 +40,8 @@ export const Headline = ({
   }
 
   return (
-    <>
-      <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
-        {children}
-      </StyledHeadline>
-    </>
+    <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
+      {children}
+    </StyledHeadline>
   );
 };

@@ -30,44 +30,42 @@ export const Image = ({
     }
   };
   return (
-    <>
-      <StyledContainer theme={theme}>
-        <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
-          <StyledWrapper theme={theme}>
-            <StyledOverlay
-              data-testid={`${dataTestId}-overlay`}
+    <StyledContainer theme={theme}>
+      <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
+        <StyledWrapper theme={theme}>
+          <StyledOverlay
+            data-testid={`${dataTestId}-overlay`}
+            theme={theme}
+            gradientPosition={gradient}
+            overlay={overlay}
+          >
+            {children}
+          </StyledOverlay>
+          {!test && (
+            <StyledImage
+              data-testid={`${dataTestId}`}
+              // eslint-disable-next-line no-return-assign
+              onError={(e) => handleError(e)}
+              height={height || '100%'}
+              width={width || '100%'}
+              src={src}
+              borderPosition={border}
+              isCover={cover}
+              alt={alt}
               theme={theme}
-              gradientPosition={gradient}
-              overlay={overlay}
-            >
-              {children}
-            </StyledOverlay>
-            {!test && (
-              <StyledImage
-                data-testid={`${dataTestId}`}
-                // eslint-disable-next-line no-return-assign
-                onError={(e) => handleError(e)}
-                height={height || '100%'}
-                width={width || '100%'}
-                src={src}
-                borderPosition={border}
-                isCover={cover}
-                alt={alt}
-                theme={theme}
-              />
-            )}
-            {test && (
-              <Icon
-                data-testid={`${dataTestId}-icon`}
-                size={IconSize.ExtraLarge}
-                name={IconName.Image}
-                color={IconColor.Support40}
-              />
-            )}
-          </StyledWrapper>
-          <figcaption data-testid={`${dataTestId}-figcaption`}>{figcaption}</figcaption>
-        </StyledFigure>
-      </StyledContainer>
-    </>
+            />
+          )}
+          {test && (
+            <Icon
+              data-testid={`${dataTestId}-icon`}
+              size={IconSize.ExtraLarge}
+              name={IconName.Image}
+              color={IconColor.Support40}
+            />
+          )}
+        </StyledWrapper>
+        <figcaption data-testid={`${dataTestId}-figcaption`}>{figcaption}</figcaption>
+      </StyledFigure>
+    </StyledContainer>
   );
 };

@@ -66,30 +66,24 @@ export const Floater = ({
   }, [scroll]);
 
   return (
-    <>
-      <StyledFloaterButton
-        color={color}
-        data-testid={dataTestId}
-        type="button"
-        hasText={!!text}
-        hasIcon={!!icon}
-        onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
-        isNegative={negative}
-        iconPos={iconPos}
-        theme={theme}
-        showButton={showButton}
-        tabIndex={tabIndex}
-      >
-        <div className="text-container">
-          {icon && iconPos === FloaterIconPosition.Left && (
-            <Icon name={icon} color={iconColor} size={IconSize.Medium} />
-          )}
-          {text || children}
-          {icon && iconPos === FloaterIconPosition.Right && (
-            <Icon name={icon} color={iconColor} size={IconSize.Medium} />
-          )}
-        </div>
-      </StyledFloaterButton>
-    </>
+    <StyledFloaterButton
+      color={color}
+      data-testid={dataTestId}
+      type="button"
+      hasText={!!text}
+      hasIcon={!!icon}
+      onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+      isNegative={negative}
+      iconPos={iconPos}
+      theme={theme}
+      showButton={showButton}
+      tabIndex={tabIndex}
+    >
+      <div className="text-container">
+        {icon && iconPos === FloaterIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
+        {text || children}
+        {icon && iconPos === FloaterIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
+      </div>
+    </StyledFloaterButton>
   );
 };

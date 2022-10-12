@@ -97,46 +97,44 @@ export const Button = ({
   }, [negative, style]);
 
   const renderComponent = () => (
-    <>
-      <Component
-        color={color}
-        data-testid={dataTestId}
-        type={type}
-        disabled={disabled}
-        isLoading={loading}
-        hasText={!!text || !!children}
-        hasIcon={!!icon}
-        sizing={numSize}
-        horizontalPadding={hPadding}
-        fontSize={fontSize}
-        iconSize={iconSize}
-        onClick={onClick}
-        onKeyUp={onKeyUp}
-        isNegative={negative}
-        fullWidth={fullWidth}
-        iconPos={iconPos}
-        theme={theme}
-        tabIndex={tabIndex}
-        className={selected ? `${className} active` : className}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
-      >
-        <div className="text-container">
-          {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
-          {text || children}
-          {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+    <Component
+      color={color}
+      data-testid={dataTestId}
+      type={type}
+      disabled={disabled}
+      isLoading={loading}
+      hasText={!!text || !!children}
+      hasIcon={!!icon}
+      sizing={numSize}
+      horizontalPadding={hPadding}
+      fontSize={fontSize}
+      iconSize={iconSize}
+      onClick={onClick}
+      onKeyUp={onKeyUp}
+      isNegative={negative}
+      fullWidth={fullWidth}
+      iconPos={iconPos}
+      theme={theme}
+      tabIndex={tabIndex}
+      className={selected ? `${className} active` : className}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
+      <div className="text-container">
+        {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+        {text || children}
+        {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+      </div>
+      {loading && (
+        <div data-testid={`${dataTestId}-loading`} className="secondary-container">
+          <Loading
+            color={color as unknown as ProgressSpinnerColor}
+            negative={loadingNegative}
+            status={LoadingStatus.Pending}
+          />
         </div>
-        {loading && (
-          <div data-testid={`${dataTestId}-loading`} className="secondary-container">
-            <Loading
-              color={color as unknown as ProgressSpinnerColor}
-              negative={loadingNegative}
-              status={LoadingStatus.Pending}
-            />
-          </div>
-        )}
-      </Component>
-    </>
+      )}
+    </Component>
   );
 
   useEffect(() => {
@@ -175,11 +173,9 @@ export const Button = ({
   }, [size, theme]);
 
   return url ? (
-    <>
-      <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
-        {renderComponent()}
-      </StyledAnchor>
-    </>
+    <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
+      {renderComponent()}
+    </StyledAnchor>
   ) : (
     renderComponent()
   );

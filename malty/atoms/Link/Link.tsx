@@ -17,20 +17,18 @@ export const Link = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <>
-      <StyledAnchor
-        onClick={onClick}
-        data-testid={dataTestId}
-        disabled={disabled}
-        theme={theme}
-        target="_blank"
-        href={url}
-        rel="noreferrer"
-        color={color}
-        linkStyle={linkStyle}
-      >
-        <div>{text || children}</div>
-      </StyledAnchor>
-    </>
+    <StyledAnchor
+      onClick={onClick}
+      data-testid={dataTestId}
+      disabled={disabled}
+      theme={theme}
+      target="_blank"
+      href={url}
+      rel="noreferrer"
+      color={color}
+      linkStyle={linkStyle}
+    >
+      <div>{text || children}</div>
+    </StyledAnchor>
   );
 };

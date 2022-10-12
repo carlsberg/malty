@@ -15,17 +15,15 @@ export const Text = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <>
-      <StyledParagraph
-        data-testid={dataQaId}
-        textStyle={textStyle}
-        color={color}
-        align={align}
-        italic={italic}
-        theme={theme}
-      >
-        {children}
-      </StyledParagraph>
-    </>
+    <StyledParagraph
+      data-testid={dataQaId}
+      textStyle={textStyle}
+      color={color}
+      align={align}
+      italic={italic}
+      theme={theme}
+    >
+      {children}
+    </StyledParagraph>
   );
 };

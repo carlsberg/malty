@@ -185,39 +185,37 @@ export const Pagination = ({
 
   return (
     <StyledContainer data-testid={dataQaId} isWhite={isWhite} theme={theme}>
-      <>
-        <ul>
-          <li>
-            <Button
-              dataTestId={`${dataQaId}-button-previous`}
-              style={ButtonStyle.Transparent}
-              disabled={isFirstPage}
-              tabIndex={isFirstPage ? -1 : 0}
-              onClick={onPrevious}
-              onKeyUp={onPreviousKeyUp}
-              icon={IconName.ChevronLeft}
-              size={buttonSize}
-              negative={isWhite}
-              aria-label="Previous button"
-            />
-          </li>
-          {renderContent()}
-          <li>
-            <Button
-              dataTestId={`${dataQaId}-button-next`}
-              style={ButtonStyle.Transparent}
-              disabled={isLastPage}
-              tabIndex={isLastPage ? -1 : 0}
-              onClick={onNext}
-              onKeyUp={onNextKeyUp}
-              icon={IconName.ChevronRight}
-              size={buttonSize}
-              negative={isWhite}
-              aria-label="Next button"
-            />
-          </li>
-        </ul>
-      </>
+      <ul>
+        <li>
+          <Button
+            dataTestId={`${dataQaId}-button-previous`}
+            style={ButtonStyle.Transparent}
+            disabled={isFirstPage}
+            tabIndex={isFirstPage ? -1 : 0}
+            onClick={onPrevious}
+            onKeyUp={onPreviousKeyUp}
+            icon={IconName.ChevronLeft}
+            size={buttonSize}
+            negative={isWhite}
+            aria-label="Previous button"
+          />
+        </li>
+        {renderContent()}
+        <li>
+          <Button
+            dataTestId={`${dataQaId}-button-next`}
+            style={ButtonStyle.Transparent}
+            disabled={isLastPage}
+            tabIndex={isLastPage ? -1 : 0}
+            onClick={onNext}
+            onKeyUp={onNextKeyUp}
+            icon={IconName.ChevronRight}
+            size={buttonSize}
+            negative={isWhite}
+            aria-label="Next button"
+          />
+        </li>
+      </ul>
     </StyledContainer>
   );
 };

@@ -41,50 +41,48 @@ export const TextArea = ({
   };
 
   return (
-    <>
-      <StyledTextareaContainer theme={theme}>
-        {label && (
-          <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
-            {label}
-          </StyledLabel>
-        )}
-        <StyledTextAreaWrapper
-          data-testid={`${dataTestId}-container`}
-          readOnly={readOnly}
-          disabled={disabled}
-          isError={!!error}
-          resize={resize}
+    <StyledTextareaContainer theme={theme}>
+      {label && (
+        <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
+          {label}
+        </StyledLabel>
+      )}
+      <StyledTextAreaWrapper
+        data-testid={`${dataTestId}-container`}
+        readOnly={readOnly}
+        disabled={disabled}
+        isError={!!error}
+        resize={resize}
+        theme={theme}
+      >
+        <StyledtextArea
+          data-testid={`${dataTestId}`}
+          name={id}
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          onChange={handleCarachterCounter}
           theme={theme}
-        >
-          <StyledtextArea
-            data-testid={`${dataTestId}`}
-            name={id}
-            id={id}
-            value={value}
-            placeholder={placeholder}
-            onChange={handleCarachterCounter}
-            theme={theme}
-            disabled={disabled}
-            readOnly={readOnly}
-            maxLength={maxLength}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
-          />
-          <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
-            {textAreaCount}
-          </StyledTextAreaCharacterCounter>
-        </StyledTextAreaWrapper>
-        {error && (
-          <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
-            {error}
-          </StyledError>
-        )}
-        {hint && !error && (
-          <StyledHint data-testid={`${dataTestId}-hint-label`} disabled={disabled} theme={theme}>
-            {hint}
-          </StyledHint>
-        )}
-      </StyledTextareaContainer>
-    </>
+          disabled={disabled}
+          readOnly={readOnly}
+          maxLength={maxLength}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...props}
+        />
+        <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
+          {textAreaCount}
+        </StyledTextAreaCharacterCounter>
+      </StyledTextAreaWrapper>
+      {error && (
+        <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
+          {error}
+        </StyledError>
+      )}
+      {hint && !error && (
+        <StyledHint data-testid={`${dataTestId}-hint-label`} disabled={disabled} theme={theme}>
+          {hint}
+        </StyledHint>
+      )}
+    </StyledTextareaContainer>
   );
 };

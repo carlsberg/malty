@@ -38,22 +38,20 @@ export const SegmentController = ({
   }, [size, theme]);
 
   return (
-    <>
-      <StyledSegmentController data-testid={dataQaId} theme={theme}>
-        {options.map((option, index) => (
-          <React.Fragment key={option.value}>
-            <Chip
-              dataTestId={`${dataQaId}-chip-${index}`}
-              disabled={disabled}
-              size={chipSize}
-              selected={option.value === selected}
-              label={option.label}
-              onChange={() => handleOnChange(option.value)}
-            />
-            {index !== options.length - 1 && <StyledDivider theme={theme} disabled={disabled} />}
-          </React.Fragment>
-        ))}
-      </StyledSegmentController>
-    </>
+    <StyledSegmentController data-testid={dataQaId} theme={theme}>
+      {options.map((option, index) => (
+        <React.Fragment key={option.value}>
+          <Chip
+            dataTestId={`${dataQaId}-chip-${index}`}
+            disabled={disabled}
+            size={chipSize}
+            selected={option.value === selected}
+            label={option.label}
+            onChange={() => handleOnChange(option.value)}
+          />
+          {index !== options.length - 1 && <StyledDivider theme={theme} disabled={disabled} />}
+        </React.Fragment>
+      ))}
+    </StyledSegmentController>
   );
 };

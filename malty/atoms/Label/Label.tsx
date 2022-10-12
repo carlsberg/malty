@@ -16,12 +16,10 @@ export const Label = ({ htmlFor, text, children, checkbox, block, disabled }: La
       {!checkbox && children}
     </>
   ) : (
-    <>
-      <StyledLabel theme={theme} checkbox={checkbox} block={block} disabled={disabled}>
-        {!checkbox && text && <span className="label__text">{text}</span>}
-        {children}
-        {checkbox && text && <span className="label__text">{text}</span>}
-      </StyledLabel>
-    </>
+    <StyledLabel theme={theme} checkbox={checkbox} block={block} disabled={disabled}>
+      {!checkbox && text && <span className="label__text">{text}</span>}
+      {children}
+      {checkbox && text && <span className="label__text">{text}</span>}
+    </StyledLabel>
   );
 };
