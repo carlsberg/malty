@@ -89,7 +89,6 @@ export const Rating = ({
       const starNodeInput = (
         <StyledInput
           key={`input_${id}`}
-          className="dv-star-rating-input"
           type="radio"
           name={name}
           id={id}
@@ -128,9 +127,6 @@ export const Rating = ({
     return starNodes.length ? starNodes : null;
   };
 
-  const nonEditableClass = !editing ? 'dv-star-rating-non-editable' : '';
-  const classes = `dv-star-rating ${nonEditableClass}`;
-
   return (
     <TypographyProvider>
       <StyledRatingContainer data-testid={dataTestId} theme={theme}>
@@ -138,7 +134,7 @@ export const Rating = ({
           {label}
         </Text>
         <StyledMainContainer>
-          <StyledStarContainer className={classes}>{renderStars()}</StyledStarContainer>
+          <StyledStarContainer>{renderStars()}</StyledStarContainer>
           {totalReview !== undefined && (
             <StyledTotalReviewContainer>
               <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
