@@ -32,11 +32,6 @@ export default {
       control: 'boolean',
       description: 'Enable or disable editing of the rating component. It is not a required property'
     },
-    className: {
-      defaultValue: 'rating1-class',
-      description: 'Class name of the rating component. It is not a required property',
-      control: { type: 'text' }
-    },
     totalReview: {
       defaultValue: undefined,
       description: 'Total review of the rating component',
