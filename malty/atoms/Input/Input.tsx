@@ -147,7 +147,7 @@ export const Input = ({
   );
 
   const renderInputNumber = () => (
-    <>
+    <span>
       <StyledButton
         data-testid={`${dataTestId}-quantity-minus`}
         theme={theme}
@@ -194,7 +194,7 @@ export const Input = ({
       >
         <Icon name={IconName.Plus} color={IconColor.DigitalBlack} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
-    </>
+    </span>
   );
 
   const renderTelNumber = () => {
