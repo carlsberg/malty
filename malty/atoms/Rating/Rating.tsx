@@ -84,6 +84,13 @@ export const Rating = ({
         isDisplayFilledStar = true;
       }
 
+      let starIconColor = IconColor.DigitalBlack;
+      if (readOnly) {
+        starIconColor = IconColor.Support80;
+      } else if (disabled) {
+        starIconColor = IconColor.DisableLight;
+      }
+
       const starNodeInput = (
         <StyledInput
           key={`input_${id}`}
@@ -107,17 +114,9 @@ export const Rating = ({
         >
           <StyledIconStarContainer key={`icon_${id}`}>
             {isDisplayFilledStar ? (
-              <Icon
-                name={IconName.StarFilled}
-                color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
-                size={IconSize.Medium}
-              />
+              <Icon name={IconName.StarFilled} color={starIconColor} size={IconSize.Medium} />
             ) : (
-              <Icon
-                name={IconName.Star}
-                color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
-                size={IconSize.Medium}
-              />
+              <Icon name={IconName.Star} color={starIconColor} size={IconSize.Medium} />
             )}
           </StyledIconStarContainer>
         </StyledLabel>
