@@ -167,76 +167,78 @@ export const Select = ({
     if (!multiple) setShowOptionList(false);
   };
   const renderDefaultDropdown = () => (
-    <StyledOptionsWrapper
-      data-testid={`${dataTestId}-options`}
-      isOpen={showOptionList}
-      selectStyle={type}
-      theme={theme}
-      height={numSize}
-    >
-      <StyledActionsWrapper theme={theme}>
-        {search && (
-          <StyledSearchWrapper theme={theme}>
-            <Input
-              data-testid={`${dataTestId}-search-input`}
-              size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
-              onValueChange={handleSearch}
-              type={InputType.Search}
-              value={queryText}
-              icon={IconName.Search}
-            />
-          </StyledSearchWrapper>
-        )}
-        {(selectedValueState.length > 0 || multiple) && (
-          <StyledActionButtonWrapper height={numSize} theme={theme}>
-            {multiple && (
-              <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
-                {selectAllLabel}
-              </StyledActionButton>
-            )}
-            {selectedValueState.length > 0 && (
-              <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
-                {clearAllLabel}
-              </StyledActionButton>
-            )}
-          </StyledActionButtonWrapper>
-        )}
-      </StyledActionsWrapper>
-      {selectOptions?.map((option: SelectOptionsType, index: number) => (
-        <StyledOption
-          theme={theme}
-          key={option.value}
-          value={option.value}
-          onClick={() => handleOptionSelected(option)}
-          height={numSize}
-          selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-          selectStyle={type}
-          disabled={disabled}
-          data-testid={`${dataTestId}-option-${index}`}
-        >
-          {multiple && (
-            <Checkbox
-              data-testid={`${dataTestId}-option-checkbox-${index}`}
-              labelText={option.name as string}
-              value={option.value}
-              onValueChange={() => null}
-              checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-            />
+    <StyledMainWrapper>
+      <StyledOptionsWrapper
+        data-testid={`${dataTestId}-options`}
+        isOpen={showOptionList}
+        selectStyle={type}
+        theme={theme}
+        height={numSize}
+      >
+        <StyledActionsWrapper theme={theme}>
+          {search && (
+            <StyledSearchWrapper theme={theme}>
+              <Input
+                data-testid={`${dataTestId}-search-input`}
+                size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
+                onValueChange={handleSearch}
+                type={InputType.Search}
+                value={queryText}
+                icon={IconName.Search}
+              />
+            </StyledSearchWrapper>
           )}
-          {!multiple && (
-            <>
-              <StyledWrapper data-testid={`${dataTestId}-option-label-${index}`} theme={theme}>
-                {option.icon}
-                {option.name}
-              </StyledWrapper>
-              {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                <StyledCheck theme={theme} selectStyle={type} color={IconColor.DigitalBlack} size={IconSize.Small} />
+          {(selectedValueState.length > 0 || multiple) && (
+            <StyledActionButtonWrapper height={numSize} theme={theme}>
+              {multiple && (
+                <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
+                  {selectAllLabel}
+                </StyledActionButton>
               )}
-            </>
+              {selectedValueState.length > 0 && (
+                <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
+                  {clearAllLabel}
+                </StyledActionButton>
+              )}
+            </StyledActionButtonWrapper>
           )}
-        </StyledOption>
-      ))}
-    </StyledOptionsWrapper>
+        </StyledActionsWrapper>
+        {selectOptions?.map((option: SelectOptionsType, index: number) => (
+          <StyledOption
+            theme={theme}
+            key={option.value}
+            value={option.value}
+            onClick={() => handleOptionSelected(option)}
+            height={numSize}
+            selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+            selectStyle={type}
+            disabled={disabled}
+            data-testid={`${dataTestId}-option-${index}`}
+          >
+            {multiple && (
+              <Checkbox
+                data-testid={`${dataTestId}-option-checkbox-${index}`}
+                labelText={option.name as string}
+                value={option.value}
+                onValueChange={() => null}
+                checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+              />
+            )}
+            {!multiple && (
+              <>
+                <StyledWrapper data-testid={`${dataTestId}-option-label-${index}`} theme={theme}>
+                  {option.icon}
+                  {option.name}
+                </StyledWrapper>
+                {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
+                  <StyledCheck theme={theme} selectStyle={type} color={IconColor.DigitalBlack} size={IconSize.Small} />
+                )}
+              </>
+            )}
+          </StyledOption>
+        ))}
+      </StyledOptionsWrapper>
+    </StyledMainWrapper>
   );
   return (
     <StyledMainWrapper>
