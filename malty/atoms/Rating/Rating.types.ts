@@ -2,7 +2,8 @@ export interface RatingProps {
   name: string;
   label: string;
   value: number;
-  editing?: boolean;
+  readOnly?: boolean;
+  disabled?: boolean;
   totalReview?: number;
   onStarClick?: (index: number, value: number, name: string, e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void;
   onStarHover?: (index: number, value: number, name: string, e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void;

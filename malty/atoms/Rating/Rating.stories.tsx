@@ -24,13 +24,21 @@ export default {
       description: 'Current value of the rating component',
       control: { type: 'number', min: 0, max: 5, step: 1 }
     },
-    editing: {
-      defaultValue: true,
+    readonly: {
+      defaultValue: false,
       table: {
         category: 'State'
       },
       control: 'boolean',
-      description: 'Enable or disable editing of the rating component. It is not a required property'
+      description: 'Make readonly the rating component. It is not a required property'
+    },
+    disabled: {
+      defaultValue: false,
+      table: {
+        category: 'State'
+      },
+      control: 'boolean',
+      description: 'Make disable the rating component. It is not a required property'
     },
     totalReview: {
       defaultValue: undefined,

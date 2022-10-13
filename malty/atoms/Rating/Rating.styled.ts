@@ -26,9 +26,10 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledLabel = styled.label<{
-  editing: boolean;
+  readOnly: boolean;
+  disabled: boolean;
 }>`
-  cursor: ${({ editing }) => (editing ? 'pointer' : 'default')};
+  cursor: ${({ readOnly, disabled }) => (readOnly || disabled ? 'default' : 'pointer')};
 `;
 
 export const StyledIconStarContainer = styled.span`
