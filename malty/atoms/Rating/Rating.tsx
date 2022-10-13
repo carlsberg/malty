@@ -99,8 +99,7 @@ export const Rating = ({
         <StyledLabel
           theme={theme}
           key={`label_${id}`}
-          readOnly
-          disabled
+          hideCursor={readOnly || disabled}
           data-testid={ratingValue >= i ? 'rating-filled-star' : 'rating-empty-star'}
           htmlFor={id}
           onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}

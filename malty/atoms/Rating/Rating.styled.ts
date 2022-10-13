@@ -26,10 +26,9 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledLabel = styled.label<{
-  readOnly: boolean;
-  disabled: boolean;
+  hideCursor: boolean;
 }>`
-  cursor: ${({ readOnly, disabled }) => (readOnly || disabled ? 'default' : 'pointer')};
+  cursor: ${({ hideCursor }) => (hideCursor ? 'default' : 'pointer')};
 `;
 
 export const StyledIconStarContainer = styled.span`
