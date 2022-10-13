@@ -18,7 +18,8 @@ export const Rating = ({
   name,
   label,
   value,
-  editing = true,
+  readOnly = false,
+  disabled = false,
   totalReview,
   onStarClick,
   onStarHover,
@@ -29,7 +30,7 @@ export const Rating = ({
   const [ratingValue, setRatingValue] = useState(value);
 
   const onChange = (inputValue: number) => {
-    if (!editing) {
+    if (readOnly || disabled) {
       return;
     }
 
@@ -44,7 +45,7 @@ export const Rating = ({
   ) => {
     e.stopPropagation();
 
-    if (!editing) {
+    if (readOnly || disabled) {
       return;
     }
 
@@ -59,7 +60,7 @@ export const Rating = ({
   ) => {
     e.stopPropagation();
 
-    if (!editing) {
+    if (readOnly || disabled) {
       return;
     }
 
@@ -73,7 +74,7 @@ export const Rating = ({
     e: React.MouseEvent<HTMLLabelElement, MouseEvent>
   ) => {
     e.stopPropagation();
-    if (!editing) {
+    if (readOnly || disabled) {
       return;
     }
 
@@ -101,7 +102,8 @@ export const Rating = ({
         <StyledLabel
           theme={theme}
           key={`label_${id}`}
-          editing
+          readOnly
+          disabled
           data-testid={ratingValue >= i ? 'rating-filled-star' : 'rating-empty-star'}
           htmlFor={id}
           onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}
@@ -112,9 +114,17 @@ export const Rating = ({
         >
           <StyledIconStarContainer key={`icon_${id}`}>
             {i <= ratingValue ? (
-              <Icon name={IconName.StarFilled} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+              <Icon
+                name={IconName.StarFilled}
+                color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
+                size={IconSize.Medium}
+              />
             ) : (
-              <Icon name={IconName.Star} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+              <Icon
+                name={IconName.Star}
+                color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
+                size={IconSize.Medium}
+              />
             )}
           </StyledIconStarContainer>
         </StyledLabel>
