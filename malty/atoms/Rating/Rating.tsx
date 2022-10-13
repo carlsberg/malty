@@ -22,12 +22,11 @@ export const Rating = ({
   disabled = false,
   totalReview,
   onStarClick,
-  onStarHover,
-  onStarHoverOut,
   dataTestId
 }: RatingProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [ratingValue, setRatingValue] = useState(value);
+  const [hoverRating, setHoverRating] = useState(0);
 
   const onChange = (inputValue: number) => {
     if (readOnly || disabled) {
@@ -52,33 +51,23 @@ export const Rating = ({
     onStarClick?.(index, val, named, e);
   };
 
-  const handleStarHover = (
-    index: number,
-    val: number,
-    named: string,
-    e: React.MouseEvent<HTMLLabelElement, MouseEvent>
-  ) => {
+  const handleStarHover = (index: number, e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => {
     e.stopPropagation();
 
     if (readOnly || disabled) {
       return;
     }
 
-    onStarHover?.(index, val, named, e);
+    setHoverRating(index);
   };
 
-  const handleStarHoverOut = (
-    index: number,
-    val: number,
-    named: string,
-    e: React.MouseEvent<HTMLLabelElement, MouseEvent>
-  ) => {
+  const handleStarHoverOut = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
     if (readOnly || disabled) {
       return;
     }
 
-    onStarHoverOut?.(index, val, named, e);
+    setHoverRating(0);
   };
 
   const renderStars = (): JSX.Element[] | null => {
@@ -87,6 +76,14 @@ export const Rating = ({
 
     for (let i = 5; i > 0; i--) {
       const id = `${name}_${i}`;
+
+      let isDisplayFilledStar = false;
+      if (hoverRating >= i) {
+        isDisplayFilledStar = true;
+      } else if (!hoverRating && ratingValue >= i) {
+        isDisplayFilledStar = true;
+      }
+
       const starNodeInput = (
         <StyledInput
           key={`input_${id}`}
@@ -107,13 +104,10 @@ export const Rating = ({
           data-testid={ratingValue >= i ? 'rating-filled-star' : 'rating-empty-star'}
           htmlFor={id}
           onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}
-          onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, ratingValue, name, e)}
-          onMouseLeave={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) =>
-            handleStarHoverOut(i, ratingValue, name, e)
-          }
+          onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, e)}
         >
           <StyledIconStarContainer key={`icon_${id}`}>
-            {i <= ratingValue ? (
+            {isDisplayFilledStar ? (
               <Icon
                 name={IconName.StarFilled}
                 color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
@@ -144,7 +138,13 @@ export const Rating = ({
           {label}
         </Text>
         <StyledMainContainer>
-          <StyledStarContainer>{renderStars()}</StyledStarContainer>
+          <StyledStarContainer
+            onMouseLeave={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+              handleStarHoverOut(e);
+            }}
+          >
+            {renderStars()}
+          </StyledStarContainer>
           {totalReview !== undefined && (
             <StyledTotalReviewContainer>
               <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>

@@ -24,13 +24,13 @@ export default {
       description: 'Current value of the rating component',
       control: { type: 'number', min: 0, max: 5, step: 1 }
     },
-    readonly: {
+    readOnly: {
       defaultValue: false,
       table: {
         category: 'State'
       },
       control: 'boolean',
-      description: 'Make readonly the rating component. It is not a required property'
+      description: 'Make readOnly the rating component. It is not a required property'
     },
     disabled: {
       defaultValue: false,
@@ -47,18 +47,6 @@ export default {
     },
     onStarClick: {
       description: 'This is a function that will run on click. It is not a required property',
-      table: {
-        category: 'Events'
-      }
-    },
-    onStarHover: {
-      description: 'This is a function that will run on hover. It is not a required property',
-      table: {
-        category: 'Events'
-      }
-    },
-    onStarHoverOut: {
-      description: 'This is a function that will run on hover out. It is not a required property',
       table: {
         category: 'Events'
       }
