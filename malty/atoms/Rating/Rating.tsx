@@ -77,12 +77,7 @@ export const Rating = ({
     for (let i = 5; i > 0; i--) {
       const id = `${name}_${i}`;
 
-      let isDisplayFilledStar = false;
-      if (hoverRating >= i) {
-        isDisplayFilledStar = true;
-      } else if (!hoverRating && ratingValue >= i) {
-        isDisplayFilledStar = true;
-      }
+      const isDisplayFilledStar = hoverRating >= i || (!hoverRating && ratingValue >= i);
 
       let starIconColor = IconColor.DigitalBlack;
       if (readOnly) {
@@ -136,13 +131,7 @@ export const Rating = ({
           {label}
         </Text>
         <StyledMainContainer>
-          <StyledStarContainer
-            onMouseLeave={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-              handleStarHoverOut(e);
-            }}
-          >
-            {renderStars()}
-          </StyledStarContainer>
+          <StyledStarContainer onMouseLeave={handleStarHoverOut}>{renderStars()}</StyledStarContainer>
           {totalReview !== undefined && (
             <StyledTotalReviewContainer>
               <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
