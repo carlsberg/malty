@@ -123,6 +123,10 @@ export default {
       control: 'number',
       description: 'Minimum length (number of characters)'
     },
+    pattern: {
+      control: 'text',
+      description: 'Pattern to be applied to input value'
+    },
     required: {
       control: 'boolean',
       description: ' A value is required'
