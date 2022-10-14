@@ -67,4 +67,22 @@ describe('input', () => {
     render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
     expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
   });
+
+  it('calls clear function when clear icon is clicked', () => {
+    const onValueChange = jest.fn();
+    const onClearButtonClick = jest.fn();
+    render(
+      <Input
+        value="test search"
+        label="Search"
+        onValueChange={onValueChange}
+        type={InputType.Search}
+        onClearButtonClick={onClearButtonClick}
+      />
+    );
+
+    const clearButton = screen.getByTestId('svg-component');
+    fireEvent.click(clearButton);
+    expect(onClearButtonClick).toHaveBeenCalledTimes(1);
+  });
 });
