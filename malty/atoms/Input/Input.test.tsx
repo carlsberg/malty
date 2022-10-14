@@ -39,6 +39,23 @@ describe('input', () => {
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
   });
 
+  it('calls onInputBlur when lose focus', () => {
+    const onValueChange = jest.fn();
+    const onInputBlur = jest.fn();
+    render(
+      <Input
+        value="Initial value"
+        label="Input label"
+        onValueChange={onValueChange}
+        onInputBlur={onInputBlur}
+        type={InputType.Text}
+      />
+    );
+    const input = screen.getByDisplayValue('Initial value');
+    fireEvent.blur(input, { target: { value: 'Test Input' } });
+    expect(onInputBlur).toHaveBeenCalledTimes(1);
+  });
+
   it('renders input number', () => {
     const onValueChange = jest.fn();
     render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);

@@ -30,6 +30,7 @@ import {
 export const Input = ({
   value,
   onValueChange,
+  onInputBlur,
   label,
   type,
   placeholder,
@@ -44,6 +45,10 @@ export const Input = ({
   hint,
   dataTestId,
   readOnly,
+  inputRef,
+  isLeftButtonDisabled,
+  isRightButtonDisabled,
+  onClearButtonClick,
   ...props
 }: InputProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -87,6 +92,13 @@ export const Input = ({
     }
   };
 
+  const handleClear = () => {
+    onValueChange('');
+    if (onClearButtonClick) {
+      onClearButtonClick();
+    }
+  };
+
   const renderClearable = () =>
     (clearable || type === InputType.Search) &&
     !!value && (
@@ -96,7 +108,7 @@ export const Input = ({
         color={IconColor.DigitalBlack}
         size={IconSize.Medium}
         className="clear-trigger"
-        onClick={() => onValueChange('')}
+        onClick={handleClear}
       />
     );
 
@@ -137,8 +149,10 @@ export const Input = ({
         isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
         addRight={(iconPosition !== InputIconPosition.Left && type !== InputType.Number) || type === InputType.Password}
         onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+          onBlur={(e) => onInputBlur && onInputBlur(transform((e.target as HTMLInputElement).value))}
         type={type === InputType.Password ? passwordToggleType : type}
         theme={theme}
+          ref={inputRef}
         {...props}
       />
       {renderClearable()}
@@ -153,7 +167,7 @@ export const Input = ({
         theme={theme}
         size={numSize}
         isError={!!error}
-        disabled={disabled}
+        disabled={disabled || isLeftButtonDisabled}
         readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
       >
@@ -179,8 +193,10 @@ export const Input = ({
         isIconLeft={iconPosition === InputIconPosition.Left}
         addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
         onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
+        onBlur={(e) => onInputBlur && onInputBlur((e.target as HTMLInputElement).value)}
         type={type}
         theme={theme}
+        ref={inputRef}
         {...props}
       />
       <StyledButton
@@ -188,7 +204,7 @@ export const Input = ({
         theme={theme}
         size={numSize}
         isError={!!error}
-        disabled={disabled}
+        disabled={disabled || isRightButtonDisabled}
         readOnly={readOnly}
         onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
       >
@@ -247,8 +263,10 @@ export const Input = ({
           isIconLeft={iconPosition === InputIconPosition.Left}
           addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+            onBlur={(e) => onInputBlur && onInputBlur(transform((e.target as HTMLInputElement).value))}
           type={type}
           theme={theme}
+            ref={inputRef}
           {...props}
         />
         {renderClearable()}

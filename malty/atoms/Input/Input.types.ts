@@ -4,6 +4,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   value: string;
   label?: string;
   onValueChange: (value: string) => void;
+  onInputBlur?: (value: string) => void;
   type: InputType;
   placeholder?: string;
   error?: string;
@@ -20,6 +21,10 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   required?: boolean;
   maxLength?: number;
   minLength?: number;
+  inputRef?: React.RefObject<HTMLInputElement>;
+  isLeftButtonDisabled?: boolean;
+  isRightButtonDisabled?: boolean;
+  onClearButtonClick?: () => void;
 }
 
 export enum InputType {
