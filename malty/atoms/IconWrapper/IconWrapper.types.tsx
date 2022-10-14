@@ -38,3 +38,11 @@ export enum IconSize {
   Large = 'l',
   ExtraLarge = 'xl'
 }
+
+export interface UseIconColorProps {
+  color: IconColor;
+}
+
+export interface UseNumSizeProps {
+  size: IconSize;
+}
