@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { useRef } from '@storybook/addons';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Input as InputComponent } from './Input';
@@ -131,10 +132,6 @@ export default {
       control: 'boolean',
       description: ' A value is required'
     },
-    inputRef: {
-      control: 'object',
-      description: ' react ref'
-    },
     isRightButtonDisabled: {
       control: 'boolean',
       description: 'Right Button state, disabled'
@@ -165,6 +162,7 @@ const Template: Story<InputProps> = ({
   isRightButtonDisabled
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
+  const inputRef = useRef(null);
   return (
     <InputComponent
       size={size}
@@ -184,6 +182,7 @@ const Template: Story<InputProps> = ({
       readOnly={readOnly}
       isLeftButtonDisabled={isLeftButtonDisabled}
       isRightButtonDisabled={isRightButtonDisabled}
+      ref={inputRef}
     />
   );
 };

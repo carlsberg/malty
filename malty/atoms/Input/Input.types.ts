@@ -21,7 +21,6 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   required?: boolean;
   maxLength?: number;
   minLength?: number;
-  inputRef?: React.RefObject<HTMLInputElement>;
   isLeftButtonDisabled?: boolean;
   isRightButtonDisabled?: boolean;
   onClearButtonClick?: () => void;

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { forwardRef, useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { emojiFlag } from './emojiFlag';
@@ -27,112 +27,114 @@ import {
   InputType
 } from './Input.types';
 
-export const Input = ({
-  value,
-  onValueChange,
-  onInputBlur,
-  label,
-  type,
-  placeholder,
-  error,
-  icon,
-  iconPosition = InputIconPosition.Left,
-  disabled,
-  size = InputSize.Medium,
-  clearable,
-  mask,
-  children,
-  hint,
-  dataTestId,
-  readOnly,
-  inputRef,
-  isLeftButtonDisabled,
-  isRightButtonDisabled,
-  onClearButtonClick,
-  ...props
-}: InputProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-  const id = useMemo(() => uuid(), []);
-  const [numSize, setNumSize] = useState(theme.sizes.xl.value.replace('px', ''));
-  const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
+export const Input = forwardRef(
+  (
+    {
+      value,
+      onValueChange,
+      onInputBlur,
+      label,
+      type,
+      placeholder,
+      error,
+      icon,
+      iconPosition = InputIconPosition.Left,
+      disabled,
+      size = InputSize.Medium,
+      clearable,
+      mask,
+      children,
+      hint,
+      dataTestId,
+      readOnly,
+      isLeftButtonDisabled,
+      isRightButtonDisabled,
+      onClearButtonClick,
+      ...props
+    }: InputProps,
+    ref: React.Ref<HTMLInputElement>
+  ) => {
+    const theme = useContext(ThemeContext) || defaultTheme;
+    const id = useMemo(() => uuid(), []);
+    const [numSize, setNumSize] = useState(theme.sizes.xl.value.replace('px', ''));
+    const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
 
-  useEffect(() => {
-    switch (size) {
-      case InputSize.Large: {
-        setNumSize(theme.sizes['2xl'].value.replace('px', ''));
-        break;
+    useEffect(() => {
+      switch (size) {
+        case InputSize.Large: {
+          setNumSize(theme.sizes['2xl'].value.replace('px', ''));
+          break;
+        }
+        default: {
+          setNumSize(theme.sizes.xl.value.replace('px', ''));
+          break;
+        }
       }
-      default: {
-        setNumSize(theme.sizes.xl.value.replace('px', ''));
-        break;
-      }
-    }
-  }, [size, theme]);
+    }, [size, theme]);
 
-  const transform = (text: string): string => {
-    if (mask) {
-      if (type === InputType.Telephone && mask === InputMaskTypes.Telephone) {
-        const tel = text.match(/(\d{3,})(\d{4,})/);
-        if (tel) return `${tel[1]}  ${tel[2]}`;
-      } else if (type === InputType.Text && mask === InputMaskTypes.CreditCard) {
-        // eslint-disable-next-line no-useless-escape
-        const card = text.match(/((\d{4}[-|" "|\.])|(\d{4})){3}\d{4}/g);
-        if (card) return `${card[1]}-${card[2]}-${card[3]}-${card[4]}`;
+    const transform = (text: string): string => {
+      if (mask) {
+        if (type === InputType.Telephone && mask === InputMaskTypes.Telephone) {
+          const tel = text.match(/(\d{3,})(\d{4,})/);
+          if (tel) return `${tel[1]}  ${tel[2]}`;
+        } else if (type === InputType.Text && mask === InputMaskTypes.CreditCard) {
+          // eslint-disable-next-line no-useless-escape
+          const card = text.match(/((\d{4}[-|" "|\.])|(\d{4})){3}\d{4}/g);
+          if (card) return `${card[1]}-${card[2]}-${card[3]}-${card[4]}`;
+        }
       }
-    }
-    return text;
-  };
-  const HandleTogglePassword = () => {
-    if (value) {
-      if (passwordToggleType === InputType.Password) {
-        setPasswordToggleType(InputType.Text);
-      } else {
-        setPasswordToggleType(InputType.Password);
+      return text;
+    };
+    const HandleTogglePassword = () => {
+      if (value) {
+        if (passwordToggleType === InputType.Password) {
+          setPasswordToggleType(InputType.Text);
+        } else {
+          setPasswordToggleType(InputType.Password);
+        }
       }
-    }
-  };
+    };
 
-  const handleClear = () => {
-    onValueChange('');
+    const handleClear = () => {
+      onValueChange('');
       onClearButtonClick?.();
-  };
+    };
 
-  const renderClearable = () =>
-    (clearable || type === InputType.Search) &&
-    !!value && (
-      <Icon
-        data-testid={`${dataTestId}-clearable-icon`}
-        name={IconName.ItemClose}
-        color={IconColor.DigitalBlack}
-        size={IconSize.Medium}
-        className="clear-trigger"
-        onClick={handleClear}
-      />
-    );
-
-  const renderIcon = () => {
-    if (type === InputType.Password && value) {
-      return (
+    const renderClearable = () =>
+      (clearable || type === InputType.Search) &&
+      !!value && (
         <Icon
-          className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}
-          onClick={HandleTogglePassword}
-          data-testid={`${dataTestId}-icon`}
-          name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}
+          data-testid={`${dataTestId}-clearable-icon`}
+          name={IconName.ItemClose}
           color={IconColor.DigitalBlack}
           size={IconSize.Medium}
+          className="clear-trigger"
+          onClick={handleClear}
         />
       );
-    }
-    return (
-      icon && (
-        <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
-      )
-    );
-  };
 
-  const renderInput = () => (
+    const renderIcon = () => {
+      if (type === InputType.Password && value) {
+        return (
+          <Icon
+            className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}
+            onClick={HandleTogglePassword}
+            data-testid={`${dataTestId}-icon`}
+            name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}
+            color={IconColor.DigitalBlack}
+            size={IconSize.Medium}
+          />
+        );
+      }
+      return (
+        icon && (
+          <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+        )
+      );
+    };
+
+    const renderInput = () => (
     <StyledClearableWrapper>
-      <StyledInput
         data-testid={dataTestId}
         name={id}
         id={id}
@@ -145,72 +147,76 @@ export const Input = ({
         hasClearable={clearable}
         isError={!!error}
         isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
-        addRight={(iconPosition !== InputIconPosition.Left && type !== InputType.Number) || type === InputType.Password}
+        addRight={(iconPosition !== InputIconPosition.Left && type !== InputType.Number) || type === InputType.Password}      <StyledInput
         onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-          onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
+        onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
         type={type === InputType.Password ? passwordToggleType : type}
         theme={theme}
-          ref={inputRef}
+        ref={ref}
         {...props}
       />
       {renderClearable()}
       {renderIcon()}
     </StyledClearableWrapper>
-  );
+    );
 
-  const renderInputNumber = () => (
+    const renderInputNumber = () => (
     <span>
-      <StyledButton
-        data-testid={`${dataTestId}-quantity-minus`}
-        theme={theme}
-        size={numSize}
-        isError={!!error}
-        disabled={disabled || isLeftButtonDisabled}
-        readOnly={readOnly}
-        onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
-      >
-        <Icon
-          name={IconName.Minus}
-          color={IconColor.DigitalBlack}
-          size={IconSize.Medium}
-          className="quantity-control"
+        <StyledButton
+          data-testid={`${dataTestId}-quantity-minus`}
+          theme={theme}
+          size={numSize}
+          isError={!!error}
+          disabled={disabled || isLeftButtonDisabled}
+          readOnly={readOnly}
+          onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
+        >
+          <Icon
+            name={IconName.Minus}
+            color={IconColor.DigitalBlack}
+            size={IconSize.Medium}
+            className="quantity-control"
+          />
+        </StyledButton>
+        <StyledInput
+          data-testid={dataTestId}
+          name={id}
+          id={id}
+          value={value}
+          placeholder="0"
+          disabled={disabled}
+          readOnly={readOnly}
+          size={parseInt(numSize, 10)}
+          hasIcon={!!icon}
+          hasClearable={clearable}
+          isError={!!error}
+          isIconLeft={iconPosition === InputIconPosition.Left}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
+          onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
+          onBlur={(e) => onInputBlur?.((e.target as HTMLInputElement).value)}
+          type={type}
+          theme={theme}
+          ref={ref}
+          {...props}
         />
-      </StyledButton>
-      <StyledInput
-        data-testid={dataTestId}
-        name={id}
-        id={id}
-        value={value}
-        placeholder="0"
-        disabled={disabled}
-        readOnly={readOnly}
-        size={parseInt(numSize, 10)}
-        hasIcon={!!icon}
-        hasClearable={clearable}
-        isError={!!error}
-        isIconLeft={iconPosition === InputIconPosition.Left}
-        addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
-        onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
-        onBlur={(e) => onInputBlur?.((e.target as HTMLInputElement).value)}
-        type={type}
-        theme={theme}
-        ref={inputRef}
-        {...props}
-      />
-      <StyledButton
-        data-testid={`${dataTestId}-quantity-plus`}
-        theme={theme}
-        size={numSize}
-        isError={!!error}
-        disabled={disabled || isRightButtonDisabled}
-        readOnly={readOnly}
-        onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
-      >
-        <Icon name={IconName.Plus} color={IconColor.DigitalBlack} size={IconSize.Medium} className="quantity-control" />
-      </StyledButton>
+        <StyledButton
+          data-testid={`${dataTestId}-quantity-plus`}
+          theme={theme}
+          size={numSize}
+          isError={!!error}
+          disabled={disabled || isRightButtonDisabled}
+          readOnly={readOnly}
+          onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
+        >
+          <Icon
+            name={IconName.Plus}
+            color={IconColor.DigitalBlack}
+            size={IconSize.Medium}
+            className="quantity-control"
+          />
+        </StyledButton>
     </span>
-  );
-
+    );
   const renderTelNumber = () => {
     const height = `${numSize}px`;
     return (
@@ -246,7 +252,7 @@ export const Input = ({
               );
             })}
         </StyledSelect>
-        <StyledInput
+        <StyledInput          
           data-testid={dataTestId}
           name={id}
           id={id}
@@ -259,21 +265,21 @@ export const Input = ({
           hasClearable={clearable}
           isError={!!error}
           isIconLeft={iconPosition === InputIconPosition.Left}
-          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}        <StyledInput
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-            onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
+          onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
           type={type}
           theme={theme}
-            ref={inputRef}
+           ref={ref}
           {...props}
         />
         {renderClearable()}
         {renderIcon()}
       </StyledClearableWrapper>
-    );
-  };
+      );
+    };
 
-  return (
+    return (
     <StyledInputContainer theme={theme}>
       {label && (
         <StyledLabel disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
@@ -302,5 +308,7 @@ export const Input = ({
         </StyledHint>
       )}
     </StyledInputContainer>
-  );
-};
+
+    );
+  }
+);
