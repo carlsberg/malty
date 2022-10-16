@@ -263,7 +263,7 @@ export const Input = ({
           isIconLeft={iconPosition === InputIconPosition.Left}
           addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-            onBlur={(e) => onInputBlur && onInputBlur(transform((e.target as HTMLInputElement).value))}
+            onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
           type={type}
           theme={theme}
             ref={inputRef}
