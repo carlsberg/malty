@@ -94,9 +94,7 @@ export const Input = ({
 
   const handleClear = () => {
     onValueChange('');
-    if (onClearButtonClick) {
-      onClearButtonClick();
-    }
+      onClearButtonClick?.();
   };
 
   const renderClearable = () =>
