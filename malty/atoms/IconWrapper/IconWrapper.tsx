@@ -10,8 +10,8 @@ const IconWrapper = (
   icon: JSX.Element
 ) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const setIconSize = useNumSize({ size });
-  const setIconColor = useIconColor({ color });
+  const iconSize = useNumSize({ size });
+  const iconColor = useIconColor({ color });
   return (
     <StyledIcon
       viewBox={viewBox ?? '0 0 24 24'}
