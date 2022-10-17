@@ -1,5 +1,5 @@
+import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import React from 'react';
-import { IconWrapper, IconWrapperProps } from '../../atoms/IconWrapper';
 
 const World = (props: IconWrapperProps) =>
   IconWrapper(
