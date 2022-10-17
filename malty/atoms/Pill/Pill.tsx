@@ -1,5 +1,5 @@
 import { Icon, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useIconTextColor, usePillStyles } from './Pill.helper';
@@ -12,32 +12,30 @@ export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Me
   const colorStyle = useIconTextColor({ color });
 
   return (
-    <TypographyProvider>
-      <StyledPill
-        data-testid={dataTestId}
-        color={color}
-        size={numSize}
-        fontSize={fontSize}
-        iconSize={iconSize}
-        padding={padding}
-        hasText={!!text}
-        theme={theme}
-        textColor={colorStyle}
-        pillSize={size}
-      >
-        {icon && (
-          <Icon
-            data-testid={`${dataTestId}-icon`}
-            name={icon}
-            size={IconSize.Small}
-            color={colorStyle}
-            className="pill__icon"
-          />
-        )}
-        <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
-          {text}
-        </StyledText>
-      </StyledPill>
-    </TypographyProvider>
+    <StyledPill
+      data-testid={dataTestId}
+      color={color}
+      size={numSize}
+      fontSize={fontSize}
+      iconSize={iconSize}
+      padding={padding}
+      hasText={!!text}
+      theme={theme}
+      textColor={colorStyle}
+      pillSize={size}
+    >
+      {icon && (
+        <Icon
+          data-testid={`${dataTestId}-icon`}
+          name={icon}
+          size={IconSize.Small}
+          color={colorStyle}
+          className="pill__icon"
+        />
+      )}
+      <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
+        {text}
+      </StyledText>
+    </StyledPill>
   );
 };

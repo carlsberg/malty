@@ -2,7 +2,7 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { DOTS, usePagination } from './Pagination.helper';
@@ -185,39 +185,37 @@ export const Pagination = ({
 
   return (
     <StyledContainer data-testid={dataQaId} isWhite={isWhite} theme={theme}>
-      <TypographyProvider>
-        <ul>
-          <li>
-            <Button
-              dataTestId={`${dataQaId}-button-previous`}
-              style={ButtonStyle.Transparent}
-              disabled={isFirstPage}
-              tabIndex={isFirstPage ? -1 : 0}
-              onClick={onPrevious}
-              onKeyUp={onPreviousKeyUp}
-              icon={IconName.ChevronLeft}
-              size={buttonSize}
-              negative={isWhite}
-              aria-label="Previous button"
-            />
-          </li>
-          {renderContent()}
-          <li>
-            <Button
-              dataTestId={`${dataQaId}-button-next`}
-              style={ButtonStyle.Transparent}
-              disabled={isLastPage}
-              tabIndex={isLastPage ? -1 : 0}
-              onClick={onNext}
-              onKeyUp={onNextKeyUp}
-              icon={IconName.ChevronRight}
-              size={buttonSize}
-              negative={isWhite}
-              aria-label="Next button"
-            />
-          </li>
-        </ul>
-      </TypographyProvider>
+      <ul>
+        <li>
+          <Button
+            dataTestId={`${dataQaId}-button-previous`}
+            style={ButtonStyle.Transparent}
+            disabled={isFirstPage}
+            tabIndex={isFirstPage ? -1 : 0}
+            onClick={onPrevious}
+            onKeyUp={onPreviousKeyUp}
+            icon={IconName.ChevronLeft}
+            size={buttonSize}
+            negative={isWhite}
+            aria-label="Previous button"
+          />
+        </li>
+        {renderContent()}
+        <li>
+          <Button
+            dataTestId={`${dataQaId}-button-next`}
+            style={ButtonStyle.Transparent}
+            disabled={isLastPage}
+            tabIndex={isLastPage ? -1 : 0}
+            onClick={onNext}
+            onKeyUp={onNextKeyUp}
+            icon={IconName.ChevronRight}
+            size={buttonSize}
+            negative={isWhite}
+            aria-label="Next button"
+          />
+        </li>
+      </ul>
     </StyledContainer>
   );
 };
