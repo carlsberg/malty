@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -121,37 +121,33 @@ export const Input = ({
   };
 
   const renderInput = () => (
-    <TypographyProvider>
-      <StyledClearableWrapper>
-        <StyledInput
-          data-testid={dataTestId}
-          name={id}
-          id={id}
-          value={value}
-          placeholder={placeholder}
-          disabled={disabled}
-          readOnly={readOnly}
-          size={parseInt(numSize, 10)}
-          hasIcon={!!icon}
-          hasClearable={clearable}
-          isError={!!error}
-          isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
-          addRight={
-            (iconPosition !== InputIconPosition.Left && type !== InputType.Number) || type === InputType.Password
-          }
-          onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-          type={type === InputType.Password ? passwordToggleType : type}
-          theme={theme}
-          {...props}
-        />
-        {renderClearable()}
-        {renderIcon()}
-      </StyledClearableWrapper>
-    </TypographyProvider>
+    <StyledClearableWrapper>
+      <StyledInput
+        data-testid={dataTestId}
+        name={id}
+        id={id}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        readOnly={readOnly}
+        size={parseInt(numSize, 10)}
+        hasIcon={!!icon}
+        hasClearable={clearable}
+        isError={!!error}
+        isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
+        addRight={(iconPosition !== InputIconPosition.Left && type !== InputType.Number) || type === InputType.Password}
+        onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+        type={type === InputType.Password ? passwordToggleType : type}
+        theme={theme}
+        {...props}
+      />
+      {renderClearable()}
+      {renderIcon()}
+    </StyledClearableWrapper>
   );
 
   const renderInputNumber = () => (
-    <TypographyProvider>
+    <span>
       <StyledButton
         data-testid={`${dataTestId}-quantity-minus`}
         theme={theme}
@@ -198,101 +194,97 @@ export const Input = ({
       >
         <Icon name={IconName.Plus} color={IconColor.DigitalBlack} size={IconSize.Medium} className="quantity-control" />
       </StyledButton>
-    </TypographyProvider>
+    </span>
   );
 
   const renderTelNumber = () => {
     const height = `${numSize}px`;
     return (
       // TO FOLLOW: Convert the select to DSM dropdown
-      <TypographyProvider>
-        <StyledClearableWrapper>
-          <StyledSelect
-            data-testid={`${dataTestId}-phone-select`}
-            theme={theme}
-            height={height}
-            disabled={disabled}
-            readOnly={readOnly}
-            isError={!!error}
-          >
-            {Object.keys(InputCountry)
-              .sort((a, b) => {
-                const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
-                const newB = InputPrefixes[InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes];
-                return newA - newB;
-              })
-              .map((country) => {
-                const code =
-                  InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
-                return (
-                  <StyledOption
-                    data-testid={`${dataTestId}-phone-option-${country}`}
-                    key={`option-value-${country}`}
-                    value={code}
-                    height={height}
-                  >
-                    {emojiFlag(country)}
-                    &nbsp;&nbsp;&nbsp;+{code}
-                  </StyledOption>
-                );
-              })}
-          </StyledSelect>
-          <StyledInput
-            data-testid={dataTestId}
-            name={id}
-            id={id}
-            value={value}
-            placeholder={placeholder}
-            disabled={disabled}
-            readOnly={readOnly}
-            size={parseInt(numSize, 10)}
-            hasIcon={!!icon}
-            hasClearable={clearable}
-            isError={!!error}
-            isIconLeft={iconPosition === InputIconPosition.Left}
-            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
-            onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
-            type={type}
-            theme={theme}
-            {...props}
-          />
-          {renderClearable()}
-          {renderIcon()}
-        </StyledClearableWrapper>
-      </TypographyProvider>
+      <StyledClearableWrapper>
+        <StyledSelect
+          data-testid={`${dataTestId}-phone-select`}
+          theme={theme}
+          height={height}
+          disabled={disabled}
+          readOnly={readOnly}
+          isError={!!error}
+        >
+          {Object.keys(InputCountry)
+            .sort((a, b) => {
+              const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+              const newB = InputPrefixes[InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+              return newA - newB;
+            })
+            .map((country) => {
+              const code =
+                InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+              return (
+                <StyledOption
+                  data-testid={`${dataTestId}-phone-option-${country}`}
+                  key={`option-value-${country}`}
+                  value={code}
+                  height={height}
+                >
+                  {emojiFlag(country)}
+                  &nbsp;&nbsp;&nbsp;+{code}
+                </StyledOption>
+              );
+            })}
+        </StyledSelect>
+        <StyledInput
+          data-testid={dataTestId}
+          name={id}
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          disabled={disabled}
+          readOnly={readOnly}
+          size={parseInt(numSize, 10)}
+          hasIcon={!!icon}
+          hasClearable={clearable}
+          isError={!!error}
+          isIconLeft={iconPosition === InputIconPosition.Left}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
+          onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+          type={type}
+          theme={theme}
+          {...props}
+        />
+        {renderClearable()}
+        {renderIcon()}
+      </StyledClearableWrapper>
     );
   };
 
   return (
-    <TypographyProvider>
-      <StyledInputContainer theme={theme}>
-        {label && (
-          <StyledLabel disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
-            {label}
-          </StyledLabel>
-        )}
-        <StyledInputWrapper
-          isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
-          clearable={clearable || type === InputType.Search}
-          addLeft={type === InputType.Telephone}
-          theme={theme}
-        >
-          {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
-          {type === InputType.Telephone && renderTelNumber()}
-          {type === InputType.Number && renderInputNumber()}
-          {children}
-        </StyledInputWrapper>
-        {error && (
-          <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
-            {error}
-          </StyledError>
-        )}
-        {hint && !error && (
-          <StyledHint data-testid={`${dataTestId}-hint`} disabled={disabled} theme={theme}>
-            {hint}
-          </StyledHint>
-        )}
-      </StyledInputContainer>
-    </TypographyProvider>
+    <StyledInputContainer theme={theme}>
+      {label && (
+        <StyledLabel disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
+          {label}
+        </StyledLabel>
+      )}
+      <StyledInputWrapper
+        isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
+        clearable={clearable || type === InputType.Search}
+        addLeft={type === InputType.Telephone}
+        theme={theme}
+      >
+        {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
+        {type === InputType.Telephone && renderTelNumber()}
+        {type === InputType.Number && renderInputNumber()}
+        {children}
+      </StyledInputWrapper>
+      {error && (
+        <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
+          {error}
+        </StyledError>
+      )}
+      {hint && !error && (
+        <StyledHint data-testid={`${dataTestId}-hint`} disabled={disabled} theme={theme}>
+          {hint}
+        </StyledHint>
+      )}
+    </StyledInputContainer>
   );
 };

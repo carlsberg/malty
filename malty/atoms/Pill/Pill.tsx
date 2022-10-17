@@ -1,5 +1,5 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledPill, StyledText } from './Pill.styled';
@@ -58,32 +58,30 @@ export const Pill = ({
   }, [color, theme]);
 
   return (
-    <TypographyProvider>
-      <StyledPill
-        data-testid={dataTestId}
-        color={color}
-        size={numSize}
-        fontSize={fontSize}
-        iconSize={iconSize}
-        padding={padding}
-        hasText={!!text}
-        theme={theme}
-        textColor={iconTextColor}
-        pillSize={size}
-      >
-        {icon && (
-          <Icon
-            data-testid={`${dataTestId}-icon`}
-            name={icon}
-            size={IconSize.Small}
-            color={iconTextColor}
-            className="pill__icon"
-          />
-        )}
-        <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
-          {text}
-        </StyledText>
-      </StyledPill>
-    </TypographyProvider>
+    <StyledPill
+      data-testid={dataTestId}
+      color={color}
+      size={numSize}
+      fontSize={fontSize}
+      iconSize={iconSize}
+      padding={padding}
+      hasText={!!text}
+      theme={theme}
+      textColor={iconTextColor}
+      pillSize={size}
+    >
+      {icon && (
+        <Icon
+          data-testid={`${dataTestId}-icon`}
+          name={icon}
+          size={IconSize.Small}
+          color={iconTextColor}
+          className="pill__icon"
+        />
+      )}
+      <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
+        {text}
+      </StyledText>
+    </StyledPill>
   );
 };

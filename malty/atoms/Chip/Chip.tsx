@@ -2,7 +2,7 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useEffect, useState } from 'react';
 import { StyledChip, StyledIcon, StyledTextContainer } from './Chip.styled';
 import { ChipProps, ChipSize } from './Chip.types';
@@ -51,73 +51,71 @@ export const Chip = ({
     }
   }, [size, theme]);
   return (
-    <TypographyProvider>
-      <StyledChip
-        hasButton={showAction}
-        disabled={disabled}
-        readOnly={readOnly}
-        data-testid={dataTestId}
-        onClick={handleClick}
-        selected={selected}
-        height={chipSize}
-        size={size}
-        theme={theme}
-      >
-        {!showAction && icon && (
-          <StyledIcon data-testid={`${dataTestId}-icon`} theme={theme}>
-            <Icon
-              name={icon}
-              color={
-                readOnly && selected
-                  ? IconColor.White
-                  : readOnly && !selected
-                  ? IconColor.Support80
-                  : disabled
-                  ? IconColor.DisableLight
-                  : selected
-                  ? IconColor.White
-                  : IconColor.DigitalBlack
-              }
-              size={size === ChipSize.XSmall ? IconSize.Small : IconSize.MediumSmall}
-            />
-          </StyledIcon>
-        )}
-
-        <StyledTextContainer
-          hasButton={showAction}
-          hasIcon={!!icon}
-          size={size}
-          data-testid={`${dataTestId}-label`}
-          theme={theme}
-        >
-          <Text
-            textStyle={fontSize}
+    <StyledChip
+      hasButton={showAction}
+      disabled={disabled}
+      readOnly={readOnly}
+      data-testid={dataTestId}
+      onClick={handleClick}
+      selected={selected}
+      height={chipSize}
+      size={size}
+      theme={theme}
+    >
+      {!showAction && icon && (
+        <StyledIcon data-testid={`${dataTestId}-icon`} theme={theme}>
+          <Icon
+            name={icon}
             color={
-              (readOnly && selected
-                ? TextColor.White
+              readOnly && selected
+                ? IconColor.White
                 : readOnly && !selected
-                ? TextColor.Support80
+                ? IconColor.Support80
                 : disabled
                 ? IconColor.DisableLight
                 : selected
                 ? IconColor.White
-                : IconColor.DigitalBlack) as TextColor
+                : IconColor.DigitalBlack
             }
-          >
-            {label}
-          </Text>
-        </StyledTextContainer>
-        {showAction && (
-          <Button
-            disabled={disabled || readOnly}
-            negative={selected && !disabled}
-            dataTestId={`${dataTestId}-button`}
-            size={buttonSize}
-            style={ButtonStyle.Transparent}
-            icon={IconName.Plus}
+            size={size === ChipSize.XSmall ? IconSize.Small : IconSize.MediumSmall}
           />
-        )}
-      </StyledChip>
-    </TypographyProvider>
+        </StyledIcon>
+      )}
+
+      <StyledTextContainer
+        hasButton={showAction}
+        hasIcon={!!icon}
+        size={size}
+        data-testid={`${dataTestId}-label`}
+        theme={theme}
+      >
+        <Text
+          textStyle={fontSize}
+          color={
+            (readOnly && selected
+              ? TextColor.White
+              : readOnly && !selected
+              ? TextColor.Support80
+              : disabled
+              ? IconColor.DisableLight
+              : selected
+              ? IconColor.White
+              : IconColor.DigitalBlack) as TextColor
+          }
+        >
+          {label}
+        </Text>
+      </StyledTextContainer>
+      {showAction && (
+        <Button
+          disabled={disabled || readOnly}
+          negative={selected && !disabled}
+          dataTestId={`${dataTestId}-button`}
+          size={buttonSize}
+          style={ButtonStyle.Transparent}
+          icon={IconName.Plus}
+        />
+      )}
+    </StyledChip>
   );
 };
