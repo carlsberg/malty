@@ -36,6 +36,6 @@ export const useIconColor = ({ color }: UseIconColorProps): string => {
 };
 
 export const useNumSize = ({ size }: UseNumSizeProps): string => {
-  const theme = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) || defaultTheme;
   return theme.sizes[size].value;
 };

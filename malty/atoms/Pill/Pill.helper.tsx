@@ -1,10 +1,11 @@
 import { IconColor } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { IconTextColorProps, PillColor, PillSize, UsePillStylesProps } from './Pill.types';
 
 export const usePillStyles = ({ size }: UsePillStylesProps) => {
-  const theme = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) || defaultTheme;
 
   const pillStyles = {
     [PillSize.ExtraSmall]: {
