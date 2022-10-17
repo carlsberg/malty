@@ -131,13 +131,13 @@ export default {
       control: 'boolean',
       description: ' A value is required'
     },
-    isRightButtonDisabled: {
+    disableRightButton: {
       control: 'boolean',
       description: 'Right Button state, disabled'
     },
-    isLeftButtonDisabled: {
+    disableLeftButton: {
       control: 'boolean',
-      description: 'Right Button state, disabled'
+      description: 'Left Button state, disabled'
     }
   }
 } as Meta;
@@ -157,8 +157,8 @@ const Template: Story<InputProps> = ({
   hint,
   dataTestId,
   readOnly,
-  isLeftButtonDisabled,
-  isRightButtonDisabled
+  disableLeftButton,
+  disableRightButton
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -178,8 +178,8 @@ const Template: Story<InputProps> = ({
       hint={hint}
       dataTestId={dataTestId}
       readOnly={readOnly}
-      isLeftButtonDisabled={isLeftButtonDisabled}
-      isRightButtonDisabled={isRightButtonDisabled}
+      disableLeftButton={disableLeftButton}
+      disableRightButton={disableRightButton}
     />
   );
 };
@@ -215,8 +215,8 @@ switch (variant) {
       clearable: false,
       hint: 'hint text',
       readOnly: false,
-      isLeftButtonDisabled: false,
-      isRightButtonDisabled: false
+      disableLeftButton: false,
+      disableRightButton: false
     };
     break;
 
@@ -288,8 +288,8 @@ switch (variant) {
       clearable: false,
       hint: 'hint text',
       readOnly: false,
-      isLeftButtonDisabled: false,
-      isRightButtonDisabled: false
+      disableLeftButton: false,
+      disableRightButton: false
     };
     break;
 }

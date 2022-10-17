@@ -47,8 +47,8 @@ export const Input = forwardRef(
       hint,
       dataTestId,
       readOnly,
-      isLeftButtonDisabled,
-      isRightButtonDisabled,
+      disableLeftButton,
+      disableRightButton,
       onClearButtonClick,
       ...props
     }: InputProps,
@@ -167,7 +167,7 @@ export const Input = forwardRef(
           theme={theme}
           size={numSize}
           isError={!!error}
-          disabled={disabled || isLeftButtonDisabled}
+          disabled={disabled || disableLeftButton}
           readOnly={readOnly}
           onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
         >
@@ -204,7 +204,7 @@ export const Input = forwardRef(
           theme={theme}
           size={numSize}
           isError={!!error}
-          disabled={disabled || isRightButtonDisabled}
+          disabled={disabled || disableRightButton}
           readOnly={readOnly}
           onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
         >
