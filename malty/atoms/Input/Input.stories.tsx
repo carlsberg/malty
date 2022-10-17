@@ -90,6 +90,9 @@ export default {
         }
       }
     },
+    onClearButtonClick: {
+      description: 'Function to be executed when clear button is clicked.'
+    },
     mask: {
       options: Object.values(InputMaskTypes),
       control: {
@@ -109,6 +112,9 @@ export default {
     onValueChange: {
       description: 'Function to be executed when input state changes'
     },
+    onInputBlur: {
+      description: 'Function to be executed when input loses focus'
+    },
     maxLength: {
       control: 'number',
       description: 'Maximum length (number of characters)'
@@ -117,15 +123,27 @@ export default {
       control: 'number',
       description: 'Minimum length (number of characters)'
     },
+    pattern: {
+      control: 'text',
+      description: 'Pattern to be applied to input value'
+    },
     required: {
       control: 'boolean',
       description: ' A value is required'
+    },
+    disableRightButton: {
+      control: 'boolean',
+      description: 'Right Button state, disabled'
+    },
+    disableLeftButton: {
+      control: 'boolean',
+      description: 'Left Button state, disabled'
     }
   }
 } as Meta;
 
 const Template: Story<InputProps> = ({
-  value,
+  value = '',
   size,
   label,
   type,
@@ -138,7 +156,9 @@ const Template: Story<InputProps> = ({
   mask,
   hint,
   dataTestId,
-  readOnly
+  readOnly,
+  disableLeftButton,
+  disableRightButton
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -158,6 +178,8 @@ const Template: Story<InputProps> = ({
       hint={hint}
       dataTestId={dataTestId}
       readOnly={readOnly}
+      disableLeftButton={disableLeftButton}
+      disableRightButton={disableRightButton}
     />
   );
 };
@@ -192,7 +214,9 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      disableLeftButton: false,
+      disableRightButton: false
     };
     break;
 
@@ -263,7 +287,9 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      disableLeftButton: false,
+      disableRightButton: false
     };
     break;
 }
