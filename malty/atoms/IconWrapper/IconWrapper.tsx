@@ -16,11 +16,11 @@ const IconWrapper = (
     <StyledIcon
       viewBox={viewBox ?? '0 0 24 24'}
       className={className}
-      color={setIconColor}
-      size={setIconSize}
+      color={iconColor}
+      size={iconSize}
       onClick={onClick}
       theme={theme}
-      data-testid="svg-component-test"
+      data-testid="svg-component"
     >
       {icon}
     </StyledIcon>
