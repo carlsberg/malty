@@ -1,6 +1,6 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -125,22 +125,20 @@ export const Rating = ({
   };
 
   return (
-    <TypographyProvider>
-      <StyledRatingContainer data-testid={dataTestId} theme={theme}>
-        <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack} align={TextAlign.Center}>
-          {label}
-        </Text>
-        <StyledMainContainer>
-          <StyledStarContainer onMouseLeave={handleStarHoverOut}>{renderStars()}</StyledStarContainer>
-          {totalReview !== undefined && (
-            <StyledTotalReviewContainer>
-              <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
-                {`(${totalReview})`}
-              </Text>
-            </StyledTotalReviewContainer>
-          )}
-        </StyledMainContainer>
-      </StyledRatingContainer>
-    </TypographyProvider>
+    <StyledRatingContainer data-testid={dataTestId} theme={theme}>
+      <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack} align={TextAlign.Center}>
+        {label}
+      </Text>
+      <StyledMainContainer>
+        <StyledStarContainer onMouseLeave={handleStarHoverOut}>{renderStars()}</StyledStarContainer>
+        {totalReview !== undefined && (
+          <StyledTotalReviewContainer>
+            <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
+              {`(${totalReview})`}
+            </Text>
+          </StyledTotalReviewContainer>
+        )}
+      </StyledMainContainer>
+    </StyledRatingContainer>
   );
 };
