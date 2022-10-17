@@ -30,9 +30,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
     }
   };
 
-  return {
-    ...pillStyles[size]
-  };
+  return pillStyles[size];
 };
 
 export const iconTextColor = ({ color }: IconTextColorProps) => {
