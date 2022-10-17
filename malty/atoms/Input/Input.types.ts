@@ -27,6 +27,10 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   pattern?: string;
 }
 
+export interface UseInputSizeProps {
+  size: InputSize;
+}
+
 export enum InputType {
   Text = 'text',
   Number = 'number',
