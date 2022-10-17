@@ -33,6 +33,15 @@ export const StyledLabel = styled.label<{
 
 export const StyledIconStarContainer = styled.span`
   font-style: normal;
+
+  > svg {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.colours.overlay.white[5].value};
+    }
+    &:active {
+      background-color: ${({ theme }) => theme.colors.colours.overlay.white[10].value};
+    }
+  }
 `;
 
 export const StyledTotalReviewContainer = styled.span`

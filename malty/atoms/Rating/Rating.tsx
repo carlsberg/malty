@@ -107,7 +107,7 @@ export const Rating = ({
           onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}
           onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, e)}
         >
-          <StyledIconStarContainer key={`icon_${id}`}>
+          <StyledIconStarContainer key={`icon_${id}`} theme={theme}>
             {isDisplayFilledStar ? (
               <Icon name={IconName.StarFilled} color={starIconColor} size={IconSize.Medium} />
             ) : (
