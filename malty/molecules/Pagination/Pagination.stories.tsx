@@ -50,6 +50,10 @@ export default {
       },
       description: 'Changes color of component to white',
       control: 'boolean'
+    },
+    zeroBasedIndex: {
+      description: 'if true the first page starts on 0',
+      control: 'boolean'
     }
   }
 } as Meta;
@@ -62,7 +66,7 @@ const Template: Story<PaginationProps> = (args) => {
     <PaginationComponent
       {...args}
       onChange={(page) => {
-        setStatePage(page);
+        setStatePage(page as number);
       }}
       currentPage={statePage}
     />
