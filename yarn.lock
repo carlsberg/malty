@@ -71,7 +71,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.0, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.14.3, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.0":
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.14.3, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.0":
   version: 7.19.3
   resolution: "@babel/core@npm:7.19.3"
   dependencies:
@@ -1539,15 +1539,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:7.12.18":
-  version: 7.12.18
-  resolution: "@babel/runtime@npm:7.12.18"
-  dependencies:
-    regenerator-runtime: ^0.13.4
-  checksum: 0ba38dc8d478584b0b5fb15fc2b7855f9f20561917bd434a66429d55d1165199d6161bc5fb087b87254712827f63561ff5196df66701e5647d67c7d0f557569a
-  languageName: node
-  linkType: hard
-
 "@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
   version: 7.19.0
   resolution: "@babel/runtime@npm:7.19.0"
@@ -2002,6 +1993,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/transform@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "@jest/transform@npm:29.2.0"
+  dependencies:
+    "@babel/core": ^7.11.6
+    "@jest/types": ^29.2.0
+    "@jridgewell/trace-mapping": ^0.3.15
+    babel-plugin-istanbul: ^6.1.1
+    chalk: ^4.0.0
+    convert-source-map: ^1.4.0
+    fast-json-stable-stringify: ^2.1.0
+    graceful-fs: ^4.2.9
+    jest-haste-map: ^29.2.0
+    jest-regex-util: ^29.2.0
+    jest-util: ^29.2.0
+    micromatch: ^4.0.4
+    pirates: ^4.0.4
+    slash: ^3.0.0
+    write-file-atomic: ^4.0.1
+  checksum: 8e3794d1b77e6d52d342a692186cd574b2a637ce255f75824a029fc82cad93623d7bc5796566c1632fb51673eea2bf5194f4aac6bbc8cf879a5c29b12dbfb32a
+  languageName: node
+  linkType: hard
+
 "@jest/types@npm:^26.6.2":
   version: 26.6.2
   resolution: "@jest/types@npm:26.6.2"
@@ -2042,6 +2056,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jest/types@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "@jest/types@npm:29.2.0"
+  dependencies:
+    "@jest/schemas": ^29.0.0
+    "@types/istanbul-lib-coverage": ^2.0.0
+    "@types/istanbul-reports": ^3.0.0
+    "@types/node": "*"
+    "@types/yargs": ^17.0.8
+    chalk: ^4.0.0
+  checksum: 6b04cbb23306f16eaf4f0d158cfcb7cc905b352e2e44a0a4618c46cf3bdf7a1da64cea8fbc731a19e8a86dc5b80a75aec985cf8764b3178939b5d850ccc68b57
+  languageName: node
+  linkType: hard
+
 "@jridgewell/gen-mapping@npm:^0.1.0":
   version: 0.1.1
   resolution: "@jridgewell/gen-mapping@npm:0.1.1"
@@ -2063,7 +2091,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/resolve-uri@npm:^3.0.3":
+"@jridgewell/resolve-uri@npm:3.1.0, @jridgewell/resolve-uri@npm:^3.0.3":
   version: 3.1.0
   resolution: "@jridgewell/resolve-uri@npm:3.1.0"
   checksum: b5ceaaf9a110fcb2780d1d8f8d4a0bfd216702f31c988d8042e5f8fbe353c55d9b0f55a1733afdc64806f8e79c485d2464680ac48a0d9fcadb9548ee6b81d267
@@ -2087,7 +2115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.10":
+"@jridgewell/sourcemap-codec@npm:1.4.14, @jridgewell/sourcemap-codec@npm:^1.4.10":
   version: 1.4.14
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.14"
   checksum: 61100637b6d173d3ba786a5dff019e1a74b1f394f323c1fee337ff390239f053b87266c7a948777f4b1ee68c01a8ad0ab61e5ff4abb5a012a0b091bec391ab97
@@ -2111,6 +2139,16 @@ __metadata:
     "@jridgewell/resolve-uri": ^3.0.3
     "@jridgewell/sourcemap-codec": ^1.4.10
   checksum: 38917e9c2b014d469a9f51c016ed506acbe44dd16ec2f6f99b553ebf3764d22abadbf992f2367b6d2b3511f3eae8ed3a8963f6c1030093fda23efd35ecab2bae
+  languageName: node
+  linkType: hard
+
+"@jridgewell/trace-mapping@npm:^0.3.15":
+  version: 0.3.17
+  resolution: "@jridgewell/trace-mapping@npm:0.3.17"
+  dependencies:
+    "@jridgewell/resolve-uri": 3.1.0
+    "@jridgewell/sourcemap-codec": 1.4.14
+  checksum: 9d703b859cff5cd83b7308fd457a431387db5db96bd781a63bf48e183418dd9d3d44e76b9e4ae13237f6abeeb25d739ec9215c1d5bfdd08f66f750a50074a339
   languageName: node
   linkType: hard
 
@@ -2319,7 +2357,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:6.5.12, @storybook/addon-actions@npm:>=6.5.8 <7.0.0":
+"@storybook/addon-actions@npm:6.5.12, @storybook/addon-actions@npm:^6.5.8":
   version: 6.5.12
   resolution: "@storybook/addon-actions@npm:6.5.12"
   dependencies:
@@ -3332,7 +3370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:>=6.5.8 <7.0.0":
+"@storybook/react@npm:^6.5.8":
   version: 6.5.12
   resolution: "@storybook/react@npm:6.5.12"
   dependencies:
@@ -3584,7 +3622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:>=11.2.7 <12.0.0":
+"@testing-library/react@npm:^11.2.7":
   version: 11.2.7
   resolution: "@testing-library/react@npm:11.2.7"
   dependencies:
@@ -3813,7 +3851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/graceful-fs@npm:^4.1.2":
+"@types/graceful-fs@npm:^4.1.2, @types/graceful-fs@npm:^4.1.3":
   version: 4.1.5
   resolution: "@types/graceful-fs@npm:4.1.5"
   dependencies:
@@ -3906,13 +3944,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:26.0.20":
-  version: 26.0.20
-  resolution: "@types/jest@npm:26.0.20"
+"@types/jest@npm:^27.4.1":
+  version: 27.5.2
+  resolution: "@types/jest@npm:27.5.2"
   dependencies:
-    jest-diff: ^26.0.0
-    pretty-format: ^26.0.0
-  checksum: db7730d2d70d2cdaef0ade7a5185fad844b21df827eafdd1690ce8053c399277ecce6b274ffd649e7a38008e192e8f0eb3ecc296b69e75407e30a9c8388d0d5c
+    jest-matcher-utils: ^27.0.0
+    pretty-format: ^27.0.0
+  checksum: 7e11c6826aa429ad990dc262e4e4b54aa36573287fddf15773e4137f07d11d3105f0dd9f1baff73252160a057df23f5529bb83b1bf83cd3f45f9460a5ca5c22e
   languageName: node
   linkType: hard
 
@@ -3974,13 +4012,6 @@ __metadata:
   version: 18.8.2
   resolution: "@types/node@npm:18.8.2"
   checksum: b7c74dea0e835fb7faf69b4a2e87d43c1d228d88adacdff464d9e92d18a0b43bec6147b9eb3287650ac75fe5af730c53391869d02175e6b032dcb99ae2f54c92
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:12.20.4":
-  version: 12.20.4
-  resolution: "@types/node@npm:12.20.4"
-  checksum: 30f1f5d8159fcb968206706f0f943167731f3d0763602571af29676b1afdcfe3b41524442cacdee3853a456dcd11d0e3ab2bf28b6821dfa2749a4b393fe7b510
   languageName: node
   linkType: hard
 
@@ -4066,7 +4097,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.2":
+"@types/react-dom@npm:<18.0.0":
   version: 17.0.17
   resolution: "@types/react-dom@npm:17.0.17"
   dependencies:
@@ -4093,7 +4124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^17.0.2":
+"@types/react@npm:<18.0.0":
   version: 17.0.50
   resolution: "@types/react@npm:17.0.50"
   dependencies:
@@ -4178,16 +4209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/testing-library__jest-dom@npm:5.9.5":
-  version: 5.9.5
-  resolution: "@types/testing-library__jest-dom@npm:5.9.5"
-  dependencies:
-    "@types/jest": "*"
-  checksum: f2ed81103acb52d54f992d826e3854551294618628997dc01f8955efd8c1d476d64715b79187371b09ec3e61e44cc10a7ffe1e427d1bda798552f83d18309056
-  languageName: node
-  linkType: hard
-
-"@types/testing-library__jest-dom@npm:^5.9.1":
+"@types/testing-library__jest-dom@npm:^5.14.3, @types/testing-library__jest-dom@npm:^5.9.1":
   version: 5.14.5
   resolution: "@types/testing-library__jest-dom@npm:5.14.5"
   dependencies:
@@ -4833,2220 +4855,6 @@ __metadata:
   checksum: 8ed0d477ce3bc9c6fe2bf6a6a2cc316bb9c4127c5a7827bae947fa8ec34c7092395c5a283cc300c05b5fa01cbbfa1f938f410a7bf75db7c7846fea41949989ec
   languageName: node
   linkType: hard
-
-"Accordion-c4dde5@workspace:malty/molecules/Accordion":
-  version: 0.0.0-use.local
-  resolution: "Accordion-c4dde5@workspace:malty/molecules/Accordion"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AddContent-4f9cbb@workspace:malty/icons/AddContent":
-  version: 0.0.0-use.local
-  resolution: "AddContent-4f9cbb@workspace:malty/icons/AddContent"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AddEvent-4109d1@workspace:malty/icons/AddEvent":
-  version: 0.0.0-use.local
-  resolution: "AddEvent-4109d1@workspace:malty/icons/AddEvent"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AddProject-ab95fc@workspace:malty/icons/AddProject":
-  version: 0.0.0-use.local
-  resolution: "AddProject-ab95fc@workspace:malty/icons/AddProject"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AddedDocument-5356b0@workspace:malty/icons/AddedDocument":
-  version: 0.0.0-use.local
-  resolution: "AddedDocument-5356b0@workspace:malty/icons/AddedDocument"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Alert-077db8@workspace:malty/icons/Alert":
-  version: 0.0.0-use.local
-  resolution: "Alert-077db8@workspace:malty/icons/Alert"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AlertBanner-2f592e@workspace:malty/molecules/AlertBanner":
-  version: 0.0.0-use.local
-  resolution: "AlertBanner-2f592e@workspace:malty/molecules/AlertBanner"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AlertConnection-8e5d92@workspace:malty/icons/AlertConnection":
-  version: 0.0.0-use.local
-  resolution: "AlertConnection-8e5d92@workspace:malty/icons/AlertConnection"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AlertInline-20ee61@workspace:malty/molecules/AlertInline":
-  version: 0.0.0-use.local
-  resolution: "AlertInline-20ee61@workspace:malty/molecules/AlertInline"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AppDropbox-c67294@workspace:malty/icons/AppDropbox":
-  version: 0.0.0-use.local
-  resolution: "AppDropbox-c67294@workspace:malty/icons/AppDropbox"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AppFacebook-374d01@workspace:malty/icons/AppFacebook":
-  version: 0.0.0-use.local
-  resolution: "AppFacebook-374d01@workspace:malty/icons/AppFacebook"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AppGithub-655135@workspace:malty/icons/AppGithub":
-  version: 0.0.0-use.local
-  resolution: "AppGithub-655135@workspace:malty/icons/AppGithub"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AppInstagram-14028c@workspace:malty/icons/AppInstagram":
-  version: 0.0.0-use.local
-  resolution: "AppInstagram-14028c@workspace:malty/icons/AppInstagram"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AppLinkedin-dcb9fa@workspace:malty/icons/AppLinkedin":
-  version: 0.0.0-use.local
-  resolution: "AppLinkedin-dcb9fa@workspace:malty/icons/AppLinkedin"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AppPowerbi-785a7a@workspace:malty/icons/AppPowerbi":
-  version: 0.0.0-use.local
-  resolution: "AppPowerbi-785a7a@workspace:malty/icons/AppPowerbi"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"AppSkype-720547@workspace:malty/icons/AppSkype":
-  version: 0.0.0-use.local
-  resolution: "AppSkype-720547@workspace:malty/icons/AppSkype"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Arrange-429606@workspace:malty/icons/Arrange":
-  version: 0.0.0-use.local
-  resolution: "Arrange-429606@workspace:malty/icons/Arrange"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ArrowSmallDown-7b2446@workspace:malty/icons/ArrowSmallDown":
-  version: 0.0.0-use.local
-  resolution: "ArrowSmallDown-7b2446@workspace:malty/icons/ArrowSmallDown"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ArrowSmallLeft-09e1e2@workspace:malty/icons/ArrowSmallLeft":
-  version: 0.0.0-use.local
-  resolution: "ArrowSmallLeft-09e1e2@workspace:malty/icons/ArrowSmallLeft"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ArrowSmallRight-594a70@workspace:malty/icons/ArrowSmallRight":
-  version: 0.0.0-use.local
-  resolution: "ArrowSmallRight-594a70@workspace:malty/icons/ArrowSmallRight"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ArrowSmallUp-bc9910@workspace:malty/icons/ArrowSmallUp":
-  version: 0.0.0-use.local
-  resolution: "ArrowSmallUp-bc9910@workspace:malty/icons/ArrowSmallUp"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"At-20f857@workspace:malty/icons/At":
-  version: 0.0.0-use.local
-  resolution: "At-20f857@workspace:malty/icons/At"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Attachment-78f12a@workspace:malty/icons/Attachment":
-  version: 0.0.0-use.local
-  resolution: "Attachment-78f12a@workspace:malty/icons/Attachment"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Avatar-f80d69@workspace:malty/molecules/Avatar":
-  version: 0.0.0-use.local
-  resolution: "Avatar-f80d69@workspace:malty/molecules/Avatar"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Badge-74c856@workspace:malty/icons/Badge":
-  version: 0.0.0-use.local
-  resolution: "Badge-74c856@workspace:malty/icons/Badge"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Balance-bf399f@workspace:malty/icons/Balance":
-  version: 0.0.0-use.local
-  resolution: "Balance-bf399f@workspace:malty/icons/Balance"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Bell-b0756c@workspace:malty/icons/Bell":
-  version: 0.0.0-use.local
-  resolution: "Bell-b0756c@workspace:malty/icons/Bell"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"BellNotification-921130@workspace:malty/icons/BellNotification":
-  version: 0.0.0-use.local
-  resolution: "BellNotification-921130@workspace:malty/icons/BellNotification"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Bold-1d5a53@workspace:malty/icons/Bold":
-  version: 0.0.0-use.local
-  resolution: "Bold-1d5a53@workspace:malty/icons/Bold"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Book-a513f8@workspace:malty/icons/Book":
-  version: 0.0.0-use.local
-  resolution: "Book-a513f8@workspace:malty/icons/Book"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Bookmark-05f52b@workspace:malty/icons/Bookmark":
-  version: 0.0.0-use.local
-  resolution: "Bookmark-05f52b@workspace:malty/icons/Bookmark"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"BookmarkFilled-4f4afe@workspace:malty/icons/BookmarkFilled":
-  version: 0.0.0-use.local
-  resolution: "BookmarkFilled-4f4afe@workspace:malty/icons/BookmarkFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Bottle-6ac7b7@workspace:malty/icons/Bottle":
-  version: 0.0.0-use.local
-  resolution: "Bottle-6ac7b7@workspace:malty/icons/Bottle"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"BottleCraft-9b6286@workspace:malty/icons/BottleCraft":
-  version: 0.0.0-use.local
-  resolution: "BottleCraft-9b6286@workspace:malty/icons/BottleCraft"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Button-e6d531@workspace:malty/atoms/Button":
-  version: 0.0.0-use.local
-  resolution: "Button-e6d531@workspace:malty/atoms/Button"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Calendar-9b20c6@workspace:malty/icons/Calendar":
-  version: 0.0.0-use.local
-  resolution: "Calendar-9b20c6@workspace:malty/icons/Calendar"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CalendarAutumn-c74030@workspace:malty/icons/CalendarAutumn":
-  version: 0.0.0-use.local
-  resolution: "CalendarAutumn-c74030@workspace:malty/icons/CalendarAutumn"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CalendarConfirm-0579fe@workspace:malty/icons/CalendarConfirm":
-  version: 0.0.0-use.local
-  resolution: "CalendarConfirm-0579fe@workspace:malty/icons/CalendarConfirm"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CalendarEvents-3fa8ca@workspace:malty/icons/CalendarEvents":
-  version: 0.0.0-use.local
-  resolution: "CalendarEvents-3fa8ca@workspace:malty/icons/CalendarEvents"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CalendarSpring-c66fc8@workspace:malty/icons/CalendarSpring":
-  version: 0.0.0-use.local
-  resolution: "CalendarSpring-c66fc8@workspace:malty/icons/CalendarSpring"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CalendarSummer-d35b1e@workspace:malty/icons/CalendarSummer":
-  version: 0.0.0-use.local
-  resolution: "CalendarSummer-d35b1e@workspace:malty/icons/CalendarSummer"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CalendarWholeYear-9704b0@workspace:malty/icons/CalendarWholeYear":
-  version: 0.0.0-use.local
-  resolution: "CalendarWholeYear-9704b0@workspace:malty/icons/CalendarWholeYear"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CalendarWinter-d5c573@workspace:malty/icons/CalendarWinter":
-  version: 0.0.0-use.local
-  resolution: "CalendarWinter-d5c573@workspace:malty/icons/CalendarWinter"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Camera-8091b1@workspace:malty/icons/Camera":
-  version: 0.0.0-use.local
-  resolution: "Camera-8091b1@workspace:malty/icons/Camera"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Can-3f375e@workspace:malty/icons/Can":
-  version: 0.0.0-use.local
-  resolution: "Can-3f375e@workspace:malty/icons/Can"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Card-7b49bf@workspace:malty/icons/Card":
-  version: 0.0.0-use.local
-  resolution: "Card-7b49bf@workspace:malty/icons/Card"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CardPlus-860e00@workspace:malty/icons/CardPlus":
-  version: 0.0.0-use.local
-  resolution: "CardPlus-860e00@workspace:malty/icons/CardPlus"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CarlsbergFilled-8288c3@workspace:malty/icons/CarlsbergFilled":
-  version: 0.0.0-use.local
-  resolution: "CarlsbergFilled-8288c3@workspace:malty/icons/CarlsbergFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CarlsbergOutlined-5eaab5@workspace:malty/icons/CarlsbergOutlined":
-  version: 0.0.0-use.local
-  resolution: "CarlsbergOutlined-5eaab5@workspace:malty/icons/CarlsbergOutlined"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CarretDown-d44091@workspace:malty/icons/CarretDown":
-  version: 0.0.0-use.local
-  resolution: "CarretDown-d44091@workspace:malty/icons/CarretDown"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CarretLeft-a668db@workspace:malty/icons/CarretLeft":
-  version: 0.0.0-use.local
-  resolution: "CarretLeft-a668db@workspace:malty/icons/CarretLeft"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CarretMove-7df270@workspace:malty/icons/CarretMove":
-  version: 0.0.0-use.local
-  resolution: "CarretMove-7df270@workspace:malty/icons/CarretMove"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CarretRight-bcba58@workspace:malty/icons/CarretRight":
-  version: 0.0.0-use.local
-  resolution: "CarretRight-bcba58@workspace:malty/icons/CarretRight"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CarretUp-f42055@workspace:malty/icons/CarretUp":
-  version: 0.0.0-use.local
-  resolution: "CarretUp-f42055@workspace:malty/icons/CarretUp"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Cart-e9bfe0@workspace:malty/icons/Cart":
-  version: 0.0.0-use.local
-  resolution: "Cart-e9bfe0@workspace:malty/icons/Cart"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CartAdded-826b2f@workspace:malty/icons/CartAdded":
-  version: 0.0.0-use.local
-  resolution: "CartAdded-826b2f@workspace:malty/icons/CartAdded"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CartLabel-5afbc7@workspace:malty/icons/CartLabel":
-  version: 0.0.0-use.local
-  resolution: "CartLabel-5afbc7@workspace:malty/icons/CartLabel"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CartNotification-0d94ae@workspace:malty/icons/CartNotification":
-  version: 0.0.0-use.local
-  resolution: "CartNotification-0d94ae@workspace:malty/icons/CartNotification"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Change-993f19@workspace:malty/icons/Change":
-  version: 0.0.0-use.local
-  resolution: "Change-993f19@workspace:malty/icons/Change"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Check-ed0187@workspace:malty/icons/Check":
-  version: 0.0.0-use.local
-  resolution: "Check-ed0187@workspace:malty/icons/Check"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Checkbox-d41028@workspace:malty/atoms/Checkbox":
-  version: 0.0.0-use.local
-  resolution: "Checkbox-d41028@workspace:malty/atoms/Checkbox"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CheckboxCheck-154f63@workspace:malty/icons/CheckboxCheck":
-  version: 0.0.0-use.local
-  resolution: "CheckboxCheck-154f63@workspace:malty/icons/CheckboxCheck"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CheckboxCheckAlternate-36effc@workspace:malty/icons/CheckboxCheckAlternate":
-  version: 0.0.0-use.local
-  resolution: "CheckboxCheckAlternate-36effc@workspace:malty/icons/CheckboxCheckAlternate"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CheckboxCheckSquare-f33857@workspace:malty/icons/CheckboxCheckSquare":
-  version: 0.0.0-use.local
-  resolution: "CheckboxCheckSquare-f33857@workspace:malty/icons/CheckboxCheckSquare"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CheckboxEmpty-ea7812@workspace:malty/icons/CheckboxEmpty":
-  version: 0.0.0-use.local
-  resolution: "CheckboxEmpty-ea7812@workspace:malty/icons/CheckboxEmpty"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ChevronDown-c27d2c@workspace:malty/icons/ChevronDown":
-  version: 0.0.0-use.local
-  resolution: "ChevronDown-c27d2c@workspace:malty/icons/ChevronDown"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ChevronLeft-b0011c@workspace:malty/icons/ChevronLeft":
-  version: 0.0.0-use.local
-  resolution: "ChevronLeft-b0011c@workspace:malty/icons/ChevronLeft"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ChevronRight-20bc3b@workspace:malty/icons/ChevronRight":
-  version: 0.0.0-use.local
-  resolution: "ChevronRight-20bc3b@workspace:malty/icons/ChevronRight"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ChevronUp-ed831d@workspace:malty/icons/ChevronUp":
-  version: 0.0.0-use.local
-  resolution: "ChevronUp-ed831d@workspace:malty/icons/ChevronUp"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Chip-7e11c4@workspace:malty/atoms/Chip":
-  version: 0.0.0-use.local
-  resolution: "Chip-7e11c4@workspace:malty/atoms/Chip"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Clock-d584e4@workspace:malty/icons/Clock":
-  version: 0.0.0-use.local
-  resolution: "Clock-d584e4@workspace:malty/icons/Clock"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ClockFilled-af278d@workspace:malty/icons/ClockFilled":
-  version: 0.0.0-use.local
-  resolution: "ClockFilled-af278d@workspace:malty/icons/ClockFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Clone-656704@workspace:malty/icons/Clone":
-  version: 0.0.0-use.local
-  resolution: "Clone-656704@workspace:malty/icons/Clone"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Close-6a82e2@workspace:malty/icons/Close":
-  version: 0.0.0-use.local
-  resolution: "Close-6a82e2@workspace:malty/icons/Close"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CoinDollar-091135@workspace:malty/icons/CoinDollar":
-  version: 0.0.0-use.local
-  resolution: "CoinDollar-091135@workspace:malty/icons/CoinDollar"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CoinEuro-abbc8e@workspace:malty/icons/CoinEuro":
-  version: 0.0.0-use.local
-  resolution: "CoinEuro-abbc8e@workspace:malty/icons/CoinEuro"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Compass-b0824c@workspace:malty/icons/Compass":
-  version: 0.0.0-use.local
-  resolution: "Compass-b0824c@workspace:malty/icons/Compass"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CompassFilled-0514ca@workspace:malty/icons/CompassFilled":
-  version: 0.0.0-use.local
-  resolution: "CompassFilled-0514ca@workspace:malty/icons/CompassFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Connected-410700@workspace:malty/icons/Connected":
-  version: 0.0.0-use.local
-  resolution: "Connected-410700@workspace:malty/icons/Connected"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Contract-00881e@workspace:malty/icons/Contract":
-  version: 0.0.0-use.local
-  resolution: "Contract-00881e@workspace:malty/icons/Contract"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Cookies-e4fcc9@workspace:malty/icons/Cookies":
-  version: 0.0.0-use.local
-  resolution: "Cookies-e4fcc9@workspace:malty/icons/Cookies"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Coupon-bd0344@workspace:malty/icons/Coupon":
-  version: 0.0.0-use.local
-  resolution: "Coupon-bd0344@workspace:malty/icons/Coupon"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Customer-2b5567@workspace:malty/icons/Customer":
-  version: 0.0.0-use.local
-  resolution: "Customer-2b5567@workspace:malty/icons/Customer"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CustomerAdd-f39c7d@workspace:malty/icons/CustomerAdd":
-  version: 0.0.0-use.local
-  resolution: "CustomerAdd-f39c7d@workspace:malty/icons/CustomerAdd"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CustomerQuestion-682367@workspace:malty/icons/CustomerQuestion":
-  version: 0.0.0-use.local
-  resolution: "CustomerQuestion-682367@workspace:malty/icons/CustomerQuestion"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Customers-da6c37@workspace:malty/icons/Customers":
-  version: 0.0.0-use.local
-  resolution: "Customers-da6c37@workspace:malty/icons/Customers"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"DataTransfer-f35d8a@workspace:malty/icons/DataTransfer":
-  version: 0.0.0-use.local
-  resolution: "DataTransfer-f35d8a@workspace:malty/icons/DataTransfer"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Datepicker-6d37bd@workspace:malty/molecules/Datepicker":
-  version: 0.0.0-use.local
-  resolution: "Datepicker-6d37bd@workspace:malty/molecules/Datepicker"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"DiagonalDownLeft-9787eb@workspace:malty/icons/DiagonalDownLeft":
-  version: 0.0.0-use.local
-  resolution: "DiagonalDownLeft-9787eb@workspace:malty/icons/DiagonalDownLeft"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"DiagonalDownRight-8a4ab0@workspace:malty/icons/DiagonalDownRight":
-  version: 0.0.0-use.local
-  resolution: "DiagonalDownRight-8a4ab0@workspace:malty/icons/DiagonalDownRight"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"DiagonalUpLeft-e5c8bc@workspace:malty/icons/DiagonalUpLeft":
-  version: 0.0.0-use.local
-  resolution: "DiagonalUpLeft-e5c8bc@workspace:malty/icons/DiagonalUpLeft"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"DiagonalUpRight-b7f7e8@workspace:malty/icons/DiagonalUpRight":
-  version: 0.0.0-use.local
-  resolution: "DiagonalUpRight-b7f7e8@workspace:malty/icons/DiagonalUpRight"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Diploma-887b97@workspace:malty/icons/Diploma":
-  version: 0.0.0-use.local
-  resolution: "Diploma-887b97@workspace:malty/icons/Diploma"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Diploma2-9f6695@workspace:malty/icons/Diploma2":
-  version: 0.0.0-use.local
-  resolution: "Diploma2-9f6695@workspace:malty/icons/Diploma2"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Download-f07e16@workspace:malty/icons/Download":
-  version: 0.0.0-use.local
-  resolution: "Download-f07e16@workspace:malty/icons/Download"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Draughtmaster-e5e404@workspace:malty/icons/Draughtmaster":
-  version: 0.0.0-use.local
-  resolution: "Draughtmaster-e5e404@workspace:malty/icons/Draughtmaster"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Edit-52efd6@workspace:malty/icons/Edit":
-  version: 0.0.0-use.local
-  resolution: "Edit-52efd6@workspace:malty/icons/Edit"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Email-94b587@workspace:malty/icons/Email":
-  version: 0.0.0-use.local
-  resolution: "Email-94b587@workspace:malty/icons/Email"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Expand-7e0b6a@workspace:malty/icons/Expand":
-  version: 0.0.0-use.local
-  resolution: "Expand-7e0b6a@workspace:malty/icons/Expand"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Eye-0c2ba3@workspace:malty/icons/Eye":
-  version: 0.0.0-use.local
-  resolution: "Eye-0c2ba3@workspace:malty/icons/Eye"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"EyeFill-1f57fd@workspace:malty/icons/EyeFill":
-  version: 0.0.0-use.local
-  resolution: "EyeFill-1f57fd@workspace:malty/icons/EyeFill"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"EyeHide-5285b3@workspace:malty/icons/EyeHide":
-  version: 0.0.0-use.local
-  resolution: "EyeHide-5285b3@workspace:malty/icons/EyeHide"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"EyeShow-b42beb@workspace:malty/icons/EyeShow":
-  version: 0.0.0-use.local
-  resolution: "EyeShow-b42beb@workspace:malty/icons/EyeShow"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"File-b4bb69@workspace:malty/icons/File":
-  version: 0.0.0-use.local
-  resolution: "File-b4bb69@workspace:malty/icons/File"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"FilesCsv-dd0bf2@workspace:malty/icons/FilesCsv":
-  version: 0.0.0-use.local
-  resolution: "FilesCsv-dd0bf2@workspace:malty/icons/FilesCsv"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"FilesJson-8399ed@workspace:malty/icons/FilesJson":
-  version: 0.0.0-use.local
-  resolution: "FilesJson-8399ed@workspace:malty/icons/FilesJson"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"FilesPdf-278b1f@workspace:malty/icons/FilesPdf":
-  version: 0.0.0-use.local
-  resolution: "FilesPdf-278b1f@workspace:malty/icons/FilesPdf"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"FilesXls-5114d9@workspace:malty/icons/FilesXls":
-  version: 0.0.0-use.local
-  resolution: "FilesXls-5114d9@workspace:malty/icons/FilesXls"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Filters-e924f7@workspace:malty/icons/Filters":
-  version: 0.0.0-use.local
-  resolution: "Filters-e924f7@workspace:malty/icons/Filters"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Flash-c8ac38@workspace:malty/icons/Flash":
-  version: 0.0.0-use.local
-  resolution: "Flash-c8ac38@workspace:malty/icons/Flash"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Floater-a95032@workspace:malty/atoms/Floater":
-  version: 0.0.0-use.local
-  resolution: "Floater-a95032@workspace:malty/atoms/Floater"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"GlassGoblet-f86f17@workspace:malty/icons/GlassGoblet":
-  version: 0.0.0-use.local
-  resolution: "GlassGoblet-f86f17@workspace:malty/icons/GlassGoblet"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"GlassMug-3a2787@workspace:malty/icons/GlassMug":
-  version: 0.0.0-use.local
-  resolution: "GlassMug-3a2787@workspace:malty/icons/GlassMug"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"GlassWeissbier-4bdc41@workspace:malty/icons/GlassWeissbier":
-  version: 0.0.0-use.local
-  resolution: "GlassWeissbier-4bdc41@workspace:malty/icons/GlassWeissbier"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Globe-93d90f@workspace:malty/icons/Globe":
-  version: 0.0.0-use.local
-  resolution: "Globe-93d90f@workspace:malty/icons/Globe"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Headline-b0d96c@workspace:malty/atoms/Headline":
-  version: 0.0.0-use.local
-  resolution: "Headline-b0d96c@workspace:malty/atoms/Headline"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Headline-dfaac6@workspace:malty/icons/Headline":
-  version: 0.0.0-use.local
-  resolution: "Headline-dfaac6@workspace:malty/icons/Headline"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Heart-b9cf1a@workspace:malty/icons/Heart":
-  version: 0.0.0-use.local
-  resolution: "Heart-b9cf1a@workspace:malty/icons/Heart"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"HeartFilled-52adf1@workspace:malty/icons/HeartFilled":
-  version: 0.0.0-use.local
-  resolution: "HeartFilled-52adf1@workspace:malty/icons/HeartFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Help-6fe93c@workspace:malty/icons/Help":
-  version: 0.0.0-use.local
-  resolution: "Help-6fe93c@workspace:malty/icons/Help"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"HideMenu-95a6d4@workspace:malty/icons/HideMenu":
-  version: 0.0.0-use.local
-  resolution: "HideMenu-95a6d4@workspace:malty/icons/HideMenu"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"History-7a2835@workspace:malty/icons/History":
-  version: 0.0.0-use.local
-  resolution: "History-7a2835@workspace:malty/icons/History"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Home-b69911@workspace:malty/icons/Home":
-  version: 0.0.0-use.local
-  resolution: "Home-b69911@workspace:malty/icons/Home"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Hop-5996ae@workspace:malty/icons/Hop":
-  version: 0.0.0-use.local
-  resolution: "Hop-5996ae@workspace:malty/icons/Hop"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Icon-2df7bd@workspace:malty/atoms/Icon":
-  version: 0.0.0-use.local
-  resolution: "Icon-2df7bd@workspace:malty/atoms/Icon"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"IconWrapper-cac9ab@workspace:malty/atoms/IconWrapper":
-  version: 0.0.0-use.local
-  resolution: "IconWrapper-cac9ab@workspace:malty/atoms/IconWrapper"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Image-57e33a@workspace:malty/atoms/Image":
-  version: 0.0.0-use.local
-  resolution: "Image-57e33a@workspace:malty/atoms/Image"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Image-e76d37@workspace:malty/icons/Image":
-  version: 0.0.0-use.local
-  resolution: "Image-e76d37@workspace:malty/icons/Image"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Information-acfc6d@workspace:malty/icons/Information":
-  version: 0.0.0-use.local
-  resolution: "Information-acfc6d@workspace:malty/icons/Information"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Input-e0eb59@workspace:malty/atoms/Input":
-  version: 0.0.0-use.local
-  resolution: "Input-e0eb59@workspace:malty/atoms/Input"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Italic-7335ad@workspace:malty/icons/Italic":
-  version: 0.0.0-use.local
-  resolution: "Italic-7335ad@workspace:malty/icons/Italic"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ItemAdd-9ef679@workspace:malty/icons/ItemAdd":
-  version: 0.0.0-use.local
-  resolution: "ItemAdd-9ef679@workspace:malty/icons/ItemAdd"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ItemCheck-a2eb23@workspace:malty/icons/ItemCheck":
-  version: 0.0.0-use.local
-  resolution: "ItemCheck-a2eb23@workspace:malty/icons/ItemCheck"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ItemCheckDefault-17a00d@workspace:malty/icons/ItemCheckDefault":
-  version: 0.0.0-use.local
-  resolution: "ItemCheckDefault-17a00d@workspace:malty/icons/ItemCheckDefault"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ItemCheckFilled-d03343@workspace:malty/icons/ItemCheckFilled":
-  version: 0.0.0-use.local
-  resolution: "ItemCheckFilled-d03343@workspace:malty/icons/ItemCheckFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ItemClose-ca5ed0@workspace:malty/icons/ItemClose":
-  version: 0.0.0-use.local
-  resolution: "ItemClose-ca5ed0@workspace:malty/icons/ItemClose"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ItemCloseFilled-cc3fb5@workspace:malty/icons/ItemCloseFilled":
-  version: 0.0.0-use.local
-  resolution: "ItemCloseFilled-cc3fb5@workspace:malty/icons/ItemCloseFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Label-bf0ac9@workspace:malty/atoms/Label":
-  version: 0.0.0-use.local
-  resolution: "Label-bf0ac9@workspace:malty/atoms/Label"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Library-c16a93@workspace:malty/icons/Library":
-  version: 0.0.0-use.local
-  resolution: "Library-c16a93@workspace:malty/icons/Library"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Link-99ef1d@workspace:malty/atoms/Link":
-  version: 0.0.0-use.local
-  resolution: "Link-99ef1d@workspace:malty/atoms/Link"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Loading-348b9e@workspace:malty/molecules/Loading":
-  version: 0.0.0-use.local
-  resolution: "Loading-348b9e@workspace:malty/molecules/Loading"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Loading-b85308@workspace:malty/icons/Loading":
-  version: 0.0.0-use.local
-  resolution: "Loading-b85308@workspace:malty/icons/Loading"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"LocationIp-726774@workspace:malty/icons/LocationIp":
-  version: 0.0.0-use.local
-  resolution: "LocationIp-726774@workspace:malty/icons/LocationIp"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Lock-825985@workspace:malty/icons/Lock":
-  version: 0.0.0-use.local
-  resolution: "Lock-825985@workspace:malty/icons/Lock"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"LockOpen-1823d8@workspace:malty/icons/LockOpen":
-  version: 0.0.0-use.local
-  resolution: "LockOpen-1823d8@workspace:malty/icons/LockOpen"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MaltyThemeProvider-106353@workspace:malty/theme/MaltyThemeProvider":
-  version: 0.0.0-use.local
-  resolution: "MaltyThemeProvider-106353@workspace:malty/theme/MaltyThemeProvider"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Map-0c0e0e@workspace:malty/icons/Map":
-  version: 0.0.0-use.local
-  resolution: "Map-0c0e0e@workspace:malty/icons/Map"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Market-8ce397@workspace:malty/icons/Market":
-  version: 0.0.0-use.local
-  resolution: "Market-8ce397@workspace:malty/icons/Market"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MediaPause-30ec73@workspace:malty/icons/MediaPause":
-  version: 0.0.0-use.local
-  resolution: "MediaPause-30ec73@workspace:malty/icons/MediaPause"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MediaPlay-e75aa0@workspace:malty/icons/MediaPlay":
-  version: 0.0.0-use.local
-  resolution: "MediaPlay-e75aa0@workspace:malty/icons/MediaPlay"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MediaSound-51951d@workspace:malty/icons/MediaSound":
-  version: 0.0.0-use.local
-  resolution: "MediaSound-51951d@workspace:malty/icons/MediaSound"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MediaSoundOff-94f05c@workspace:malty/icons/MediaSoundOff":
-  version: 0.0.0-use.local
-  resolution: "MediaSoundOff-94f05c@workspace:malty/icons/MediaSoundOff"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MediaStop-fbc4b5@workspace:malty/icons/MediaStop":
-  version: 0.0.0-use.local
-  resolution: "MediaStop-fbc4b5@workspace:malty/icons/MediaStop"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Menu-ae4e10@workspace:malty/icons/Menu":
-  version: 0.0.0-use.local
-  resolution: "Menu-ae4e10@workspace:malty/icons/Menu"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MenuLeft-e450ac@workspace:malty/icons/MenuLeft":
-  version: 0.0.0-use.local
-  resolution: "MenuLeft-e450ac@workspace:malty/icons/MenuLeft"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"MenuRight-b6a00d@workspace:malty/icons/MenuRight":
-  version: 0.0.0-use.local
-  resolution: "MenuRight-b6a00d@workspace:malty/icons/MenuRight"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Minus-b963de@workspace:malty/icons/Minus":
-  version: 0.0.0-use.local
-  resolution: "Minus-b963de@workspace:malty/icons/Minus"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Mobile-6ee920@workspace:malty/icons/Mobile":
-  version: 0.0.0-use.local
-  resolution: "Mobile-6ee920@workspace:malty/icons/Mobile"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Modal-91ad86@workspace:malty/molecules/Modal":
-  version: 0.0.0-use.local
-  resolution: "Modal-91ad86@workspace:malty/molecules/Modal"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"More-295938@workspace:malty/icons/More":
-  version: 0.0.0-use.local
-  resolution: "More-295938@workspace:malty/icons/More"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Mouse-58ade5@workspace:malty/icons/Mouse":
-  version: 0.0.0-use.local
-  resolution: "Mouse-58ade5@workspace:malty/icons/Mouse"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"NavList-90d20e@workspace:malty/molecules/NavList":
-  version: 0.0.0-use.local
-  resolution: "NavList-90d20e@workspace:malty/molecules/NavList"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Notepad-308927@workspace:malty/icons/Notepad":
-  version: 0.0.0-use.local
-  resolution: "Notepad-308927@workspace:malty/icons/Notepad"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Outlet-3be0b8@workspace:malty/icons/Outlet":
-  version: 0.0.0-use.local
-  resolution: "Outlet-3be0b8@workspace:malty/icons/Outlet"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"OutletPlus-76635b@workspace:malty/icons/OutletPlus":
-  version: 0.0.0-use.local
-  resolution: "OutletPlus-76635b@workspace:malty/icons/OutletPlus"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Overlay-52edd9@workspace:malty/atoms/Overlay":
-  version: 0.0.0-use.local
-  resolution: "Overlay-52edd9@workspace:malty/atoms/Overlay"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pack-2e820a@workspace:malty/icons/Pack":
-  version: 0.0.0-use.local
-  resolution: "Pack-2e820a@workspace:malty/icons/Pack"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PackageKeg-efbd39@workspace:malty/icons/PackageKeg":
-  version: 0.0.0-use.local
-  resolution: "PackageKeg-efbd39@workspace:malty/icons/PackageKeg"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PackageWholesaler-97e7d4@workspace:malty/icons/PackageWholesaler":
-  version: 0.0.0-use.local
-  resolution: "PackageWholesaler-97e7d4@workspace:malty/icons/PackageWholesaler"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PaddedContainer-094b0e@workspace:malty/atoms/PaddedContainer":
-  version: 0.0.0-use.local
-  resolution: "PaddedContainer-094b0e@workspace:malty/atoms/PaddedContainer"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pagination-7628ad@workspace:malty/molecules/Pagination":
-  version: 0.0.0-use.local
-  resolution: "Pagination-7628ad@workspace:malty/molecules/Pagination"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Paint-3cb6d1@workspace:malty/icons/Paint":
-  version: 0.0.0-use.local
-  resolution: "Paint-3cb6d1@workspace:malty/icons/Paint"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pallet-8d7c11@workspace:malty/icons/Pallet":
-  version: 0.0.0-use.local
-  resolution: "Pallet-8d7c11@workspace:malty/icons/Pallet"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pencil-a09267@workspace:malty/icons/Pencil":
-  version: 0.0.0-use.local
-  resolution: "Pencil-a09267@workspace:malty/icons/Pencil"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PhoneClassic-7766e0@workspace:malty/icons/PhoneClassic":
-  version: 0.0.0-use.local
-  resolution: "PhoneClassic-7766e0@workspace:malty/icons/PhoneClassic"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pill-31b5a0@workspace:malty/atoms/Pill":
-  version: 0.0.0-use.local
-  resolution: "Pill-31b5a0@workspace:malty/atoms/Pill"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pilsner-7aea1b@workspace:malty/icons/Pilsner":
-  version: 0.0.0-use.local
-  resolution: "Pilsner-7aea1b@workspace:malty/icons/Pilsner"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pin-b3b144@workspace:malty/icons/Pin":
-  version: 0.0.0-use.local
-  resolution: "Pin-b3b144@workspace:malty/icons/Pin"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinActive-8c458b@workspace:malty/icons/PinActive":
-  version: 0.0.0-use.local
-  resolution: "PinActive-8c458b@workspace:malty/icons/PinActive"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinChurn-1eabd2@workspace:malty/icons/PinChurn":
-  version: 0.0.0-use.local
-  resolution: "PinChurn-1eabd2@workspace:malty/icons/PinChurn"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinClosed-c46851@workspace:malty/icons/PinClosed":
-  version: 0.0.0-use.local
-  resolution: "PinClosed-c46851@workspace:malty/icons/PinClosed"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinInactive-e0896c@workspace:malty/icons/PinInactive":
-  version: 0.0.0-use.local
-  resolution: "PinInactive-e0896c@workspace:malty/icons/PinInactive"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinIndirect-7704c1@workspace:malty/icons/PinIndirect":
-  version: 0.0.0-use.local
-  resolution: "PinIndirect-7704c1@workspace:malty/icons/PinIndirect"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinLabeling-fc56fe@workspace:malty/icons/PinLabeling":
-  version: 0.0.0-use.local
-  resolution: "PinLabeling-fc56fe@workspace:malty/icons/PinLabeling"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinParked-a94bc4@workspace:malty/icons/PinParked":
-  version: 0.0.0-use.local
-  resolution: "PinParked-a94bc4@workspace:malty/icons/PinParked"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinProspect-e122ac@workspace:malty/icons/PinProspect":
-  version: 0.0.0-use.local
-  resolution: "PinProspect-e122ac@workspace:malty/icons/PinProspect"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"PinSeveral-02f395@workspace:malty/icons/PinSeveral":
-  version: 0.0.0-use.local
-  resolution: "PinSeveral-02f395@workspace:malty/icons/PinSeveral"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Pint-1504e6@workspace:malty/icons/Pint":
-  version: 0.0.0-use.local
-  resolution: "Pint-1504e6@workspace:malty/icons/Pint"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Plus-2ab810@workspace:malty/icons/Plus":
-  version: 0.0.0-use.local
-  resolution: "Plus-2ab810@workspace:malty/icons/Plus"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Power-ae313a@workspace:malty/icons/Power":
-  version: 0.0.0-use.local
-  resolution: "Power-ae313a@workspace:malty/icons/Power"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ProductsBar-02d40e@workspace:malty/molecules/ProductsBar":
-  version: 0.0.0-use.local
-  resolution: "ProductsBar-02d40e@workspace:malty/molecules/ProductsBar"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ProgressBar-7b0b05@workspace:malty/atoms/ProgressBar":
-  version: 0.0.0-use.local
-  resolution: "ProgressBar-7b0b05@workspace:malty/atoms/ProgressBar"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ProgressSpinner-a269f9@workspace:malty/atoms/ProgressSpinner":
-  version: 0.0.0-use.local
-  resolution: "ProgressSpinner-a269f9@workspace:malty/atoms/ProgressSpinner"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Radio-d56c03@workspace:malty/atoms/Radio":
-  version: 0.0.0-use.local
-  resolution: "Radio-d56c03@workspace:malty/atoms/Radio"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"RadiobuttonOff-aad919@workspace:malty/icons/RadiobuttonOff":
-  version: 0.0.0-use.local
-  resolution: "RadiobuttonOff-aad919@workspace:malty/icons/RadiobuttonOff"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"RadiobuttonOn-bfdf8b@workspace:malty/icons/RadiobuttonOn":
-  version: 0.0.0-use.local
-  resolution: "RadiobuttonOn-bfdf8b@workspace:malty/icons/RadiobuttonOn"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Refresh-e5fadd@workspace:malty/icons/Refresh":
-  version: 0.0.0-use.local
-  resolution: "Refresh-e5fadd@workspace:malty/icons/Refresh"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Restaurant-87c6ed@workspace:malty/icons/Restaurant":
-  version: 0.0.0-use.local
-  resolution: "Restaurant-87c6ed@workspace:malty/icons/Restaurant"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Retry-7f0be2@workspace:malty/icons/Retry":
-  version: 0.0.0-use.local
-  resolution: "Retry-7f0be2@workspace:malty/icons/Retry"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Salesrep-735ed5@workspace:malty/icons/Salesrep":
-  version: 0.0.0-use.local
-  resolution: "Salesrep-735ed5@workspace:malty/icons/Salesrep"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Save-72c525@workspace:malty/icons/Save":
-  version: 0.0.0-use.local
-  resolution: "Save-72c525@workspace:malty/icons/Save"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Search-8c6de8@workspace:malty/icons/Search":
-  version: 0.0.0-use.local
-  resolution: "Search-8c6de8@workspace:malty/icons/Search"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"SearchUser-86ed98@workspace:malty/icons/SearchUser":
-  version: 0.0.0-use.local
-  resolution: "SearchUser-86ed98@workspace:malty/icons/SearchUser"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Select-d84d52@workspace:malty/atoms/Select":
-  version: 0.0.0-use.local
-  resolution: "Select-d84d52@workspace:malty/atoms/Select"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Sent-a031fd@workspace:malty/icons/Sent":
-  version: 0.0.0-use.local
-  resolution: "Sent-a031fd@workspace:malty/icons/Sent"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Settings-1c3f3d@workspace:malty/icons/Settings":
-  version: 0.0.0-use.local
-  resolution: "Settings-1c3f3d@workspace:malty/icons/Settings"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Share-ec7d2a@workspace:malty/icons/Share":
-  version: 0.0.0-use.local
-  resolution: "Share-ec7d2a@workspace:malty/icons/Share"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ShieldExclamation-d49106@workspace:malty/icons/ShieldExclamation":
-  version: 0.0.0-use.local
-  resolution: "ShieldExclamation-d49106@workspace:malty/icons/ShieldExclamation"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ShieldSecurity-8da0ae@workspace:malty/icons/ShieldSecurity":
-  version: 0.0.0-use.local
-  resolution: "ShieldSecurity-8da0ae@workspace:malty/icons/ShieldSecurity"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Shop-a97039@workspace:malty/icons/Shop":
-  version: 0.0.0-use.local
-  resolution: "Shop-a97039@workspace:malty/icons/Shop"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"SideNav-bf03d9@workspace:malty/molecules/SideNav":
-  version: 0.0.0-use.local
-  resolution: "SideNav-bf03d9@workspace:malty/molecules/SideNav"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"SignOut-29be0a@workspace:malty/icons/SignOut":
-  version: 0.0.0-use.local
-  resolution: "SignOut-29be0a@workspace:malty/icons/SignOut"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"SpeachBalloon-9f2668@workspace:malty/icons/SpeachBalloon":
-  version: 0.0.0-use.local
-  resolution: "SpeachBalloon-9f2668@workspace:malty/icons/SpeachBalloon"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"SpeachBalloonComplaint-6e03ad@workspace:malty/icons/SpeachBalloonComplaint":
-  version: 0.0.0-use.local
-  resolution: "SpeachBalloonComplaint-6e03ad@workspace:malty/icons/SpeachBalloonComplaint"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"SpeachBalloonLivechat-891947@workspace:malty/icons/SpeachBalloonLivechat":
-  version: 0.0.0-use.local
-  resolution: "SpeachBalloonLivechat-891947@workspace:malty/icons/SpeachBalloonLivechat"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Star-1e29f9@workspace:malty/icons/Star":
-  version: 0.0.0-use.local
-  resolution: "Star-1e29f9@workspace:malty/icons/Star"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"StarFilled-19ab17@workspace:malty/icons/StarFilled":
-  version: 0.0.0-use.local
-  resolution: "StarFilled-19ab17@workspace:malty/icons/StarFilled"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Stepper-ccaa19@workspace:malty/molecules/Stepper":
-  version: 0.0.0-use.local
-  resolution: "Stepper-ccaa19@workspace:malty/molecules/Stepper"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Survey-7a2970@workspace:malty/icons/Survey":
-  version: 0.0.0-use.local
-  resolution: "Survey-7a2970@workspace:malty/icons/Survey"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Sync-51c0cc@workspace:malty/icons/Sync":
-  version: 0.0.0-use.local
-  resolution: "Sync-51c0cc@workspace:malty/icons/Sync"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Tap-42a2f6@workspace:malty/icons/Tap":
-  version: 0.0.0-use.local
-  resolution: "Tap-42a2f6@workspace:malty/icons/Tap"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"TapGlass-5fdc26@workspace:malty/icons/TapGlass":
-  version: 0.0.0-use.local
-  resolution: "TapGlass-5fdc26@workspace:malty/icons/TapGlass"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"TechnicalSupport-5540aa@workspace:malty/icons/TechnicalSupport":
-  version: 0.0.0-use.local
-  resolution: "TechnicalSupport-5540aa@workspace:malty/icons/TechnicalSupport"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Text-9086ba@workspace:malty/icons/Text":
-  version: 0.0.0-use.local
-  resolution: "Text-9086ba@workspace:malty/icons/Text"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Text-c1c05a@workspace:malty/atoms/Text":
-  version: 0.0.0-use.local
-  resolution: "Text-c1c05a@workspace:malty/atoms/Text"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"TextArea-f25eca@workspace:malty/atoms/TextArea":
-  version: 0.0.0-use.local
-  resolution: "TextArea-f25eca@workspace:malty/atoms/TextArea"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ThirdParty-e67b8d@workspace:malty/icons/ThirdParty":
-  version: 0.0.0-use.local
-  resolution: "ThirdParty-e67b8d@workspace:malty/icons/ThirdParty"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ThumbDown-1e19d1@workspace:malty/icons/ThumbDown":
-  version: 0.0.0-use.local
-  resolution: "ThumbDown-1e19d1@workspace:malty/icons/ThumbDown"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ThumbUp-dc5292@workspace:malty/icons/ThumbUp":
-  version: 0.0.0-use.local
-  resolution: "ThumbUp-dc5292@workspace:malty/icons/ThumbUp"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Toast-04de24@workspace:malty/molecules/Toast":
-  version: 0.0.0-use.local
-  resolution: "Toast-04de24@workspace:malty/molecules/Toast"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Toggle-15e499@workspace:malty/atoms/Toggle":
-  version: 0.0.0-use.local
-  resolution: "Toggle-15e499@workspace:malty/atoms/Toggle"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ToggleOff-ff354a@workspace:malty/icons/ToggleOff":
-  version: 0.0.0-use.local
-  resolution: "ToggleOff-ff354a@workspace:malty/icons/ToggleOff"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ToggleOn-f8a11d@workspace:malty/icons/ToggleOn":
-  version: 0.0.0-use.local
-  resolution: "ToggleOn-f8a11d@workspace:malty/icons/ToggleOn"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Tooltip-d17175@workspace:malty/atoms/Tooltip":
-  version: 0.0.0-use.local
-  resolution: "Tooltip-d17175@workspace:malty/atoms/Tooltip"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Trash-aaf880@workspace:malty/icons/Trash":
-  version: 0.0.0-use.local
-  resolution: "Trash-aaf880@workspace:malty/icons/Trash"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Trophy-974a0d@workspace:malty/icons/Trophy":
-  version: 0.0.0-use.local
-  resolution: "Trophy-974a0d@workspace:malty/icons/Trophy"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Truck-1dcdd3@workspace:malty/icons/Truck":
-  version: 0.0.0-use.local
-  resolution: "Truck-1dcdd3@workspace:malty/icons/Truck"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Tulipe-558771@workspace:malty/icons/Tulipe":
-  version: 0.0.0-use.local
-  resolution: "Tulipe-558771@workspace:malty/icons/Tulipe"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Twitter-21fec5@workspace:malty/icons/Twitter":
-  version: 0.0.0-use.local
-  resolution: "Twitter-21fec5@workspace:malty/icons/Twitter"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Underline-457524@workspace:malty/icons/Underline":
-  version: 0.0.0-use.local
-  resolution: "Underline-457524@workspace:malty/icons/Underline"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Upload-84bd29@workspace:malty/icons/Upload":
-  version: 0.0.0-use.local
-  resolution: "Upload-84bd29@workspace:malty/icons/Upload"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ViewGrid-8fbe4b@workspace:malty/icons/ViewGrid":
-  version: 0.0.0-use.local
-  resolution: "ViewGrid-8fbe4b@workspace:malty/icons/ViewGrid"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ViewList-c1f9a8@workspace:malty/icons/ViewList":
-  version: 0.0.0-use.local
-  resolution: "ViewList-c1f9a8@workspace:malty/icons/ViewList"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Volume-c3b7f4@workspace:malty/icons/Volume":
-  version: 0.0.0-use.local
-  resolution: "Volume-c3b7f4@workspace:malty/icons/Volume"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"Wheat-98388a@workspace:malty/icons/Wheat":
-  version: 0.0.0-use.local
-  resolution: "Wheat-98388a@workspace:malty/icons/Wheat"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"World-abb415@workspace:malty/icons/World":
-  version: 0.0.0-use.local
-  resolution: "World-abb415@workspace:malty/icons/World"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
 
 "abab@npm:^2.0.3, abab@npm:^2.0.5":
   version: 2.0.6
@@ -7948,6 +5756,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-jest@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "babel-jest@npm:29.2.0"
+  dependencies:
+    "@jest/transform": ^29.2.0
+    "@types/babel__core": ^7.1.14
+    babel-plugin-istanbul: ^6.1.1
+    babel-preset-jest: ^29.2.0
+    chalk: ^4.0.0
+    graceful-fs: ^4.2.9
+    slash: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.8.0
+  checksum: 1629bc32829d0b6d9b7121538ef1ff8ae577432ff5be9e5102c9211163aa6d2f667a299fca4ffc1a16cd51fc3c32a6b9999afdbb3dca6ae906a01c6ab4e3f222
+  languageName: node
+  linkType: hard
+
 "babel-loader@npm:^8.0.0, babel-loader@npm:^8.2.2":
   version: 8.2.5
   resolution: "babel-loader@npm:8.2.5"
@@ -8040,6 +5865,18 @@ __metadata:
     "@types/babel__core": ^7.0.0
     "@types/babel__traverse": ^7.0.6
   checksum: 709c17727aa8fd3be755d256fb514bf945a5c2ea6017f037d80280fc44ae5fe7dfeebf63d8412df53796455c2c216119d628d8cc90b099434fd819005943d058
+  languageName: node
+  linkType: hard
+
+"babel-plugin-jest-hoist@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "babel-plugin-jest-hoist@npm:29.2.0"
+  dependencies:
+    "@babel/template": ^7.3.3
+    "@babel/types": ^7.3.3
+    "@types/babel__core": ^7.1.14
+    "@types/babel__traverse": ^7.0.6
+  checksum: 368d271ceae491ae6b96cd691434859ea589fbe5fd5aead7660df75d02394077273c6442f61f390e9347adffab57a32b564d0fabcf1c53c4b83cd426cb644072
   languageName: node
   linkType: hard
 
@@ -8482,6 +6319,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-preset-jest@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "babel-preset-jest@npm:29.2.0"
+  dependencies:
+    babel-plugin-jest-hoist: ^29.2.0
+    babel-preset-current-node-syntax: ^1.0.0
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: 1b09a2db968c36e064daf98082cfffa39c849b63055112ddc56fc2551fd0d4783897265775b1d2f8a257960a3339745de92e74feb01bad86d41c4cecbfa854fc
+  languageName: node
+  linkType: hard
+
 "babel-register@npm:^6.26.0":
   version: 6.26.0
   resolution: "babel-register@npm:6.26.0"
@@ -8751,18 +6600,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"braces@npm:^1.8.2":
-  version: 1.8.5
-  resolution: "braces@npm:1.8.5"
-  dependencies:
-    expand-range: ^1.8.1
-    preserve: ^0.2.0
-    repeat-element: ^1.1.2
-  checksum: 9ea4fb6af8c0a224e515678d7be27ddc450bd974620542a3436188d7fae263f7987406d12ea36c1d92a862e7317b089aa3a0ebda7f1f1663b9332beddc92249e
-  languageName: node
-  linkType: hard
-
-"braces@npm:^2.3.1, braces@npm:^2.3.2":
+"braces@npm:^2.3.2":
   version: 2.3.2
   resolution: "braces@npm:2.3.2"
   dependencies:
@@ -8777,15 +6615,6 @@ __metadata:
     split-string: ^3.0.2
     to-regex: ^3.0.1
   checksum: e30dcb6aaf4a31c8df17d848aa283a65699782f75ad61ae93ec25c9729c66cf58e66f0000a9fec84e4add1135bb7da40f7cb9601b36bebcfa9ca58e8d5c07de0
-  languageName: node
-  linkType: hard
-
-"braces@npm:^3.0.2, braces@npm:~3.0.2":
-  version: 3.0.2
-  resolution: "braces@npm:3.0.2"
-  dependencies:
-    fill-range: ^7.0.1
-  checksum: e2a8e769a863f3d4ee887b5fe21f63193a891c68b612ddb4b68d82d1b5f3ff9073af066c343e9867a393fe4c2555dcb33e89b937195feb9c1613d259edfcd459
   languageName: node
   linkType: hard
 
@@ -9178,39 +7007,36 @@ __metadata:
     "@babel/preset-env": ^7.14.2
     "@babel/preset-react": ^7.13.13
     "@babel/preset-typescript": ^7.13.0
-    "@babel/runtime": 7.12.18
     "@carlsberg/eslint-config-carlsberg": ^0.1.0
     "@popperjs/core": ^2.11.5
-    "@storybook/addon-actions": ">=6.5.8 <7.0.0"
+    "@storybook/addon-actions": ^6.5.8
     "@storybook/addon-docs": ^6.5.8
     "@storybook/addon-essentials": ^6.5.8
     "@storybook/addon-links": ^6.5.8
     "@storybook/addons": ^6.5.8
     "@storybook/builder-webpack5": ^6.5.8
     "@storybook/manager-webpack5": ^6.5.8
-    "@storybook/react": ">=6.5.8 <7.0.0"
+    "@storybook/react": ^6.5.8
     "@storybook/theming": ^6.5.8
     "@tanstack/react-table": ^8.5.13
     "@testing-library/jest-dom": ^5.16.2
-    "@testing-library/react": ">=11.2.7 <12.0.0"
+    "@testing-library/react": ^11.2.7
     "@testing-library/user-event": ^13.1.9
     "@types/babel__core": ^7.1.14
-    "@types/jest": 26.0.20
-    "@types/node": 12.20.4
-    "@types/react": ">=17.0.8 <18.0.0"
+    "@types/jest": ^27.4.1
+    "@types/react": ^17.0.2
     "@types/react-datepicker": ^4.3.4
-    "@types/react-dom": ">=17.0.5 <18.0.0"
+    "@types/react-dom": ^17.0.2
     "@types/react-table": ^7.7.12
     "@types/react-test-renderer": ^17.0.1
     "@types/styled-components": ^5.1.9
-    "@types/testing-library__jest-dom": 5.9.5
+    "@types/testing-library__jest-dom": ^5.14.3
     "@types/uuid": ^8.3.0
     "@typescript-eslint/eslint-plugin": ^4.24.0
     "@typescript-eslint/parser": ^4.24.0
-    babel-jest: ^27.5.1
+    babel-jest: ^29.2.0
     babel-loader: ^8.2.2
     babel-plugin-transform-hoist-jsx-style: ^1.0.0
-    core-js: ">=3.0.0 <4.0.0"
     eslint: ^7.26.0
     eslint-config-airbnb: ^18.2.1
     eslint-config-prettier: ^7.1.0
@@ -9231,17 +7057,16 @@ __metadata:
     react: ^17.0.2
     react-datepicker: ^4.7.0
     react-dom: ^17.0.2
-    react-popper: 2.3.0
-    react-router-dom: 6.2.2
+    react-popper: ^2.3.0
     react-test-renderer: ^17.0.2
-    styled-components: ">=5.2.3 <6.0.0"
+    styled-components: ^5.2.3
     styled-normalize: ^8.0.7
     ts-jest: ^27.1.3
     ts-loader: ^9.2.2
     ts-node: ^10.0.0
     typescript: ~4.4.4
     url-loader: ^4.1.1
-    uuid: ">=8.3.2 <9.0.0"
+    uuid: ^8.3.2
     webpack: ^5.70.0
     webpack-cli: ^4.9.2
     webpack-dev-server: ^4.7.4
@@ -9620,15 +7445,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colors-758ff6@workspace:malty/utils/colors":
-  version: 0.0.0-use.local
-  resolution: "colors-758ff6@workspace:malty/utils/colors"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
 "combined-stream@npm:^1.0.8":
   version: 1.0.8
   resolution: "combined-stream@npm:1.0.8"
@@ -9862,17 +7678,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:>=3.0.0 <4.0.0, core-js@npm:^3.0.4, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
-  version: 3.25.5
-  resolution: "core-js@npm:3.25.5"
-  checksum: 208b308c49bc022f90d4349d4c99802a73c9d55053976b3c529f10014c1e37845926defad8c519f2c7f71ea0acf18d2b323ab6aaee34dc85b4c4b3ced0623f3f
-  languageName: node
-  linkType: hard
-
 "core-js@npm:^2.4.0, core-js@npm:^2.5.0":
   version: 2.6.12
   resolution: "core-js@npm:2.6.12"
   checksum: 44fa9934a85f8c78d61e0c8b7b22436330471ffe59ec5076fe7f324d6e8cf7f824b14b1c81ca73608b13bdb0fef035bd820989bf059767ad6fa13123bb8bd016
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.0.4, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
+  version: 3.25.5
+  resolution: "core-js@npm:3.25.5"
+  checksum: 208b308c49bc022f90d4349d4c99802a73c9d55053976b3c529f10014c1e37845926defad8c519f2c7f71ea0acf18d2b323ab6aaee34dc85b4c4b3ced0623f3f
   languageName: node
   linkType: hard
 
@@ -10435,13 +8251,6 @@ __metadata:
     detect: bin/detect-port.js
     detect-port: bin/detect-port.js
   checksum: b48da9340481742547263d5d985e65d078592557863402ecf538511735e83575867e94f91fe74405ea19b61351feb99efccae7e55de9a151d5654e3417cea05b
-  languageName: node
-  linkType: hard
-
-"diff-sequences@npm:^26.6.2":
-  version: 26.6.2
-  resolution: "diff-sequences@npm:26.6.2"
-  checksum: 79af871776ef149a7ff3345d6b1bf37fe6e81f68632aa5542787851f6f60fba19b0be22fdd1e06046f56ae7382763ccfe94a982c39ee72bd107aef435ecbc0cf
   languageName: node
   linkType: hard
 
@@ -11498,15 +9307,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expand-range@npm:^1.8.1":
-  version: 1.8.2
-  resolution: "expand-range@npm:1.8.2"
-  dependencies:
-    fill-range: ^2.1.0
-  checksum: ca773ec06838d7d53cfd835b7d58c9c662a3773e5d57647ca6f83e50218efd93e29b5ee6cc1ea9c5651794e9005562cad28c4911ea06aac27323a05f3c6b787d
-  languageName: node
-  linkType: hard
-
 "expect@npm:^27.5.1":
   version: 27.5.1
   resolution: "expect@npm:27.5.1"
@@ -11670,7 +9470,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.0.0":
+"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
   checksum: b191531e36c607977e5b1c47811158733c34ccb3bfde92c44798929e9b4154884378536d26ad90dfecd32e1ffc09c545d23535ad91b3161a27ddbb8ebe0cbecb
@@ -11777,19 +9577,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fill-range@npm:^2.1.0":
-  version: 2.2.4
-  resolution: "fill-range@npm:2.2.4"
-  dependencies:
-    is-number: ^2.1.0
-    isobject: ^2.0.0
-    randomatic: ^3.0.0
-    repeat-element: ^1.1.2
-    repeat-string: ^1.5.2
-  checksum: ee7cb386c983bf7ff8aa120164c8b857a937c9d2b9c4ddf47af22f9d2bb1bd03dfa821946d7246f1631e86816562dd60059e081948d0804ce2ac0ac83f7edc61
-  languageName: node
-  linkType: hard
-
 "fill-range@npm:^4.0.0":
   version: 4.0.0
   resolution: "fill-range@npm:4.0.0"
@@ -11799,15 +9586,6 @@ __metadata:
     repeat-string: ^1.6.1
     to-regex-range: ^2.1.0
   checksum: dbb5102467786ab42bc7a3ec7380ae5d6bfd1b5177b2216de89e4a541193f8ba599a6db84651bd2c58c8921db41b8cc3d699ea83b477342d3ce404020f73c298
-  languageName: node
-  linkType: hard
-
-"fill-range@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "fill-range@npm:7.0.1"
-  dependencies:
-    to-regex-range: ^5.0.1
-  checksum: cc283f4e65b504259e64fd969bcf4def4eb08d85565e906b7d36516e87819db52029a76b6363d0f02d0d532f0033c9603b9e2d943d56ee3b0d4f7ad3328ff917
   languageName: node
   linkType: hard
 
@@ -12311,26 +10089,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-parent@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "glob-parent@npm:2.0.0"
-  dependencies:
-    is-glob: ^2.0.0
-  checksum: 734fc461d9d2753dd490dd072df6ce41fe4ebb60e9319b108bc538707b21780af3a61c3961ec2264131fad5d3d9a493e013a775aef11a69ac2f49fd7d8f46457
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "glob-parent@npm:3.1.0"
-  dependencies:
-    is-glob: ^3.1.0
-    path-dirname: ^1.0.0
-  checksum: 653d559237e89a11b9934bef3f392ec42335602034c928590544d383ff5ef449f7b12f3cfa539708e74bc0a6c28ab1fe51d663cc07463cdf899ba92afd85a855
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:^5.1.2, glob-parent@npm:~5.1.2":
+"glob-parent@npm:^5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
   dependencies:
@@ -12721,15 +10480,6 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
-  languageName: node
-  linkType: hard
-
-"history@npm:^5.2.0":
-  version: 5.3.0
-  resolution: "history@npm:5.3.0"
-  dependencies:
-    "@babel/runtime": ^7.7.6
-  checksum: d73c35df49d19ac172f9547d30a21a26793e83f16a78386d99583b5bf1429cc980799fcf1827eb215d31816a6600684fba9686ce78104e23bd89ec239e7c726f
   languageName: node
   linkType: hard
 
@@ -13526,7 +11276,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-glob@npm:^3.0.0, is-glob@npm:^3.1.0":
+"is-glob@npm:^3.0.0":
   version: 3.1.0
   resolution: "is-glob@npm:3.1.0"
   dependencies:
@@ -13581,35 +11331,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-number@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "is-number@npm:2.1.0"
-  dependencies:
-    kind-of: ^3.0.2
-  checksum: d80e041a43a8de31ecc02037d532f1f448ec9c5b6c02fe7ee67bdd45d21cd9a4b3b4cf07e428ae5adafc2f17408c49fcb0a227915916d94a16d576c39e689f60
-  languageName: node
-  linkType: hard
-
 "is-number@npm:^3.0.0":
   version: 3.0.0
   resolution: "is-number@npm:3.0.0"
   dependencies:
     kind-of: ^3.0.2
   checksum: 0c62bf8e9d72c4dd203a74d8cfc751c746e75513380fef420cda8237e619a988ee43e678ddb23c87ac24d91ac0fe9f22e4ffb1301a50310c697e9d73ca3994e9
-  languageName: node
-  linkType: hard
-
-"is-number@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "is-number@npm:4.0.0"
-  checksum: e71962a5ae97400211e6be5946eff2b81d3fa85154dad498bfe2704999e63ac6b3f8591fdb7971a121122cc6e25915c2cfe882ff7b77e243d51b92ca6961267e
-  languageName: node
-  linkType: hard
-
-"is-number@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "is-number@npm:7.0.0"
-  checksum: 456ac6f8e0f3111ed34668a624e45315201dff921e5ac181f8ec24923b99e9f32ca1a194912dc79d539c97d33dba17dc635202ff0b2cf98326f608323276d27a
   languageName: node
   linkType: hard
 
@@ -14021,18 +11748,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-diff@npm:^26.0.0":
-  version: 26.6.2
-  resolution: "jest-diff@npm:26.6.2"
-  dependencies:
-    chalk: ^4.0.0
-    diff-sequences: ^26.6.2
-    jest-get-type: ^26.3.0
-    pretty-format: ^26.6.2
-  checksum: d00d297f31e1ac0252127089892432caa7a11c69bde29cf3bb6c7a839c8afdb95cf1fd401f9df16a4422745da2e6a5d94b428b30666a2540c38e1c5699915c2d
-  languageName: node
-  linkType: hard
-
 "jest-diff@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-diff@npm:27.5.1"
@@ -14108,13 +11823,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-get-type@npm:^26.3.0":
-  version: 26.3.0
-  resolution: "jest-get-type@npm:26.3.0"
-  checksum: 1cc6465ae4f5e880be22ba52fd270fa64c21994915f81b41f8f7553a7957dd8e077cc8d03035de9412e2d739f8bad6a032ebb5dab5805692a5fb9e20dd4ea666
-  languageName: node
-  linkType: hard
-
 "jest-get-type@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-get-type@npm:27.5.1"
@@ -14178,6 +11886,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-haste-map@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-haste-map@npm:29.2.0"
+  dependencies:
+    "@jest/types": ^29.2.0
+    "@types/graceful-fs": ^4.1.3
+    "@types/node": "*"
+    anymatch: ^3.0.3
+    fb-watchman: ^2.0.0
+    fsevents: ^2.3.2
+    graceful-fs: ^4.2.9
+    jest-regex-util: ^29.2.0
+    jest-util: ^29.2.0
+    jest-worker: ^29.2.0
+    micromatch: ^4.0.4
+    walker: ^1.0.8
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: f7d398658e94c2289832ce9ec445baf6b1a6ccd5b0861962fcb1d4b6ebe45acfe7577f947273e945cc6652e8725131390b87a45f63c07ace64df5a256ba5a387
+  languageName: node
+  linkType: hard
+
 "jest-jasmine2@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-jasmine2@npm:27.5.1"
@@ -14213,7 +11944,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^27.5.1":
+"jest-matcher-utils@npm:^27.0.0, jest-matcher-utils@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-matcher-utils@npm:27.5.1"
   dependencies:
@@ -14304,6 +12035,13 @@ __metadata:
   version: 27.5.1
   resolution: "jest-regex-util@npm:27.5.1"
   checksum: d45ca7a9543616a34f7f3079337439cf07566e677a096472baa2810e274b9808b76767c97b0a4029b8a5b82b9d256dee28ef9ad4138b2b9e5933f6fac106c418
+  languageName: node
+  linkType: hard
+
+"jest-regex-util@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-regex-util@npm:29.2.0"
+  checksum: 7c533e51c51230dac20c0d7395b19b8366cb022f7c6e08e6bcf2921626840ff90424af4c9b4689f02f0addfc9b071c4cd5f8f7a989298a4c8e0f9c94418ca1c3
   languageName: node
   linkType: hard
 
@@ -14487,6 +12225,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-util@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-util@npm:29.2.0"
+  dependencies:
+    "@jest/types": ^29.2.0
+    "@types/node": "*"
+    chalk: ^4.0.0
+    ci-info: ^3.2.0
+    graceful-fs: ^4.2.9
+    picomatch: ^2.2.3
+  checksum: c1fc26008b3199387dbd28f145f692f48b7c8e911c6a71892e579544ee62819ecc2c693f7fc5e41284119a6f742130ef5c92f485caed89eea47c5e627003ad2d
+  languageName: node
+  linkType: hard
+
 "jest-validate@npm:^27.5.1":
   version: 27.5.1
   resolution: "jest-validate@npm:27.5.1"
@@ -14535,6 +12287,18 @@ __metadata:
     merge-stream: ^2.0.0
     supports-color: ^8.0.0
   checksum: 98cd68b696781caed61c983a3ee30bf880b5bd021c01d98f47b143d4362b85d0737f8523761e2713d45e18b4f9a2b98af1eaee77afade4111bb65c77d6f7c980
+  languageName: node
+  linkType: hard
+
+"jest-worker@npm:^29.2.0":
+  version: 29.2.0
+  resolution: "jest-worker@npm:29.2.0"
+  dependencies:
+    "@types/node": "*"
+    jest-util: ^29.2.0
+    merge-stream: ^2.0.0
+    supports-color: ^8.0.0
+  checksum: 680afa2b9efd0f6548a52210d055e1d8a5de2e8602cf5547d59075a55f7d9b6d4fd3c4a8bb34e03a3815975ae4c737b6dbc2c194e12088611a19941836960374
   languageName: node
   linkType: hard
 
@@ -15166,13 +12930,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"math-random@npm:^1.0.1":
-  version: 1.0.4
-  resolution: "math-random@npm:1.0.4"
-  checksum: 9edf31ea337bba21994eb968218fd571d55fce86b51661158d8e241886b73121d9e1a35a5bb8997dba8ce67417a83c8dbd0811917248f886840035b7f1c667b9
-  languageName: node
-  linkType: hard
-
 "md5.js@npm:^1.3.4":
   version: 1.3.5
   resolution: "md5.js@npm:1.3.5"
@@ -15784,7 +13541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-forge@npm:^1":
+"node-forge@npm:^1.3.1":
   version: 1.3.1
   resolution: "node-forge@npm:1.3.1"
   checksum: 08fb072d3d670599c89a1704b3e9c649ff1b998256737f0e06fbd1a5bf41cae4457ccaee32d95052d80bbafd9ffe01284e078c8071f0267dc9744e51c5ed42a9
@@ -16509,13 +14266,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-dirname@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "path-dirname@npm:1.0.2"
-  checksum: 0d2f6604ae05a252a0025318685f290e2764ecf9c5436f203cdacfc8c0b17c24cdedaa449d766beb94ab88cc7fc70a09ec21e7933f31abc2b719180883e5e33f
-  languageName: node
-  linkType: hard
-
 "path-exists@npm:^2.0.0":
   version: 2.1.0
   resolution: "path-exists@npm:2.1.0"
@@ -16893,13 +14643,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preserve@npm:^0.2.0":
-  version: 0.2.0
-  resolution: "preserve@npm:0.2.0"
-  checksum: dd31d4fd0e6b218cac7178712ae0683c96e6eaa3e5490a37aba6d47095f87c47ffe980a3061ebe72ca07cb2a9a4f1a41bbeecee8944ec77be311c294e05b2e43
-  languageName: node
-  linkType: hard
-
 "prettier-linter-helpers@npm:^1.0.0":
   version: 1.0.0
   resolution: "prettier-linter-helpers@npm:1.0.0"
@@ -16957,7 +14700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^26.0.0, pretty-format@npm:^26.6.2":
+"pretty-format@npm:^26.6.2":
   version: 26.6.2
   resolution: "pretty-format@npm:26.6.2"
   dependencies:
@@ -16969,7 +14712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^27.5.1":
+"pretty-format@npm:^27.0.0, pretty-format@npm:^27.5.1":
   version: 27.5.1
   resolution: "pretty-format@npm:27.5.1"
   dependencies:
@@ -17241,17 +14984,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"randomatic@npm:^3.0.0":
-  version: 3.1.1
-  resolution: "randomatic@npm:3.1.1"
-  dependencies:
-    is-number: ^4.0.0
-    kind-of: ^6.0.0
-    math-random: ^1.0.1
-  checksum: 1952baed71801d3698fe84f3ab01e25ea124fc20ce91e133aa1981268c1347647f9ae1fdc62389db2411ebdad61c0f7cea0ce840dee260ad2adadfcf27299018
-  languageName: node
-  linkType: hard
-
 "randombytes@npm:^2.0.0, randombytes@npm:^2.0.1, randombytes@npm:^2.0.5, randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -17348,7 +15080,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.2":
+"react-dom@npm:<18.0.0":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -17426,7 +15158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-popper@npm:2.3.0, react-popper@npm:^2.2.5":
+"react-popper@npm:^2.2.5, react-popper@npm:^2.3.0":
   version: 2.3.0
   resolution: "react-popper@npm:2.3.0"
   dependencies:
@@ -17444,30 +15176,6 @@ __metadata:
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
   checksum: 112178a05b1e0ffeaf5d9fb4e56b4410a34a73adeb04dbf13abdc50d9ac9df2ada83e81485156cca0b3fa296aa3612751b3d6cd13be4464642a43679b819cbc7
-  languageName: node
-  linkType: hard
-
-"react-router-dom@npm:6.2.2":
-  version: 6.2.2
-  resolution: "react-router-dom@npm:6.2.2"
-  dependencies:
-    history: ^5.2.0
-    react-router: 6.2.2
-  peerDependencies:
-    react: ">=16.8"
-    react-dom: ">=16.8"
-  checksum: 83c5105af923c4f8af65a6de98283a95f46ffa643fd0c1a5005647c2c3deb946dae52dda32dc00cfcc3659517b08be806ff02ff03173361dba3d824850053e99
-  languageName: node
-  linkType: hard
-
-"react-router@npm:6.2.2":
-  version: 6.2.2
-  resolution: "react-router@npm:6.2.2"
-  dependencies:
-    history: ^5.2.0
-  peerDependencies:
-    react: ">=16.8"
-  checksum: 1a2e7006d4d56bfae8ff11dd5ec15e8049578864dfb2764652510eb0ce4af26a8949790a3732c4f7beb14bcb6500469ea18841b8cfc953e09828e4e4113922f0
   languageName: node
   linkType: hard
 
@@ -17497,7 +15205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.2":
+"react@npm:<18.0.0":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -17908,7 +15616,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"repeat-string@npm:^1.5.2, repeat-string@npm:^1.5.4, repeat-string@npm:^1.6.1":
+"repeat-string@npm:^1.5.4, repeat-string@npm:^1.6.1":
   version: 1.6.1
   resolution: "repeat-string@npm:1.6.1"
   checksum: 1b809fc6db97decdc68f5b12c4d1a671c8e3f65ec4a40c238bc5200e44e85bcc52a54f78268ab9c29fcf5fe4f1343e805420056d1f30fa9a9ee4c2d93e3cc6c0
@@ -19126,7 +16834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:>=5.2.3 <6.0.0":
+"styled-components@npm:^5":
   version: 5.3.6
   resolution: "styled-components@npm:5.3.6"
   dependencies:
@@ -19399,14 +17107,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"test-fd7b7f@workspace:malty/utils/test":
-  version: 0.0.0-use.local
-  resolution: "test-fd7b7f@workspace:malty/utils/test"
-  peerDependencies:
-    react: ^17.0.2
-  languageName: unknown
-  linkType: soft
-
 "text-table@npm:^0.2.0":
   version: 0.2.0
   resolution: "text-table@npm:0.2.0"
@@ -19494,15 +17194,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"to-regex-range@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "to-regex-range@npm:5.0.1"
-  dependencies:
-    is-number: ^7.0.0
-  checksum: f76fa01b3d5be85db6a2a143e24df9f60dd047d151062d0ba3df62953f2f697b16fe5dad9b0ac6191c7efc7b1d9dcaa4b768174b7b29da89d4428e64bc0a20ed
-  languageName: node
-  linkType: hard
-
 "to-regex@npm:^3.0.1, to-regex@npm:^3.0.2":
   version: 3.0.2
   resolution: "to-regex@npm:3.0.2"
@@ -19550,10 +17241,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trim-newlines@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "trim-newlines@npm:1.0.0"
-  checksum: ed96eea318581c6f894c0a98d0c4f16dcce11a41794ce140a79db55f1cab709cd9117578ee5e49a9b52f41e9cd93eaf3efa6c4bddbc77afbf91128b396fadbc1
+"trim-newlines@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "trim-newlines@npm:3.0.1"
+  checksum: b530f3fadf78e570cf3c761fb74fef655beff6b0f84b29209bac6c9622db75ad1417f4a7b5d54c96605dcd72734ad44526fef9f396807b90839449eb543c6206
   languageName: node
   linkType: hard
 
@@ -19571,10 +17262,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trim@npm:0.0.1":
-  version: 0.0.1
-  resolution: "trim@npm:0.0.1"
-  checksum: 2b4646dff99a222e8e1526edd4e3a43bbd925af0b8e837c340455d250157e7deefaa4da49bb891ab841e5c27b1afc5e9e32d4b57afb875d2dfcabf4e319b8f7f
+"trim@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "trim@npm:0.0.3"
+  checksum: 9a059ba56d5e22c9e571798a7c63640cb25478c495d8a9d001f6352927207c6bd224018751a0c5145fbedc943ee2ebab1d7cc2e8ccba3121a51a7d3428dd879c
   languageName: node
   linkType: hard
 
@@ -20231,21 +17922,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:>=8.3.2 <9.0.0, uuid@npm:^8.3.2":
-  version: 8.3.2
-  resolution: "uuid@npm:8.3.2"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
-  languageName: node
-  linkType: hard
-
 "uuid@npm:^3.3.2":
   version: 3.4.0
   resolution: "uuid@npm:3.4.0"
   bin:
     uuid: ./bin/uuid
   checksum: 58de2feed61c59060b40f8203c0e4ed7fd6f99d42534a499f1741218a1dd0c129f4aa1de797bcf822c8ea5da7e4137aa3673431a96dae729047f7aca7b27866f
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^8.3.2":
+  version: 8.3.2
+  resolution: "uuid@npm:8.3.2"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
   languageName: node
   linkType: hard
 
@@ -20365,7 +18056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"walker@npm:^1.0.7, walker@npm:~1.0.5":
+"walker@npm:^1.0.7, walker@npm:^1.0.8, walker@npm:~1.0.5":
   version: 1.0.8
   resolution: "walker@npm:1.0.8"
   dependencies:
@@ -20901,6 +18592,16 @@ __metadata:
     signal-exit: ^3.0.2
     typedarray-to-buffer: ^3.1.5
   checksum: c55b24617cc61c3a4379f425fc62a386cc51916a9b9d993f39734d005a09d5a4bb748bc251f1304e7abd71d0a26d339996c275955f527a131b1dcded67878280
+  languageName: node
+  linkType: hard
+
+"write-file-atomic@npm:^4.0.1":
+  version: 4.0.2
+  resolution: "write-file-atomic@npm:4.0.2"
+  dependencies:
+    imurmurhash: ^0.1.4
+    signal-exit: ^3.0.7
+  checksum: 5da60bd4eeeb935eec97ead3df6e28e5917a6bd317478e4a85a5285e8480b8ed96032bbcc6ecd07b236142a24f3ca871c924ec4a6575e623ec1b11bf8c1c253c
   languageName: node
   linkType: hard
 
