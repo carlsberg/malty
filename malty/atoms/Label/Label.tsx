@@ -7,19 +7,17 @@ import { LabelProps } from './Label.types';
 export const Label = ({ htmlFor, label, dataTestId, required, disabled, ...props }: LabelProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  return (
-    label && (
-      <StyledLabel
-        data-testid={dataTestId}
-        theme={theme}
-        htmlFor={htmlFor}
-        required={required}
-        disabled={disabled}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
-      >
-        {label}
-      </StyledLabel>
-    )
-  );
+  return label ? (
+    <StyledLabel
+      data-testid={dataTestId}
+      theme={theme}
+      htmlFor={htmlFor}
+      required={required}
+      disabled={disabled}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
+      {label}
+    </StyledLabel>
+  ) : null;
 };
