@@ -4,11 +4,12 @@ export const StyledLabel = styled.label<{
   disabled?: boolean;
   required?: boolean;
 }>`
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text.small_bold['line-height'].value};
   margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
-  font-weight: bold;
+  font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
   display: inline-block;
   ${({ disabled }) =>
     disabled &&

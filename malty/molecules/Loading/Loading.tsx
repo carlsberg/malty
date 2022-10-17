@@ -4,7 +4,7 @@ import {
   ProgressSpinnerStatus
 } from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useEffect, useState } from 'react';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
@@ -55,7 +55,7 @@ export const Loading = ({
   }, [status]);
 
   return (
-    <TypographyProvider>
+    <>
       {status && (
         <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme}>
           <StyledLoading
@@ -72,6 +72,6 @@ export const Loading = ({
           )}
         </StyledLoadingContainer>
       )}
-    </TypographyProvider>
+    </>
   );
 };
