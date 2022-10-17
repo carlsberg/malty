@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledHeadline } from './Headline.styled';
@@ -40,8 +40,10 @@ export const Headline = ({
   }
 
   return (
-    <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
-      {children}
-    </StyledHeadline>
+    <TypographyProvider>
+      <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
+        {children}
+      </StyledHeadline>
+    </TypographyProvider>
   );
 };

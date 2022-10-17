@@ -1,5 +1,6 @@
 import Check from '@carlsberggroup/malty.icons.check';
 import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
+import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import styled, { css, keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
@@ -331,6 +332,6 @@ export const StyledActionButton = styled.div`
   }
 `;
 
-export const StyledMainWrapper = styled.div`
-  width: 100%;
+export const StyledTypographyProvider = styled(TypographyProvider)`
+  width: 100% !important;
 `;

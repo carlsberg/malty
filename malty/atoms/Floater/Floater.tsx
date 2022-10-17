@@ -1,5 +1,5 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { FloaterIconPosition, FloaterProps } from '.';
@@ -66,24 +66,30 @@ export const Floater = ({
   }, [scroll]);
 
   return (
-    <StyledFloaterButton
-      color={color}
-      data-testid={dataTestId}
-      type="button"
-      hasText={!!text}
-      hasIcon={!!icon}
-      onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
-      isNegative={negative}
-      iconPos={iconPos}
-      theme={theme}
-      showButton={showButton}
-      tabIndex={tabIndex}
-    >
-      <div className="text-container">
-        {icon && iconPos === FloaterIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
-        {text || children}
-        {icon && iconPos === FloaterIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
-      </div>
-    </StyledFloaterButton>
+    <TypographyProvider>
+      <StyledFloaterButton
+        color={color}
+        data-testid={dataTestId}
+        type="button"
+        hasText={!!text}
+        hasIcon={!!icon}
+        onClick={onClick ?? (() => window.scrollTo({ top: 0, behavior: 'smooth' }))}
+        isNegative={negative}
+        iconPos={iconPos}
+        theme={theme}
+        showButton={showButton}
+        tabIndex={tabIndex}
+      >
+        <div className="text-container">
+          {icon && iconPos === FloaterIconPosition.Left && (
+            <Icon name={icon} color={iconColor} size={IconSize.Medium} />
+          )}
+          {text || children}
+          {icon && iconPos === FloaterIconPosition.Right && (
+            <Icon name={icon} color={iconColor} size={IconSize.Medium} />
+          )}
+        </div>
+      </StyledFloaterButton>
+    </TypographyProvider>
   );
 };

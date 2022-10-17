@@ -3,7 +3,7 @@ import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {
@@ -17,11 +17,11 @@ import {
   StyledError,
   StyledHint,
   StyledLabel,
-  StyledMainWrapper,
   StyledOption,
   StyledOptionsWrapper,
   StyledSearchWrapper,
   StyledSelectedOptionsWrapper,
+  StyledTypographyProvider,
   StyledWrapper
 } from './Select.styled';
 import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
@@ -167,7 +167,7 @@ export const Select = ({
     if (!multiple) setShowOptionList(false);
   };
   const renderDefaultDropdown = () => (
-    <StyledMainWrapper>
+    <TypographyProvider>
       <StyledOptionsWrapper
         data-testid={`${dataTestId}-options`}
         isOpen={showOptionList}
@@ -238,10 +238,10 @@ export const Select = ({
           </StyledOption>
         ))}
       </StyledOptionsWrapper>
-    </StyledMainWrapper>
+    </TypographyProvider>
   );
   return (
-    <StyledMainWrapper>
+    <StyledTypographyProvider>
       {label && type !== SelectType.Inline && (
         <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
           {label}
@@ -291,6 +291,6 @@ export const Select = ({
           {hint}
         </StyledHint>
       )}
-    </StyledMainWrapper>
+    </StyledTypographyProvider>
   );
 };

@@ -16,11 +16,7 @@ export const StyledIcon = styled.svg.attrs({
       stroke: ${color};
     }
   `}
-
-  ${({ size }) => css`
-    height: ${size};
-    width: ${size};
-  `}
-
+  height: ${({ size }) => size};
+  width: ${({ size }) => size};
   transition: fill 0.25s ease-in-out;
 `;
