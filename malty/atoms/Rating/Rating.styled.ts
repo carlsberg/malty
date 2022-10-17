@@ -33,6 +33,17 @@ export const StyledLabel = styled.label<{
 
 export const StyledIconStarContainer = styled.span`
   font-style: normal;
+
+  > svg {
+    path {
+      &:hover {
+        opacity: 0.95;
+      }
+      &:active {
+        opacity: 0.9;
+      }
+    }
+  }
 `;
 
 export const StyledTotalReviewContainer = styled.span`
