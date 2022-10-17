@@ -33,7 +33,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
   return pillStyles[size];
 };
 
-export const iconTextColor = ({ color }: IconTextColorProps) => {
+export const useIconTextColor = ({ color }: IconTextColorProps) => {
   if (color === PillColor.Archive || color === PillColor.Success || color === PillColor.alertStrong) {
     return IconColor.DigitalBlack;
   }

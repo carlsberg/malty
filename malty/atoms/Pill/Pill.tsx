@@ -2,14 +2,14 @@ import { Icon, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { iconTextColor, usePillStyles } from './Pill.helper';
+import { useIconTextColor, usePillStyles } from './Pill.helper';
 import { StyledPill, StyledText } from './Pill.styled';
 import { PillColor, PillProps, PillSize } from './Pill.types';
 
 export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Medium, dataTestId }: PillProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const { fontSize, iconSize, marginText, numSize, padding } = usePillStyles({ size });
-  const colorStyle = iconTextColor({ color });
+  const colorStyle = useIconTextColor({ color });
 
   return (
     <TypographyProvider>
