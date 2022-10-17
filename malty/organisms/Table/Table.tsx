@@ -1,5 +1,5 @@
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import {
   createColumnHelper,
   flexRender,
@@ -123,52 +123,50 @@ export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12, cl
   }, [size, theme]);
 
   return (
-    <TypographyProvider>
-      <div>
-        <StyledTable className={className} theme={theme}>
-          <StyledThead theme={theme}>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <StyledHead theme={theme} key={header.id}>
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                  </StyledHead>
-                ))}
-              </tr>
-            ))}
-          </StyledThead>
-          <StyledTbody>
-            {table.getRowModel().rows.map((row) => (
-              <StyledRow
-                isClickable={!!onRowClick}
-                size={tableSize}
-                onClick={() => onRowClick && onRowClick(row.original)}
-                key={row.id}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <StyledTd key={cell.id}>{cell.renderValue()}</StyledTd>
-                ))}
-              </StyledRow>
-            ))}
-          </StyledTbody>
-        </StyledTable>
+    <div>
+      <StyledTable className={className} theme={theme}>
+        <StyledThead theme={theme}>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <StyledHead theme={theme} key={header.id}>
+                  {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                </StyledHead>
+              ))}
+            </tr>
+          ))}
+        </StyledThead>
+        <StyledTbody>
+          {table.getRowModel().rows.map((row) => (
+            <StyledRow
+              isClickable={!!onRowClick}
+              size={tableSize}
+              onClick={() => onRowClick && onRowClick(row.original)}
+              key={row.id}
+            >
+              {row.getVisibleCells().map((cell) => (
+                <StyledTd key={cell.id}>{cell.renderValue()}</StyledTd>
+              ))}
+            </StyledRow>
+          ))}
+        </StyledTbody>
+      </StyledTable>
 
-        <StyledPaginationWrapper>
-          <Pagination
-            type={PaginationType.Input}
-            count={
-              data.length / table.getState().pagination.pageSize -
-                Math.floor(data.length / table.getState().pagination.pageSize) !==
-              0
-                ? Math.trunc(data.length / table.getState().pagination.pageSize + 1)
-                : Math.trunc(data.length / table.getState().pagination.pageSize)
-            }
-            currentPage={table.getState().pagination.pageIndex}
-            onChange={(page) => handlePageChange(page)}
-            zeroBasedIndex
-          />
-        </StyledPaginationWrapper>
-      </div>
-    </TypographyProvider>
+      <StyledPaginationWrapper>
+        <Pagination
+          type={PaginationType.Input}
+          count={
+            data.length / table.getState().pagination.pageSize -
+              Math.floor(data.length / table.getState().pagination.pageSize) !==
+            0
+              ? Math.trunc(data.length / table.getState().pagination.pageSize + 1)
+              : Math.trunc(data.length / table.getState().pagination.pageSize)
+          }
+          currentPage={table.getState().pagination.pageIndex}
+          onChange={(page) => handlePageChange(page)}
+          zeroBasedIndex
+        />
+      </StyledPaginationWrapper>
+    </div>
   );
 };
