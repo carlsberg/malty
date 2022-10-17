@@ -97,7 +97,7 @@ export const Input = forwardRef(
           color={IconColor.DigitalBlack}
           size={IconSize.Medium}
           className="clear-trigger"
-          onClick={() => onValueChange('')}
+          onClick={handleClear}
         />
       );
 
