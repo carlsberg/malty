@@ -313,7 +313,6 @@ export const StyledOption = styled.option<{
 export const StyledClearableWrapper = styled.div`
   position: relative;
   display: flex;
-  width: 100%;
   .password-icon-show,
   .password-icon-hide {
     /* transition: all 0.3s ease-in-out !important; */

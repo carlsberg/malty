@@ -2,7 +2,7 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { DOTS, usePagination } from './Pagination.helper';
@@ -16,10 +16,11 @@ export const Pagination = ({
   siblingCount,
   type = PaginationType.Default,
   dataQaId,
-  isWhite = false
+  isWhite = false,
+  zeroBasedIndex = false
 }: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [inputValue, setInputValue] = useState<string | number>(currentPage);
+  const [inputValue, setInputValue] = useState<number | string>(currentPage);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
 
   const paginationRange = usePagination({
@@ -28,17 +29,25 @@ export const Pagination = ({
     currentPage
   });
   const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
-  const isFirstPage = type === PaginationType.Input ? inputValue === 1 || inputValue === '' : currentPage === 1;
-  const isLastPage = type === PaginationType.Input ? lastPage === inputValue : lastPage === currentPage;
-
+  const isFirstPage =
+    // eslint-disable-next-line no-nested-ternary
+    type === PaginationType.Input ? (zeroBasedIndex === true ? inputValue === 0 : inputValue === 1) : currentPage === 1;
+  const isLastPage =
+    // eslint-disable-next-line no-nested-ternary
+    type === PaginationType.Input
+      ? zeroBasedIndex === true && inputValue
+        ? lastPage === (inputValue as number) + 1
+        : lastPage === inputValue
+      : lastPage === currentPage;
   const isCompact = type === PaginationType.Compact;
   const isInput = type === PaginationType.Input;
 
   useEffect(() => {
     let timeOutId: NodeJS.Timeout;
+
     if (type === PaginationType.Input) {
-      if (!Number.isNaN(parseInt(inputValue.toString(), 10))) {
-        timeOutId = setTimeout(() => onChange(inputValue as number), 350);
+      if (inputValue || inputValue === 0 || inputValue === '') {
+        timeOutId = setTimeout(() => onChange(inputValue), 350);
       }
     }
 
@@ -57,8 +66,10 @@ export const Pagination = ({
     }
   }, [window.innerWidth]);
 
-  if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
-    return null;
+  if (!zeroBasedIndex) {
+    if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
+      return null;
+    }
   }
 
   const onPageClick = (targetPage: number) => {
@@ -72,30 +83,27 @@ export const Pagination = ({
     }
   };
 
-  // eslint-disable-next-line consistent-return
   const onPrevious = () => {
     if (type === PaginationType.Input) {
-      if (inputValue > count && inputValue === '') {
-        return setInputValue(1);
+      if (inputValue && inputValue > count && inputValue === undefined) {
+        return zeroBasedIndex ? setInputValue(0) : setInputValue(1);
       }
+
       return setInputValue((inputValue as number) - 1);
     }
-    if (currentPage > 1) {
-      onChange(currentPage - 1);
-    }
+
+    return onChange(currentPage - 1);
   };
 
-  // eslint-disable-next-line consistent-return
   const onNext = () => {
     if (type === PaginationType.Input) {
-      if (inputValue < count && inputValue === '') {
-        return setInputValue(1);
+      if (inputValue && inputValue < count && inputValue === undefined) {
+        return zeroBasedIndex ? setInputValue(0) : setInputValue(1);
       }
       return setInputValue((inputValue as number) + 1);
     }
-    if (currentPage < count) {
-      return onChange(currentPage + 1);
-    }
+
+    return onChange(currentPage + 1);
   };
 
   const onPreviousKeyUp = () => {
@@ -107,8 +115,8 @@ export const Pagination = ({
   };
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!Number.isNaN(parseInt(event.target.value, 10))) {
-      setInputValue(parseInt(event.target.value, 10));
+    if (event.target.value !== '') {
+      setInputValue(Number(event.target.value) - 1);
     } else {
       setInputValue('');
     }
@@ -121,10 +129,11 @@ export const Pagination = ({
           <StyledInput
             theme={theme}
             data-testid={`${dataQaId}-input`}
-            value={inputValue}
+            // eslint-disable-next-line no-nested-ternary
+            value={zeroBasedIndex ? (typeof inputValue === 'string' ? inputValue : inputValue + 1) : inputValue}
             onChange={(e) => handleInput(e)}
             max={count}
-            min={1}
+            min={0}
             type="number"
           />
           <Text
@@ -185,37 +194,39 @@ export const Pagination = ({
 
   return (
     <StyledContainer data-testid={dataQaId} isWhite={isWhite} theme={theme}>
-      <ul>
-        <li>
-          <Button
-            dataTestId={`${dataQaId}-button-previous`}
-            style={ButtonStyle.Transparent}
-            disabled={isFirstPage}
-            tabIndex={isFirstPage ? -1 : 0}
-            onClick={onPrevious}
-            onKeyUp={onPreviousKeyUp}
-            icon={IconName.ChevronLeft}
-            size={buttonSize}
-            negative={isWhite}
-            aria-label="Previous button"
-          />
-        </li>
-        {renderContent()}
-        <li>
-          <Button
-            dataTestId={`${dataQaId}-button-next`}
-            style={ButtonStyle.Transparent}
-            disabled={isLastPage}
-            tabIndex={isLastPage ? -1 : 0}
-            onClick={onNext}
-            onKeyUp={onNextKeyUp}
-            icon={IconName.ChevronRight}
-            size={buttonSize}
-            negative={isWhite}
-            aria-label="Next button"
-          />
-        </li>
-      </ul>
+      <TypographyProvider>
+        <ul>
+          <li>
+            <Button
+              dataTestId={`${dataQaId}-button-previous`}
+              style={ButtonStyle.Transparent}
+              disabled={isFirstPage}
+              tabIndex={isFirstPage ? -1 : 0}
+              onClick={onPrevious}
+              onKeyUp={onPreviousKeyUp}
+              icon={IconName.ChevronLeft}
+              size={buttonSize}
+              negative={isWhite}
+              aria-label="Previous button"
+            />
+          </li>
+          {renderContent()}
+          <li>
+            <Button
+              dataTestId={`${dataQaId}-button-next`}
+              style={ButtonStyle.Transparent}
+              disabled={isLastPage}
+              tabIndex={isLastPage ? -1 : 0}
+              onClick={onNext}
+              onKeyUp={onNextKeyUp}
+              icon={IconName.ChevronRight}
+              size={buttonSize}
+              negative={isWhite}
+              aria-label="Next button"
+            />
+          </li>
+        </ul>
+      </TypographyProvider>
     </StyledContainer>
   );
 };

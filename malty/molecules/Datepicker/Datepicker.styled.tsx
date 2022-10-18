@@ -151,33 +151,6 @@ export const StyledCalendar = styled.div`
   & .react-datepicker__current-month {
     font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
-    display: inline;
-  }
-  & .react-datepicker__header__dropdown {
-    display: inline;
-    & .react-datepicker__year-dropdown-container {
-      display: inline;
-      & .react-datepicker__year-select {
-        background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiAxMy41ODU4TDYuNzA3MTEgOC4yOTI4OUM2LjMxNjU4IDcuOTAyMzcgNS42ODM0MiA3LjkwMjM3IDUuMjkyODkgOC4yOTI4OUM0LjkwMjM3IDguNjgzNDIgNC45MDIzNyA5LjMxNjU4IDUuMjkyODkgOS43MDcxMUwxMS4yOTI5IDE1LjcwNzFDMTEuNjgzNCAxNi4wOTc2IDEyLjMxNjYgMTYuMDk3NiAxMi43MDcxIDE1LjcwNzFMMTguNzA3MSA5LjcwNzExQzE5LjA5NzYgOS4zMTY1OCAxOS4wOTc2IDguNjgzNDIgMTguNzA3MSA4LjI5Mjg5QzE4LjMxNjYgNy45MDIzNyAxNy42ODM0IDcuOTAyMzcgMTcuMjkyOSA4LjI5Mjg5TDEyIDEzLjU4NThaIiBmaWxsPSIjMjEyODMzIi8+Cjwvc3ZnPgo=');
-        cursor: pointer;
-        background-repeat: no-repeat;
-        background-position: right;
-        appearance: none;
-        padding-right: ${({ theme }) => theme.sizes.m.value};
-        color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-        font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
-        font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
-        font-family: ${({ theme }) => theme.typography.desktop.headline.medium['font-family'].value};
-        margin-left: ${({ theme }) => theme.sizes['2xs'].value};
-        border: 0;
-        &:focus-visible {
-          outline: 0;
-        }
-        option {
-          font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
-        }
-      }
-    }
   }
   & .react-datepicker__day-names {
     font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};

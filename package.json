@@ -36,11 +36,13 @@
     "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "@tanstack/react-table": "^8.5.13",
+    "@types/react-table": "^7.7.12",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-datepicker": "^4.7.0",
-    "react-popper": "^2.3.0",
-    "@popperjs/core": "^2.11.5"
+    "react-dom": "^17.0.2",
+    "react-popper": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
@@ -63,8 +65,8 @@
     "@types/babel__core": "^7.1.14",
     "@types/jest": "^27.4.1",
     "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
     "@types/react-datepicker": "^4.3.4",
+    "@types/react-dom": "^17.0.2",
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.9",
     "@types/testing-library__jest-dom": "^5.14.3",

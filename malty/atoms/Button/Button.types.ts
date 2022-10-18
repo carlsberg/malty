@@ -1,7 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import React from 'react';
 
-export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'style'> {
+export interface ButtonProps {
   text?: string | number;
   icon?: IconName;
   iconPos?: ButtonIconPosition;
