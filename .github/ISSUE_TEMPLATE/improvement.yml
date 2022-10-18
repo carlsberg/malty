@@ -1,0 +1,82 @@
+name: Improvement
+description: Improvement requests can be submitted here
+title: 'improvement: '
+labels: [improvement, request]
+assignees: [galmeida12, MartimMatosCB]
+body:
+  - type: input
+    attributes:
+      label: Summary
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please explain us what's the improvement that you would like to see
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Component
+      description: Please tell us in which component you need the improvement
+      options:
+        - Alert
+        - Button
+        - Checkbox
+        - Chip
+        - Colors
+        - Floater
+        - Headline
+        - Icon
+        - Icon Wrapper
+        - Image
+        - Input
+        - Label
+        - Link
+        - Overlay
+        - Padded Container
+        - Pagination
+        - Pill
+        - Progress Bar
+        - Progress Spinner
+        - Radio
+        - Stepper
+        - Select
+        - Text
+        - Text Area
+        - Tooltip
+        - Toggle
+        - Theme Provider
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Priority
+      description: Tell us what's the priority that this improvement have to you
+      options:
+        - Blocker
+        - Highest
+        - High
+        - Medium
+        - Low
+        - Lowest
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Team
+      description: The team which the ticket reporter belongs
+      options:
+        - Cadi
+        - CS WE
+        - CS+
+        - Lean Signup
+        - Ottilia
+        - InnerSource Community
+        - OutSource Community
+    validations:
+      required: true

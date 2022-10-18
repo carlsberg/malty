@@ -1,0 +1,81 @@
+name: New Request
+description: Submit your component and/or feature request here
+title: 'new request: '
+labels: [Request]
+assignees: [galmeida12, MartimMatosCB]
+body:
+  - type: input
+    attributes:
+      label: Summary
+      description: Please give us a short summary about the request
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please describe the request.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Purpose & Justification
+      description: Describe why for what you need this request
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Github handle
+      description: Please enter your GitHub handle, for both GitHub and Bit.dev
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: SAM Account Name
+      description: Please enter your login email address, as you use it to login to Teams, etc.
+      placeholder: PTLASFIR@carlsberggroup.com
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Application
+      description: Please tell us to which application(s) you need access
+      options:
+        - label: Jira
+        - label: Confluence
+        - label: Bit.dev
+        - label: Figma
+        - label: Github
+
+  - type: dropdown
+    attributes:
+      label: Priority
+      description: Tell us what's the priority that this request have to you
+      options:
+        - Blocker
+        - Highest
+        - High
+        - Medium
+        - Low
+        - Lowest
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Team
+      description: The team which the ticket reporter belongs
+      options:
+        - Cadi
+        - CS WE
+        - CS+
+        - Lean Signup
+        - Ottilia
+        - InnerSource Community
+        - OutSource Community
+    validations:
+      required: true
