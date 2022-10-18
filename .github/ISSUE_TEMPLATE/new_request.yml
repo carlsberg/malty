@@ -1,20 +1,18 @@
 name: New Request
 description: Submit your component and/or feature request here
-title: 'new request: '
+title: 'new-request: '
 labels: [Request]
-assignees: [galmeida12, MartimMatosCB]
+assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
-  - type: input
+  - type: markdown
     attributes:
-      label: Summary
-      description: Please give us a short summary about the request
-    validations:
-      required: true
+      value: |
+        Please fill the title above with the appropriate summary of the issue
 
   - type: textarea
     attributes:
       label: Description
-      description: Please describe the request.
+      description: Please describe the request. You can also attach files
     validations:
       required: true
 
@@ -22,21 +20,6 @@ body:
     attributes:
       label: Purpose & Justification
       description: Describe why for what you need this request
-    validations:
-      required: true
-
-  - type: input
-    attributes:
-      label: Github handle
-      description: Please enter your GitHub handle, for both GitHub and Bit.dev
-    validations:
-      required: true
-
-  - type: input
-    attributes:
-      label: SAM Account Name
-      description: Please enter your login email address, as you use it to login to Teams, etc.
-      placeholder: PTLASFIR@carlsberggroup.com
     validations:
       required: true
 
@@ -57,7 +40,7 @@ body:
       description: Tell us what's the priority that this request have to you
       options:
         - Blocker
-        - Highest
+        - Higher
         - High
         - Medium
         - Low
@@ -76,6 +59,6 @@ body:
         - Lean Signup
         - Ottilia
         - InnerSource Community
-        - OutSource Community
+        - OpenSource Community
     validations:
       required: true

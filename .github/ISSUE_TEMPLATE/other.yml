@@ -2,18 +2,17 @@ name: Other
 description: Other requests that do not fit any of the previous options
 title: 'other: '
 labels: [other, request]
-assignees: [galmeida12, MartimMatosCB]
+assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
-  - type: input
+  - type: markdown
     attributes:
-      label: Summary
-    validations:
-      required: true
+      value: |
+        Please fill the title above with the appropriate summary of the issue
 
   - type: textarea
     attributes:
       label: Description
-      description: Please give us as much information as possible
+      description: Please give us as much information as possible. You can also attach files
     validations:
       required: true
 
@@ -28,6 +27,6 @@ body:
         - Lean Signup
         - Ottilia
         - InnerSource Community
-        - OutSource Community
+        - OpenSource Community
     validations:
       required: true
