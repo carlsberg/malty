@@ -1,9 +1,8 @@
-import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 
 export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   text?: string;
   icon?: IconName;
-  iconColor?: IconColor;
   color?: PillColor;
   size?: PillSize;
   dataTestId?: string;
@@ -23,4 +22,12 @@ export enum PillColor {
   alertStrong = 'alert-strong',
   Fail = 'fail',
   NotificationStrong = 'notification-strong'
+}
+
+export interface UsePillStylesProps {
+  size: PillSize;
+}
+
+export interface IconTextColorProps {
+  color: PillColor;
 }

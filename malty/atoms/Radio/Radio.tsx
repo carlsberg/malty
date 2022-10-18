@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useRef } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -14,7 +14,7 @@ export const Radio = ({ value, label, onValueChange, selected, error, name, disa
   };
 
   return (
-    <TypographyProvider>
+    <>
       <StyledRadioContainer theme={theme}>
         <StyledRadio
           id={id.current}
@@ -33,6 +33,6 @@ export const Radio = ({ value, label, onValueChange, selected, error, name, disa
         </StyledLabel>
       </StyledRadioContainer>
       {error && <StyledError theme={theme}>{error}</StyledError>}
-    </TypographyProvider>
+    </>
   );
 };

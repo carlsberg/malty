@@ -5,18 +5,18 @@ export const StyledRatingContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 25px;
+  row-gap: ${({ theme }) => theme.sizes.m.value};
 `;
 
 export const StyledStarContainer = styled.div`
   display: flex;
-  column-gap: 17px;
+  column-gap: ${({ theme }) => theme.sizes.s.value};
   flex-direction: row-reverse;
 `;
 
 export const StyledMainContainer = styled.div`
   display: flex;
-  column-gap: 17px;
+  column-gap: ${({ theme }) => theme.sizes.s.value};
 `;
 
 export const StyledInput = styled.input`
@@ -47,5 +47,5 @@ export const StyledIconStarContainer = styled.span`
 `;
 
 export const StyledTotalReviewContainer = styled.span`
-  margin-top: 2px;
+  margin-top: ${({ theme }) => theme.sizes['5xs'].value};
 `;

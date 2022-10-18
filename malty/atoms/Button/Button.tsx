@@ -1,7 +1,7 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';
@@ -26,7 +26,9 @@ export const Button = ({
   tabIndex = -1,
   children,
   dataTestId,
-  color = ButtonColor.DigitalBlack
+  color = ButtonColor.DigitalBlack,
+  className,
+  ...props
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
@@ -95,50 +97,44 @@ export const Button = ({
   }, [negative, style]);
 
   const renderComponent = () => (
-    <TypographyProvider>
-      <Component
-        color={color}
-        data-testid={dataTestId}
-        type={type}
-        disabled={disabled}
-        isLoading={loading}
-        hasText={!!text || !!children}
-        hasIcon={!!icon}
-        sizing={numSize}
-        horizontalPadding={hPadding}
-        fontSize={fontSize}
-        iconSize={iconSize}
-        onClick={onClick}
-        onKeyUp={onKeyUp}
-        isNegative={negative}
-        fullWidth={fullWidth}
-        iconPos={iconPos}
-        theme={theme}
-        tabIndex={tabIndex}
-        className={selected ? 'active' : ''}
-      >
-        {!loading && (
-          <div className={`text-container `}>
-            {icon && iconPos === ButtonIconPosition.Left && (
-              <Icon name={icon} color={iconColor} size={IconSize.Small} />
-            )}
-            {text || children}
-            {icon && iconPos === ButtonIconPosition.Right && (
-              <Icon name={icon} color={iconColor} size={IconSize.Small} />
-            )}
-          </div>
-        )}
-        {loading && (
-          <div data-testid={`${dataTestId}-loading`} className="secondary-container">
-            <Loading
-              color={color as unknown as ProgressSpinnerColor}
-              negative={loadingNegative}
-              status={LoadingStatus.Pending}
-            />
-          </div>
-        )}
-      </Component>
-    </TypographyProvider>
+    <Component
+      color={color}
+      data-testid={dataTestId}
+      type={type}
+      disabled={disabled}
+      isLoading={loading}
+      hasText={!!text || !!children}
+      hasIcon={!!icon}
+      sizing={numSize}
+      horizontalPadding={hPadding}
+      fontSize={fontSize}
+      iconSize={iconSize}
+      onClick={onClick}
+      onKeyUp={onKeyUp}
+      isNegative={negative}
+      fullWidth={fullWidth}
+      iconPos={iconPos}
+      theme={theme}
+      tabIndex={tabIndex}
+      className={selected ? `${className} active` : className}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+    >
+      <div className="text-container">
+        {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+        {text || children}
+        {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+      </div>
+      {loading && (
+        <div data-testid={`${dataTestId}-loading`} className="secondary-container">
+          <Loading
+            color={color as unknown as ProgressSpinnerColor}
+            negative={loadingNegative}
+            status={LoadingStatus.Pending}
+          />
+        </div>
+      )}
+    </Component>
   );
 
   useEffect(() => {
@@ -177,11 +173,9 @@ export const Button = ({
   }, [size, theme]);
 
   return url ? (
-    <TypographyProvider>
-      <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
-        {renderComponent()}
-      </StyledAnchor>
-    </TypographyProvider>
+    <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>
+      {renderComponent()}
+    </StyledAnchor>
   ) : (
     renderComponent()
   );
