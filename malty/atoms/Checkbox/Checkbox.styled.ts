@@ -83,11 +83,21 @@ export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
     `}
 `;
 
-export const StyledCheckboxLabel = styled.label`
+export const StyledCheckboxLabel = styled.label<{
+  required?: boolean;
+}>`
   display: flex;
   align-items: center;
   cursor: pointer;
   user-select: none;
+  ${({ required }) =>
+    required &&
+    css`
+      &::after {
+        content: ' *';
+        color: ${({ theme }) => theme.colors.colours.system.fail.value};
+      }
+    `}
   &:hover {
     ${StyledCheckboxHiddenInput}:not(:checked) + ${StyledCheckboxDisplayInput} {
       &:before {

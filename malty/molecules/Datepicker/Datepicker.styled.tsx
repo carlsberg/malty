@@ -1,23 +1,5 @@
 import styled, { css } from 'styled-components';
 
-export const StyledLabel = styled.label<{
-  disabled?: boolean;
-}>`
-  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
-  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
-  font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
-  display: block;
-  &:first-letter {
-    text-transform: capitalize;
-  }
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-    `}
-`;
 export const StyledWrapper = styled.div`
   position: relative;
 `;

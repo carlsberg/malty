@@ -1,6 +1,6 @@
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   value?: string;
-  label: string;
+  label?: string;
   placeholder?: string;
   resize?: boolean;
   disabled?: boolean;
@@ -10,4 +10,5 @@ export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextArea
   maxLength?: number;
   readOnly?: boolean;
   dataTestId?: string;
+  required?: boolean;
 }

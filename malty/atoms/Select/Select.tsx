@@ -3,6 +3,7 @@ import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
@@ -16,7 +17,6 @@ import {
   StyledChevronDown,
   StyledError,
   StyledHint,
-  StyledLabel,
   StyledMainWrapper,
   StyledOption,
   StyledOptionsWrapper,
@@ -242,10 +242,8 @@ export const Select = ({
   );
   return (
     <StyledMainWrapper>
-      {label && type !== SelectType.Inline && (
-        <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
-          {label}
-        </StyledLabel>
+      {type !== SelectType.Inline && (
+        <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       )}
       <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
         <StyledButton

@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { forwardRef, useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -14,7 +15,6 @@ import {
   StyledInput,
   StyledInputContainer,
   StyledInputWrapper,
-  StyledLabel,
   StyledOption,
   StyledSelect
 } from './Input.styled';
@@ -51,6 +51,7 @@ export const Input = forwardRef(
       disableLeftButton,
       disableRightButton,
       onClearButtonClick,
+      required = false,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement>
@@ -144,6 +145,7 @@ export const Input = forwardRef(
           type={type === InputType.Password ? passwordToggleType : type}
           theme={theme}
           ref={ref}
+          required={required}
           {...props}
         />
         {renderClearable()}
@@ -188,6 +190,7 @@ export const Input = forwardRef(
           type={type}
           theme={theme}
           ref={ref}
+          required={required}
           {...props}
         />
         <StyledButton
@@ -263,6 +266,7 @@ export const Input = forwardRef(
             type={type}
             theme={theme}
             ref={ref}
+            required={required}
             {...props}
           />
           {renderClearable()}
@@ -273,11 +277,7 @@ export const Input = forwardRef(
 
     return (
       <StyledInputContainer theme={theme}>
-        {label && (
-          <StyledLabel disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} theme={theme}>
-            {label}
-          </StyledLabel>
-        )}
+        <Label label={label} required={required} disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} />
         <StyledInputWrapper
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           clearable={clearable || type === InputType.Search}

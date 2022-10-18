@@ -5,4 +5,5 @@ export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
   error?: string;
   onValueChange: (checked: boolean) => void;
   dataTestId?: string;
+  required?: boolean;
 }

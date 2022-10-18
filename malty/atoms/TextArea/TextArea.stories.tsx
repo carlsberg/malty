@@ -54,6 +54,10 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'select data-testid'
+    },
+    required: {
+      control: 'boolean',
+      description: 'Makes the textarea input required to fill'
     }
   }
 } as Meta;
@@ -81,5 +85,6 @@ TextArea.args = {
   value: '',
   hint: 'hint text',
   readOnly: false,
-  dataTestId: 'Textarea'
+  dataTestId: 'Textarea',
+  required: false
 };
