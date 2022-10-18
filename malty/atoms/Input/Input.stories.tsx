@@ -131,10 +131,6 @@ export default {
       control: 'text',
       description: 'Pattern to be applied to input value'
     },
-    required: {
-      control: 'boolean',
-      description: ' A value is required'
-    },
     disableRightButton: {
       control: 'boolean',
       description: 'Right Button state, disabled'
