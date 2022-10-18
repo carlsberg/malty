@@ -1,0 +1,94 @@
+name: Bug
+description: Issue with a Component and/or Feature? Please tell us what are the problems that you are experiencing
+title: 'bug: '
+labels: [Bug]
+assignees: ['@CarlsbergGBS/malty-maintainers']
+body:
+  - type: input
+    attributes:
+      label: Summary
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please explain us, in a succinct way, what's the problem that you're facing
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Priority
+      description: Tell us what's the priority that this bug have to you
+      options:
+        - Blocker
+        - Highest
+        - High
+        - Medium
+        - Low
+        - Lowest
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Team
+      description: The team which the ticket reporter belongs
+      options:
+        - Cadi
+        - CS WE
+        - CS+
+        - Lean Signup
+        - Ottilia
+        - InnerSource Community
+        - OutSource Community
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Component
+      description: Please tell us the affected Component
+      options:
+        - Alert
+        - Button
+        - Checkbox
+        - Chip
+        - Colors
+        - Floater
+        - Headline
+        - Icon
+        - Icon Wrapper
+        - Image
+        - Input
+        - Label
+        - Link
+        - Overlay
+        - Padded Container
+        - Pagination
+        - Pill
+        - Progress Bar
+        - Progress Spinner
+        - Radio
+        - Stepper
+        - Select
+        - Text
+        - Text Area
+        - Tooltip
+        - Toggle
+        - Theme Provider
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Device
+      description: Please specify in which device the problem occur
+      options:
+        - label: Mobile
+        - label: Tablet
+        - label: Laptop
+        - label: Desktop
+    validations:
+      required: true

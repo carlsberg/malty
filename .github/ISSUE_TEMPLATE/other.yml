@@ -1,0 +1,33 @@
+name: Other
+description: Other requests that do not fit any of the previous options
+title: 'other: '
+labels: [other, request]
+assignees: [galmeida12, MartimMatosCB]
+body:
+  - type: input
+    attributes:
+      label: Summary
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please give us as much information as possible
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Team
+      description: The team which the ticket reporter belongs
+      options:
+        - Cadi
+        - CS WE
+        - CS+
+        - Lean Signup
+        - Ottilia
+        - InnerSource Community
+        - OutSource Community
+    validations:
+      required: true

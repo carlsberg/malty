@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {
@@ -24,7 +24,7 @@ export const Toggle = ({ disabled, onValueChange, label, checked = false, error,
   }, [checked]);
 
   return (
-    <TypographyProvider>
+    <>
       <StyledLabelWrapper disabled={disabled} onClick={handleToggle} theme={theme}>
         <StyledToggleSwitch id={id} theme={theme}>
           <StyledInput
@@ -45,6 +45,6 @@ export const Toggle = ({ disabled, onValueChange, label, checked = false, error,
         </StyledLabel>
       </StyledLabelWrapper>
       {error && <StyledError theme={theme}>{error}</StyledError>}
-    </TypographyProvider>
+    </>
   );
 };
