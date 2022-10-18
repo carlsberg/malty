@@ -1,4 +1,4 @@
-import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Pill as PillComponent } from './Pill';
@@ -43,20 +43,6 @@ export default {
         }
       }
     },
-    iconColor: {
-      description: 'Pill text color',
-      options: Object.keys(IconColor),
-      mapping: IconColor,
-      control: {
-        type: 'select',
-        label: Object.values(IconColor)
-      },
-      table: {
-        defaultValue: {
-          summary: 'IconColor.White'
-        }
-      }
-    },
     icon: {
       description: 'Icon to be displayed',
       options: Object.keys({ undefined, ...IconName }),
@@ -78,8 +64,8 @@ export default {
   }
 } as Meta;
 
-const Template: Story<PillProps> = ({ iconColor, text, icon, color, size, dataTestId }: PillProps) => (
-  <PillComponent iconColor={iconColor} text={text} icon={icon} color={color} size={size} dataTestId={dataTestId} />
+const Template: Story<PillProps> = ({ text, icon, color, size, dataTestId }: PillProps) => (
+  <PillComponent text={text} icon={icon} color={color} size={size} dataTestId={dataTestId} />
 );
 
 let PillEl;
