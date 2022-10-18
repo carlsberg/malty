@@ -111,6 +111,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Radio"
     },
+    "atoms/rating": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Rating"
+    },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.49",
@@ -1478,6 +1484,12 @@
         "version": "0.0.29",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Toast"
+    },
+    "organisms/table": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/organisms/Table"
     },
     "theme/malty-theme-provider": {
         "scope": "carlsberggroup.malty",
