@@ -7,11 +7,7 @@ const defaultText = 'Test label';
 
 describe('label', () => {
   it('renders with correct text', () => {
-    render(
-      <Label text={defaultText}>
-        <input type="text" />
-      </Label>
-    );
+    render(<Label label={defaultText} />);
     expect(screen.getByText(defaultText)).not.toBeNull();
   });
 });

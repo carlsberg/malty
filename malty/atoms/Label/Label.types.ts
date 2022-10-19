@@ -1,8 +1,7 @@
-export interface LabelProps {
+export interface LabelProps extends React.HTMLAttributes<HTMLLabelElement> {
   htmlFor?: string;
-  text?: string | JSX.Element;
-  children?: string | JSX.Element;
-  checkbox?: boolean;
-  block?: boolean;
+  label?: string | JSX.Element;
   disabled?: boolean;
+  required?: boolean;
+  dataTestId?: string;
 }

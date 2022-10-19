@@ -6598,6 +6598,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Rating-9baa86@workspace:malty/atoms/Rating":
+  version: 0.0.0-use.local
+  resolution: "Rating-9baa86@workspace:malty/atoms/Rating"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Refresh-e5fadd@workspace:malty/icons/Refresh":
   version: 0.0.0-use.local
   resolution: "Refresh-e5fadd@workspace:malty/icons/Refresh"
@@ -6808,6 +6817,15 @@ __metadata:
 "Sync-51c0cc@workspace:malty/icons/Sync":
   version: 0.0.0-use.local
   resolution: "Sync-51c0cc@workspace:malty/icons/Sync"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"Table-436fb9@workspace:malty/organisms/Table":
+  version: 0.0.0-use.local
+  resolution: "Table-436fb9@workspace:malty/organisms/Table"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0

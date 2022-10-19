@@ -30,10 +30,14 @@ export default {
     },
     onValueChange: {
       description: 'Function to be executed when toggle state changes'
+    },
+    required: {
+      control: 'boolean',
+      description: 'Makes the toogle required to fill'
     }
   }
 } as Meta;
-const Template: Story<ToggleProps> = ({ label, disabled, error }: ToggleProps) => {
+const Template: Story<ToggleProps> = ({ label, disabled, error, required }: ToggleProps) => {
   const [stateChecked, setStateChecked] = useState(true);
   return (
     <ToggleComponent
@@ -42,6 +46,7 @@ const Template: Story<ToggleProps> = ({ label, disabled, error }: ToggleProps) =
       label={label}
       onValueChange={(value) => setStateChecked(value)}
       error={error}
+      required={required}
     />
   );
 };
@@ -54,14 +59,16 @@ switch (variant) {
     Toggle.args = {
       label: 'toggle label',
       disabled: true,
-      error: ''
+      error: '',
+      required: false
     };
     break;
   default:
     Toggle.args = {
       label: 'toggle label',
       disabled: false,
-      error: ''
+      error: '',
+      required: false
     };
     break;
 }

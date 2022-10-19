@@ -1,3 +1,4 @@
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -5,7 +6,6 @@ import { v4 as uuid } from 'uuid';
 import {
   StyledError,
   StyledHint,
-  StyledLabel,
   StyledtextArea,
   StyledTextAreaCharacterCounter,
   StyledTextareaContainer,
@@ -25,6 +25,7 @@ export const TextArea = ({
   hint,
   readOnly = false,
   dataTestId,
+  required = false,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -42,11 +43,7 @@ export const TextArea = ({
 
   return (
     <StyledTextareaContainer theme={theme}>
-      {label && (
-        <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
-          {label}
-        </StyledLabel>
-      )}
+      <Label label={label} required={required} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       <StyledTextAreaWrapper
         data-testid={`${dataTestId}-container`}
         readOnly={readOnly}
@@ -66,6 +63,7 @@ export const TextArea = ({
           disabled={disabled}
           readOnly={readOnly}
           maxLength={maxLength}
+          required={required}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />

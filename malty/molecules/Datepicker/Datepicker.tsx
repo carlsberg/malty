@@ -1,5 +1,6 @@
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { Label } from '@carlsberggroup/malty.atoms.label';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -16,7 +17,6 @@ import {
   StyledContainer,
   StyledDatepicker,
   StyledInputIcon,
-  StyledLabel,
   StyledWrapper
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
@@ -40,6 +40,8 @@ export const Datepicker = ({
   secondaryAction,
   shouldCloseOnSelect = true,
   size = DatepickerSize.Medium,
+  required,
+  dataTestId,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -117,6 +119,7 @@ export const Datepicker = ({
       <StyledCaptionContainer>
         {captions.map(({ color, borderColor, dotted, label: captionLabel }, index) => (
           <StyledCaption
+            data-testid={`${dataTestId}-caption-${index}`}
             color={colors[color]}
             borderColor={borderColor ? colors[borderColor] : colors[Colors.Transparent]}
             dotted={dotted}
@@ -138,6 +141,7 @@ export const Datepicker = ({
       <StyledActionsContainer>
         {secondaryAction && (
           <Button
+            dataTestId={`${dataTestId}-secondary-action`}
             style={ButtonStyle.Secondary}
             text={secondaryAction.label}
             fullWidth
@@ -145,7 +149,13 @@ export const Datepicker = ({
           />
         )}
         {primaryAction && (
-          <Button style={ButtonStyle.Primary} text={primaryAction.label} fullWidth onClick={handlePrimaryAction} />
+          <Button
+            dataTestId={`${dataTestId}-primary-action`}
+            style={ButtonStyle.Primary}
+            text={primaryAction.label}
+            fullWidth
+            onClick={handlePrimaryAction}
+          />
         )}
       </StyledActionsContainer>
     );
@@ -153,12 +163,8 @@ export const Datepicker = ({
 
   return (
     <StyledWrapper theme={theme}>
-      {!inline && label && (
-        <StyledLabel htmlFor={id} disabled={disabled} theme={theme}>
-          {label}
-        </StyledLabel>
-      )}
-      <StyledDatepicker size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
+      {!inline && <Label label={label} htmlFor={id} required={required} disabled={disabled} />}
+      <StyledDatepicker data-testid={dataTestId} size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
         {!inline && (
           <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
             <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />
@@ -167,6 +173,7 @@ export const Datepicker = ({
 
         <DatePicker
           id={id}
+          required={required}
           selected={startDate}
           startDate={startDate}
           endDate={selectsRange ? endDate : null}

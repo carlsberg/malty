@@ -36,12 +36,16 @@ export default {
     name: {
       description: 'Name attribute of the radio element.'
     },
+    required: {
+      control: 'boolean',
+      description: 'Makes the radio input required to fill'
+    },
     onValueChange: {
       description: 'Function to be executed when radio state changes'
     }
   }
 };
-const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, name, error, disabled }) => (
+const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, name, error, disabled, required }) => (
   <>
     <RadioComponent
       id={value.toString()}
@@ -52,6 +56,7 @@ const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, na
       name={name}
       error={error}
       disabled={disabled}
+      required={required}
     />
   </>
 );
@@ -67,7 +72,8 @@ switch (variant) {
       name: 'radioOptions',
       value: 'Option 1',
       selected: true,
-      disabled: true
+      disabled: true,
+      required: false
     };
     break;
   default:
@@ -76,7 +82,8 @@ switch (variant) {
       name: 'radioOptions',
       value: 'Option 1',
       selected: true,
-      disabled: false
+      disabled: false,
+      required: false
     };
     break;
 }

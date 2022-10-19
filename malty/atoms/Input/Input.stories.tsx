@@ -66,6 +66,10 @@ export default {
       control: 'boolean',
       description: 'Input state, readOnly'
     },
+    required: {
+      control: 'boolean',
+      description: 'Makes the input required to fill'
+    },
     iconPosition: {
       options: Object.keys(InputIconPosition),
       mapping: InputIconPosition,
@@ -127,10 +131,6 @@ export default {
       control: 'text',
       description: 'Pattern to be applied to input value'
     },
-    required: {
-      control: 'boolean',
-      description: ' A value is required'
-    },
     disableRightButton: {
       control: 'boolean',
       description: 'Right Button state, disabled'
@@ -158,7 +158,8 @@ const Template: Story<InputProps> = ({
   dataTestId,
   readOnly,
   disableLeftButton,
-  disableRightButton
+  disableRightButton,
+  required
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -178,6 +179,7 @@ const Template: Story<InputProps> = ({
       hint={hint}
       dataTestId={dataTestId}
       readOnly={readOnly}
+      required={required}
       disableLeftButton={disableLeftButton}
       disableRightButton={disableRightButton}
     />
@@ -200,7 +202,8 @@ switch (variant) {
       disabled: false,
       clearable: true,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -216,7 +219,8 @@ switch (variant) {
       hint: 'hint text',
       readOnly: false,
       disableLeftButton: false,
-      disableRightButton: false
+      disableRightButton: false,
+      required: false
     };
     break;
 
@@ -230,7 +234,8 @@ switch (variant) {
       disabled: false,
       clearable: true,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -244,7 +249,8 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -259,7 +265,8 @@ switch (variant) {
       clearable: true,
       icon: IconName.Search,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -273,7 +280,8 @@ switch (variant) {
       disabled: false,
       clearable: false,
       hint: 'hint text',
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -288,6 +296,7 @@ switch (variant) {
       clearable: false,
       hint: 'hint text',
       readOnly: false,
+      required: false,
       disableLeftButton: false,
       disableRightButton: false
     };

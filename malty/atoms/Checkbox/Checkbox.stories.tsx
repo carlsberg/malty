@@ -24,6 +24,10 @@ export default {
       },
       description: 'This is the label for the checkbox'
     },
+    required: {
+      control: 'boolean',
+      description: 'Makes the checkbox required to fill'
+    },
     error: {
       control: {
         type: 'text'
@@ -56,7 +60,8 @@ switch (variant) {
     Checkbox.args = {
       value: 'Undetermined',
       labelText: 'Undetermined label',
-      error: ''
+      error: '',
+      required: false
     };
     break;
 
@@ -65,7 +70,8 @@ switch (variant) {
       value: 'Unchecked',
       labelText: 'Unchecked label',
       error: '',
-      checked: false
+      checked: false,
+      required: false
     };
     break;
 
@@ -74,7 +80,8 @@ switch (variant) {
       value: 'Checked',
       labelText: 'Checked label',
       error: '',
-      checked: true
+      checked: true,
+      required: false
     };
     break;
 }

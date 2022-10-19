@@ -1,7 +1,7 @@
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { useIconColor, useNumSize } from './IconWrapper.helper';
+import { useIconColor, useNumSize } from './iconWrapper.helper';
 import { StyledIcon } from './IconWrapper.styled';
 import { IconColor, IconSize, IconWrapperProps } from './IconWrapper.types';
 
