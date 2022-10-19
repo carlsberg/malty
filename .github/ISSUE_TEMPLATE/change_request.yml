@@ -1,18 +1,18 @@
 name: Change Request
 description: This type is intended for small changes to an existing Component and/or functionality
-title: 'change request: '
-labels: [change, request]
-assignees: [galmeida12, MartimMatosCB]
+title: 'change-request: '
+labels: [Change, Request]
+assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
-  - type: input
+  - type: markdown
     attributes:
-      label: Summary
-    validations:
-      required: true
+      value: |
+        Please fill the title above with the appropriate summary of the issue
 
   - type: textarea
     attributes:
       label: Description
+      description: Please describe the change that you would like to see. You can also attach files
     validations:
       required: true
 
@@ -41,13 +41,16 @@ body:
         - Progress Bar
         - Progress Spinner
         - Radio
+        - Rating
         - Stepper
         - Select
+        - Table
         - Text
         - Text Area
         - Tooltip
         - Toggle
         - Theme Provider
+        - Others
     validations:
       required: true
 
@@ -57,7 +60,7 @@ body:
       description: Tell us what's the priority that this change have to you
       options:
         - Blocker
-        - Highest
+        - Higher
         - High
         - Medium
         - Low
@@ -76,6 +79,6 @@ body:
         - Lean Signup
         - Ottilia
         - InnerSource Community
-        - OutSource Community
+        - OpenSource Community
     validations:
       required: true
