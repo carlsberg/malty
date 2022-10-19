@@ -1,35 +1,29 @@
 name: Access Request
 description: Please choose this category if you need access to any platform or application available on the Design Systems, Confluence or JIRA
 title: 'access-request: '
-labels: [Access]
-assignees: [galmeida12, MartimMatosCB, vicenteopaso, marianacarlsberg]
+labels: [Access, Request]
+assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
-  - type: input
+  - type: markdown
     attributes:
-      label: Summary
-      description: Please tell us which access do you need
-    validations:
-      required: true
+      value: |
+        Please fill the title above with the appropriate summary of the issue
 
   - type: textarea
     attributes:
       label: Description
-      description: Please tell us why do you need access to this
+      description: Please tell us why do you need access to this. You can also attach files
 
   - type: input
     attributes:
       label: Github handle
       description: Please enter your GitHub handle, for both GitHub and Bit.dev
-    validations:
-      required: true
 
   - type: input
     attributes:
       label: SAM Account Name
       description: Please enter your login email address, as you use it to login to Teams, etc.
       placeholder: PTLASFIR@carlsberggroup.com
-    validations:
-      required: true
 
   - type: checkboxes
     attributes:
@@ -48,7 +42,7 @@ body:
       description: Tell us what's the priority that this request have to you
       options:
         - Blocker
-        - Highest
+        - Higher
         - High
         - Medium
         - Low
@@ -67,6 +61,6 @@ body:
         - Lean Signup
         - Ottilia
         - InnerSource Community
-        - OutSource Community
+        - OpenSource Community
     validations:
       required: true
