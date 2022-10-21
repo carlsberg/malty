@@ -8,7 +8,7 @@ import {
   PaginationState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   StyledHead,
@@ -21,7 +21,7 @@ import {
 } from './Table.styled';
 import { TableProps, TableRowProps, TableSize } from './Table.types';
 
-export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12, className }: TableProps) => {
+export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12, className, dataTestId }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data] = useState(() => [...rows]);
@@ -124,35 +124,39 @@ export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12, cl
 
   return (
     <div>
-      <StyledTable className={className} theme={theme}>
-        <StyledThead theme={theme}>
+      <StyledTable data-testid={dataTestId} className={className} theme={theme}>
+        <StyledThead data-testid={`${dataTestId}-thead`} theme={theme}>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
+            <tr data-testid={`${dataTestId}-tr-${headerGroup.id}`} key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <StyledHead theme={theme} key={header.id}>
+                <StyledHead data-testid={`${dataTestId}-th-${header.id}`} theme={theme} key={header.id}>
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 </StyledHead>
               ))}
             </tr>
           ))}
         </StyledThead>
-        <StyledTbody>
+        <StyledTbody theme={theme}>
           {table.getRowModel().rows.map((row) => (
             <StyledRow
+              data-testid={`${dataTestId}-row-${row.id}`}
+              theme={theme}
               isClickable={!!onRowClick}
               size={tableSize}
               onClick={() => onRowClick && onRowClick(row.original)}
               key={row.id}
             >
               {row.getVisibleCells().map((cell) => (
-                <StyledTd key={cell.id}>{cell.renderValue()}</StyledTd>
+                <StyledTd data-testid={`${dataTestId}-cell-${cell.id}`} theme={theme} key={cell.id}>
+                  {cell.renderValue() as ReactNode}
+                </StyledTd>
               ))}
             </StyledRow>
           ))}
         </StyledTbody>
       </StyledTable>
 
-      <StyledPaginationWrapper>
+      <StyledPaginationWrapper data-testid={`${dataTestId}-pagination`} theme={theme}>
         <Pagination
           type={PaginationType.Input}
           count={
