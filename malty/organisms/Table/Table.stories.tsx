@@ -261,5 +261,6 @@ Table.args = {
   rows,
   onRowClick: () => null,
   paginationSize: 12,
-  className: ''
+  className: '',
+  dataTestId: 'table'
 };
