@@ -1,13 +1,13 @@
 name: Bug
 description: Issue with a Component and/or Feature? Please tell us what are the problems that you are experiencing
 title: 'bug: '
-labels: [Bug, Issue]
+labels: [bug]
 assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
   - type: markdown
     attributes:
       value: |
-        Please fill the title above with the appropriate summary of the issue
+        Please fill the title above
 
   - type: textarea
     attributes:
