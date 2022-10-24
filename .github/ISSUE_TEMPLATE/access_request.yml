@@ -1,13 +1,13 @@
 name: Access Request
 description: Please choose this category if you need access to any platform or application available on the Design Systems, Confluence or JIRA
 title: 'access-request: '
-labels: [Access, Request]
+labels: [access]
 assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
   - type: markdown
     attributes:
       value: |
-        Please fill the title above with the appropriate summary of the issue
+        Please fill the title above
 
   - type: textarea
     attributes:
