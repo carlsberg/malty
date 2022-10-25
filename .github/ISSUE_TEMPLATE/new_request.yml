@@ -1,13 +1,13 @@
 name: New Request
 description: Submit your component and/or feature request here
 title: 'new-request: '
-labels: [Request]
+labels: [enhancement]
 assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
   - type: markdown
     attributes:
       value: |
-        Please fill the title above with the appropriate summary of the issue
+        Please fill the title above
 
   - type: textarea
     attributes:
