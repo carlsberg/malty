@@ -17,6 +17,8 @@ export interface SelectProps {
   readOnly?: boolean;
   selectAllLabel?: string;
   clearAllLabel?: string;
+  clearAllOption?: boolean;
+  alignPosition?: 'left' | 'right';
   onBlur?: () => void;
 }
 

@@ -45,6 +45,8 @@ export const Select = ({
   readOnly,
   selectAllLabel = 'Select all',
   clearAllLabel = 'Clear all',
+  clearAllOption = true,
+  alignPosition = 'left',
   onBlur
 }: SelectProps) => {
   const theme = defaultTheme;
@@ -174,6 +176,7 @@ export const Select = ({
         selectStyle={type}
         theme={theme}
         height={numSize}
+        position={type === SelectType.Inline ? alignPosition : undefined}
       >
         <StyledActionsWrapper theme={theme}>
           {search && (
@@ -188,14 +191,14 @@ export const Select = ({
               />
             </StyledSearchWrapper>
           )}
-          {(selectedValueState.length > 0 || multiple) && (
+          {((selectedValueState.length > 0 && clearAllOption) || multiple) && (
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
                 <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
                   {selectAllLabel}
                 </StyledActionButton>
               )}
-              {selectedValueState.length > 0 && (
+              {selectedValueState.length > 0 && clearAllOption && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
                   {clearAllLabel}
                 </StyledActionButton>
@@ -245,7 +248,13 @@ export const Select = ({
       {type !== SelectType.Inline && (
         <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       )}
-      <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
+      <StyledButtonContainer
+        data-testid={dataTestId}
+        ref={ref}
+        selectStyle={type}
+        position={type === SelectType.Inline ? alignPosition : undefined}
+        theme={theme}
+      >
         <StyledButton
           name={id}
           id={id}

@@ -12,8 +12,20 @@ const fadeOut = keyframes`
     100% {opacity: 0;}
 `;
 
+const handleSelectPosition = (position?: 'left' | 'center' | 'right') => {
+  switch (position) {
+    case 'left':
+      return 'align-items: flex-start';
+    case 'right':
+      return 'align-items: flex-end';
+    default:
+      return 'align-items: normal';
+  }
+};
+
 export const StyledButtonContainer = styled.div<{
   selectStyle: string;
+  position?: 'left' | 'right';
 }>`
   font-family: inherit;
   display: flex;
@@ -21,10 +33,12 @@ export const StyledButtonContainer = styled.div<{
   flex-direction: column;
   position: relative;
   min-width: 200px;
+  ${({ position }) => handleSelectPosition(position)};
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`
       width: fit-content;
+      min-width: fit-content;
     `}
 `;
 
@@ -151,6 +165,7 @@ export const StyledButton = styled.button<{
 export const StyledOptionsWrapper = styled.ul<{
   height: string;
   selectStyle?: string;
+  position?: 'left' | 'right';
   isOpen?: boolean;
 }>`
   position: absolute;
@@ -169,6 +184,11 @@ export const StyledOptionsWrapper = styled.ul<{
   opacity: 0;
   transition: all 0.3s ease-in-out;
   max-height: calc(${({ height }) => height} * 7);
+  ${({ position }) =>
+    position === 'right' &&
+    css`
+      right: 0;
+    `}
   ${({ isOpen }) =>
     isOpen &&
     css`
