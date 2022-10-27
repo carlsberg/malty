@@ -44,7 +44,8 @@ export const Select = ({
   dataTestId,
   readOnly,
   selectAllLabel = 'Select all',
-  clearAllLabel,
+  clearAllLabel = 'Clear all',
+  clearAllOption = true,
   alignPosition = SelectPosition.Left,
   onBlur
 }: SelectProps) => {
@@ -190,14 +191,14 @@ export const Select = ({
               />
             </StyledSearchWrapper>
           )}
-          {((selectedValueState.length > 0 && clearAllLabel) || multiple) && (
+          {((selectedValueState.length > 0 && clearAllOption) || multiple) && (
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
                 <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
                   {selectAllLabel}
                 </StyledActionButton>
               )}
-              {selectedValueState.length > 0 && clearAllLabel && (
+              {selectedValueState.length > 0 && clearAllOption && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
                   {clearAllLabel}
                 </StyledActionButton>
