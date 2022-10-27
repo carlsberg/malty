@@ -17,9 +17,13 @@ export interface SelectProps {
   readOnly?: boolean;
   selectAllLabel?: string;
   clearAllLabel?: string;
-  clearAllOption?: boolean;
-  alignPosition?: 'left' | 'right';
+  alignPosition?: SelectPosition;
   onBlur?: () => void;
+}
+
+export enum SelectPosition {
+  Left = 'left',
+  Right = 'right'
 }
 
 export interface SelectOptionsType {

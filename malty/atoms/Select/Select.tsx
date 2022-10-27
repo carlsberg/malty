@@ -24,7 +24,7 @@ import {
   StyledSelectedOptionsWrapper,
   StyledWrapper
 } from './Select.styled';
-import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
+import { SelectOptionsType, SelectPosition, SelectProps, SelectSize, SelectType } from './Select.types';
 
 export const Select = ({
   defaultValue = [],
@@ -44,9 +44,8 @@ export const Select = ({
   dataTestId,
   readOnly,
   selectAllLabel = 'Select all',
-  clearAllLabel = 'Clear all',
-  clearAllOption = true,
-  alignPosition = 'left',
+  clearAllLabel,
+  alignPosition = SelectPosition.Left,
   onBlur
 }: SelectProps) => {
   const theme = defaultTheme;
@@ -191,14 +190,14 @@ export const Select = ({
               />
             </StyledSearchWrapper>
           )}
-          {((selectedValueState.length > 0 && clearAllOption) || multiple) && (
+          {((selectedValueState.length > 0 && clearAllLabel) || multiple) && (
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
                 <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
                   {selectAllLabel}
                 </StyledActionButton>
               )}
-              {selectedValueState.length > 0 && clearAllOption && (
+              {selectedValueState.length > 0 && clearAllLabel && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
                   {clearAllLabel}
                 </StyledActionButton>
@@ -248,13 +247,7 @@ export const Select = ({
       {type !== SelectType.Inline && (
         <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       )}
-      <StyledButtonContainer
-        data-testid={dataTestId}
-        ref={ref}
-        selectStyle={type}
-        position={type === SelectType.Inline ? alignPosition : undefined}
-        theme={theme}
-      >
+      <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
         <StyledButton
           name={id}
           id={id}
