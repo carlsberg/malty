@@ -1,6 +1,7 @@
 import Check from '@carlsberggroup/malty.icons.check';
 import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
 import styled, { css, keyframes } from 'styled-components';
+import { SelectPosition } from './Select.types';
 
 const fadeIn = keyframes`
     0% {opacity: 0;}
@@ -25,6 +26,7 @@ export const StyledButtonContainer = styled.div<{
     selectStyle === 'inline' &&
     css`
       width: fit-content;
+      min-width: fit-content;
     `}
 `;
 
@@ -151,6 +153,7 @@ export const StyledButton = styled.button<{
 export const StyledOptionsWrapper = styled.ul<{
   height: string;
   selectStyle?: string;
+  position?: SelectPosition;
   isOpen?: boolean;
 }>`
   position: absolute;
@@ -169,6 +172,11 @@ export const StyledOptionsWrapper = styled.ul<{
   opacity: 0;
   transition: all 0.3s ease-in-out;
   max-height: calc(${({ height }) => height} * 7);
+  ${({ position }) =>
+    position === SelectPosition.Right &&
+    css`
+      right: 0;
+    `}
   ${({ isOpen }) =>
     isOpen &&
     css`
