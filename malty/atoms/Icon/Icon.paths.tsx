@@ -178,6 +178,7 @@ export { default as ShieldExclamation } from '@carlsberggroup/malty.icons.shield
 export { default as ShieldSecurity } from '@carlsberggroup/malty.icons.shield-security';
 export { default as Shop } from '@carlsberggroup/malty.icons.shop';
 export { default as SignOut } from '@carlsberggroup/malty.icons.sign-out';
+export { default as Sort } from '@carlsberggroup/malty.icons.sort';
 export { default as SpeachBalloon } from '@carlsberggroup/malty.icons.speach-balloon';
 export { default as SpeachBalloonComplaint } from '@carlsberggroup/malty.icons.speach-balloon-complaint';
 export { default as SpeachBalloonLivechat } from '@carlsberggroup/malty.icons.speach-balloon-livechat';

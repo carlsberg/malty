@@ -235,6 +235,14 @@ export default {
     onRowClick: {
       description: ''
     },
+    isDraggable: {
+      control: 'boolean',
+      description: 'If true Rows are draggable'
+    },
+    allowSelection: {
+      control: 'boolean',
+      description: 'If true Rows are selectable'
+    },
     size: {
       description: 'Size for table rows',
       options: Object.keys(TableSize),
@@ -262,5 +270,8 @@ Table.args = {
   onRowClick: () => null,
   paginationSize: 12,
   className: '',
-  dataTestId: 'table'
+  isDraggable: false,
+  size: TableSize.Medium,
+  dataTestId: 'table',
+  allowSelection: false
 };

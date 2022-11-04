@@ -13,7 +13,7 @@ import { CheckboxProps } from './Checkbox.types';
 
 export const Checkbox = ({
   id,
-  value,
+  value = '',
   checked,
   labelText,
   error,
@@ -28,10 +28,11 @@ export const Checkbox = ({
     <StyledCheckboxContainer theme={theme}>
       <StyledCheckboxLabel required={required} htmlFor={id} theme={theme}>
         <StyledCheckboxHiddenInput
+          type="checkbox"
           data-testid={dataTestId}
           id={id}
           value={value}
-          onChange={(e) => onValueChange(!(e.target as HTMLInputElement).checked)}
+          onChange={(e) => onValueChange(e)}
           checked={checked}
           theme={theme}
           required={required}

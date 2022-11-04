@@ -189,6 +189,7 @@ export enum IconName {
   ShieldSecurity = 'ShieldSecurity',
   Shop = 'Shop',
   SignOut = 'SignOut',
+  Sort = 'Sort',
   SpeachBalloonComplaint = 'SpeachBalloonComplaint',
   SpeachBalloonLivechat = 'SpeachBalloonLivechat',
   SpeachBalloon = 'SpeachBalloon',

@@ -1,6 +1,8 @@
+import { Icon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
 
 export const StyledTable = styled.table`
+  table-layout: auto;
   width: 100%;
   border-spacing: 0px;
   ${({ theme }) =>
@@ -12,7 +14,10 @@ export const StyledTable = styled.table`
 `;
 export const StyledThead = styled.thead``;
 
-export const StyledHead = styled.th`
+export const StyledHead = styled.th<{
+  isSortable: boolean;
+}>`
+  cursor: ${({ isSortable }) => (isSortable ? 'pointer' : 'default')};
   background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   color: ${({ theme }) => theme.colors.colours.support[80].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
@@ -27,6 +32,22 @@ export const StyledHead = styled.th`
     display: flex;
     flex-direction: row;
     align-items: center;
+    svg {
+      margin-left: ${({ theme }) => theme.sizes['2xs'].value};
+    }
+  }
+  &.draggable-header {
+    width: ${({ theme }) => theme.sizes.m.value};
+    box-sizing: border-box;
+  }
+  &.checkbox-header {
+    width: ${({ theme }) => theme.sizes.xl.value};
+    box-sizing: border-box;
+  }
+  .sort-icon {
+    &:hover {
+      fill: ${({ theme }) => theme.colors.colours.support[100].value};
+    }
   }
 `;
 
@@ -51,6 +72,7 @@ export const StyledRow = styled.tr<{
     `}
 `;
 export const StyledTd = styled.td`
+  width: auto;
   padding-bottom: 0;
   padding-top: 0;
   padding-left: ${({ theme }) => theme.sizes['2xs'].value};
@@ -63,4 +85,12 @@ export const StyledPaginationWrapper = styled.div`
   margin-top: ${({ theme }) => theme.sizes.s.value};
   justify-content: end;
   display: flex;
+`;
+export const StyledSortIcon = styled(Icon)`
+  &:hover {
+    fill: ${({ theme }) => theme.colors.colours.support[80].value};
+  }
+`;
+export const StyledDraggableCell = styled(StyledTd)`
+  padding-left: ${({ theme }) => theme.sizes['4xs'].value}; ;
 `;
