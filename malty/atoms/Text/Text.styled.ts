@@ -7,6 +7,7 @@ export const StyledParagraph = styled.p<{
   align: TextAlign;
   italic: boolean;
 }>`
+  display: inline;
   font-family: inherit;
   margin: 0;
   padding: 0;
