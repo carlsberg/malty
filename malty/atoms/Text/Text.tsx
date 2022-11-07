@@ -13,6 +13,7 @@ export const Text = ({
   ellipsis = false,
   children,
   width,
+  className,
   dataQaId
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -38,6 +39,7 @@ export const Text = ({
       width={width}
       theme={theme}
       as={StyledTag}
+      className={className}
     >
       {children}
     </StyledParagraph>

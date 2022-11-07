@@ -8,6 +8,7 @@ export const StyledParagraph = styled.p<{
   italic: boolean;
   ellipsis?: boolean;
   width?: string;
+  className?: string;
 }>`
   display: inline;
   font-family: inherit;

@@ -81,8 +81,16 @@ export default {
     }
   }
 };
-const Template: Story<TextProps> = ({ textStyle, align, color, children, italic, ellipsis, width }) => (
-  <TextComponent align={align} color={color} italic={italic} textStyle={textStyle} ellipsis={ellipsis} width={width}>
+const Template: Story<TextProps> = ({ textStyle, align, color, children, italic, ellipsis, width, className }) => (
+  <TextComponent
+    align={align}
+    color={color}
+    italic={italic}
+    textStyle={textStyle}
+    ellipsis={ellipsis}
+    width={width}
+    className={className}
+  >
     {children}
   </TextComponent>
 );

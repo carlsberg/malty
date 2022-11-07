@@ -7,6 +7,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   ellipsis?: boolean;
   width?: string;
   children: string | JSX.Element;
+  className?: string;
   dataQaId?: string;
 }
 
