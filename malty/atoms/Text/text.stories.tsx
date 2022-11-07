@@ -64,6 +64,11 @@ export default {
       description: 'Should text be italic?',
       table: { defaultValue: { summary: false } },
       control: { type: 'boolean' }
+    },
+    as: {
+      table: {
+        disable: true
+      }
     }
   }
 };
