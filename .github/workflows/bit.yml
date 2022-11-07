@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     name: 'Deploy Bit Packages'
-    runs-on: ubuntu-latest
+    runs-on: public.ecr.aws/e5n7p9d7/bit:latest
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
