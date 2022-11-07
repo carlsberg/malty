@@ -10,7 +10,7 @@ on:
 jobs:
   tests-run:
     name: 'Run Unit Tests'
-    runs-on: public.ecr.aws/e5n7p9d7/bit:latest
+    runs-on: ubuntu-latest
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
