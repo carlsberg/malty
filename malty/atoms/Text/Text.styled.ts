@@ -6,6 +6,8 @@ export const StyledParagraph = styled.p<{
   color: TextColor;
   align: TextAlign;
   italic: boolean;
+  ellipsis?: boolean;
+  width?: string;
 }>`
   display: inline;
   font-family: inherit;
@@ -35,6 +37,20 @@ export const StyledParagraph = styled.p<{
     italic &&
     css`
       font-style: italic;
+    `}
+  ${({ ellipsis }) =>
+    ellipsis &&
+    css`
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    `}
+  ${({ width }) =>
+    width &&
+    css`
+      display: block;
+      width: ${width};
     `}
   ${({ textStyle, theme }) => css`
     @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {

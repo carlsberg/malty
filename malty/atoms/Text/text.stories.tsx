@@ -65,6 +65,15 @@ export default {
       table: { defaultValue: { summary: false } },
       control: { type: 'boolean' }
     },
+    ellipsis: {
+      description: 'Should text be truncated?',
+      table: { defaultValue: { summary: false } },
+      control: { type: 'boolean' }
+    },
+    width: {
+      description: 'Width of text component',
+      control: { type: 'text' }
+    },
     as: {
       table: {
         disable: true
@@ -72,8 +81,8 @@ export default {
     }
   }
 };
-const Template: Story<TextProps> = ({ textStyle, align, color, children, italic }) => (
-  <TextComponent align={align} color={color} italic={italic} textStyle={textStyle}>
+const Template: Story<TextProps> = ({ textStyle, align, color, children, italic, ellipsis, width }) => (
+  <TextComponent align={align} color={color} italic={italic} textStyle={textStyle} ellipsis={ellipsis} width={width}>
     {children}
   </TextComponent>
 );

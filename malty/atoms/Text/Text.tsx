@@ -10,7 +10,9 @@ export const Text = ({
   color = TextColor.DigitalBlack,
   italic = false,
   as = 'p',
+  ellipsis = false,
   children,
+  width,
   dataQaId
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -32,6 +34,8 @@ export const Text = ({
       color={color}
       align={align}
       italic={italic}
+      ellipsis={ellipsis}
+      width={width}
       theme={theme}
       as={StyledTag}
     >

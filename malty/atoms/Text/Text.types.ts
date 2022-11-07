@@ -4,6 +4,8 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   color?: TextColor;
   italic?: boolean;
   as?: React.ElementType;
+  ellipsis?: boolean;
+  width?: string;
   children: string | JSX.Element;
   dataQaId?: string;
 }
