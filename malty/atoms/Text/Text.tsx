@@ -17,7 +17,7 @@ export const Text = ({
   dataQaId
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  let StyledTag = as || 'p';
+  let StyledTag = as;
 
   switch (as) {
     case 'span':

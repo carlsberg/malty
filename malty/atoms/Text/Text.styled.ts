@@ -48,7 +48,7 @@ export const StyledParagraph = styled.p<{
       text-overflow: ellipsis;
     `}
   ${({ width }) =>
-    width &&
+    width !== undefined &&
     css`
       display: block;
       width: ${width};
