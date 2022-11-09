@@ -6,7 +6,7 @@ import { StyledIcon } from './IconWrapper.styled';
 import { IconColor, IconSize, IconWrapperProps } from './IconWrapper.types';
 
 const IconWrapper = (
-  { size = IconSize.Medium, color = IconColor.DigitalBlack, viewBox, className, onClick }: IconWrapperProps,
+  { size = IconSize.Medium, color = IconColor.DigitalBlack, viewBox, className, onClick, name }: IconWrapperProps,
   icon: JSX.Element
 ) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -20,7 +20,7 @@ const IconWrapper = (
       size={iconSize}
       onClick={onClick}
       theme={theme}
-      data-testid="svg-component"
+      data-testid={`icon-${name}`}
     >
       {icon}
     </StyledIcon>
