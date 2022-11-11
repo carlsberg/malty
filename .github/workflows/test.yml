@@ -44,6 +44,8 @@ jobs:
           bit config set anonymous_reporting false
           bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Bit Deps Install & Compile
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
