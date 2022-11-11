@@ -28,7 +28,7 @@ jobs:
       - name: Install Bit Version Manager
         run: |
           npm i -g @teambit/bvm
-          bvm install
+          bvm upgrade
 
       - name: Add bvm bin folder to path
         run: |
