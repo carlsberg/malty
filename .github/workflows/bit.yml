@@ -19,26 +19,26 @@ jobs:
           private_key: '${{ secrets.CX_RELEASE_APP_PRIVATE_KEY }}'
 
       - uses: actions/checkout@v2
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           token: ${{ steps.token.outputs.token }}
 
       - uses: actions/setup-node@v2-beta
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           node-version: '16'
 
       - name: Install Bit Version Manager
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: npm i -g @teambit/bvm
-
-      - name: Install latest Bit version
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          export PATH=${{ env.PATH }}
-          bvm install
+          npm i -g @teambit/bvm
+          bvm install 0.0.867
 
       - name: Add bvm bin folder to path
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: echo "$HOME/bin" >> $GITHUB_PATH
+        run: |
+          echo "$HOME/bin" >> $GITHUB_PATH
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
 
       - name: Set up bit config
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -52,6 +52,8 @@ jobs:
           bit config set anonymous_reporting false
           bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Bit Deps Install & Compile
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
