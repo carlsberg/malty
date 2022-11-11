@@ -15,8 +15,6 @@ jobs:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ steps.token.outputs.token }}
 
       - uses: actions/setup-node@v2-beta
         with:
