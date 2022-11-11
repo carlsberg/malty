@@ -31,7 +31,8 @@ jobs:
           bvm install
 
       - name: Add bvm bin folder to path
-        run: echo "$HOME/bin" >> $GITHUB_PATH
+        run: |
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
 
       - name: Set up bit config
         run: |
