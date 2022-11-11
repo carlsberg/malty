@@ -24,33 +24,37 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Register remote scopes
+      - name: Install Bit Version Manager
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: npm i -g @teambit/bvm
+
+      - name: Install latest Bit version
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: bvm install
+
+      - name: Add bvm bin folder to path
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: echo "$HOME/bin" >> $GITHUB_PATH
+
+      - name: Set up bit config
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           echo "Adding bit.dev to npm registry"
           npm config set @bit:registry https://node.bit.dev
           npm config set @carlsberggroup:registry=https://node.bit.dev
           npm config set @teambit:registry=https://node.bit.dev
-          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
-          echo "Completed adding bit.dev to npm registry"
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-        shell: bash
-
-      - name: Install Bit
-        run: |
-          npm i -g @teambit/bvm
-          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-          bvm upgrade
-        shell: bash
-
-      - name: Install dependencies (Bit CLI)
-        run: |
-          export PATH=${{ env.PATH }}
+          bit config set analytics_reporting false
+          bit config set anonymous_reporting false
           bit config set user.token ${BIT_TOKEN}
+          echo "Completed adding bit.dev to npm registry"
+
+      - name: Bit Deps Install & Compile
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          yarn cache clean --force
+          bit clear-cache
           bit install
           bit compile
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
         shell: bash
 
       - name: Run Unit Tests

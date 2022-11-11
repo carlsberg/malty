@@ -26,47 +26,48 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Bit Install & Setup
+      - name: Install Bit Version Manager
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          npm i -g @teambit/bvm
-          export PATH=$HOME/bin:$PATH
-          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-          bvm upgrade
-          bit config set user.token ${BIT_TOKEN}
-        shell: bash
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+        run: npm i -g @teambit/bvm
 
-      - name: Register remote scopes
+      - name: Install latest Bit version
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: bvm install
+
+      - name: Add bvm bin folder to path
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: echo "$HOME/bin" >> $GITHUB_PATH
+
+      - name: Set up bit config
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           echo "Adding bit.dev to npm registry"
           npm config set @bit:registry https://node.bit.dev
           npm config set @carlsberggroup:registry=https://node.bit.dev
           npm config set @teambit:registry=https://node.bit.dev
-          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+          bit config set analytics_reporting false
+          bit config set anonymous_reporting false
+          bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
-        shell: bash
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Bit Deps Install & Compile
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          export PATH=${{ env.PATH }}
           yarn cache clean --force
           bit clear-cache
           bit install
           bit compile
         shell: bash
 
-      - name: Bit Tag & Export
+      - name: Bit Tag Components
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          export PATH=${{ env.PATH }}
-          bit tag
-          bit export
+          bit tag --persist
         shell: bash
+
+      - name: Export components
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: bit export
 
       - name: Configure Git
         run: |
