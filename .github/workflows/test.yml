@@ -28,7 +28,10 @@ jobs:
       - name: Install Bit Version Manager
         run: |
           npm i -g @teambit/bvm
-          bvm upgrade
+          bvm install 0.0.867
+
+      - name: Add bvm bin folder to path
+        run: |
           echo "$HOME/bin" >> $GITHUB_PATH
 
       - name: Set up bit config
