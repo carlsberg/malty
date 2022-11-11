@@ -38,8 +38,9 @@ jobs:
 
       - name: Install Bit
         run: |
-          npx @teambit/bvm install
+          npm i -g @teambit/bvm
           echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+          bvm upgrade
         shell: bash
 
       - name: Install dependencies (Bit CLI)

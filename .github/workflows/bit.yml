@@ -29,9 +29,10 @@ jobs:
       - name: Bit Install & Setup
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          npx @teambit/bvm install
+          npm i -g @teambit/bvm
           export PATH=$HOME/bin:$PATH
           echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+          bvm upgrade
           bit config set user.token ${BIT_TOKEN}
         shell: bash
         env:
