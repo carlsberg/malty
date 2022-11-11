@@ -1,3 +1,4 @@
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { MouseEventHandler } from 'react';
 
 export interface IconWrapperProps extends React.HTMLAttributes<SVGElement> {
@@ -5,6 +6,7 @@ export interface IconWrapperProps extends React.HTMLAttributes<SVGElement> {
   size: IconSize;
   viewBox?: string;
   onClick?: MouseEventHandler<SVGElement>;
+  name: IconName;
 }
 
 export enum IconColor {
