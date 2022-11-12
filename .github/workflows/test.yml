@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+      BIT_VERSION: ${{ secrets.BIT_VERSION }}
     steps:
       - uses: actions/checkout@v2
 
@@ -20,10 +21,12 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install Bit Version Manager
+      - name: Install Bit CLI
         run: |
           npm i -g @teambit/bvm
-          bvm install 0.0.867
+          bvm install ${BIT_VERSION}
+        env:
+          BIT_VERSION: ${{ secrets.BIT_VERSION }}
 
       - name: Add bvm bin folder to path
         run: |
