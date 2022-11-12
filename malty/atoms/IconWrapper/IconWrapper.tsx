@@ -20,7 +20,7 @@ const IconWrapper = (
       size={iconSize}
       onClick={onClick}
       theme={theme}
-      data-testid={`icon-${name}`}
+      data-testid={`icon-${name || 'component'}`}
     >
       {icon}
     </StyledIcon>
