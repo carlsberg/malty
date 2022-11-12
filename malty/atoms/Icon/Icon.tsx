@@ -1,7 +1,5 @@
 import React from 'react';
-import { IconColor, IconName, IconSize } from '.';
-import * as IconsPaths from './Icon.paths';
-import { IconProps } from './Icon.types';
+import { IconColor, IconName, IconProps, IconSize, IconsPaths } from '.';
 
 export const Icon = ({
   size = IconSize.Medium,
