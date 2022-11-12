@@ -52,7 +52,7 @@ describe('modal', () => {
       </>
     );
 
-    const closeIcon = screen.getAllByTestId('svg-component') && screen.getAllByTestId('svg-component')[0];
+    const closeIcon = screen.getAllByTestId('icon-component') && screen.getAllByTestId('icon-component')[0];
 
     fireEvent(
       closeIcon,

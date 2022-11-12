@@ -81,7 +81,7 @@ describe('input', () => {
       />
     );
 
-    const clearButton = screen.getByTestId('svg-component');
+    const clearButton = screen.getByTestId(`icon-ItemClose`);
     fireEvent.click(clearButton);
     expect(onClearButtonClick).toHaveBeenCalledTimes(1);
   });

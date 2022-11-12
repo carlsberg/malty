@@ -6,7 +6,7 @@ export interface IconWrapperProps extends React.HTMLAttributes<SVGElement> {
   size: IconSize;
   viewBox?: string;
   onClick?: MouseEventHandler<SVGElement>;
-  name: IconName;
+  name?: IconName;
 }
 
 export enum IconColor {
