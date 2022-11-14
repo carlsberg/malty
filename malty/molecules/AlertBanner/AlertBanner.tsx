@@ -198,14 +198,19 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const renderMessage = () =>
     isMobile ? (
       <FadeText fire={triggerAnimation()} currentElementHeight={textWrapperSize}>
-        <StyledMessage hideText={triggerAnimation()} isMobile ref={alertBannerStyledMessage}>
+        <StyledMessage
+          hideText={triggerAnimation()}
+          isMobile
+          ref={alertBannerStyledMessage}
+          color={textColorsMap[currentAlert.type]}
+        >
           <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
             {currentAlert.message}
           </Text>
         </StyledMessage>
       </FadeText>
     ) : (
-      <StyledMessage hideText={triggerAnimation()}>
+      <StyledMessage hideText={triggerAnimation()} color={textColorsMap[currentAlert.type]}>
         <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
           {currentAlert.message}
         </Text>
