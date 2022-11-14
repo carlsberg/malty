@@ -1,13 +1,13 @@
 name: Change Request
 description: This type is intended for small changes to an existing Component and/or functionality
 title: 'change-request: '
-labels: [Change, Request]
+labels: [enhancement]
 assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
 body:
   - type: markdown
     attributes:
       value: |
-        Please fill the title above with the appropriate summary of the issue
+        Please fill the title above
 
   - type: textarea
     attributes:

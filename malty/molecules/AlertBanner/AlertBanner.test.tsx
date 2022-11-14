@@ -61,7 +61,7 @@ describe('<AlertBanner />', () => {
   });
   it('should render icon', () => {
     // Improvement: give a custom test id to svg element
-    const svg = screen.getAllByTestId('svg-component');
+    const svg = screen.getAllByTestId('icon-Close');
     expect(svg[0]).toBeDefined();
   });
   it('should render dismiss button', () => {

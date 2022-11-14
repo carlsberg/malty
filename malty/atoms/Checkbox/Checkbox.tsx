@@ -14,12 +14,13 @@ import { CheckboxProps } from './Checkbox.types';
 export const Checkbox = ({
   id,
   value = '',
-  checked,
+  checked = false,
   labelText,
   error,
   onValueChange,
   required = false,
   dataTestId,
+  isIndeterminate,
   ...props
 }: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -39,7 +40,7 @@ export const Checkbox = ({
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
-        <StyledCheckboxDisplayInput checked={checked} theme={theme} />
+        <StyledCheckboxDisplayInput indeterminate={isIndeterminate} checked={checked} theme={theme} />
         <StyledCheckboxLabelText data-testid={`${dataTestId}-label`} theme={theme}>
           {labelText}
         </StyledCheckboxLabelText>

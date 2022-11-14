@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Checkbox as CheckboxComponent } from './Checkbox';
@@ -28,6 +29,10 @@ export default {
       control: 'boolean',
       description: 'Makes the checkbox required to fill'
     },
+    isIndeterminate: {
+      control: 'boolean',
+      description: 'Makes the checkbox Indeterminate'
+    },
     error: {
       control: {
         type: 'text'
@@ -35,9 +40,8 @@ export default {
       description: 'Error message below'
     },
     checked: {
-      control: 'select',
-      options: [true, false, undefined],
-      description: 'Checked `true` or `false`, when mixed nested checkboxed, value is `undefined`'
+      control: 'boolean',
+      description: 'Checked `true` or `false`.'
     },
     onValueChange: {
       description: 'Function to be executed when checkbox state changes'
@@ -46,8 +50,8 @@ export default {
 };
 
 const Template: Story<CheckboxProps> = (args) => {
-  const [stateChecked, setStateChecked] = useState(true);
-  return <CheckboxComponent {...args} onValueChange={() => setStateChecked(!stateChecked)} />;
+  const [stateChecked, setStateChecked] = useState(args.checked);
+  return <CheckboxComponent {...args} onValueChange={() => setStateChecked(!stateChecked)} checked={stateChecked} />;
 };
 
 export const Checkbox = Template.bind({});
@@ -61,7 +65,8 @@ switch (variant) {
       value: 'Undetermined',
       labelText: 'Undetermined label',
       error: '',
-      required: false
+      required: false,
+      isIndeterminate: true
     };
     break;
 

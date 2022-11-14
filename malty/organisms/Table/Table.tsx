@@ -45,7 +45,7 @@ export const Table = ({
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [data, setData] = useState(() => [...rows]);
+  const [data, setData] = useState([...rows]);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   const [rowSelection, setRowSelection] = useState({});
   const [sorting, setSorting] = React.useState<SortingState>([]);
@@ -61,6 +61,11 @@ export const Table = ({
     }),
     [pageIndex, pageSize]
   );
+
+  useEffect(() => {
+    setData([...rows]);
+  }, [rows]);
+
   useEffect(() => {
     onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
   }, [rowSelection]);
@@ -239,11 +244,7 @@ export const Table = ({
                       >
                         {allowSelection && (
                           <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
-                            <Checkbox
-                              onValueChange={row.getToggleSelectedHandler()}
-                              checked={row.getIsSelected()}
-                              value=""
-                            />
+                            <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
                           </StyledTd>
                         )}
                         {row.getVisibleCells().map((cell) => (

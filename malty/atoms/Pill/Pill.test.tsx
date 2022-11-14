@@ -5,9 +5,10 @@ import React from 'react';
 import { Pill } from './Pill';
 
 describe('pill', () => {
+  const name = IconName.CarlsbergFilled;
   it('renders elements', () => {
     render(<Pill text="Pill text" icon={IconName.CarlsbergFilled} />);
     expect(screen.getByText('Pill text')).toBeInTheDocument();
-    expect(screen.getByTestId('svg-component')).toBeInTheDocument();
+    expect(screen.getByTestId(`icon-${name}`)).toBeInTheDocument();
   });
 });

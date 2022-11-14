@@ -9,10 +9,24 @@ export const Text = ({
   align = TextAlign.Left,
   color = TextColor.DigitalBlack,
   italic = false,
+  as = 'p',
+  ellipsis = false,
   children,
+  width,
+  className,
   dataQaId
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  let StyledTag = as;
+
+  switch (as) {
+    case 'span':
+      StyledTag = 'span';
+      break;
+    default:
+      StyledTag = 'p';
+      break;
+  }
 
   return (
     <StyledParagraph
@@ -21,7 +35,11 @@ export const Text = ({
       color={color}
       align={align}
       italic={italic}
+      ellipsis={ellipsis}
+      width={width}
       theme={theme}
+      as={StyledTag}
+      className={className}
     >
       {children}
     </StyledParagraph>
