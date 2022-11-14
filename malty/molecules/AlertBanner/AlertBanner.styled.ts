@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { TextColor } from '../../atoms/Text/Text.types';
+import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertBannerType } from './AlertBanner.types';
 
 const simpleFadeAnimation = keyframes`
