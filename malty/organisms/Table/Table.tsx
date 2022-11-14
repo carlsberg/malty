@@ -24,7 +24,7 @@ import { TableProps, TableRowProps, TableSize } from './Table.types';
 export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12, className, dataTestId }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [data] = useState(() => [...rows]);
+  const [data, setData] = useState([...rows]);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   // const [rowSelection, setRowSelection] = useState({});
 
@@ -39,6 +39,11 @@ export const Table = ({ headers, rows, onRowClick, size, paginationSize = 12, cl
     }),
     [pageIndex, pageSize]
   );
+
+  useEffect(() => {
+    setData([...rows]);
+  }, [rows]);
+
   // const handleCheckboxHeader = (table: tableType<any>) => {
   //   if (table.getIsSomeRowsSelected()) {
   //     return undefined;
