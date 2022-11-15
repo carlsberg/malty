@@ -95,7 +95,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git add .
-          git commit -m "release: Bit GitHub Action"
+          git commit -m "release: Bit GitHub Action (automated) [skip-ci]"
           git push
         shell: bash
         env:
