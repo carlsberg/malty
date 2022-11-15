@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from 'styled-components';
-import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertBannerType } from './AlertBanner.types';
 
 const simpleFadeAnimation = keyframes`
@@ -28,7 +27,6 @@ export const Container = styled.div<{
     }
     return theme.colors.colours.system['notification-strong'].value;
   }};
-  color: ${({ theme }) => theme.colors.colours.default.white.value};
 `;
 
 export const FadeWrapper = styled.div<{
@@ -94,7 +92,6 @@ export const MessageContainer = styled.div<{
 export const StyledMessage = styled.div<{
   hideText: boolean;
   isMobile?: boolean;
-  color: TextColor;
 }>`
   overflow: hidden;
   display: flex;
@@ -103,7 +100,6 @@ export const StyledMessage = styled.div<{
   display: -webkit-box;
   -webkit-box-orient: vertical;
   transition: all 0.2s linear;
-  color: ${({ color, theme }) => (theme.colors ? theme.colors['text-colours'][color].value : TextColor.DigitalBlack)};
   ${({ hideText, isMobile }) => {
     if (hideText && isMobile) {
       return css`
