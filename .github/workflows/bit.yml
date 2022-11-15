@@ -72,7 +72,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           export PATH=${{ env.PATH }}
-          bit tag --persist
+          bit tag
         shell: bash
 
       - name: Export components
@@ -80,6 +80,7 @@ jobs:
         run: |
           export PATH=${{ env.PATH }}
           bit export
+        shell: bash
 
       - name: Configure Git
         run: |
