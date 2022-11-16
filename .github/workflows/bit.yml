@@ -19,12 +19,12 @@ jobs:
           app_id: ${{ secrets.CX_RELEASE_APP_ID }}
           private_key: '${{ secrets.CX_RELEASE_APP_PRIVATE_KEY }}'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           token: ${{ steps.token.outputs.token }}
 
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           node-version: '16'
@@ -95,7 +95,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git add .
-          git commit -m "release: Bit GitHub Action (automated) [skip-ci]"
+          git commit -m "release: Bit GitHub Action (automated) [skip ci]"
           git push
         shell: bash
         env:
