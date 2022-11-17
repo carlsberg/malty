@@ -24,6 +24,7 @@ jobs:
         name: Check Reviewers
         uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.CB_MALTY_APPROVAL_TOKEN }}
           script: |
             let conclusion = "failure";
 
@@ -73,5 +74,4 @@ jobs:
             });
             
             console.log("Got response from checks.create:", resp);
-        env:
-          GITHUB_TOKEN: ${{ secrets.CB_MALTY_APPROVAL_TOKEN }}
+
