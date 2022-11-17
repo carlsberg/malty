@@ -47,21 +47,27 @@ jobs:
                 const {
                   user: { login },
                 } = review;
+                
+                console.log(`Checking if ${login} is part of malty-designers...`);
 
                 try {
-                  await github.rest.teams.getMembershipForUserInOrg({
+                  const resp = await github.rest.teams.getMembershipForUserInOrg({
                     org: context.repo.owner,
                     team_slug: "malty-designers",
                     username: login,
                   });
+                  
+                  console.log("Got response from getMembership:", resp);
 
                   conclusion = "success"
                   break;
-                } catch (_) {}
+                } catch (err) {
+                  console.log("Failed to validate membership:", err);
+                }
               }
             }
 
-            await github.rest.checks.create({
+            const resp = await github.rest.checks.create({
               ...context.repo,
               name: "approval-workflow",
               head_sha: "${{ github.event.pull_request.head.sha }}",
@@ -72,5 +78,7 @@ jobs:
                 summary: "This pull request requires an approval from a designer",
               },
             });
+            
+            console.log("Got response from checks.create:", resp);
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
