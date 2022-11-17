@@ -20,11 +20,18 @@ jobs:
       startsWith(github.event.pull_request.head.ref, 'bugfix/') || 
       startsWith(github.event.pull_request.head.ref, 'hotfix/')
     steps:
+      - id: token
+        name: Authenticate
+        uses: getsentry/action-github-app-token@v1
+        with:
+          app_id: ${{ secrets.CARLSBERG_SECURITY_APP_ID }}
+          private_key: '${{ secrets.CARLSBERG_SECURITY_APP_PRIVATE_KEY }}'
+
       - id: check
         name: Check Reviewers
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.CB_MALTY_APPROVAL_TOKEN }}
+          github-token: ${{ steps.token.outputs.token }}
           script: |
             let conclusion = "failure";
 
