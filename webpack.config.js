@@ -20,7 +20,7 @@ export default function (env) {
               options: {
                 eslintPath: require.resolve('eslint')
               },
-              loader: require.resolve('eslint-loader')
+              loader: require.resolve('eslint-webpack-plugin')
             }
           ]
         }
