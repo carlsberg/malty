@@ -20,8 +20,9 @@ export const DraggableRow = ({ row, index, onRowClick, size, allowSelection, dat
           onClick={onRowClick}
           isClickable={!!onRowClick}
           size={size}
+          theme={theme}
         >
-          <StyledDraggableCell {...provided?.dragHandleProps}>
+          <StyledDraggableCell {...provided?.dragHandleProps} theme={theme}>
             <div>
               <Icon color={IconColor.Support60} name={IconName.Arrange} size={IconSize.Small} />
             </div>

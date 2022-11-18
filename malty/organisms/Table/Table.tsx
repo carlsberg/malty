@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 /* eslint-disable react/jsx-props-no-spreading */
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
@@ -15,12 +16,14 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { ReactNode, useContext, useEffect, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
 import {
+  StyledFooterWrapper,
   StyledHead,
+  StyledNoRecordsWrapper,
   StyledPaginationWrapper,
   StyledRow,
   StyledSortIcon,
@@ -41,34 +44,28 @@ export const Table = ({
   className,
   isDraggable = false,
   dataTestId,
-  allowSelection = false
+  allowSelection = false,
+  totalPagesCount,
+  onPaginationChange = () => null
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data, setData] = useState([...rows]);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   const [rowSelection, setRowSelection] = useState({});
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>([]);
 
-  const [{ pageIndex, pageSize }, setPagination] = React.useState<PaginationState>({
-    pageIndex: 0,
+  const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
+    pageIndex: 1,
     pageSize: paginationSize
   });
-  const pagination = React.useMemo(
+  const pagination = useMemo(
     () => ({
       pageIndex,
       pageSize
     }),
     [pageIndex, pageSize]
   );
-
-  useEffect(() => {
-    setData([...rows]);
-  }, [rows]);
-
-  useEffect(() => {
-    onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
-  }, [rowSelection]);
 
   const columns = headers.map((header) =>
     columnHelper.accessor(header.key, {
@@ -85,6 +82,7 @@ export const Table = ({
       pagination,
       sorting
     },
+
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     onPaginationChange: setPagination,
@@ -92,10 +90,32 @@ export const Table = ({
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel()
   });
+  const [dataPage, setDataPage] = useState(table.getRowModel().flatRows);
 
   const handlePageChange = (page: number | string) => {
-    if (typeof page !== 'string') table.setPageIndex(page);
+    if (typeof page !== 'string') {
+      table.setPageIndex(page);
+      onPaginationChange(page);
+    }
   };
+  const handleDragEnd = (results: DropResult) => {
+    if (!results.destination) return;
+    const tempUser = [...data];
+    const [selectRow] = tempUser.splice(results.source.index, 1);
+    tempUser.splice(results.destination.index, 0, selectRow);
+    setData(tempUser);
+  };
+
+  useEffect(() => {
+    setData([...rows]);
+  }, [rows]);
+  useEffect(() => {
+    setDataPage(table.getRowModel().flatRows);
+  }, [table.getRowModel().flatRows]);
+
+  useEffect(() => {
+    onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
+  }, [rowSelection]);
 
   useEffect(() => {
     switch (size) {
@@ -114,13 +134,6 @@ export const Table = ({
       }
     }
   }, [size, theme]);
-  const handleDragEnd = (results: DropResult) => {
-    if (!results.destination) return;
-    const tempUser = [...data];
-    const [selectRow] = tempUser.splice(results.source.index, 1);
-    tempUser.splice(results.destination.index, 0, selectRow);
-    setData(tempUser);
-  };
 
   return (
     <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
@@ -129,14 +142,16 @@ export const Table = ({
           <StyledThead data-testid={`${dataTestId}-thead`} theme={theme}>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr data-testid={`${dataTestId}-tr-${headerGroup.id}`} key={headerGroup.id}>
-                {isDraggable && <StyledHead className="draggable-header" isSortable={false} theme={theme} />}
+                {isDraggable && data.length > 0 && (
+                  <StyledHead className="draggable-header" isSortable={false} theme={theme} />
+                )}
 
-                {allowSelection && (
+                {allowSelection && data.length > 0 && (
                   <StyledHead className="checkbox-header" isSortable={false} theme={theme}>
                     <Checkbox
                       onValueChange={table.getToggleAllRowsSelectedHandler()}
-                      checked={table.getIsSomeRowsSelected() ? undefined : table.getIsAllRowsSelected()}
-                      value=""
+                      checked={table.getIsAllRowsSelected()}
+                      isIndeterminate={table.getIsSomeRowsSelected()}
                     />
                   </StyledHead>
                 )}
@@ -201,6 +216,7 @@ export const Table = ({
                           triggerComponent={(setTriggerElement) => (
                             <div ref={setTriggerElement}>
                               <StyledSortIcon
+                                theme={theme}
                                 name={IconName.Sort}
                                 size={IconSize.MediumSmall}
                                 color={IconColor.Support40}
@@ -219,9 +235,21 @@ export const Table = ({
               </tr>
             ))}
           </StyledThead>
+
           <Droppable droppableId="tbody">
             {(provided) => (
               <StyledTbody ref={provided.innerRef} theme={theme}>
+                {data.length <= 0 && (
+                  <tr>
+                    <td colSpan={table.getFlatHeaders().length}>
+                      <StyledNoRecordsWrapper theme={theme}>
+                        <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
+                          No records found
+                        </Text>
+                      </StyledNoRecordsWrapper>
+                    </td>
+                  </tr>
+                )}
                 {table.getRowModel().rows.map((row, index) => (
                   <React.Fragment key={row.id}>
                     {isDraggable && (
@@ -237,6 +265,7 @@ export const Table = ({
                     )}
                     {!isDraggable && (
                       <StyledRow
+                        theme={theme}
                         key={row.id}
                         onClick={() => onRowClick && onRowClick(row.original)}
                         isClickable={!!onRowClick}
@@ -262,22 +291,34 @@ export const Table = ({
             )}
           </Droppable>
         </StyledTable>
-
-        <StyledPaginationWrapper data-testid={`${dataTestId}-pagination`} theme={theme}>
-          <Pagination
-            type={PaginationType.Input}
-            count={
-              data.length / table.getState().pagination.pageSize -
-                Math.floor(data.length / table.getState().pagination.pageSize) !==
-              0
-                ? Math.trunc(data.length / table.getState().pagination.pageSize + 1)
-                : Math.trunc(data.length / table.getState().pagination.pageSize)
-            }
-            currentPage={table.getState().pagination.pageIndex}
-            onChange={(page) => handlePageChange(page)}
-            zeroBasedIndex
-          />
-        </StyledPaginationWrapper>
+        {data?.length > 0 && (
+          <StyledFooterWrapper data-testid={`${dataTestId}-pagination`} theme={theme}>
+            <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support100}>
+              {`Selecting ${table.getSelectedRowModel().flatRows.length} of ${data.length}`}
+            </Text>
+            <StyledPaginationWrapper theme={theme}>
+              <Text color={TextColor.Support60} textStyle={TextStyle.SmallDefault}>
+                {`${pageIndex * pageSize + 1}-
+                ${dataPage.length < pageSize ? data.length : (pageIndex + 1) * pageSize} of
+                ${data.length} `}
+              </Text>
+              <Pagination
+                type={PaginationType.Input}
+                count={
+                  totalPagesCount ||
+                  (data.length / table.getState().pagination.pageSize -
+                    Math.floor(data.length / table.getState().pagination.pageSize) !==
+                  0
+                    ? Math.trunc(data.length / table.getState().pagination.pageSize + 1)
+                    : Math.trunc(data.length / table.getState().pagination.pageSize))
+                }
+                currentPage={table.getState().pagination.pageIndex}
+                onChange={(page) => handlePageChange(page)}
+                zeroBasedIndex
+              />
+            </StyledPaginationWrapper>
+          </StyledFooterWrapper>
+        )}
       </div>
     </DragDropContext>
   );

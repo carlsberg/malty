@@ -211,7 +211,8 @@ export default {
   component: TableComponent,
   parameters: {
     importObject: 'Table',
-    importPath: '@carlsberggroup/malty.organisms.table'
+    importPath: '@carlsberggroup/malty.organisms.table',
+    variants: ['basic', 'dnd', 'selection', 'empty']
   },
   argTypes: {
     headers: {
@@ -231,6 +232,10 @@ export default {
     paginationSize: {
       control: 'number',
       description: 'Number of rows to be displayed in a page'
+    },
+    totalPagesCount: {
+      control: 'number',
+      description: 'Number of total pages'
     },
     onRowClick: {
       description: ''
@@ -264,14 +269,64 @@ const Template: Story<TableProps> = ({ ...args }) => <TableComponent {...args} /
 
 export const Table = Template.bind({});
 
-Table.args = {
-  headers,
-  rows,
-  onRowClick: () => null,
-  paginationSize: 12,
-  className: '',
-  isDraggable: false,
-  size: TableSize.Medium,
-  dataTestId: 'table',
-  allowSelection: false
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+switch (variant) {
+  case 'dnd':
+    Table.args = {
+      headers,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: true,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: false,
+      totalPagesCount: 4
+    };
+    break;
+  case 'selection':
+    Table.args = {
+      headers,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: true,
+      totalPagesCount: 4
+    };
+    break;
+  case 'empty':
+    Table.args = {
+      headers,
+      rows: [],
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: true,
+      totalPagesCount: 4
+    };
+    break;
+
+  default:
+    Table.args = {
+      headers,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: false,
+      totalPagesCount: 4
+    };
+    break;
+}

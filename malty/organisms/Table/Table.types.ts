@@ -11,6 +11,8 @@ export interface TableProps {
   isDraggable?: boolean;
   allowSelection?: boolean;
   onRowSelect?: (selectedRows: TableRowProps[]) => void;
+  totalPagesCount?: number;
+  onPaginationChange?: (page: number) => void;
 }
 
 export interface TableHeaderProps {

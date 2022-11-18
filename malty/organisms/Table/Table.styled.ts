@@ -81,10 +81,14 @@ export const StyledTd = styled.td`
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   height: ${({ theme }) => theme.sizes.xl.value};
 `;
-export const StyledPaginationWrapper = styled.div`
+export const StyledFooterWrapper = styled.div`
   margin-top: ${({ theme }) => theme.sizes.s.value};
-  justify-content: end;
+  justify-content: space-between;
   display: flex;
+`;
+export const StyledPaginationWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 export const StyledSortIcon = styled(Icon)`
   &:hover {
@@ -93,4 +97,10 @@ export const StyledSortIcon = styled(Icon)`
 `;
 export const StyledDraggableCell = styled(StyledTd)`
   padding-left: ${({ theme }) => theme.sizes['4xs'].value}; ;
+`;
+export const StyledNoRecordsWrapper = styled.div`
+  padding: ${({ theme }) => theme.sizes['3xl'].value} 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
