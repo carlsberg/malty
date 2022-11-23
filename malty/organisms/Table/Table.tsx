@@ -56,7 +56,7 @@ export const Table = ({
   const [sorting, setSorting] = useState<SortingState>([]);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
-    pageIndex: 1,
+    pageIndex: 0,
     pageSize: paginationSize
   });
   const pagination = useMemo(
