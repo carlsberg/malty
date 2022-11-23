@@ -88,121 +88,6 @@ const rows: TableRowProps[] = [
     id: '15',
     name: 'Ivy Crawford',
     age: 47
-  },
-  {
-    id: '16',
-    name: 'Ulric Foley',
-    age: 67
-  },
-  {
-    id: '17',
-    name: 'Flavia Church',
-    age: 8
-  },
-  {
-    id: '18',
-    name: 'Isaac Vance',
-    age: 41
-  },
-  {
-    id: '19',
-    name: 'Ashton Church',
-    age: 33
-  },
-  {
-    id: '20',
-    name: 'Yetta Vega',
-    age: 31
-  },
-  {
-    id: '21',
-    name: 'Catherine Patrick',
-    age: 9
-  },
-  {
-    id: '22',
-    name: 'Zephania Mooney',
-    age: 9
-  },
-  {
-    id: '23',
-    name: 'Gay Roberson',
-    age: 56
-  },
-  {
-    id: '24',
-    name: 'Dorian Armstrong',
-    age: 48
-  },
-  {
-    id: '25',
-    name: 'Ginger Gibson',
-    age: 18
-  },
-  {
-    id: '26',
-    name: 'Ulric Guerra',
-    age: 59
-  },
-  {
-    id: '27',
-    name: 'Kevin Frazier',
-    age: 13
-  },
-  {
-    id: '28',
-    name: 'Ori Graham',
-    age: 43
-  },
-  {
-    id: '29',
-    name: 'Dylan Hubbard',
-    age: 67
-  },
-  {
-    id: '30',
-    name: 'Callum Walton',
-    age: 28
-  },
-  {
-    id: '31',
-    name: 'Cairo Solomon',
-    age: 51
-  },
-  {
-    id: '32',
-    name: 'Vladimir Henderson',
-    age: 27
-  },
-  {
-    id: '33',
-    name: 'Alec Medina',
-    age: 15
-  },
-  {
-    id: '34',
-    name: 'fernando Rocha',
-    age: 18
-  },
-  {
-    id: '35',
-    name: 'João Medina',
-    age: 45
-  },
-  {
-    id: '36',
-    name: 'huni mehti',
-    age: 84
-  },
-  {
-    id: '36',
-    name: 'john hades',
-    age: 21
-  },
-  {
-    id: '36',
-    name: 'phill bones',
-    age: 45
   }
 ];
 
@@ -212,7 +97,7 @@ export default {
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
-    variants: ['basic', 'dnd', 'selection', 'empty']
+    variants: ['dnd', 'selection', 'empty']
   },
   argTypes: {
     headers: {
@@ -282,8 +167,7 @@ switch (variant) {
       isDraggable: true,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: false,
-      totalPagesCount: 4
+      allowSelection: false
     };
     break;
   case 'selection':
@@ -296,8 +180,7 @@ switch (variant) {
       isDraggable: false,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: true,
-      totalPagesCount: 4
+      allowSelection: true
     };
     break;
   case 'empty':
@@ -310,8 +193,7 @@ switch (variant) {
       isDraggable: false,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: true,
-      totalPagesCount: 4
+      allowSelection: true
     };
     break;
 
@@ -325,8 +207,7 @@ switch (variant) {
       isDraggable: false,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: false,
-      totalPagesCount: 4
+      allowSelection: false
     };
     break;
 }
