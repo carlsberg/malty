@@ -8,8 +8,17 @@ import { ThemeContext } from 'styled-components';
 import { StyledDraggableCell, StyledRow, StyledTd } from './Table.styled';
 import { DraggableRowProps } from './Table.types';
 
-export const DraggableRow = ({ row, index, onRowClick, size, allowSelection, dataTestId }: DraggableRowProps) => {
+export const DraggableRow = ({
+  row,
+  index,
+  onRowClick,
+  size,
+  allowSelection,
+  dataTestId,
+  elementRef
+}: DraggableRowProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+
   return (
     <Draggable key={row.id} draggableId={row.id} index={index}>
       {(provided) => (
@@ -32,8 +41,13 @@ export const DraggableRow = ({ row, index, onRowClick, size, allowSelection, dat
               <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
             </StyledTd>
           )}
-          {row.getVisibleCells().map((cell) => (
-            <StyledTd data-testid={`${dataTestId}-cell-${cell.id}`} theme={theme} key={cell.id}>
+          {row.getVisibleCells().map((cell, cellIndex) => (
+            <StyledTd
+              width={elementRef?.current[cellIndex]?.offsetWidth}
+              data-testid={`${dataTestId}-cell-${cell.id}`}
+              theme={theme}
+              key={cell.id}
+            >
               {cell.renderValue() as ReactNode}
             </StyledTd>
           ))}

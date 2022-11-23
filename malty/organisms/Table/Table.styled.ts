@@ -71,8 +71,11 @@ export const StyledRow = styled.tr<{
       }
     `}
 `;
-export const StyledTd = styled.td`
-  width: auto;
+export const StyledTd = styled.td<{
+  width?: number;
+}>`
+  box-sizing: border-box;
+  width: ${({ width }) => `${width}px` || 'auto'};
   padding-bottom: 0;
   padding-top: 0;
   padding-left: ${({ theme }) => theme.sizes['2xs'].value};

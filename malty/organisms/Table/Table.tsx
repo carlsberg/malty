@@ -16,7 +16,7 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
@@ -54,7 +54,7 @@ export const Table = ({
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   const [rowSelection, setRowSelection] = useState({});
   const [sorting, setSorting] = useState<SortingState>([]);
-
+  const nodesRef = useRef<HTMLTableCellElement[]>([]);
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 1,
     pageSize: paginationSize
@@ -155,8 +155,9 @@ export const Table = ({
                     />
                   </StyledHead>
                 )}
-                {headerGroup.headers.map((header) => (
+                {headerGroup.headers.map((header, index) => (
                   <StyledHead
+                    ref={(elem: HTMLTableCellElement) => (nodesRef.current[index] = elem)}
                     isSortable={header.column.getCanSort()}
                     onClick={header.column.getToggleSortingHandler()}
                     data-testid={`${dataTestId}-th-${header.id}`}
@@ -254,6 +255,7 @@ export const Table = ({
                   <React.Fragment key={row.id}>
                     {isDraggable && (
                       <DraggableRow
+                        elementRef={nodesRef}
                         row={row}
                         index={index}
                         allowSelection={allowSelection}
