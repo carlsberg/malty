@@ -73,7 +73,7 @@ branches:
         require_code_owner_reviews: true
         dismissal_restrictions:
           users: []
-          teams: []
+          teams: [malty-maintainers]
       required_status_checks:
         strict: true
         contexts: []
@@ -83,7 +83,7 @@ branches:
       restrictions:
         apps: []
         users: []
-        teams: [malty-maintainers]
+        teams: [malty-contributors]
 
   - name: feature/*
     protection:

@@ -52,6 +52,8 @@ export const Input = forwardRef(
       disableRightButton,
       onClearButtonClick,
       required = false,
+      onClickLeftInputButton,
+      onClickRightInputButton,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement>
@@ -87,6 +89,16 @@ export const Input = forwardRef(
     const handleClear = () => {
       onValueChange('');
       onClearButtonClick?.();
+    };
+
+    const handleLeftButtonClick = () => {
+      onValueChange(value ? (+value - 1).toString() : '-1');
+      onClickLeftInputButton?.();
+    };
+
+    const handleRightButtonClick = () => {
+      onValueChange(value ? (+value + 1).toString() : '1');
+      onClickRightInputButton?.();
     };
 
     const renderClearable = () =>
@@ -162,7 +174,7 @@ export const Input = forwardRef(
           isError={!!error}
           disabled={disabled || disableLeftButton}
           readOnly={readOnly}
-          onClick={() => onValueChange(value ? (+value - 1).toString() : '-1')}
+          onClick={handleLeftButtonClick}
         >
           <Icon
             name={IconName.Minus}
@@ -200,7 +212,7 @@ export const Input = forwardRef(
           isError={!!error}
           disabled={disabled || disableRightButton}
           readOnly={readOnly}
-          onClick={() => onValueChange(value ? (+value + 1).toString() : '1')}
+          onClick={handleRightButtonClick}
         >
           <Icon
             name={IconName.Plus}
