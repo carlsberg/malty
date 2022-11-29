@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Table as TableComponent } from './Table';
-import { TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
+import { TableHeaderAlignment, TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
 
 const headers: TableHeaderProps[] = [
   {
@@ -11,6 +11,18 @@ const headers: TableHeaderProps[] = [
   {
     header: 'Age',
     key: 'age'
+  }
+];
+const headersCenter: TableHeaderProps[] = [
+  {
+    header: 'Name',
+    key: 'name',
+    headerAlignment: TableHeaderAlignment.Center
+  },
+  {
+    header: 'Age',
+    key: 'age',
+    headerAlignment: TableHeaderAlignment.Center
   }
 ];
 const rows: TableRowProps[] = [
@@ -97,7 +109,7 @@ export default {
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
-    variants: ['dnd', 'selection', 'empty']
+    variants: ['dnd', 'selection', 'empty', 'headersCenter']
   },
   argTypes: {
     headers: {
@@ -194,6 +206,19 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true
+    };
+    break;
+  case 'headersCenter':
+    Table.args = {
+      headers: headersCenter,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Large,
+      dataTestId: 'table',
+      allowSelection: false
     };
     break;
 

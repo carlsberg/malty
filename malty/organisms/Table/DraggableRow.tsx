@@ -6,7 +6,7 @@ import React, { ReactNode, useContext } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { StyledDraggableCell, StyledRow, StyledTd } from './Table.styled';
-import { DraggableRowProps } from './Table.types';
+import { DraggableRowProps, TableHeaderAlignment } from './Table.types';
 
 export const DraggableRow = ({
   row,
@@ -15,7 +15,8 @@ export const DraggableRow = ({
   size,
   allowSelection,
   dataTestId,
-  elementRef
+  elementRef,
+  tableContext
 }: DraggableRowProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -43,6 +44,11 @@ export const DraggableRow = ({
           )}
           {row.getVisibleCells().map((cell, cellIndex) => (
             <StyledTd
+              alignPosition={
+                tableContext?.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)?.columnDef?.meta as
+                  | TableHeaderAlignment
+                  | undefined
+              }
               width={elementRef?.current[cellIndex]?.offsetWidth}
               data-testid={`${dataTestId}-cell-${cell.id}`}
               theme={theme}

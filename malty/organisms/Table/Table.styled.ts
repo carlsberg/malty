@@ -1,5 +1,6 @@
 import { Icon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
+import { TableHeaderAlignment } from './Table.types';
 
 export const StyledTable = styled.table`
   table-layout: auto;
@@ -16,6 +17,7 @@ export const StyledThead = styled.thead``;
 
 export const StyledHead = styled.th<{
   isSortable: boolean;
+  alignPosition?: TableHeaderAlignment;
 }>`
   cursor: ${({ isSortable }) => (isSortable ? 'pointer' : 'default')};
   background-color: ${({ theme }) => theme.colors.colours.support[20].value};
@@ -24,14 +26,24 @@ export const StyledHead = styled.th<{
   font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
   height: ${({ theme }) => theme.sizes.xl.value};
-  text-align: left;
-  padding-left: ${({ theme }) => theme.sizes['2xs'].value};
-  padding-bottom: 0;
-  padding-top: 0;
+  text-align: ${({ alignPosition }) => alignPosition || 'left'};
+  padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
+
   > * {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: ${({ alignPosition }) => {
+      if (alignPosition === TableHeaderAlignment.Right) {
+        return 'right';
+      }
+      if (alignPosition === TableHeaderAlignment.Center) {
+        return 'center';
+      }
+
+      return 'left';
+    }};
+
     svg {
       margin-left: ${({ theme }) => theme.sizes['2xs'].value};
     }
@@ -73,12 +85,13 @@ export const StyledRow = styled.tr<{
 `;
 export const StyledTd = styled.td<{
   width?: number;
+  alignPosition?: TableHeaderAlignment;
 }>`
+  text-align: ${({ alignPosition }) => alignPosition || 'left'};
   box-sizing: border-box;
   width: ${({ width }) => `${width}px` || 'auto'};
-  padding-bottom: 0;
-  padding-top: 0;
-  padding-left: ${({ theme }) => theme.sizes['2xs'].value};
+
+  padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};

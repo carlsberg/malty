@@ -32,7 +32,7 @@ import {
   StyledTd,
   StyledThead
 } from './Table.styled';
-import { TableProps, TableRowProps, TableSize } from './Table.types';
+import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
 export const Table = ({
   headers,
@@ -69,7 +69,9 @@ export const Table = ({
 
   const columns = headers.map((header) =>
     columnHelper.accessor(header.key, {
-      header: () => header.header
+      id: header.key,
+      header: () => header.header,
+      meta: header.headerAlignment
     })
   );
 
@@ -157,6 +159,7 @@ export const Table = ({
                 )}
                 {headerGroup.headers.map((header, index) => (
                   <StyledHead
+                    alignPosition={columns[index].meta as TableHeaderAlignment | undefined}
                     ref={(elem: HTMLTableCellElement) => (nodesRef.current[index] = elem)}
                     isSortable={header.column.getCanSort()}
                     onClick={header.column.getToggleSortingHandler()}
@@ -255,11 +258,11 @@ export const Table = ({
                   <React.Fragment key={row.id}>
                     {isDraggable && (
                       <DraggableRow
+                        tableContext={table}
                         elementRef={nodesRef}
                         row={row}
                         index={index}
                         allowSelection={allowSelection}
-                        isClickable={!!onRowClick}
                         onRowClick={() => onRowClick && onRowClick(row.original)}
                         size={tableSize}
                         dataTestId={dataTestId}
@@ -279,7 +282,15 @@ export const Table = ({
                           </StyledTd>
                         )}
                         {row.getVisibleCells().map((cell) => (
-                          <StyledTd data-testid={`${dataTestId}-cell-${cell.id}`} theme={theme} key={cell.id}>
+                          <StyledTd
+                            alignPosition={
+                              table.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)?.columnDef
+                                ?.meta as TableHeaderAlignment | undefined
+                            }
+                            data-testid={`${dataTestId}-cell-${cell.id}`}
+                            theme={theme}
+                            key={cell.id}
+                          >
                             {cell.renderValue() as ReactNode}
                           </StyledTd>
                         ))}

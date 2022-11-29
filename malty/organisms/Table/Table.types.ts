@@ -1,4 +1,4 @@
-import { Row } from '@tanstack/react-table';
+import { Row, Table } from '@tanstack/react-table';
 
 export interface TableProps {
   headers: TableHeaderProps[];
@@ -18,10 +18,22 @@ export interface TableProps {
 export interface TableHeaderProps {
   key: string;
   header: unknown;
+  headerAlignment?: TableHeaderAlignment;
 }
 export interface TableRowProps {
   id: string | number;
   [prop: string]: unknown;
+}
+
+export interface DraggableRowProps {
+  onRowClick?: () => void;
+  size?: string;
+  row: Row<TableRowProps>;
+  index: number;
+  dataTestId?: string;
+  allowSelection?: boolean;
+  elementRef?: React.MutableRefObject<HTMLTableCellElement[]>;
+  tableContext?: Table<TableRowProps>;
 }
 
 export enum TableSize {
@@ -29,14 +41,8 @@ export enum TableSize {
   Large = 'Large',
   XLarge = 'XLarge'
 }
-
-export interface DraggableRowProps {
-  onRowClick?: () => void;
-  isClickable?: boolean;
-  size?: string;
-  row: Row<TableRowProps>;
-  index: number;
-  dataTestId?: string;
-  allowSelection?: boolean;
-  elementRef?: React.MutableRefObject<HTMLTableCellElement[]>;
+export enum TableHeaderAlignment {
+  Left = 'left',
+  Right = 'right',
+  Center = 'center'
 }
