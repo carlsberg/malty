@@ -693,6 +693,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Expand"
     },
+    "icons/external-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/ExternalLink"
+    },
     "icons/eye": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.40",
@@ -770,6 +776,12 @@
         "version": "0.0.40",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/GlassMug"
+    },
+    "icons/glass-mug-empty": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/GlassMugEmpty"
     },
     "icons/glass-weissbier": {
         "scope": "carlsberggroup.malty",
@@ -1274,6 +1286,30 @@
         "version": "0.0.40",
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Survey"
+    },
+    "icons/survey-check": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/SurveyCheck"
+    },
+    "icons/survey-checkbox": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/SurveyCheckbox"
+    },
+    "icons/survey-default": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/SurveyDefault"
+    },
+    "icons/survey-trophy": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/SurveyTrophy"
     },
     "icons/sync": {
         "scope": "carlsberggroup.malty",

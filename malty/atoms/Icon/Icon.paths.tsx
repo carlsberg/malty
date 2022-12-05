@@ -89,6 +89,7 @@ export { default as Draughtmaster } from '@carlsberggroup/malty.icons.draughtmas
 export { default as Edit } from '@carlsberggroup/malty.icons.edit';
 export { default as Email } from '@carlsberggroup/malty.icons.email';
 export { default as Expand } from '@carlsberggroup/malty.icons.expand';
+export { default as ExternalLink } from '@carlsberggroup/malty.icons.externalLink';
 export { default as EyeShow } from '@carlsberggroup/malty.icons.eye-hide';
 export { default as EyeHide } from '@carlsberggroup/malty.icons.eye-show';
 export { default as File } from '@carlsberggroup/malty.icons.file';
@@ -100,6 +101,7 @@ export { default as Filters } from '@carlsberggroup/malty.icons.filters';
 export { default as Flash } from '@carlsberggroup/malty.icons.flash';
 export { default as GlassGoblet } from '@carlsberggroup/malty.icons.glass-goblet';
 export { default as GlassMug } from '@carlsberggroup/malty.icons.glass-mug';
+export { default as GlassMugEmpty } from '@carlsberggroup/malty.icons.glass-mug-empty';
 export { default as GlassWeissbier } from '@carlsberggroup/malty.icons.glass-weissbier';
 export { default as Globe } from '@carlsberggroup/malty.icons.globe';
 export { default as Headline } from '@carlsberggroup/malty.icons.headline';
@@ -184,6 +186,10 @@ export { default as SpeachBalloonLivechat } from '@carlsberggroup/malty.icons.sp
 export { default as Star } from '@carlsberggroup/malty.icons.star';
 export { default as StarFilled } from '@carlsberggroup/malty.icons.star-filled';
 export { default as Survey } from '@carlsberggroup/malty.icons.survey';
+export { default as SurveyCheck } from '@carlsberggroup/malty.icons.survey-check';
+export { default as SurveyCheckbox } from '@carlsberggroup/malty.icons.survey-checkbox';
+export { default as SurveyDefault } from '@carlsberggroup/malty.icons.survey-default';
+export { default as SurveyTrophy } from '@carlsberggroup/malty.icons.survey-trophy';
 export { default as Sync } from '@carlsberggroup/malty.icons.sync';
 export { default as Tap } from '@carlsberggroup/malty.icons.tap';
 export { default as TapGlass } from '@carlsberggroup/malty.icons.tap-glass';
