@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+      BIT_VERSION: ${{ secrets.BIT_VERSION }}
     steps:
       - id: token
         name: Token
@@ -18,34 +19,42 @@ jobs:
           app_id: ${{ secrets.CX_RELEASE_APP_ID }}
           private_key: '${{ secrets.CX_RELEASE_APP_PRIVATE_KEY }}'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           token: ${{ steps.token.outputs.token }}
 
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           node-version: '16'
 
-      - name: Bit Install & Setup
+      - name: Install Bit CLI
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
-          npx @teambit/bvm install
-          export PATH=$HOME/bin:$PATH
-          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-          bit config set user.token ${BIT_TOKEN}
-        shell: bash
+          npm i -g @teambit/bvm
+          bvm install ${BIT_VERSION}
         env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+          BIT_VERSION: ${{ secrets.BIT_VERSION }}
 
-      - name: Register remote scopes
+      - name: Add bvm bin folder to path
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          echo "$HOME/bin" >> $GITHUB_PATH
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+
+      - name: Set up bit config
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           echo "Adding bit.dev to npm registry"
+          export PATH=${{ env.PATH }}
           npm config set @bit:registry https://node.bit.dev
           npm config set @carlsberggroup:registry=https://node.bit.dev
           npm config set @teambit:registry=https://node.bit.dev
-          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+          bit config set analytics_reporting false
+          bit config set anonymous_reporting false
+          bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
-        shell: bash
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
@@ -59,11 +68,17 @@ jobs:
           bit compile
         shell: bash
 
-      - name: Bit Tag & Export
+      - name: Bit Tag Components
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           export PATH=${{ env.PATH }}
           bit tag
+        shell: bash
+
+      - name: Export components
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          export PATH=${{ env.PATH }}
           bit export
         shell: bash
 
@@ -80,7 +95,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git add .
-          git commit -m "release: Bit GitHub Action"
+          git commit -m "release: Bit GitHub Action (automated) [skip ci]"
           git push
         shell: bash
         env:

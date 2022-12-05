@@ -1,0 +1,84 @@
+name: Change Request
+description: This type is intended for small changes to an existing Component and/or functionality
+title: 'change-request: '
+labels: [enhancement]
+assignees: [galmeida12, marianacarlsberg, MartimMatosCB, vicenteopaso]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill the title above
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please describe the change that you would like to see. You can also attach files
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Component
+      description: Please tell us the associated Component
+      options:
+        - Alert
+        - Button
+        - Checkbox
+        - Chip
+        - Colors
+        - Floater
+        - Headline
+        - Icon
+        - Icon Wrapper
+        - Image
+        - Input
+        - Label
+        - Link
+        - Overlay
+        - Padded Container
+        - Pagination
+        - Pill
+        - Progress Bar
+        - Progress Spinner
+        - Radio
+        - Rating
+        - Stepper
+        - Select
+        - Table
+        - Text
+        - Text Area
+        - Tooltip
+        - Toggle
+        - Theme Provider
+        - Others
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Priority
+      description: Tell us what's the priority that this change have to you
+      options:
+        - Blocker
+        - Higher
+        - High
+        - Medium
+        - Low
+        - Lowest
+    validations:
+      required: true
+
+  - type: dropdown
+    attributes:
+      label: Team
+      description: The team which the ticket reporter belongs
+      options:
+        - Cadi
+        - CS WE
+        - CS+
+        - Lean Signup
+        - Ottilia
+        - InnerSource Community
+        - OpenSource Community
+    validations:
+      required: true

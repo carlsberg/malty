@@ -121,6 +121,10 @@ export default {
         type: 'boolean'
       },
       defaultValue: true
+    },
+    required: {
+      control: 'boolean',
+      description: 'Makes the Datepicker required to fill'
     }
   }
 } as Meta;
@@ -141,7 +145,9 @@ const Template: Story<DatepickerProps> = ({
   primaryAction,
   secondaryAction,
   shouldCloseOnSelect,
-  size
+  size,
+  required,
+  dataTestId
 }) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
@@ -185,6 +191,8 @@ const Template: Story<DatepickerProps> = ({
         inline={inline}
         shouldCloseOnSelect={shouldCloseOnSelect}
         size={size}
+        required={required}
+        dataTestId={dataTestId}
       />
     </div>
   );
@@ -199,19 +207,22 @@ switch (variant) {
   case 'disabled':
     Datepicker.args = {
       label: 'Select date',
-      disabled: true
+      disabled: true,
+      required: false
     };
     break;
   case 'readonly':
     Datepicker.args = {
       label: 'Select date',
-      readOnly: true
+      readOnly: true,
+      required: false
     };
     break;
   case 'range':
     Datepicker.args = {
       label: 'Select date',
-      selectsRange: true
+      selectsRange: true,
+      required: false
     };
     break;
   case 'captionsAndActions':
@@ -248,6 +259,6 @@ switch (variant) {
     };
     break;
   default:
-    Datepicker.args = { label: 'Select date' };
+    Datepicker.args = { label: 'Select date', required: false };
     break;
 }

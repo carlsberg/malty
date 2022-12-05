@@ -3,7 +3,8 @@ import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Label } from '@carlsberggroup/malty.atoms.label';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {
@@ -16,15 +17,14 @@ import {
   StyledChevronDown,
   StyledError,
   StyledHint,
-  StyledLabel,
+  StyledMainWrapper,
   StyledOption,
   StyledOptionsWrapper,
   StyledSearchWrapper,
   StyledSelectedOptionsWrapper,
-  StyledTypographyProvider,
   StyledWrapper
 } from './Select.styled';
-import { SelectOptionsType, SelectProps, SelectSize, SelectType } from './Select.types';
+import { SelectOptionsType, SelectPosition, SelectProps, SelectSize, SelectType } from './Select.types';
 
 export const Select = ({
   defaultValue = [],
@@ -45,6 +45,8 @@ export const Select = ({
   readOnly,
   selectAllLabel = 'Select all',
   clearAllLabel = 'Clear all',
+  clearAllOption = true,
+  alignPosition = SelectPosition.Left,
   onBlur
 }: SelectProps) => {
   const theme = defaultTheme;
@@ -167,13 +169,14 @@ export const Select = ({
     if (!multiple) setShowOptionList(false);
   };
   const renderDefaultDropdown = () => (
-    <TypographyProvider>
+    <StyledMainWrapper>
       <StyledOptionsWrapper
         data-testid={`${dataTestId}-options`}
         isOpen={showOptionList}
         selectStyle={type}
         theme={theme}
         height={numSize}
+        position={type === SelectType.Inline ? alignPosition : undefined}
       >
         <StyledActionsWrapper theme={theme}>
           {search && (
@@ -188,14 +191,14 @@ export const Select = ({
               />
             </StyledSearchWrapper>
           )}
-          {(selectedValueState.length > 0 || multiple) && (
+          {((selectedValueState.length > 0 && clearAllOption) || multiple) && (
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
                 <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
                   {selectAllLabel}
                 </StyledActionButton>
               )}
-              {selectedValueState.length > 0 && (
+              {selectedValueState.length > 0 && clearAllOption && (
                 <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
                   {clearAllLabel}
                 </StyledActionButton>
@@ -238,14 +241,12 @@ export const Select = ({
           </StyledOption>
         ))}
       </StyledOptionsWrapper>
-    </TypographyProvider>
+    </StyledMainWrapper>
   );
   return (
-    <StyledTypographyProvider>
-      {label && type !== SelectType.Inline && (
-        <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
-          {label}
-        </StyledLabel>
+    <StyledMainWrapper>
+      {type !== SelectType.Inline && (
+        <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       )}
       <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
         <StyledButton
@@ -291,6 +292,6 @@ export const Select = ({
           {hint}
         </StyledHint>
       )}
-    </StyledTypographyProvider>
+    </StyledMainWrapper>
   );
 };

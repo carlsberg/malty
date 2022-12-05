@@ -1,6 +1,6 @@
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -51,16 +51,14 @@ export const Accordion = ({
   };
 
   return (
-    <TypographyProvider>
-      <ContextAccordion.Provider value={{ activeEventKey, alwaysOpen }}>
-        <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
-          {children?.map((el, index) =>
-            // eslint-disable-next-line react/no-array-index-key
-            React.cloneElement(el, { key: `accordion-${index}`, size, onChange: handleAccordionItem })
-          )}
-        </StyledAccordionWrapper>
-      </ContextAccordion.Provider>
-    </TypographyProvider>
+    <ContextAccordion.Provider value={{ activeEventKey, alwaysOpen }}>
+      <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
+        {children?.map((el, index) =>
+          // eslint-disable-next-line react/no-array-index-key
+          React.cloneElement(el, { key: `accordion-${index}`, size, onChange: handleAccordionItem })
+        )}
+      </StyledAccordionWrapper>
+    </ContextAccordion.Provider>
   );
 };
 
@@ -118,51 +116,49 @@ export const AccordionItem = ({
   }, [size, theme]);
 
   return (
-    <TypographyProvider>
-      <StyledAccordionItem
-        className={openAccordion ? 'accordionItem active' : 'accordionItem'}
-        data-testid={`${dataQaId}-item`}
+    <StyledAccordionItem
+      className={openAccordion ? 'accordionItem active' : 'accordionItem'}
+      data-testid={`${dataQaId}-item`}
+      theme={theme}
+    >
+      <StyledAccordionHeader
+        aria-expanded={openAccordion}
+        aria-controls={`accordion-item-"${id}`}
         theme={theme}
+        paddingSize={numPadding}
+        size={numSize}
+        className="accordion-header"
+        onClick={handleOpenAccordion}
       >
-        <StyledAccordionHeader
-          aria-expanded={openAccordion}
-          aria-controls={`accordion-item-"${id}`}
-          theme={theme}
-          paddingSize={numPadding}
-          size={numSize}
-          className="accordion-header"
-          onClick={handleOpenAccordion}
+        <Text
+          data-testid={`${dataQaId}-item-title`}
+          color={TextColor.DigitalBlack}
+          textStyle={
+            size === AccordionSize.XLarge || size === AccordionSize.XXLarge
+              ? TextStyle.MediumBold
+              : TextStyle.MediumSmallBold
+          }
         >
-          <Text
-            data-testid={`${dataQaId}-item-title`}
-            color={TextColor.DigitalBlack}
-            textStyle={
-              size === AccordionSize.XLarge || size === AccordionSize.XXLarge
-                ? TextStyle.MediumBold
-                : TextStyle.MediumSmallBold
-            }
-          >
-            {title}
-          </Text>
-          <StyledChevronDown
-            data-testid={`${dataQaId}-item-icon`}
-            open={openAccordion}
-            theme={theme}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
-          />
-        </StyledAccordionHeader>
-        <StyledAccordionBody
-          data-testid={`${dataQaId}-content-container`}
-          id={`accordion-item-"${id}`}
-          theme={theme}
-          paddingSize={numPadding}
-          className={openAccordion ? 'accordionBody show' : 'accordionBody'}
+          {title}
+        </Text>
+        <StyledChevronDown
+          data-testid={`${dataQaId}-item-icon`}
           open={openAccordion}
-        >
-          {children}
-        </StyledAccordionBody>
-      </StyledAccordionItem>
-    </TypographyProvider>
+          theme={theme}
+          color={IconColor.DigitalBlack}
+          size={IconSize.Medium}
+        />
+      </StyledAccordionHeader>
+      <StyledAccordionBody
+        data-testid={`${dataQaId}-content-container`}
+        id={`accordion-item-"${id}`}
+        theme={theme}
+        paddingSize={numPadding}
+        className={openAccordion ? 'accordionBody show' : 'accordionBody'}
+        open={openAccordion}
+      >
+        {children}
+      </StyledAccordionBody>
+    </StyledAccordionItem>
   );
 };

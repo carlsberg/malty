@@ -1,5 +1,5 @@
 export interface SelectProps {
-  label: string;
+  label?: string;
   onValueChange: (value: SelectOptionsType[]) => void;
   defaultValue?: SelectOptionsType[];
   value?: SelectOptionsType[];
@@ -17,7 +17,14 @@ export interface SelectProps {
   readOnly?: boolean;
   selectAllLabel?: string;
   clearAllLabel?: string;
+  clearAllOption?: boolean;
+  alignPosition?: SelectPosition;
   onBlur?: () => void;
+}
+
+export enum SelectPosition {
+  Left = 'left',
+  Right = 'right'
 }
 
 export interface SelectOptionsType {

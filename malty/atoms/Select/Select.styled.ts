@@ -1,7 +1,7 @@
 import Check from '@carlsberggroup/malty.icons.check';
 import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
-import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import styled, { css, keyframes } from 'styled-components';
+import { SelectPosition } from './Select.types';
 
 const fadeIn = keyframes`
     0% {opacity: 0;}
@@ -26,23 +26,7 @@ export const StyledButtonContainer = styled.div<{
     selectStyle === 'inline' &&
     css`
       width: fit-content;
-    `}
-`;
-
-export const StyledLabel = styled.label<{
-  disabled?: boolean;
-}>`
-  font-family: ${({ theme }) => theme.typography.desktop.text.small_default['font-family'].value};
-  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text.small_default['line-height'].value};
-  padding-bottom: ${({ theme }) => theme.sizes['2xs'].value};
-  font-weight: bold;
-  display: block;
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      min-width: fit-content;
     `}
 `;
 
@@ -169,6 +153,7 @@ export const StyledButton = styled.button<{
 export const StyledOptionsWrapper = styled.ul<{
   height: string;
   selectStyle?: string;
+  position?: SelectPosition;
   isOpen?: boolean;
 }>`
   position: absolute;
@@ -187,6 +172,11 @@ export const StyledOptionsWrapper = styled.ul<{
   opacity: 0;
   transition: all 0.3s ease-in-out;
   max-height: calc(${({ height }) => height} * 7);
+  ${({ position }) =>
+    position === SelectPosition.Right &&
+    css`
+      right: 0;
+    `}
   ${({ isOpen }) =>
     isOpen &&
     css`
@@ -332,6 +322,6 @@ export const StyledActionButton = styled.div`
   }
 `;
 
-export const StyledTypographyProvider = styled(TypographyProvider)`
-  width: 100% !important;
+export const StyledMainWrapper = styled.div`
+  width: 100%;
 `;

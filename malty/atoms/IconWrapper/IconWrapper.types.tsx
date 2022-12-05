@@ -5,6 +5,7 @@ export interface IconWrapperProps extends React.HTMLAttributes<SVGElement> {
   size: IconSize;
   viewBox?: string;
   onClick?: MouseEventHandler<SVGElement>;
+  name?: string;
 }
 
 export enum IconColor {
@@ -37,4 +38,12 @@ export enum IconSize {
   Medium = 'm',
   Large = 'l',
   ExtraLarge = 'xl'
+}
+
+export interface UseIconColorProps {
+  color: IconColor;
+}
+
+export interface UseNumSizeProps {
+  size: IconSize;
 }

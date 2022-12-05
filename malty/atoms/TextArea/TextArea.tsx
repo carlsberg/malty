@@ -1,11 +1,11 @@
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Label } from '@carlsberggroup/malty.atoms.label';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
   StyledError,
   StyledHint,
-  StyledLabel,
   StyledtextArea,
   StyledTextAreaCharacterCounter,
   StyledTextareaContainer,
@@ -25,6 +25,7 @@ export const TextArea = ({
   hint,
   readOnly = false,
   dataTestId,
+  required = false,
   ...props
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -41,50 +42,45 @@ export const TextArea = ({
   };
 
   return (
-    <TypographyProvider>
-      <StyledTextareaContainer theme={theme}>
-        {label && (
-          <StyledLabel data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} theme={theme}>
-            {label}
-          </StyledLabel>
-        )}
-        <StyledTextAreaWrapper
-          data-testid={`${dataTestId}-container`}
-          readOnly={readOnly}
-          disabled={disabled}
-          isError={!!error}
-          resize={resize}
+    <StyledTextareaContainer theme={theme}>
+      <Label label={label} required={required} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
+      <StyledTextAreaWrapper
+        data-testid={`${dataTestId}-container`}
+        readOnly={readOnly}
+        disabled={disabled}
+        isError={!!error}
+        resize={resize}
+        theme={theme}
+      >
+        <StyledtextArea
+          data-testid={`${dataTestId}`}
+          name={id}
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          onChange={handleCarachterCounter}
           theme={theme}
-        >
-          <StyledtextArea
-            data-testid={`${dataTestId}`}
-            name={id}
-            id={id}
-            value={value}
-            placeholder={placeholder}
-            onChange={handleCarachterCounter}
-            theme={theme}
-            disabled={disabled}
-            readOnly={readOnly}
-            maxLength={maxLength}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
-          />
-          <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
-            {textAreaCount}
-          </StyledTextAreaCharacterCounter>
-        </StyledTextAreaWrapper>
-        {error && (
-          <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
-            {error}
-          </StyledError>
-        )}
-        {hint && !error && (
-          <StyledHint data-testid={`${dataTestId}-hint-label`} disabled={disabled} theme={theme}>
-            {hint}
-          </StyledHint>
-        )}
-      </StyledTextareaContainer>
-    </TypographyProvider>
+          disabled={disabled}
+          readOnly={readOnly}
+          maxLength={maxLength}
+          required={required}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...props}
+        />
+        <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
+          {textAreaCount}
+        </StyledTextAreaCharacterCounter>
+      </StyledTextAreaWrapper>
+      {error && (
+        <StyledError data-testid={`${dataTestId}-error-label`} theme={theme}>
+          {error}
+        </StyledError>
+      )}
+      {hint && !error && (
+        <StyledHint data-testid={`${dataTestId}-hint-label`} disabled={disabled} theme={theme}>
+          {hint}
+        </StyledHint>
+      )}
+    </StyledTextareaContainer>
   );
 };

@@ -39,6 +39,23 @@ describe('input', () => {
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
   });
 
+  it('calls onInputBlur when lose focus', () => {
+    const onValueChange = jest.fn();
+    const onInputBlur = jest.fn();
+    render(
+      <Input
+        value="Initial value"
+        label="Input label"
+        onValueChange={onValueChange}
+        onInputBlur={onInputBlur}
+        type={InputType.Text}
+      />
+    );
+    const input = screen.getByDisplayValue('Initial value');
+    fireEvent.blur(input, { target: { value: 'Test Input' } });
+    expect(onInputBlur).toHaveBeenCalledTimes(1);
+  });
+
   it('renders input number', () => {
     const onValueChange = jest.fn();
     render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
@@ -49,5 +66,23 @@ describe('input', () => {
     const onValueChange = jest.fn();
     render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
     expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
+  });
+
+  it('calls clear function when clear icon is clicked', () => {
+    const onValueChange = jest.fn();
+    const onClearButtonClick = jest.fn();
+    render(
+      <Input
+        value="test search"
+        label="Search"
+        onValueChange={onValueChange}
+        type={InputType.Search}
+        onClearButtonClick={onClearButtonClick}
+      />
+    );
+
+    const clearButton = screen.getByTestId(`icon-ItemClose`);
+    fireEvent.click(clearButton);
+    expect(onClearButtonClick).toHaveBeenCalledTimes(1);
   });
 });

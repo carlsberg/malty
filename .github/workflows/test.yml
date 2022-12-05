@@ -13,43 +13,47 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+      BIT_VERSION: ${{ secrets.BIT_VERSION }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-      - uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Bit CLI
+        run: |
+          npm i -g @teambit/bvm
+          bvm install ${BIT_VERSION}
+        env:
+          BIT_VERSION: ${{ secrets.BIT_VERSION }}
 
-      - name: Register remote scopes
+      - name: Add bvm bin folder to path
+        run: |
+          echo "$HOME/bin" >> $GITHUB_PATH
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+
+      - name: Set up bit config
         run: |
           echo "Adding bit.dev to npm registry"
+          export PATH=${{ env.PATH }}
           npm config set @bit:registry https://node.bit.dev
           npm config set @carlsberggroup:registry=https://node.bit.dev
           npm config set @teambit:registry=https://node.bit.dev
-          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+          bit config set analytics_reporting false
+          bit config set anonymous_reporting false
+          bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-        shell: bash
 
-      - name: Install Bit
-        run: |
-          npx @teambit/bvm install
-          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-        shell: bash
-
-      - name: Install dependencies (Bit CLI)
+      - name: Bit Deps Install & Compile
         run: |
           export PATH=${{ env.PATH }}
-          bit config set user.token ${BIT_TOKEN}
+          yarn cache clean --force
+          bit clear-cache
           bit install
           bit compile
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
         shell: bash
 
       - name: Run Unit Tests

@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme, TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledParagraph } from './Text.styled';
@@ -9,23 +9,39 @@ export const Text = ({
   align = TextAlign.Left,
   color = TextColor.DigitalBlack,
   italic = false,
+  as = 'p',
+  ellipsis = false,
   children,
+  width,
+  className,
   dataQaId
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  let StyledTag = as;
+
+  switch (as) {
+    case 'span':
+      StyledTag = 'span';
+      break;
+    default:
+      StyledTag = 'p';
+      break;
+  }
 
   return (
-    <TypographyProvider>
-      <StyledParagraph
-        data-testid={dataQaId}
-        textStyle={textStyle}
-        color={color}
-        align={align}
-        italic={italic}
-        theme={theme}
-      >
-        {children}
-      </StyledParagraph>
-    </TypographyProvider>
+    <StyledParagraph
+      data-testid={dataQaId}
+      textStyle={textStyle}
+      color={color}
+      align={align}
+      italic={italic}
+      ellipsis={ellipsis}
+      width={width}
+      theme={theme}
+      as={StyledTag}
+      className={className}
+    >
+      {children}
+    </StyledParagraph>
   );
 };
