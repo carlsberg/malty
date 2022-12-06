@@ -1,8 +1,8 @@
 import { IconStories } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import Icon from './index';
 
-const [meta, story] = IconStories('ExternalLink', Icon);
+const [meta, story] = IconStories('External Link', Icon);
 
 export default meta;
 
-export const ExternalLink = story;
+export const externalLink = story;

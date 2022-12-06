@@ -5,4 +5,4 @@ const [meta, story] = IconStories('Glass Mug Empty', Icon);
 
 export default meta;
 
-export const GlassMugEmpty = story;
+export const glassMugEmpty = story;

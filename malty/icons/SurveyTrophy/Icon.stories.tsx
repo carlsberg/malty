@@ -5,4 +5,4 @@ const [meta, story] = IconStories('Survey Trophy', Icon);
 
 export default meta;
 
-export const SurveyTrophy = story;
+export const surveyTrophy = story;

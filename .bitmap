@@ -867,6 +867,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/ItemAdd"
     },
+    "icons/item-block": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/ItemBlock"
+    },
     "icons/item-check": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.40",

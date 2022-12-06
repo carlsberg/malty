@@ -89,7 +89,7 @@ export { default as Draughtmaster } from '@carlsberggroup/malty.icons.draughtmas
 export { default as Edit } from '@carlsberggroup/malty.icons.edit';
 export { default as Email } from '@carlsberggroup/malty.icons.email';
 export { default as Expand } from '@carlsberggroup/malty.icons.expand';
-export { default as ExternalLink } from '@carlsberggroup/malty.icons.externalLink';
+export { default as ExternalLink } from '@carlsberggroup/malty.icons.external-link';
 export { default as EyeShow } from '@carlsberggroup/malty.icons.eye-hide';
 export { default as EyeHide } from '@carlsberggroup/malty.icons.eye-show';
 export { default as File } from '@carlsberggroup/malty.icons.file';
@@ -116,6 +116,7 @@ export { default as Image } from '@carlsberggroup/malty.icons.image';
 export { default as Information } from '@carlsberggroup/malty.icons.information';
 export { default as Italic } from '@carlsberggroup/malty.icons.italic';
 export { default as ItemAdd } from '@carlsberggroup/malty.icons.item-add';
+export { default as ItemBlock } from '@carlsberggroup/malty.icons.item-block';
 export { default as ItemCheck } from '@carlsberggroup/malty.icons.item-check';
 export { default as ItemCheckDefault } from '@carlsberggroup/malty.icons.item-check-default';
 export { default as ItemCheckFilled } from '@carlsberggroup/malty.icons.item-check-filled';

@@ -127,6 +127,7 @@ export enum IconName {
   Information = 'Information',
   Italic = 'Italic',
   ItemAdd = 'ItemAdd',
+  ItemBlock = 'ItemBlock',
   ItemCheckFilled = 'ItemCheckFilled',
   ItemCheckDefault = 'ItemCheckDefault',
   ItemCheck = 'ItemCheck',
