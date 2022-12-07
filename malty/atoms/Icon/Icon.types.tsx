@@ -98,6 +98,7 @@ export enum IconName {
   Download = 'Download',
   Draughtmaster = 'Draughtmaster',
   Edit = 'Edit',
+  EllipsisVertical = 'EllipsisVertical',
   Email = 'Email',
   Expand = 'Expand',
   ExternalLink = 'ExternalLink',

@@ -87,6 +87,7 @@ export { default as Diploma2 } from '@carlsberggroup/malty.icons.diploma2';
 export { default as Download } from '@carlsberggroup/malty.icons.download';
 export { default as Draughtmaster } from '@carlsberggroup/malty.icons.draughtmaster';
 export { default as Edit } from '@carlsberggroup/malty.icons.edit';
+export { default as EllipsisVertical } from '@carlsberggroup/malty.icons.ellipsis-vertical';
 export { default as Email } from '@carlsberggroup/malty.icons.email';
 export { default as Expand } from '@carlsberggroup/malty.icons.expand';
 export { default as ExternalLink } from '@carlsberggroup/malty.icons.external-link';

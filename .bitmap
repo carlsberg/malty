@@ -681,6 +681,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Edit"
     },
+    "icons/ellipsis-vertical": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/EllipsisVertical"
+    },
     "icons/email": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.40",
