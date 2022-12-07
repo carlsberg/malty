@@ -5713,6 +5713,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"EllipsisVertical-25e8e2@workspace:malty/icons/EllipsisVertical":
+  version: 0.0.0-use.local
+  resolution: "EllipsisVertical-25e8e2@workspace:malty/icons/EllipsisVertical"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Email-94b587@workspace:malty/icons/Email":
   version: 0.0.0-use.local
   resolution: "Email-94b587@workspace:malty/icons/Email"
@@ -5725,6 +5734,15 @@ __metadata:
 "Expand-7e0b6a@workspace:malty/icons/Expand":
   version: 0.0.0-use.local
   resolution: "Expand-7e0b6a@workspace:malty/icons/Expand"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"ExternalLink-e55b7f@workspace:malty/icons/ExternalLink":
+  version: 0.0.0-use.local
+  resolution: "ExternalLink-e55b7f@workspace:malty/icons/ExternalLink"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -5851,6 +5869,15 @@ __metadata:
 "GlassMug-3a2787@workspace:malty/icons/GlassMug":
   version: 0.0.0-use.local
   resolution: "GlassMug-3a2787@workspace:malty/icons/GlassMug"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"GlassMugEmpty-2c27c3@workspace:malty/icons/GlassMugEmpty":
+  version: 0.0.0-use.local
+  resolution: "GlassMugEmpty-2c27c3@workspace:malty/icons/GlassMugEmpty"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6022,6 +6049,15 @@ __metadata:
 "ItemAdd-9ef679@workspace:malty/icons/ItemAdd":
   version: 0.0.0-use.local
   resolution: "ItemAdd-9ef679@workspace:malty/icons/ItemAdd"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"ItemBlock-0a3763@workspace:malty/icons/ItemBlock":
+  version: 0.0.0-use.local
+  resolution: "ItemBlock-0a3763@workspace:malty/icons/ItemBlock"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6814,6 +6850,42 @@ __metadata:
 "Survey-7a2970@workspace:malty/icons/Survey":
   version: 0.0.0-use.local
   resolution: "Survey-7a2970@workspace:malty/icons/Survey"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"SurveyCheck-e8cbbb@workspace:malty/icons/SurveyCheck":
+  version: 0.0.0-use.local
+  resolution: "SurveyCheck-e8cbbb@workspace:malty/icons/SurveyCheck"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"SurveyCheckbox-527f9a@workspace:malty/icons/SurveyCheckbox":
+  version: 0.0.0-use.local
+  resolution: "SurveyCheckbox-527f9a@workspace:malty/icons/SurveyCheckbox"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"SurveyDefault-596b75@workspace:malty/icons/SurveyDefault":
+  version: 0.0.0-use.local
+  resolution: "SurveyDefault-596b75@workspace:malty/icons/SurveyDefault"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"SurveyTrophy-face5e@workspace:malty/icons/SurveyTrophy":
+  version: 0.0.0-use.local
+  resolution: "SurveyTrophy-face5e@workspace:malty/icons/SurveyTrophy"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
