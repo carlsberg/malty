@@ -27,77 +27,77 @@ const headersCenter: TableHeaderProps[] = [
 ];
 const rows: TableRowProps[] = [
   {
-    id: '1',
+    id: 1,
     name: 'Fitzgerald Moody',
     age: 35
   },
   {
-    id: '2',
+    id: 2,
     name: 'Liberty Bell',
     age: 66
   },
   {
-    id: '3',
+    id: 3,
     name: 'Clayton Carpenter',
     age: 25
   },
   {
-    id: '4',
+    id: 4,
     name: 'Halla Pugh',
     age: 31
   },
   {
-    id: '5',
+    id: 5,
     name: 'Jaquelyn Valenzuela',
     age: 52
   },
   {
-    id: '6',
+    id: 6,
     name: 'Kyra Mcknight',
     age: 23
   },
   {
-    id: '7',
+    id: 7,
     name: 'Naida Barlow',
     age: 52
   },
   {
-    id: '8',
+    id: 8,
     name: 'Amir Joyce',
     age: 26
   },
   {
-    id: '9',
+    id: 9,
     name: 'Lenore Dixon',
     age: 40
   },
   {
-    id: '10',
+    id: 10,
     name: 'Carla Velazquez',
     age: 29
   },
   {
-    id: '11',
+    id: 11,
     name: 'Quamar Petersen',
     age: 58
   },
   {
-    id: '12',
+    id: 12,
     name: 'Patrick Stout',
     age: 61
   },
   {
-    id: '13',
+    id: 13,
     name: 'Ian Rhodes',
     age: 33
   },
   {
-    id: '14',
+    id: 14,
     name: 'Wesley Simmons',
     age: 67
   },
   {
-    id: '15',
+    id: 15,
     name: 'Ivy Crawford',
     age: 47
   }

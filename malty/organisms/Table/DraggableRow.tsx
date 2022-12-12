@@ -10,7 +10,6 @@ import { DraggableRowProps, TableHeaderAlignment } from './Table.types';
 
 export const DraggableRow = ({
   row,
-  index,
   onRowClick,
   size,
   allowSelection,
@@ -21,7 +20,7 @@ export const DraggableRow = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <Draggable key={row.id} draggableId={row.id} index={index}>
+    <Draggable key={row.id} draggableId={row.id} index={row.index}>
       {(provided) => (
         <StyledRow
           {...provided.draggableProps}

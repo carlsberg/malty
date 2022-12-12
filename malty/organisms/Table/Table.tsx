@@ -30,6 +30,7 @@ import {
   StyledTable,
   StyledTbody,
   StyledTd,
+  StyledTextWrapper,
   StyledThead
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
@@ -79,12 +80,12 @@ export const Table = ({
     data,
     columns,
     pageCount: -1,
+    autoResetPageIndex: false,
     state: {
       rowSelection,
       pagination,
       sorting
     },
-
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     onPaginationChange: setPagination,
@@ -254,14 +255,13 @@ export const Table = ({
                     </td>
                   </tr>
                 )}
-                {table.getRowModel().rows.map((row, index) => (
+                {table.getRowModel().rows.map((row) => (
                   <React.Fragment key={row.id}>
                     {isDraggable && (
                       <DraggableRow
                         tableContext={table}
                         elementRef={nodesRef}
                         row={row}
-                        index={index}
                         allowSelection={allowSelection}
                         onRowClick={() => onRowClick && onRowClick(row.original)}
                         size={tableSize}
@@ -306,9 +306,13 @@ export const Table = ({
         </StyledTable>
         {data?.length > 0 && (
           <StyledFooterWrapper data-testid={`${dataTestId}-pagination`} theme={theme}>
-            <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support100}>
-              {`Selecting ${table.getSelectedRowModel().flatRows.length} of ${data.length}`}
-            </Text>
+            <StyledTextWrapper>
+              {table.getSelectedRowModel().flatRows.length > 0 && (
+                <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support100}>
+                  {`Selecting ${table.getSelectedRowModel().flatRows.length} of ${data.length}`}
+                </Text>
+              )}
+            </StyledTextWrapper>
             <StyledPaginationWrapper theme={theme}>
               <Text color={TextColor.Support60} textStyle={TextStyle.SmallDefault}>
                 {`${pageIndex * pageSize + 1}-

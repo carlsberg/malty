@@ -29,7 +29,6 @@ export interface DraggableRowProps {
   onRowClick?: () => void;
   size?: string;
   row: Row<TableRowProps>;
-  index: number;
   dataTestId?: string;
   allowSelection?: boolean;
   elementRef?: React.MutableRefObject<HTMLTableCellElement[]>;
