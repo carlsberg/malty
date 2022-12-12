@@ -175,6 +175,7 @@ export const Input = forwardRef(
           disabled={disabled || disableLeftButton}
           readOnly={readOnly}
           onClick={handleLeftButtonClick}
+          aria-label="Quantity Minus"
         >
           <Icon
             name={IconName.Minus}
@@ -213,6 +214,7 @@ export const Input = forwardRef(
           disabled={disabled || disableRightButton}
           readOnly={readOnly}
           onClick={handleRightButtonClick}
+          aria-label="Quantity Plus"
         >
           <Icon
             name={IconName.Plus}
