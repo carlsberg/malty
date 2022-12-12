@@ -1,11 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 const TypographyProvider = createGlobalStyle`
-
-  @import url('https://cdn.carlsberggroup.com/fonts/montserrat/Montserrat-VariableFont_wght.ttf');
-
+  /* @font-face {
+    font-family: 'Montserrat';
+    src: url('https://cdn.carlsberggroup.com/fonts/montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
+    font-display: 'swap';
+  } */
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', monospace;
     margin: 0;
     padding: 0;
     border: 0;
