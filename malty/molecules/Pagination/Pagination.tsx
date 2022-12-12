@@ -7,7 +7,7 @@ import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
-import { PaginationProps, PaginationType } from './Pagination.types';
+import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
 export const Pagination = ({
   count,
@@ -47,7 +47,7 @@ export const Pagination = ({
 
     if (type === PaginationType.Input) {
       if (inputValue || inputValue === 0 || inputValue === '') {
-        timeOutId = setTimeout(() => onChange(inputValue), 350);
+        timeOutId = setTimeout(() => onChange(inputValue, PaginationTrigger.PageNr), 350);
       }
     }
 
@@ -73,15 +73,17 @@ export const Pagination = ({
   }
 
   const onPageClick = (targetPage: number) => {
-    onChange(targetPage);
+    onChange(targetPage, PaginationTrigger.PageNr);
   };
 
-  const onPageKeyUp = (pageNr: number) => (e: KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === 'Space') {
-      e.preventDefault();
-      onChange(pageNr);
-    }
-  };
+  const onPageKeyUp =
+    (pageNr: number, trigger: PaginationTrigger = PaginationTrigger.PageNr) =>
+    (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === 'Space') {
+        e.preventDefault();
+        onChange(pageNr, trigger);
+      }
+    };
 
   const onPrevious = () => {
     if (type === PaginationType.Input) {
@@ -92,7 +94,7 @@ export const Pagination = ({
       return setInputValue((inputValue as number) - 1);
     }
 
-    return onChange(currentPage - 1);
+    return onChange(currentPage - 1, PaginationTrigger.Prev);
   };
 
   const onNext = () => {
@@ -103,15 +105,15 @@ export const Pagination = ({
       return setInputValue((inputValue as number) + 1);
     }
 
-    return onChange(currentPage + 1);
+    return onChange(currentPage + 1, PaginationTrigger.Next);
   };
 
   const onPreviousKeyUp = () => {
-    onPageKeyUp(currentPage - 1);
+    onPageKeyUp(currentPage - 1, PaginationTrigger.Prev);
   };
 
   const onNextKeyUp = () => {
-    onPageKeyUp(currentPage + 1);
+    onPageKeyUp(currentPage + 1, PaginationTrigger.Next);
   };
 
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
