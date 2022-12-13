@@ -59,7 +59,7 @@
     },
     "atoms/input": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.73",
+        "version": "0.0.74",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
@@ -119,7 +119,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.60",
+        "version": "0.0.61",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1469,7 +1469,7 @@
     },
     "molecules/alert-banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.50",
+        "version": "0.0.51",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertBanner"
     },
