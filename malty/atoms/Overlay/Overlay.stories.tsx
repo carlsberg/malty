@@ -14,6 +14,10 @@ export default {
       description: 'Color for overlay. Is it white?',
       control: 'boolean'
     },
+    zIndex: {
+      description: 'sets the z-order of the component',
+      control: 'number'
+    },
     content: {
       table: {
         disable: true
@@ -26,5 +30,6 @@ const Template: Story<OverlayProps> = (args) => <OverlayComponent {...args} />;
 
 export const Overlay = Template.bind({});
 Overlay.args = {
-  isWhite: false
+  isWhite: false,
+  zIndex: 0
 };
