@@ -77,7 +77,7 @@
     },
     "atoms/overlay": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.40",
+        "version": "0.0.41",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Overlay"
     },
@@ -1493,7 +1493,7 @@
     },
     "molecules/modal": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.42",
+        "version": "0.0.43",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Modal"
     },
