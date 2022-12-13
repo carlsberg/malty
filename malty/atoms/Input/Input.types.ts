@@ -40,7 +40,8 @@ export enum InputType {
   Password = 'password',
   Search = 'search',
   Telephone = 'tel',
-  URL = 'url'
+  URL = 'url',
+  Quantity = 'quantity'
 }
 
 export enum InputSize {

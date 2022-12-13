@@ -140,7 +140,7 @@ export const StyledInput = styled.input<{
   &[type='search']::-webkit-search-results-decoration {
     display: none;
   }
-  &[type='number'] {
+  &.quanity-input {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
@@ -151,8 +151,8 @@ export const StyledInput = styled.input<{
     padding: 0;
     flex: 1 1 100%;
   }
-  &[type='number']::-webkit-inner-spin-button,
-  &[type='number']::-webkit-outer-spin-button {
+  &.quanity-input::-webkit-inner-spin-button,
+  &.quanity-input::-webkit-outer-spin-button {
     -webkit-appearance: none;
   }
   &:hover,
