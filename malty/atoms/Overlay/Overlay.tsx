@@ -4,11 +4,11 @@ import { ThemeContext } from 'styled-components';
 import { OverlayProps } from '.';
 import { StyledOverlay } from './Overlay.styled';
 
-export const Overlay = ({ content, isWhite = false }: OverlayProps) => {
+export const Overlay = ({ content, isWhite = false, zIndex = 0 }: OverlayProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledOverlay isWhite={isWhite} theme={theme}>
+    <StyledOverlay zIndex={zIndex} isWhite={isWhite} theme={theme}>
       {content}
     </StyledOverlay>
   );
