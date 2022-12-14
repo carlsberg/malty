@@ -1263,6 +1263,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/SignOut"
     },
+    "icons/sort": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/Sort"
+    },
     "icons/speach-balloon": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.40",
