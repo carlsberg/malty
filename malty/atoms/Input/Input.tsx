@@ -150,7 +150,7 @@ export const Input = forwardRef(
           isError={!!error}
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           addRight={
-            (iconPosition !== InputIconPosition.Left && type !== InputType.Number) || type === InputType.Password
+            (iconPosition !== InputIconPosition.Left && type !== InputType.Quantity) || type === InputType.Password
           }
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
           onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
@@ -185,6 +185,7 @@ export const Input = forwardRef(
           />
         </StyledButton>
         <StyledInput
+          className="quanity-input"
           data-testid={dataTestId}
           name={id}
           id={id}
@@ -197,10 +198,10 @@ export const Input = forwardRef(
           hasClearable={clearable}
           isError={!!error}
           isIconLeft={iconPosition === InputIconPosition.Left}
-          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
+          addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Quantity}
           onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
           onBlur={(e) => onInputBlur?.((e.target as HTMLInputElement).value)}
-          type={type}
+          type="number"
           theme={theme}
           ref={ref}
           required={required}
@@ -274,7 +275,7 @@ export const Input = forwardRef(
             hasClearable={clearable}
             isError={!!error}
             isIconLeft={iconPosition === InputIconPosition.Left}
-            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Number}
+            addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Quantity}
             onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
             onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
             type={type}
@@ -298,9 +299,9 @@ export const Input = forwardRef(
           addLeft={type === InputType.Telephone}
           theme={theme}
         >
-          {type !== InputType.Number && type !== InputType.Telephone && renderInput()}
+          {type !== InputType.Quantity && type !== InputType.Telephone && renderInput()}
           {type === InputType.Telephone && renderTelNumber()}
-          {type === InputType.Number && renderInputNumber()}
+          {type === InputType.Quantity && renderInputNumber()}
           {children}
         </StyledInputWrapper>
         {error && (
