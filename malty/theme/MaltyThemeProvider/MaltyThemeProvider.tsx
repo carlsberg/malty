@@ -26,22 +26,8 @@ export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemePro
     link.setAttribute('rel', 'preload');
     link.setAttribute('as', 'font');
     link.setAttribute('href', 'https://cdn.carlsberggroup.com/fonts/montserrat/Montserrat-VariableFont_wght.ttf');
-    link.setAttribute('crossorigins', '');
+    link.setAttribute('crossorigins', 'anonymous');
     document.head.appendChild(link);
-
-    //     const newStyle = document.createElement('style');
-    //     newStyle.appendChild(
-    //       document.createTextNode(
-    //         "\
-    // @font-face {\
-    //     font-family: 'Montserrat';\
-    //     src: url('https://cdn.carlsberggroup.com/fonts/montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');\
-    //     font-display: 'swap';\
-    // }\
-    // "
-    //       )
-    //     );
-    //     document.head.appendChild(newStyle);
   }, []);
 
   return (
