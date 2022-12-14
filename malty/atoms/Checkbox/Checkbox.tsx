@@ -13,13 +13,14 @@ import { CheckboxProps } from './Checkbox.types';
 
 export const Checkbox = ({
   id,
-  value,
-  checked,
+  value = '',
+  checked = false,
   labelText,
   error,
   onValueChange,
   required = false,
   dataTestId,
+  isIndeterminate,
   ...props
 }: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -28,17 +29,18 @@ export const Checkbox = ({
     <StyledCheckboxContainer theme={theme}>
       <StyledCheckboxLabel required={required} htmlFor={id} theme={theme}>
         <StyledCheckboxHiddenInput
+          type="checkbox"
           data-testid={dataTestId}
           id={id}
           value={value}
-          onChange={(e) => onValueChange(!(e.target as HTMLInputElement).checked)}
+          onChange={(e) => onValueChange(e)}
           checked={checked}
           theme={theme}
           required={required}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
-        <StyledCheckboxDisplayInput checked={checked} theme={theme} />
+        <StyledCheckboxDisplayInput indeterminate={isIndeterminate} checked={checked} theme={theme} />
         <StyledCheckboxLabelText data-testid={`${dataTestId}-label`} theme={theme}>
           {labelText}
         </StyledCheckboxLabelText>

@@ -170,6 +170,7 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       onKeyUp={handleOnKeyUp(currentAlert.onDismiss)}
       tabIndex={0}
       role="button"
+      aria-label="Close button"
       theme={theme}
     >
       {currentAlert.dismissible && (
