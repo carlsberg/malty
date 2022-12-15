@@ -26,7 +26,7 @@ export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemePro
     link.setAttribute('rel', 'preload');
     link.setAttribute('as', 'font');
     link.setAttribute('href', 'https://cdn.carlsberggroup.com/fonts/montserrat/Montserrat-VariableFont_wght.ttf');
-    link.setAttribute('crossorigins', 'anonymous');
+    link.setAttribute('crossorigins', '*');
     document.head.appendChild(link);
   }, []);
 
