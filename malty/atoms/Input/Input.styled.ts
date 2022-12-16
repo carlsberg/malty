@@ -9,14 +9,13 @@ const animateShow = keyframes`
   }
 `;
 export const StyledInputContainer = styled.div`
-  font-family: inherit;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
 `;
 
 export const StyledError = styled.label`
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.system.fail.value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
@@ -27,7 +26,7 @@ export const StyledError = styled.label`
 export const StyledHint = styled.label<{
   disabled?: boolean;
 }>`
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.support[60].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
@@ -109,6 +108,7 @@ export const StyledInput = styled.input<{
   flex: 1 1 auto;
   display: inline-flex;
   box-sizing: border-box;
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-weight: normal;
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   transition: 0.25s ease-in-out;
