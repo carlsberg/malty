@@ -44,7 +44,7 @@ const StyledButton = styled.button<{
     switch (size) {
       case ButtonSize.XSmall: {
         return css`
-          font-family: ${theme.typography.desktop.text.small_bold['font-size'].value};
+          font-family: ${theme.typography.desktop.text.small_bold['font-family'].value};
           font-size: ${theme.typography.desktop.text.small_bold['font-size'].value};
           height: ${theme.sizes.m.value};
 
