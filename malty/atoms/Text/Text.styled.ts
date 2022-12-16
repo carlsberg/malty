@@ -11,7 +11,6 @@ export const StyledParagraph = styled.p<{
   className?: string;
 }>`
   display: inline;
-  font-family: inherit;
   margin: 0;
   padding: 0;
   color: ${({ color, theme }) => theme.colors['text-colours'][color].value};
@@ -56,6 +55,7 @@ export const StyledParagraph = styled.p<{
   ${({ textStyle, theme }) => css`
     @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
       ${css`
+        font-family: ${theme.typography.tablet.text[textStyle]['font-family'].value};
         font-size: ${theme.typography.tablet.text[textStyle]['font-size'].value};
         letter-spacing: ${theme.typography.tablet.text[textStyle]['letter-spacing'].value};
         line-height: ${theme.typography.tablet.text[textStyle]['line-height'].value};
@@ -72,6 +72,7 @@ export const StyledParagraph = styled.p<{
     }
     @media screen and (max-width: ${theme.layout.xsmall['device-max-width']?.value}) {
       ${css`
+        font-family: ${theme.typography.mobile.text[textStyle]['font-family'].value};
         font-size: ${theme.typography.mobile.text[textStyle]['font-size'].value};
         letter-spacing: ${theme.typography.mobile.text[textStyle]['letter-spacing'].value};
         line-height: ${theme.typography.mobile.text[textStyle]['line-height'].value};

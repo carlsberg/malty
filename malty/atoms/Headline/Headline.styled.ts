@@ -39,6 +39,7 @@ export const StyledHeadline = styled.h1<{
   ${({ headlineStyle, theme }) => css`
     @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
       ${css`
+        font-family: ${theme.typography.tablet.headline[headlineStyle]['font-family'].value};
         font-size: ${theme.typography.tablet.headline[headlineStyle]['font-size'].value};
         letter-spacing: ${theme.typography.tablet.headline[headlineStyle]['letter-spacing'].value};
         line-height: ${theme.typography.tablet.headline[headlineStyle]['line-height'].value};
@@ -55,6 +56,7 @@ export const StyledHeadline = styled.h1<{
     }
     @media screen and (max-width: ${theme.layout.xsmall['device-max-width']?.value}) {
       ${css`
+        font-family: ${theme.typography.mobile.headline[headlineStyle]['font-family'].value};
         font-size: ${theme.typography.mobile.headline[headlineStyle]['font-size'].value};
         letter-spacing: ${theme.typography.mobile.headline[headlineStyle]['letter-spacing'].value};
         line-height: ${theme.typography.mobile.headline[headlineStyle]['line-height'].value};
