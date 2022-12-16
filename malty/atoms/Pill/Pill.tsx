@@ -8,7 +8,7 @@ import { PillColor, PillProps, PillSize } from './Pill.types';
 
 export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Medium, dataTestId }: PillProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const { fontSize, iconSize, marginText, numSize, padding } = usePillStyles({ size });
+  const { fontSize, fontFamily, iconSize, marginText, numSize, padding } = usePillStyles({ size });
   const colorStyle = useIconTextColor({ color });
 
   return (
@@ -17,6 +17,7 @@ export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Me
       color={color}
       size={numSize}
       fontSize={fontSize}
+      fontFamily={fontFamily}
       iconSize={iconSize}
       padding={padding}
       hasText={!!text}

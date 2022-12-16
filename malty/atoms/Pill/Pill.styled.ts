@@ -5,6 +5,7 @@ import { PillColor, PillSize } from './Pill.types';
 export const StyledPill = styled.div<{
   size: string;
   fontSize: string;
+  fontFamily: string;
   iconSize: string;
   padding: string;
 
@@ -13,7 +14,7 @@ export const StyledPill = styled.div<{
   hasText: boolean;
   pillSize: PillSize;
 }>`
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+  font-family: ${({ fontFamily }) => `${fontFamily}`};
   font-size: ${({ fontSize }) => `${fontSize}`};
   font-weight: bold;
   background-color: ${({ color, theme }) => {

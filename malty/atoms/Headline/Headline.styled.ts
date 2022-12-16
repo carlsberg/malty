@@ -6,7 +6,6 @@ export const StyledHeadline = styled.h1<{
   color: HeadlineColor;
   align: HeadlineAlign;
 }>`
-  font-family: inherit;
   margin: 0;
   padding: 0;
   color: ${({ color, theme }) => {
