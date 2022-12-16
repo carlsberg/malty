@@ -22,7 +22,6 @@ export const StyledTooltipWrapper = styled.div<{
   isOpen: boolean;
 }>`
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
-  font-family: inherit;
   background-color: ${({ isDark, theme }) =>
     isDark ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[20].value};
   min-width: ${({ theme }) => theme.sizes['4xl'].value};

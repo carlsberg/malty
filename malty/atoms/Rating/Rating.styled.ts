@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledRatingContainer = styled.div`
-  font-family: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
