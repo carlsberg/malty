@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export const StyledCheckboxContainer = styled.div`
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_default['font-family'].value};
   display: flex;
   flex-direction: column;
 `;
