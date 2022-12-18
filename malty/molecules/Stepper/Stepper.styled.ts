@@ -54,6 +54,7 @@ export const StyledStepperCircle = styled.span<{
 export const StyledStepperNumber = styled.span<{
   active: boolean;
 }>`
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-size'].value};
   font-weight: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-weight'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_bold['line-height'].value};

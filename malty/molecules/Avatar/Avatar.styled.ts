@@ -55,7 +55,8 @@ export const StyledCamera = styled.div<{
 export const StyledAvatar = styled.div<{
   profileImg?: string;
   size?: string;
-  fontSize?: string;
+  fontFamily: string;
+  fontSize: string;
   isLoading: boolean;
   editable: boolean;
 }>`
@@ -90,6 +91,7 @@ export const StyledAvatar = styled.div<{
 
   & span {
     color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+    font-family: ${({ fontFamily }) => fontFamily};
     font-size: ${({ fontSize }) => fontSize};
     font-weight: ${({ theme }) => theme.typography.desktop.text.medium_bold['font-weight'].value};
     text-transform: uppercase;

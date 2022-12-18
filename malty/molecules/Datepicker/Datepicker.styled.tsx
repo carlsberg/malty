@@ -123,6 +123,7 @@ export const StyledContainer = styled.div`
 export const StyledCalendar = styled.div`
   display: flex;
   flex-direction: column;
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_default['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   position: relative;
   & .react-datepicker__header {
@@ -131,6 +132,7 @@ export const StyledCalendar = styled.div`
     text-align: left;
   }
   & .react-datepicker__current-month {
+    font-family: ${({ theme }) => theme.typography.desktop.text.medium_default['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
     display: inline;
@@ -147,6 +149,7 @@ export const StyledCalendar = styled.div`
         appearance: none;
         padding-right: ${({ theme }) => theme.sizes.m.value};
         color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        font-family: ${({ theme }) => theme.typography.desktop.text.medium_default['font-family'].value};
         font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
         font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
         font-family: ${({ theme }) => theme.typography.desktop.headline.medium['font-family'].value};
@@ -176,6 +179,7 @@ export const StyledCalendar = styled.div`
     color: ${({ theme }) => theme.colors.colours.support['60'].value};
     width: auto;
     display: inline-block;
+    font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     width: ${({ theme }) => theme.sizes.l.value};
     line-height: ${({ theme }) => theme.sizes.l.value};
@@ -206,6 +210,7 @@ export const StyledCalendar = styled.div`
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
     &:hover {

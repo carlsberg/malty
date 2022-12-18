@@ -72,8 +72,9 @@ export const StyledInput = styled.input`
   height: ${({ theme }) => theme.sizes.xl.value};
 
   box-sizing: border-box;
-  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid ${({ theme }) => theme.colors.colours.support[40].value};

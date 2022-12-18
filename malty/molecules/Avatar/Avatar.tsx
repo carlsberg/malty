@@ -36,7 +36,8 @@ export const Avatar = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const [NumSize, setNumSize] = useState(theme.sizes.xl.value);
   const [iconSize, setIconSize] = useState(IconSize.MediumSmall);
-  const [fontSize, setfontSize] = useState(theme.typography.desktop.text.small_bold['font-size'].value);
+  const [fontSize, setFontSize] = useState(theme.typography.desktop.text.small_bold['font-size'].value);
+  const [fontFamily, setFontFamily] = useState(theme.typography.desktop.text.small_bold['font-family'].value);
 
   const handleOnClick = () => {
     onClick();
@@ -46,31 +47,36 @@ export const Avatar = ({
     switch (size) {
       case AvatarSize.Small: {
         setNumSize(theme.sizes.m.value);
-        setfontSize(theme.typography.desktop.text.tiny_bold['font-size'].value);
+        setFontSize(theme.typography.desktop.text.tiny_bold['font-size'].value);
+        setFontFamily(theme.typography.desktop.text.tiny_bold['font-family'].value);
         setIconSize(IconSize.ExtraSmall);
         break;
       }
       case AvatarSize.Medium: {
         setNumSize(theme.sizes.xl.value);
-        setfontSize(theme.typography.desktop.text.small_bold['font-size'].value);
+        setFontSize(theme.typography.desktop.text.small_bold['font-size'].value);
+        setFontFamily(theme.typography.desktop.text.small_bold['font-family'].value);
         setIconSize(IconSize.MediumSmall);
         break;
       }
       case AvatarSize.Large: {
         setNumSize(theme.sizes['3xl'].value);
-        setfontSize(theme.typography.desktop.headline.medium['font-size'].value);
+        setFontSize(theme.typography.desktop.headline.medium['font-size'].value);
+        setFontFamily(theme.typography.desktop.headline.medium['font-family'].value);
         setIconSize(IconSize.Medium);
         break;
       }
       case AvatarSize.XLarge: {
         setNumSize(theme.sizes['4xl'].value);
-        setfontSize(theme.typography.desktop.headline.large['font-size'].value);
+        setFontSize(theme.typography.desktop.headline.large['font-size'].value);
+        setFontFamily(theme.typography.desktop.headline.large['font-family'].value);
         setIconSize(IconSize.Large);
         break;
       }
       default: {
         setNumSize(theme.sizes.xl.value);
-        setfontSize(theme.typography.desktop.text.small_bold['font-size'].value);
+        setFontSize(theme.typography.desktop.text.small_bold['font-size'].value);
+        setFontFamily(theme.typography.desktop.text.small_bold['font-family'].value);
         setIconSize(IconSize.MediumSmall);
         break;
       }
@@ -81,6 +87,7 @@ export const Avatar = ({
     <StyledAvatar
       onClick={handleOnClick}
       fontSize={fontSize}
+      fontFamily={fontFamily}
       size={NumSize}
       profileImg={profileImg}
       data-testid={dataQaId}
