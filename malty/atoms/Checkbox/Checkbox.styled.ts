@@ -26,7 +26,10 @@ export const StyledCheckboxHiddenInput = styled.input.attrs({
   display: none;
 `;
 
-export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
+export const StyledCheckboxDisplayInput = styled.div<{
+  checked?: boolean;
+  indeterminate?: boolean;
+}>`
   ${({ theme }) =>
     css`
       border: ${theme.borders['border-1px--solid']['border-width'].value}
@@ -43,8 +46,8 @@ export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
     content: '';
     opacity: 0;
   }
-  ${({ checked }) =>
-    checked &&
+  ${({ checked, indeterminate }) =>
+    !indeterminate &&
     checked === true &&
     css`
       background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
@@ -64,10 +67,10 @@ export const StyledCheckboxDisplayInput = styled.div<{ checked?: boolean }>`
         opacity: 1;
       }
     `}
-  ${({ checked }) =>
-    !checked &&
-    checked === undefined &&
+  ${({ indeterminate }) =>
+    indeterminate &&
     css`
+      background-color: unset;
       &:before {
         width: 10px;
         position: absolute;

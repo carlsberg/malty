@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { MaltyThemeProviderProps } from './MaltyThemeProvider.types';
 import { cadiTheme, carlsbergTheme, globalTheme, lbcTheme } from './theme';
@@ -20,6 +20,16 @@ export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemePro
       selectedTheme = globalTheme;
       break;
   }
+
+  useLayoutEffect(() => {
+    const link = document.createElement('link');
+    link.setAttribute('rel', 'preload');
+    link.setAttribute('as', 'font');
+    link.setAttribute('href', 'https://cdn.carlsberggroup.com/fonts/montserrat/Montserrat-VariableFont_wght.ttf');
+    link.setAttribute('crossorigins', '*');
+    document.head.appendChild(link);
+  }, []);
+
   return (
     <ThemeProvider theme={selectedTheme}>
       <TypographyProvider />

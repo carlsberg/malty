@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Table as TableComponent } from './Table';
-import { TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
+import { TableHeaderAlignment, TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
 
 const headers: TableHeaderProps[] = [
   {
@@ -13,196 +13,93 @@ const headers: TableHeaderProps[] = [
     key: 'age'
   }
 ];
+const headersCenter: TableHeaderProps[] = [
+  {
+    header: 'Name',
+    key: 'name',
+    headerAlignment: TableHeaderAlignment.Center
+  },
+  {
+    header: 'Age',
+    key: 'age',
+    headerAlignment: TableHeaderAlignment.Center
+  }
+];
 const rows: TableRowProps[] = [
   {
-    id: '1',
+    id: 1,
     name: 'Fitzgerald Moody',
     age: 35
   },
   {
-    id: '2',
+    id: 2,
     name: 'Liberty Bell',
     age: 66
   },
   {
-    id: '3',
+    id: 3,
     name: 'Clayton Carpenter',
     age: 25
   },
   {
-    id: '4',
+    id: 4,
     name: 'Halla Pugh',
     age: 31
   },
   {
-    id: '5',
+    id: 5,
     name: 'Jaquelyn Valenzuela',
     age: 52
   },
   {
-    id: '6',
+    id: 6,
     name: 'Kyra Mcknight',
     age: 23
   },
   {
-    id: '7',
+    id: 7,
     name: 'Naida Barlow',
     age: 52
   },
   {
-    id: '8',
+    id: 8,
     name: 'Amir Joyce',
     age: 26
   },
   {
-    id: '9',
+    id: 9,
     name: 'Lenore Dixon',
     age: 40
   },
   {
-    id: '10',
+    id: 10,
     name: 'Carla Velazquez',
     age: 29
   },
   {
-    id: '11',
+    id: 11,
     name: 'Quamar Petersen',
     age: 58
   },
   {
-    id: '12',
+    id: 12,
     name: 'Patrick Stout',
     age: 61
   },
   {
-    id: '13',
+    id: 13,
     name: 'Ian Rhodes',
     age: 33
   },
   {
-    id: '14',
+    id: 14,
     name: 'Wesley Simmons',
     age: 67
   },
   {
-    id: '15',
+    id: 15,
     name: 'Ivy Crawford',
     age: 47
-  },
-  {
-    id: '16',
-    name: 'Ulric Foley',
-    age: 67
-  },
-  {
-    id: '17',
-    name: 'Flavia Church',
-    age: 8
-  },
-  {
-    id: '18',
-    name: 'Isaac Vance',
-    age: 41
-  },
-  {
-    id: '19',
-    name: 'Ashton Church',
-    age: 33
-  },
-  {
-    id: '20',
-    name: 'Yetta Vega',
-    age: 31
-  },
-  {
-    id: '21',
-    name: 'Catherine Patrick',
-    age: 9
-  },
-  {
-    id: '22',
-    name: 'Zephania Mooney',
-    age: 9
-  },
-  {
-    id: '23',
-    name: 'Gay Roberson',
-    age: 56
-  },
-  {
-    id: '24',
-    name: 'Dorian Armstrong',
-    age: 48
-  },
-  {
-    id: '25',
-    name: 'Ginger Gibson',
-    age: 18
-  },
-  {
-    id: '26',
-    name: 'Ulric Guerra',
-    age: 59
-  },
-  {
-    id: '27',
-    name: 'Kevin Frazier',
-    age: 13
-  },
-  {
-    id: '28',
-    name: 'Ori Graham',
-    age: 43
-  },
-  {
-    id: '29',
-    name: 'Dylan Hubbard',
-    age: 67
-  },
-  {
-    id: '30',
-    name: 'Callum Walton',
-    age: 28
-  },
-  {
-    id: '31',
-    name: 'Cairo Solomon',
-    age: 51
-  },
-  {
-    id: '32',
-    name: 'Vladimir Henderson',
-    age: 27
-  },
-  {
-    id: '33',
-    name: 'Alec Medina',
-    age: 15
-  },
-  {
-    id: '34',
-    name: 'fernando Rocha',
-    age: 18
-  },
-  {
-    id: '35',
-    name: 'João Medina',
-    age: 45
-  },
-  {
-    id: '36',
-    name: 'huni mehti',
-    age: 84
-  },
-  {
-    id: '36',
-    name: 'john hades',
-    age: 21
-  },
-  {
-    id: '36',
-    name: 'phill bones',
-    age: 45
   }
 ];
 
@@ -211,7 +108,8 @@ export default {
   component: TableComponent,
   parameters: {
     importObject: 'Table',
-    importPath: '@carlsberggroup/malty.organisms.table'
+    importPath: '@carlsberggroup/malty.organisms.table',
+    variants: ['dnd', 'selection', 'empty', 'headersCenter']
   },
   argTypes: {
     headers: {
@@ -232,8 +130,20 @@ export default {
       control: 'number',
       description: 'Number of rows to be displayed in a page'
     },
+    totalPagesCount: {
+      control: 'number',
+      description: 'Number of total pages'
+    },
     onRowClick: {
       description: ''
+    },
+    isDraggable: {
+      control: 'boolean',
+      description: 'If true Rows are draggable'
+    },
+    allowSelection: {
+      control: 'boolean',
+      description: 'If true Rows are selectable'
     },
     size: {
       description: 'Size for table rows',
@@ -256,11 +166,73 @@ const Template: Story<TableProps> = ({ ...args }) => <TableComponent {...args} /
 
 export const Table = Template.bind({});
 
-Table.args = {
-  headers,
-  rows,
-  onRowClick: () => null,
-  paginationSize: 12,
-  className: '',
-  dataTestId: 'table'
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+switch (variant) {
+  case 'dnd':
+    Table.args = {
+      headers,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: true,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: false
+    };
+    break;
+  case 'selection':
+    Table.args = {
+      headers,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: true
+    };
+    break;
+  case 'empty':
+    Table.args = {
+      headers,
+      rows: [],
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: true
+    };
+    break;
+  case 'headersCenter':
+    Table.args = {
+      headers: headersCenter,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Large,
+      dataTestId: 'table',
+      allowSelection: false
+    };
+    break;
+
+  default:
+    Table.args = {
+      headers,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 12,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: false
+    };
+    break;
+}
