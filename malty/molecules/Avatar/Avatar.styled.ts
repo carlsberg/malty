@@ -55,8 +55,6 @@ export const StyledCamera = styled.div<{
 export const StyledAvatar = styled.div<{
   profileImg?: string;
   size?: string;
-  fontFamily: string;
-  fontSize: string;
   isLoading: boolean;
   editable: boolean;
 }>`
@@ -70,8 +68,6 @@ export const StyledAvatar = styled.div<{
 
   background-size: cover;
   background-repeat: no-repeat;
-  height: ${({ size }) => size};
-  width: ${({ size }) => size};
   transition: all 0.25s ease-in-out;
   cursor: ${({ editable }) => (editable ? 'pointer' : 'default')};
   ${({ editable, isLoading }) =>
@@ -89,14 +85,70 @@ export const StyledAvatar = styled.div<{
       }
     `}
 
-  & span {
-    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-    font-family: ${({ fontFamily }) => fontFamily};
-    font-size: ${({ fontSize }) => fontSize};
-    font-weight: ${({ theme }) => theme.typography.desktop.text.medium_bold['font-weight'].value};
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
+  ${({ theme, size }) => {
+    switch (size) {
+      case AvatarSize.Small: {
+        return css`
+          height: ${theme.sizes.m.value};
+          width: ${theme.sizes.m.value};
+
+          & span {
+            color: ${theme.colors.colours.default['digital-black'].value};
+            font-family: ${theme.typography.desktop.text.tiny_bold['font-family'].value};
+            font-size: ${theme.typography.desktop.text.tiny_bold['font-size'].value};
+            font-weight: ${theme.typography.desktop.text.tiny_bold['font-weight'].value};
+            text-transform: uppercase;
+            white-space: nowrap;
+          }
+        `;
+      }
+      case AvatarSize.Large: {
+        return css`
+          height: ${theme.sizes['3xl'].value};
+          width: ${theme.sizes['3xl'].value};
+
+          & span {
+            color: ${theme.colors.colours.default['digital-black'].value};
+            font-family: ${theme.typography.desktop.headline.medium['font-family'].value};
+            font-size: ${theme.typography.desktop.headline.medium['font-size'].value};
+            font-weight: ${theme.typography.desktop.headline.medium['font-weight'].value};
+            text-transform: uppercase;
+            white-space: nowrap;
+          }
+        `;
+      }
+      case AvatarSize.XLarge: {
+        return css`
+          height: ${theme.sizes['4xl'].value};
+          width: ${theme.sizes['4xl'].value};
+
+          & span {
+            color: ${theme.colors.colours.default['digital-black'].value};
+            font-family: ${theme.typography.desktop.headline.large['font-family'].value};
+            font-size: ${theme.typography.desktop.headline.large['font-size'].value};
+            font-weight: ${theme.typography.desktop.headline.large['font-weight'].value};
+            text-transform: uppercase;
+            white-space: nowrap;
+          }
+        `;
+      }
+      default: {
+        return css`
+          height: ${theme.sizes.xl.value};
+          width: ${theme.sizes.xl.value};
+
+          & span {
+            color: ${theme.colors.colours.default['digital-black'].value};
+            font-family: ${theme.typography.desktop.text.small_bold['font-family'].value};
+            font-size: ${theme.typography.desktop.text.small_bold['font-size'].value};
+            font-weight: ${theme.typography.desktop.text.small_bold['font-weight'].value};
+            text-transform: uppercase;
+            white-space: nowrap;
+          }
+        `;
+      }
+    }
+  }}
 `;
 export const StyledLoadingContainer = styled.div`
   position: absolute;
