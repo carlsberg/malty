@@ -1,15 +1,14 @@
 import styled, { css } from 'styled-components';
 
 export const StyledTextareaContainer = styled.div`
-  font-family: inherit;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
 `;
 
 export const StyledError = styled.label`
-  font-family: inherit;
   color: ${({ theme }) => theme.colors.colours.system.fail.value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
@@ -19,8 +18,8 @@ export const StyledError = styled.label`
 export const StyledHint = styled.label<{
   disabled?: boolean;
 }>`
-  font-family: inherit;
   color: ${({ theme }) => theme.colors.colours.support[60].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   font-weight: bold;
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
@@ -155,6 +154,7 @@ export const StyledTextAreaCharacterCounter = styled.div<{
   margin-bottom: 8px;
   background-color: ${({ theme }) => theme.colors.colours.support[60].value};
   color: ${({ theme }) => theme.colors.colours.default.white.value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
   padding: 0 ${({ theme }) => theme.sizes['3xs'].value};
   border-radius: 7px;

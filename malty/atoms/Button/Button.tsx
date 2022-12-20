@@ -80,10 +80,7 @@ export const Button = ({
       break;
   }
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const [hPadding, _setHorizontalPadding] = useState(theme.sizes.s.value);
-  const [fontSize, setFontSize] = useState(theme.typography.desktop.text.medium_default['font-size'].value);
-  const [iconSize, setIconSize] = useState(theme.sizes.m.value);
   const [loadingNegative, setLoadingNegative] = useState(negative);
   const handleLoadingColor = () => {
     if (style !== ButtonStyle.Primary) {
@@ -105,10 +102,7 @@ export const Button = ({
       isLoading={loading}
       hasText={!!text || !!children}
       hasIcon={!!icon}
-      sizing={numSize}
       horizontalPadding={hPadding}
-      fontSize={fontSize}
-      iconSize={iconSize}
       onClick={onClick}
       onKeyUp={onKeyUp}
       isNegative={negative}
@@ -117,6 +111,7 @@ export const Button = ({
       theme={theme}
       tabIndex={tabIndex}
       className={selected ? `${className} active` : className}
+      size={size}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
@@ -136,41 +131,6 @@ export const Button = ({
       )}
     </Component>
   );
-
-  useEffect(() => {
-    switch (size) {
-      case ButtonSize.XSmall: {
-        setNumSize(theme.sizes.m.value);
-        setFontSize(theme.typography.desktop.text.small_bold['font-size'].value);
-        setIconSize(theme.sizes.s.value);
-        break;
-      }
-      case ButtonSize.Small: {
-        setNumSize(theme.sizes.l.value);
-        setFontSize(theme.typography.desktop.text['medium-small_bold']['font-size'].value);
-        setIconSize(theme.sizes.ms.value);
-        break;
-      }
-      case ButtonSize.Large: {
-        setNumSize(theme.sizes['2xl'].value);
-        setFontSize(theme.typography.desktop.text['medium-small_bold']['font-size'].value);
-        setIconSize(theme.sizes.m.value);
-        break;
-      }
-      case ButtonSize.XLarge: {
-        setNumSize(theme.sizes['3xl'].value);
-        setFontSize(theme.typography.desktop.text.medium_bold['font-size'].value);
-        setIconSize(theme.sizes.m.value);
-        break;
-      }
-      default: {
-        setNumSize(theme.sizes.xl.value);
-        setFontSize(theme.typography.desktop.text['medium-small_bold']['font-size'].value);
-        setIconSize(theme.sizes.m.value);
-        break;
-      }
-    }
-  }, [size, theme]);
 
   return url ? (
     <StyledAnchor target="_blank" href={url} rel="noreferrer" className={selected ? 'active' : ''}>

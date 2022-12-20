@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import styled, { css, keyframes } from 'styled-components';
-import { ButtonColor, ButtonIconPosition } from './Button.types';
+import { ButtonColor, ButtonIconPosition, ButtonSize } from './Button.types';
 
 const animateShow = keyframes`
   from {
@@ -21,20 +21,15 @@ const StyledButton = styled.button<{
   isLoading?: boolean;
   isNegative?: boolean;
   fullWidth?: boolean;
-  sizing: string;
   horizontalPadding: string;
-  fontSize: string;
-  iconSize: string;
   iconPos: ButtonIconPosition;
   color: ButtonColor;
+  size: ButtonSize;
 }>`
-  font-family: inherit;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: ${({ theme }) => `0 ${theme.sizes.s.value}`};
-  height: ${({ sizing }) => `${sizing}`};
-  font-size: ${({ fontSize }) => `${fontSize}`};
   font-weight: bold;
   transition: 0.25s ease-in-out;
   transition-property: background-color, color;
@@ -44,6 +39,72 @@ const StyledButton = styled.button<{
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
   flex-direction: ${({ iconPos }) =>
     ButtonIconPosition[iconPos] === ButtonIconPosition.Right ? 'row' : 'row-reverse'};
+
+  ${({ theme, size }) => {
+    switch (size) {
+      case ButtonSize.XSmall: {
+        return css`
+          font-family: ${theme.typography.desktop.text.small_bold['font-family'].value};
+          font-size: ${theme.typography.desktop.text.small_bold['font-size'].value};
+          height: ${theme.sizes.m.value};
+
+          svg {
+            height: ${theme.sizes.s.value};
+            width: ${theme.sizes.s.value};
+          }
+        `;
+      }
+      case ButtonSize.Small: {
+        return css`
+          font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+          font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+          height: ${theme.sizes.l.value};
+
+          svg {
+            height: ${theme.sizes.ms.value};
+            width: ${theme.sizes.ms.value};
+          }
+        `;
+      }
+      case ButtonSize.Large: {
+        return css`
+          font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+          font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+          height: ${theme.sizes['2xl'].value};
+
+          svg {
+            height: ${theme.sizes.m.value};
+            width: ${theme.sizes.m.value};
+          }
+        `;
+      }
+      case ButtonSize.XLarge: {
+        return css`
+          font-family: ${theme.typography.desktop.text.medium_bold['font-family'].value};
+          font-size: ${theme.typography.desktop.text.medium_bold['font-size'].value};
+          height: ${theme.sizes['3xl'].value};
+
+          svg {
+            height: ${theme.sizes.m.value};
+            width: ${theme.sizes.m.value};
+          }
+        `;
+      }
+      default: {
+        return css`
+          font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+          font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+          height: ${theme.sizes.xl.value};
+
+          svg {
+            height: ${theme.sizes.m.value};
+            width: ${theme.sizes.m.value};
+          }
+        `;
+      }
+    }
+  }}
+
   &:hover,
   &:focus {
     outline: 0;
@@ -79,11 +140,6 @@ const StyledButton = styled.button<{
       gap: 0;
       padding: 0;
     }
-  }
-
-  svg {
-    height: ${({ iconSize }) => `${iconSize}`};
-    width: ${({ iconSize }) => `${iconSize}`};
   }
 
   ${({ hasText, hasIcon, isLoading }) =>

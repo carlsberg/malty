@@ -3,7 +3,7 @@
     "headline": {
       "display": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "72px"
@@ -26,7 +26,7 @@
       },
       "hero": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "56px"
@@ -49,7 +49,7 @@
       },
       "huge": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "48px"
@@ -72,7 +72,7 @@
       },
       "big": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "32px"
@@ -95,7 +95,7 @@
       },
       "large": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "24px"
@@ -115,7 +115,7 @@
       },
       "medium-large": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "18px"
@@ -135,7 +135,7 @@
       },
       "medium": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -157,7 +157,7 @@
     "text": {
       "medium_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -177,7 +177,7 @@
       },
       "medium_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -200,7 +200,7 @@
       },
       "medium_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -220,7 +220,7 @@
       },
       "medium_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -243,7 +243,7 @@
       },
       "medium-small_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -263,7 +263,7 @@
       },
       "medium-small_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -286,7 +286,7 @@
       },
       "medium-small_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -306,7 +306,7 @@
       },
       "medium-small_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -329,7 +329,7 @@
       },
       "small_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -349,7 +349,7 @@
       },
       "small_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -372,7 +372,7 @@
       },
       "small_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -392,7 +392,7 @@
       },
       "small_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -415,7 +415,7 @@
       },
       "tiny_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "10px"
@@ -435,7 +435,7 @@
       },
       "tiny_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "10px"
@@ -455,7 +455,7 @@
       },
       "micro_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "8px"
@@ -475,7 +475,7 @@
       },
       "micro_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "8px"
@@ -499,7 +499,7 @@
     "headline": {
       "display": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "72px"
@@ -522,7 +522,7 @@
       },
       "hero": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "56px"
@@ -545,7 +545,7 @@
       },
       "huge": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "48px"
@@ -568,7 +568,7 @@
       },
       "big": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "32px"
@@ -591,7 +591,7 @@
       },
       "large": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "24px"
@@ -611,7 +611,7 @@
       },
       "medium-large": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "18px"
@@ -631,7 +631,7 @@
       },
       "medium": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -653,7 +653,7 @@
     "text": {
       "medium_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -673,7 +673,7 @@
       },
       "medium_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -696,7 +696,7 @@
       },
       "medium_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -716,7 +716,7 @@
       },
       "medium_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -739,7 +739,7 @@
       },
       "medium-small_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -759,7 +759,7 @@
       },
       "medium-small_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -782,7 +782,7 @@
       },
       "medium-small_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -802,7 +802,7 @@
       },
       "medium-small_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -825,7 +825,7 @@
       },
       "small_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -845,7 +845,7 @@
       },
       "small_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -868,7 +868,7 @@
       },
       "small_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -888,7 +888,7 @@
       },
       "small_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -911,7 +911,7 @@
       },
       "tiny_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "10px"
@@ -931,7 +931,7 @@
       },
       "tiny_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "10px"
@@ -951,7 +951,7 @@
       },
       "micro_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "10px"
@@ -971,7 +971,7 @@
       },
       "micro_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "10px"
@@ -995,7 +995,7 @@
     "headline": {
       "display": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "56px"
@@ -1018,7 +1018,7 @@
       },
       "hero": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "48px"
@@ -1041,7 +1041,7 @@
       },
       "huge": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "32px"
@@ -1064,7 +1064,7 @@
       },
       "big": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "24px"
@@ -1087,7 +1087,7 @@
       },
       "large": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "20px"
@@ -1107,7 +1107,7 @@
       },
       "medium-large": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "18px"
@@ -1127,7 +1127,7 @@
       },
       "medium": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Black', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -1149,7 +1149,7 @@
     "text": {
       "medium_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -1169,7 +1169,7 @@
       },
       "medium_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -1192,7 +1192,7 @@
       },
       "medium_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -1212,7 +1212,7 @@
       },
       "medium_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "16px"
@@ -1235,7 +1235,7 @@
       },
       "medium-small_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -1255,7 +1255,7 @@
       },
       "medium-small_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -1278,7 +1278,7 @@
       },
       "medium-small_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -1298,7 +1298,7 @@
       },
       "medium-small_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "14px"
@@ -1321,7 +1321,7 @@
       },
       "small_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -1341,7 +1341,7 @@
       },
       "small_bold--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -1364,7 +1364,7 @@
       },
       "small_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -1384,7 +1384,7 @@
       },
       "small_default--underline": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -1407,7 +1407,7 @@
       },
       "tiny_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -1427,7 +1427,7 @@
       },
       "tiny_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -1447,7 +1447,7 @@
       },
       "micro_bold": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Bold', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"
@@ -1467,7 +1467,7 @@
       },
       "micro_default": {
         "font-family": {
-          "value": "'Montserrat', 'Montserrat-Regular', 'sans-serif'"
+          "value": "'Montserrat', 'sans-serif'"
         },
         "font-size": {
           "value": "12px"

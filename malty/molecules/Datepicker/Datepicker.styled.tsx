@@ -20,7 +20,6 @@ export const StyledDatepicker = styled.div<{
     border-radius: 0;
     position: relative;
     padding: 0;
-    font: inherit;
     color: inherit;
     background-color: transparent;
     cursor: pointer;
@@ -35,6 +34,7 @@ export const StyledDatepicker = styled.div<{
     border-width: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}`};
     border-style: ${({ theme }) => `${theme.borders['border-1px--solid']['border-style'].value}`};
     border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
+    font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
     outline: none;
     &:hover,
@@ -123,6 +123,7 @@ export const StyledContainer = styled.div`
 export const StyledCalendar = styled.div`
   display: flex;
   flex-direction: column;
+  font-family: ${({ theme }) => theme.typography.desktop.text.small_default['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
   position: relative;
   & .react-datepicker__header {
@@ -131,6 +132,7 @@ export const StyledCalendar = styled.div`
     text-align: left;
   }
   & .react-datepicker__current-month {
+    font-family: ${({ theme }) => theme.typography.desktop.text.medium_default['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
     display: inline;
@@ -176,6 +178,7 @@ export const StyledCalendar = styled.div`
     color: ${({ theme }) => theme.colors.colours.support['60'].value};
     width: auto;
     display: inline-block;
+    font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     width: ${({ theme }) => theme.sizes.l.value};
     line-height: ${({ theme }) => theme.sizes.l.value};
@@ -206,6 +209,7 @@ export const StyledCalendar = styled.div`
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.text.small_bold['font-weight'].value};
     &:hover {

@@ -16,7 +16,6 @@ const fadeOut = keyframes`
 export const StyledButtonContainer = styled.div<{
   selectStyle: string;
 }>`
-  font-family: inherit;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
