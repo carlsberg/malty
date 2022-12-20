@@ -18,7 +18,7 @@ export const StyledSideNav = styled.div<{
   max-width: 220px;
   width: calc(100% - 80px);
   height: 100%;
-  background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value}};
+  background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   padding-top: calc(
     ${({ theme, productName }) =>
       productName ? `${theme.sizes.m.value} + 22px + 15vh` : `${theme.sizes.m.value} + 15vh`}

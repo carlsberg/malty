@@ -6,6 +6,9 @@ export const StyledNavList = styled.ul`
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  & a {
+    text-decoration: none;
+  }
 `;
 
 export const StyledNavItem = styled.li<{
@@ -23,15 +26,7 @@ export const StyledNavItem = styled.li<{
     `${selected ? theme.colors.colours.support[80].value : theme.colors.colours.default['digital-black'].value}}`};
   cursor: ${({ selected }) => `${selected ? 'default' : 'pointer'}`};
   user-select: none;
-  & a {
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+
   & svg {
     position: absolute;
     left: ${({ theme }) => theme.sizes[`2xs`].value};
