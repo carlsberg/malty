@@ -268,11 +268,14 @@ export const StyledSelect = styled.select<{
   box-sizing: border-box;
   height: ${({ height }) => height};
   width: ${({ theme }) => theme.sizes['5xl'].value};
+  padding-left: ${({ theme }) => theme.sizes.s.value};
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-weight: normal;
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   border: 1px solid
     ${({ theme, isError }) =>
       isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   border-right: 0;
-  text-align: center;
   appearance: none;
   position: relative;
   border-radius: 0;
