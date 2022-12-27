@@ -257,7 +257,7 @@ export const Input = forwardRef(
                     height={height}
                   >
                     {emojiFlag(country)}
-                    &nbsp;&nbsp;&nbsp;+{code}
+                    &nbsp;&nbsp;+{code}
                   </StyledOption>
                 );
               })}
