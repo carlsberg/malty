@@ -1,8 +1,7 @@
-import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
-import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
+import { Input, InputIconPosition, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useEffect, useMemo, useState } from 'react';
@@ -11,17 +10,14 @@ import {
   StyledActionButton,
   StyledActionButtonWrapper,
   StyledActionsWrapper,
-  StyledButton,
   StyledButtonContainer,
   StyledCheck,
-  StyledChevronDown,
   StyledError,
   StyledHint,
   StyledMainWrapper,
   StyledOption,
   StyledOptionsWrapper,
   StyledSearchWrapper,
-  StyledSelectedOptionsWrapper,
   StyledWrapper
 } from './Select.styled';
 import { SelectOptionsType, SelectPosition, SelectProps, SelectSize, SelectType } from './Select.types';
@@ -249,36 +245,16 @@ export const Select = ({
         <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       )}
       <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
-        <StyledButton
-          name={id}
-          id={id}
-          theme={theme}
-          isActive={selectedValueState?.length > 0 || type === SelectType.Inline}
-          selectStyle={type}
-          height={numSize}
-          onClick={() => toggleOptionList()}
-          disabled={disabled}
-          readOnly={readOnly}
-          isError={!!error && type !== SelectType.Inline}
-          open={showOptionList}
-          type={ButtonType.Default}
-          data-testid={`${dataTestId}-button`}
-          onBlur={onBlur}
-        >
-          <StyledSelectedOptionsWrapper theme={theme} data-testid={`${dataTestId}-selected-values`}>
-            {displaySelectedValues()}
-          </StyledSelectedOptionsWrapper>
-          <StyledChevronDown
-            theme={theme}
-            selectStyle={type}
-            disabled={disabled}
-            readOnly={readOnly}
-            open={showOptionList}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
-          />
-        </StyledButton>
-
+        <Input
+          data-testid={`${dataTestId}-search-input`}
+          size={size === SelectSize.Medium ? InputSize.Medium : InputSize.Large}
+          onValueChange={handleSearch}
+          type={InputType.Search}
+          value={displaySelectedValues()}
+          icon={showOptionList ? IconName.ChevronUp : IconName.ChevronDown}
+          iconPosition={InputIconPosition.Right}
+          onFocus={() => toggleOptionList()}
+        />
         {renderDefaultDropdown()}
       </StyledButtonContainer>
 
