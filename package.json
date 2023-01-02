@@ -81,7 +81,7 @@
     "babel-plugin-transform-hoist-jsx-style": "^1.0.0",
     "eslint": "^8.30.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-functional": "*",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^27.1.7",
