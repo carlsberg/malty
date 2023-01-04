@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePopper } from 'react-popper';
 import { TooltipPositionStrategy, TooltipToggle, UseTooltipProps } from './Tooltip.types';
 
@@ -9,46 +9,49 @@ export const useToolTip = ({
   isOpenProp,
   onClose,
   autoHideDuration,
-  tooltipId
+  tooltipId,
 }: UseTooltipProps) => {
   const didMountRef = useRef(false);
   const [isOpen, setIsOpen] = useState(!!isOpenProp);
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
   const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
+  const { styles, attributes, update } = usePopper(referenceElement, popperElement, {
     strategy: positionStrategy,
     placement,
     modifiers: [
       {
         name: 'offset',
         options: {
-          offset: [-8, 8]
-        }
+          offset: [-8, 8],
+        },
       },
       {
         name: 'arrow',
         options: {
-          element: arrowElement
-        }
-      }
-    ]
+          element: arrowElement,
+        },
+      },
+    ],
   });
 
   const autoHideTimer = useRef<number | NodeJS.Timeout | null>(null);
 
-  const clearAutoHideTimer = () => {
+  const clearAutoHideTimer = useCallback(() => {
     if (typeof autoHideTimer?.current === 'number') {
       clearTimeout(autoHideTimer.current);
     }
-  };
+  }, []);
 
-  const setTooltipOpen = (open: boolean) => {
-    if (typeof isOpenProp !== 'boolean') {
-      clearAutoHideTimer();
-      setIsOpen(open);
-    }
-  };
+  const setTooltipOpen = useCallback(
+    (open: boolean) => {
+      if (typeof isOpenProp !== 'boolean') {
+        clearAutoHideTimer();
+        setIsOpen(open);
+      }
+    },
+    [isOpenProp, clearAutoHideTimer]
+  );
 
   const startAutoHideTimer = () => {
     if (toggleType === TooltipToggle.Event && typeof isOpenProp !== 'boolean') {
@@ -109,7 +112,7 @@ export const useToolTip = ({
     }
 
     return () => null;
-  }, [referenceElement, toggleType]);
+  }, [referenceElement, toggleType, setTooltipOpen]);
 
   useEffect(() => {
     if (toggleType === TooltipToggle.Click) {
@@ -125,7 +128,7 @@ export const useToolTip = ({
     }
 
     return () => null;
-  }, [referenceElement, toggleType, isOpen]);
+  }, [referenceElement, toggleType, isOpen, setTooltipOpen]);
 
   useEffect(() => {
     if (typeof isOpenProp === 'boolean' && isOpenProp !== isOpen) {
@@ -138,7 +141,7 @@ export const useToolTip = ({
       onClose?.();
     }
     didMountRef.current = true;
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   return {
     styles,
@@ -148,7 +151,8 @@ export const useToolTip = ({
     setReferenceElement,
     setPopperElement,
     setArrowElement,
-    startAutoHideTimer
+    startAutoHideTimer,
+    updateTooltipPosition: update,
   };
 };
 
