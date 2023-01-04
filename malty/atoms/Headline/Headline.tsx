@@ -8,39 +8,49 @@ export const Headline = ({
   headlineStyle = HeadlineStyle.Medium,
   align = HeadlineAlign.Left,
   color = HeadlineColor.DigitalBlack,
-  as = 'h1',
-  children
+  as,
+  children,
 }: HeadlineProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  let StyledTagHeadline = as || 'h1';
+  let StyledTagHeadline = 'h1';
 
-  switch (headlineStyle) {
-    case 'hero':
-      StyledTagHeadline = 'h2';
-      break;
-    case 'huge':
-      StyledTagHeadline = 'h3';
-      break;
-    case 'big':
-      StyledTagHeadline = 'h4';
-      break;
-    case 'large':
-      StyledTagHeadline = 'h5';
-      break;
-    case 'medium-large':
-      StyledTagHeadline = 'h6';
-      break;
-    case 'medium':
-      StyledTagHeadline = 'p';
-      break;
-    default:
-      StyledTagHeadline = 'h1';
-      break;
+  if (as) {
+    let StyledTagHeadline = as;
+  } else {
+    switch (headlineStyle) {
+      case 'hero':
+        StyledTagHeadline = 'h2';
+        break;
+      case 'huge':
+        StyledTagHeadline = 'h3';
+        break;
+      case 'big':
+        StyledTagHeadline = 'h4';
+        break;
+      case 'large':
+        StyledTagHeadline = 'h5';
+        break;
+      case 'medium-large':
+        StyledTagHeadline = 'h6';
+        break;
+      case 'medium':
+        StyledTagHeadline = 'p';
+        break;
+      default:
+        StyledTagHeadline = 'h1';
+        break;
+    }
   }
 
   return (
-    <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
+    <StyledHeadline
+      as={StyledTagHeadline}
+      headlineStyle={headlineStyle}
+      align={align}
+      color={color}
+      theme={theme}
+    >
       {children}
     </StyledHeadline>
   );
