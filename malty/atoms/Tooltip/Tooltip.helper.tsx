@@ -53,14 +53,14 @@ export const useToolTip = ({
     [isOpenProp, clearAutoHideTimer]
   );
 
-  const startAutoHideTimer = () => {
+  const startAutoHideTimer = useCallback(() => {
     if (toggleType === TooltipToggle.Event && typeof isOpenProp !== 'boolean') {
       setTooltipOpen(true);
       autoHideTimer.current = setTimeout(() => {
         setIsOpen(false);
       }, autoHideDuration);
     }
-  };
+  }, [toggleType, isOpenProp, autoHideDuration, setTooltipOpen]);
 
   useEffect(() => {
     const validateEventSource = (ev: Event) => (ev as CustomEvent).detail === tooltipId;
@@ -90,7 +90,7 @@ export const useToolTip = ({
       window.removeEventListener(OPEN_TOOLTIP_EVENT, onOpenTooltipEvent);
       window.removeEventListener(CLOSE_TOOLTIP_EVENT, onCloseTooltipEvent);
     };
-  }, []);
+  }, [startAutoHideTimer, setTooltipOpen, clearAutoHideTimer]);
 
   useEffect(() => {
     if (toggleType === TooltipToggle.Hover) {
