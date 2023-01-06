@@ -54,7 +54,8 @@ export default {
       control: { type: 'text' },
     },
     as: {
-      description: 'HTML tag override to be used',
+      description:
+        "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
       control: { type: 'text' },
     },
   },
