@@ -14,9 +14,10 @@ export const Headline = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   let StyledTagHeadline = 'h1';
+  const allowedTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
 
-  if (as) {
-    let StyledTagHeadline = as;
+  if (as && allowedTags.includes(as)) {
+    StyledTagHeadline = as;
   } else {
     switch (headlineStyle) {
       case 'hero':
