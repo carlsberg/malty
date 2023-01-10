@@ -138,7 +138,11 @@ export default {
     disableLeftButton: {
       control: 'boolean',
       description: 'Left Button state, disabled'
-    }
+    },
+    disableQuantityInput: {
+      control: 'boolean',
+      description: 'Input Quantity, disabled'
+    },
   }
 } as Meta;
 
@@ -159,7 +163,8 @@ const Template: Story<InputProps> = ({
   readOnly,
   disableLeftButton,
   disableRightButton,
-  required
+  required,
+  disableQuantityInput
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -182,6 +187,7 @@ const Template: Story<InputProps> = ({
       required={required}
       disableLeftButton={disableLeftButton}
       disableRightButton={disableRightButton}
+      disableQuantityInput={disableQuantityInput}
     />
   );
 };
@@ -298,7 +304,8 @@ switch (variant) {
       readOnly: false,
       required: false,
       disableLeftButton: false,
-      disableRightButton: false
+      disableRightButton: false,
+      disableQuantityInput: true
     };
     break;
 }

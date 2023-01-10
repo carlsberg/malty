@@ -102,6 +102,7 @@ export const StyledInput = styled.input<{
   isIconLeft?: boolean;
   addRight?: boolean;
   isError?: boolean;
+  disableQuantityInput?: boolean;
 }>`
   border-radius: 0;
   width: 100%;
@@ -150,6 +151,12 @@ export const StyledInput = styled.input<{
     vertical-align: top;
     padding: 0;
     flex: 1 1 100%;
+
+    ${({ disableQuantityInput }) =>
+      disableQuantityInput &&
+      css`
+        pointer-events: none;
+      `}
   }
   &.quanity-input::-webkit-inner-spin-button,
   &.quanity-input::-webkit-outer-spin-button {
@@ -169,7 +176,8 @@ export const StyledInput = styled.input<{
   }
 
   ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
-    const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
+    const leftPadding =
+      isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
     let rightPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
     if (addRight) rightPadding = `${theme.sizes['4xl'].value}`;
     if (hasClearable) rightPadding = `${theme.sizes['2xl'].value}`;
