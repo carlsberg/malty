@@ -1,3 +1,4 @@
+import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Image } from '@carlsberggroup/malty.atoms.image/Image';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Story } from '@storybook/react';
@@ -61,6 +62,11 @@ Card.args = {
   cardBody: (
     <div>
       <Text textStyle={TextStyle.MediumSmallBold}>Subtitle</Text>
+      <Headline headlineStyle={HeadlineStyle.Large}>Title</Headline>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+      </p>
     </div>
   ),
 };
