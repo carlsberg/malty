@@ -4,6 +4,7 @@ export interface CardProps {
   selected: boolean;
   cardHero?: React.ReactNode | JSX.Element;
   cardBody?: React.ReactNode | JSX.Element;
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
 export enum CardStyle {

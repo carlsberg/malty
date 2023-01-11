@@ -1,5 +1,7 @@
+import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Image } from '@carlsberggroup/malty.atoms.image/Image';
+import { Pill, PillColor } from '@carlsberggroup/malty.atoms.pill';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Story } from '@storybook/react';
 import React from 'react';
@@ -44,6 +46,12 @@ export default {
       control: 'boolean',
       description: 'Selects the card',
     },
+    onClick: {
+      description: 'This is a function that will run on click. It is not a required property',
+      table: {
+        category: 'Events',
+      },
+    },
   },
 };
 
@@ -58,7 +66,13 @@ Card.args = {
   selected: false,
   style: CardStyle.Plain,
   orientation: CardOrientation.Portrait,
-  cardHero: <Image src="https://placehold.co/300x180" />,
+  cardHero: (
+    <Image src="https://placehold.co/300x180" width="100%">
+      <div style={{ position: 'absolute', top: 5, left: 5 }}>
+        <Pill text="Text" color={PillColor.Success} />
+      </div>
+    </Image>
+  ),
   cardBody: (
     <div>
       <Text textStyle={TextStyle.MediumSmallBold}>Subtitle</Text>
@@ -67,6 +81,8 @@ Card.args = {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua.
       </p>
+      <Button style={ButtonStyle.Primary} text="Button" />
     </div>
   ),
+  onClick: undefined,
 };

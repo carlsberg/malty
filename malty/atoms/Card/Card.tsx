@@ -10,12 +10,23 @@ export function Card({
   style = CardStyle.Plain,
   cardHero,
   cardBody,
+  onClick,
 }: CardProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
+  const hover = !(onClick === undefined);
+
   return (
-    <StyledCardContainer orientation={orientation} selected={selected} cardStyle={style}>
-      <StyledCardHero orientation={orientation}>{cardHero}</StyledCardHero>
+    <StyledCardContainer
+      orientation={orientation}
+      selected={selected}
+      cardStyle={style}
+      onClick={onClick}
+      hover={hover}
+    >
+      <StyledCardHero orientation={orientation} hover={hover}>
+        {cardHero}
+      </StyledCardHero>
       <StyledCardBody>{cardBody}</StyledCardBody>
     </StyledCardContainer>
   );

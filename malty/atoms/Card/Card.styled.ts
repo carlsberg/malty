@@ -5,14 +5,23 @@ export const StyledCardContainer = styled.div<{
   orientation: CardOrientation;
   selected: boolean;
   cardStyle: CardStyle;
+  hover: boolean;
 }>`
   display: flex;
   align-items: stretch;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][5].value};
-  }
+  ${({ hover }) =>
+    hover &&
+    css`
+      cursor: pointer;
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][5].value};
+      }
+      &:active {
+        background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
+      }
+    `}
 
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
@@ -53,21 +62,30 @@ export const StyledCardContainer = styled.div<{
 
 export const StyledCardHero = styled.div<{
   orientation: CardOrientation;
+  hover: boolean;
 }>`
   filter: brightness(100%);
   -webkit-filter: brightness(100%);
 
-  &:hover {
-    filter: brightness(95%);
-    -webkit-filter: brightness(95%);
-  }
+  ${({ hover }) =>
+    hover &&
+    css`
+      cursor: pointer;
+      &:hover {
+        filter: brightness(95%);
+        -webkit-filter: brightness(95%);
+      }
+      &:active {
+        filter: brightness(90%);
+        -webkit-filter: brightness(90%);
+      }
+    `}
 
   display: flex;
   align-items: stretch;
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
       return css`
-        width: 100%;
         flex-direction: row;
       `;
     }
