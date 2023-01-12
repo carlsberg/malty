@@ -36,15 +36,6 @@ export const StyledCardContainer = styled.div<{
     `;
   }};
 
-  ${({ theme, selected }) =>
-    theme &&
-    selected &&
-    css`
-      border: ${theme.borders['border-3px--solid']['border-width'].value}
-        ${theme.borders['border-3px--solid']['border-style'].value}
-        ${theme.colors.theme.themePrimary.value};
-    `}
-
   ${({ theme, cardStyle }) =>
     theme &&
     cardStyle === CardStyle.Outlined &&
@@ -53,10 +44,19 @@ export const StyledCardContainer = styled.div<{
         ${theme.borders['border-1px--solid']['border-style'].value}
         ${theme.colors.colours.default['digital-black'].value};
     `}
-     ${({ cardStyle }) =>
+  ${({ cardStyle }) =>
     cardStyle === CardStyle.Shadowed &&
     css`
       box-shadow: 0px 2px 6px 1px rgba(33, 40, 51, 0.1), 0px 1px 2px rgba(33, 40, 51, 0.15);
+    `}
+
+  ${({ theme, selected }) =>
+    theme &&
+    selected &&
+    css`
+      border: ${theme.borders['border-3px--solid']['border-width'].value}
+        ${theme.borders['border-3px--solid']['border-style'].value}
+        ${theme.colors.theme.themePrimary.value};
     `}
 `;
 
