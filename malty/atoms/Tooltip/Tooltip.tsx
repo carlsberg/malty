@@ -1,8 +1,13 @@
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 import { ThemeContext } from 'styled-components';
-import { CLOSE_TOOLTIP_EVENT, OPEN_TOOLTIP_EVENT, START_TOOLTIP_TIMER_EVENT, useToolTip } from './Tooltip.helper';
+import {
+  CLOSE_TOOLTIP_EVENT,
+  OPEN_TOOLTIP_EVENT,
+  START_TOOLTIP_TIMER_EVENT,
+  useToolTip,
+} from './Tooltip.helper';
 import { StyledArrow, StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
 import { TooltipPositionStrategy, TooltipProps, TooltipToggle, TooltipType } from './Tooltip.types';
 
@@ -17,7 +22,7 @@ const Tooltip: TooltipType = ({
   triggerComponent,
   tooltipId,
   positionStrategy = TooltipPositionStrategy.Absolute,
-  children
+  children,
 }: TooltipProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const {
@@ -27,8 +32,9 @@ const Tooltip: TooltipType = ({
     setReferenceElement,
     setPopperElement,
     setArrowElement,
+    updateTooltipPosition,
     styles,
-    attributes
+    attributes,
   } = useToolTip({
     placement,
     isOpenProp,
@@ -36,8 +42,14 @@ const Tooltip: TooltipType = ({
     toggleType: toggle,
     onClose,
     tooltipId,
-    positionStrategy
+    positionStrategy,
   });
+
+  useLayoutEffect(() => {
+    if (isOpen) {
+      updateTooltipPosition?.();
+    }
+  }, [isOpen, updateTooltipPosition]);
 
   const handleTooltipMouseEnter = () => {
     if (toggle === TooltipToggle.Event) {
@@ -82,7 +94,13 @@ const Tooltip: TooltipType = ({
         onMouseOut={handleTooltipMouseOut}
       >
         <StyledTooltip theme={theme}>{renderChildren()}</StyledTooltip>
-        <StyledArrow theme={theme} isDark={isDark} ref={setArrowElement} style={styles.arrow} />
+        <StyledArrow
+          data-popper-arrow
+          theme={theme}
+          isDark={isDark}
+          ref={setArrowElement}
+          style={styles.arrow}
+        />
       </StyledTooltipWrapper>
     </>
   );
