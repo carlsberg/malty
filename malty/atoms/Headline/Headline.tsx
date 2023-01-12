@@ -2,13 +2,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledHeadline } from './Headline.styled';
-import {
-  HeadlineAlign,
-  HeadlineColor,
-  HeadlineProps,
-  HeadlineStyle,
-  HeadlineTags,
-} from './Headline.types';
+import { HeadlineAlign, HeadlineColor, HeadlineProps, HeadlineStyle } from './Headline.types';
 
 export function Headline({
   headlineStyle = HeadlineStyle.Medium,
@@ -19,7 +13,8 @@ export function Headline({
 }: HeadlineProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  let StyledTagHeadline = 'h1';
+  let StyledTagHeadline = as;
+  const allowedTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
 
   switch (headlineStyle) {
     case 'hero':
@@ -45,10 +40,9 @@ export function Headline({
       break;
   }
 
-  if (as && Object.values(HeadlineTags).includes(as)) {
+  if (as && allowedTags.includes(`${as}`)) {
     StyledTagHeadline = as;
   }
-
   return (
     <StyledHeadline
       as={StyledTagHeadline}
