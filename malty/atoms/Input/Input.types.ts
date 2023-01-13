@@ -527,5 +527,5 @@ export enum InputPrefixes {
   'Western Sahara' = 212,
   'Yemen' = 967,
   'Zambia' = 260,
-  'Zimbabwe' = 263,
+  'Zimbabwe' = 263
 }
