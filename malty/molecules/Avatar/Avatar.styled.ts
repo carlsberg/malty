@@ -7,16 +7,14 @@ export const StyledCamera = styled.div<{
   transition: opacity 0.25s ease-in-out;
   visibility: hidden;
   opacity: 0;
-  display: ${({ size }) =>
-    size === AvatarSize.Large || size === AvatarSize.XLarge ? 'block' : 'none'};
+  display: ${({ size }) => (size === AvatarSize.Large || size === AvatarSize.XLarge ? 'block' : 'none')};
   position: absolute;
   box-sizing: content-box;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   ${({ theme }) =>
     css`
       border: ${theme.borders['border-1px--solid']['border-width'].value}
-        ${theme.borders['border-1px--solid']['border-style'].value}
-        ${theme.colors.colours.support[20].value};
+        ${theme.borders['border-1px--solid']['border-style'].value} ${theme.colors.colours.support[20].value};
     `}
   border-radius: ${({ theme }) => theme.sizes.s.value};
   width: ${({ theme, size }) => {

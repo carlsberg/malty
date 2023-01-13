@@ -11,7 +11,7 @@ export function SegmentController({
   dataQaId,
   disabled = false,
   selected = options[0].value,
-  onChange = () => null,
+  onChange = () => null
 }: SegmentControllerProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [chipSize, setchipSize] = useState(ChipSize.Medium);

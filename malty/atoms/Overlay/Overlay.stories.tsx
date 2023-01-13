@@ -7,23 +7,23 @@ export default {
   component: OverlayComponent,
   parameters: {
     importObject: 'Overlay',
-    importPath: '@carlsberggroup/malty.atoms.overlay',
+    importPath: '@carlsberggroup/malty.atoms.overlay'
   },
   argTypes: {
     isWhite: {
       description: 'Color for overlay. Is it white?',
-      control: 'boolean',
+      control: 'boolean'
     },
     zIndex: {
       description: 'sets the z-order of the component',
-      control: 'number',
+      control: 'number'
     },
     content: {
       table: {
-        disable: true,
-      },
-    },
-  },
+        disable: true
+      }
+    }
+  }
 } as Meta;
 
 const Template: Story<OverlayProps> = (args) => <OverlayComponent {...args} />;
@@ -31,5 +31,5 @@ const Template: Story<OverlayProps> = (args) => <OverlayComponent {...args} />;
 export const Overlay = Template.bind({});
 Overlay.args = {
   isWhite: false,
-  zIndex: 0,
+  zIndex: 0
 };

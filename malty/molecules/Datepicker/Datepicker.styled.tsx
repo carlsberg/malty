@@ -34,10 +34,8 @@ export const StyledDatepicker = styled.div<{
     border-width: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}`};
     border-style: ${({ theme }) => `${theme.borders['border-1px--solid']['border-style'].value}`};
     border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
-    font-family: ${({ theme }) =>
-      theme.typography.desktop.text['medium-small_bold']['font-family'].value};
-    font-size: ${({ theme }) =>
-      theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+    font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+    font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
     outline: none;
     &:hover,
     &:focus,
@@ -55,8 +53,7 @@ export const StyledDatepicker = styled.div<{
       disabled &&
       css`
         cursor: default;
-        border-color: ${({ theme }) =>
-          `${theme.colors.colours.system['disable-light-theme'].value}`};
+        border-color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
         background-color: ${({ theme }) => theme.colors.colours.default.white.value};
         color: ${({ theme }) => `${theme.colors.colours.system['disable-light-theme'].value}`};
         svg {
@@ -120,8 +117,7 @@ export const StyledContainer = styled.div`
   ${theme.colors.colours.default['digital-black'].value}`};
   width: 100%;
   user-select: none;
-  padding: ${({ theme }) =>
-    `${theme.sizes.xl.value} ${theme.sizes.m.value} ${theme.sizes.m.value}`};
+  padding: ${({ theme }) => `${theme.sizes.xl.value} ${theme.sizes.m.value} ${theme.sizes.m.value}`};
 `;
 
 export const StyledCalendar = styled.div`
@@ -136,8 +132,7 @@ export const StyledCalendar = styled.div`
     text-align: left;
   }
   & .react-datepicker__current-month {
-    font-family: ${({ theme }) =>
-      theme.typography.desktop.text.medium_default['font-family'].value};
+    font-family: ${({ theme }) => theme.typography.desktop.text.medium_default['font-family'].value};
     font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
     font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
     display: inline;
@@ -154,20 +149,16 @@ export const StyledCalendar = styled.div`
         appearance: none;
         padding-right: ${({ theme }) => theme.sizes.m.value};
         color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-        font-size: ${({ theme }) =>
-          theme.typography.desktop.text.medium_default['font-size'].value};
-        font-weight: ${({ theme }) =>
-          theme.typography.desktop.headline.medium['font-weight'].value};
-        font-family: ${({ theme }) =>
-          theme.typography.desktop.headline.medium['font-family'].value};
+        font-size: ${({ theme }) => theme.typography.desktop.text.medium_default['font-size'].value};
+        font-weight: ${({ theme }) => theme.typography.desktop.headline.medium['font-weight'].value};
+        font-family: ${({ theme }) => theme.typography.desktop.headline.medium['font-family'].value};
         margin-left: ${({ theme }) => theme.sizes['2xs'].value};
         border: 0;
         &:focus-visible {
           outline: 0;
         }
         option {
-          font-size: ${({ theme }) =>
-            theme.typography.desktop.text.small_default['font-size'].value};
+          font-size: ${({ theme }) => theme.typography.desktop.text.small_default['font-size'].value};
         }
       }
     }
@@ -351,9 +342,7 @@ export const StyledCaption = styled.li<{ color: string; borderColor: string; dot
     height: ${({ theme }) => theme.sizes['2xs'].value};
     margin-right: ${({ theme }) => theme.sizes['2xs'].value};
     border: ${({ theme, borderColor, dotted = false }) => {
-      const borderRootStyle = dotted
-        ? theme.borders['border-1px--dotted']
-        : theme.borders['border-1px--solid'];
+      const borderRootStyle = dotted ? theme.borders['border-1px--dotted'] : theme.borders['border-1px--solid'];
 
       return `${borderRootStyle['border-width'].value} ${borderRootStyle['border-style'].value} ${borderColor}`;
     }};

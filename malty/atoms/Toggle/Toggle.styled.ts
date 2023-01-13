@@ -48,12 +48,9 @@ export const StyledLabel = styled(Label)<{
   required?: boolean;
 }>`
   font-weight: normal;
-  font-family: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-family'].value};
-  font-size: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  line-height: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
   margin-left: ${({ theme }) => theme.sizes['2xs'].value};
   margin-bottom: 0;
 `;

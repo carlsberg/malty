@@ -4,16 +4,7 @@ import { Label } from '@carlsberggroup/malty.atoms.label';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, {
-  KeyboardEvent,
-  ReactNode,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { KeyboardEvent, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -26,7 +17,7 @@ import {
   StyledContainer,
   StyledDatepicker,
   StyledInputIcon,
-  StyledWrapper,
+  StyledWrapper
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
@@ -175,13 +166,7 @@ export function Datepicker({
   return (
     <StyledWrapper theme={theme}>
       {!inline && <Label label={label} htmlFor={id} required={required} disabled={disabled} />}
-      <StyledDatepicker
-        data-testid={dataTestId}
-        size={numSize}
-        disabled={disabled}
-        readOnly={readOnly}
-        theme={theme}
-      >
+      <StyledDatepicker data-testid={dataTestId} size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
         {!inline && (
           <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
             <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />

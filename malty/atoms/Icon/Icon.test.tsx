@@ -8,9 +8,7 @@ import { IconName } from './Icon.types';
 describe('icon', () => {
   it('renders an icon as svg', () => {
     const name = IconName.CarlsbergFilled;
-    render(
-      <Icon name={IconName.CarlsbergFilled} color={IconColor.Primary} size={IconSize.Small} />
-    );
+    render(<Icon name={IconName.CarlsbergFilled} color={IconColor.Primary} size={IconSize.Small} />);
     const element = screen.getByTestId(`icon-${name}`);
     expect(element).toBeInTheDocument();
   });
@@ -19,12 +17,7 @@ describe('icon', () => {
     const name = IconName.CarlsbergFilled;
     const iconMockClickFn = jest.fn();
     render(
-      <Icon
-        name={IconName.CarlsbergFilled}
-        color={IconColor.Primary}
-        onClick={iconMockClickFn}
-        size={IconSize.Small}
-      />
+      <Icon name={IconName.CarlsbergFilled} color={IconColor.Primary} onClick={iconMockClickFn} size={IconSize.Small} />
     );
     fireEvent.click(screen.getByTestId(`icon-${name}`));
     expect(iconMockClickFn).toHaveBeenCalledTimes(1);

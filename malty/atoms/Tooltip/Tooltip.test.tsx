@@ -89,7 +89,7 @@ describe('Tooltip', () => {
 
     // should hide tooltip after 3 seconds
     await waitFor(() => expect(screen.getByText('Button inside Tooltip')).not.toBeVisible(), {
-      timeout: 3000,
+      timeout: 3000
     });
     expect(onClose).toHaveBeenCalled();
   });

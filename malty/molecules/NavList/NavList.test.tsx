@@ -7,7 +7,7 @@ import { NavList } from './NavList';
 const simpleNavigation = [
   { icon: IconName.DataTransfer, name: 'item 1', href: '/item1' },
   { icon: IconName.DataTransfer, name: 'item 2', href: '/item2' },
-  { icon: IconName.DataTransfer, name: 'item 3', href: '/item3' },
+  { icon: IconName.DataTransfer, name: 'item 3', href: '/item3' }
 ];
 
 const testHandler = jest.fn();

@@ -16,7 +16,7 @@ export function Floater({
   tabIndex = -1,
   dataTestId,
   children,
-  color = FloaterColor.DigitalBlack,
+  color = FloaterColor.DigitalBlack
 }: FloaterProps) {
   let iconColor;
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -80,13 +80,9 @@ export function Floater({
       tabIndex={tabIndex}
     >
       <div className="text-container">
-        {icon && iconPos === FloaterIconPosition.Left && (
-          <Icon name={icon} color={iconColor} size={IconSize.Medium} />
-        )}
+        {icon && iconPos === FloaterIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
         {text || children}
-        {icon && iconPos === FloaterIconPosition.Right && (
-          <Icon name={icon} color={iconColor} size={IconSize.Medium} />
-        )}
+        {icon && iconPos === FloaterIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
       </div>
     </StyledFloaterButton>
   );

@@ -5,12 +5,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';
-import {
-  StyledAnchor,
-  StyledPrimaryButton,
-  StyledSecondaryButton,
-  StyledTransparentButton,
-} from './Button.styled';
+import { StyledAnchor, StyledPrimaryButton, StyledSecondaryButton, StyledTransparentButton } from './Button.styled';
 import { ButtonColor, ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
 export function Button({
@@ -121,13 +116,9 @@ export function Button({
       {...props}
     >
       <div className="text-container">
-        {icon && iconPos === ButtonIconPosition.Left && (
-          <Icon name={icon} color={iconColor} size={IconSize.Small} />
-        )}
+        {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
         {text || children}
-        {icon && iconPos === ButtonIconPosition.Right && (
-          <Icon name={icon} color={iconColor} size={IconSize.Small} />
-        )}
+        {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
       </div>
       {loading && (
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">

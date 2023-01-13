@@ -14,7 +14,7 @@ export function Text({
   children,
   width,
   className,
-  dataQaId,
+  dataQaId
 }: TextProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   let StyledTag = as;

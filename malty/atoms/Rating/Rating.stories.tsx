@@ -8,50 +8,50 @@ export default {
   component: RatingComponent,
   parameters: {
     importObject: 'Rating',
-    importPath: '@carlsberggroup/malty.atoms.rating',
+    importPath: '@carlsberggroup/malty.atoms.rating'
   },
   argTypes: {
     name: {
       description: 'Name of the rating component',
-      control: { type: 'text' },
+      control: { type: 'text' }
     },
     label: {
       description: 'Label of the rating component',
-      control: { type: 'text' },
+      control: { type: 'text' }
     },
     value: {
       defaultValue: 0,
       description: 'Current value of the rating component',
-      control: { type: 'number', min: 0, max: 5, step: 1 },
+      control: { type: 'number', min: 0, max: 5, step: 1 }
     },
     readOnly: {
       defaultValue: false,
       table: {
-        category: 'State',
+        category: 'State'
       },
       control: 'boolean',
-      description: 'Make readOnly the rating component. It is not a required property',
+      description: 'Make readOnly the rating component. It is not a required property'
     },
     disabled: {
       defaultValue: false,
       table: {
-        category: 'State',
+        category: 'State'
       },
       control: 'boolean',
-      description: 'Make disable the rating component. It is not a required property',
+      description: 'Make disable the rating component. It is not a required property'
     },
     totalReview: {
       defaultValue: undefined,
       description: 'Total review of the rating component',
-      control: { type: 'number', min: 0 },
+      control: { type: 'number', min: 0 }
     },
     onStarClick: {
       description: 'This is a function that will run on click. It is not a required property',
       table: {
-        category: 'Events',
-      },
-    },
-  },
+        category: 'Events'
+      }
+    }
+  }
 };
 const Template: Story<RatingProps> = (args) => <RatingComponent {...args} />;
 
@@ -60,5 +60,5 @@ export const Rating = Template.bind({});
 Rating.args = {
   name: 'rating1',
   label: 'How was your order experience?',
-  value: 0,
+  value: 0
 };

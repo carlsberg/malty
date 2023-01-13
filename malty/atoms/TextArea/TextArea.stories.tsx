@@ -8,68 +8,64 @@ export default {
   component: TextAreaComponent,
   parameters: {
     importObject: 'TextArea',
-    importPath: '@carlsberggroup/malty.atoms.text-area',
+    importPath: '@carlsberggroup/malty.atoms.text-area'
   },
   argTypes: {
     label: {
       description: 'Label for the input, goes above.',
-      control: 'text',
+      control: 'text'
     },
     placeholder: {
       description: 'Placeholder text to go inside the input field, when empty.',
-      control: 'text',
+      control: 'text'
     },
     resize: {
       control: 'boolean',
-      description: 'Textarea state, resizable textarea',
+      description: 'Textarea state, resizable textarea'
     },
     disabled: {
       control: 'boolean',
-      description: 'Textarea state, disabled',
+      description: 'Textarea state, disabled'
     },
     readOnly: {
       control: 'boolean',
-      description: 'Textarea state, readOnly',
+      description: 'Textarea state, readOnly'
     },
     error: {
       description: 'Error message to be displayed when error is present.',
-      control: 'text',
+      control: 'text'
     },
     hint: {
       description: 'helper message to be displayed',
-      control: 'text',
+      control: 'text'
     },
     maxLength: {
       description: 'Maxium characters of textarea ',
-      control: 'number',
+      control: 'number'
     },
 
     value: {
       description: 'Default value of textarea',
-      control: 'text',
+      control: 'text'
     },
     onValueChange: {
-      description: 'Function to be executed when textarea state changes',
+      description: 'Function to be executed when textarea state changes'
     },
     dataTestId: {
       control: 'text',
-      description: 'select data-testid',
+      description: 'select data-testid'
     },
     required: {
       control: 'boolean',
-      description: 'Makes the textarea input required to fill',
-    },
-  },
+      description: 'Makes the textarea input required to fill'
+    }
+  }
 } as Meta;
 
 const Template: Story<TextAreaProps> = ({ value, onValueChange, ...args }) => {
   const [stateValue, setStateValue] = useState(value);
   return (
-    <TextAreaComponent
-      value={stateValue}
-      onValueChange={(newValue: string) => setStateValue(newValue)}
-      {...args}
-    />
+    <TextAreaComponent value={stateValue} onValueChange={(newValue: string) => setStateValue(newValue)} {...args} />
   );
 };
 
@@ -90,5 +86,5 @@ TextArea.args = {
   hint: 'hint text',
   readOnly: false,
   dataTestId: 'Textarea',
-  required: false,
+  required: false
 };

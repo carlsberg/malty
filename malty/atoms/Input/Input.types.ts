@@ -41,22 +41,22 @@ export enum InputType {
   Search = 'search',
   Telephone = 'tel',
   URL = 'url',
-  Quantity = 'quantity',
+  Quantity = 'quantity'
 }
 
 export enum InputSize {
   Medium = 'Medium',
-  Large = 'Large',
+  Large = 'Large'
 }
 
 export enum InputIconPosition {
   Left = 'Left',
-  Right = 'Right',
+  Right = 'Right'
 }
 
 export enum InputMaskTypes {
   Telephone = 'telephone',
-  CreditCard = 'credit_card',
+  CreditCard = 'credit_card'
 }
 
 export enum InputCountry {
@@ -289,7 +289,7 @@ export enum InputCountry {
   EH = 'Western Sahara',
   YE = 'Yemen',
   ZM = 'Zambia',
-  ZW = 'Zimbabwe',
+  ZW = 'Zimbabwe'
 }
 
 export enum InputPrefixes {
@@ -526,5 +526,5 @@ export enum InputPrefixes {
   'Western Sahara' = 212,
   'Yemen' = 967,
   'Zambia' = 260,
-  'Zimbabwe' = 263,
+  'Zimbabwe' = 263
 }

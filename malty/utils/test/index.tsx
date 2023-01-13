@@ -7,7 +7,6 @@ const AllTheProviders: React.FC = ({ children }) => <>{children}</>;
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: AllTheProviders as ComponentType, ...options });
 
-const jsonRenderer = (ui: React.ReactNode) =>
-  renderer.create(<AllTheProviders>{ui}</AllTheProviders>).toJSON();
+const jsonRenderer = (ui: React.ReactNode) => renderer.create(<AllTheProviders>{ui}</AllTheProviders>).toJSON();
 
 export { customRender as render, jsonRenderer };

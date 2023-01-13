@@ -10,7 +10,7 @@ import {
   StyledMainContainer,
   StyledRatingContainer,
   StyledStarContainer,
-  StyledTotalReviewContainer,
+  StyledTotalReviewContainer
 } from './Rating.styled';
 import { RatingProps } from './Rating.types';
 
@@ -22,7 +22,7 @@ export function Rating({
   disabled = false,
   totalReview,
   onStarClick,
-  dataTestId,
+  dataTestId
 }: RatingProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [ratingValue, setRatingValue] = useState(value);
@@ -104,9 +104,7 @@ export function Rating({
           hideCursor={readOnly || disabled}
           data-testid={ratingValue >= i ? 'rating-filled-star' : 'rating-empty-star'}
           htmlFor={id}
-          onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) =>
-            handleStarClick(i, ratingValue, name, e)
-          }
+          onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}
           onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, e)}
         >
           <StyledIconStarContainer key={`icon_${id}`}>
@@ -128,11 +126,7 @@ export function Rating({
 
   return (
     <StyledRatingContainer data-testid={dataTestId} theme={theme}>
-      <Text
-        textStyle={TextStyle.MediumBold}
-        color={TextColor.DigitalBlack}
-        align={TextAlign.Center}
-      >
+      <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack} align={TextAlign.Center}>
         {label}
       </Text>
       <StyledMainContainer theme={theme}>

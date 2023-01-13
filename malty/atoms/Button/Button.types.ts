@@ -26,13 +26,13 @@ export enum ButtonColor {
   DigitalBlack = 'digital-black',
   ThemePrimary = 'themePrimary',
   ThemeSecondary = 'themeSecondary',
-  ThemeTertiary = 'themeTertiary',
+  ThemeTertiary = 'themeTertiary'
 }
 
 export enum ButtonType {
   Submit = 'submit',
   Default = 'button',
-  Reset = 'reset',
+  Reset = 'reset'
 }
 
 export enum ButtonSize {
@@ -40,16 +40,16 @@ export enum ButtonSize {
   Small = 'Small',
   Medium = 'Medium',
   Large = 'Large',
-  XLarge = 'XLarge',
+  XLarge = 'XLarge'
 }
 
 export enum ButtonStyle {
   Primary = 'Primary',
   Secondary = 'Secondary',
-  Transparent = 'Transparent',
+  Transparent = 'Transparent'
 }
 
 export enum ButtonIconPosition {
   Right = 'Right',
-  Left = 'Left',
+  Left = 'Left'
 }

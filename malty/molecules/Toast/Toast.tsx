@@ -4,12 +4,7 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  StyledActionItem,
-  StyledAlertToastWrapper,
-  StyledDismissContainer,
-  StyledToast,
-} from './Toast.styled';
+import { StyledActionItem, StyledAlertToastWrapper, StyledDismissContainer, StyledToast } from './Toast.styled';
 import { ToastColor, ToastProps } from './Toast.types';
 
 export function Toast({
@@ -20,7 +15,7 @@ export function Toast({
   onCustomAction,
   customActionText,
   message,
-  autoHideDuration,
+  autoHideDuration
 }: ToastProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -106,11 +101,7 @@ export function Toast({
   return (
     <StyledAlertToastWrapper theme={theme}>
       <StyledToast data-testid={`${dataQaId}-container`} color={color} theme={theme}>
-        <Text
-          dataQaId={`${dataQaId}-message`}
-          color={TextColor.White}
-          textStyle={TextStyle.MediumSmallDefault}
-        >
+        <Text dataQaId={`${dataQaId}-message`} color={TextColor.White} textStyle={TextStyle.MediumSmallDefault}>
           {message}
         </Text>
 

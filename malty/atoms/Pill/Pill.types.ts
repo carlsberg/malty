@@ -11,7 +11,7 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement> {
 export enum PillSize {
   ExtraSmall = 'ExtraSmall',
   Small = 'Small',
-  Medium = 'Medium',
+  Medium = 'Medium'
 }
 
 export enum PillColor {
@@ -21,7 +21,7 @@ export enum PillColor {
   Success = 'success',
   alertStrong = 'alert-strong',
   Fail = 'fail',
-  NotificationStrong = 'notification-strong',
+  NotificationStrong = 'notification-strong'
 }
 
 export interface UsePillStylesProps {

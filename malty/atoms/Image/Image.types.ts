@@ -17,7 +17,7 @@ export enum ImageEffectPosition {
   Top = 'Top',
   Right = 'Right',
   Bottom = 'Bottom',
-  Left = 'Left',
+  Left = 'Left'
 }
 
 export enum ImageOverlay {
@@ -25,5 +25,5 @@ export enum ImageOverlay {
   Overlay25 = '25',
   Overlay50 = '50',
   Overlay75 = '75',
-  Overlay90 = '90',
+  Overlay90 = '90'
 }

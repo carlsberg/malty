@@ -15,7 +15,7 @@ export function DraggableRow({
   allowSelection,
   dataTestId,
   elementRef,
-  tableContext,
+  tableContext
 }: DraggableRowProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -38,17 +38,15 @@ export function DraggableRow({
           </StyledDraggableCell>
           {allowSelection && (
             <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
-              <Checkbox
-                onValueChange={row.getToggleSelectedHandler()}
-                checked={row.getIsSelected()}
-              />
+              <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
             </StyledTd>
           )}
           {row.getVisibleCells().map((cell, cellIndex) => (
             <StyledTd
               alignPosition={
-                tableContext?.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)
-                  ?.columnDef?.meta as TableHeaderAlignment | undefined
+                tableContext?.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)?.columnDef?.meta as
+                  | TableHeaderAlignment
+                  | undefined
               }
               width={elementRef?.current[cellIndex]?.offsetWidth}
               data-testid={`${dataTestId}-cell-${cell.id}`}

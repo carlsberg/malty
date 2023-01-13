@@ -10,7 +10,7 @@ export interface SegmentControllerProps {
 export enum SegmentControllerSize {
   XSmall = 'XSmall',
   Small = 'Small',
-  Medium = 'Medium',
+  Medium = 'Medium'
 }
 
 export interface SegmentControllerOptions {

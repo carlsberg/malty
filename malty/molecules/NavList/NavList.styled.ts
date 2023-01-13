@@ -23,11 +23,7 @@ export const StyledNavItem = styled.li<{
   position: relative;
   box-sizing: border-box;
   background-color: ${({ selected, theme }) =>
-    `${
-      selected
-        ? theme.colors.colours.support[80].value
-        : theme.colors.colours.default['digital-black'].value
-    }}`};
+    `${selected ? theme.colors.colours.support[80].value : theme.colors.colours.default['digital-black'].value}}`};
   cursor: ${({ selected }) => `${selected ? 'default' : 'pointer'}`};
   user-select: none;
 
@@ -42,9 +38,7 @@ export const StyledNavItem = styled.li<{
   }
   &:hover {
     background-color: ${({ selected, theme }) =>
-      `${
-        selected ? theme.colors.colours.support[80].value : theme.colors.colours.support[100].value
-      }`};
+      `${selected ? theme.colors.colours.support[80].value : theme.colors.colours.support[100].value}`};
     transition: background-color 0.2s ease-in-out;
   }
   &.firstInCategory {

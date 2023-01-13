@@ -16,12 +16,12 @@ export interface FloaterProps {
 
 export enum FloaterIconPosition {
   Right = 'Right',
-  Left = 'Left',
+  Left = 'Left'
 }
 
 export enum FloaterColor {
   DigitalBlack = 'digital-black',
   ThemePrimary = 'themePrimary',
   ThemeSecondary = 'themeSecondary',
-  ThemeTertiary = 'themeTertiary',
+  ThemeTertiary = 'themeTertiary'
 }

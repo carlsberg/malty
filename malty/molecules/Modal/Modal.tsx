@@ -13,7 +13,7 @@ import {
   StyledContainer,
   StyledContentContainer,
   StyledModalWrapper,
-  StyledTitleContainer,
+  StyledTitleContainer
 } from './Modal.styled';
 import { ModalProps, ModalSize } from './Modal.types';
 
@@ -25,7 +25,7 @@ export function Modal({
   dismissible = true,
   actions,
   size = ModalSize.Medium,
-  whiteBackground = false,
+  whiteBackground = false
 }: ModalProps) {
   const closeModal = () => {
     onClose();

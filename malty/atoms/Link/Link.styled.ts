@@ -35,9 +35,7 @@ export const StyledAnchor = styled.a<{
 
   text-decoration: underline;
   color: ${({ color, theme }) =>
-    color !== LinkColor.Primary
-      ? theme.colors['text-colours'][color].value
-      : theme.colors.theme.themePrimary.value};
+    color !== LinkColor.Primary ? theme.colors['text-colours'][color].value : theme.colors.theme.themePrimary.value};
   cursor: pointer;
   &:hover {
     opacity: 0.75;

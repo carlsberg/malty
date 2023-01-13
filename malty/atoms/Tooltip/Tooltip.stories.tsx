@@ -4,12 +4,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Tooltip as TooltipComponent } from './Tooltip';
-import {
-  TooltipPlacement,
-  TooltipPositionStrategy,
-  TooltipProps,
-  TooltipToggle,
-} from './Tooltip.types';
+import { TooltipPlacement, TooltipPositionStrategy, TooltipProps, TooltipToggle } from './Tooltip.types';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -34,26 +29,26 @@ export default {
   parameters: {
     importObject: 'Tooltip',
     importPath: '@carlsberggroup/malty.atoms.tooltip',
-    variants: ['dark', 'light'],
+    variants: ['dark', 'light']
   },
   argTypes: {
     tooltipId: {
       control: 'text',
       description: 'Tooltip Id',
       table: { defaultValue: { summary: 'tooltip' } },
-      defaultValue: 'tooltip',
+      defaultValue: 'tooltip'
     },
     triggerComponent: {
       control: {
-        disable: true,
+        disable: true
       },
       description:
-        "Anchor element to have Tooltip anchor to. The position is based on this element. If no anchor provided the Tooltip will show in it's corresponding position on the markup, and anchor on itself.",
+        "Anchor element to have Tooltip anchor to. The position is based on this element. If no anchor provided the Tooltip will show in it's corresponding position on the markup, and anchor on itself."
     },
     isOpen: {
       description: 'Tooltip visibility. Overrides all variants actions that toggle visibility',
       control: 'boolean',
-      table: { defaultValue: { summary: 'undefined' } },
+      table: { defaultValue: { summary: 'undefined' } }
     },
     placement: {
       description: 'Tooltip position.',
@@ -61,9 +56,9 @@ export default {
       table: { defaultValue: { summary: 'TooltipPlacement.Bottom' } },
       control: {
         type: 'select',
-        label: Object.keys(TooltipPlacement),
+        label: Object.keys(TooltipPlacement)
       },
-      defaultValue: 'bottom',
+      defaultValue: 'bottom'
     },
 
     positionStrategy: {
@@ -73,19 +68,18 @@ export default {
       table: { defaultValue: { summary: 'TooltipPositionStrategy.ABSOLUTE' } },
       control: {
         type: 'select',
-        label: Object.keys(TooltipPositionStrategy),
+        label: Object.keys(TooltipPositionStrategy)
       },
-      defaultValue: 'absolute',
+      defaultValue: 'absolute'
     },
     children: {
-      description:
-        'Content for the Tooltip, can be a `string`, a `React Element` or just simply `HTML`.',
+      description: 'Content for the Tooltip, can be a `string`, a `React Element` or just simply `HTML`.',
       table: {
         type: {
-          summary: 'JSX.Element',
-        },
+          summary: 'JSX.Element'
+        }
       },
-      control: 'text',
+      control: 'text'
     },
     toggle: {
       description: 'Expected Tooltip behaviour for trigger.',
@@ -94,29 +88,29 @@ export default {
       table: { defaultValue: { summary: 'TooltipToggle.Hover' } },
       control: {
         type: 'select',
-        label: Object.keys(TooltipToggle),
+        label: Object.keys(TooltipToggle)
       },
-      defaultValue: 'Hover',
+      defaultValue: 'Hover'
     },
     isDark: {
       description: 'Dark theme for the Tooltip.',
       control: 'boolean',
-      table: { defaultValue: { summary: 'true' } },
+      table: { defaultValue: { summary: 'true' } }
     },
     dataTestId: {
       control: 'text',
       description: 'Tooltip data-testid',
-      table: { defaultValue: { summary: 'none' } },
+      table: { defaultValue: { summary: 'none' } }
     },
     autoHideDuration: {
       control: 'number',
       description: 'Set auto hide duration - available only for `Event` toggle',
-      table: { defaultValue: { summary: '5000' } },
+      table: { defaultValue: { summary: '5000' } }
     },
     onClose: {
-      description: 'Function to be executed when tooltip state is changed to hidden.',
-    },
-  },
+      description: 'Function to be executed when tooltip state is changed to hidden.'
+    }
+  }
 } as Meta;
 
 const Template: Story<TooltipProps> = ({
@@ -126,7 +120,7 @@ const Template: Story<TooltipProps> = ({
   dataTestId,
   autoHideDuration,
   isOpen,
-  children,
+  children
 }: TooltipProps) => {
   const tooltipTextColor = isDark ? TextColor.White : TextColor.DigitalBlack;
   const renderTooltipEventToggle = () => (
@@ -200,7 +194,7 @@ switch (variant) {
       tooltipId: 'tooltip',
       triggerComponent: (setTriggerElement) => (
         <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
-      ),
+      )
     };
     break;
 
@@ -214,7 +208,7 @@ switch (variant) {
       tooltipId: 'tooltip',
       triggerComponent: (setTriggerElement) => (
         <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
-      ),
+      )
     };
     break;
 }

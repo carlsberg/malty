@@ -2,9 +2,7 @@ export interface TooltipProps {
   isOpen?: boolean;
   placement: TooltipPlacement;
   toggle?: TooltipToggle;
-  triggerComponent: (
-    setTriggerElement: React.Dispatch<React.SetStateAction<HTMLElement | null>>
-  ) => React.ReactNode;
+  triggerComponent: (setTriggerElement: React.Dispatch<React.SetStateAction<HTMLElement | null>>) => React.ReactNode;
   isDark?: boolean;
   dataTestId?: string;
   autoHideDuration?: number;
@@ -34,7 +32,7 @@ export type UseTooltipProps = {
 
 export enum TooltipPositionStrategy {
   Absolute = 'absolute',
-  Fixed = 'fixed',
+  Fixed = 'fixed'
 }
 
 export enum TooltipPlacement {
@@ -52,11 +50,11 @@ export enum TooltipPlacement {
   Top = 'top',
   Right = 'right',
   Bottom = 'bottom',
-  Left = 'left',
+  Left = 'left'
 }
 
 export enum TooltipToggle {
   Click = 'click',
   Hover = 'hover',
-  Event = 'event',
+  Event = 'event'
 }

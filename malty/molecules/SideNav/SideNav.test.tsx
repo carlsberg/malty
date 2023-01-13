@@ -10,7 +10,7 @@ const productName = 'Ottilia';
 const simpleNavigation = [
   { icon: IconName.DataTransfer, name: 'item 1', href: '/item1' },
   { icon: IconName.DataTransfer, name: 'item 2', href: '/item2' },
-  { icon: IconName.DataTransfer, name: 'item 3', href: '/item3' },
+  { icon: IconName.DataTransfer, name: 'item 3', href: '/item3' }
 ];
 
 const navWithRouterItems = [
@@ -21,13 +21,13 @@ const navWithRouterItems = [
     name: 'item with subnav',
     component: Link,
     to: '/',
-    subItems: [{ name: 'sub item 1', href: '/' }],
-  },
+    subItems: [{ name: 'sub item 1', href: '/' }]
+  }
 ];
 
 const systemOptions = [
   { icon: IconName.DataTransfer, href: '/iframe.html' },
-  { icon: IconName.DataTransfer, href: '/iframe.html' },
+  { icon: IconName.DataTransfer, href: '/iframe.html' }
 ];
 
 const profileMenu = {
@@ -35,8 +35,8 @@ const profileMenu = {
   userRole: 'Market director',
   profileActions: [
     { name: 'User profile', icon: IconName.DataTransfer, href: '/iframe.html' },
-    { name: 'Sign out', icon: IconName.DataTransfer, href: '/item2' },
-  ],
+    { name: 'Sign out', icon: IconName.DataTransfer, href: '/item2' }
+  ]
 };
 
 describe('molecule sideNav', () => {
@@ -72,7 +72,7 @@ describe('sideNav sub navigation', () => {
       itemWithSubNav,
       new MouseEvent('click', {
         bubbles: true,
-        cancelable: true,
+        cancelable: true
       })
     );
 

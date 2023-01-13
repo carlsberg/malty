@@ -8,7 +8,7 @@ export default {
   component: ProgressBarContainer,
   parameters: {
     importObject: 'ProgressBar',
-    importPath: '@carlsberggroup/malty.atoms.progress-bar',
+    importPath: '@carlsberggroup/malty.atoms.progress-bar'
   },
   argTypes: {
     label: {
@@ -16,40 +16,36 @@ export default {
       description: 'Progress indeicating text',
       table: {
         defaultValue: {
-          summary: 'blank',
-        },
-      },
+          summary: 'blank'
+        }
+      }
     },
     displayAmount: {
       control: 'boolean',
       description: 'Show progress percentage?',
       table: {
         defaultValue: {
-          summary: false,
-        },
-      },
+          summary: false
+        }
+      }
     },
     progress: {
       control: {
         type: 'range',
         min: 0,
         max: 100,
-        step: 1,
+        step: 1
       },
       description: 'Percentage of progress for progress bar indicator, 0 to 100',
       table: {
         defaultValue: {
-          summary: 0,
-        },
-      },
-    },
-  },
+          summary: 0
+        }
+      }
+    }
+  }
 } as Meta;
-const Template: Story<ProgressBarProps> = ({
-  progress,
-  displayAmount,
-  label,
-}: ProgressBarProps) => (
+const Template: Story<ProgressBarProps> = ({ progress, displayAmount, label }: ProgressBarProps) => (
   <ProgressBarContainer displayAmount={displayAmount} label={label} progress={progress} />
 );
 
@@ -57,5 +53,5 @@ export const ProgressBar = Template.bind({});
 ProgressBar.args = {
   progress: 20,
   displayAmount: true,
-  label: 'Loading items...',
+  label: 'Loading items...'
 };

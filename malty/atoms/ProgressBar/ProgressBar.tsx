@@ -6,7 +6,7 @@ import {
   StyledProgressAmount,
   StyledProgressBar,
   StyledText,
-  StyledWrapper,
+  StyledWrapper
 } from './ProgressBar.styled';
 import { ProgressBarProps } from './ProgressBar.types';
 
