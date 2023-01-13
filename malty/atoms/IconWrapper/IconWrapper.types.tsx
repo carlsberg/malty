@@ -28,7 +28,7 @@ export enum IconColor {
   Fail = 'fail',
   FailLight = 'fail-light',
   DisableDark = 'disable-dark-theme',
-  DisableLight = 'disable-light-theme',
+  DisableLight = 'disable-light-theme'
 }
 
 export enum IconSize {
@@ -37,7 +37,7 @@ export enum IconSize {
   MediumSmall = 'ms',
   Medium = 'm',
   Large = 'l',
-  ExtraLarge = 'xl',
+  ExtraLarge = 'xl'
 }
 
 export interface UseIconColorProps {

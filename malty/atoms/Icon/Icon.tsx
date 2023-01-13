@@ -7,7 +7,7 @@ export function Icon({
   name = IconName.CarlsbergFilled,
   viewBox,
   className,
-  onClick,
+  onClick
 }: IconProps) {
   const IconElement = IconsPaths[name];
   return (

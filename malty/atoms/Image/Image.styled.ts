@@ -10,26 +10,22 @@ export const StyledImage = styled.img<{
   ${({ borderPosition }) => {
     if (borderPosition === ImageEffectPosition.Top) {
       return css`
-        border-top: ${({ theme }) =>
-          `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+        border-top: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === ImageEffectPosition.Right) {
       return css`
-        border-right: ${({ theme }) =>
-          `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+        border-right: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === ImageEffectPosition.Bottom) {
       return css`
-        border-bottom: ${({ theme }) =>
-          `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+        border-bottom: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     if (borderPosition === ImageEffectPosition.Left) {
       return css`
-        border-left: ${({ theme }) =>
-          `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+        border-left: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
       `;
     }
     return ``;

@@ -10,71 +10,65 @@ export default {
   parameters: {
     importObject: 'Checkbox',
     importPath: '@carlsberggroup/malty.atoms.chip',
-    variants: ['button', 'icon', 'selected', 'disabled'],
+    variants: ['button', 'icon', 'selected', 'disabled']
   },
   argTypes: {
     label: {
       control: {
-        type: 'text',
+        type: 'text'
       },
-      description: 'label for the chip',
+      description: 'label for the chip'
     },
     size: {
       description: 'Chip size. Options are',
       options: Object.values(ChipSize),
       table: {
         defaultValue: {
-          summary: 'ChipSize.Medium',
-        },
+          summary: 'ChipSize.Medium'
+        }
       },
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     selected: {
       control: 'none',
-      description: 'state of the component, selected or not selected',
+      description: 'state of the component, selected or not selected'
     },
     showAction: {
       control: 'boolean',
-      description: 'Displays add button if true',
+      description: 'Displays add button if true'
     },
     onChange: {
-      description: 'Function to be executed when Chip state changes',
+      description: 'Function to be executed when Chip state changes'
     },
     icon: {
       description: 'When selected, Chip will show selected icon',
       options: Object.values({ undefined, ...IconName }),
 
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Disable chip',
+      description: 'Disable chip'
     },
     readOnly: {
       control: 'boolean',
-      description: 'readOnly chip',
+      description: 'readOnly chip'
     },
     dataTestId: {
       control: 'text',
-      description: 'Chip data-testid',
-    },
-  },
+      description: 'Chip data-testid'
+    }
+  }
 };
 
 const Template: Story<ChipProps> = (args) => {
   const [stateChecked, setStateChecked] = useState(false);
 
-  return (
-    <ChipComponent
-      {...args}
-      selected={stateChecked}
-      onChange={() => setStateChecked(!stateChecked)}
-    />
-  );
+  return <ChipComponent {...args} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
 };
 
 export const Chip = Template.bind({});
@@ -87,21 +81,21 @@ switch (variant) {
     Chip.args = {
       label: 'Label',
       selected: false,
-      showAction: true,
+      showAction: true
     };
     break;
   case 'icon':
     Chip.args = {
       label: 'Label',
       selected: false,
-      icon: IconName.Information,
+      icon: IconName.Information
     };
     break;
   case 'selected':
     Chip.args = {
       label: 'Label',
       selected: true,
-      showAction: false,
+      showAction: false
     };
     break;
   case 'disabled':
@@ -109,14 +103,14 @@ switch (variant) {
       label: 'Label',
       selected: true,
       showAction: false,
-      disabled: true,
+      disabled: true
     };
     break;
   default:
     Chip.args = {
       label: 'Label',
       selected: false,
-      showAction: false,
+      showAction: false
     };
     break;
 }

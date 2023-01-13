@@ -16,7 +16,7 @@ import {
   StyledInputContainer,
   StyledInputWrapper,
   StyledOption,
-  StyledSelect,
+  StyledSelect
 } from './Input.styled';
 import {
   InputCountry,
@@ -25,7 +25,7 @@ import {
   InputPrefixes,
   InputProps,
   InputSize,
-  InputType,
+  InputType
 } from './Input.types';
 
 export const Input = forwardRef(
@@ -118,11 +118,7 @@ export const Input = forwardRef(
       if (type === InputType.Password && value) {
         return (
           <Icon
-            className={
-              `${passwordToggleType}` === InputType.Password
-                ? 'password-icon-show'
-                : 'password-icon-hide'
-            }
+            className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}
             onClick={HandleTogglePassword}
             data-testid={`${dataTestId}-icon`}
             name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}
@@ -133,12 +129,7 @@ export const Input = forwardRef(
       }
       return (
         icon && (
-          <Icon
-            data-testid={`${dataTestId}-icon`}
-            name={icon}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
-          />
+          <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
         )
       );
     };
@@ -159,8 +150,7 @@ export const Input = forwardRef(
           isError={!!error}
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           addRight={
-            (iconPosition !== InputIconPosition.Left && type !== InputType.Quantity) ||
-            type === InputType.Password
+            (iconPosition !== InputIconPosition.Left && type !== InputType.Quantity) || type === InputType.Password
           }
           onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
           onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
@@ -252,21 +242,13 @@ export const Input = forwardRef(
           >
             {Object.keys(InputCountry)
               .sort((a, b) => {
-                const newA =
-                  InputPrefixes[
-                    InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes
-                  ];
-                const newB =
-                  InputPrefixes[
-                    InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes
-                  ];
+                const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+                const newB = InputPrefixes[InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes];
                 return newA - newB;
               })
               .map((country) => {
                 const code =
-                  InputPrefixes[
-                    InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes
-                  ];
+                  InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
                 return (
                   <StyledOption
                     data-testid={`${dataTestId}-phone-option-${country}`}
@@ -310,13 +292,7 @@ export const Input = forwardRef(
 
     return (
       <StyledInputContainer theme={theme}>
-        <Label
-          label={label}
-          required={required}
-          disabled={disabled}
-          data-testid={`${dataTestId}-label`}
-          htmlFor={id}
-        />
+        <Label label={label} required={required} disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} />
         <StyledInputWrapper
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           clearable={clearable || type === InputType.Search}
@@ -342,3 +318,5 @@ export const Input = forwardRef(
     );
   }
 );
+
+Input.displayName = 'Input';

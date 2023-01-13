@@ -11,11 +11,11 @@ export interface LoadingProps {
 
 export enum LoadingSize {
   Small = 'Small',
-  Medium = 'Medium',
+  Medium = 'Medium'
 }
 
 export enum LoadingStatus {
   Pending = 'Pending',
   Success = 'Success',
-  Failure = 'Failure',
+  Failure = 'Failure'
 }

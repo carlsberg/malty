@@ -34,8 +34,7 @@ export const StyledHeadline = styled.h1<{
   ${({ theme, headlineStyle }) =>
     theme.typography.desktop.headline[headlineStyle]['text-decoration']?.value &&
     css`
-      text-decoration: ${theme.typography.desktop.headline[headlineStyle]['text-decoration']
-        ?.value};
+      text-decoration: ${theme.typography.desktop.headline[headlineStyle]['text-decoration']?.value};
     `}
   ${({ headlineStyle, theme }) => css`
     @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
@@ -52,8 +51,7 @@ export const StyledHeadline = styled.h1<{
       `}
     ${theme.typography.tablet.headline[headlineStyle]['text-decoration']?.value &&
       css`
-        text-decoration: ${theme.typography.tablet.headline[headlineStyle]['text-decoration']
-          ?.value};
+        text-decoration: ${theme.typography.tablet.headline[headlineStyle]['text-decoration']?.value};
       `}
     }
     @media screen and (max-width: ${theme.layout.xsmall['device-max-width']?.value}) {
@@ -70,8 +68,7 @@ export const StyledHeadline = styled.h1<{
       `}
     ${theme.typography.mobile.headline[headlineStyle]['text-decoration']?.value &&
       css`
-        text-decoration: ${theme.typography.mobile.headline[headlineStyle]['text-decoration']
-          ?.value};
+        text-decoration: ${theme.typography.mobile.headline[headlineStyle]['text-decoration']?.value};
       `}
     }
   `}

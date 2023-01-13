@@ -18,7 +18,7 @@ const alertsMock = [
     actionName: 'First Action',
     dismissible: true,
     onDismiss: dismissButtonMockFn,
-    icon: true,
+    icon: true
   },
   {
     eid: '2',
@@ -29,7 +29,7 @@ const alertsMock = [
     actionName: 'Second Action',
     dismissible: true,
     onDismiss: dismissButtonMockFn,
-    icon: true,
+    icon: true
   },
   {
     eid: '3',
@@ -40,15 +40,15 @@ const alertsMock = [
     actionName: 'Third Action',
     dismissible: true,
     onDismiss: dismissButtonMockFn,
-    icon: true,
-  },
+    icon: true
+  }
 ];
 
 const animationMock: AnimatedProps = {
   showAnimations: false,
   triggerYPosition: 0,
   isBannerTextCompressed: false,
-  toggleBannerTextCompress: toggleBannerText,
+  toggleBannerTextCompress: toggleBannerText
 };
 
 describe('<AlertBanner />', () => {
@@ -81,7 +81,7 @@ describe('<AlertBanner />', () => {
 const renderWithAnimation = () => {
   const defaultAnimatedProps = {
     ...animationMock,
-    isBannerTextCompressed: true,
+    isBannerTextCompressed: true
   };
   global.innerWidth = 600;
   const utils = render(
@@ -90,19 +90,17 @@ const renderWithAnimation = () => {
       animation={{
         ...defaultAnimatedProps,
         ...{
-          currentYOffset: 0,
-        },
+          currentYOffset: 0
+        }
       }}
     />
   );
   const rerender = (override: Partial<AnimatedProps>) => {
-    utils.rerender(
-      <AlertBanner alerts={alertsMock} animation={{ ...defaultAnimatedProps, ...override }} />
-    );
+    utils.rerender(<AlertBanner alerts={alertsMock} animation={{ ...defaultAnimatedProps, ...override }} />);
   };
   return {
     ...utils,
-    rerender,
+    rerender
   };
 };
 
@@ -110,7 +108,7 @@ describe('AlertBanner with animations', () => {
   test('Text is compressed and botton actions is hidden', () => {
     const { rerender } = renderWithAnimation();
     rerender({
-      isBannerTextCompressed: true,
+      isBannerTextCompressed: true
     });
     const fadeWrapper = screen.getByTestId('fade-wrapper');
     const pagination = screen.getByTestId('alert-banner-pagination');
@@ -121,7 +119,7 @@ describe('AlertBanner with animations', () => {
   test('Text is compressed and the user clicks on Banner', () => {
     const { rerender } = renderWithAnimation();
     rerender({
-      isBannerTextCompressed: true,
+      isBannerTextCompressed: true
     });
     const fadeWrapper = screen.getByTestId(/-AlertBanner-content/);
     fireEvent.click(fadeWrapper);
@@ -131,7 +129,7 @@ describe('AlertBanner with animations', () => {
   test('Text is not compressed and bottom options is visible', () => {
     const { rerender } = renderWithAnimation();
     rerender({
-      isBannerTextCompressed: false,
+      isBannerTextCompressed: false
     });
     const fadeWrapper = screen.getByTestId('fade-wrapper');
     const pagination = screen.getByTestId('alert-banner-pagination');
@@ -142,14 +140,14 @@ describe('AlertBanner with animations', () => {
   test('Text is compressed and bottom options are visible', () => {
     const { rerender } = renderWithAnimation();
     rerender({
-      isBannerTextCompressed: true,
+      isBannerTextCompressed: true
     });
     const fadeWrapper = screen.getByTestId('fade-wrapper');
     const pagination = screen.getByTestId('alert-banner-pagination');
     expect(fadeWrapper).toBeDefined();
     expect(pagination).not.toBeVisible();
     rerender({
-      isBannerTextCompressed: false,
+      isBannerTextCompressed: false
     });
     expect(pagination).toBeVisible();
   });

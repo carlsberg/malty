@@ -13,15 +13,15 @@ export enum HeadlineStyle {
   Big = 'big',
   Large = 'large',
   MediumLarge = 'medium-large',
-  Medium = 'medium',
+  Medium = 'medium'
 }
 export enum HeadlineAlign {
   Left = 'left',
   Center = 'center',
-  Right = 'right',
+  Right = 'right'
 }
 export enum HeadlineColor {
   ThemePrimary = 'theme-primary',
   DigitalBlack = 'digital-black',
-  White = 'white',
+  White = 'white'
 }

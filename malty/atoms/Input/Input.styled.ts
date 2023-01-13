@@ -108,11 +108,9 @@ export const StyledInput = styled.input<{
   flex: 1 1 auto;
   display: inline-flex;
   box-sizing: border-box;
-  font-family: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-weight: normal;
-  font-size: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid
@@ -171,8 +169,7 @@ export const StyledInput = styled.input<{
   }
 
   ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
-    const leftPadding =
-      isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
+    const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
     let rightPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
     if (addRight) rightPadding = `${theme.sizes['4xl'].value}`;
     if (hasClearable) rightPadding = `${theme.sizes['2xl'].value}`;
@@ -271,11 +268,9 @@ export const StyledSelect = styled.select<{
   box-sizing: border-box;
   height: ${({ height }) => height};
   width: ${({ theme }) => theme.sizes['5xl'].value};
-  font-family: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-weight: normal;
-  font-size: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   border: 1px solid
     ${({ theme, isError }) =>
       isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};

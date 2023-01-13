@@ -137,5 +137,6 @@
         "@": "malty"
       }
     }
-  }
+  },
+  "prettier": "@carlsberg/prettier-config"
 }

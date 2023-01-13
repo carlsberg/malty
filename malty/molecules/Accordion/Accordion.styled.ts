@@ -44,14 +44,10 @@ export const StyledAccordionBody = styled.div<{
   transition: all 0.2s ease-in-out;
   height: 0;
   opacity: 0;
-  font-size: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  font-family: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-family'].value};
-  line-height: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['line-height'].value};
-  font-weight: ${({ theme }) =>
-    theme.typography.desktop.text['medium-small_default']['font-weight'].value};
+  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   visibility: hidden;
   padding: 0 ${({ paddingSize }) => paddingSize};

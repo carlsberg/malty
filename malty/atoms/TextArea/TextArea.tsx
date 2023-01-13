@@ -9,7 +9,7 @@ import {
   StyledtextArea,
   StyledTextAreaCharacterCounter,
   StyledTextareaContainer,
-  StyledTextAreaWrapper,
+  StyledTextAreaWrapper
 } from './TextArea.styled';
 import { TextAreaProps } from './TextArea.types';
 
@@ -43,13 +43,7 @@ export function TextArea({
 
   return (
     <StyledTextareaContainer theme={theme}>
-      <Label
-        label={label}
-        required={required}
-        data-testid={`${dataTestId}-label`}
-        disabled={disabled}
-        htmlFor={id}
-      />
+      <Label label={label} required={required} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       <StyledTextAreaWrapper
         data-testid={`${dataTestId}-container`}
         readOnly={readOnly}
@@ -73,11 +67,7 @@ export function TextArea({
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
-        <StyledTextAreaCharacterCounter
-          disabled={disabled}
-          theme={theme}
-          data-testid={`${dataTestId}-counter`}
-        >
+        <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
           {textAreaCount}
         </StyledTextAreaCharacterCounter>
       </StyledTextAreaWrapper>

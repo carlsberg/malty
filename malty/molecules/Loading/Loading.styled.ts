@@ -26,8 +26,7 @@ export const StyledLoadingContainer = styled.div<{
 }>`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme, size }) =>
-    size === LoadingSize.Small ? theme.sizes['4xs'].value : theme.sizes['2xs'].value};
+  gap: ${({ theme, size }) => (size === LoadingSize.Small ? theme.sizes['4xs'].value : theme.sizes['2xs'].value)};
   align-items: center;
   justify-content: center;
   text-align: center;

@@ -8,40 +8,30 @@ export default {
   component: StepperComponent,
   parameters: {
     importObject: 'Stepper',
-    importPath: '@carlsberggroup/malty.molecules.stepper',
+    importPath: '@carlsberggroup/malty.molecules.stepper'
   },
   argTypes: {
     steps: {
       control: 'object',
-      description: 'Array of objects defining the steps or number of steps ',
+      description: 'Array of objects defining the steps or number of steps '
     },
     currentStep: {
       control: 'number',
-      description: 'Current step number of progress',
+      description: 'Current step number of progress'
     },
     isMultiStep: {
       control: 'boolean',
-      description: 'Is the stepper a multi step control?',
+      description: 'Is the stepper a multi step control?'
     },
     dataQaId: {
       control: 'text',
-      description: 'Stepper dataQaId',
-    },
-  },
+      description: 'Stepper dataQaId'
+    }
+  }
 } as Meta;
 
-const Template: Story<StepperProps> = ({
-  steps,
-  currentStep,
-  isMultiStep,
-  dataQaId,
-}: StepperProps) => (
-  <StepperComponent
-    steps={steps}
-    currentStep={currentStep}
-    isMultiStep={isMultiStep}
-    dataQaId={dataQaId}
-  />
+const Template: Story<StepperProps> = ({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) => (
+  <StepperComponent steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} dataQaId={dataQaId} />
 );
 
 export const Stepper = Template.bind({});
@@ -53,7 +43,7 @@ switch (variant) {
     Stepper.args = {
       steps: 5,
       currentStep: 2,
-      dataQaId: 'stepper',
+      dataQaId: 'stepper'
     };
     break;
   default:
@@ -63,10 +53,10 @@ switch (variant) {
         { key: 1, label: 'label 2' },
         { key: 2, label: 'label 3' },
         { key: 3, label: 'label 4' },
-        { key: 4, label: 'label 5' },
+        { key: 4, label: 'label 5' }
       ],
       currentStep: 2,
-      dataQaId: 'stepper',
+      dataQaId: 'stepper'
     };
     break;
 }

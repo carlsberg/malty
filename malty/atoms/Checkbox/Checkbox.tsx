@@ -7,7 +7,7 @@ import {
   StyledCheckboxHiddenInput,
   StyledCheckboxLabel,
   StyledCheckboxLabelText,
-  StyledError,
+  StyledError
 } from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -40,11 +40,7 @@ export function Checkbox({
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
-        <StyledCheckboxDisplayInput
-          indeterminate={isIndeterminate}
-          checked={checked}
-          theme={theme}
-        />
+        <StyledCheckboxDisplayInput indeterminate={isIndeterminate} checked={checked} theme={theme} />
         <StyledCheckboxLabelText data-testid={`${dataTestId}-label`} theme={theme}>
           {labelText}
         </StyledCheckboxLabelText>

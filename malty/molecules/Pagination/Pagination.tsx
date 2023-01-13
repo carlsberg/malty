@@ -6,12 +6,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { DOTS, usePagination } from './Pagination.helper';
-import {
-  StyledContainer,
-  StyledDots,
-  StyledInput,
-  StyledInputPagination,
-} from './Pagination.styled';
+import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
 export function Pagination({
@@ -22,7 +17,7 @@ export function Pagination({
   type = PaginationType.Default,
   dataQaId,
   isWhite = false,
-  zeroBasedIndex = false,
+  zeroBasedIndex = false
 }: PaginationProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [inputValue, setInputValue] = useState<number | string>(currentPage);
@@ -31,16 +26,12 @@ export function Pagination({
   const paginationRange = usePagination({
     totalPageCount: count,
     siblingCount,
-    currentPage,
+    currentPage
   });
   const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
   const isFirstPage =
     // eslint-disable-next-line no-nested-ternary
-    type === PaginationType.Input
-      ? zeroBasedIndex === true
-        ? inputValue === 0
-        : inputValue === 1
-      : currentPage === 1;
+    type === PaginationType.Input ? (zeroBasedIndex === true ? inputValue === 0 : inputValue === 1) : currentPage === 1;
   const isLastPage =
     // eslint-disable-next-line no-nested-ternary
     type === PaginationType.Input
@@ -141,13 +132,7 @@ export function Pagination({
             theme={theme}
             data-testid={`${dataQaId}-input`}
             // eslint-disable-next-line no-nested-ternary
-            value={
-              zeroBasedIndex
-                ? typeof inputValue === 'string'
-                  ? inputValue
-                  : inputValue + 1
-                : inputValue
-            }
+            value={zeroBasedIndex ? (typeof inputValue === 'string' ? inputValue : inputValue + 1) : inputValue}
             onChange={(e) => handleInput(e)}
             max={count}
             min={0}
@@ -175,37 +160,35 @@ export function Pagination({
     }
 
     return (
-      <>
-        {paginationRange?.map((pageNr, idx) => {
-          const isCurrentPage = pageNr === currentPage;
-          if (pageNr === DOTS) {
-            return (
-              <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
-                <StyledDots theme={theme} isWhite={isWhite}>
-                  &#8230;
-                </StyledDots>
-              </li>
-            );
-          }
+      paginationRange?.map((pageNr, idx) => {
+        const isCurrentPage = pageNr === currentPage;
+        if (pageNr === DOTS) {
           return (
-            <li className="default-pagination" key={pageNr}>
-              <Button
-                dataTestId={`${dataQaId}-page-${pageNr}`}
-                style={ButtonStyle.Transparent}
-                selected={isCurrentPage}
-                onClick={() => onPageClick(Number(pageNr))}
-                onKeyUp={() => onPageKeyUp(Number(pageNr))}
-                aria-current={isCurrentPage}
-                aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
-                tabIndex={0}
-                text={pageNr}
-                negative={isWhite}
-                size={buttonSize}
-              />
+            <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
+              <StyledDots theme={theme} isWhite={isWhite}>
+                &#8230;
+              </StyledDots>
             </li>
           );
-        })}
-      </>
+        }
+        return (
+          <li className="default-pagination" key={pageNr}>
+            <Button
+              dataTestId={`${dataQaId}-page-${pageNr}`}
+              style={ButtonStyle.Transparent}
+              selected={isCurrentPage}
+              onClick={() => onPageClick(Number(pageNr))}
+              onKeyUp={() => onPageKeyUp(Number(pageNr))}
+              aria-current={isCurrentPage}
+              aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
+              tabIndex={0}
+              text={pageNr}
+              negative={isWhite}
+              size={buttonSize}
+            />
+          </li>
+        );
+      }) ?? null
     );
   };
 

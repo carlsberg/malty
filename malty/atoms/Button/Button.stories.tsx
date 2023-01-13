@@ -11,12 +11,12 @@ export default {
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button',
-    variants: ['primary', 'secondary', 'transparent'],
+    variants: ['primary', 'secondary', 'transparent']
   },
   argTypes: {
     text: {
       control: 'text',
-      description: 'Button label, can be',
+      description: 'Button label, can be'
     },
     color: {
       description: 'Button color. Options are',
@@ -24,12 +24,12 @@ export default {
       table: {
         category: 'Styling',
         defaultValue: {
-          summary: 'ButtonColor.DigitalBlack',
-        },
+          summary: 'ButtonColor.DigitalBlack'
+        }
       },
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     type: {
       description: 'The default behavior of the button. Possible values are',
@@ -37,13 +37,13 @@ export default {
       mapping: ButtonType,
       control: {
         type: 'select',
-        label: Object.values(ButtonType),
+        label: Object.values(ButtonType)
       },
       table: {
         defaultValue: {
-          summary: 'ButtonType.Default',
-        },
-      },
+          summary: 'ButtonType.Default'
+        }
+      }
     },
     style: {
       description: 'CSS styling for the button, can be',
@@ -51,33 +51,33 @@ export default {
       mapping: ButtonStyle,
       control: {
         type: 'select',
-        label: Object.values(ButtonStyle),
+        label: Object.values(ButtonStyle)
       },
       table: {
         category: 'Styling',
         defaultValue: {
-          summary: 'ButtonStyle.Primary',
-        },
-      },
+          summary: 'ButtonStyle.Primary'
+        }
+      }
     },
     onClick: {
       description: 'This is a function that will run on click. It is not a required property',
       table: {
-        category: 'Events',
-      },
+        category: 'Events'
+      }
     },
     onKeyUp: {
       description: 'This is a function that will run on onKeyUp. It is not a required property',
       table: {
-        category: 'Events',
-      },
+        category: 'Events'
+      }
     },
     loading: {
       table: {
-        category: 'State',
+        category: 'State'
       },
       control: 'boolean',
-      description: 'Is button loading?',
+      description: 'Is button loading?'
     },
     size: {
       description: 'Button size. Options are',
@@ -85,23 +85,23 @@ export default {
       table: {
         category: 'Styling',
         defaultValue: {
-          summary: 'ButtonSize.Medium',
-        },
+          summary: 'ButtonSize.Medium'
+        }
       },
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
 
     icon: {
       description: 'When selected, button label will contain the selected icon',
       options: Object.values({ undefined, ...IconName }),
       table: {
-        category: 'Icon',
+        category: 'Icon'
       },
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     iconPos: {
       description: 'When icon present, position will be',
@@ -109,55 +109,53 @@ export default {
       table: {
         category: 'Icon',
         defaultValue: {
-          summary: 'Right',
-        },
+          summary: 'Right'
+        }
       },
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     negative: {
       control: 'boolean',
       description: 'Should this be a white button?',
       table: {
-        category: 'Styling',
-      },
+        category: 'Styling'
+      }
     },
     disabled: {
       table: {
         category: 'State',
         defaultValue: {
-          summary: 'false',
-        },
+          summary: 'false'
+        }
       },
       control: 'boolean',
-      description: 'Disable button',
+      description: 'Disable button'
     },
     fullWidth: {
       control: 'boolean',
       description: 'Should this be a full width button, that will stretch to 100% of its wrapper?',
       table: {
-        category: 'Styling',
-      },
+        category: 'Styling'
+      }
     },
     url: {
       control: 'text',
-      description:
-        'Use this component as link or button with a simple URL, no click function needed',
+      description: 'Use this component as link or button with a simple URL, no click function needed'
     },
     selected: {
       description: 'Add classname of "active" to element',
       control: 'boolean',
       table: {
-        category: 'Styling',
-      },
+        category: 'Styling'
+      }
     },
     children: {
       control: 'text',
-      description:
-        'Label your button with a child, as a string. This is an alternative to the `text` property',
-    },
-  },
+      description: 'Label your button with a child, as a string. This is an alternative to the `text` property'
+    }
+  }
 };
 
 const Template: Story<ButtonProps> = (args) => <ButtonComponent {...args} />;
@@ -181,7 +179,7 @@ switch (variant) {
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
+      selected: false
     };
     break;
 
@@ -198,7 +196,7 @@ switch (variant) {
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
+      selected: false
     };
     break;
 
@@ -215,7 +213,7 @@ switch (variant) {
       disabled: false,
       fullWidth: false,
       url: '',
-      selected: false,
+      selected: false
     };
     break;
 }

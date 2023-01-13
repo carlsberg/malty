@@ -4,30 +4,14 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
-import {
-  ItemProps,
-  LinkComponentProps,
-  NavItemProps,
-  NavListProps,
-  SubNavItemProps,
-} from './NavList.types';
+import { ItemProps, LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
 
 function LinkComponent({ component, href, children, componentProps }: LinkComponentProps) {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
-  return (
-    <>
-      {
-        // we need to spread props in this case in order to allow custom properties being passed to the custom component
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        component ? (
-          <CustomComponent {...componentProps}>{children}</CustomComponent>
-        ) : (
-          <a href={href}>{children}</a>
-        )
-      }
-    </>
-  );
+  // we need to spread props in this case in order to allow custom properties being passed to the custom component
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>;
 }
 
 function SubNavItem({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) {
@@ -37,11 +21,7 @@ function SubNavItem({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
 
   return (
     <LinkComponent component={component} href={href} componentProps={componentProps}>
-      <StyledSubNavItem
-        onClick={() => setActiveNavItem(itemIndex)}
-        selected={selected}
-        theme={theme}
-      >
+      <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
           {name}
         </Text>
@@ -50,14 +30,7 @@ function SubNavItem({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
   );
 }
 
-function NavItem({
-  item,
-  itemIndex,
-  setActiveNavItem,
-  openSubNav,
-  selected = false,
-  className,
-}: NavItemProps) {
+function NavItem({ item, itemIndex, setActiveNavItem, openSubNav, selected = false, className }: NavItemProps) {
   const { component, name, href, icon, subItems, category, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -94,7 +67,7 @@ export function NavList({
   subNavIsActive,
   setActiveNavItem,
   setActiveSubItem,
-  toggleSubNav,
+  toggleSubNav
 }: NavListProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -153,9 +126,7 @@ export function NavList({
           let className;
 
           if (item.category) {
-            const itemsInCategory = navItems.filter(
-              (navItem) => navItem.category === item.category
-            );
+            const itemsInCategory = navItems.filter((navItem) => navItem.category === item.category);
             // add a class to the first and the list nav items that belong to the current category
             className = resolveItemClass(itemsInCategory, item);
           }

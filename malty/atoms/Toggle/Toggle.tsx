@@ -7,7 +7,7 @@ import {
   StyledLabel,
   StyledLabelWrapper,
   StyledSwitch,
-  StyledToggleSwitch,
+  StyledToggleSwitch
 } from './Toggle.styled';
 import { ToggleProps } from './Toggle.types';
 

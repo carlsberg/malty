@@ -12,24 +12,24 @@ export default {
   parameters: {
     importObject: 'AlertInline',
     importPath: '@carlsberggroup/malty.molecules.alert-inline',
-    variants: ['icon', 'action', 'title', 'complete'],
+    variants: ['icon', 'action', 'title', 'complete']
   },
   argTypes: {
     title: {
       control: 'text',
-      description: 'Title',
+      description: 'Title'
     },
     message: {
       control: 'text',
-      description: 'message',
+      description: 'message'
     },
 
     icon: {
       description: 'When selected, Alert label will contain the selected icon',
       options: Object.values({ undefined, ...IconName }),
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     size: {
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
@@ -37,13 +37,13 @@ export default {
       mapping: AlertInlineSize,
       control: {
         type: 'select',
-        label: Object.values(AlertInlineSize),
+        label: Object.values(AlertInlineSize)
       },
       table: {
         defaultValue: {
-          summary: 'AlertInlineSize.Default',
-        },
-      },
+          summary: 'AlertInlineSize.Default'
+        }
+      }
     },
     color: {
       description: 'Alert colors, from design predefined colors, as follows.',
@@ -51,36 +51,36 @@ export default {
       mapping: AlertInlineColor,
       control: {
         type: 'select',
-        label: Object.values(AlertInlineColor),
+        label: Object.values(AlertInlineColor)
       },
       table: {
         defaultValue: {
-          summary: 'AlertInlineColor.Notification',
-        },
-      },
+          summary: 'AlertInlineColor.Notification'
+        }
+      }
     },
     dataQaId: {
       control: 'text',
       description: 'Alert data-qi-id, can be',
-      table: { defaultValue: { summary: 'none' } },
+      table: { defaultValue: { summary: 'none' } }
     },
     firstAction: {
-      description: 'Function to be executed when first action is clicked',
+      description: 'Function to be executed when first action is clicked'
     },
     secondAction: {
-      description: 'Function to be executed when second action is clicked',
+      description: 'Function to be executed when second action is clicked'
     },
     firstActionText: {
       control: 'text',
       description: 'First Action text',
-      table: { defaultValue: { summary: 'none' } },
+      table: { defaultValue: { summary: 'none' } }
     },
     secondActionText: {
       control: 'text',
       description: 'Second Action text',
-      table: { defaultValue: { summary: 'none' } },
-    },
-  },
+      table: { defaultValue: { summary: 'none' } }
+    }
+  }
 } as Meta;
 const StyledContainer = styled.div`
   height: 200px;
@@ -102,7 +102,7 @@ switch (variant) {
       icon: IconName.Information,
       size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
-      dataQaId: 'inline-alert',
+      dataQaId: 'inline-alert'
     };
     break;
   case 'title':
@@ -111,7 +111,7 @@ switch (variant) {
       message: 'Hello, Im the In Line Alert! Play with me.',
       size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
-      dataQaId: 'inline-alert',
+      dataQaId: 'inline-alert'
     };
     break;
   case 'action':
@@ -123,7 +123,7 @@ switch (variant) {
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',
       secondAction: action('Second Action clicked'),
-      secondActionText: 'Second Action',
+      secondActionText: 'Second Action'
     };
     break;
   case 'complete':
@@ -136,7 +136,7 @@ switch (variant) {
       firstAction: action('First Action clicked'),
       firstActionText: 'First Action',
       secondAction: action('Second Action clicked'),
-      secondActionText: 'Second Action',
+      secondActionText: 'Second Action'
     };
     break;
 
@@ -145,7 +145,7 @@ switch (variant) {
       message: 'Hello, Im the In Line Alert! Play with me.',
       size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
-      dataQaId: 'inline-alert',
+      dataQaId: 'inline-alert'
     };
     break;
 }

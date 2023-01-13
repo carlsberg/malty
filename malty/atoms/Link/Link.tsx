@@ -12,7 +12,7 @@ export function Link({
   dataTestId,
   color = LinkColor.DigitalBlack,
   linkStyle = LinkStyle.MediumDefault,
-  onClick,
+  onClick
 }: LinkProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 

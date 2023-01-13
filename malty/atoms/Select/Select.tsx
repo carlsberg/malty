@@ -22,15 +22,9 @@ import {
   StyledOptionsWrapper,
   StyledSearchWrapper,
   StyledSelectedOptionsWrapper,
-  StyledWrapper,
+  StyledWrapper
 } from './Select.styled';
-import {
-  SelectOptionsType,
-  SelectPosition,
-  SelectProps,
-  SelectSize,
-  SelectType,
-} from './Select.types';
+import { SelectOptionsType, SelectPosition, SelectProps, SelectSize, SelectType } from './Select.types';
 
 export function Select({
   defaultValue = [],
@@ -53,7 +47,7 @@ export function Select({
   clearAllLabel = 'Clear all',
   clearAllOption = true,
   alignPosition = SelectPosition.Left,
-  onBlur,
+  onBlur
 }: SelectProps) {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -133,8 +127,7 @@ export function Select({
     };
   });
   useEffect(() => {
-    if (defaultValue.length > 0 && (value === undefined || value?.length === 0))
-      setSelectedValueState(defaultValue);
+    if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
   }, [defaultValue]);
   useEffect(() => {
     if (value) setSelectedValueState(value);
@@ -201,20 +194,12 @@ export function Select({
           {((selectedValueState.length > 0 && clearAllOption) || multiple) && (
             <StyledActionButtonWrapper height={numSize} theme={theme}>
               {multiple && (
-                <StyledActionButton
-                  data-testid={`${dataTestId}-select-all`}
-                  onClick={handleSelectAll}
-                  theme={theme}
-                >
+                <StyledActionButton data-testid={`${dataTestId}-select-all`} onClick={handleSelectAll} theme={theme}>
                   {selectAllLabel}
                 </StyledActionButton>
               )}
               {selectedValueState.length > 0 && clearAllOption && (
-                <StyledActionButton
-                  data-testid={`${dataTestId}-clear`}
-                  onClick={handleClearAll}
-                  theme={theme}
-                >
+                <StyledActionButton data-testid={`${dataTestId}-clear`} onClick={handleClearAll} theme={theme}>
                   {clearAllLabel}
                 </StyledActionButton>
               )}
@@ -228,9 +213,7 @@ export function Select({
             value={option.value}
             onClick={() => handleOptionSelected(option)}
             height={numSize}
-            selected={
-              !!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)
-            }
+            selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
             selectStyle={type}
             disabled={disabled}
             data-testid={`${dataTestId}-option-${index}`}
@@ -241,9 +224,7 @@ export function Select({
                 labelText={option.name as string}
                 value={option.value}
                 onValueChange={() => null}
-                checked={
-                  !!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)
-                }
+                checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
               />
             )}
             {!multiple && (
@@ -253,12 +234,7 @@ export function Select({
                   {option.name}
                 </StyledWrapper>
                 {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                  <StyledCheck
-                    theme={theme}
-                    selectStyle={type}
-                    color={IconColor.DigitalBlack}
-                    size={IconSize.Small}
-                  />
+                  <StyledCheck theme={theme} selectStyle={type} color={IconColor.DigitalBlack} size={IconSize.Small} />
                 )}
               </>
             )}

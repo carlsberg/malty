@@ -2,28 +2,19 @@
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  ProgressSpinnerColor,
-  ProgressSpinnerProps,
-  ProgressSpinnerStatus,
-} from './ProgressSpinner.types';
+import { ProgressSpinnerColor, ProgressSpinnerProps, ProgressSpinnerStatus } from './ProgressSpinner.types';
 
 export function ProgressSpinner({
   status = ProgressSpinnerStatus.Pending,
   dataQaId,
   negative,
-  color = ProgressSpinnerColor.DigitalBlack,
+  color = ProgressSpinnerColor.DigitalBlack
 }: ProgressSpinnerProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   if (status === ProgressSpinnerStatus.Failure) {
     return (
-      <svg
-        data-testid={`${dataQaId}-failure-icon`}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg data-testid={`${dataQaId}-failure-icon`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -51,12 +42,7 @@ export function ProgressSpinner({
   }
   if (status === ProgressSpinnerStatus.Success) {
     return (
-      <svg
-        data-testid={`${dataQaId}-success-icon`}
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg data-testid={`${dataQaId}-success-icon`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -85,12 +71,7 @@ export function ProgressSpinner({
     );
   }
   return (
-    <svg
-      viewBox="0 0 48 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      data-testid={`${dataQaId}-pending-icon`}
-    >
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" data-testid={`${dataQaId}-pending-icon`}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -101,13 +82,7 @@ export function ProgressSpinner({
             : theme.colors.colours.overlay['digital-black'][10].value
         }
       />
-      <mask
-        id="mask0_1664_614"
-        maskUnits="userSpaceOnUse"
-        x="0"
-        y="0"
-        style={{ maskType: 'alpha' }}
-      >
+      <mask id="mask0_1664_614" maskUnits="userSpaceOnUse" x="0" y="0" style={{ maskType: 'alpha' }}>
         <path
           fillRule="evenodd"
           clipRule="evenodd"

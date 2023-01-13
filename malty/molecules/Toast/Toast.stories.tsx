@@ -11,12 +11,12 @@ export default {
   parameters: {
     importObject: 'Toast',
     importPath: '@carlsberggroup/malty.molecules.toast',
-    variants: ['custom'],
+    variants: ['custom']
   },
   argTypes: {
     message: {
       control: 'text',
-      description: 'Message to be displayed',
+      description: 'Message to be displayed'
     },
     color: {
       description: 'Toast colors, from design predefined colors, as follows.',
@@ -24,39 +24,39 @@ export default {
       mapping: ToastColor,
       control: {
         type: 'select',
-        label: Object.values(ToastColor),
+        label: Object.values(ToastColor)
       },
       table: {
         defaultValue: {
-          summary: 'ToastColor.Notification',
-        },
-      },
+          summary: 'ToastColor.Notification'
+        }
+      }
     },
     showCloseIcon: {
       description: 'If true close icon is displayed',
-      control: 'boolean',
+      control: 'boolean'
     },
     onClose: {
-      description: 'function to be called when close icon is clicked',
+      description: 'function to be called when close icon is clicked'
     },
     customActionText: {
       control: 'text',
       description: 'Text to be diplayed as custom action',
-      table: { defaultValue: { summary: 'none' } },
+      table: { defaultValue: { summary: 'none' } }
     },
     onCustomAction: {
-      description: 'function to be called when custom action button is clicked',
+      description: 'function to be called when custom action button is clicked'
     },
     autoHideDuration: {
       control: 'number',
-      description: 'Set auto hide duration',
+      description: 'Set auto hide duration'
     },
     dataQaId: {
       control: 'text',
       description: 'Alert data-qi-id, can be',
-      table: { defaultValue: { summary: 'none' } },
-    },
-  },
+      table: { defaultValue: { summary: 'none' } }
+    }
+  }
 } as Meta;
 const StyledContainer = styled.div`
   height: 200px;
@@ -80,7 +80,7 @@ switch (variant) {
       color: ToastColor.Notification,
       customActionText: 'Action',
       onCustomAction: action('Custom Action clicked'),
-      dataQaId: 'toast-alert',
+      dataQaId: 'toast-alert'
     };
     break;
   default:
@@ -88,7 +88,7 @@ switch (variant) {
       message: 'Hello, Im the Toast Alert! Play with me.',
       color: ToastColor.Notification,
       showCloseIcon: true,
-      dataQaId: 'toast-alert',
+      dataQaId: 'toast-alert'
     };
     break;
 }

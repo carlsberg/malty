@@ -18,26 +18,16 @@ import {
   StyledRoleLabel,
   StyledSystemMenu,
   StyledSystemOption,
-  StyledSystemWrapper,
+  StyledSystemWrapper
 } from './ProductsBar.styled';
 import { ProductsBarProps, ProfileMenuProps } from './ProductsBar.types';
 
 function LinkComponent({ component, href, children, componentProps }: LinkComponentProps) {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
-  return (
-    <>
-      {
-        // we need to spread props in this case in order to allow custom properties being passed to the custom component
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        component ? (
-          <CustomComponent {...componentProps}>{children}</CustomComponent>
-        ) : (
-          <a href={href}>{children}</a>
-        )
-      }
-    </>
-  );
+  // we need to spread props in this case in order to allow custom properties being passed to the custom component
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>;
 }
 
 const useClickOutside = (
@@ -123,11 +113,7 @@ export function ProductsBar({ systemOptions, profileMenu, resetNavState }: Produ
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
             return (
-              <StyledSystemOption
-                theme={theme}
-                onClick={resetNavState}
-                key={option.key || `systemOption${index}`}
-              >
+              <StyledSystemOption theme={theme} onClick={resetNavState} key={option.key || `systemOption${index}`}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
                     <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Medium} />
@@ -141,11 +127,7 @@ export function ProductsBar({ systemOptions, profileMenu, resetNavState }: Produ
         {profileActions.length === 1 && (
           <StyledProfileBtn theme={theme}>
             <StyledOptionIcon theme={theme} onClick={resetNavState}>
-              <LinkComponent
-                component={singleItemComponent}
-                href={singleItemHref}
-                componentProps={singleItemCompProps}
-              >
+              <LinkComponent component={singleItemComponent} href={singleItemHref} componentProps={singleItemCompProps}>
                 <StyledAvatar theme={theme} data-testid="avatar">
                   {/* To do: reset Avatar in this position when Avatar component is published
                     <Avatar username={username} /> */}
@@ -168,16 +150,8 @@ export function ProductsBar({ systemOptions, profileMenu, resetNavState }: Produ
                 const componentProps = { ...customProps };
 
                 return (
-                  <StyledProfileItem
-                    theme={theme}
-                    onClick={resetNavState}
-                    key={action.key || `profileOption${index}`}
-                  >
-                    <LinkComponent
-                      component={component}
-                      href={href}
-                      componentProps={componentProps}
-                    >
+                  <StyledProfileItem theme={theme} onClick={resetNavState} key={action.key || `profileOption${index}`}>
+                    <LinkComponent component={component} href={href} componentProps={componentProps}>
                       <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Small} />
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
                         {name}

@@ -16,7 +16,7 @@ export function Chip({
   showAction = false,
   dataTestId,
   disabled = false,
-  readOnly = false,
+  readOnly = false
 }: ChipProps) {
   const theme = defaultTheme;
   const [chipSize, setChipSize] = useState(theme.sizes.l.value);

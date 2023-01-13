@@ -9,33 +9,33 @@ export default {
   parameters: {
     importObject: 'Toggle',
     importPath: '@carlsberggroup/malty.atoms.toggle',
-    variants: ['disabled'],
+    variants: ['disabled']
   },
   argTypes: {
     label: {
       control: 'text',
-      description: 'Progress indicating text',
+      description: 'Progress indicating text'
     },
     checked: {
       control: 'none',
-      description: 'If toggle is on (checked) or off (unchecked)',
+      description: 'If toggle is on (checked) or off (unchecked)'
     },
     disabled: {
       control: 'boolean',
-      description: 'Toggle state, when disabled it is read-only.',
+      description: 'Toggle state, when disabled it is read-only.'
     },
     error: {
       description: 'Error message to be displayed when error is present.',
-      control: 'text',
+      control: 'text'
     },
     onValueChange: {
-      description: 'Function to be executed when toggle state changes',
+      description: 'Function to be executed when toggle state changes'
     },
     required: {
       control: 'boolean',
-      description: 'Makes the toogle required to fill',
-    },
-  },
+      description: 'Makes the toogle required to fill'
+    }
+  }
 } as Meta;
 const Template: Story<ToggleProps> = ({ label, disabled, error, required }: ToggleProps) => {
   const [stateChecked, setStateChecked] = useState(true);
@@ -60,7 +60,7 @@ switch (variant) {
       label: 'toggle label',
       disabled: true,
       error: '',
-      required: false,
+      required: false
     };
     break;
   default:
@@ -68,7 +68,7 @@ switch (variant) {
       label: 'toggle label',
       disabled: false,
       error: '',
-      required: false,
+      required: false
     };
     break;
 }

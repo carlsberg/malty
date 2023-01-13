@@ -6,16 +6,13 @@ import { Modal } from './Modal';
 
 const title = 'Headline';
 const text = (
-  <p>
-    Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is
-    just boring…
-  </p>
+  <p>Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is just boring…</p>
 );
 const buttons = [
   {
     variant: ButtonStyle.Secondary,
     label: 'Cancel',
-    onClick: jest.fn(),
+    onClick: jest.fn()
   },
   {
     variant: ButtonStyle.Primary,
@@ -24,8 +21,8 @@ const buttons = [
       const testText = document.createElement('p');
       testText.append('Clicked primary');
       document.body.appendChild(testText);
-    },
-  },
+    }
+  }
 ];
 
 describe('modal', () => {
@@ -37,7 +34,7 @@ describe('modal', () => {
       primaryButton,
       new MouseEvent('click', {
         bubbles: true,
-        cancelable: true,
+        cancelable: true
       })
     );
     expect(screen.getByText('Clicked primary')).toBeInTheDocument();
@@ -46,27 +43,18 @@ describe('modal', () => {
   it('Modal closed correctly', () => {
     function ModalTest() {
       const [open, setOpen] = useState(true);
-      return (
-        <Modal
-          open={open}
-          onClose={() => setOpen(false)}
-          title={title}
-          content={text}
-          actions={buttons}
-        />
-      );
+      return <Modal open={open} onClose={() => setOpen(false)} title={title} content={text} actions={buttons} />;
     }
 
     render(<ModalTest />);
 
-    const closeIcon =
-      screen.getAllByTestId('icon-component') && screen.getAllByTestId('icon-component')[0];
+    const closeIcon = screen.getAllByTestId('icon-component') && screen.getAllByTestId('icon-component')[0];
 
     fireEvent(
       closeIcon,
       new MouseEvent('click', {
         bubbles: true,
-        cancelable: true,
+        cancelable: true
       })
     );
     expect(screen.queryByText('Headline')).not.toBeInTheDocument();

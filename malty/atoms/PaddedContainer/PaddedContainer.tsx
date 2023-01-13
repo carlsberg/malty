@@ -4,14 +4,9 @@ import { ThemeContext } from 'styled-components';
 import { StyledPaddedContainer } from './PaddedContainer.styled';
 import { PaddedContainerProps, PaddedContainerSize } from './PaddedContainer.types';
 
-export function PaddedContainer({
-  children,
-  padding = PaddedContainerSize.None,
-}: PaddedContainerProps) {
+export function PaddedContainer({ children, padding = PaddedContainerSize.None }: PaddedContainerProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [paddingSize, setPadding] = useState(
-    theme.typography.desktop.text.medium_default['font-size'].value
-  );
+  const [paddingSize, setPadding] = useState(theme.typography.desktop.text.medium_default['font-size'].value);
 
   useEffect(() => {
     switch (padding) {

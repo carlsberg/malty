@@ -6,13 +6,7 @@ import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.ato
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  StyledAdress,
-  StyledCluster,
-  StyledFooter,
-  StyledRow,
-  StyledSocialMedia,
-} from './Footer.styled';
+import { StyledAdress, StyledCluster, StyledFooter, StyledRow, StyledSocialMedia } from './Footer.styled';
 import { FooterProps } from './Footer.types';
 
 const defaultAdress = 'Carlsberg Breweries A/S J.C. Jacobsens Gade 1, 1799 Copenhagen V Denmark';
@@ -24,7 +18,7 @@ export function Footer({
   content,
   socialMedia,
   copyright = defaultCopyright,
-  dataQaId,
+  dataQaId
 }: FooterProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -32,21 +26,13 @@ export function Footer({
     <StyledFooter data-testid={dataQaId} theme={theme}>
       <Icon name={brandIcon} color={IconColor.Support60} size={IconSize.Medium} />
       <StyledAdress data-testid={`${dataQaId}-brand-info`} theme={theme}>
-        <Text
-          textStyle={TextStyle.SmallDefault}
-          color={TextColor.Support60}
-          align={TextAlign.Center}
-        >
+        <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support60} align={TextAlign.Center}>
           {brandInfo}
         </Text>
       </StyledAdress>
       <StyledRow theme={theme}>
         {content?.map((section) => (
-          <StyledCluster
-            data-testid={`${dataQaId}-cluster-${section.title}`}
-            theme={theme}
-            key={section.title}
-          >
+          <StyledCluster data-testid={`${dataQaId}-cluster-${section.title}`} theme={theme} key={section.title}>
             <Headline headlineStyle={HeadlineStyle.Medium} color={HeadlineColor.White}>
               {section.title}
             </Headline>
