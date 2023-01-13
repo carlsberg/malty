@@ -5,7 +5,7 @@ export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> 
   align?: HeadlineAlign;
   color?: HeadlineColor;
   as?: React.ElementType;
-  children: React.ElementType;
+  children: React.ElementType | string;
 }
 
 export enum HeadlineStyle {
