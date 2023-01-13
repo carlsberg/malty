@@ -35,7 +35,7 @@
     },
     "atoms/headline": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.42",
+        "version": "0.0.43",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Headline"
     },
@@ -1499,7 +1499,7 @@
     },
     "molecules/modal": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.50",
+        "version": "0.0.51",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Modal"
     },
@@ -1523,7 +1523,7 @@
     },
     "molecules/side-nav": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.45",
+        "version": "0.0.46",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/SideNav"
     },
