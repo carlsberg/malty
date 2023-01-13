@@ -305,7 +305,7 @@ switch (variant) {
       required: false,
       disableLeftButton: false,
       disableRightButton: false,
-      disableQuantityInput: true
+      disableQuantityInput: false
     };
     break;
 }
