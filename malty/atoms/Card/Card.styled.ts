@@ -10,18 +10,8 @@ export const StyledCardContainer = styled.div<{
   display: flex;
   align-items: stretch;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-
-  ${({ hover }) =>
-    hover &&
-    css`
-      cursor: pointer;
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][5].value};
-      }
-      &:active {
-        background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][10].value};
-      }
-    `}
+  filter: brightness(100%);
+  -webkit-filter: brightness(100%);
 
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
@@ -35,6 +25,34 @@ export const StyledCardContainer = styled.div<{
       flex-direction: column;
     `;
   }};
+
+  ${({ hover, cardStyle }) => {
+    if (!hover) return null;
+
+    if (cardStyle === CardStyle.Shadowed) {
+      return css`
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0px 2px 12px 2px rgba(33, 40, 51, 0.15), 0px 1px 2px rgba(33, 40, 51, 0.15);
+        }
+        &:active {
+          box-shadow: 0px 2px 6px rgba(33, 40, 51, 0.15), 0px 1px 2px rgba(33, 40, 51, 0.15);
+        }
+      `;
+    }
+
+    return css`
+      cursor: pointer;
+      &:hover {
+        filter: brightness(95%);
+        -webkit-filter: brightness(95%);
+      }
+      &:active {
+        filter: brightness(90%);
+        -webkit-filter: brightness(90%);
+      }
+    `;
+  }}
 
   ${({ theme, cardStyle }) =>
     theme &&
@@ -64,23 +82,6 @@ export const StyledCardHero = styled.div<{
   orientation: CardOrientation;
   hover: boolean;
 }>`
-  filter: brightness(100%);
-  -webkit-filter: brightness(100%);
-
-  ${({ hover }) =>
-    hover &&
-    css`
-      cursor: pointer;
-      &:hover {
-        filter: brightness(95%);
-        -webkit-filter: brightness(95%);
-      }
-      &:active {
-        filter: brightness(90%);
-        -webkit-filter: brightness(90%);
-      }
-    `}
-
   display: flex;
   align-items: stretch;
   ${({ orientation }) => {
