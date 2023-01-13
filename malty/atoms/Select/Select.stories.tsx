@@ -1,7 +1,13 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Select as SelectComponent, SelectOptionsType, SelectProps, SelectSize, SelectType } from '.';
+import {
+  Select as SelectComponent,
+  SelectOptionsType,
+  SelectProps,
+  SelectSize,
+  SelectType,
+} from '.';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -13,104 +19,104 @@ export default {
   component: SelectComponent,
   parameters: {
     importObject: 'Select',
-    importPath: '@carlsberggroup/malty.atoms.select'
+    importPath: '@carlsberggroup/malty.atoms.select',
   },
   argTypes: {
     label: {
       description: 'Label for the Select component',
-      control: 'text'
+      control: 'text',
     },
     selectAllLabel: {
       description: 'Label for the Select all action',
-      control: 'text'
+      control: 'text',
     },
     clearAllLabel: {
       description: 'Label for the Clear all action',
-      control: 'text'
+      control: 'text',
     },
     placeholder: {
       description: 'Placeholder text to go inside the Select field, when empty.',
-      control: 'text'
+      control: 'text',
     },
     error: {
       description: 'Error message to be displayed when error is present.',
-      control: 'text'
+      control: 'text',
     },
     hint: {
       description: 'helper message to be displayed',
-      control: 'text'
+      control: 'text',
     },
     size: {
       description: 'Select component size.',
       options: Object.values(SelectSize),
       control: {
-        type: 'radio'
-      }
+        type: 'radio',
+      },
     },
     type: {
       description: 'Type of select component',
       options: Object.values(SelectType),
       control: {
-        type: 'select'
-      }
+        type: 'select',
+      },
     },
     disabled: {
       description: 'Select state, disabled.',
-      control: 'boolean'
+      control: 'boolean',
     },
     readOnly: {
       control: 'boolean',
-      description: 'Select state, readOnly.'
+      description: 'Select state, readOnly.',
     },
     defaultValue: {
-      description: 'Initial selected option'
+      description: 'Initial selected option',
     },
     options: {
-      description: 'Select options.'
+      description: 'Select options.',
     },
     multiple: {
       description: 'Select state, when active allows for multi selection',
-      control: 'boolean'
+      control: 'boolean',
     },
     search: {
       description: 'Select state, when active allows for multi selection',
-      control: 'boolean'
+      control: 'boolean',
     },
     selectionText: {
       description: 'Text to display when multiple options are selected. Ex. 3 "options selected" ',
-      control: 'text'
+      control: 'text',
     },
     onValueChange: {
-      description: 'Function to be executed when an option is selected or unselected'
+      description: 'Function to be executed when an option is selected or unselected',
     },
     dataTestId: {
       control: 'text',
-      description: 'select data-testid'
-    }
-  }
+      description: 'select data-testid',
+    },
+  },
 } as Meta;
 
 const testOptions: SelectOptionsType[] = [
   {
     value: 'value 1',
-    name: 'name 1'
+    name: 'name 1',
   },
   {
     value: 'value 2',
-    name: 'name 2'
+    name: 'name 2',
   },
   {
     value: 'value 3',
-    name: 'name 3'
+    name: 'name 3',
   },
   {
     value: 'value 4',
-    name: 'name 4'
+    name: 'name 4',
   },
   {
     value: 'value 5',
-    name: 'name 5'
-  }
+    name: 'name 5',
+  },
 ];
 
 const Template: Story<SelectProps> = (args) => (
@@ -141,7 +147,7 @@ switch (type) {
       defaultValue: [testOptions[0]],
       selectionText: 'options selected',
       search: !!search,
-      readOnly: false
+      readOnly: false,
     };
     break;
 
@@ -159,7 +165,7 @@ switch (type) {
       selectionText: 'options selected',
       error: error ? 'error text' : '',
       search: !!search,
-      readOnly: false
+      readOnly: false,
     };
     break;
 }

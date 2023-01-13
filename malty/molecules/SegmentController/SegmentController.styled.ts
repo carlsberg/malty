@@ -13,5 +13,7 @@ export const StyledDivider = styled.div<{
 
   width: 1px;
   background-color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.colours.overlay['digital-black'][10].value : theme.colors.colours.support[40].value};
+    disabled
+      ? theme.colors.colours.overlay['digital-black'][10].value
+      : theme.colors.colours.support[40].value};
 `;

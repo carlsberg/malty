@@ -12,11 +12,11 @@ import {
   StyledStepperContainer,
   StyledStepperLine,
   StyledStepperNumber,
-  StyledText
+  StyledText,
 } from './Stepper.styled';
 import { StepperProps } from './Stepper.types';
 
-export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) => {
+export function Stepper({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [elHtml, setElHtml] = useState([<></>]);
 
@@ -36,7 +36,11 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperPr
               >
                 <>
                   {currentStep > index + 1 && (
-                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.DigitalBlack} />
+                    <Icon
+                      name={IconName.ItemCheckFilled}
+                      size={IconSize.Small}
+                      color={IconColor.DigitalBlack}
+                    />
                   )}
                   {currentStep <= index + 1 && !isMultiStep && (
                     <StyledStepperNumber theme={theme} active={currentStep >= index + 1}>
@@ -56,9 +60,13 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperPr
               </StyledText>
             </StyledStep>
             {index + 1 < steps.length && (
-              <StyledStepperLine key={`progressStep_line_${step.key}`} theme={theme} active={currentStep > index + 1} />
+              <StyledStepperLine
+                key={`progressStep_line_${step.key}`}
+                theme={theme}
+                active={currentStep > index + 1}
+              />
             )}
-          </React.Fragment>
+          </React.Fragment>,
         ])
       );
     } else {
@@ -75,7 +83,11 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperPr
               >
                 <>
                   {currentStep > step && (
-                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.DigitalBlack} />
+                    <Icon
+                      name={IconName.ItemCheckFilled}
+                      size={IconSize.Small}
+                      color={IconColor.DigitalBlack}
+                    />
                   )}
                   {currentStep <= step && !isMultiStep && (
                     <StyledStepperNumber theme={theme} active={currentStep >= step}>
@@ -86,9 +98,13 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperPr
               </StyledStepperCircle>
             </StyledStep>
             {step < steps && (
-              <StyledStepperLine key={`progressStep_line_${step}`} theme={theme} active={currentStep > step} />
+              <StyledStepperLine
+                key={`progressStep_line_${step}`}
+                theme={theme}
+                active={currentStep > step}
+              />
             )}
-          </React.Fragment>
+          </React.Fragment>,
         ]);
       }
     }
@@ -105,4 +121,4 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperPr
       ))}
     </StyledStepperContainer>
   );
-};
+}

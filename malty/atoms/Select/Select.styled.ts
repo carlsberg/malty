@@ -71,11 +71,15 @@ export const StyledButton = styled.button<{
   padding: 0 ${({ theme }) => theme.sizes.s.value};
   height: ${({ height }) => height};
   font-weight: normal;
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['line-height'].value};
   transition-property: border-color, color;
   color: ${({ isActive, theme }) =>
-    isActive ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[60].value};
+    isActive
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.colours.support[60].value};
   border: 1px solid ${({ theme }) => theme.colors.colours.support[60].value};
   background: ${({ theme }) => theme.colors.colours.default.white.value};
   &:hover,
@@ -214,9 +218,12 @@ export const StyledOption = styled.li<{
   cursor: pointer;
   height: ${({ height }) => height};
   font-weight: normal;
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['line-height'].value};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -229,8 +236,10 @@ export const StyledOption = styled.li<{
   ${({ selected }) =>
     selected &&
     css`
-      font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
-      font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+      font-weight: ${({ theme }) =>
+        theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
+      font-family: ${({ theme }) =>
+        theme.typography.desktop.text['medium-small_bold']['font-family'].value};
     `}
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
@@ -288,7 +297,8 @@ export const StyledWrapper = styled.div`
   }
 `;
 export const StyledSelectedOptionsWrapper = styled.div`
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-family'].value};
   display: block;
   overflow: hidden;
   white-space: nowrap;
@@ -298,7 +308,7 @@ export const StyledSelectedOptionsWrapper = styled.div`
 export const StyledActionsWrapper = styled.div``;
 
 export const StyledSearchWrapper = styled.div`
-  padding: ${({ theme }) => theme.sizes['2xs'].value}; ;
+  padding: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 
 export const StyledActionButtonWrapper = styled.div<{
@@ -312,9 +322,12 @@ export const StyledActionButtonWrapper = styled.div<{
 export const StyledActionButton = styled.div`
   color: ${({ theme }) => theme.colors.colours.support[80].value};
   text-decoration: underline;
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  line-height: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['line-height'].value};
   cursor: pointer;
   &:first-child {
     margin-right: ${({ theme }) => theme.sizes.xs.value};

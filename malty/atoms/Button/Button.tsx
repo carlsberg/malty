@@ -5,10 +5,15 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';
-import { StyledAnchor, StyledPrimaryButton, StyledSecondaryButton, StyledTransparentButton } from './Button.styled';
+import {
+  StyledAnchor,
+  StyledPrimaryButton,
+  StyledSecondaryButton,
+  StyledTransparentButton,
+} from './Button.styled';
 import { ButtonColor, ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
-export const Button = ({
+export function Button({
   text,
   style,
   type = ButtonType.Default,
@@ -29,7 +34,7 @@ export const Button = ({
   color = ButtonColor.DigitalBlack,
   className,
   ...props
-}: ButtonProps) => {
+}: ButtonProps) {
   let Component = StyledPrimaryButton;
   let iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
   switch (style) {
@@ -116,9 +121,13 @@ export const Button = ({
       {...props}
     >
       <div className="text-container">
-        {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+        {icon && iconPos === ButtonIconPosition.Left && (
+          <Icon name={icon} color={iconColor} size={IconSize.Small} />
+        )}
         {text || children}
-        {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+        {icon && iconPos === ButtonIconPosition.Right && (
+          <Icon name={icon} color={iconColor} size={IconSize.Small} />
+        )}
       </div>
       {loading && (
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">
@@ -139,4 +148,4 @@ export const Button = ({
   ) : (
     renderComponent()
   );
-};
+}

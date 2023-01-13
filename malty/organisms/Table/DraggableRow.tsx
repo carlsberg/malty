@@ -8,15 +8,15 @@ import { ThemeContext } from 'styled-components';
 import { StyledDraggableCell, StyledRow, StyledTd } from './Table.styled';
 import { DraggableRowProps, TableHeaderAlignment } from './Table.types';
 
-export const DraggableRow = ({
+export function DraggableRow({
   row,
   onRowClick,
   size,
   allowSelection,
   dataTestId,
   elementRef,
-  tableContext
-}: DraggableRowProps) => {
+  tableContext,
+}: DraggableRowProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -38,15 +38,17 @@ export const DraggableRow = ({
           </StyledDraggableCell>
           {allowSelection && (
             <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
-              <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
+              <Checkbox
+                onValueChange={row.getToggleSelectedHandler()}
+                checked={row.getIsSelected()}
+              />
             </StyledTd>
           )}
           {row.getVisibleCells().map((cell, cellIndex) => (
             <StyledTd
               alignPosition={
-                tableContext?.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)?.columnDef?.meta as
-                  | TableHeaderAlignment
-                  | undefined
+                tableContext?.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)
+                  ?.columnDef?.meta as TableHeaderAlignment | undefined
               }
               width={elementRef?.current[cellIndex]?.offsetWidth}
               data-testid={`${dataTestId}-cell-${cell.id}`}
@@ -60,4 +62,4 @@ export const DraggableRow = ({
       )}
     </Draggable>
   );
-};
+}

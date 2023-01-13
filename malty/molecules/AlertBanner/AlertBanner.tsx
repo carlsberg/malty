@@ -4,7 +4,15 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
-import React, { FC, KeyboardEvent, RefObject, useContext, useEffect, useRef, useState } from 'react';
+import React, {
+  FC,
+  KeyboardEvent,
+  RefObject,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { ThemeContext } from 'styled-components';
 import { usePrevious, useScrollPosition } from './AlertBanner.helper';
 import {
@@ -15,26 +23,26 @@ import {
   FadeWrapper,
   MessageContainer,
   StyledAction,
-  StyledMessage
+  StyledMessage,
 } from './AlertBanner.styled';
 import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
 
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
   [AlertBannerType.Warning]: IconColor.DigitalBlack,
-  [AlertBannerType.Error]: IconColor.White
+  [AlertBannerType.Error]: IconColor.White,
 };
 
 const textColorsMap = {
   [AlertBannerType.Information]: TextColor.White,
   [AlertBannerType.Warning]: TextColor.DigitalBlack,
-  [AlertBannerType.Error]: TextColor.White
+  [AlertBannerType.Error]: TextColor.White,
 };
 
 export const AlertBanner: FC<AlertBannerProps> = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
-  animation
+  animation,
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
@@ -45,12 +53,13 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   const isMobile = width <= breakpointNumber;
   const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
   const alertBannerStyledMessage: RefObject<HTMLDivElement> = useRef(null);
-  const { showAnimations, triggerYPosition, isBannerTextCompressed, toggleBannerTextCompress } = animation || {
-    showAnimations: false,
-    triggerYPosition: 0,
-    isBannerTextCompressed: false,
-    toggleBannerTextCompress: undefined
-  };
+  const { showAnimations, triggerYPosition, isBannerTextCompressed, toggleBannerTextCompress } =
+    animation || {
+      showAnimations: false,
+      triggerYPosition: 0,
+      isBannerTextCompressed: false,
+      toggleBannerTextCompress: undefined,
+    };
   const prevAlertSelection: number = usePrevious(activeAlert);
   const prevAlertArraySize: number = usePrevious(alertsArray.length);
 
@@ -102,7 +111,9 @@ export const AlertBanner: FC<AlertBannerProps> = ({
   useEffect(() => {
     if (
       isMobile &&
-      (!prevAlertSelection || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
+      (!prevAlertSelection ||
+        prevAlertSelection !== activeAlert ||
+        prevAlertArraySize !== alertsArray.length)
     ) {
       changeMobileTextWrapperSize();
     }
@@ -141,7 +152,9 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         breakpoint={breakpoint}
       >
         <Link
-          color={currentAlert.type !== AlertBannerType.Warning ? LinkColor.White : LinkColor.DigitalBlack}
+          color={
+            currentAlert.type !== AlertBannerType.Warning ? LinkColor.White : LinkColor.DigitalBlack
+          }
           linkStyle={LinkStyle.MediumSmallBold}
         >
           {currentAlert.actionName}
@@ -152,7 +165,9 @@ export const AlertBanner: FC<AlertBannerProps> = ({
 
   const handleDismiss = () => {
     if (currentAlert.onDismiss) {
-      const newAnnouncementContentArray = alertsArray.filter((item) => item.eid !== currentAlert.eid);
+      const newAnnouncementContentArray = alertsArray.filter(
+        (item) => item.eid !== currentAlert.eid
+      );
       setAlertsArray(newAnnouncementContentArray);
       if (alertsArray.length > 1 && activeAlert === alertsArray.length) {
         setActiveAlert(activeAlert - 1);
@@ -188,11 +203,15 @@ export const AlertBanner: FC<AlertBannerProps> = ({
     const iconNameMap = {
       [AlertBannerType.Information]: IconName.Information,
       [AlertBannerType.Warning]: IconName.Alert,
-      [AlertBannerType.Error]: IconName.Alert
+      [AlertBannerType.Error]: IconName.Alert,
     };
 
     return (
-      <Icon name={iconNameMap[currentAlert.type]} color={iconColorsMap[currentAlert.type]} size={IconSize.Medium} />
+      <Icon
+        name={iconNameMap[currentAlert.type]}
+        color={iconColorsMap[currentAlert.type]}
+        size={IconSize.Medium}
+      />
     );
   };
 
@@ -212,7 +231,11 @@ export const AlertBanner: FC<AlertBannerProps> = ({
         </StyledMessage>
       </FadeText>
     ) : (
-      <StyledMessage hideText={triggerAnimation()} theme={theme} color={textColorsMap[currentAlert.type]}>
+      <StyledMessage
+        hideText={triggerAnimation()}
+        theme={theme}
+        color={textColorsMap[currentAlert.type]}
+      >
         <Text textStyle={TextStyle.MediumSmallDefault} color={textColorsMap[currentAlert.type]}>
           {currentAlert.message}
         </Text>

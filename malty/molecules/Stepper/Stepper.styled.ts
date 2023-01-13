@@ -62,7 +62,9 @@ export const StyledStepperNumber = styled.span<{
   display: flex;
   justify-content: center;
   color: ${({ theme, active }) =>
-    active ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[60].value};
+    active
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.colours.support[60].value};
 `;
 
 export const StyledStepperLine = styled.span<{
@@ -73,5 +75,7 @@ export const StyledStepperLine = styled.span<{
   flex: 1;
   height: ${({ theme }) => theme.sizes['4xs'].value};
   background-color: ${({ theme, active }) =>
-    active ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.support[60].value};
+    active
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.colours.support[60].value};
 `;

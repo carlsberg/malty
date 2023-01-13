@@ -3,7 +3,7 @@ import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 export enum ModalSize {
   Medium = 'Medium',
   Large = 'Large',
-  XLarge = 'XLarge'
+  XLarge = 'XLarge',
 }
 
 export interface ModalProps {

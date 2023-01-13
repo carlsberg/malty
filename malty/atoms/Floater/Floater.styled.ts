@@ -18,15 +18,20 @@ export const StyledFloaterButton = styled.button<{
       ? theme.colors.colours.default['digital-black'].value
       : theme.colors.theme[color].value};
   color: ${({ isNegative, theme }) =>
-    isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+    isNegative
+      ? theme.colors.colours.default['digital-black'].value
+      : theme.colors.colours.default.white.value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_bold']['font-family'].value};
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: ${({ theme }) => `0 ${theme.sizes.s.value}`};
   height: ${({ theme }) => `${theme.sizes['2xl'].value}`};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
-  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+  font-weight: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
   z-index: 100;
   right: ${({ theme }) => theme.sizes.m.value};
   position: absolute;

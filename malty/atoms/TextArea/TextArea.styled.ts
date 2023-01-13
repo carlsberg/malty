@@ -40,8 +40,10 @@ export const StyledtextArea = styled.textarea<{
   height: calc(100% - 22px);
   box-sizing: border-box;
   font-weight: normal;
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};

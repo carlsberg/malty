@@ -11,7 +11,8 @@ const convertToKebabCase = (string: string) =>
     .replace(/\s+/g, '-')
     .toLowerCase();
 
-const getValueByKeyForStringEnum = (value: string) => Object.entries(IconName).find(([key]) => key === value)?.[1];
+const getValueByKeyForStringEnum = (value: string) =>
+  Object.entries(IconName).find(([key]) => key === value)?.[1];
 
 const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
 const variant: string = urlParams.get('variant') || 'CarlsbergFilled';
@@ -24,7 +25,7 @@ export default {
   parameters: {
     importObject: 'CarlsbergFilled',
     importPath: '@carlsberggroup/malty.icons.add-content',
-    variants: Object.keys(IconName)
+    variants: Object.keys(IconName),
   },
   argTypes: {
     name: {
@@ -32,56 +33,56 @@ export default {
       mapping: IconName,
       control: {
         type: 'select',
-        label: Object.values(IconName)
+        label: Object.values(IconName),
       },
       description:
         'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
       table: {
         defaultValue: {
-          summary: null
-        }
+          summary: null,
+        },
       },
-      defaultValue: defaultIconName
+      defaultValue: defaultIconName,
     },
     color: {
       options: Object.keys(IconColor),
       mapping: IconColor,
       control: {
         type: 'radio',
-        label: Object.values(IconColor)
+        label: Object.values(IconColor),
       },
       description: 'Icon color, options are',
       table: {
         defaultValue: {
-          summary: 'IconColor.DigitalBlack'
-        }
+          summary: 'IconColor.DigitalBlack',
+        },
       },
-      defaultValue: 'DigitalBlack'
+      defaultValue: 'DigitalBlack',
     },
     size: {
       options: Object.keys(IconSize),
       mapping: IconSize,
       control: {
         type: 'radio',
-        label: Object.values(IconSize)
+        label: Object.values(IconSize),
       },
       description: 'Icon size, options are',
       table: {
         defaultValue: {
-          summary: 'IconSize.Medium'
-        }
+          summary: 'IconSize.Medium',
+        },
       },
-      defaultValue: 'Medium'
+      defaultValue: 'Medium',
     },
     viewBox: {
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
     onClick: {
-      description: 'Function to run when icon is clicked.'
-    }
-  }
+      description: 'Function to run when icon is clicked.',
+    },
+  },
 } as Meta;
 
 const Template: Story<IconProps> = (args) => {
@@ -89,7 +90,9 @@ const Template: Story<IconProps> = (args) => {
   const [story] = useState(context.getStoryContext(context.storyById(context.id)));
   const params = story.parameters;
   const [object, setObject] = useState(args.name);
-  const [path, setPath] = useState(`@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
+  const [path, setPath] = useState(
+    `@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`
+  );
 
   useLayoutEffect(() => {
     params.importObject = object;
@@ -107,7 +110,13 @@ const Template: Story<IconProps> = (args) => {
     params.importPath = `@carlsberggroup/malty.icons.${convertToKebabCase(name)}`;
   }, [args.name]);
 
-  return <Icon name={getValueByKeyForStringEnum(args.name || 'CarlsbergFilled')} color={args.color} size={args.size} />;
+  return (
+    <Icon
+      name={getValueByKeyForStringEnum(args.name || 'CarlsbergFilled')}
+      color={args.color}
+      size={args.size}
+    />
+  );
 };
 
 export const SingleIcon = Template.bind({});

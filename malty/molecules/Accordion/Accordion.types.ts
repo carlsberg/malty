@@ -22,12 +22,12 @@ export enum AccordionSize {
   Medium = 'Medium',
   Large = 'Large',
   XLarge = 'ExtraLarge',
-  XXLarge = 'ExtraExtraLarge'
+  XXLarge = 'ExtraExtraLarge',
 }
 
 export enum AccordionColor {
   Transparent = 'transparent',
-  Support = 'support'
+  Support = 'support',
 }
 export interface AccordionContext {
   activeEventKey: string[];

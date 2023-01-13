@@ -14,7 +14,7 @@ import {
   getSortedRowModel,
   PaginationState,
   SortingState,
-  useReactTable
+  useReactTable,
 } from '@tanstack/react-table';
 import React, { ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
@@ -31,11 +31,11 @@ import {
   StyledTbody,
   StyledTd,
   StyledTextWrapper,
-  StyledThead
+  StyledThead,
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
-export const Table = ({
+export function Table({
   headers,
   rows,
   onRowClick,
@@ -47,8 +47,8 @@ export const Table = ({
   dataTestId,
   allowSelection = false,
   totalPagesCount,
-  onPaginationChange = () => null
-}: TableProps) => {
+  onPaginationChange = () => null,
+}: TableProps) {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data, setData] = useState([...rows]);
@@ -58,12 +58,12 @@ export const Table = ({
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
-    pageSize: paginationSize
+    pageSize: paginationSize,
   });
   const pagination = useMemo(
     () => ({
       pageIndex,
-      pageSize
+      pageSize,
     }),
     [pageIndex, pageSize]
   );
@@ -72,7 +72,7 @@ export const Table = ({
     columnHelper.accessor(header.key, {
       id: header.key,
       header: () => header.header,
-      meta: header.headerAlignment
+      meta: header.headerAlignment,
     })
   );
 
@@ -84,14 +84,14 @@ export const Table = ({
     state: {
       rowSelection,
       pagination,
-      sorting
+      sorting,
     },
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     onPaginationChange: setPagination,
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel()
+    getSortedRowModel: getSortedRowModel(),
   });
   const [dataPage, setDataPage] = useState(table.getRowModel().flatRows);
 
@@ -169,7 +169,9 @@ export const Table = ({
                     key={header.id}
                   >
                     <div>
-                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(header.column.columnDef.header, header.getContext())}
                       {{
                         asc: (
                           <Tooltip
@@ -212,7 +214,7 @@ export const Table = ({
                               Sorted Z→A
                             </Text>
                           </Tooltip>
-                        )
+                        ),
                       }[header.column.getIsSorted() as string] ?? (
                         <Tooltip
                           placement={TooltipPlacement.Bottom}
@@ -248,7 +250,10 @@ export const Table = ({
                   <tr>
                     <td colSpan={table.getFlatHeaders().length}>
                       <StyledNoRecordsWrapper theme={theme}>
-                        <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
+                        <Text
+                          textStyle={TextStyle.MediumSmallDefault}
+                          color={TextColor.DigitalBlack}
+                        >
                           No records found
                         </Text>
                       </StyledNoRecordsWrapper>
@@ -278,13 +283,18 @@ export const Table = ({
                       >
                         {allowSelection && (
                           <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
-                            <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
+                            <Checkbox
+                              onValueChange={row.getToggleSelectedHandler()}
+                              checked={row.getIsSelected()}
+                            />
                           </StyledTd>
                         )}
                         {row.getVisibleCells().map((cell) => (
                           <StyledTd
                             alignPosition={
-                              table.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)?.columnDef
+                              table
+                                .getAllColumns()
+                                ?.find((col) => col.columnDef.id === cell.column.id)?.columnDef
                                 ?.meta as TableHeaderAlignment | undefined
                             }
                             data-testid={`${dataTestId}-cell-${cell.id}`}
@@ -339,4 +349,4 @@ export const Table = ({
       </div>
     </DragDropContext>
   );
-};
+}

@@ -10,11 +10,11 @@ import {
   StyledMainContainer,
   StyledRatingContainer,
   StyledStarContainer,
-  StyledTotalReviewContainer
+  StyledTotalReviewContainer,
 } from './Rating.styled';
 import { RatingProps } from './Rating.types';
 
-export const Rating = ({
+export function Rating({
   name,
   label,
   value,
@@ -22,8 +22,8 @@ export const Rating = ({
   disabled = false,
   totalReview,
   onStarClick,
-  dataTestId
-}: RatingProps) => {
+  dataTestId,
+}: RatingProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [ratingValue, setRatingValue] = useState(value);
   const [hoverRating, setHoverRating] = useState(0);
@@ -104,7 +104,9 @@ export const Rating = ({
           hideCursor={readOnly || disabled}
           data-testid={ratingValue >= i ? 'rating-filled-star' : 'rating-empty-star'}
           htmlFor={id}
-          onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}
+          onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) =>
+            handleStarClick(i, ratingValue, name, e)
+          }
           onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, e)}
         >
           <StyledIconStarContainer key={`icon_${id}`}>
@@ -126,7 +128,11 @@ export const Rating = ({
 
   return (
     <StyledRatingContainer data-testid={dataTestId} theme={theme}>
-      <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack} align={TextAlign.Center}>
+      <Text
+        textStyle={TextStyle.MediumBold}
+        color={TextColor.DigitalBlack}
+        align={TextAlign.Center}
+      >
         {label}
       </Text>
       <StyledMainContainer theme={theme}>
@@ -143,4 +149,4 @@ export const Rating = ({
       </StyledMainContainer>
     </StyledRatingContainer>
   );
-};
+}

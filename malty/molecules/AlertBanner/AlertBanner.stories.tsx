@@ -11,9 +11,9 @@ export default {
   component: AlertBannerComponent,
   parameters: {
     importObject: 'AlertBanner',
-    importPath: '@carlsberggroup/malty.molecules.alert-banner'
+    importPath: '@carlsberggroup/malty.molecules.alert-banner',
   },
-  argTypes: {}
+  argTypes: {},
 } as Meta;
 
 const StyledContainer = styled.div`
@@ -39,7 +39,7 @@ AlertBanner.args = {
       actionName: 'First Action',
       dismissible: true,
       onDismiss: action('Dismiss button clicked'),
-      icon: true
+      icon: true,
     },
     {
       eid: '2',
@@ -50,7 +50,7 @@ AlertBanner.args = {
       actionName: 'First Action',
       dismissible: true,
       onDismiss: action('Dismiss button clicked'),
-      icon: true
+      icon: true,
     },
     {
       eid: '3',
@@ -61,14 +61,14 @@ AlertBanner.args = {
       actionName: 'First Action',
       dismissible: true,
       onDismiss: action('Dismiss button clicked'),
-      icon: true
-    }
+      icon: true,
+    },
   ],
   breakpoint: layoutProps.small['device-max-width'].value,
   animation: {
     showAnimations: false,
     triggerYPosition: 0,
     isBannerTextCompressed: false,
-    toggleBannerTextCompress: action('Button clicked')
-  }
+    toggleBannerTextCompress: action('Button clicked'),
+  },
 };

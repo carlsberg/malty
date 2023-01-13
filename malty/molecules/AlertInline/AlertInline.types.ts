@@ -21,10 +21,10 @@ export enum AlertInlineColor {
   Success = 'success',
   SuccessLight = 'success-light',
   Fail = 'fail',
-  FailLight = 'fail-light'
+  FailLight = 'fail-light',
 }
 
 export enum AlertInlineSize {
   Compact = 'small',
-  Default = 'medium'
+  Default = 'medium',
 }

@@ -1,4 +1,9 @@
-import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
+import {
+  Headline,
+  HeadlineAlign,
+  HeadlineColor,
+  HeadlineStyle,
+} from '@carlsberggroup/malty.atoms.headline';
 import { NavList } from '@carlsberggroup/malty.molecules.nav-list';
 import { ProductsBar } from '@carlsberggroup/malty.molecules.products-bar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -7,7 +12,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledListWrapper, StyledSideNav, StyledWrapper } from './SideNav.styled';
 import { SideNavProps } from './SideNav.types';
 
-export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: SideNavProps) => {
+export function SideNav({ navItems, systemOptions, profileMenu, productName }: SideNavProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   // Nav list active menu items
@@ -26,10 +31,18 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: S
 
   return (
     <StyledWrapper>
-      <ProductsBar systemOptions={systemOptions} profileMenu={profileMenu} resetNavState={resetNavState} />
+      <ProductsBar
+        systemOptions={systemOptions}
+        profileMenu={profileMenu}
+        resetNavState={resetNavState}
+      />
       <StyledSideNav theme={theme} productName={productName}>
         {productName && (
-          <Headline headlineStyle={HeadlineStyle.MediumLarge} align={HeadlineAlign.Left} color={HeadlineColor.White}>
+          <Headline
+            headlineStyle={HeadlineStyle.MediumLarge}
+            align={HeadlineAlign.Left}
+            color={HeadlineColor.White}
+          >
             {productName}
           </Headline>
         )}
@@ -47,4 +60,4 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: S
       </StyledSideNav>
     </StyledWrapper>
   );
-};
+}

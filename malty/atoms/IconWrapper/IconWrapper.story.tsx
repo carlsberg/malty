@@ -8,7 +8,7 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
     component: Icon,
     parameters: {
       importObject: 'Icon',
-      importPath: '@carlsberggroup/malty.atoms.icon'
+      importPath: '@carlsberggroup/malty.atoms.icon',
     },
     argTypes: {
       color: {
@@ -17,14 +17,14 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
         mapping: IconColor,
         control: {
           type: 'radio',
-          label: Object.values(IconColor)
+          label: Object.values(IconColor),
         },
         table: {
           defaultValue: {
-            summary: 'IconColor.DigitalBlack'
-          }
+            summary: 'IconColor.DigitalBlack',
+          },
         },
-        defaultValue: 'DigitalBlack'
+        defaultValue: 'DigitalBlack',
       },
       size: {
         description: 'Size options are',
@@ -32,26 +32,26 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
         mapping: IconSize,
         control: {
           type: 'radio',
-          label: Object.values(IconSize)
+          label: Object.values(IconSize),
         },
         table: {
           defaultValue: {
-            summary: 'IconSize.Medium'
-          }
+            summary: 'IconSize.Medium',
+          },
         },
-        defaultValue: 'Medium'
+        defaultValue: 'Medium',
       },
       viewBox: {
         table: {
-          disable: true
-        }
+          disable: true,
+        },
       },
       onIconClick: {
         table: {
-          disable: true
-        }
-      }
-    }
+          disable: true,
+        },
+      },
+    },
   } as Meta;
 
   const Template: Story<IconWrapperProps> = ({ color, size }) => <Icon color={color} size={size} />;
@@ -59,7 +59,7 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
   const story = Template.bind({});
   story.parameters = {
     color: IconColor.DigitalBlack,
-    size: IconSize.Large
+    size: IconSize.Large,
   };
   return [storyMeta, story];
 };

@@ -68,7 +68,8 @@ export const MessageContainer = styled.div<{
   applyMarginBottom: boolean;
 }>`
   padding-top: ${({ theme }) => theme.sizes['2xs'].value};
-  padding-bottom: ${({ theme, applyMarginBottom }) => applyMarginBottom && theme.sizes['2xs'].value};
+  padding-bottom: ${({ theme, applyMarginBottom }) =>
+    applyMarginBottom && theme.sizes['2xs'].value};
   display: flex;
   align-items: center;
   @media (min-width: ${({ breakpoint }) => breakpoint}) {

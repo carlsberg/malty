@@ -24,7 +24,7 @@ export interface DatepickerProps {
 
 export enum DatepickerSize {
   Medium = 'Medium',
-  Large = 'Large'
+  Large = 'Large',
 }
 export type Caption = {
   color: Colors;
@@ -80,5 +80,5 @@ export enum Colors {
   SystemNotificationLight = "theme.colors.colours.system['notification-light']",
   SystemNotificationStrong = "theme.colors.colours.system['notification-strong']",
   SystemSuccess = 'theme.colors.colours.system.success',
-  SystemSuccessLight = "theme.colors.colours.system.system['success-light']"
+  SystemSuccessLight = "theme.colors.colours.system.system['success-light']",
 }

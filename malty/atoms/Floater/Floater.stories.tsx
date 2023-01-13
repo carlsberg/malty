@@ -11,65 +11,65 @@ export default {
   parameters: {
     importObject: 'Floater',
     importPath: '@carlsberggroup/malty.atoms.floater',
-    variants: ['text']
+    variants: ['text'],
   },
   argTypes: {
     text: {
       control: 'text',
-      description: 'Button label, can be'
+      description: 'Button label, can be',
     },
 
     onClick: {
-      description: 'This is a function that will run on click. It is not a required property'
+      description: 'This is a function that will run on click. It is not a required property',
     },
     scroll: {
       description: 'Scroll position where will floater show',
       table: {
         defaultValue: {
-          summary: 0
-        }
+          summary: 0,
+        },
       },
       control: {
-        type: 'number'
-      }
+        type: 'number',
+      },
     },
 
     icon: {
       description: 'When selected, button label will contain the selected icon',
       options: Object.values({ undefined, ...IconName }),
       control: {
-        type: 'select'
-      }
+        type: 'select',
+      },
     },
     iconPos: {
       description: 'When icon present, position will be',
       options: Object.values(FloaterIconPosition),
       table: {
         defaultValue: {
-          summary: 'Right'
-        }
+          summary: 'Right',
+        },
       },
       control: {
-        type: 'select'
-      }
+        type: 'select',
+      },
     },
     negative: {
       control: 'boolean',
-      description: 'Should this be a white button?'
+      description: 'Should this be a white button?',
     },
     color: {
       description: 'Floater color. Options are',
       options: Object.values(FloaterColor),
       table: {
         defaultValue: {
-          summary: 'FloaterColor.DigitalBlack'
-        }
+          summary: 'FloaterColor.DigitalBlack',
+        },
       },
       control: {
-        type: 'select'
-      }
-    }
-  }
+        type: 'select',
+      },
+    },
+  },
 };
 
 const Template: Story<FloaterProps> = (args) => <FloaterComponent {...args} />;
@@ -84,7 +84,7 @@ switch (variant) {
       text: 'Floater',
       iconPos: FloaterIconPosition.Right,
       negative: false,
-      icon: IconName.ArrowSmallUp
+      icon: IconName.ArrowSmallUp,
     };
     break;
   default:
@@ -92,7 +92,7 @@ switch (variant) {
       text: '',
       iconPos: FloaterIconPosition.Right,
       negative: false,
-      icon: IconName.ArrowSmallUp
+      icon: IconName.ArrowSmallUp,
     };
     break;
 }

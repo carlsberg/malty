@@ -7,16 +7,16 @@ import { SegmentControllerOptions } from './SegmentController.types';
 const segmentControlOptions: SegmentControllerOptions[] = [
   {
     value: 'value 1',
-    label: 'name 1'
+    label: 'name 1',
   },
   {
     value: 'value 2',
-    label: 'name 2'
+    label: 'name 2',
   },
   {
     value: 'value 3',
-    label: 'name 3'
-  }
+    label: 'name 3',
+  },
 ];
 describe('SegmentController', () => {
   it('renders chips', () => {

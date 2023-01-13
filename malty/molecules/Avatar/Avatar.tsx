@@ -24,15 +24,15 @@ const displayInitials = (username: string) => {
   return `${firstInitial}${lastInitial}`;
 };
 
-export const Avatar = ({
+export function Avatar({
   profileImg,
   userName,
   size,
   editable = false,
   onClick = () => null,
   loading = false,
-  dataQaId
-}: AvatarProps) => {
+  dataQaId,
+}: AvatarProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [iconSize, setIconSize] = useState(IconSize.MediumSmall);
 
@@ -85,8 +85,12 @@ export const Avatar = ({
           <Icon color={IconColor.Support60} size={iconSize} name={IconName.Camera} />
         </StyledCamera>
       )}
-      {!profileImg && userName && <span data-testid={`${dataQaId}-name`}> {displayInitials(userName)} </span>}
-      {!profileImg && !userName && <Icon color={IconColor.Support40} size={iconSize} name={IconName.Customer} />}
+      {!profileImg && userName && (
+        <span data-testid={`${dataQaId}-name`}> {displayInitials(userName)} </span>
+      )}
+      {!profileImg && !userName && (
+        <Icon color={IconColor.Support40} size={iconSize} name={IconName.Customer} />
+      )}
     </StyledAvatar>
   );
-};
+}

@@ -11,17 +11,17 @@ import {
   StyledAccordionHeader,
   StyledAccordionItem,
   StyledAccordionWrapper,
-  StyledChevronDown
+  StyledChevronDown,
 } from './Accordion.styled';
 
-export const Accordion = ({
+export function Accordion({
   children,
   size = AccordionSize.Medium,
   variant = AccordionColor.Transparent,
   dataQaId,
   defaultActiveKey = [],
-  alwaysOpen = false
-}: AccordionProps) => {
+  alwaysOpen = false,
+}: AccordionProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeEventKey, setActiveEnventKey] = useState([...defaultActiveKey]);
 
@@ -52,7 +52,11 @@ export const Accordion = ({
 
   return (
     <ContextAccordion.Provider value={{ activeEventKey, alwaysOpen }}>
-      <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
+      <StyledAccordionWrapper
+        data-testid={`${dataQaId}-accordion-container`}
+        variant={variant}
+        theme={theme}
+      >
         {children?.map((el, index) =>
           // eslint-disable-next-line react/no-array-index-key
           React.cloneElement(el, { key: `accordion-${index}`, size, onChange: handleAccordionItem })
@@ -60,19 +64,21 @@ export const Accordion = ({
       </StyledAccordionWrapper>
     </ContextAccordion.Provider>
   );
-};
+}
 
-export const AccordionItem = ({
+export function AccordionItem({
   children,
   title,
   size = AccordionSize.Medium,
   dataQaId,
   onChange = () => null,
-  eventKey
-}: AccordionItemProps) => {
+  eventKey,
+}: AccordionItemProps) {
   const accordionContext = useContext(ContextAccordion);
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [openAccordion, setOpenAccordion] = useState(accordionContext.activeEventKey?.includes(eventKey));
+  const [openAccordion, setOpenAccordion] = useState(
+    accordionContext.activeEventKey?.includes(eventKey)
+  );
 
   const [numSize, setNumSize] = useState(theme.sizes.l.value);
   const [numPadding, setNumPadding] = useState(theme.sizes['2xs'].value);
@@ -161,4 +167,4 @@ export const AccordionItem = ({
       </StyledAccordionBody>
     </StyledAccordionItem>
   );
-};
+}

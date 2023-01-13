@@ -9,56 +9,63 @@ export default {
   parameters: {
     importObject: 'Radio',
     importPath: '@carlsberggroup/malty.atoms.radio',
-    variants: ['disabled']
+    variants: ['disabled'],
   },
   argTypes: {
     label: {
       description: 'label text radio',
-      control: 'text'
+      control: 'text',
     },
     error: {
       description: 'Error message to be displayed when error is present.',
-      control: 'text'
+      control: 'text',
     },
     value: {
       description: 'Value of Radio component',
-      control: 'text'
+      control: 'text',
     },
 
     selected: {
       description: 'If Radio component is selected or not',
-      control: 'boolean'
+      control: 'boolean',
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, when disabled it is read-only.'
+      description: 'Input state, when disabled it is read-only.',
     },
     name: {
-      description: 'Name attribute of the radio element.'
+      description: 'Name attribute of the radio element.',
     },
     required: {
       control: 'boolean',
-      description: 'Makes the radio input required to fill'
+      description: 'Makes the radio input required to fill',
     },
     onValueChange: {
-      description: 'Function to be executed when radio state changes'
-    }
-  }
+      description: 'Function to be executed when radio state changes',
+    },
+  },
 };
-const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, name, error, disabled, required }) => (
-  <>
-    <RadioComponent
-      id={value.toString()}
-      value={value}
-      label={label}
-      selected={selected}
-      onValueChange={onValueChange}
-      name={name}
-      error={error}
-      disabled={disabled}
-      required={required}
-    />
-  </>
+const Template: Story<RadioProps> = ({
+  value,
+  label,
+  selected,
+  onValueChange,
+  name,
+  error,
+  disabled,
+  required,
+}) => (
+  <RadioComponent
+    id={value.toString()}
+    value={value}
+    label={label}
+    selected={selected}
+    onValueChange={onValueChange}
+    name={name}
+    error={error}
+    disabled={disabled}
+    required={required}
+  />
 );
 export const Radio = Template.bind({});
 
@@ -73,7 +80,7 @@ switch (variant) {
       value: 'Option 1',
       selected: true,
       disabled: true,
-      required: false
+      required: false,
     };
     break;
   default:
@@ -83,7 +90,7 @@ switch (variant) {
       value: 'Option 1',
       selected: true,
       disabled: false,
-      required: false
+      required: false,
     };
     break;
 }

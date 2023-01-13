@@ -10,7 +10,14 @@ describe('pagination', () => {
   });
   it('renders current page', () => {
     const currentPage = 3;
-    render(<Pagination currentPage={currentPage} count={10} dataQaId="pagination" onChange={() => null} />);
+    render(
+      <Pagination
+        currentPage={currentPage}
+        count={10}
+        dataQaId="pagination"
+        onChange={() => null}
+      />
+    );
     expect(screen.getByTestId('pagination')).toBeInTheDocument();
     const el = screen.getByText(currentPage);
     expect(el.innerHTML).toEqual(currentPage.toString());
@@ -33,7 +40,9 @@ describe('pagination', () => {
   it('calls onChange function', () => {
     const onChange = jest.fn();
     const currentPage = 1;
-    render(<Pagination currentPage={currentPage} count={10} dataQaId="pagination" onChange={onChange} />);
+    render(
+      <Pagination currentPage={currentPage} count={10} dataQaId="pagination" onChange={onChange} />
+    );
     fireEvent.click(screen.getByTestId('pagination-button-next'));
     expect(onChange).toHaveBeenCalledTimes(1);
   });

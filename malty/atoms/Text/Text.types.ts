@@ -27,12 +27,12 @@ export enum TextStyle {
   TinyBold = 'tiny_bold',
   TinyDefault = 'tiny_default',
   MicroBold = 'micro_bold',
-  MicroDefault = 'micro_default'
+  MicroDefault = 'micro_default',
 }
 export enum TextAlign {
   Left = 'left',
   Center = 'center',
-  Right = 'right'
+  Right = 'right',
 }
 export enum TextColor {
   DigitalBlack = 'digital-black',
@@ -51,5 +51,5 @@ export enum TextColor {
   NotificationLight = 'notification-light',
   NotificationStrong = 'notification-strong',
   Success = 'success',
-  SuccessLight = 'success-light'
+  SuccessLight = 'success-light',
 }

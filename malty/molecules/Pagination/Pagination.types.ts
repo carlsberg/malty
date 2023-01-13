@@ -12,11 +12,11 @@ export interface PaginationProps {
 export enum PaginationTrigger {
   PageNr = 'pageNr',
   Prev = 'prev',
-  Next = 'next'
+  Next = 'next',
 }
 
 export enum PaginationType {
   Default = 'default',
   Compact = 'compact',
-  Input = 'input'
+  Input = 'input',
 }

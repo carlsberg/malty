@@ -15,5 +15,5 @@ export interface ChipProps {
 export enum ChipSize {
   XSmall = 'XSmall',
   Small = 'Small',
-  Medium = 'Medium'
+  Medium = 'Medium',
 }

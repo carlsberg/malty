@@ -6,7 +6,7 @@ import { FloaterIconPosition, FloaterProps } from '.';
 import { StyledFloaterButton } from './Floater.styled';
 import { FloaterColor } from './Floater.types';
 
-export const Floater = ({
+export function Floater({
   text,
   onClick,
   icon,
@@ -16,8 +16,8 @@ export const Floater = ({
   tabIndex = -1,
   dataTestId,
   children,
-  color = FloaterColor.DigitalBlack
-}: FloaterProps) => {
+  color = FloaterColor.DigitalBlack,
+}: FloaterProps) {
   let iconColor;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showButton, setShowButton] = useState(true);
@@ -80,10 +80,14 @@ export const Floater = ({
       tabIndex={tabIndex}
     >
       <div className="text-container">
-        {icon && iconPos === FloaterIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
+        {icon && iconPos === FloaterIconPosition.Left && (
+          <Icon name={icon} color={iconColor} size={IconSize.Medium} />
+        )}
         {text || children}
-        {icon && iconPos === FloaterIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}
+        {icon && iconPos === FloaterIconPosition.Right && (
+          <Icon name={icon} color={iconColor} size={IconSize.Medium} />
+        )}
       </div>
     </StyledFloaterButton>
   );
-};
+}

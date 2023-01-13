@@ -18,7 +18,7 @@ export default {
   component: IconComponent,
   parameters: {
     importObject: 'Icon',
-    importPath: '@carlsberggroup/malty.atoms.icon'
+    importPath: '@carlsberggroup/malty.atoms.icon',
   },
   argTypes: {
     name: {
@@ -28,9 +28,9 @@ export default {
       mapping: IconName,
       control: {
         disable: true,
-        label: Object.values(IconName)
+        label: Object.values(IconName),
       },
-      defaultValue: 'CarlsbergFilled'
+      defaultValue: 'CarlsbergFilled',
     },
     color: {
       description: 'Icon color, options are',
@@ -38,14 +38,14 @@ export default {
       mapping: IconColor,
       control: {
         type: 'radio',
-        label: Object.values(IconColor)
+        label: Object.values(IconColor),
       },
       table: {
         defaultValue: {
-          summary: 'IconColor.DigitalBlack'
-        }
+          summary: 'IconColor.DigitalBlack',
+        },
       },
-      defaultValue: 'DigitalBlack'
+      defaultValue: 'DigitalBlack',
     },
     size: {
       description: 'Icon size, options are',
@@ -53,24 +53,24 @@ export default {
       mapping: IconSize,
       control: {
         type: 'radio',
-        label: Object.values(IconSize)
+        label: Object.values(IconSize),
       },
       table: {
         defaultValue: {
-          summary: 'IconSize.Medium'
-        }
+          summary: 'IconSize.Medium',
+        },
       },
-      defaultValue: 'Medium'
+      defaultValue: 'Medium',
     },
     viewBox: {
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
     onClick: {
-      description: 'Function to run when icon is clicked.'
-    }
-  }
+      description: 'Function to run when icon is clicked.',
+    },
+  },
 } as Meta;
 
 const Template: Story<IconProps> = (args) => (

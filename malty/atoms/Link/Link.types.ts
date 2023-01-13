@@ -27,7 +27,7 @@ export enum LinkColor {
   NotificationStrong = 'notification-strong',
   Success = 'success',
   SuccessLight = 'success-light',
-  Primary = 'Primary'
+  Primary = 'Primary',
 }
 
 export enum LinkStyle {
@@ -40,5 +40,5 @@ export enum LinkStyle {
   TinyBold = 'tiny_bold',
   TinyDefault = 'tiny_default',
   MicroBold = 'micro_bold',
-  MicroDefault = 'micro_default'
+  MicroDefault = 'micro_default',
 }

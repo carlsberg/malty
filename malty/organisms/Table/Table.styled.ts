@@ -10,7 +10,8 @@ export const StyledTable = styled.table`
     theme &&
     css`
       border: ${theme.borders['border-1px--solid']['border-width'].value}
-        ${theme.borders['border-1px--solid']['border-style'].value} ${theme.colors.colours.support[20].value};
+        ${theme.borders['border-1px--solid']['border-style'].value}
+        ${theme.colors.colours.support[20].value};
     `}
 `;
 export const StyledThead = styled.thead``;
@@ -22,9 +23,12 @@ export const StyledHead = styled.th<{
   cursor: ${({ isSortable }) => (isSortable ? 'pointer' : 'default')};
   background-color: ${({ theme }) => theme.colors.colours.support[20].value};
   color: ${({ theme }) => theme.colors.colours.support[80].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-size'].value};
-  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_bold']['font-size'].value};
+  font-weight: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_bold']['font-weight'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_bold']['font-family'].value};
   height: ${({ theme }) => theme.sizes.xl.value};
   text-align: ${({ alignPosition }) => alignPosition || 'left'};
   padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
@@ -92,8 +96,10 @@ export const StyledTd = styled.td<{
   width: ${({ width }) => `${width}px` || 'auto'};
 
   padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   height: ${({ theme }) => theme.sizes.xl.value};
 `;

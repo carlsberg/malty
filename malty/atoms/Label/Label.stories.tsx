@@ -7,39 +7,45 @@ export default {
   component: LabelComponent,
   parameters: {
     importObject: 'Label',
-    importPath: '@carlsberggroup/malty.atoms.label'
+    importPath: '@carlsberggroup/malty.atoms.label',
   },
   argTypes: {
     label: {
       description: 'Text for the label',
-      control: 'text'
+      control: 'text',
     },
     required: {
       table: {
         defaultValue: {
-          summary: 'false'
-        }
+          summary: 'false',
+        },
       },
-      control: 'boolean'
+      control: 'boolean',
     },
     disabled: {
       table: {
         defaultValue: {
-          summary: 'false'
-        }
+          summary: 'false',
+        },
       },
-      control: 'boolean'
+      control: 'boolean',
     },
 
     htmlFor: {
       control: 'text',
-      description: 'ID of the target input component'
-    }
-  }
+      description: 'ID of the target input component',
+    },
+  },
 } as Meta;
 
 const Template: Story<LabelProps> = ({ label, required, disabled, htmlFor, dataTestId }) => (
-  <LabelComponent label={label} required={required} disabled={disabled} htmlFor={htmlFor} dataTestId={dataTestId} />
+  <LabelComponent
+    label={label}
+    required={required}
+    disabled={disabled}
+    htmlFor={htmlFor}
+    dataTestId={dataTestId}
+  />
 );
 
 export const Label = Template.bind({});
@@ -49,5 +55,5 @@ Label.args = {
   required: false,
   disabled: false,
   htmlFor: 'string',
-  dataTestId: ''
+  dataTestId: '',
 };

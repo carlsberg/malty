@@ -10,136 +10,136 @@ export default {
   parameters: {
     importObject: 'Input',
     importPath: '@carlsberggroup/malty.atoms.input',
-    variants: ['url', 'number', 'email', 'password', 'search', 'phone']
+    variants: ['url', 'number', 'email', 'password', 'search', 'phone'],
   },
   argTypes: {
     label: {
       description: 'Label for the input, goes above.',
-      control: 'text'
+      control: 'text',
     },
     placeholder: {
       description: 'Placeholder text to go inside the input field, when empty.',
-      control: 'text'
+      control: 'text',
     },
     error: {
       description: 'Error message to be displayed when error is present.',
-      control: 'text'
+      control: 'text',
     },
     hint: {
       description: 'helper message to be displayed',
-      control: 'text'
+      control: 'text',
     },
     size: {
       description: 'Input size options, at the moment only the two below',
       options: Object.values(InputSize),
       control: {
-        type: 'radio'
-      }
+        type: 'radio',
+      },
     },
     type: {
       options: Object.keys(InputType),
       mapping: InputType,
       control: {
         type: 'select',
-        label: Object.values(InputType)
+        label: Object.values(InputType),
       },
       description: 'Input type options',
       table: {
         defaultValue: {
-          summary: 'InputType.Text'
-        }
+          summary: 'InputType.Text',
+        },
       },
-      defaultValue: 'Text'
+      defaultValue: 'Text',
     },
     icon: {
       options: Object.values({ undefined, ...IconName }),
       control: {
-        type: 'select'
+        type: 'select',
       },
-      description: 'Icon to be displayed inside input.'
+      description: 'Icon to be displayed inside input.',
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, disabled'
+      description: 'Input state, disabled',
     },
     readOnly: {
       control: 'boolean',
-      description: 'Input state, readOnly'
+      description: 'Input state, readOnly',
     },
     required: {
       control: 'boolean',
-      description: 'Makes the input required to fill'
+      description: 'Makes the input required to fill',
     },
     iconPosition: {
       options: Object.keys(InputIconPosition),
       mapping: InputIconPosition,
       control: {
         type: 'radio',
-        label: Object.values(InputIconPosition)
+        label: Object.values(InputIconPosition),
       },
       description: 'Icon positino within the input.',
       table: {
         defaultValue: {
-          summary: 'InputIconPosition.Left'
-        }
+          summary: 'InputIconPosition.Left',
+        },
       },
-      defaultValue: 'Left'
+      defaultValue: 'Left',
     },
     clearable: {
       control: 'boolean',
       description: 'Should input be clearable?',
       table: {
         defaultValue: {
-          summary: false
-        }
-      }
+          summary: false,
+        },
+      },
     },
     onClearButtonClick: {
-      description: 'Function to be executed when clear button is clicked.'
+      description: 'Function to be executed when clear button is clicked.',
     },
     mask: {
       options: Object.values(InputMaskTypes),
       control: {
         type: 'select',
-        description: 'RegEx to be applies as mask for input value.'
-      }
+        description: 'RegEx to be applies as mask for input value.',
+      },
     },
     dataTestId: {
       control: 'text',
       description: 'Tooltip data-testid',
-      table: { defaultValue: { summary: 'none' } }
+      table: { defaultValue: { summary: 'none' } },
     },
     value: {
       description: 'value of Input',
-      control: 'text'
+      control: 'text',
     },
     onValueChange: {
-      description: 'Function to be executed when input state changes'
+      description: 'Function to be executed when input state changes',
     },
     onInputBlur: {
-      description: 'Function to be executed when input loses focus'
+      description: 'Function to be executed when input loses focus',
     },
     maxLength: {
       control: 'number',
-      description: 'Maximum length (number of characters)'
+      description: 'Maximum length (number of characters)',
     },
     minLength: {
       control: 'number',
-      description: 'Minimum length (number of characters)'
+      description: 'Minimum length (number of characters)',
     },
     pattern: {
       control: 'text',
-      description: 'Pattern to be applied to input value'
+      description: 'Pattern to be applied to input value',
     },
     disableRightButton: {
       control: 'boolean',
-      description: 'Right Button state, disabled'
+      description: 'Right Button state, disabled',
     },
     disableLeftButton: {
       control: 'boolean',
-      description: 'Left Button state, disabled'
-    }
-  }
+      description: 'Left Button state, disabled',
+    },
+  },
 } as Meta;
 
 const Template: Story<InputProps> = ({
@@ -159,7 +159,7 @@ const Template: Story<InputProps> = ({
   readOnly,
   disableLeftButton,
   disableRightButton,
-  required
+  required,
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -203,7 +203,7 @@ switch (variant) {
       clearable: true,
       hint: 'hint text',
       readOnly: false,
-      required: false
+      required: false,
     };
     break;
 
@@ -220,7 +220,7 @@ switch (variant) {
       readOnly: false,
       disableLeftButton: false,
       disableRightButton: false,
-      required: false
+      required: false,
     };
     break;
 
@@ -235,7 +235,7 @@ switch (variant) {
       clearable: true,
       hint: 'hint text',
       readOnly: false,
-      required: false
+      required: false,
     };
     break;
 
@@ -250,7 +250,7 @@ switch (variant) {
       clearable: false,
       hint: 'hint text',
       readOnly: false,
-      required: false
+      required: false,
     };
     break;
 
@@ -266,7 +266,7 @@ switch (variant) {
       icon: IconName.Search,
       hint: 'hint text',
       readOnly: false,
-      required: false
+      required: false,
     };
     break;
 
@@ -281,7 +281,7 @@ switch (variant) {
       clearable: false,
       hint: 'hint text',
       readOnly: false,
-      required: false
+      required: false,
     };
     break;
 
@@ -298,7 +298,7 @@ switch (variant) {
       readOnly: false,
       required: false,
       disableLeftButton: false,
-      disableRightButton: false
+      disableRightButton: false,
     };
     break;
 }

@@ -11,5 +11,5 @@ export enum PaddedContainerSize {
   Small = 'Small',
   Medium = 'Medium',
   Large = 'Large',
-  XLarge = 'XLarge'
+  XLarge = 'XLarge',
 }

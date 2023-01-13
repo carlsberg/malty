@@ -7,7 +7,7 @@ import { ProductsBar } from './ProductsBar';
 
 const systemOptionsMock = [
   { icon: IconName.DataTransfer, href: '/iframe.html' },
-  { icon: IconName.DataTransfer, component: Link, to: '/item2' }
+  { icon: IconName.DataTransfer, component: Link, to: '/item2' },
 ];
 
 const profileMenuMock = {
@@ -15,14 +15,16 @@ const profileMenuMock = {
   userRole: 'Market director',
   profileActions: [
     { name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' },
-    { name: 'Sign out', icon: IconName.DataTransfer, component: Link, to: '/sign-out' }
-  ]
+    { name: 'Sign out', icon: IconName.DataTransfer, component: Link, to: '/sign-out' },
+  ],
 };
 
 const singleOptionConfig = {
   username: 'Maria Snow',
   userRole: 'Market director',
-  profileActions: [{ name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' }]
+  profileActions: [
+    { name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' },
+  ],
 };
 
 const resetNavState = jest.fn();
@@ -31,7 +33,11 @@ describe('Products bar component', () => {
   it('renders with correct number of system options', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={profileMenuMock}
+          resetNavState={resetNavState}
+        />
       </BrowserRouter>
     );
     const options = screen.getByTestId('system-options');
@@ -43,7 +49,11 @@ describe('Products bar component', () => {
   it('opens profile menu when there is more than on action configured', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={profileMenuMock}
+          resetNavState={resetNavState}
+        />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');
@@ -56,7 +66,11 @@ describe('Products bar component', () => {
   it("doesn't render profile menu when there is only one action configured", () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={singleOptionConfig} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={singleOptionConfig}
+          resetNavState={resetNavState}
+        />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');

@@ -258,7 +258,7 @@ export function emojiFlag(
     YE: '🇾🇪',
     YT: '🇾🇹',
     ZA: '🇿🇦',
-    ZM: '🇿🇲'
+    ZM: '🇿🇲',
   }
 ) {
   const arr = countryCode.split('-');

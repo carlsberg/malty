@@ -11,5 +11,5 @@ export interface ToastProps {
 
 export enum ToastColor {
   Notification = 'notification-strong',
-  Fail = 'fail'
+  Fail = 'fail',
 }

@@ -10,48 +10,54 @@ export default {
   parameters: {
     importObject: 'Checkbox',
     importPath: '@carlsberggroup/malty.atoms.checkbox',
-    variants: ['undetermined', 'checked', 'unchecked']
+    variants: ['undetermined', 'checked', 'unchecked'],
   },
   argTypes: {
     value: {
       control: {
-        type: 'text'
+        type: 'text',
       },
-      description: 'This is the value to be passed'
+      description: 'This is the value to be passed',
     },
     labelText: {
       control: {
-        type: 'text'
+        type: 'text',
       },
-      description: 'This is the label for the checkbox'
+      description: 'This is the label for the checkbox',
     },
     required: {
       control: 'boolean',
-      description: 'Makes the checkbox required to fill'
+      description: 'Makes the checkbox required to fill',
     },
     isIndeterminate: {
       control: 'boolean',
-      description: 'Makes the checkbox Indeterminate'
+      description: 'Makes the checkbox Indeterminate',
     },
     error: {
       control: {
-        type: 'text'
+        type: 'text',
       },
-      description: 'Error message below'
+      description: 'Error message below',
     },
     checked: {
       control: 'boolean',
-      description: 'Checked `true` or `false`.'
+      description: 'Checked `true` or `false`.',
     },
     onValueChange: {
-      description: 'Function to be executed when checkbox state changes'
-    }
-  }
+      description: 'Function to be executed when checkbox state changes',
+    },
+  },
 };
 
 const Template: Story<CheckboxProps> = (args) => {
   const [stateChecked, setStateChecked] = useState(args.checked);
-  return <CheckboxComponent {...args} onValueChange={() => setStateChecked(!stateChecked)} checked={stateChecked} />;
+  return (
+    <CheckboxComponent
+      {...args}
+      onValueChange={() => setStateChecked(!stateChecked)}
+      checked={stateChecked}
+    />
+  );
 };
 
 export const Checkbox = Template.bind({});
@@ -66,7 +72,7 @@ switch (variant) {
       labelText: 'Undetermined label',
       error: '',
       required: false,
-      isIndeterminate: true
+      isIndeterminate: true,
     };
     break;
 
@@ -76,7 +82,7 @@ switch (variant) {
       labelText: 'Unchecked label',
       error: '',
       checked: false,
-      required: false
+      required: false,
     };
     break;
 
@@ -86,7 +92,7 @@ switch (variant) {
       labelText: 'Checked label',
       error: '',
       checked: true,
-      required: false
+      required: false,
     };
     break;
 }

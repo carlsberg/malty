@@ -225,7 +225,7 @@ export enum IconName {
   ViewList = 'ViewList',
   Volume = 'Volume',
   Wheat = 'Wheat',
-  World = 'World'
+  World = 'World',
 }
 
 export { IconColor, IconSize };

@@ -16,12 +16,14 @@ export const StyledError = styled.label`
 export const StyledCheckboxLabelText = styled.span`
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   margin-left: ${({ theme }) => theme.sizes['2xs'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['line-height'].value};
 `;
 
 export const StyledCheckboxHiddenInput = styled.input.attrs({
-  type: 'checkbox'
+  type: 'checkbox',
 })`
   display: none;
 `;

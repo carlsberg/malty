@@ -6,10 +6,15 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { DOTS, usePagination } from './Pagination.helper';
-import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
+import {
+  StyledContainer,
+  StyledDots,
+  StyledInput,
+  StyledInputPagination,
+} from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
-export const Pagination = ({
+export function Pagination({
   count,
   currentPage,
   onChange,
@@ -17,8 +22,8 @@ export const Pagination = ({
   type = PaginationType.Default,
   dataQaId,
   isWhite = false,
-  zeroBasedIndex = false
-}: PaginationProps) => {
+  zeroBasedIndex = false,
+}: PaginationProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [inputValue, setInputValue] = useState<number | string>(currentPage);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
@@ -26,12 +31,16 @@ export const Pagination = ({
   const paginationRange = usePagination({
     totalPageCount: count,
     siblingCount,
-    currentPage
+    currentPage,
   });
   const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
   const isFirstPage =
     // eslint-disable-next-line no-nested-ternary
-    type === PaginationType.Input ? (zeroBasedIndex === true ? inputValue === 0 : inputValue === 1) : currentPage === 1;
+    type === PaginationType.Input
+      ? zeroBasedIndex === true
+        ? inputValue === 0
+        : inputValue === 1
+      : currentPage === 1;
   const isLastPage =
     // eslint-disable-next-line no-nested-ternary
     type === PaginationType.Input
@@ -132,7 +141,13 @@ export const Pagination = ({
             theme={theme}
             data-testid={`${dataQaId}-input`}
             // eslint-disable-next-line no-nested-ternary
-            value={zeroBasedIndex ? (typeof inputValue === 'string' ? inputValue : inputValue + 1) : inputValue}
+            value={
+              zeroBasedIndex
+                ? typeof inputValue === 'string'
+                  ? inputValue
+                  : inputValue + 1
+                : inputValue
+            }
             onChange={(e) => handleInput(e)}
             max={count}
             min={0}
@@ -229,4 +244,4 @@ export const Pagination = ({
       </ul>
     </StyledContainer>
   );
-};
+}

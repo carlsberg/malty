@@ -4,9 +4,15 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ImageProps } from '.';
-import { StyledContainer, StyledFigure, StyledImage, StyledOverlay, StyledWrapper } from './Image.styled';
+import {
+  StyledContainer,
+  StyledFigure,
+  StyledImage,
+  StyledOverlay,
+  StyledWrapper,
+} from './Image.styled';
 
-export const Image = ({
+export function Image({
   src,
   cover = false,
   border,
@@ -18,8 +24,8 @@ export const Image = ({
   children,
   figcaption,
   fallbackSrc,
-  dataTestId
-}: ImageProps) => {
+  dataTestId,
+}: ImageProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [test, setTest] = useState(false);
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -31,7 +37,12 @@ export const Image = ({
   };
   return (
     <StyledContainer theme={theme}>
-      <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
+      <StyledFigure
+        data-testid={`${dataTestId}-figure`}
+        theme={theme}
+        height={height}
+        width={width}
+      >
         <StyledWrapper theme={theme}>
           <StyledOverlay
             data-testid={`${dataTestId}-overlay`}
@@ -68,4 +79,4 @@ export const Image = ({
       </StyledFigure>
     </StyledContainer>
   );
-};
+}

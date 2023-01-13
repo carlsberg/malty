@@ -9,24 +9,24 @@ export default {
   parameters: {
     importObject: 'Pagination',
     importPath: '@carlsberggroup/malty.molecules.pagination',
-    variants: ['default', 'compact', 'input']
+    variants: ['default', 'compact', 'input'],
   },
   argTypes: {
     onValueChange: {
-      description: 'Function to be executed when page changes'
+      description: 'Function to be executed when page changes',
     },
     currentPage: {
       description: 'Current number of pagination',
-      control: 'number'
+      control: 'number',
     },
     count: {
       description: 'Total number of pages',
-      control: 'number'
+      control: 'number',
     },
     dataQaId: {
       control: 'text',
       description: 'Pagination data-testid',
-      table: { defaultValue: { summary: 'none' } }
+      table: { defaultValue: { summary: 'none' } },
     },
     type: {
       description: 'type options for pagination',
@@ -34,28 +34,28 @@ export default {
       mapping: PaginationType,
       control: {
         type: 'select',
-        label: Object.keys(PaginationType)
+        label: Object.keys(PaginationType),
       },
       table: {
         defaultValue: {
-          summary: 'PaginationType.Default'
-        }
-      }
+          summary: 'PaginationType.Default',
+        },
+      },
     },
     isWhite: {
       table: {
         defaultValue: {
-          summary: 'false'
-        }
+          summary: 'false',
+        },
       },
       description: 'Changes color of component to white',
-      control: 'boolean'
+      control: 'boolean',
     },
     zeroBasedIndex: {
       description: 'if true the first page starts on 0',
-      control: 'boolean'
-    }
-  }
+      control: 'boolean',
+    },
+  },
 } as Meta;
 
 const Template: Story<PaginationProps> = (args) => {
@@ -82,21 +82,21 @@ switch (variant) {
     Pagination.args = {
       count: 10,
       currentPage: 1,
-      type: PaginationType.Compact
+      type: PaginationType.Compact,
     };
     break;
   case 'input':
     Pagination.args = {
       count: 10,
       currentPage: 1,
-      type: PaginationType.Input
+      type: PaginationType.Input,
     };
     break;
   default:
     Pagination.args = {
       count: 10,
       currentPage: 1,
-      type: PaginationType.Default
+      type: PaginationType.Default,
     };
     break;
 }

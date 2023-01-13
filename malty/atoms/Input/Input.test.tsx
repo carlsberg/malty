@@ -29,13 +29,20 @@ describe('input', () => {
   it('calls onValueChange when typing', () => {
     const onValueChange = jest.fn();
     const { rerender } = render(
-      <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
+      <Input
+        value="Initial value"
+        label="Input label"
+        onValueChange={onValueChange}
+        type={InputType.Text}
+      />
     );
     const input = screen.getByDisplayValue('Initial value');
     fireEvent.input(input, { target: { value: 'Test Input' } });
     expect(onValueChange).toHaveBeenCalledTimes(1);
 
-    rerender(<Input value="Test" label="Input label" onValueChange={onValueChange} type={InputType.Text} />);
+    rerender(
+      <Input value="Test" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
+    );
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
   });
 
@@ -58,13 +65,22 @@ describe('input', () => {
 
   it('renders input number', () => {
     const onValueChange = jest.fn();
-    render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
+    render(
+      <Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />
+    );
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
   });
 
   it('renders input search', () => {
     const onValueChange = jest.fn();
-    render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
+    render(
+      <Input
+        value="test search"
+        label="Search"
+        onValueChange={onValueChange}
+        type={InputType.Search}
+      />
+    );
     expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
   });
 

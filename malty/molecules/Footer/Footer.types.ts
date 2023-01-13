@@ -29,5 +29,5 @@ export enum FooterSocialMediaIconName {
   AppInstagram = 'AppInstagram',
   AppLinkedin = 'AppLinkedin',
   AppSkype = 'AppSkype',
-  Twitter = 'Twitter'
+  Twitter = 'Twitter',
 }

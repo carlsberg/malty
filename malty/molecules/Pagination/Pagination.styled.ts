@@ -7,7 +7,9 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
   button {
     svg {
       fill: ${({ theme, isWhite }) =>
-        isWhite ? theme.colors.colours.default.white.value : theme.colors.colours.default['digital-black'].value};
+        isWhite
+          ? theme.colors.colours.default.white.value
+          : theme.colors.colours.default['digital-black'].value};
     }
     :disabled {
       svg {
@@ -57,7 +59,9 @@ export const StyledDots = styled.div<{ isWhite?: boolean }>`
   align-items: center;
   cursor: default;
   color: ${({ theme, isWhite }) =>
-    isWhite ? theme.colors['text-colours'].white.value : theme.colors['text-colours']['digital-black'].value};
+    isWhite
+      ? theme.colors['text-colours'].white.value
+      : theme.colors['text-colours']['digital-black'].value};
   @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     height: ${({ theme }) => theme.sizes.l.value};
     width: ${({ theme }) => theme.sizes.l.value};
@@ -72,9 +76,12 @@ export const StyledInput = styled.input`
   height: ${({ theme }) => theme.sizes.xl.value};
 
   box-sizing: border-box;
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  font-weight: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-weight'].value};
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid ${({ theme }) => theme.colors.colours.support[40].value};

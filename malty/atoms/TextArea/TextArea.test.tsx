@@ -9,7 +9,14 @@ const mockFn = jest.fn();
 
 describe('textarea', () => {
   it('renders elements', () => {
-    render(<TextArea value="Value text" label="Label text" placeholder="Placeholder text" onValueChange={mockFn} />);
+    render(
+      <TextArea
+        value="Value text"
+        label="Label text"
+        placeholder="Placeholder text"
+        onValueChange={mockFn}
+      />
+    );
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Placeholder text')).toBeInTheDocument();
     expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();

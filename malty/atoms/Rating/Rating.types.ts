@@ -5,6 +5,11 @@ export interface RatingProps {
   readOnly?: boolean;
   disabled?: boolean;
   totalReview?: number;
-  onStarClick?: (index: number, value: number, name: string, e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => void;
+  onStarClick?: (
+    index: number,
+    value: number,
+    name: string,
+    e: React.MouseEvent<HTMLLabelElement, MouseEvent>
+  ) => void;
   dataTestId?: string;
 }

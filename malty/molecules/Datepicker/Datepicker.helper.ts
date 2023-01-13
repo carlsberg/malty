@@ -48,7 +48,7 @@ export function useColorsMapping() {
       [Colors.SystemNotificationLight]: theme.colors.colours.system['notification-light'].value,
       [Colors.SystemNotificationStrong]: theme.colors.colours.system['notification-strong'].value,
       [Colors.SystemSuccess]: theme.colors.colours.system.success.value,
-      [Colors.SystemSuccessLight]: theme.colors.colours.system['success-light'].value
+      [Colors.SystemSuccessLight]: theme.colors.colours.system['success-light'].value,
     }),
     [theme]
   );

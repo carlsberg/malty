@@ -29,7 +29,11 @@ export const useIconColor = ({ color }: UseIconColorProps): string => {
   ) {
     return theme.colors.colours.support[color].value;
   }
-  if (color === IconColor.Primary || color === IconColor.Secondary || color === IconColor.Tertiary) {
+  if (
+    color === IconColor.Primary ||
+    color === IconColor.Secondary ||
+    color === IconColor.Tertiary
+  ) {
     return theme.colors.theme[color].value;
   }
   return theme.colors.colours.default[color].value;

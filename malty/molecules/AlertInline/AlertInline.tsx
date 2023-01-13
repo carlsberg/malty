@@ -11,11 +11,11 @@ import {
   StyledAlertInLineWrapper,
   StyledContent,
   StyledTextContainer,
-  StyledTitle
+  StyledTitle,
 } from './AlertInline.styled';
 import { AlertInlineColor, AlertInlineProps, AlertInlineSize } from './AlertInline.types';
 
-export const AlertInline = ({
+export function AlertInline({
   icon,
   size = AlertInlineSize.Default,
   color = AlertInlineColor.Notification,
@@ -25,8 +25,8 @@ export const AlertInline = ({
   secondAction,
   secondActionText,
   message,
-  title
-}: AlertInlineProps) => {
+  title,
+}: AlertInlineProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const labelFontColor =
     color === AlertInlineColor.Notification || color === AlertInlineColor.Fail
@@ -36,7 +36,8 @@ export const AlertInline = ({
     color === AlertInlineColor.Notification || color === AlertInlineColor.Fail
       ? IconColor.White
       : IconColor.DigitalBlack;
-  const actionButtonColor = color === AlertInlineColor.Notification || color === AlertInlineColor.Fail;
+  const actionButtonColor =
+    color === AlertInlineColor.Notification || color === AlertInlineColor.Fail;
 
   const onFirstAction = () => {
     if (firstAction) {
@@ -64,7 +65,9 @@ export const AlertInline = ({
     <StyledTextContainer data-alert-label-container>
       <Text
         color={labelFontColor}
-        textStyle={size === AlertInlineSize.Default ? TextStyle.MediumSmallDefault : TextStyle.SmallDefault}
+        textStyle={
+          size === AlertInlineSize.Default ? TextStyle.MediumSmallDefault : TextStyle.SmallDefault
+        }
       >
         {message}
       </Text>
@@ -123,4 +126,4 @@ export const AlertInline = ({
       </StyledAlertInLine>
     </StyledAlertInLineWrapper>
   );
-};
+}

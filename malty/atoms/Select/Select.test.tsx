@@ -12,24 +12,24 @@ const mockFn = jest.fn();
 const testOptions = [
   {
     value: 'value 1',
-    name: 'name 1'
+    name: 'name 1',
   },
   {
     value: 'value 2',
-    name: 'name 2'
+    name: 'name 2',
   },
   {
     value: 'value 3',
-    name: 'name 3'
+    name: 'name 3',
   },
   {
     value: 'value 4',
-    name: 'name 4'
+    name: 'name 4',
   },
   {
     value: 'value 5',
-    name: 'name 5'
-  }
+    name: 'name 5',
+  },
 ];
 describe('select', () => {
   it('renders elements', () => {
@@ -88,7 +88,14 @@ describe('select', () => {
 
   it('renders inline select', () => {
     const onValueChange = jest.fn();
-    render(<Select options={testOptions} label="inline" onValueChange={onValueChange} type={SelectType.Inline} />);
+    render(
+      <Select
+        options={testOptions}
+        label="inline"
+        onValueChange={onValueChange}
+        type={SelectType.Inline}
+      />
+    );
     expect(screen.getByText('inline')).toBeInTheDocument();
   });
 
@@ -97,7 +104,7 @@ describe('select', () => {
       options: testOptions,
       label: 'select label',
       onValueChange: mockFn,
-      type: SelectType.Default
+      type: SelectType.Default,
     };
 
     const { rerender } = render(<Select {...props} />);
@@ -125,7 +132,7 @@ describe('select', () => {
       label: 'select label',
       onValueChange: mockFn,
       type: SelectType.Default,
-      multiple: true
+      multiple: true,
     };
 
     const { rerender } = render(<Select {...props} />);
@@ -141,7 +148,13 @@ describe('select', () => {
     expect(selectedOptionsButtonQueries.getByText('3 selected')).toBeVisible();
 
     rerender(
-      <Select options={testOptions} label="select label" onValueChange={mockFn} type={SelectType.Default} value={[]} />
+      <Select
+        options={testOptions}
+        label="select label"
+        onValueChange={mockFn}
+        type={SelectType.Default}
+        value={[]}
+      />
     );
 
     selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));

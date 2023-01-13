@@ -8,17 +8,17 @@ export interface ProgressSpinnerProps {
 export enum ProgressSpinnerStatus {
   Pending = 'Pending',
   Success = 'Success',
-  Failure = 'Failure'
+  Failure = 'Failure',
 }
 
 export enum ProgressSpinnerSize {
   Small = 'Small',
-  Medium = 'Medium'
+  Medium = 'Medium',
 }
 
 export enum ProgressSpinnerColor {
   DigitalBlack = 'digital-black',
   ThemePrimary = 'themePrimary',
   ThemeSecondary = 'themeSecondary',
-  ThemeTertiary = 'themeTertiary'
+  ThemeTertiary = 'themeTertiary',
 }

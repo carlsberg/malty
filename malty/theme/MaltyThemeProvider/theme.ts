@@ -32,7 +32,7 @@ const defaultTheme: DefaultTheme = {
   layout: { ...nonThemeLayout },
   borders: { ...nonThemeBorders },
   gradients: { ...nonThemeGradients },
-  variables: { ...nonThemeVariables }
+  variables: { ...nonThemeVariables },
 };
 
 /*

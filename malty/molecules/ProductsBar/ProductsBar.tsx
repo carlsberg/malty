@@ -18,11 +18,11 @@ import {
   StyledRoleLabel,
   StyledSystemMenu,
   StyledSystemOption,
-  StyledSystemWrapper
+  StyledSystemWrapper,
 } from './ProductsBar.styled';
 import { ProductsBarProps, ProfileMenuProps } from './ProductsBar.types';
 
-const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
+function LinkComponent({ component, href, children, componentProps }: LinkComponentProps) {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
   return (
@@ -30,11 +30,15 @@ const LinkComponent = ({ component, href, children, componentProps }: LinkCompon
       {
         // we need to spread props in this case in order to allow custom properties being passed to the custom component
         // eslint-disable-next-line react/jsx-props-no-spreading
-        component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>
+        component ? (
+          <CustomComponent {...componentProps}>{children}</CustomComponent>
+        ) : (
+          <a href={href}>{children}</a>
+        )
       }
     </>
   );
-};
+}
 
 const useClickOutside = (
   ref: RefObject<HTMLDivElement>,
@@ -63,7 +67,7 @@ const useClickOutside = (
   }, [open]);
 };
 
-const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) => {
+function ProfileMenu({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const profileMenuRef = React.useRef<HTMLDivElement>(null);
 
@@ -94,9 +98,9 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
       </StyledProfileActions>
     </StyledProfileMenu>
   );
-};
+}
 
-export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) => {
+export function ProductsBar({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const { username, userRole, profileActions } = profileMenu;
@@ -119,7 +123,11 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
             return (
-              <StyledSystemOption theme={theme} onClick={resetNavState} key={option.key || `systemOption${index}`}>
+              <StyledSystemOption
+                theme={theme}
+                onClick={resetNavState}
+                key={option.key || `systemOption${index}`}
+              >
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
                     <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Medium} />
@@ -133,7 +141,11 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
         {profileActions.length === 1 && (
           <StyledProfileBtn theme={theme}>
             <StyledOptionIcon theme={theme} onClick={resetNavState}>
-              <LinkComponent component={singleItemComponent} href={singleItemHref} componentProps={singleItemCompProps}>
+              <LinkComponent
+                component={singleItemComponent}
+                href={singleItemHref}
+                componentProps={singleItemCompProps}
+              >
                 <StyledAvatar theme={theme} data-testid="avatar">
                   {/* To do: reset Avatar in this position when Avatar component is published
                     <Avatar username={username} /> */}
@@ -156,8 +168,16 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
                 const componentProps = { ...customProps };
 
                 return (
-                  <StyledProfileItem theme={theme} onClick={resetNavState} key={action.key || `profileOption${index}`}>
-                    <LinkComponent component={component} href={href} componentProps={componentProps}>
+                  <StyledProfileItem
+                    theme={theme}
+                    onClick={resetNavState}
+                    key={action.key || `profileOption${index}`}
+                  >
+                    <LinkComponent
+                      component={component}
+                      href={href}
+                      componentProps={componentProps}
+                    >
                       <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Small} />
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
                         {name}
@@ -172,4 +192,4 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
       </StyledSystemWrapper>
     </StyledProductsBar>
   );
-};
+}

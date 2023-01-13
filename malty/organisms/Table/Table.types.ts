@@ -38,10 +38,10 @@ export interface DraggableRowProps {
 export enum TableSize {
   Medium = 'Medium',
   Large = 'Large',
-  XLarge = 'XLarge'
+  XLarge = 'XLarge',
 }
 export enum TableHeaderAlignment {
   Left = 'left',
   Right = 'right',
-  Center = 'center'
+  Center = 'center',
 }

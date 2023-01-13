@@ -10,24 +10,24 @@ export default {
   parameters: {
     importObject: 'Pill',
     importPath: '@carlsberggroup/malty.atoms.pill',
-    variants: ['text', 'icon', 'combo']
+    variants: ['text', 'icon', 'combo'],
   },
   argTypes: {
     text: {
       control: 'text',
-      description: 'Pill content text.'
+      description: 'Pill content text.',
     },
     size: {
       description: 'Pill size, options below.',
       options: Object.values(PillSize),
       control: {
-        type: 'select'
+        type: 'select',
       },
       table: {
         defaultValue: {
-          summary: 'PillSize.Medium'
-        }
-      }
+          summary: 'PillSize.Medium',
+        },
+      },
     },
     color: {
       description: 'Pill colors, from design predefined colors, as follows.',
@@ -35,13 +35,13 @@ export default {
       mapping: PillColor,
       control: {
         type: 'select',
-        label: Object.values(PillColor)
+        label: Object.values(PillColor),
       },
       table: {
         defaultValue: {
-          summary: 'PillColor.Closed'
-        }
-      }
+          summary: 'PillColor.Closed',
+        },
+      },
     },
     icon: {
       description: 'Icon to be displayed',
@@ -49,19 +49,19 @@ export default {
       mapping: { undefined, ...IconName },
       control: {
         type: 'select',
-        label: Object.values({ undefined, ...IconName })
+        label: Object.values({ undefined, ...IconName }),
       },
       table: {
         defaultValue: {
-          summary: 'IconName.CarlsbergFilled'
-        }
-      }
+          summary: 'IconName.CarlsbergFilled',
+        },
+      },
     },
     dataTestId: {
       control: 'text',
-      description: 'Pill data-testid'
-    }
-  }
+      description: 'Pill data-testid',
+    },
+  },
 } as Meta;
 
 const Template: Story<PillProps> = ({ text, icon, color, size, dataTestId }: PillProps) => (
@@ -79,7 +79,7 @@ switch (variant) {
     PillEl.args = {
       icon: IconName.CarlsbergFilled,
       color: PillColor.Success,
-      size: PillSize.Medium
+      size: PillSize.Medium,
     };
     break;
 
@@ -88,7 +88,7 @@ switch (variant) {
     PillEl.args = {
       text: 'Text',
       color: PillColor.Fail,
-      size: PillSize.Medium
+      size: PillSize.Medium,
     };
     break;
 
@@ -98,7 +98,7 @@ switch (variant) {
       text: 'Text',
       icon: IconName.CarlsbergFilled,
       color: PillColor.Primary,
-      size: PillSize.Medium
+      size: PillSize.Medium,
     };
     break;
 }

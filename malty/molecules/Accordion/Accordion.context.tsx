@@ -3,7 +3,7 @@ import { AccordionContext } from './Accordion.types';
 
 const defaultAccordionContext: AccordionContext = {
   activeEventKey: [],
-  alwaysOpen: false
+  alwaysOpen: false,
 };
 
 const ContextAccordion = React.createContext<AccordionContext>(defaultAccordionContext);

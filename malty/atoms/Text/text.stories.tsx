@@ -8,12 +8,12 @@ export default {
   component: TextComponent,
   parameters: {
     importObject: 'Text',
-    importPath: '@carlsberggroup/malty.atoms.text'
+    importPath: '@carlsberggroup/malty.atoms.text',
   },
   argTypes: {
     children: {
       description: 'This is the content of a text component',
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     textStyle: {
       description: 'Style of the text, from the following options',
@@ -21,14 +21,14 @@ export default {
       mapping: TextStyle,
       control: {
         type: 'select',
-        label: Object.values(TextStyle)
+        label: Object.values(TextStyle),
       },
       defaultValue: 'MediumBold',
       table: {
         defaultValue: {
-          summary: 'TextStyle.MediumDefault'
-        }
-      }
+          summary: 'TextStyle.MediumDefault',
+        },
+      },
     },
     align: {
       description: 'Text alignment, from the following options',
@@ -36,14 +36,14 @@ export default {
       mapping: TextAlign,
       control: {
         type: 'select',
-        label: Object.values(TextAlign)
+        label: Object.values(TextAlign),
       },
       defaultValue: 'Left',
       table: {
         defaultValue: {
-          summary: 'TextAlign.Left'
-        }
-      }
+          summary: 'TextAlign.Left',
+        },
+      },
     },
     color: {
       description: 'Color of the text, from the following options',
@@ -51,37 +51,46 @@ export default {
       mapping: TextColor,
       control: {
         type: 'select',
-        label: Object.values(TextColor)
+        label: Object.values(TextColor),
       },
       defaultValue: 'DigitalBlack',
       table: {
         defaultValue: {
-          summary: 'TextColor.DigitalBlack'
-        }
-      }
+          summary: 'TextColor.DigitalBlack',
+        },
+      },
     },
     italic: {
       description: 'Should text be italic?',
       table: { defaultValue: { summary: false } },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     ellipsis: {
       description: 'Should text be truncated?',
       table: { defaultValue: { summary: false } },
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     width: {
       description: 'Width of text component',
-      control: { type: 'text' }
+      control: { type: 'text' },
     },
     as: {
       table: {
-        disable: true
-      }
-    }
-  }
+        disable: true,
+      },
+    },
+  },
 };
-const Template: Story<TextProps> = ({ textStyle, align, color, children, italic, ellipsis, width, className }) => (
+const Template: Story<TextProps> = ({
+  textStyle,
+  align,
+  color,
+  children,
+  italic,
+  ellipsis,
+  width,
+  className,
+}) => (
   <TextComponent
     align={align}
     color={color}
@@ -99,5 +108,5 @@ export const Text = Template.bind({});
 
 Text.args = {
   children:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia ut nunc.'
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia ut nunc.',
 };

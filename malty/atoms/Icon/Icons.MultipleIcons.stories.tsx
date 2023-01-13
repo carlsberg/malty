@@ -15,14 +15,15 @@ interface MultiIconNames extends IconProps {
   names: IconName[];
 }
 
-const getValueByKeyForStringEnum = (value: string) => Object.entries(IconName).find(([key]) => key === value)?.[1];
+const getValueByKeyForStringEnum = (value: string) =>
+  Object.entries(IconName).find(([key]) => key === value)?.[1];
 
 export default {
   title: 'Icons/Multiple Icons',
   component: IconComponent,
   parameters: {
     importObject: 'CarlsbergFilled',
-    importPath: '@carlsberggroup/malty.atoms.icon'
+    importPath: '@carlsberggroup/malty.atoms.icon',
   },
   argTypes: {
     names: {
@@ -33,9 +34,9 @@ export default {
       mapping: IconName,
       control: {
         type: 'check',
-        label: Object.values(IconName)
+        label: Object.values(IconName),
       },
-      defaultValue: [IconName.CarlsbergFilled]
+      defaultValue: [IconName.CarlsbergFilled],
     },
     color: {
       description: 'Icon color, options are',
@@ -43,14 +44,14 @@ export default {
       mapping: IconColor,
       control: {
         type: 'radio',
-        label: Object.values(IconColor)
+        label: Object.values(IconColor),
       },
       table: {
         defaultValue: {
-          summary: 'IconColor.DigitalBlack'
-        }
+          summary: 'IconColor.DigitalBlack',
+        },
       },
-      defaultValue: 'DigitalBlack'
+      defaultValue: 'DigitalBlack',
     },
     size: {
       description: 'Icon size, options are',
@@ -58,29 +59,29 @@ export default {
       mapping: IconSize,
       control: {
         type: 'radio',
-        label: Object.values(IconSize)
+        label: Object.values(IconSize),
       },
       table: {
         defaultValue: {
-          summary: 'IconSize.Medium'
-        }
+          summary: 'IconSize.Medium',
+        },
       },
-      defaultValue: 'Medium'
+      defaultValue: 'Medium',
     },
     viewBox: {
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
     name: {
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
     onClick: {
-      description: 'Function to run when icon is clicked.'
-    }
-  }
+      description: 'Function to run when icon is clicked.',
+    },
+  },
 } as Meta;
 
 const Template: Story<MultiIconNames> = (args) => {
@@ -98,16 +99,22 @@ const Template: Story<MultiIconNames> = (args) => {
   }, [args.names]);
 
   return typeof args.names === 'string' ? (
-    <>
-      <StyledWrapper title={args.names} key={0}>
-        <IconComponent size={args.size} color={args.color} name={getValueByKeyForStringEnum(args.names)} />
-      </StyledWrapper>
-    </>
+    <StyledWrapper title={args.names} key={0}>
+      <IconComponent
+        size={args.size}
+        color={args.color}
+        name={getValueByKeyForStringEnum(args.names)}
+      />
+    </StyledWrapper>
   ) : (
     <>
       {Object.values(args.names).map((itemName: string, index: number) => (
         <StyledWrapper title={itemName} key={index}>
-          <IconComponent size={args.size} color={args.color} name={getValueByKeyForStringEnum(itemName)} />
+          <IconComponent
+            size={args.size}
+            color={args.color}
+            name={getValueByKeyForStringEnum(itemName)}
+          />
         </StyledWrapper>
       ))}
     </>

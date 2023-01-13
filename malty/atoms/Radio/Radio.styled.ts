@@ -89,10 +89,14 @@ export const StyledRadio = styled.input`
 `;
 
 export const StyledLabel = styled(Label)`
-  font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
-  font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
-  line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
-  font-weight: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-weight'].value};
+  font-family: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-family'].value};
+  font-size: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-size'].value};
+  line-height: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['line-height'].value};
+  font-weight: ${({ theme }) =>
+    theme.typography.desktop.text['medium-small_default']['font-weight'].value};
   // using hardcoded values due to not having token value and design team thinking on implementation with icons
   padding-left: 10px;
   margin-bottom: 0;
