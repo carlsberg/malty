@@ -156,6 +156,10 @@ export const StyledInput = styled.input<{
       disableQuantityInput &&
       css`
         pointer-events: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
       `}
   }
   &.quanity-input::-webkit-inner-spin-button,
