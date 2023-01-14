@@ -35,7 +35,7 @@
     },
     "atoms/headline": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.42",
+        "version": "0.0.43",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Headline"
     },
@@ -59,7 +59,7 @@
     },
     "atoms/input": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.83",
+        "version": "0.0.84",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
@@ -119,7 +119,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.70",
+        "version": "0.0.71",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1499,7 +1499,7 @@
     },
     "molecules/modal": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.50",
+        "version": "0.0.51",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Modal"
     },
@@ -1523,7 +1523,7 @@
     },
     "molecules/side-nav": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.45",
+        "version": "0.0.46",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/SideNav"
     },
