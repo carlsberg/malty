@@ -1593,9 +1593,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carlsberg/eslint-config-carlsberg@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@carlsberg/eslint-config-carlsberg@npm:0.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40carlsberg%2Feslint-config-carlsberg%2F-%2Feslint-config-carlsberg-0.2.1.tgz"
+"@carlsberg/eslint-config-carlsberg@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@carlsberg/eslint-config-carlsberg@npm:0.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40carlsberg%2Feslint-config-carlsberg%2F-%2Feslint-config-carlsberg-0.2.2.tgz"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.47.0
     "@typescript-eslint/parser": ^5.47.0
@@ -1613,7 +1613,7 @@ __metadata:
     eslint-webpack-plugin: ^3.2.0
     prettier: ^2.8.1
     prettier-plugin-organize-imports: ^3.2.1
-  checksum: 252da792d66d66a13413de6c4a1a0e5f0dd0c0097b2a76848bfb328dd8ef670d935def672a7358620f9fce26c74165e7df65aec85d371955244958bbb17274c6
+  checksum: d80cb86ba29bf1ba24d4607481a7265a8a1311c879530435f47b886bd9439955ae7a894e943f2f0b633375793fef4c01f38ce52f5f0f3c8ad63c21ce77465196
   languageName: node
   linkType: hard
 
@@ -9247,7 +9247,7 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@babel/runtime": 7.12.18
-    "@carlsberg/eslint-config-carlsberg": ^0.2.1
+    "@carlsberg/eslint-config-carlsberg": ^0.2.2
     "@carlsberg/prettier-config": ^0.0.1
     "@popperjs/core": ^2.11.5
     "@storybook/addon-actions": ">=6.5.15 <7.0.0"
