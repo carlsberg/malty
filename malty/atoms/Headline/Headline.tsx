@@ -13,37 +13,36 @@ export function Headline({
 }: HeadlineProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  let StyledTagHeadline = 'h1';
+  let StyledTagHeadline = as;
   const allowedTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
 
-  if (as && allowedTags.includes(as)) {
-    StyledTagHeadline = as;
-  } else {
-    switch (headlineStyle) {
-      case 'hero':
-        StyledTagHeadline = 'h2';
-        break;
-      case 'huge':
-        StyledTagHeadline = 'h3';
-        break;
-      case 'big':
-        StyledTagHeadline = 'h4';
-        break;
-      case 'large':
-        StyledTagHeadline = 'h5';
-        break;
-      case 'medium-large':
-        StyledTagHeadline = 'h6';
-        break;
-      case 'medium':
-        StyledTagHeadline = 'p';
-        break;
-      default:
-        StyledTagHeadline = 'h1';
-        break;
-    }
+  switch (headlineStyle) {
+    case 'hero':
+      StyledTagHeadline = 'h2';
+      break;
+    case 'huge':
+      StyledTagHeadline = 'h3';
+      break;
+    case 'big':
+      StyledTagHeadline = 'h4';
+      break;
+    case 'large':
+      StyledTagHeadline = 'h5';
+      break;
+    case 'medium-large':
+      StyledTagHeadline = 'h6';
+      break;
+    case 'medium':
+      StyledTagHeadline = 'p';
+      break;
+    default:
+      StyledTagHeadline = 'h1';
+      break;
   }
 
+  if (as && allowedTags.includes(`${as}`)) {
+    StyledTagHeadline = as;
+  }
   return (
     <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
       {children}

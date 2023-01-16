@@ -1,9 +1,11 @@
+import React from 'react';
+
 export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> {
   headlineStyle?: HeadlineStyle;
   align?: HeadlineAlign;
   color?: HeadlineColor;
   as?: React.ElementType;
-  children: string | JSX.Element;
+  children: React.ElementType | string;
 }
 
 export enum HeadlineStyle {
