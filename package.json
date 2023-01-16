@@ -79,7 +79,7 @@
     "babel-jest": "^29.3.1",
     "babel-loader": "^9.1.0",
     "babel-plugin-transform-hoist-jsx-style": "^1.0.0",
-    "eslint": "^8.30.0",
+    "eslint": "^8.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-functional": "*",
