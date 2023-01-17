@@ -11,10 +11,9 @@ export function Card({
   cardHero,
   cardBody,
   onClick,
+  dataTestId = 'card-element',
 }: CardProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
-
-  const hover = !(onClick === undefined);
 
   return (
     <StyledCardContainer
@@ -22,12 +21,14 @@ export function Card({
       selected={selected}
       cardStyle={style}
       onClick={onClick}
-      hover={hover}
+      hover={!!onClick}
+      theme={theme}
+      data-testid={dataTestId}
     >
-      <StyledCardHero orientation={orientation} hover={hover}>
+      <StyledCardHero orientation={orientation} theme={theme}>
         {cardHero}
       </StyledCardHero>
-      <StyledCardBody>{cardBody}</StyledCardBody>
+      <StyledCardBody theme={theme}>{cardBody}</StyledCardBody>
     </StyledCardContainer>
   );
 }

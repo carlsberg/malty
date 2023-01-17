@@ -80,7 +80,6 @@ export const StyledCardContainer = styled.div<{
 
 export const StyledCardHero = styled.div<{
   orientation: CardOrientation;
-  hover: boolean;
 }>`
   display: flex;
   align-items: stretch;
