@@ -26,11 +26,11 @@ export const StyledAlertToastWrapper = styled.div`
 export const StyledToast = styled.div<{
   color: ToastColor;
 }>`
-  padding: ${({ theme }) => theme.sizes.xs.value} 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: ${({ theme }) => theme.sizes.xl.value};
+  min-height: ${({ theme }) => theme.sizes.xl.value};
+  height: auto;
   width: 100%;
   max-width: 736px;
   background-color: ${({ color, theme }) => theme.colors.colours.system[color].value};
@@ -40,23 +40,14 @@ export const StyledToast = styled.div<{
   box-sizing: border-box;
   gap: ${({ theme }) => theme.sizes.s.value};
   p {
-    padding-left: ${({ theme }) => theme.sizes.s.value};
+    padding: ${({ theme }) => theme.sizes.xs.value} 0 ${({ theme }) => theme.sizes.xs.value}
+      ${({ theme }) => theme.sizes.s.value};
+    line-height: ${({ theme }) => theme.sizes.s.value};
   }
 `;
 
 export const StyledActionItem = styled.div`
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  box-sizing: border-box;
-  button {
-    text-decoration: none;
-  }
 `;
 
-export const StyledDismissContainer = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: ${({ theme }) => theme.sizes.s.value};
-  margin-left: auto;
-`;
+export const StyledDismissContainer = styled.div``;
