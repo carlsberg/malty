@@ -5,10 +5,10 @@ import { useIconColor, useNumSize } from './iconWrapper.helper';
 import { StyledIcon } from './IconWrapper.styled';
 import { IconColor, IconSize, IconWrapperProps } from './IconWrapper.types';
 
-const IconWrapper = (
+function IconWrapper(
   { size = IconSize.Medium, color = IconColor.DigitalBlack, viewBox, className, onClick, name }: IconWrapperProps,
   icon: JSX.Element
-) => {
+) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const iconSize = useNumSize({ size });
   const iconColor = useIconColor({ color });
@@ -25,6 +25,6 @@ const IconWrapper = (
       {icon}
     </StyledIcon>
   );
-};
+}
 
 export default IconWrapper;

@@ -55,23 +55,21 @@ const Template: Story<ModalProps> = ({ title, content, actions, dismissible, whi
   const [open, setOpen] = useState(true);
   const toggleModal = () => setOpen(!open);
   return (
-    <>
-      <div style={{ height: '600px', width: '1200px' }}>
-        <button type="button" onClick={toggleModal}>
-          Toggle Modal
-        </button>
-        <ModalComponent
-          open={open}
-          content={content}
-          dismissible={dismissible}
-          onClose={toggleModal}
-          title={title}
-          actions={actions}
-          whiteBackground={whiteBackground}
-          size={size}
-        />
-      </div>
-    </>
+    <div style={{ height: '600px', width: '1200px' }}>
+      <button type="button" onClick={toggleModal}>
+        Toggle Modal
+      </button>
+      <ModalComponent
+        open={open}
+        content={content}
+        dismissible={dismissible}
+        onClose={toggleModal}
+        title={title}
+        actions={actions}
+        whiteBackground={whiteBackground}
+        size={size}
+      />
+    </div>
   );
 };
 

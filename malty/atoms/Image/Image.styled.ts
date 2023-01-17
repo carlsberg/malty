@@ -63,7 +63,10 @@ export const StyledWrapper = styled.div<{
   }
 `;
 
-export const StyledOverlay = styled.span<{ gradientPosition?: ImageEffectPosition; overlay?: ImageOverlay }>`
+export const StyledOverlay = styled.span<{
+  gradientPosition?: ImageEffectPosition;
+  overlay?: ImageOverlay;
+}>`
   position: absolute;
   height: 100%;
   width: 100%;

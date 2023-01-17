@@ -17,7 +17,7 @@ import {
 } from './Modal.styled';
 import { ModalProps, ModalSize } from './Modal.types';
 
-export const Modal = ({
+export function Modal({
   open,
   onClose,
   content,
@@ -26,7 +26,7 @@ export const Modal = ({
   actions,
   size = ModalSize.Medium,
   whiteBackground = false
-}: ModalProps) => {
+}: ModalProps) {
   const closeModal = () => {
     onClose();
   };
@@ -77,4 +77,4 @@ export const Modal = ({
       ) : null}
     </>
   );
-};
+}

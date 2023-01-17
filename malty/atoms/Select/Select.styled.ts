@@ -298,7 +298,7 @@ export const StyledSelectedOptionsWrapper = styled.div`
 export const StyledActionsWrapper = styled.div``;
 
 export const StyledSearchWrapper = styled.div`
-  padding: ${({ theme }) => theme.sizes['2xs'].value}; ;
+  padding: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 
 export const StyledActionButtonWrapper = styled.div<{

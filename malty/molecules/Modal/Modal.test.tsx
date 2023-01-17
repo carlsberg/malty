@@ -41,16 +41,12 @@ describe('modal', () => {
   });
 
   it('Modal closed correctly', () => {
-    const ModalTest = () => {
+    function ModalTest() {
       const [open, setOpen] = useState(true);
       return <Modal open={open} onClose={() => setOpen(false)} title={title} content={text} actions={buttons} />;
-    };
+    }
 
-    render(
-      <>
-        <ModalTest />
-      </>
-    );
+    render(<ModalTest />);
 
     const closeIcon = screen.getAllByTestId('icon-component') && screen.getAllByTestId('icon-component')[0];
 

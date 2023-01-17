@@ -180,8 +180,7 @@ export const StyledInput = styled.input<{
   }
 
   ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
-    const leftPadding =
-      isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
+    const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
     let rightPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
     if (addRight) rightPadding = `${theme.sizes['4xl'].value}`;
     if (hasClearable) rightPadding = `${theme.sizes['2xl'].value}`;

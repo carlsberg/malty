@@ -9,7 +9,7 @@ export default {
   parameters: {
     importObject: 'Headline',
     importPath: '@carlsberggroup/malty.atoms.headline',
-    themed: true,
+    themed: true
   },
   argTypes: {
     color: {
@@ -18,21 +18,21 @@ export default {
       mapping: HeadlineColor,
       control: {
         type: 'select',
-        label: Object.values(HeadlineColor),
+        label: Object.values(HeadlineColor)
       },
       table: {
         defaultValue: {
-          summary: 'HeadlineColor.DigitalBlack',
-        },
+          summary: 'HeadlineColor.DigitalBlack'
+        }
       },
-      defaultValue: 'DigitalBlack',
+      defaultValue: 'DigitalBlack'
     },
     headlineStyle: {
       description: 'Size of the text, from the following options',
       control: {
-        type: null,
+        type: null
       },
-      defaultValue: 'Medium',
+      defaultValue: 'Medium'
     },
     align: {
       description: 'Text alignment, from the following options',
@@ -40,25 +40,24 @@ export default {
       mapping: HeadlineAlign,
       control: {
         type: 'select',
-        label: Object.values(HeadlineAlign),
+        label: Object.values(HeadlineAlign)
       },
       table: {
         defaultValue: {
-          summary: 'HeadlineAlign.Left',
-        },
+          summary: 'HeadlineAlign.Left'
+        }
       },
-      defaultValue: 'Left',
+      defaultValue: 'Left'
     },
     children: {
       description: 'This is the content of a headline component',
-      control: { type: 'text' },
+      control: { type: 'text' }
     },
     as: {
-      description:
-        "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
-      control: { type: 'text' },
-    },
-  },
+      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
+      control: { type: 'text' }
+    }
+  }
 };
 const Template: Story<HeadlineProps> = ({ align, color, children, as }) => (
   <>
@@ -77,12 +76,7 @@ const Template: Story<HeadlineProps> = ({ align, color, children, as }) => (
     <HeadlineComponent headlineStyle={HeadlineStyle.Large} align={align} color={color} as={as}>
       {children}
     </HeadlineComponent>
-    <HeadlineComponent
-      headlineStyle={HeadlineStyle.MediumLarge}
-      align={align}
-      color={color}
-      as={as}
-    >
+    <HeadlineComponent headlineStyle={HeadlineStyle.MediumLarge} align={align} color={color} as={as}>
       {children}
     </HeadlineComponent>
     <HeadlineComponent headlineStyle={HeadlineStyle.Medium} align={align} color={color} as={as}>
@@ -93,5 +87,5 @@ const Template: Story<HeadlineProps> = ({ align, color, children, as }) => (
 export const Headline = Template.bind({});
 
 Headline.args = {
-  children: 'This is a sample headline',
+  children: 'This is a sample headline'
 };

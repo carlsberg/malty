@@ -4,7 +4,7 @@ import { MaltyThemeProviderProps } from './MaltyThemeProvider.types';
 import { cadiTheme, carlsbergTheme, globalTheme, lbcTheme } from './theme';
 import { TypographyProvider } from './TypographyProvider';
 
-export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemeProviderProps) => {
+export function MaltyThemeProvider({ theme = 'global', children }: MaltyThemeProviderProps) {
   let selectedTheme: DefaultTheme;
   switch (theme) {
     case 'cadi':
@@ -27,4 +27,4 @@ export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemePro
       {children}
     </ThemeProvider>
   );
-};
+}
