@@ -1593,9 +1593,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carlsberg/eslint-config-carlsberg@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@carlsberg/eslint-config-carlsberg@npm:0.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40carlsberg%2Feslint-config-carlsberg%2F-%2Feslint-config-carlsberg-0.2.1.tgz"
+"@carlsberg/eslint-config-carlsberg@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@carlsberg/eslint-config-carlsberg@npm:0.2.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40carlsberg%2Feslint-config-carlsberg%2F-%2Feslint-config-carlsberg-0.2.2.tgz"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.47.0
     "@typescript-eslint/parser": ^5.47.0
@@ -1613,7 +1613,7 @@ __metadata:
     eslint-webpack-plugin: ^3.2.0
     prettier: ^2.8.1
     prettier-plugin-organize-imports: ^3.2.1
-  checksum: 252da792d66d66a13413de6c4a1a0e5f0dd0c0097b2a76848bfb328dd8ef670d935def672a7358620f9fce26c74165e7df65aec85d371955244958bbb17274c6
+  checksum: d80cb86ba29bf1ba24d4607481a7265a8a1311c879530435f47b886bd9439955ae7a894e943f2f0b633375793fef4c01f38ce52f5f0f3c8ad63c21ce77465196
   languageName: node
   linkType: hard
 
@@ -4189,7 +4189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:>=5.1.26 <6.0.0":
+"@types/styled-components@npm:^5.1.26":
   version: 5.1.26
   resolution: "@types/styled-components@npm:5.1.26::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fstyled-components%2F-%2Fstyled-components-5.1.26.tgz"
   dependencies:
@@ -4248,7 +4248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:>=9.0.0 <10.0.0":
+"@types/uuid@npm:^9.0.0":
   version: 9.0.0
   resolution: "@types/uuid@npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fuuid%2F-%2Fuuid-9.0.0.tgz"
   checksum: 59ae56d9547c8758588659da2a2b4c97cce79c2aae1798c892bb29452ef08e87859dea2ec3a66bfa88d0d2153147520be2b1893be920f9f0bc9c53a3207ea6aa
@@ -9247,7 +9247,7 @@ __metadata:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
     "@babel/runtime": 7.12.18
-    "@carlsberg/eslint-config-carlsberg": ^0.2.1
+    "@carlsberg/eslint-config-carlsberg": ^0.2.2
     "@carlsberg/prettier-config": ^0.0.1
     "@popperjs/core": ^2.11.5
     "@storybook/addon-actions": ">=6.5.15 <7.0.0"
@@ -9272,9 +9272,9 @@ __metadata:
     "@types/react-dom": ">=17.0.5 <18.0.0"
     "@types/react-table": ^7.7.12
     "@types/react-test-renderer": ^17.0.2
-    "@types/styled-components": ">=5.1.26 <6.0.0"
+    "@types/styled-components": ^5.1.26
     "@types/testing-library__jest-dom": 5.9.5
-    "@types/uuid": ">=9.0.0 <10.0.0"
+    "@types/uuid": ^9.0.0
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
     babel-jest: ^29.3.1
@@ -19457,8 +19457,6 @@ __metadata:
 "test-fd7b7f@workspace:malty/utils/test":
   version: 0.0.0-use.local
   resolution: "test-fd7b7f@workspace:malty/utils/test"
-  dependencies:
-    "@types/react": ^18.0.26
   peerDependencies:
     react: ^17.0.2
   languageName: unknown
@@ -19882,7 +19880,7 @@ __metadata:
 
 "typescript@patch:typescript@~4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.9.4.tgz#~builtin<compat/typescript>::version=4.9.4&hash=f456af"
+  resolution: "typescript@patch:typescript@npm%3A4.9.4%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.9.4.tgz#~builtin<compat/typescript>::version=4.9.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

@@ -41,6 +41,7 @@ export const Input = forwardRef(
       icon,
       iconPosition = InputIconPosition.Left,
       disabled,
+      disableQuantityInput = false,
       size = InputSize.Medium,
       clearable,
       mask,
@@ -185,6 +186,7 @@ export const Input = forwardRef(
           />
         </StyledButton>
         <StyledInput
+          disableQuantityInput={disableQuantityInput}
           className="quanity-input"
           data-testid={dataTestId}
           name={id}

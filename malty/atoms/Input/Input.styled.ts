@@ -102,6 +102,7 @@ export const StyledInput = styled.input<{
   isIconLeft?: boolean;
   addRight?: boolean;
   isError?: boolean;
+  disableQuantityInput?: boolean;
 }>`
   border-radius: 0;
   width: 100%;
@@ -150,6 +151,16 @@ export const StyledInput = styled.input<{
     vertical-align: top;
     padding: 0;
     flex: 1 1 100%;
+
+    ${({ disableQuantityInput }) =>
+      disableQuantityInput &&
+      css`
+        pointer-events: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      `}
   }
   &.quanity-input::-webkit-inner-spin-button,
   &.quanity-input::-webkit-outer-spin-button {
