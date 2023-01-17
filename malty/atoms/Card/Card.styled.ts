@@ -83,15 +83,15 @@ export const StyledCardHero = styled.div<{
 }>`
   display: flex;
   align-items: stretch;
+  position: relative;
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
       return css`
-        flex-direction: row;
+        height: 100%;
       `;
     }
     return css`
-      height: 100%;
-      flex-direction: column;
+      width: 100%;
     `;
   }};
 `;
