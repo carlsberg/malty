@@ -14,14 +14,14 @@ import {
   StyledChevronDown
 } from './Accordion.styled';
 
-export const Accordion = ({
+export function Accordion({
   children,
   size = AccordionSize.Medium,
   variant = AccordionColor.Transparent,
   dataQaId,
   defaultActiveKey = [],
   alwaysOpen = false
-}: AccordionProps) => {
+}: AccordionProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeEventKey, setActiveEnventKey] = useState([...defaultActiveKey]);
 
@@ -60,16 +60,16 @@ export const Accordion = ({
       </StyledAccordionWrapper>
     </ContextAccordion.Provider>
   );
-};
+}
 
-export const AccordionItem = ({
+export function AccordionItem({
   children,
   title,
   size = AccordionSize.Medium,
   dataQaId,
   onChange = () => null,
   eventKey
-}: AccordionItemProps) => {
+}: AccordionItemProps) {
   const accordionContext = useContext(ContextAccordion);
   const theme = useContext(ThemeContext) || defaultTheme;
   const [openAccordion, setOpenAccordion] = useState(accordionContext.activeEventKey?.includes(eventKey));
@@ -161,4 +161,4 @@ export const AccordionItem = ({
       </StyledAccordionBody>
     </StyledAccordionItem>
   );
-};
+}

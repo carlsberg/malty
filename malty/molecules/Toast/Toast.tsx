@@ -20,7 +20,7 @@ export function Toast({
   onCustomAction,
   customActionText,
   message,
-  autoHideDuration,
+  autoHideDuration
 }: ToastProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 

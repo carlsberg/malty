@@ -67,16 +67,16 @@ export const StyledPill = styled.div<{
     }
     if (pillSize === PillSize.ExtraSmall) {
       return css`
-        padding: 0 ${padding} 0 ${theme.sizes['4xs'].value}; ;
+        padding: 0 ${padding} 0 ${theme.sizes['4xs'].value};
       `;
     }
     if (pillSize === PillSize.Small) {
       return css`
-        padding: 0 ${padding} 0 ${theme.sizes['2xs'].value}; ;
+        padding: 0 ${padding} 0 ${theme.sizes['2xs'].value};
       `;
     }
     return css`
-      padding: 0 ${padding} 0 ${theme.sizes.xs.value}; ;
+      padding: 0 ${padding} 0 ${theme.sizes.xs.value};
     `;
   }}
 `;

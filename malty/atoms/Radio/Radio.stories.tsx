@@ -46,19 +46,17 @@ export default {
   }
 };
 const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, name, error, disabled, required }) => (
-  <>
-    <RadioComponent
-      id={value.toString()}
-      value={value}
-      label={label}
-      selected={selected}
-      onValueChange={onValueChange}
-      name={name}
-      error={error}
-      disabled={disabled}
-      required={required}
-    />
-  </>
+  <RadioComponent
+    id={value.toString()}
+    value={value}
+    label={label}
+    selected={selected}
+    onValueChange={onValueChange}
+    name={name}
+    error={error}
+    disabled={disabled}
+    required={required}
+  />
 );
 export const Radio = Template.bind({});
 

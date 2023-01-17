@@ -9,7 +9,7 @@ export const useToolTip = ({
   isOpenProp,
   onClose,
   autoHideDuration,
-  tooltipId,
+  tooltipId
 }: UseTooltipProps) => {
   const didMountRef = useRef(false);
   const [isOpen, setIsOpen] = useState(!!isOpenProp);
@@ -23,16 +23,16 @@ export const useToolTip = ({
       {
         name: 'offset',
         options: {
-          offset: [-8, 8],
-        },
+          offset: [-8, 8]
+        }
       },
       {
         name: 'arrow',
         options: {
-          element: arrowElement,
-        },
-      },
-    ],
+          element: arrowElement
+        }
+      }
+    ]
   });
 
   const autoHideTimer = useRef<number | NodeJS.Timeout | null>(null);
@@ -152,7 +152,7 @@ export const useToolTip = ({
     setPopperElement,
     setArrowElement,
     startAutoHideTimer,
-    updateTooltipPosition: update,
+    updateTooltipPosition: update
   };
 };
 

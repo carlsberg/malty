@@ -6,7 +6,7 @@ import { useIconTextColor, usePillStyles } from './Pill.helper';
 import { StyledPill, StyledText } from './Pill.styled';
 import { PillColor, PillProps, PillSize } from './Pill.types';
 
-export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Medium, dataTestId }: PillProps) => {
+export function Pill({ text, icon, color = PillColor.Primary, size = PillSize.Medium, dataTestId }: PillProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const { fontSize, fontFamily, iconSize, marginText, numSize, padding } = usePillStyles({ size });
   const colorStyle = useIconTextColor({ color });
@@ -39,4 +39,4 @@ export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Me
       </StyledText>
     </StyledPill>
   );
-};
+}

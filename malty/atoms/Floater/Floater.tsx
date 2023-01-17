@@ -6,7 +6,7 @@ import { FloaterIconPosition, FloaterProps } from '.';
 import { StyledFloaterButton } from './Floater.styled';
 import { FloaterColor } from './Floater.types';
 
-export const Floater = ({
+export function Floater({
   text,
   onClick,
   icon,
@@ -17,7 +17,7 @@ export const Floater = ({
   dataTestId,
   children,
   color = FloaterColor.DigitalBlack
-}: FloaterProps) => {
+}: FloaterProps) {
   let iconColor;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showButton, setShowButton] = useState(true);
@@ -86,4 +86,4 @@ export const Floater = ({
       </div>
     </StyledFloaterButton>
   );
-};
+}

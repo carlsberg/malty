@@ -4,7 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledAnchor } from './Link.styled';
 import { LinkColor, LinkProps, LinkStyle } from './Link.types';
 
-export const Link = ({
+export function Link({
   text,
   disabled = false,
   url,
@@ -13,7 +13,7 @@ export const Link = ({
   color = LinkColor.DigitalBlack,
   linkStyle = LinkStyle.MediumDefault,
   onClick
-}: LinkProps) => {
+}: LinkProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -31,4 +31,4 @@ export const Link = ({
       <div>{text || children}</div>
     </StyledAnchor>
   );
-};
+}

@@ -13,7 +13,7 @@ import {
 } from './TextArea.styled';
 import { TextAreaProps } from './TextArea.types';
 
-export const TextArea = ({
+export function TextArea({
   label,
   placeholder,
   resize = false,
@@ -27,7 +27,7 @@ export const TextArea = ({
   dataTestId,
   required = false,
   ...props
-}: TextAreaProps) => {
+}: TextAreaProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [textAreaCount, setTextAreaCount] = useState(maxLength || 0);
@@ -83,4 +83,4 @@ export const TextArea = ({
       )}
     </StyledTextareaContainer>
   );
-};
+}

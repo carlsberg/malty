@@ -11,7 +11,7 @@ import {
 } from './Toggle.styled';
 import { ToggleProps } from './Toggle.types';
 
-export const Toggle = ({
+export function Toggle({
   disabled,
   onValueChange,
   label,
@@ -20,7 +20,7 @@ export const Toggle = ({
   required = false,
   dataTestId,
   ...props
-}: ToggleProps) => {
+}: ToggleProps) {
   const theme = defaultTheme;
   const [stateChecked, setStateChecked] = useState(checked);
   const id = useMemo(() => uuid(), []);
@@ -63,4 +63,4 @@ export const Toggle = ({
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </>
   );
-};
+}

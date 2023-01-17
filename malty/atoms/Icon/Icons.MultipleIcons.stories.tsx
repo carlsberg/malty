@@ -98,11 +98,9 @@ const Template: Story<MultiIconNames> = (args) => {
   }, [args.names]);
 
   return typeof args.names === 'string' ? (
-    <>
-      <StyledWrapper title={args.names} key={0}>
-        <IconComponent size={args.size} color={args.color} name={getValueByKeyForStringEnum(args.names)} />
-      </StyledWrapper>
-    </>
+    <StyledWrapper title={args.names} key={0}>
+      <IconComponent size={args.size} color={args.color} name={getValueByKeyForStringEnum(args.names)} />
+    </StyledWrapper>
   ) : (
     <>
       {Object.values(args.names).map((itemName: string, index: number) => (

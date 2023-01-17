@@ -6,7 +6,7 @@ import { ThemeContext } from 'styled-components';
 import { ImageProps } from '.';
 import { StyledContainer, StyledFigure, StyledImage, StyledOverlay, StyledWrapper } from './Image.styled';
 
-export const Image = ({
+export function Image({
   src,
   cover = false,
   border,
@@ -19,7 +19,7 @@ export const Image = ({
   figcaption,
   fallbackSrc,
   dataTestId
-}: ImageProps) => {
+}: ImageProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [test, setTest] = useState(false);
   const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -68,4 +68,4 @@ export const Image = ({
       </StyledFigure>
     </StyledContainer>
   );
-};
+}
