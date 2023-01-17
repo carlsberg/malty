@@ -25,10 +25,16 @@ export function Card({
       theme={theme}
       data-testid={dataTestId}
     >
-      <StyledCardHero orientation={orientation} theme={theme}>
-        {cardHero}
-      </StyledCardHero>
-      <StyledCardBody theme={theme}>{cardBody}</StyledCardBody>
+      {cardHero && (
+        <StyledCardHero orientation={orientation} theme={theme} data-testid={`${dataTestId}-hero`}>
+          {cardHero}
+        </StyledCardHero>
+      )}
+      {cardBody && (
+        <StyledCardBody theme={theme} data-testid={`${dataTestId}-body`}>
+          {cardBody}
+        </StyledCardBody>
+      )}
     </StyledCardContainer>
   );
 }
