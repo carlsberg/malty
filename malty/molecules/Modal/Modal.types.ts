@@ -3,7 +3,7 @@ import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 export enum ModalSize {
   Medium = 'Medium',
   Large = 'Large',
-  XLarge = 'XLarge'
+  XLarge = 'XLarge',
 }
 
 export interface ModalProps {
@@ -14,6 +14,7 @@ export interface ModalProps {
   whiteBackground?: boolean;
   content: React.ReactNode | JSX.Element;
   size?: ModalSize;
+  overlayZindex?: number;
   actions?:
     | {
         variant: ButtonStyle;
