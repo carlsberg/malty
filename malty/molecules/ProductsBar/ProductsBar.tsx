@@ -22,7 +22,7 @@ import {
 } from './ProductsBar.styled';
 import { ProductsBarProps, ProfileMenuProps } from './ProductsBar.types';
 
-const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
+function LinkComponent({ component, href, children, componentProps }: LinkComponentProps) {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
   return (
@@ -34,7 +34,7 @@ const LinkComponent = ({ component, href, children, componentProps }: LinkCompon
       }
     </>
   );
-};
+}
 
 const useClickOutside = (
   ref: RefObject<HTMLDivElement>,
@@ -63,7 +63,7 @@ const useClickOutside = (
   }, [open]);
 };
 
-const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) => {
+function ProfileMenu({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const profileMenuRef = React.useRef<HTMLDivElement>(null);
 
@@ -94,9 +94,9 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
       </StyledProfileActions>
     </StyledProfileMenu>
   );
-};
+}
 
-export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) => {
+export function ProductsBar({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const { username, userRole, profileActions } = profileMenu;
@@ -172,4 +172,4 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
       </StyledSystemWrapper>
     </StyledProductsBar>
   );
-};
+}

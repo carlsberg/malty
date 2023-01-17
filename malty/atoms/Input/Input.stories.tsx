@@ -142,7 +142,7 @@ export default {
     disableQuantityInput: {
       control: 'boolean',
       description: 'Input Quantity, disabled'
-    },
+    }
   }
 } as Meta;
 

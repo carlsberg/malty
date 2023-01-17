@@ -7,7 +7,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledActionItem, StyledAlertToastWrapper, StyledDismissContainer, StyledToast } from './Toast.styled';
 import { ToastColor, ToastProps } from './Toast.types';
 
-export const Toast = ({
+export function Toast({
   showCloseIcon = true,
   onClose,
   color = ToastColor.Notification,
@@ -16,7 +16,7 @@ export const Toast = ({
   customActionText,
   message,
   autoHideDuration
-}: ToastProps) => {
+}: ToastProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   // Toast auto hide setup
@@ -110,4 +110,4 @@ export const Toast = ({
       </StyledToast>
     </StyledAlertToastWrapper>
   );
-};
+}

@@ -8,7 +8,7 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledAlertInLineWrapper = styled(StyledWrapper)`
-  margin-top: ${({ theme }) => theme.sizes['2xs'].value}; ;
+  margin-top: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 
 export const StyledContainer = styled.div<{

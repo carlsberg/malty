@@ -9,7 +9,7 @@ export function Headline({
   align = HeadlineAlign.Left,
   color = HeadlineColor.DigitalBlack,
   as,
-  children,
+  children
 }: HeadlineProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -44,13 +44,7 @@ export function Headline({
     StyledTagHeadline = as;
   }
   return (
-    <StyledHeadline
-      as={StyledTagHeadline}
-      headlineStyle={headlineStyle}
-      align={align}
-      color={color}
-      theme={theme}
-    >
+    <StyledHeadline as={StyledTagHeadline} headlineStyle={headlineStyle} align={align} color={color} theme={theme}>
       {children}
     </StyledHeadline>
   );

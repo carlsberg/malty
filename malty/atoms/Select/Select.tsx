@@ -26,7 +26,7 @@ import {
 } from './Select.styled';
 import { SelectOptionsType, SelectPosition, SelectProps, SelectSize, SelectType } from './Select.types';
 
-export const Select = ({
+export function Select({
   defaultValue = [],
   onValueChange,
   options,
@@ -48,7 +48,7 @@ export const Select = ({
   clearAllOption = true,
   alignPosition = SelectPosition.Left,
   onBlur
-}: SelectProps) => {
+}: SelectProps) {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(theme.sizes.xl.value);
@@ -294,4 +294,4 @@ export const Select = ({
       )}
     </StyledMainWrapper>
   );
-};
+}

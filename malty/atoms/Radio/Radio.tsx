@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import { RadioProps } from '.';
 import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
 
-export const Radio = ({
+export function Radio({
   value,
   label,
   onValueChange,
@@ -16,7 +16,7 @@ export const Radio = ({
   required = false,
   dataTestId,
   ...props
-}: RadioProps) => {
+}: RadioProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useRef<string>(uuid());
 
@@ -53,4 +53,4 @@ export const Radio = ({
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </>
   );
-};
+}

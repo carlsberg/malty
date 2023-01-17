@@ -12,14 +12,14 @@ import { FooterProps } from './Footer.types';
 const defaultAdress = 'Carlsberg Breweries A/S J.C. Jacobsens Gade 1, 1799 Copenhagen V Denmark';
 const defaultCopyright = '© Powered by Carlsberg Group';
 
-export const Footer = ({
+export function Footer({
   brandIcon = IconName.CarlsbergFilled,
   brandInfo = defaultAdress,
   content,
   socialMedia,
   copyright = defaultCopyright,
   dataQaId
-}: FooterProps) => {
+}: FooterProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -72,4 +72,4 @@ export const Footer = ({
       </Text>
     </StyledFooter>
   );
-};
+}

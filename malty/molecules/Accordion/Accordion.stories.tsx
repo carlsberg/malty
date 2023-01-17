@@ -54,31 +54,29 @@ export default {
   }
 };
 const Template: Story<AccordionProps> = (args) => (
-  <>
-    <AccordionComponent {...args}>
-      <AccordionItem eventKey="1" title="Accordion title 1">
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-        </div>
-      </AccordionItem>
-      <AccordionItem eventKey="2" title="Accordion title 2">
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-        </div>
-      </AccordionItem>
-      <AccordionItem eventKey="3" title="Accordion title 3">
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat.
-        </div>
-      </AccordionItem>
-    </AccordionComponent>
-  </>
+  <AccordionComponent {...args}>
+    <AccordionItem eventKey="1" title="Accordion title 1">
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </div>
+    </AccordionItem>
+    <AccordionItem eventKey="2" title="Accordion title 2">
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </div>
+    </AccordionItem>
+    <AccordionItem eventKey="3" title="Accordion title 3">
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </div>
+    </AccordionItem>
+  </AccordionComponent>
 );
 
 const params = new URLSearchParams(window.location.search);

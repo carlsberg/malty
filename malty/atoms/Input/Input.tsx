@@ -244,21 +244,13 @@ export const Input = forwardRef(
           >
             {Object.keys(InputCountry)
               .sort((a, b) => {
-                const newA =
-                  InputPrefixes[
-                    InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes
-                  ];
-                const newB =
-                  InputPrefixes[
-                    InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes
-                  ];
+                const newA = InputPrefixes[InputCountry[a as keyof typeof InputCountry] as keyof typeof InputPrefixes];
+                const newB = InputPrefixes[InputCountry[b as keyof typeof InputCountry] as keyof typeof InputPrefixes];
                 return newA - newB;
               })
               .map((country) => {
                 const code =
-                  InputPrefixes[
-                    InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes
-                  ];
+                  InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
                 return (
                   <StyledOption
                     data-testid={`${dataTestId}-phone-option-${country}`}
@@ -302,13 +294,7 @@ export const Input = forwardRef(
 
     return (
       <StyledInputContainer theme={theme}>
-        <Label
-          label={label}
-          required={required}
-          disabled={disabled}
-          data-testid={`${dataTestId}-label`}
-          htmlFor={id}
-        />
+        <Label label={label} required={required} disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} />
         <StyledInputWrapper
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           clearable={clearable || type === InputType.Search}
