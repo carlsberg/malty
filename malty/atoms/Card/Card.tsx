@@ -28,12 +28,17 @@ export function Card({
       data-testid={dataTestId}
     >
       {cardHero && (
-        <StyledCardHero orientation={orientation} theme={theme} data-testid={`${dataTestId}-hero`}>
+        <StyledCardHero
+          orientation={orientation}
+          disabled={disabled}
+          theme={theme}
+          data-testid={`${dataTestId}-hero`}
+        >
           {cardHero}
         </StyledCardHero>
       )}
       {cardBody && (
-        <StyledCardBody theme={theme} data-testid={`${dataTestId}-body`}>
+        <StyledCardBody disabled={disabled} theme={theme} data-testid={`${dataTestId}-body`}>
           {cardBody}
         </StyledCardBody>
       )}

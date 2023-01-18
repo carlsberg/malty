@@ -55,12 +55,6 @@ export const StyledCardContainer = styled.div<{
     `;
   }}
 
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      opacity: 50%;
-    `}
-
   ${({ theme, cardStyle }) =>
     theme &&
     cardStyle === CardStyle.Outlined &&
@@ -87,6 +81,7 @@ export const StyledCardContainer = styled.div<{
 
 export const StyledCardHero = styled.div<{
   orientation: CardOrientation;
+  disabled: boolean;
 }>`
   display: flex;
   align-items: stretch;
@@ -101,7 +96,20 @@ export const StyledCardHero = styled.div<{
       width: 100%;
     `;
   }};
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 50%;
+    `}
 `;
-export const StyledCardBody = styled.div`
+export const StyledCardBody = styled.div<{
+  disabled: boolean;
+}>`
   padding: ${({ theme }) => theme.sizes.m.value};
+  ${({ disabled, theme }) =>
+    disabled &&
+    css`
+      color: ${theme.colors.colours.system['disable-light-theme'].value};
+    `}
 `;
