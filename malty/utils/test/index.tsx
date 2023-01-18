@@ -2,7 +2,10 @@ import { render, RenderOptions } from '@testing-library/react';
 import React, { ComponentType, ReactElement } from 'react';
 import renderer from 'react-test-renderer';
 
-const AllTheProviders: React.FC = ({ children }) => <>{children}</>;
+const AllTheProviders: React.FC = function AllTheProviders({ children }) {
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>;
+};
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: AllTheProviders as ComponentType, ...options });

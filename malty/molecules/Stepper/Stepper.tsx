@@ -1,6 +1,4 @@
-/* eslint-disable react/jsx-fragments */
-/* eslint-disable no-plusplus */
-/* eslint-disable no-loop-func */
+/* eslint-disable no-loop-func, react/jsx-no-useless-fragment */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';

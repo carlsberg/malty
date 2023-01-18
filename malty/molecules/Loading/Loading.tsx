@@ -54,24 +54,20 @@ export function Loading({
     }
   }, [status]);
 
-  return (
-    <>
-      {status && (
-        <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme}>
-          <StyledLoading
-            size={iconSize}
-            className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
-          >
-            <ProgressSpinner color={color} negative={negative} dataQaId={`${dataQaId}`} status={progressStatus} />
-          </StyledLoading>
+  return status ? (
+    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme}>
+      <StyledLoading
+        size={iconSize}
+        className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
+      >
+        <ProgressSpinner color={color} negative={negative} dataQaId={`${dataQaId}`} status={progressStatus} />
+      </StyledLoading>
 
-          {text && (
-            <Text dataQaId={`${dataQaId}-label`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
-              {text}
-            </Text>
-          )}
-        </StyledLoadingContainer>
+      {text && (
+        <Text dataQaId={`${dataQaId}-label`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
+          {text}
+        </Text>
       )}
-    </>
-  );
+    </StyledLoadingContainer>
+  ) : null;
 }
