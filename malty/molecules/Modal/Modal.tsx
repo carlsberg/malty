@@ -13,7 +13,7 @@ import {
   StyledContainer,
   StyledContentContainer,
   StyledModalWrapper,
-  StyledTitleContainer
+  StyledTitleContainer,
 } from './Modal.styled';
 import { ModalProps, ModalSize } from './Modal.types';
 
@@ -25,7 +25,8 @@ export function Modal({
   dismissible = true,
   actions,
   size = ModalSize.Medium,
-  whiteBackground = false
+  whiteBackground = false,
+  overlayZindex = 999,
 }: ModalProps) {
   const closeModal = () => {
     onClose();
@@ -33,7 +34,7 @@ export function Modal({
   const theme = useContext(ThemeContext) || defaultTheme;
   return open ? (
     <>
-      <Overlay isWhite={whiteBackground} />
+      <Overlay isWhite={whiteBackground} zIndex={overlayZindex} />
       <StyledContainer>
         <StyledModalWrapper theme={theme} size={size}>
           {dismissible && (
