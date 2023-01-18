@@ -4,7 +4,7 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
-import React, { FC, KeyboardEvent, RefObject, useContext, useEffect, useRef, useState } from 'react';
+import React, { KeyboardEvent, PropsWithChildren, RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { usePrevious, useScrollPosition } from './AlertBanner.helper';
 import {
@@ -31,11 +31,11 @@ const textColorsMap = {
   [AlertBannerType.Error]: TextColor.White
 };
 
-export const AlertBanner: FC<AlertBannerProps> = ({
+export function AlertBanner({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
   animation
-}) => {
+}: PropsWithChildren<AlertBannerProps>) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
@@ -272,4 +272,4 @@ export const AlertBanner: FC<AlertBannerProps> = ({
       {isMobile && renderMobileActionsContent()}
     </Container>
   );
-};
+}

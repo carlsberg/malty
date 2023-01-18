@@ -4,9 +4,9 @@ import React, { useContext, useLayoutEffect } from 'react';
 import { ThemeContext } from 'styled-components';
 import { CLOSE_TOOLTIP_EVENT, OPEN_TOOLTIP_EVENT, START_TOOLTIP_TIMER_EVENT, useToolTip } from './Tooltip.helper';
 import { StyledArrow, StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
-import { TooltipPositionStrategy, TooltipProps, TooltipToggle, TooltipType } from './Tooltip.types';
+import { TooltipPositionStrategy, TooltipToggle, TooltipType } from './Tooltip.types';
 
-const Tooltip: TooltipType = ({
+const Tooltip: TooltipType = function Tooltip({
   placement,
   toggle = TooltipToggle.Hover,
   isDark = true,
@@ -18,7 +18,7 @@ const Tooltip: TooltipType = ({
   tooltipId,
   positionStrategy = TooltipPositionStrategy.Absolute,
   children
-}: TooltipProps) => {
+}) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const {
     isOpen,

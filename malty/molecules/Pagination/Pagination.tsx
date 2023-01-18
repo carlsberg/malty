@@ -160,37 +160,35 @@ export function Pagination({
     }
 
     return (
-      <>
-        {paginationRange?.map((pageNr, idx) => {
-          const isCurrentPage = pageNr === currentPage;
-          if (pageNr === DOTS) {
-            return (
-              <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
-                <StyledDots theme={theme} isWhite={isWhite}>
-                  &#8230;
-                </StyledDots>
-              </li>
-            );
-          }
+      paginationRange?.map((pageNr, idx) => {
+        const isCurrentPage = pageNr === currentPage;
+        if (pageNr === DOTS) {
           return (
-            <li className="default-pagination" key={pageNr}>
-              <Button
-                dataTestId={`${dataQaId}-page-${pageNr}`}
-                style={ButtonStyle.Transparent}
-                selected={isCurrentPage}
-                onClick={() => onPageClick(Number(pageNr))}
-                onKeyUp={() => onPageKeyUp(Number(pageNr))}
-                aria-current={isCurrentPage}
-                aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
-                tabIndex={0}
-                text={pageNr}
-                negative={isWhite}
-                size={buttonSize}
-              />
+            <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
+              <StyledDots theme={theme} isWhite={isWhite}>
+                &#8230;
+              </StyledDots>
             </li>
           );
-        })}
-      </>
+        }
+        return (
+          <li className="default-pagination" key={pageNr}>
+            <Button
+              dataTestId={`${dataQaId}-page-${pageNr}`}
+              style={ButtonStyle.Transparent}
+              selected={isCurrentPage}
+              onClick={() => onPageClick(Number(pageNr))}
+              onKeyUp={() => onPageKeyUp(Number(pageNr))}
+              aria-current={isCurrentPage}
+              aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
+              tabIndex={0}
+              text={pageNr}
+              negative={isWhite}
+              size={buttonSize}
+            />
+          </li>
+        );
+      }) ?? null
     );
   };
 

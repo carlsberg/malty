@@ -4189,7 +4189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:>=5.1.26 <6.0.0":
+"@types/styled-components@npm:^5.1.26":
   version: 5.1.26
   resolution: "@types/styled-components@npm:5.1.26::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fstyled-components%2F-%2Fstyled-components-5.1.26.tgz"
   dependencies:
@@ -4248,7 +4248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:>=9.0.0 <10.0.0":
+"@types/uuid@npm:^9.0.0":
   version: 9.0.0
   resolution: "@types/uuid@npm:9.0.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fuuid%2F-%2Fuuid-9.0.0.tgz"
   checksum: 59ae56d9547c8758588659da2a2b4c97cce79c2aae1798c892bb29452ef08e87859dea2ec3a66bfa88d0d2153147520be2b1893be920f9f0bc9c53a3207ea6aa
@@ -9272,9 +9272,9 @@ __metadata:
     "@types/react-dom": ">=17.0.5 <18.0.0"
     "@types/react-table": ^7.7.12
     "@types/react-test-renderer": ^17.0.2
-    "@types/styled-components": ">=5.1.26 <6.0.0"
+    "@types/styled-components": ^5.1.26
     "@types/testing-library__jest-dom": 5.9.5
-    "@types/uuid": ">=9.0.0 <10.0.0"
+    "@types/uuid": ^9.0.0
     "@typescript-eslint/eslint-plugin": ^5.47.1
     "@typescript-eslint/parser": ^5.47.1
     babel-jest: ^29.3.1
@@ -19457,8 +19457,6 @@ __metadata:
 "test-fd7b7f@workspace:malty/utils/test":
   version: 0.0.0-use.local
   resolution: "test-fd7b7f@workspace:malty/utils/test"
-  dependencies:
-    "@types/react": ^18.0.26
   peerDependencies:
     react: ^17.0.2
   languageName: unknown
@@ -19882,7 +19880,7 @@ __metadata:
 
 "typescript@patch:typescript@~4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.9.4.tgz#~builtin<compat/typescript>::version=4.9.4&hash=f456af"
+  resolution: "typescript@patch:typescript@npm%3A4.9.4%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Ftypescript%252F-%252Ftypescript-4.9.4.tgz#~builtin<compat/typescript>::version=4.9.4&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
