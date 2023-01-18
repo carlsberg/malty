@@ -7,6 +7,7 @@ import { CardOrientation, CardProps, CardStyle } from './Card.types';
 export function Card({
   orientation = CardOrientation.Portrait,
   selected = false,
+  disabled = false,
   style = CardStyle.Plain,
   cardHero,
   cardBody,
@@ -19,6 +20,7 @@ export function Card({
     <StyledCardContainer
       orientation={orientation}
       selected={selected}
+      disabled={disabled}
       cardStyle={style}
       onClick={onClick}
       hover={!!onClick}

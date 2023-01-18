@@ -4,6 +4,7 @@ import { CardOrientation, CardStyle } from './Card.types';
 export const StyledCardContainer = styled.div<{
   orientation: CardOrientation;
   selected: boolean;
+  disabled: boolean;
   cardStyle: CardStyle;
   hover: boolean;
 }>`
@@ -26,8 +27,8 @@ export const StyledCardContainer = styled.div<{
     `;
   }};
 
-  ${({ hover, cardStyle }) => {
-    if (!hover) return null;
+  ${({ hover, disabled, cardStyle }) => {
+    if (!hover || disabled) return null;
 
     if (cardStyle === CardStyle.Shadowed) {
       return css`
@@ -54,13 +55,19 @@ export const StyledCardContainer = styled.div<{
     `;
   }}
 
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 50%;
+    `}
+
   ${({ theme, cardStyle }) =>
     theme &&
     cardStyle === CardStyle.Outlined &&
     css`
       border: ${theme.borders['border-1px--solid']['border-width'].value}
         ${theme.borders['border-1px--solid']['border-style'].value}
-        ${theme.colors.colours.default['digital-black'].value};
+        ${theme.colors.colours.support['40'].value};
     `}
   ${({ cardStyle }) =>
     cardStyle === CardStyle.Shadowed &&

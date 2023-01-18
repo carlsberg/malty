@@ -44,6 +44,10 @@ export default {
       control: 'boolean',
       description: 'Selects the card',
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the card',
+    },
     onClick: {
       description: 'This is a function that will run on click. It is not a required property',
       table: {
@@ -62,6 +66,7 @@ export const Card = Template.bind({});
 
 Card.args = {
   selected: false,
+  disabled: false,
   style: CardStyle.Plain,
   orientation: CardOrientation.Portrait,
   cardHero: (
