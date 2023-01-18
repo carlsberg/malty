@@ -32,7 +32,13 @@ export default {
 
 const navItemsMock = [
   { icon: IconName.DataTransfer, name: 'item 1', href: '/iframe.html' },
-  { icon: IconName.DataTransfer, name: 'item 2', component: Link, to: '/item2', category: 'favourites' },
+  {
+    icon: IconName.DataTransfer,
+    name: 'item 2',
+    component: Link,
+    to: '/item2',
+    category: 'favourites'
+  },
   {
     icon: IconName.DataTransfer,
     name: 'item 3',

@@ -11,7 +11,7 @@ import {
 } from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
 
-export const Checkbox = ({
+export function Checkbox({
   id,
   value = '',
   checked = false,
@@ -22,7 +22,7 @@ export const Checkbox = ({
   dataTestId,
   isIndeterminate,
   ...props
-}: CheckboxProps) => {
+}: CheckboxProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -48,4 +48,4 @@ export const Checkbox = ({
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </StyledCheckboxContainer>
   );
-};
+}

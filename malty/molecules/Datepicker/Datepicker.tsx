@@ -21,7 +21,7 @@ import {
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
-export const Datepicker = ({
+export function Datepicker({
   startDate,
   endDate,
   onChange,
@@ -43,7 +43,7 @@ export const Datepicker = ({
   required,
   dataTestId,
   ...props
-}: DatepickerProps) => {
+}: DatepickerProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const colors = useColorsMapping();
@@ -105,11 +105,13 @@ export const Datepicker = ({
     }
   }, [size, theme]);
 
-  const Container = ({ children }: { children: ReactNode }) => (
-    <StyledContainer theme={theme}>
-      <StyledCalendar theme={theme}>{children}</StyledCalendar>
-    </StyledContainer>
-  );
+  function Container({ children }: { children: ReactNode }) {
+    return (
+      <StyledContainer theme={theme}>
+        <StyledCalendar theme={theme}>{children}</StyledCalendar>
+      </StyledContainer>
+    );
+  }
 
   const renderDatepickerCaptions = () => {
     if (!captions || !captions.length) {
@@ -210,4 +212,4 @@ export const Datepicker = ({
       </StyledDatepicker>
     </StyledWrapper>
   );
-};
+}

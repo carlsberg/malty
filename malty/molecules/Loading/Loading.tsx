@@ -9,14 +9,14 @@ import React, { useEffect, useState } from 'react';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
-export const Loading = ({
+export function Loading({
   text,
   size = LoadingSize.Small,
   status = LoadingStatus.Pending,
   dataQaId,
   negative = false,
   color = ProgressSpinnerColor.DigitalBlack
-}: LoadingProps) => {
+}: LoadingProps) {
   const theme = defaultTheme;
 
   const [progressStatus, setProgressStatus] = useState<ProgressSpinnerStatus>(ProgressSpinnerStatus.Pending);
@@ -54,24 +54,20 @@ export const Loading = ({
     }
   }, [status]);
 
-  return (
-    <>
-      {status && (
-        <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme}>
-          <StyledLoading
-            size={iconSize}
-            className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
-          >
-            <ProgressSpinner color={color} negative={negative} dataQaId={`${dataQaId}`} status={progressStatus} />
-          </StyledLoading>
+  return status ? (
+    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme}>
+      <StyledLoading
+        size={iconSize}
+        className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
+      >
+        <ProgressSpinner color={color} negative={negative} dataQaId={`${dataQaId}`} status={progressStatus} />
+      </StyledLoading>
 
-          {text && (
-            <Text dataQaId={`${dataQaId}-label`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
-              {text}
-            </Text>
-          )}
-        </StyledLoadingContainer>
+      {text && (
+        <Text dataQaId={`${dataQaId}-label`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
+          {text}
+        </Text>
       )}
-    </>
-  );
-};
+    </StyledLoadingContainer>
+  ) : null;
+}

@@ -1,14 +1,14 @@
 import React from 'react';
 import { IconColor, IconName, IconProps, IconSize, IconsPaths } from '.';
 
-export const Icon = ({
+export function Icon({
   size = IconSize.Medium,
   color = IconColor.DigitalBlack,
   name = IconName.CarlsbergFilled,
   viewBox,
   className,
   onClick
-}: IconProps) => {
+}: IconProps) {
   const IconElement = IconsPaths[name];
   return (
     <IconElement
@@ -20,4 +20,4 @@ export const Icon = ({
       name={name}
     />
   );
-};
+}

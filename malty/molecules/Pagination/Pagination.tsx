@@ -9,7 +9,7 @@ import { DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
-export const Pagination = ({
+export function Pagination({
   count,
   currentPage,
   onChange,
@@ -18,7 +18,7 @@ export const Pagination = ({
   dataQaId,
   isWhite = false,
   zeroBasedIndex = false
-}: PaginationProps) => {
+}: PaginationProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [inputValue, setInputValue] = useState<number | string>(currentPage);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
@@ -160,37 +160,35 @@ export const Pagination = ({
     }
 
     return (
-      <>
-        {paginationRange?.map((pageNr, idx) => {
-          const isCurrentPage = pageNr === currentPage;
-          if (pageNr === DOTS) {
-            return (
-              <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
-                <StyledDots theme={theme} isWhite={isWhite}>
-                  &#8230;
-                </StyledDots>
-              </li>
-            );
-          }
+      paginationRange?.map((pageNr, idx) => {
+        const isCurrentPage = pageNr === currentPage;
+        if (pageNr === DOTS) {
           return (
-            <li className="default-pagination" key={pageNr}>
-              <Button
-                dataTestId={`${dataQaId}-page-${pageNr}`}
-                style={ButtonStyle.Transparent}
-                selected={isCurrentPage}
-                onClick={() => onPageClick(Number(pageNr))}
-                onKeyUp={() => onPageKeyUp(Number(pageNr))}
-                aria-current={isCurrentPage}
-                aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
-                tabIndex={0}
-                text={pageNr}
-                negative={isWhite}
-                size={buttonSize}
-              />
+            <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
+              <StyledDots theme={theme} isWhite={isWhite}>
+                &#8230;
+              </StyledDots>
             </li>
           );
-        })}
-      </>
+        }
+        return (
+          <li className="default-pagination" key={pageNr}>
+            <Button
+              dataTestId={`${dataQaId}-page-${pageNr}`}
+              style={ButtonStyle.Transparent}
+              selected={isCurrentPage}
+              onClick={() => onPageClick(Number(pageNr))}
+              onKeyUp={() => onPageKeyUp(Number(pageNr))}
+              aria-current={isCurrentPage}
+              aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
+              tabIndex={0}
+              text={pageNr}
+              negative={isWhite}
+              size={buttonSize}
+            />
+          </li>
+        );
+      }) ?? null
     );
   };
 
@@ -229,4 +227,4 @@ export const Pagination = ({
       </ul>
     </StyledContainer>
   );
-};
+}

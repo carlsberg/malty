@@ -8,7 +8,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledDraggableCell, StyledRow, StyledTd } from './Table.styled';
 import { DraggableRowProps, TableHeaderAlignment } from './Table.types';
 
-export const DraggableRow = ({
+export function DraggableRow({
   row,
   onRowClick,
   size,
@@ -16,7 +16,7 @@ export const DraggableRow = ({
   dataTestId,
   elementRef,
   tableContext
-}: DraggableRowProps) => {
+}: DraggableRowProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -60,4 +60,4 @@ export const DraggableRow = ({
       )}
     </Draggable>
   );
-};
+}

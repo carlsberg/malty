@@ -17,6 +17,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   hint?: string;
   dataTestId?: string;
   disabled?: boolean;
+  disableQuantityInput?: boolean;
   readOnly?: boolean;
   required?: boolean;
   maxLength?: number;
