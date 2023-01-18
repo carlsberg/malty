@@ -4,7 +4,6 @@ import { CardOrientation, CardStyle } from './Card.types';
 export const StyledCardContainer = styled.div<{
   orientation: CardOrientation;
   selected: boolean;
-  disabled: boolean;
   cardStyle: CardStyle;
   hover: boolean;
 }>`
@@ -27,8 +26,8 @@ export const StyledCardContainer = styled.div<{
     `;
   }};
 
-  ${({ hover, disabled, cardStyle }) => {
-    if (!hover || disabled) return null;
+  ${({ hover, cardStyle }) => {
+    if (!hover) return null;
 
     if (cardStyle === CardStyle.Shadowed) {
       return css`
@@ -81,7 +80,6 @@ export const StyledCardContainer = styled.div<{
 
 export const StyledCardHero = styled.div<{
   orientation: CardOrientation;
-  disabled: boolean;
 }>`
   display: flex;
   align-items: stretch;
@@ -96,20 +94,7 @@ export const StyledCardHero = styled.div<{
       width: 100%;
     `;
   }};
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      opacity: 50%;
-    `}
 `;
-export const StyledCardBody = styled.div<{
-  disabled: boolean;
-}>`
+export const StyledCardBody = styled.div`
   padding: ${({ theme }) => theme.sizes.m.value};
-  ${({ disabled, theme }) =>
-    disabled &&
-    css`
-      color: ${theme.colors.colours.system['disable-light-theme'].value};
-    `}
 `;
