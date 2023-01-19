@@ -15,6 +15,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Button"
     },
+    "atoms/card": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Card"
+    },
     "atoms/checkbox": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.51",
