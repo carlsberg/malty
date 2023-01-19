@@ -122,6 +122,13 @@ export default {
       },
       defaultValue: true
     },
+    withPortal: {
+      description: 'whether the datepicker should open within a Portal',
+      control: {
+        type: 'boolean'
+      },
+      defaultValue: false
+    },
     required: {
       control: 'boolean',
       description: 'Makes the Datepicker required to fill'
@@ -147,7 +154,8 @@ const Template: Story<DatepickerProps> = ({
   shouldCloseOnSelect,
   size,
   required,
-  dataTestId
+  dataTestId,
+  withPortal
 }) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
@@ -193,6 +201,7 @@ const Template: Story<DatepickerProps> = ({
         size={size}
         required={required}
         dataTestId={dataTestId}
+        withPortal={withPortal}
       />
     </div>
   );

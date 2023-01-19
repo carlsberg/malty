@@ -7,9 +7,11 @@ export const StyledWrapper = styled.div`
 export const StyledDatepicker = styled.div<{
   disabled?: boolean;
   readOnly?: boolean;
+  isOpen?: boolean;
   size: string;
 }>`
   position: relative;
+  & .react-datepicker__portal,
   & .react-datepicker-popper {
     width: 100%;
     max-width: 544px;
@@ -59,6 +61,9 @@ export const StyledDatepicker = styled.div<{
         svg {
           fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
         }
+        &:hover {
+          border-color: ${({ theme }) => `${theme.colors.colours.support[40].value}`};
+        }
       `}
 
     ${({ readOnly }) =>
@@ -70,6 +75,15 @@ export const StyledDatepicker = styled.div<{
         color: ${({ theme }) => `${theme.colors.colours.support[80].value}`};
         svg {
           fill: ${({ theme }) => theme.colors.colours.support[80].value};
+        }
+      `}
+
+    ${({ isOpen }) =>
+      isOpen &&
+      css`
+        border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        &:hover {
+          border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
         }
       `}
 
@@ -85,7 +99,7 @@ export const StyledInputIcon = styled.span<{
 }>`
   display: inline-block;
   transform: translateY(-50%);
-  top: 50%;
+  top: 20px;
   right: 14px;
   position: absolute;
   z-index: 1;

@@ -20,6 +20,7 @@ export interface DatepickerProps {
   shouldCloseOnSelect?: boolean;
   size?: DatepickerSize;
   dataTestId?: string;
+  withPortal?: boolean;
 }
 
 export enum DatepickerSize {
