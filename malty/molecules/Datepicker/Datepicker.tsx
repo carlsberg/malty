@@ -176,7 +176,7 @@ export function Datepicker({
         theme={theme}
       >
         {!inline && (
-          <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
+          <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme} datePickerSize={numSize}>
             <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />
           </StyledInputIcon>
         )}

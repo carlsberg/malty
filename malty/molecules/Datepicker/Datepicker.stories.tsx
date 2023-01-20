@@ -123,7 +123,7 @@ export default {
       defaultValue: true
     },
     withPortal: {
-      description: 'whether the datepicker should open within a Portal',
+      description: 'whether the datepicker should open within a [Portal](https://reactjs.org/docs/portals.html)',
       control: {
         type: 'boolean'
       },

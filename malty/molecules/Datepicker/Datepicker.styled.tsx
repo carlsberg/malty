@@ -96,10 +96,11 @@ export const StyledDatepicker = styled.div<{
 export const StyledInputIcon = styled.span<{
   disabled?: boolean;
   readOnly?: boolean;
+  datePickerSize: string;
 }>`
   display: inline-block;
   transform: translateY(-50%);
-  top: 20px;
+  top: ${({ datePickerSize }) => `calc(${datePickerSize}/2)`};
   right: 14px;
   position: absolute;
   z-index: 1;
