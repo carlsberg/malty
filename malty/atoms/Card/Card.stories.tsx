@@ -1,5 +1,5 @@
 import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Image } from '@carlsberggroup/malty.atoms.image/Image';
+import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Story } from '@storybook/react';
 import React from 'react';
