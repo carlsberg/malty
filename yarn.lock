@@ -5234,6 +5234,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Card-ce2c9e@workspace:malty/atoms/Card":
+  version: 0.0.0-use.local
+  resolution: "Card-ce2c9e@workspace:malty/atoms/Card"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "CardPlus-860e00@workspace:malty/icons/CardPlus":
   version: 0.0.0-use.local
   resolution: "CardPlus-860e00@workspace:malty/icons/CardPlus"
