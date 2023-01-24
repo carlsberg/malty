@@ -67,11 +67,11 @@ export const parameters = {
           <Title />
           <Subtitle />
           <ThemedComponent />
-          <InfoComponent />
           <Description />
           <ImportPath />
           <Primary />
           <StoryToggle />
+          <InfoComponent />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories />
         </DocsContainer>
@@ -86,8 +86,8 @@ export const parameters = {
       (options && (
         <StyledDocsContainer>
           <DocsContainer {...rest}>
-            <InfoComponent />
             <Primary />
+            <InfoComponent />
             <ArgsTable story={PRIMARY_STORY} />
           </DocsContainer>
         </StyledDocsContainer>
