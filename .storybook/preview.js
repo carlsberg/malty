@@ -1,12 +1,21 @@
+import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import {
+  ArgsTable,
+  Description,
+  DocsContainer,
+  Primary,
+  PRIMARY_STORY,
+  Stories,
+  Subtitle,
+  Title
+} from '@storybook/addon-docs';
 import React from 'react';
 import styled from 'styled-components';
 import { ImportPath } from './importPath';
+import { InfoComponent } from './infoComponent';
+import maltyTheme from './maltyTheme';
 import { StoryToggle } from './storyToggle';
 import { ThemedComponent } from './themedComponent';
-import { DocsContainer } from '@storybook/addon-docs';
-import { ArgsTable, Description, Primary, Stories, Subtitle, Title, PRIMARY_STORY } from '@storybook/addon-docs';
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import maltyTheme from './maltyTheme';
 
 const params = new URLSearchParams(window.location.search);
 const plain = params.get('plain');
@@ -62,6 +71,7 @@ export const parameters = {
           <ImportPath />
           <Primary />
           <StoryToggle />
+          <InfoComponent />
           <ArgsTable story={PRIMARY_STORY} />
           <Stories />
         </DocsContainer>
@@ -77,6 +87,7 @@ export const parameters = {
         <StyledDocsContainer>
           <DocsContainer {...rest}>
             <Primary />
+            <InfoComponent />
             <ArgsTable story={PRIMARY_STORY} />
           </DocsContainer>
         </StyledDocsContainer>

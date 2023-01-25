@@ -109,7 +109,9 @@ export default {
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
-    variants: ['dnd', 'selection', 'empty', 'headersCenter']
+    variants: ['dnd', 'selection', 'empty', 'headersCenter'],
+    // eslint-disable-next-line no-template-curly-in-string
+    info: 'Please be careful with the use of <code>serverSide</code> prop. If you intend to use the table without server side pagination please set this prop to <b>false</b>. The Default value is true.'
   },
   argTypes: {
     headers: {
@@ -134,6 +136,10 @@ export default {
       control: 'number',
       description: 'Number of total pages'
     },
+    totalRecords: {
+      control: 'number',
+      description: 'Number of total records'
+    },
     onRowClick: {
       description: ''
     },
@@ -144,6 +150,11 @@ export default {
     allowSelection: {
       control: 'boolean',
       description: 'If true Rows are selectable'
+    },
+    serverSide: {
+      control: 'boolean',
+      description:
+        "If true table works with server side pagination. Please turn it off if you don't want server side pagination on the table"
     },
     size: {
       description: 'Size for table rows',
@@ -161,7 +172,6 @@ export default {
     }
   }
 } as Meta;
-
 const Template: Story<TableProps> = ({ ...args }) => <TableComponent {...args} />;
 
 export const Table = Template.bind({});
@@ -179,7 +189,8 @@ switch (variant) {
       isDraggable: true,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: false
+      allowSelection: false,
+      serverSide: false
     };
     break;
   case 'selection':
@@ -192,7 +203,8 @@ switch (variant) {
       isDraggable: false,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: true
+      allowSelection: true,
+      serverSide: false
     };
     break;
   case 'empty':
@@ -205,7 +217,8 @@ switch (variant) {
       isDraggable: false,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: true
+      allowSelection: true,
+      serverSide: false
     };
     break;
   case 'headersCenter':
@@ -218,7 +231,8 @@ switch (variant) {
       isDraggable: false,
       size: TableSize.Large,
       dataTestId: 'table',
-      allowSelection: false
+      allowSelection: false,
+      serverSide: false
     };
     break;
 
@@ -227,12 +241,14 @@ switch (variant) {
       headers,
       rows,
       onRowClick: () => null,
-      paginationSize: 12,
+      paginationSize: 10,
       className: '',
       isDraggable: false,
       size: TableSize.Medium,
       dataTestId: 'table',
-      allowSelection: false
+      allowSelection: false,
+      totalRecords: rows.length,
+      serverSide: false
     };
     break;
 }
