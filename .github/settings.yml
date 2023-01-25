@@ -83,7 +83,7 @@ branches:
       restrictions:
         apps: []
         users: []
-        teams: [malty-contributors]
+        teams: [malty-contributors, malty-maintainers]
 
   - name: feature/*
     protection:
@@ -103,7 +103,7 @@ branches:
       restrictions:
         apps: []
         users: []
-        teams: [malty-contributors]
+        teams: [malty-contributors, malty-maintainers]
 
   - name: hotfix/*
     protection:
@@ -123,7 +123,7 @@ branches:
       restrictions:
         apps: []
         users: []
-        teams: [malty-contributors]
+        teams: [malty-contributors, malty-maintainers]
 
   - name: maintenance/*
     protection:
