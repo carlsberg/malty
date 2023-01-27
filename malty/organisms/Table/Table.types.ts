@@ -12,7 +12,9 @@ export interface TableProps {
   allowSelection?: boolean;
   onRowSelect?: (selectedRows: TableRowProps[]) => void;
   totalPagesCount?: number;
+  totalRecords?: number;
   onPaginationChange?: (page: number) => void;
+  serverSide?: boolean;
 }
 
 export interface TableHeaderProps {

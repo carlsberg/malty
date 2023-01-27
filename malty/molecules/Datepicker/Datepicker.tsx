@@ -42,6 +42,7 @@ export function Datepicker({
   size = DatepickerSize.Medium,
   required,
   dataTestId,
+  withPortal,
   ...props
 }: DatepickerProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -166,9 +167,16 @@ export function Datepicker({
   return (
     <StyledWrapper theme={theme}>
       {!inline && <Label label={label} htmlFor={id} required={required} disabled={disabled} />}
-      <StyledDatepicker data-testid={dataTestId} size={numSize} disabled={disabled} readOnly={readOnly} theme={theme}>
+      <StyledDatepicker
+        data-testid={dataTestId}
+        size={numSize}
+        disabled={disabled}
+        readOnly={readOnly}
+        isOpen={open}
+        theme={theme}
+      >
         {!inline && (
-          <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme}>
+          <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme} datePickerSize={numSize}>
             <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />
           </StyledInputIcon>
         )}
@@ -203,6 +211,8 @@ export function Datepicker({
           showYearDropdown
           dropdownMode="select"
           dateFormatCalendar="MMMM"
+          shouldCloseOnSelect={shouldCloseOnSelect}
+          withPortal={withPortal}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         >

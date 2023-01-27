@@ -20,6 +20,7 @@ import React, { ReactNode, useContext, useEffect, useMemo, useRef, useState } fr
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
+import { truncate } from './Table.helper';
 import {
   StyledFooterWrapper,
   StyledHead,
@@ -47,15 +48,18 @@ export function Table({
   dataTestId,
   allowSelection = false,
   totalPagesCount,
+  totalRecords,
+  serverSide = true,
   onPaginationChange = () => null
 }: TableProps) {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [data, setData] = useState([...rows]);
+  const [data, setData] = useState(rows);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   const [rowSelection, setRowSelection] = useState({});
   const [sorting, setSorting] = useState<SortingState>([]);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
+
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: paginationSize
@@ -79,8 +83,8 @@ export function Table({
   const table = useReactTable({
     data,
     columns,
-    pageCount: -1,
-    autoResetPageIndex: false,
+    pageCount: totalRecords || -1,
+    manualPagination: serverSide,
     state: {
       rowSelection,
       pagination,
@@ -93,11 +97,11 @@ export function Table({
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel()
   });
-  const [dataPage, setDataPage] = useState(table.getRowModel().flatRows);
 
   const handlePageChange = (page: number | string) => {
     if (typeof page !== 'string') {
       table.setPageIndex(page);
+
       onPaginationChange(page);
     }
   };
@@ -109,16 +113,24 @@ export function Table({
     setData(tempUser);
   };
 
+  const calculateNumberOfPages = () => {
+    if (totalPagesCount) return totalPagesCount;
+    if (totalRecords) {
+      const pageHelper = totalRecords / paginationSize;
+      if (truncate(pageHelper, Math.floor(pageHelper))) return Math.trunc(pageHelper + 1);
+      return pageHelper;
+    }
+    const pageHelper = data.length / table.getState().pagination.pageSize;
+    return truncate(pageHelper, Math.floor(pageHelper)) ? Math.trunc(pageHelper + 1) : Math.trunc(pageHelper);
+  };
+
   useEffect(() => {
-    setData([...rows]);
+    setData(rows);
   }, [rows]);
-  useEffect(() => {
-    setDataPage(table.getRowModel().flatRows);
-  }, [table.getRowModel().flatRows]);
 
   useEffect(() => {
     onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
-  }, [rowSelection]);
+  }, [onRowSelect, rowSelection, table]);
 
   useEffect(() => {
     switch (size) {
@@ -316,19 +328,12 @@ export function Table({
             <StyledPaginationWrapper theme={theme}>
               <Text color={TextColor.Support60} textStyle={TextStyle.SmallDefault}>
                 {`${pageIndex * pageSize + 1}-
-                ${dataPage.length < pageSize ? data.length : (pageIndex + 1) * pageSize} of
-                ${data.length} `}
+                ${data.length < pageSize ? pageIndex * pageSize + data.length : (pageIndex + 1) * pageSize} of
+                 ${totalRecords || data.length} `}
               </Text>
               <Pagination
                 type={PaginationType.Input}
-                count={
-                  totalPagesCount ||
-                  (data.length / table.getState().pagination.pageSize -
-                    Math.floor(data.length / table.getState().pagination.pageSize) !==
-                  0
-                    ? Math.trunc(data.length / table.getState().pagination.pageSize + 1)
-                    : Math.trunc(data.length / table.getState().pagination.pageSize))
-                }
+                count={calculateNumberOfPages()}
                 currentPage={table.getState().pagination.pageIndex}
                 onChange={(page) => handlePageChange(page)}
                 zeroBasedIndex
