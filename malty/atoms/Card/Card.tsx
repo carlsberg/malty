@@ -7,11 +7,11 @@ import { CardOrientation, CardProps, CardStyle } from './Card.types';
 export function Card({
   orientation = CardOrientation.Portrait,
   selected = false,
-  style = CardStyle.Plain,
+  cardStyle = CardStyle.Plain,
   cardHero,
   cardBody,
   onClick,
-  dataTestId = 'card-element',
+  dataTestId = 'card-element'
 }: CardProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -19,7 +19,7 @@ export function Card({
     <StyledCardContainer
       orientation={orientation}
       selected={selected}
-      cardStyle={style}
+      cardStyle={cardStyle}
       onClick={onClick}
       hover={!!onClick}
       theme={theme}

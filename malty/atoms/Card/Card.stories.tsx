@@ -13,44 +13,44 @@ export default {
   parameters: {
     importObject: 'Card',
     importPath: '@carlsberggroup/malty.atoms.Card',
-    backgrounds: { name: 'dark background', value: '#000', default: true },
+    backgrounds: { name: 'dark background', value: '#000', default: true }
   },
   argTypes: {
-    style: {
+    cardStyle: {
       description: 'Card style. Options are',
       options: Object.values(CardStyle),
       table: {
         defaultValue: {
-          summary: 'CardStyle.Plain',
-        },
+          summary: 'CardStyle.Plain'
+        }
       },
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     orientation: {
       description: 'Card orientation. Options are',
       options: Object.values(CardOrientation),
       table: {
         defaultValue: {
-          summary: 'CardOrientation.Portrait',
-        },
+          summary: 'CardOrientation.Portrait'
+        }
       },
       control: {
-        type: 'select',
-      },
+        type: 'select'
+      }
     },
     selected: {
       control: 'boolean',
-      description: 'Selects the card',
+      description: 'Selects the card'
     },
     onClick: {
       description: 'This is a function that will run on click. It is not a required property',
       table: {
-        category: 'Events',
-      },
-    },
-  },
+        category: 'Events'
+      }
+    }
+  }
 };
 
 // eslint-disable-next-line react/function-component-definition
@@ -62,7 +62,7 @@ export const Card = Template.bind({});
 
 Card.args = {
   selected: false,
-  style: CardStyle.Plain,
+  cardStyle: CardStyle.Plain,
   orientation: CardOrientation.Portrait,
   cardHero: (
     <div style={{ display: 'flex', alignItems: 'stretch', flexDirection: 'column', width: '100%' }}>
@@ -73,10 +73,10 @@ Card.args = {
     <div>
       <Headline headlineStyle={HeadlineStyle.Large}>Title</Headline>
       <Text textStyle={TextStyle.MediumSmallBold}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.
       </Text>
     </div>
   ),
-  onClick: undefined,
+  onClick: undefined
 };

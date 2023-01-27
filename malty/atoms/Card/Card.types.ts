@@ -1,5 +1,5 @@
 export interface CardProps {
-  style?: CardStyle;
+  cardStyle?: CardStyle;
   orientation?: CardOrientation;
   selected?: boolean;
   cardHero?: React.ReactNode | JSX.Element;
@@ -11,9 +11,9 @@ export interface CardProps {
 export enum CardStyle {
   Plain = 'plain',
   Outlined = 'outlined',
-  Shadowed = 'shadowed',
+  Shadowed = 'shadowed'
 }
 export enum CardOrientation {
   Landscape = 'landscape',
-  Portrait = 'portrait',
+  Portrait = 'portrait'
 }

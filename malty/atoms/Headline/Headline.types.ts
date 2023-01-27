@@ -6,6 +6,7 @@ export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> 
   color?: HeadlineColor;
   as?: React.ElementType;
   children: React.ElementType | string;
+  dataTestId?: string;
 }
 
 export enum HeadlineStyle {
