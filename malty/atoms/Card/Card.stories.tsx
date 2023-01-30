@@ -17,7 +17,7 @@ export default {
     variants: ['shadowed', 'landscape', 'selected', 'onclick']
   },
   argTypes: {
-    style: {
+    cardStyle: {
       description: 'Card style. Options are',
       options: Object.values(CardStyle),
       table: {
@@ -68,7 +68,7 @@ switch (variant) {
   case 'shadowed':
     Card.args = {
       selected: false,
-      style: CardStyle.Shadowed,
+      cardStyle: CardStyle.Shadowed,
       orientation: CardOrientation.Portrait,
       cardHero: (
         <div style={{ display: 'flex', alignItems: 'stretch', flexDirection: 'column', width: '100%' }}>
@@ -91,7 +91,7 @@ switch (variant) {
   case 'landscape':
     Card.args = {
       selected: false,
-      style: CardStyle.Plain,
+      cardStyle: CardStyle.Plain,
       orientation: CardOrientation.Landscape,
       cardHero: (
         <div style={{ display: 'flex', alignItems: 'stretch', flexDirection: 'column', width: '100%' }}>
@@ -114,7 +114,7 @@ switch (variant) {
   case 'selected':
     Card.args = {
       selected: true,
-      style: CardStyle.Plain,
+      cardStyle: CardStyle.Plain,
       orientation: CardOrientation.Portrait,
       cardHero: (
         <div style={{ display: 'flex', alignItems: 'stretch', flexDirection: 'column', width: '100%' }}>
@@ -137,7 +137,7 @@ switch (variant) {
   case 'onclick':
     Card.args = {
       selected: false,
-      style: CardStyle.Plain,
+      cardStyle: CardStyle.Plain,
       orientation: CardOrientation.Portrait,
       cardHero: (
         <div style={{ display: 'flex', alignItems: 'stretch', flexDirection: 'column', width: '100%' }}>
@@ -159,7 +159,7 @@ switch (variant) {
   default:
     Card.args = {
       selected: false,
-      style: CardStyle.Plain,
+      cardStyle: CardStyle.Plain,
       orientation: CardOrientation.Portrait,
       cardHero: (
         <div style={{ display: 'flex', alignItems: 'stretch', flexDirection: 'column', width: '100%' }}>

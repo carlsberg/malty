@@ -22,7 +22,7 @@ describe('Card', () => {
         selected={false}
         cardHero={defaultHero}
         cardBody={defaultBody}
-        style={CardStyle.Plain}
+        cardStyle={CardStyle.Plain}
         orientation={CardOrientation.Portrait}
       />
     );
@@ -39,7 +39,7 @@ describe('Card', () => {
         selected={false}
         cardHero={defaultHero}
         cardBody={defaultBody}
-        style={CardStyle.Plain}
+        cardStyle={CardStyle.Plain}
         orientation={CardOrientation.Portrait}
         onClick={onClick}
       />

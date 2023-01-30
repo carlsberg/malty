@@ -59,8 +59,7 @@ export const StyledCardContainer = styled.div<{
     cardStyle === CardStyle.Outlined &&
     css`
       border: ${theme.borders['border-1px--solid']['border-width'].value}
-        ${theme.borders['border-1px--solid']['border-style'].value}
-        ${theme.colors.colours.support['40'].value};
+        ${theme.borders['border-1px--solid']['border-style'].value} ${theme.colors.colours.support['40'].value};
     `}
   ${({ cardStyle }) =>
     cardStyle === CardStyle.Shadowed &&
@@ -73,8 +72,7 @@ export const StyledCardContainer = styled.div<{
     selected &&
     css`
       border: ${theme.borders['border-3px--solid']['border-width'].value}
-        ${theme.borders['border-3px--solid']['border-style'].value}
-        ${theme.colors.theme.themePrimary.value};
+        ${theme.borders['border-3px--solid']['border-style'].value} ${theme.colors.theme.themePrimary.value};
     `}
 `;
 
@@ -87,11 +85,15 @@ export const StyledCardHero = styled.div<{
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
       return css`
-        height: 100%;
+        > * {
+          height: 100%;
+        }
       `;
     }
     return css`
-      width: 100%;
+      > * {
+        width: 100%;
+      }
     `;
   }};
 `;
