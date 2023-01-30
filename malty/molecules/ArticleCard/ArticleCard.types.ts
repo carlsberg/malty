@@ -2,11 +2,11 @@ import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 
 export interface ArticleCardProps {
-  style?: CardStyle;
+  cardStyle?: CardStyle;
   orientation?: CardOrientation;
   onCardClick?: () => void;
   title: string;
-  subTitle?: string;
+  description?: string;
   date?: string;
   imageSrc: string;
   dataTestId?: string;

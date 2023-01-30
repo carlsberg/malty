@@ -10,10 +10,10 @@ import { ArticleCardProps } from './ArticleCard.types';
 
 export function ArticleCard({
   orientation = CardOrientation.Portrait,
-  style = CardStyle.Plain,
+  cardStyle = CardStyle.Plain,
   onCardClick,
   title,
-  subTitle,
+  description,
   date,
   imageSrc,
   action,
@@ -34,7 +34,7 @@ export function ArticleCard({
     <article>
       <Card
         dataTestId={dataTestId}
-        cardStyle={style}
+        cardStyle={cardStyle}
         orientation={orientation}
         onClick={onCardClick}
         cardHero={<StyledImage cover orientation={orientation} src={imageSrc} alt="" height={height} width={width} />}
@@ -45,9 +45,9 @@ export function ArticleCard({
                 {title}
               </Headline>
             </StyledMargin>
-            {subTitle && (
+            {description && (
               <Text dataQaId={`${dataTestId}-subTitle`} textStyle={TextStyle.MediumSmallDefault}>
-                {subTitle}
+                {description}
               </Text>
             )}
             <StyledFooter theme={theme}>

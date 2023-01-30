@@ -4,13 +4,13 @@ import React from 'react';
 import { ArticleCard } from './ArticleCard';
 
 const titleText = 'Title';
-const subTitle = 'SubTitle';
+const description = 'SubTitle';
 
 describe('ArticleCard', () => {
   it('renders with correct content', () => {
-    render(<ArticleCard title={titleText} subTitle={subTitle} imageSrc="https://placehold.co/300x180" />);
+    render(<ArticleCard title={titleText} description={description} imageSrc="https://placehold.co/300x180" />);
     expect(screen.getByText(titleText)).not.toBeNull();
-    expect(screen.getByText(subTitle)).not.toBeNull();
+    expect(screen.getByText(description)).not.toBeNull();
   });
 
   it('calls function on click', () => {
@@ -18,7 +18,7 @@ describe('ArticleCard', () => {
     render(
       <ArticleCard
         title={titleText}
-        subTitle={subTitle}
+        description={description}
         imageSrc="https://placehold.co/300x180"
         onCardClick={onClick}
         dataTestId="article-card"

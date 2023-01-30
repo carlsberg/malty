@@ -17,9 +17,9 @@ export default {
       control: 'text',
       description: 'Article card Title'
     },
-    subTitle: {
+    description: {
       control: 'text',
-      description: 'Article card subTitle'
+      description: 'Article card description'
     },
     date: {
       control: 'text',
@@ -29,7 +29,7 @@ export default {
       control: 'text',
       description: 'Image to be displayed in the article'
     },
-    style: {
+    cardStyle: {
       description: 'Card style. Options are',
       options: Object.values(CardStyle),
       table: {
@@ -94,7 +94,7 @@ export const ArticleCard = Template.bind({});
 
 ArticleCard.args = {
   title: 'This is an article card Title',
-  subTitle: 'Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio.',
+  description: 'Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio.',
   date: '12/06/2022',
   imageSrc: 'https://picsum.photos/320/180',
   dataTestId: 'Article-card',
