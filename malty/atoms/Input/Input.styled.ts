@@ -232,6 +232,7 @@ export const StyledButton = styled.button<{
   isError?: boolean;
   readOnly?: boolean;
 }>`
+  cursor: pointer;
   height: ${({ size }) => size}px;
   width: ${({ size }) => size}px;
   border: 1px solid
