@@ -23,7 +23,7 @@ export function Hero({
   reverse = false,
   layout = HeroLayout.Full,
   actions,
-  dataTestId = 'Hero-element'
+  dataTestId = 'hero-component'
 }: HeroProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -42,7 +42,7 @@ export function Hero({
 
   return (
     <StyledHeroContainer negative={negative} reverse={reverse} layout={layout} theme={theme} data-testid={dataTestId}>
-      <StyledHeroContent layout={layout}>
+      <StyledHeroContent layout={layout} theme={theme}>
         {label ? (
           <Pill text={labelProps.text} color={labelProps.color} size={labelProps.size} icon={labelProps.icon} />
         ) : null}
@@ -79,7 +79,7 @@ export function Hero({
           actions
         )}
       </StyledHeroContent>
-      <StyledHeroImage layout={layout} imageSrc={imageSrc} />
+      <StyledHeroImage layout={layout} imageSrc={imageSrc} theme={theme} />
     </StyledHeroContainer>
   );
 }

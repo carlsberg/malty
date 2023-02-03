@@ -1,51 +1,35 @@
+import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import React from 'react';
-import { Card } from './Card';
-import { CardOrientation, CardStyle } from './Card.types';
+import { Hero } from './Hero';
 
-const titleText = 'Title';
-const paragraphText = 'This is a test';
-const altText = 'Alt text';
-const defaultHero = <img src="https://placehold.co/300x180" alt={altText} />;
-const defaultBody = (
-  <div>
-    <h1>{titleText}</h1>
-    <p>{paragraphText}</p>
-  </div>
-);
+const title = 'Title';
+const description = 'This is a test';
+const imageSrc = 'https://placehold.co/300x180';
+const actions = [
+  {
+    variant: ButtonStyle.Secondary,
+    label: 'Cancel'
+  },
+  {
+    variant: ButtonStyle.Primary,
+    label: 'Confirm'
+  }
+];
 
-describe('Card', () => {
-  it('renders with correct content', () => {
-    render(
-      <Card
-        selected={false}
-        cardHero={defaultHero}
-        cardBody={defaultBody}
-        style={CardStyle.Plain}
-        orientation={CardOrientation.Portrait}
-      />
-    );
-    expect(screen.getByText(titleText)).not.toBeNull();
-    expect(screen.getByText(paragraphText)).not.toBeNull();
-    expect(screen.getByAltText(altText)).not.toBeNull();
+describe('Hero', () => {
+  it('renders with correct basic content', () => {
+    render(<Hero title={title} imageSrc={imageSrc} />);
+    expect(screen.getByText(title)).not.toBeNull();
+    expect(screen.getByTestId('hero-component')).not.toBeNull();
   });
 
-  it('calls function on click', () => {
-    const onClick = jest.fn();
-    render(
-      <Card
-        dataTestId="card-element"
-        selected={false}
-        cardHero={defaultHero}
-        cardBody={defaultBody}
-        style={CardStyle.Plain}
-        orientation={CardOrientation.Portrait}
-        onClick={onClick}
-      />
-    );
-    fireEvent.click(screen.getByTestId('card-element'));
-    fireEvent.click(screen.getByText(titleText));
-    expect(onClick).toHaveBeenCalledTimes(2);
+  it('renders with correct full content', () => {
+    render(<Hero title={title} description={description} imageSrc={imageSrc} actions={actions} />);
+    expect(screen.getByText(title)).not.toBeNull();
+    expect(screen.getByText(description)).not.toBeNull();
+    expect(screen.getAllByRole('button')).toHaveLength(2);
+    expect(screen.getByTestId('hero-component')).not.toBeNull();
   });
 });
