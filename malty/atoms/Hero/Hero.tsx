@@ -16,6 +16,7 @@ import { HeroLayout, HeroProps } from './Hero.types';
 
 export function Hero({
   imageSrc,
+  imageHeight,
   label,
   title,
   description,
@@ -42,7 +43,7 @@ export function Hero({
 
   return (
     <StyledHeroContainer negative={negative} reverse={reverse} layout={layout} theme={theme} data-testid={dataTestId}>
-      <StyledHeroContent layout={layout} theme={theme}>
+      <StyledHeroContent layout={layout} theme={theme} data-testid={`${dataTestId}-content`}>
         {label ? (
           <Pill text={labelProps.text} color={labelProps.color} size={labelProps.size} icon={labelProps.icon} />
         ) : null}
@@ -79,7 +80,14 @@ export function Hero({
           actions
         )}
       </StyledHeroContent>
-      <StyledHeroImage layout={layout} imageSrc={imageSrc} theme={theme} />
+      <StyledHeroImage
+        layout={layout}
+        negative={negative}
+        imageSrc={imageSrc}
+        imageHeight={imageHeight}
+        theme={theme}
+        data-testid={`${dataTestId}-image`}
+      />
     </StyledHeroContainer>
   );
 }

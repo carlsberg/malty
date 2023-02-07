@@ -7,6 +7,7 @@ export interface HeroProps {
   reverse?: boolean;
   negative?: boolean;
   imageSrc: string;
+  imageHeight?: string;
   title: string;
   description?: string;
   dataTestId?: string;

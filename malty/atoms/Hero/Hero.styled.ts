@@ -17,12 +17,10 @@ export const StyledHeroContainer = styled.div<{
     if (negative) {
       return css`
         background-color: ${theme.colors.colours.default['digital-black'].value};
-        color: ${theme.colors.colours.default.white.value};
       `;
     }
     return css`
       background-color: ${theme.colors.colours.support['20'].value};
-      color: ${theme.colors.colours.default['digital-black'].value};
     `;
   }};
 
@@ -33,10 +31,23 @@ export const StyledHeroContainer = styled.div<{
 
 export const StyledHeroImage = styled.div<{
   layout: HeroLayout;
+  negative: boolean;
   imageSrc: string;
+  imageHeight?: string;
 }>`
-  height: 100%;
-  background-image: ${({ imageSrc }) => `${imageSrc ? `url(${imageSrc})` : 'unset'}`};
+  ${({ theme, negative, imageSrc }) => {
+    const overlay = negative
+      ? theme.colors.colours.overlay['digital-black'][50].value
+      : theme.colors.colours.overlay.white[50].value;
+    let background = `linear-gradient(${overlay}, ${overlay})`;
+    if (imageSrc) {
+      background += `, url(${imageSrc})`;
+    }
+    return css`
+      background: ${background};
+    `;
+  }}
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,10 +56,12 @@ export const StyledHeroImage = styled.div<{
       case HeroLayout.Third:
         return css`
           width: 33%;
+          align-self: stretch;
         `;
       case HeroLayout.Half:
         return css`
           width: 50%;
+          align-self: stretch;
         `;
       default:
         return css`
@@ -56,20 +69,24 @@ export const StyledHeroImage = styled.div<{
           top: 0;
           left: 0;
           width: 100%;
+          height: 100%;
         `;
     }
   }};
   @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     width: 100%;
-    ${({ layout }) => {
+    ${({ layout, imageHeight }) => {
+      const currentHeight = 0.3 * window.innerHeight;
       switch (layout) {
         case HeroLayout.Full:
           return css`
-            max-height: 100vh;
+            height: ${imageHeight ? imageHeight.replace('px', '').concat('px') : '100%'};
           `;
         default:
           return css`
-            height: 30vh;
+            height: ${imageHeight && parseInt(imageHeight, 10) > currentHeight
+              ? imageHeight.replace('px', '').concat('px')
+              : '30vh'};
           `;
       }
     }};
@@ -99,25 +116,30 @@ export const StyledHeroContent = styled.div<{
         `;
     }
   }};
+
+  > * {
+    margin-bottom: ${({ theme }) => theme.sizes.s.value};
+  }
   @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     width: 100%;
+    padding: ${({ theme }) => theme.sizes.s.value};
+    padding-bottom: ${({ theme }) => theme.sizes.l.value};
   }
 `;
 
 export const StyledButtonsWrapper = styled.div`
-  margin: ${({ theme }) => theme.sizes.l.value} 0;
+  margin-top: ${({ theme }) => theme.sizes.m.value};
+  margin-bottom: 0;
   display: flex;
   @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     flex-direction: column;
-    margin: 0 ${({ theme }) => theme.sizes.l.value};
   }
 `;
 export const StyledButtonContainer = styled.div`
-  max-width: 264px;
+  max-width: 100%;
   width: 100%;
   @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     flex-direction: column;
-    max-width: 100%;
   }
   :first-of-type {
     padding-right: ${({ theme }) => theme.sizes['2xs'].value};

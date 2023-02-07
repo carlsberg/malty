@@ -58,6 +58,10 @@ export default {
     imageSrc: {
       control: 'text',
       description: 'Hero Image URL'
+    },
+    imageHeight: {
+      control: 'text',
+      description: 'Hero Image Size override (in pixels)'
     }
   }
 } as Meta;
@@ -69,8 +73,8 @@ const Template: Story<HeroProps> = (args) => {
 export const Hero = Template.bind({});
 Hero.args = {
   title: 'Headline',
-  description: 'Lorem ipsum dolorem requiem',
-  imageSrc: 'https://picsum.photos/1300/500',
+  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  imageSrc: 'https://picsum.photos/id/785/1400/800',
   reverse: false,
   negative: false,
   layout: HeroLayout.Full,
@@ -79,14 +83,14 @@ Hero.args = {
   },
   actions: [
     {
-      variant: ButtonStyle.Secondary,
-      label: 'Cancel',
-      onClick: () => alert('secondary button pressed')
+      variant: ButtonStyle.Primary,
+      label: 'Primary',
+      onClick: () => alert('primary button pressed')
     },
     {
-      variant: ButtonStyle.Primary,
-      label: 'Confirm',
-      onClick: () => alert('primary button pressed')
+      variant: ButtonStyle.Secondary,
+      label: 'Secondary',
+      onClick: () => alert('secondary button pressed')
     }
   ]
 };
