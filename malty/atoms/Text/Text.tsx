@@ -18,14 +18,10 @@ export function Text({
 }: TextProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   let StyledTag = as;
+  const allowedTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
 
-  switch (as) {
-    case 'span':
-      StyledTag = 'span';
-      break;
-    default:
-      StyledTag = 'p';
-      break;
+  if (as && allowedTags.includes(`${as}`)) {
+    StyledTag = as;
   }
 
   return (
