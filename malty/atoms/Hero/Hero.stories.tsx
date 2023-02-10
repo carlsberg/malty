@@ -9,7 +9,8 @@ export default {
   component: HeroComponent,
   parameters: {
     importObject: 'Hero',
-    importPath: '@carlsberggroup/malty.molecules.Hero'
+    importPath: '@carlsberggroup/malty.molecules.Hero',
+    variants: ['negative', 'half', 'third', 'reverse']
   },
   argTypes: {
     layout: {
@@ -71,26 +72,134 @@ const Template: Story<HeroProps> = (args) => {
 };
 
 export const Hero = Template.bind({});
-Hero.args = {
-  title: 'Headline',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-  imageSrc: 'https://picsum.photos/id/785/1400/800',
-  reverse: false,
-  negative: false,
-  layout: HeroLayout.Full,
-  label: {
-    text: 'Label'
-  },
-  actions: [
-    {
-      variant: ButtonStyle.Primary,
-      label: 'Primary',
-      onClick: () => alert('primary button pressed')
-    },
-    {
-      variant: ButtonStyle.Secondary,
-      label: 'Secondary',
-      onClick: () => alert('secondary button pressed')
-    }
-  ]
-};
+
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'negative':
+    Hero.args = {
+      title: 'Headline',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      imageSrc: 'https://picsum.photos/id/785/1400/800',
+      reverse: false,
+      negative: true,
+      layout: HeroLayout.Full,
+      label: {
+        text: 'Label'
+      },
+      actions: [
+        {
+          variant: ButtonStyle.Primary,
+          label: 'Primary',
+          onClick: () => alert('primary button pressed')
+        },
+        {
+          variant: ButtonStyle.Secondary,
+          label: 'Secondary',
+          onClick: () => alert('secondary button pressed')
+        }
+      ]
+    };
+    break;
+  case 'half':
+    Hero.args = {
+      title: 'Headline',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      imageSrc: 'https://picsum.photos/id/785/1400/800',
+      reverse: false,
+      negative: false,
+      layout: HeroLayout.Half,
+      label: {
+        text: 'Label'
+      },
+      actions: [
+        {
+          variant: ButtonStyle.Primary,
+          label: 'Primary',
+          onClick: () => alert('primary button pressed')
+        },
+        {
+          variant: ButtonStyle.Secondary,
+          label: 'Secondary',
+          onClick: () => alert('secondary button pressed')
+        }
+      ]
+    };
+    break;
+  case 'third':
+    Hero.args = {
+      title: 'Headline',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      imageSrc: 'https://picsum.photos/id/785/1400/800',
+      reverse: false,
+      negative: false,
+      layout: HeroLayout.Third,
+      label: {
+        text: 'Label'
+      },
+      actions: [
+        {
+          variant: ButtonStyle.Primary,
+          label: 'Primary',
+          onClick: () => alert('primary button pressed')
+        },
+        {
+          variant: ButtonStyle.Secondary,
+          label: 'Secondary',
+          onClick: () => alert('secondary button pressed')
+        }
+      ]
+    };
+    break;
+  case 'reverse':
+    Hero.args = {
+      title: 'Headline',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      imageSrc: 'https://picsum.photos/id/785/1400/800',
+      reverse: true,
+      negative: false,
+      layout: HeroLayout.Half,
+      label: {
+        text: 'Label'
+      },
+      actions: [
+        {
+          variant: ButtonStyle.Primary,
+          label: 'Primary',
+          onClick: () => alert('primary button pressed')
+        },
+        {
+          variant: ButtonStyle.Secondary,
+          label: 'Secondary',
+          onClick: () => alert('secondary button pressed')
+        }
+      ]
+    };
+    break;
+  default:
+    Hero.args = {
+      title: 'Headline',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      imageSrc: 'https://picsum.photos/id/785/1400/800',
+      reverse: false,
+      negative: false,
+      layout: HeroLayout.Full,
+      label: {
+        text: 'Label'
+      },
+      actions: [
+        {
+          variant: ButtonStyle.Primary,
+          label: 'Primary',
+          onClick: () => alert('primary button pressed')
+        },
+        {
+          variant: ButtonStyle.Secondary,
+          label: 'Secondary',
+          onClick: () => alert('secondary button pressed')
+        }
+      ]
+    };
+    break;
+}
