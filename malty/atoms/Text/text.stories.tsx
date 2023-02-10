@@ -75,13 +75,12 @@ export default {
       control: { type: 'text' }
     },
     as: {
-      table: {
-        disable: true
-      }
+      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
+      control: { type: 'text' }
     }
   }
 };
-const Template: Story<TextProps> = ({ textStyle, align, color, children, italic, ellipsis, width, className }) => (
+const Template: Story<TextProps> = ({ textStyle, align, color, children, italic, ellipsis, width, className, as }) => (
   <TextComponent
     align={align}
     color={color}
@@ -90,6 +89,7 @@ const Template: Story<TextProps> = ({ textStyle, align, color, children, italic,
     ellipsis={ellipsis}
     width={width}
     className={className}
+    as={as}
   >
     {children}
   </TextComponent>

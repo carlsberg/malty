@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   textStyle: TextStyle;
   align?: TextAlign;
@@ -6,7 +8,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
   as?: React.ElementType;
   ellipsis?: boolean;
   width?: string;
-  children: string | JSX.Element;
+  children: ReactNode;
   className?: string;
   dataQaId?: string;
 }

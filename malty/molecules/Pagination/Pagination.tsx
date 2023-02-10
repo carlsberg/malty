@@ -43,24 +43,6 @@ export function Pagination({
   const isInput = type === PaginationType.Input;
 
   useEffect(() => {
-    let timeOutId: NodeJS.Timeout;
-
-    if (type === PaginationType.Input) {
-      if (inputValue || inputValue === 0 || inputValue === '') {
-        timeOutId = setTimeout(() => onChange(inputValue, PaginationTrigger.PageNr), 350);
-      }
-    }
-
-    return () => clearTimeout(timeOutId);
-  }, [inputValue]);
-
-  useEffect(() => {
-    if (type === PaginationType.Input) {
-      setInputValue(currentPage);
-    }
-  }, [currentPage]);
-
-  useEffect(() => {
     if (window.innerWidth <= 768) {
       setButtonSize(ButtonSize.Small);
     }
@@ -87,10 +69,7 @@ export function Pagination({
 
   const onPrevious = () => {
     if (type === PaginationType.Input) {
-      if (inputValue && inputValue > count && inputValue === undefined) {
-        return zeroBasedIndex ? setInputValue(0) : setInputValue(1);
-      }
-
+      onChange((inputValue as number) - 1);
       return setInputValue((inputValue as number) - 1);
     }
 
@@ -99,9 +78,7 @@ export function Pagination({
 
   const onNext = () => {
     if (type === PaginationType.Input) {
-      if (inputValue && inputValue < count && inputValue === undefined) {
-        return zeroBasedIndex ? setInputValue(0) : setInputValue(1);
-      }
+      onChange((inputValue as number) + 1);
       return setInputValue((inputValue as number) + 1);
     }
 
@@ -119,9 +96,17 @@ export function Pagination({
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.value !== '') {
       setInputValue(Number(event.target.value) - 1);
-    } else {
-      setInputValue('');
+      let timeOutId: NodeJS.Timeout;
+
+      if (type === PaginationType.Input) {
+        if (inputValue || inputValue === 0 || inputValue === '') {
+          timeOutId = setTimeout(() => onChange(Number(event.target.value) - 1, PaginationTrigger.PageNr), 350);
+        }
+      }
+
+      return () => clearTimeout(timeOutId);
     }
+    return setInputValue('');
   };
 
   const renderContent = () => {

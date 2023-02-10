@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> {
   headlineStyle?: HeadlineStyle;
   align?: HeadlineAlign;
   color?: HeadlineColor;
   as?: React.ElementType;
-  children: React.ElementType | string;
+  children: ReactNode;
   dataTestId?: string;
 }
 
