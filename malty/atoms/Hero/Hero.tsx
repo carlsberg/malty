@@ -65,7 +65,6 @@ export function Hero({
             {actions.map((btnInstance, index: number) => (
               <StyledButtonContainer theme={theme} key={btnInstance.key || `button${index}`}>
                 <Button
-                  fullWidth
                   size={ButtonSize.Large}
                   style={ButtonStyle[btnInstance.variant as ButtonStyle]}
                   negative={negative}
