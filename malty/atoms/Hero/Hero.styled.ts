@@ -141,7 +141,6 @@ export const StyledButtonsWrapper = styled.div`
 `;
 export const StyledButtonContainer = styled.div`
   max-width: 100%;
-  width: 100%;
   @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
     flex-direction: column;
   }
