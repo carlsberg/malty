@@ -5,13 +5,7 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  StyledButtonContainer,
-  StyledButtonsWrapper,
-  StyledHeroContainer,
-  StyledHeroContent,
-  StyledHeroImage
-} from './Hero.styled';
+import { StyledButtonsWrapper, StyledHeroContainer, StyledHeroContent, StyledHeroImage } from './Hero.styled';
 import { HeroLayout, HeroProps } from './Hero.types';
 
 export function Hero({
@@ -63,7 +57,7 @@ export function Hero({
         {actions && Array.isArray(actions) ? (
           <StyledButtonsWrapper theme={theme}>
             {actions.map((btnInstance, index: number) => (
-              <StyledButtonContainer theme={theme} key={btnInstance.key || `button${index}`}>
+              <div key={btnInstance.key || `button${index}`}>
                 <Button
                   size={ButtonSize.Large}
                   style={ButtonStyle[btnInstance.variant as ButtonStyle]}
@@ -72,7 +66,7 @@ export function Hero({
                 >
                   {btnInstance.label}
                 </Button>
-              </StyledButtonContainer>
+              </div>
             ))}
           </StyledButtonsWrapper>
         ) : (

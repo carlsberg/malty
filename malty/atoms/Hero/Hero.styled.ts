@@ -134,27 +134,10 @@ export const StyledHeroContent = styled.div<{
 export const StyledButtonsWrapper = styled.div`
   margin-top: ${({ theme }) => theme.sizes.m.value};
   margin-bottom: 0;
+  gap: ${({ theme }) => theme.sizes['2xs'].value};
   display: flex;
   @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
     flex-direction: column;
-  }
-`;
-export const StyledButtonContainer = styled.div`
-  max-width: 100%;
-  @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
-    flex-direction: column;
-  }
-  :first-of-type {
-    padding-right: ${({ theme }) => theme.sizes['2xs'].value};
-    @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
-      padding-right: 0px;
-    }
-  }
-  :last-of-type {
-    padding-left: ${({ theme }) => theme.sizes['2xs'].value};
-    @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
-      padding-left: 0px;
-      margin-top: ${({ theme }) => theme.sizes.s.value};
-    }
+    align-items: center;
   }
 `;
