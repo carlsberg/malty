@@ -1475,7 +1475,7 @@
     },
     "molecules/alert-banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.61",
+        "version": "0.0.62",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertBanner"
     },
@@ -1517,7 +1517,7 @@
     },
     "molecules/pagination": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.59",
+        "version": "0.0.60",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
     },
@@ -1547,7 +1547,7 @@
     },
     "organisms/table": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.23",
+        "version": "0.0.25",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },
