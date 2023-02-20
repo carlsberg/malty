@@ -1,7 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { SideNav as SideNavComponent } from './SideNav';
 import { SideNavProps } from './SideNav.types';
 
@@ -35,36 +35,38 @@ const navItemsMock = [
   {
     icon: IconName.DataTransfer,
     name: 'item 2',
-    component: Link,
+    component: NavLink,
     to: '/item2',
-    category: 'favourites'
+    category: 'favourites',
+    activeClassName: 'active'
   },
   {
     icon: IconName.DataTransfer,
     name: 'item 3',
-    component: Link,
+    component: NavLink,
     to: '/item3',
     category: 'favourites',
     replace: true,
     subItems: [
-      { name: 'sub item 1', component: Link, to: '/sub-item1' },
-      { name: 'sub item 2', component: Link, to: '/sub-item2' }
-    ]
+      { name: 'sub item 1', component: NavLink, to: '/sub-item1', activeClassName: 'active' },
+      { name: 'sub item 2', component: NavLink, to: '/sub-item2', activeClassName: 'active' }
+    ],
+    activeClassName: 'active'
   },
-  { icon: IconName.DataTransfer, name: 'item 4', component: Link, to: '/item4' }
+  { icon: IconName.DataTransfer, name: 'item 4', component: NavLink, to: '/item4', activeClassName: 'active' }
 ];
 
 const systemOptionsMock = [
   { icon: IconName.DataTransfer, href: '/iframe.html' },
-  { icon: IconName.DataTransfer, component: Link, to: '/item2' }
+  { icon: IconName.DataTransfer, component: NavLink, to: '/item2', activeClassName: 'active' }
 ];
 
 const profileMenuMock = {
   username: 'Maria Snow',
   userRole: 'Market director',
   profileActions: [
-    { name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' },
-    { name: 'Sign out', icon: IconName.DataTransfer, component: Link, to: '/sign-out' }
+    { name: 'User profile', icon: IconName.DataTransfer, component: NavLink, to: '/profile' },
+    { name: 'Sign out', icon: IconName.DataTransfer, component: NavLink, to: '/sign-out' }
   ]
 };
 
