@@ -6,9 +6,6 @@ export const StyledNavList = styled.ul`
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  & a {
-    text-decoration: none;
-  }
 `;
 
 export const StyledNavItem = styled.li<{
@@ -46,6 +43,21 @@ export const StyledNavItem = styled.li<{
   }
   &.lastInCategory {
     border-bottom: 1px solid ${({ theme }) => theme.colors.colours.support[80].value};
+  }
+  & a {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    box-sizing: border-box;
+    align-items: center;
+    text-decoration: none;
+    padding: ${({ theme }) => `0 ${theme.sizes.l.value}`};
+  }
+
+  & a.active {
+    background-color: ${({ theme }) => theme.colors.colours.support[80].value};
   }
 `;
 

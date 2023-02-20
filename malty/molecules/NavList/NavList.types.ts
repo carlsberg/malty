@@ -16,6 +16,7 @@ export type ItemProps = {
   component?: React.ReactNode | JSX.Element;
   subItems?: SubItemProps[];
   category?: string;
+  to?: string;
 };
 
 export interface NavItemProps {
