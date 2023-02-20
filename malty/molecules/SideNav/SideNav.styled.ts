@@ -20,16 +20,14 @@ export const StyledSideNav = styled.div<{
   height: 100%;
   background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   padding-top: calc(
-    ${({ theme, productName }) =>
-      productName ? `${theme.sizes.m.value} + 22px + 15vh` : `${theme.sizes.m.value} + 15vh`}
+    ${({ theme, productName }) => (productName ? `${theme.sizes.l.value}` : `${theme.sizes.m.value} + 15vh`)}
   );
   padding-bottom: ${({ theme }) => theme.sizes.m.value};
   padding-left: ${({ theme }) => theme.sizes.l.value};
   padding-right: 0;
   box-sizing: border-box;
-  & h1 {
-    position: absolute;
-    top: ${({ theme }) => theme.sizes.m.value};
+  & h6 {
+    margin-bottom: 15vh;
   }
 `;
 
