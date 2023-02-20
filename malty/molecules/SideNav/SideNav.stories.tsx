@@ -31,12 +31,12 @@ export default {
 } as Meta;
 
 const navItemsMock = [
-  { icon: IconName.DataTransfer, name: 'item 1', href: '/iframe.html' },
+  { icon: IconName.DataTransfer, name: 'item 1', href: '/' },
   {
     icon: IconName.DataTransfer,
     name: 'item 2',
     component: NavLink,
-    to: '/item2',
+    to: '/iframe.html',
     category: 'favourites',
     activeClassName: 'active'
   },
