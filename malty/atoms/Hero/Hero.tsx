@@ -29,9 +29,9 @@ export function Hero({
     icon: undefined
   };
   if (label && typeof label === 'object') {
-    type labelKeys = keyof typeof label;
-    Object.keys(label).forEach((key) => {
-      labelProps[key as labelKeys] = label[key as labelKeys];
+    type labelKeys = (keyof typeof label)[];
+    (Object.keys(label) as labelKeys).forEach((key) => {
+      labelProps[key] = label[key];
     });
   }
 
