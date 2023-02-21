@@ -9,7 +9,7 @@ export default {
   component: HeroComponent,
   parameters: {
     importObject: 'Hero',
-    importPath: '@carlsberggroup/malty.molecules.Hero',
+    importPath: '@carlsberggroup/malty.atoms.Hero',
     variants: ['negative', 'half', 'third', 'reverse']
   },
   argTypes: {
