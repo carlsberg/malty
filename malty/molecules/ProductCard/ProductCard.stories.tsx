@@ -1,7 +1,10 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { PillColor } from '@carlsberggroup/malty.atoms.pill';
+import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { ProductCard as ProductCardComponent } from './ProductCard';
@@ -23,6 +26,27 @@ export default {
     imageSrc: {
       control: 'text',
       description: 'Image to be displayed in the Product card'
+    },
+    alertMessage: {
+      control: 'text',
+      description: 'Message to be displayed in the Inline Alert'
+    },
+
+    alertColor: {
+      description: 'Inline alert color. Options are',
+      options: Object.values(AlertInlineColor),
+      table: {
+        defaultValue: {
+          summary: 'AlertInlineColor.NotificationLight'
+        }
+      },
+      control: {
+        type: 'select'
+      }
+    },
+    maxQuantity: {
+      control: 'number',
+      description: 'Max quantity of the product'
     },
     style: {
       description: 'Card style. Options are',
@@ -65,7 +89,26 @@ export default {
     },
     sku: {
       control: 'text',
-      description: 'product sku'
+      description: 'Product sku'
+    },
+    discountPill: {
+      control: '',
+      description: 'Object that defines the discount pill'
+    },
+    promoPill: {
+      control: '',
+      description: 'Object that defines the promo pill'
+    },
+    cartPill: {
+      control: '',
+      description: 'Object that defines the cart pill'
+    },
+    quantitySelectOptions: {
+      description: 'Select options for quantity'
+    },
+    hideQuantityInput: {
+      control: 'boolean',
+      description: 'Hides the quantity input'
     },
     action: {
       control: '',
@@ -89,12 +132,21 @@ const Template: Story<ProductCardProps> = (args) => {
   };
   return (
     // eslint-disable-next-line react/destructuring-assignment
-    <div style={args.orientation === CardOrientation.Portrait ? { width: '320px' } : { width: '500px' }}>
-      <ProductCardComponent {...args} onQuantityChange={handleQuantity} onCardClick={handleCard} />
-    </div>
+
+    <ProductCardComponent {...args} onInputQuantityChange={handleQuantity} onCardClick={handleCard} />
   );
 };
 
+const selectQuanityOptions: SelectOptionsType[] = [
+  {
+    value: 'halfpack',
+    name: 'Half-pack (12 bottles)'
+  },
+  {
+    value: 'fullpack',
+    name: 'full-pack (24 bottles)'
+  }
+];
 export const ProductCard = Template.bind({});
 
 ProductCard.args = {
@@ -103,13 +155,20 @@ ProductCard.args = {
   dataTestId: 'Article-card',
   action: {
     color: ButtonColor.DigitalBlack,
-    label: 'Read More',
-    onClick: () => console.log('action'),
-    variant: ButtonStyle.Primary
+    label: 'Add to cart',
+    onClick: () => null,
+    variant: ButtonStyle.Primary,
+    icon: IconName.Cart
   },
   orientation: CardOrientation.Portrait,
   price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
   discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
   sku: 'Sku: 12512 512',
-  loyalty: { label: '+30', icon: IconName.AddContent }
+  loyalty: { label: '+30', icon: IconName.AddContent },
+  stock: { label: 'In Stock', stockColor: TextColor.Success },
+  alertMessage: 'Max order limit: 5',
+  quantitySelectOptions: selectQuanityOptions,
+  discountPill: { text: '20%', color: PillColor.alertStrong },
+  promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
+  cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart }
 };

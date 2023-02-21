@@ -20,7 +20,6 @@ export const StyledButtonContainer = styled.div<{
   flex: 1 1 auto;
   flex-direction: column;
   position: relative;
-  min-width: 200px;
   ${({ selectStyle }) =>
     selectStyle === 'inline' &&
     css`

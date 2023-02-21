@@ -1,13 +1,13 @@
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
-import { Card } from './ProductCard';
-import { CardOrientation, CardStyle } from './ProductCard.types';
+import { ProductCard } from './ProductCard';
+import {} from './ProductCard.types';
 
-const titleText = 'Title';
+const titleText = 'This is a Title';
 const paragraphText = 'This is a test';
-const altText = 'Alt text';
-const defaultHero = <img src="https://placehold.co/300x180" alt={altText} />;
+const sku = 'Sku: 12512 512';
+const heroScr = 'https://placehold.co/300x180';
 const defaultBody = (
   <div>
     <h1>{titleText}</h1>
@@ -17,34 +17,15 @@ const defaultBody = (
 
 describe('Card', () => {
   it('renders with correct content', () => {
-    render(
-      <Card
-        selected={false}
-        cardHero={defaultHero}
-        cardBody={defaultBody}
-        style={CardStyle.Plain}
-        orientation={CardOrientation.Portrait}
-      />
-    );
+    render(<ProductCard imageSrc={heroScr} title={titleText} sku={sku} />);
     expect(screen.getByText(titleText)).not.toBeNull();
-    expect(screen.getByText(paragraphText)).not.toBeNull();
-    expect(screen.getByAltText(altText)).not.toBeNull();
+    expect(screen.getByText(sku)).not.toBeNull();
   });
 
   it('calls function on click', () => {
     const onClick = jest.fn();
-    render(
-      <Card
-        dataTestId="card-element"
-        selected={false}
-        cardHero={defaultHero}
-        cardBody={defaultBody}
-        style={CardStyle.Plain}
-        orientation={CardOrientation.Portrait}
-        onClick={onClick}
-      />
-    );
-    fireEvent.click(screen.getByTestId('card-element'));
+    render(<ProductCard onCardClick={onClick} imageSrc={heroScr} title={titleText} dataTestId="product-card" />);
+    fireEvent.click(screen.getByTestId('product-card'));
     fireEvent.click(screen.getByText(titleText));
     expect(onClick).toHaveBeenCalledTimes(2);
   });

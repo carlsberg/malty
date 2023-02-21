@@ -31,7 +31,7 @@ export function Card({
         </StyledCardHero>
       )}
       {cardBody && (
-        <StyledCardBody theme={theme} data-testid={`${dataTestId}-body`}>
+        <StyledCardBody orientation={orientation} theme={theme} data-testid={`${dataTestId}-body`}>
           {cardBody}
         </StyledCardBody>
       )}

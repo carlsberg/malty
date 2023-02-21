@@ -97,6 +97,21 @@ export const StyledCardHero = styled.div<{
     `;
   }};
 `;
-export const StyledCardBody = styled.div`
-  padding: ${({ theme }) => theme.sizes.m.value};
+export const StyledCardBody = styled.div<{
+  orientation: CardOrientation;
+}>`
+  padding: ${({ theme }) => theme.sizes.xs.value};
+  @media screen and (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
+    padding: ${({ theme }) => theme.sizes['2xs'].value};
+  }
+  ${({ orientation }) => {
+    if (orientation === CardOrientation.Landscape) {
+      return css`
+        width: 100%;
+      `;
+    }
+    return css`
+      width: inherit;
+    `;
+  }};
 `;
