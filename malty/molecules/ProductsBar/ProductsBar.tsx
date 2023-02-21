@@ -1,6 +1,7 @@
 // import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Avatar, AvatarSize } from '@carlsberggroup/malty.molecules.avatar';
 import { LinkComponentProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { RefObject, useContext, useEffect, useState } from 'react';
@@ -69,11 +70,10 @@ function ProfileMenu({ open, setProfileMenuOpen, username, userRole, children }:
 
   return (
     <StyledProfileMenu open={open} ref={profileMenuRef} theme={theme}>
-      <StyledSystemOption onClick={toggleProfileMenu} theme={theme}>
+      <StyledSystemOption theme={theme}>
         <StyledOptionIcon theme={theme}>
           <StyledAvatar theme={theme} data-testid="avatar">
-            {/* To do: reset Avatar in this position when Avatar component is published
-            <Avatar username={username} /> */}
+            <Avatar userName={username} size={AvatarSize.Medium} onClick={toggleProfileMenu} />
           </StyledAvatar>
         </StyledOptionIcon>
       </StyledSystemOption>
@@ -126,11 +126,10 @@ export function ProductsBar({ systemOptions, profileMenu, resetNavState }: Produ
 
         {profileActions.length === 1 && (
           <StyledProfileBtn theme={theme}>
-            <StyledOptionIcon theme={theme} onClick={resetNavState}>
+            <StyledOptionIcon theme={theme}>
               <LinkComponent component={singleItemComponent} href={singleItemHref} componentProps={singleItemCompProps}>
                 <StyledAvatar theme={theme} data-testid="avatar">
-                  {/* To do: reset Avatar in this position when Avatar component is published
-                    <Avatar username={username} /> */}
+                  <Avatar userName={username} size={AvatarSize.Medium} onClick={resetNavState} />
                 </StyledAvatar>
               </LinkComponent>
             </StyledOptionIcon>
