@@ -20,13 +20,13 @@ function SubNavItem({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <LinkComponent component={component} href={href} componentProps={componentProps}>
-      <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
+    <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
+      <LinkComponent component={component} href={href} componentProps={componentProps}>
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
           {name}
         </Text>
-      </StyledSubNavItem>
-    </LinkComponent>
+      </LinkComponent>
+    </StyledSubNavItem>
   );
 }
 
@@ -36,14 +36,14 @@ function NavItem({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <LinkComponent component={component} href={href} componentProps={componentProps}>
-      <StyledNavItem
-        onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
-        selected={selected}
-        theme={theme}
-        data-category={category}
-        className={className}
-      >
+    <StyledNavItem
+      onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
+      selected={selected}
+      theme={theme}
+      data-category={category}
+      className={className}
+    >
+      <LinkComponent component={component} href={href} componentProps={componentProps}>
         {icon && <Icon name={IconName[icon]} size={IconSize.Small} color={IconColor.White} />}
 
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
@@ -55,8 +55,8 @@ function NavItem({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
             <Icon name={IconName.ArrowSmallRight} size={IconSize.Small} color={IconColor.White} />
           </StyledRightArrow>
         )}
-      </StyledNavItem>
-    </LinkComponent>
+      </LinkComponent>
+    </StyledNavItem>
   );
 }
 
@@ -81,7 +81,7 @@ export function NavList({
     for (let i = 0; i < navItems.length; i++) {
       const currentItem = navItems[i];
       const currentLocation = window.location.pathname;
-      const itemPath = currentItem.href;
+      const itemPath = currentItem.to || currentItem.href;
       const selected = itemPath === currentLocation;
       if (selected) {
         setActiveNavItem(i);
@@ -146,14 +146,15 @@ export function NavList({
 
       {subNavIsActive && (
         <>
-          <LinkComponent component={component} href={href} componentProps={componentProps}>
-            <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
+          <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
+            <LinkComponent component={component} href={href} componentProps={componentProps}>
               <Icon name={IconName.ArrowSmallLeft} size={IconSize.Small} color={IconColor.White} />
               <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.White}>
                 {name}
               </Text>
-            </StyledNavItem>
-          </LinkComponent>
+            </LinkComponent>
+          </StyledNavItem>
+
           {subItems?.map((item, index) => {
             const selected = activeSubItem === index;
             return (
