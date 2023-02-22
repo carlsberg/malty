@@ -5937,6 +5937,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Hero-9a331f@workspace:malty/atoms/Hero":
+  version: 0.0.0-use.local
+  resolution: "Hero-9a331f@workspace:malty/atoms/Hero"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "HideMenu-95a6d4@workspace:malty/icons/HideMenu":
   version: 0.0.0-use.local
   resolution: "HideMenu-95a6d4@workspace:malty/icons/HideMenu"
