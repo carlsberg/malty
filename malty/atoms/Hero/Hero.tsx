@@ -30,7 +30,7 @@ export function Hero({
   };
   if (label && typeof label === 'object') {
     (Object.keys(label) as Array<keyof PillProps>).forEach((key) => {
-      labelProps[key] = label[key];
+      (labelProps[key] as keyof PillProps) = (label as PillProps)[key];
     });
   }
 
