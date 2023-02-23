@@ -85,6 +85,7 @@ export const StyledCardHero = styled.div<{
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
       return css`
+        width: 33.3% !important;
         > * {
           height: 100%;
         }
@@ -107,7 +108,7 @@ export const StyledCardBody = styled.div<{
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
       return css`
-        width: 100%;
+        width: 66.7%;
       `;
     }
     return css`

@@ -18,7 +18,8 @@ export function Image({
   children,
   figcaption,
   fallbackSrc,
-  dataTestId
+  dataTestId,
+  className
 }: ImageProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [test, setTest] = useState(false);
@@ -30,7 +31,7 @@ export function Image({
     }
   };
   return (
-    <StyledContainer theme={theme}>
+    <StyledContainer className={className} theme={theme}>
       <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
         <StyledWrapper theme={theme}>
           <StyledOverlay

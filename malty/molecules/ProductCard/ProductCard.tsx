@@ -10,7 +10,6 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
-  StyledCartPill,
   StyledDiscountContainer,
   StyledDiscountPill,
   StyledFavorite,
@@ -18,6 +17,7 @@ import {
   StyledImage,
   StyledLoyalty,
   StyledMargin,
+  StyledPillWrapper,
   StyledPrice,
   StyledPriceContainer,
   StyledRow,
@@ -56,7 +56,7 @@ export function ProductCard({
 }: ProductCardProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
-  const [width] = useState(imageWidth || (orientation === CardOrientation.Landscape ? '180px' : undefined));
+  const [width] = useState(imageWidth);
   const [quantityValue, setQuantityValue] = useState('');
   const [favorite, setFavorite] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -98,39 +98,39 @@ export function ProductCard({
       orientation={orientation}
       onClick={onCardClick}
       cardHero={
-        <StyledImage theme={theme} cover orientation={orientation} src={imageSrc} alt="" height={height} width={width}>
+        <StyledImage theme={theme} orientation={orientation} src={imageSrc} alt="" height={height} width={width}>
           <>
-            <StyledDiscountContainer theme={theme}>
-              {discountPill ? (
-                <StyledDiscountPill theme={theme}>
-                  <Pill
-                    text={discountPill?.text}
-                    color={discountPill?.color}
-                    size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                    icon={discountPill?.icon}
-                  />
-                </StyledDiscountPill>
-              ) : null}
+            <StyledPillWrapper theme={theme}>
+              <StyledDiscountContainer theme={theme}>
+                {discountPill ? (
+                  <StyledDiscountPill theme={theme}>
+                    <Pill
+                      text={discountPill?.text}
+                      color={discountPill?.color}
+                      size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
+                      icon={discountPill?.icon}
+                    />
+                  </StyledDiscountPill>
+                ) : null}
 
-              {promoPill ? (
-                <Pill
-                  text={promoPill?.text}
-                  color={promoPill?.color}
-                  size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                  icon={promoPill?.icon}
-                />
-              ) : null}
-            </StyledDiscountContainer>
-            {cartPill ? (
-              <StyledCartPill theme={theme}>
+                {promoPill ? (
+                  <Pill
+                    text={promoPill?.text}
+                    color={promoPill?.color}
+                    size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
+                    icon={promoPill?.icon}
+                  />
+                ) : null}
+              </StyledDiscountContainer>
+              {cartPill ? (
                 <Pill
                   text={cartPill?.text}
                   color={cartPill?.color}
                   size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                   icon={cartPill?.icon}
                 />
-              </StyledCartPill>
-            ) : null}
+              ) : null}
+            </StyledPillWrapper>
             {/* </StyledRow> */}
             <StyledFavorite
               theme={theme}

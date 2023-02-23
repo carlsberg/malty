@@ -7,12 +7,19 @@ import styled from 'styled-components';
 export const StyledMargin = styled.div`
   margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
 `;
+export const StyledPillWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  top: ${({ theme }) => theme.sizes['2xs'].value};
+  left: ${({ theme }) => theme.sizes['2xs'].value};
+  right: ${({ theme }) => theme.sizes['2xs'].value};
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: ${({ theme }) => theme.sizes['4xs'].value} 0;
+`;
 export const StyledSelect = styled.div`
   margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
-  button {
-    > div {
-    }
-  }
 `;
 export const StyledFooter = styled.div`
   display: flex;
@@ -60,10 +67,10 @@ export const StyledRow = styled.div`
   align-items: center;
 `;
 export const StyledDiscountContainer = styled.div`
-  position: absolute;
+  align-items: center;
   display: flex;
-  top: ${({ theme }) => theme.sizes['2xs'].value};
-  left: ${({ theme }) => theme.sizes['2xs'].value};
+  flex-wrap: wrap;
+  gap: ${({ theme }) => theme.sizes['4xs'].value} 0;
 `;
 export const StyledFavorite = styled(Icon)`
   position: absolute;
@@ -74,9 +81,5 @@ export const StyledDiscountPill = styled.div`
   margin-right: ${({ theme }) => theme.sizes['4xs'].value};
   display: flex;
 `;
-export const StyledCartPill = styled.div`
-  position: absolute;
-  right: ${({ theme }) => theme.sizes['2xs'].value};
-  top: ${({ theme }) => theme.sizes['2xs'].value};
-`;
+export const StyledCartPill = styled.div``;
 export const StyledPromoPill = styled.div``;
