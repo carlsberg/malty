@@ -9,7 +9,7 @@ export const StyledProductsBar = styled.div`
   border-style: solid;
   box-sizing: border-box;
   padding: ${({ theme }) => `${theme.sizes.m.value} ${theme.sizes.l.value}`};
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 export const StyledSystemWrapper = styled.div`
   position: absolute;
