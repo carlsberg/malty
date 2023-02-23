@@ -74,12 +74,6 @@ export function ProductCard({
     onFavoriteClick(favorite);
   };
 
-  // useEffect(() => {
-  //   // xsmal size difined in layout tokens
-  //   if (window.innerWidth <= 428) {
-  //     setIsMobile(true);
-  //   }
-  // }, [window.innerWidth]);
 
   const handleWindowSizeChange = () => {
     setIsMobile(window.innerWidth <= 768);
