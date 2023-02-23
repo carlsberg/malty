@@ -9,7 +9,7 @@ export const StyledWrapper = styled.div`
   bottom: 0;
   display: flex;
   box-sizing: border-box;
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 
 export const StyledSideNav = styled.div<{
