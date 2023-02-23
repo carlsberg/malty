@@ -124,17 +124,7 @@ export default {
 } as Meta;
 
 const Template: Story<ProductCardProps> = (args) => {
-  const handleQuantity = () => {
-    console.log('quantity');
-  };
-  const handleCard = () => {
-    console.log('card');
-  };
-  return (
-    // eslint-disable-next-line react/destructuring-assignment
-
-    <ProductCardComponent {...args} onInputQuantityChange={handleQuantity} onCardClick={handleCard} />
-  );
+  return <ProductCardComponent {...args} />;
 };
 
 const selectQuanityOptions: SelectOptionsType[] = [
