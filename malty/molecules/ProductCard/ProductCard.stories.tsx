@@ -15,7 +15,8 @@ export default {
   component: ProductCardComponent,
   parameters: {
     importObject: 'ProductCard',
-    importPath: '@carlsberggroup/malty.molecules.product-card'
+    importPath: '@carlsberggroup/malty.molecules.product-card',
+    variants: ['default', 'landscape']
   },
   argTypes: {
     title: {
@@ -138,27 +139,59 @@ const selectQuanityOptions: SelectOptionsType[] = [
   }
 ];
 export const ProductCard = Template.bind({});
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
 
-ProductCard.args = {
-  title: 'This is an article card Title',
-  imageSrc: 'https://picsum.photos/320/180',
-  dataTestId: 'Article-card',
-  action: {
-    color: ButtonColor.DigitalBlack,
-    label: 'Add to cart',
-    onClick: () => null,
-    variant: ButtonStyle.Primary,
-    icon: IconName.Cart
-  },
-  orientation: CardOrientation.Portrait,
-  price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
-  discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
-  sku: 'Sku: 12512 512',
-  loyalty: { label: '+30', icon: IconName.AddContent },
-  stock: { label: 'In Stock', stockColor: TextColor.Success },
-  alertMessage: 'Max order limit: 5',
-  quantitySelectOptions: selectQuanityOptions,
-  discountPill: { text: '20%', color: PillColor.alertStrong },
-  promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
-  cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart }
-};
+switch (variant) {
+  case 'landscape':
+    ProductCard.args = {
+      title: 'This is an article card Title',
+      imageSrc: 'https://picsum.photos/320/180',
+      dataTestId: 'Article-card',
+      action: {
+        color: ButtonColor.DigitalBlack,
+        label: 'Add to cart',
+        onClick: () => null,
+        variant: ButtonStyle.Primary,
+        icon: IconName.Cart
+      },
+      orientation: CardOrientation.Portrait,
+      price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
+      discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
+      sku: 'Sku: 12512 512',
+      loyalty: { label: '+30', icon: IconName.AddContent },
+      stock: { label: 'In Stock', stockColor: TextColor.Success },
+      alertMessage: 'Max order limit: 5',
+      quantitySelectOptions: selectQuanityOptions,
+      discountPill: { text: '20%', color: PillColor.alertStrong },
+      promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
+      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart }
+    };
+    break;
+
+  default:
+    ProductCard.args = {
+      title: 'This is an article card Title',
+      imageSrc: 'https://picsum.photos/320/180',
+      dataTestId: 'Article-card',
+      action: {
+        color: ButtonColor.DigitalBlack,
+        label: 'Add to cart',
+        onClick: () => null,
+        variant: ButtonStyle.Primary,
+        icon: IconName.Cart
+      },
+      orientation: CardOrientation.Portrait,
+      price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
+      discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
+      sku: 'Sku: 12512 512',
+      loyalty: { label: '+30', icon: IconName.AddContent },
+      stock: { label: 'In Stock', stockColor: TextColor.Success },
+      alertMessage: 'Max order limit: 5',
+      quantitySelectOptions: selectQuanityOptions,
+      discountPill: { text: '20%', color: PillColor.alertStrong },
+      promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
+      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart }
+    };
+    break;
+}
