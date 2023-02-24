@@ -220,6 +220,7 @@ export function Select({
           >
             {multiple && (
               <Checkbox
+                fullWidth
                 data-testid={`${dataTestId}-option-checkbox-${index}`}
                 labelText={option.name as string}
                 value={option.value}

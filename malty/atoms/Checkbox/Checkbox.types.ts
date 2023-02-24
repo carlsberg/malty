@@ -7,4 +7,7 @@ export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
   dataTestId?: string;
   required?: boolean;
   isIndeterminate?: boolean;
+  readOnly?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
 }

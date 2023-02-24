@@ -55,6 +55,7 @@ export { default as Change } from '@carlsberggroup/malty.icons.change';
 export { default as Check } from '@carlsberggroup/malty.icons.check';
 export { default as CheckboxCheck } from '@carlsberggroup/malty.icons.checkbox-check';
 export { default as CheckboxCheckAlternate } from '@carlsberggroup/malty.icons.checkbox-check-alternate';
+export { default as CheckboxCheckOutline } from '@carlsberggroup/malty.icons.checkbox-check-outline';
 export { default as CheckboxCheckSquare } from '@carlsberggroup/malty.icons.checkbox-check-square';
 export { default as CheckboxEmpty } from '@carlsberggroup/malty.icons.checkbox-empty';
 export { default as ChevronDown } from '@carlsberggroup/malty.icons.chevron-down';

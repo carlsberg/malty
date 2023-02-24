@@ -66,6 +66,7 @@ export enum IconName {
   Check = 'Check',
   CheckboxEmpty = 'CheckboxEmpty',
   CheckboxCheckAlternate = 'CheckboxCheckAlternate',
+  CheckboxCheckOutline = 'CheckboxCheckOutline',
   CheckboxCheckSquare = 'CheckboxCheckSquare',
   CheckboxCheck = 'CheckboxCheck',
   ChevronDown = 'ChevronDown',
