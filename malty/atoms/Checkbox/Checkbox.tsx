@@ -68,7 +68,7 @@ export function Checkbox({
 
   return (
     <StyledCheckboxContainer fullWidth={fullWidth}>
-      <StyledLabel htmlFor={id} disabled={readOnly || disabled} required={required}>
+      <StyledLabel htmlFor={id} disabled={readOnly || disabled} required={required} theme={theme}>
         <StyledInput
           type="checkbox"
           id={id}
@@ -93,13 +93,14 @@ export function Checkbox({
             textStyle={TextStyle.MediumSmallDefault}
             color={getTextColor()}
             data-testid={`${dataTestId}-label`}
+            theme={theme}
           >
             {labelText}
           </StyledText>
         ) : null}
       </StyledLabel>
       {error && (
-        <StyledError textStyle={TextStyle.SmallBold} color={TextColor.Fail}>
+        <StyledError textStyle={TextStyle.SmallBold} color={TextColor.Fail} theme={theme}>
           {error}
         </StyledError>
       )}
