@@ -1,5 +1,6 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Checkbox } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
@@ -21,14 +22,15 @@ describe('Checkbox', () => {
     expect(screen.getByLabelText('Checkbox label')).toBeInTheDocument();
     expect(screen.getByTestId('checkbox')).not.toBeChecked();
     expect(screen.getByDisplayValue('Checkbox value')).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
   });
 
   test('handles onValueChange correctly', () => {
     render(<Checkbox {...props} />);
 
-    const checkboxInput = screen.getByTestId('checkbox');
+    const checkboxInput = screen.getByRole('checkbox', { hidden: true });
 
-    fireEvent.click(checkboxInput);
+    userEvent.click(checkboxInput);
 
     expect(handleValueChange).toHaveBeenCalledTimes(1);
   });
