@@ -6,9 +6,9 @@ import { ThemeContext } from 'styled-components';
 import {
   StyledCheckboxContainer,
   StyledError,
-  StyledHiddenIcon,
   StyledInput,
   StyledLabel,
+  StyledSpan,
   StyledText
 } from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
@@ -69,25 +69,19 @@ export function Checkbox({
   return (
     <StyledCheckboxContainer fullWidth={fullWidth}>
       <StyledLabel htmlFor={id} disabled={readOnly || disabled} required={required} theme={theme}>
-        <StyledInput
-          type="checkbox"
-          id={id}
-          data-testid={dataTestId}
-          value={value}
-          checked={checked}
-          disabled={readOnly || disabled}
-          onChange={onValueChange}
-          {...props}
-        />
-        {!checked ? (
-          <StyledHiddenIcon
-            name={IconName.CheckboxCheckOutline}
-            color={IconColor.Support80}
-            size={IconSize.Medium}
-            theme={theme}
+        <StyledSpan theme={theme}>
+          <StyledInput
+            type="checkbox"
+            id={id}
+            data-testid={dataTestId}
+            value={value}
+            checked={checked}
+            disabled={readOnly || disabled}
+            onChange={onValueChange}
+            {...props}
           />
-        ) : null}
-        <Icon name={getIconName()} color={getIconColor()} size={IconSize.Medium} />
+          <Icon name={getIconName()} color={getIconColor()} size={IconSize.Medium} />
+        </StyledSpan>
         {labelText ? (
           <StyledText
             textStyle={TextStyle.MediumSmallDefault}

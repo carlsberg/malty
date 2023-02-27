@@ -1,4 +1,3 @@
-import { Icon } from '@carlsberggroup/malty.atoms.icon';
 import { Text } from '@carlsberggroup/malty.atoms.text';
 import styled, { css } from 'styled-components';
 
@@ -8,16 +7,6 @@ export const StyledCheckboxContainer = styled.div<{
   display: flex;
   flex-direction: column;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
-`;
-
-export const StyledInput = styled.input`
-  display: none;
-`;
-
-export const StyledHiddenIcon = styled(Icon)`
-  position: absolute;
-  opacity: 0;
-  margin-right: '-' + ${({ theme }) => theme.sizes.m.value};
 `;
 
 export const StyledLabel = styled.label<{
@@ -33,12 +22,15 @@ export const StyledLabel = styled.label<{
     css`
       cursor: pointer;
 
-      &:hover ${StyledHiddenIcon} {
-        opacity: 1;
+      &:hover svg {
+        ${({ theme }) => {
+          const hoverColor = theme.colors.colours.overlay['digital-black'][50].value;
 
-        & + svg {
-          visibility: hidden;
-        }
+          return css`
+            fill: ${hoverColor};
+            color: ${hoverColor};
+          `;
+        }};
       }
     `}
 
@@ -51,6 +43,14 @@ export const StyledLabel = styled.label<{
         margin-left: ${({ theme }) => theme.sizes['3xs'].value};
       }
     `}
+`;
+
+export const StyledInput = styled.input`
+  display: none;
+`;
+
+export const StyledSpan = styled.span`
+  height: ${({ theme }) => theme.sizes.m.value};
 `;
 
 export const StyledText = styled(Text)`
