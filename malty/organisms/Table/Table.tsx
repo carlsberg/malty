@@ -1,5 +1,4 @@
 /* eslint-disable no-return-assign */
-/* eslint-disable react/jsx-props-no-spreading */
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
@@ -162,7 +161,12 @@ export function Table({
                 )}
 
                 {allowSelection && data.length > 0 && (
-                  <StyledHead className="checkbox-header" isSortable={false} theme={theme}>
+                  <StyledHead
+                    className="checkbox-header"
+                    isSortable={false}
+                    theme={theme}
+                    allowSelection={allowSelection}
+                  >
                     <Checkbox
                       onValueChange={table.getToggleAllRowsSelectedHandler()}
                       checked={table.getIsAllRowsSelected()}

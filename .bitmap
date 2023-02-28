@@ -501,6 +501,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/CheckboxCheckAlternate"
     },
+    "icons/checkbox-check-outline": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.tsx",
+        "rootDir": "malty/icons/CheckboxCheckOutline"
+    },
     "icons/checkbox-check-square": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.49",

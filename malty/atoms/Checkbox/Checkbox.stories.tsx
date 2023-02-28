@@ -29,6 +29,18 @@ export default {
       control: 'boolean',
       description: 'Makes the checkbox required to fill'
     },
+    readOnly: {
+      control: 'boolean',
+      description: 'Makes the checkbox readonly'
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Makes the checkbox disabled'
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'Makes the checkbox width 100%'
+    },
     isIndeterminate: {
       control: 'boolean',
       description: 'Makes the checkbox Indeterminate'
@@ -77,6 +89,26 @@ switch (variant) {
       error: '',
       checked: false,
       required: false
+    };
+    break;
+
+  case 'disabled':
+    Checkbox.args = {
+      labelText: 'Disabled label',
+      error: '',
+      checked: true,
+      required: false,
+      disabled: true
+    };
+    break;
+
+  case 'readOnly':
+    Checkbox.args = {
+      labelText: 'Readonly label',
+      error: '',
+      checked: true,
+      required: false,
+      readOnly: true
     };
     break;
 
