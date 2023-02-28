@@ -1,5 +1,4 @@
 import { CardOrientation } from '@carlsberggroup/malty.atoms.card';
-import { Icon } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextColor } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
@@ -72,14 +71,24 @@ export const StyledDiscountContainer = styled.div`
   flex-wrap: wrap;
   gap: ${({ theme }) => theme.sizes['4xs'].value} 0;
 `;
-export const StyledFavorite = styled(Icon)`
+export const StyledFavoriteWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+  border-radius: 50%;
   position: absolute;
   right: ${({ theme }) => theme.sizes['2xs'].value};
   bottom: ${({ theme }) => theme.sizes['2xs'].value};
+  width: ${({ theme }) => theme.sizes.m.value};
+  height: ${({ theme }) => theme.sizes.m.value};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
+
 export const StyledDiscountPill = styled.div`
   margin-right: ${({ theme }) => theme.sizes['4xs'].value};
   display: flex;
 `;
-export const StyledCartPill = styled.div``;
-export const StyledPromoPill = styled.div``;
+
+export const StyledAlert = styled.div`
+  position: relative;
+`;

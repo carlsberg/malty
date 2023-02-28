@@ -1,6 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
 import { PillColor } from '@carlsberggroup/malty.atoms.pill';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
@@ -21,38 +22,39 @@ export default {
   argTypes: {
     title: {
       control: 'text',
-      description: 'Product card Title'
+      description: 'Product card Title',
+      table: {
+        category: 'Card Body'
+      }
     },
 
     imageSrc: {
       control: 'text',
-      description: 'Image to be displayed in the Product card'
-    },
-    alertMessage: {
-      control: 'text',
-      description: 'Message to be displayed in the Inline Alert'
-    },
-
-    alertColor: {
-      description: 'Inline alert color. Options are',
-      options: Object.values(AlertInlineColor),
+      description: 'Image to be displayed in the Product card',
       table: {
-        defaultValue: {
-          summary: 'AlertInlineColor.NotificationLight'
-        }
-      },
-      control: {
-        type: 'select'
+        category: 'Card Hero'
       }
     },
+    productsCardsAlerts: {
+      control: '',
+      description: 'Array of alerts to be displayed in the Product card',
+      table: {
+        category: 'Card Body'
+      }
+    },
+
     maxQuantity: {
       control: 'number',
-      description: 'Max quantity of the product'
+      description: 'Max quantity of the product',
+      table: {
+        category: 'Card Body'
+      }
     },
-    style: {
-      description: 'Card style. Options are',
+    productCardStyle: {
+      description: 'Product card style. Options are',
       options: Object.values(CardStyle),
       table: {
+        category: 'Card config',
         defaultValue: {
           summary: 'CardStyle.Plain'
         }
@@ -61,13 +63,14 @@ export default {
         type: 'select'
       }
     },
-    onCardClick: {
+    onProdcutClick: {
       control: 'null'
     },
     orientation: {
       description: 'Card orientation. Options are',
       options: Object.values(CardOrientation),
       table: {
+        category: 'Card config',
         defaultValue: {
           summary: 'CardOrientation.Portrait'
         }
@@ -76,40 +79,80 @@ export default {
         type: 'select'
       }
     },
+    favoriteIconColor: {
+      description: 'Color for favorite icon',
+      options: Object.values(IconColor),
+      table: {
+        category: 'Card config',
+        defaultValue: {
+          summary: 'IconColor.DigitalBlack'
+        }
+      },
+      control: {
+        type: 'select'
+      }
+    },
     dataTestId: {
       control: 'text',
-      description: 'Product card data-testid'
+      description: 'Product card data-testid',
+      table: {
+        category: 'Card config'
+      }
     },
     imageHeight: {
       control: 'text',
-      description: 'Sets the image height on Portrait'
+      description: 'Sets the image height on Portrait',
+      table: {
+        category: 'Card Hero'
+      }
     },
     imageWidth: {
       control: 'text',
-      description: 'Sets the image width on Landscape'
+      description: 'Sets the image width on Landscape',
+      table: {
+        category: 'Card Hero'
+      }
     },
     sku: {
       control: 'text',
-      description: 'Product sku'
+      description: 'Product sku',
+      table: {
+        category: 'Card Body'
+      }
     },
     discountPill: {
       control: '',
-      description: 'Object that defines the discount pill'
+      description: 'Object that defines the discount pill',
+      table: {
+        category: 'Card Hero'
+      }
     },
     promoPill: {
       control: '',
-      description: 'Object that defines the promo pill'
+      description: 'Object that defines the promo pill',
+      table: {
+        category: 'Card Hero'
+      }
     },
     cartPill: {
       control: '',
-      description: 'Object that defines the cart pill'
+      description: 'Object that defines the cart pill',
+      table: {
+        category: 'Card Hero'
+      }
     },
     quantitySelectOptions: {
-      description: 'Select options for quantity'
+      description: 'Select options for quantity',
+      table: {
+        category: 'Card Body'
+      }
     },
     hideQuantityInput: {
       control: 'boolean',
-      description: 'Hides the quantity input'
+      description: 'Hides the quantity input',
+      table: {
+        category: 'Card Body'
+      }
     },
     action: {
       control: '',
@@ -119,13 +162,78 @@ export default {
         variant: ButtonStyle;
         label: string;
         onClick: () => void;
-      }`
+      }`,
+      table: {
+        category: 'Card Body'
+      }
+    },
+    stock: {
+      control: '',
+      description: `An Object that defines the stock label and color:
+    | {
+        label: string;
+        labelColor?: TextColor;
+        stockColor?: TextColor;
+      }`,
+      table: {
+        category: 'Card Body'
+      }
+    },
+    loyalty: {
+      control: '',
+      description: `An Object that defines loyalty label and icon:
+    | {
+        label: string;
+        icon: IconName;
+      }`,
+      table: {
+        category: 'Card Body'
+      }
+    },
+    price: {
+      control: '',
+      description: `An Object that defines the price label and style:
+    | {
+        label: string;
+    color?: TextColor;
+    style: TextStyle;
+      }`,
+      table: {
+        category: 'Card Body'
+      }
+    },
+    discountPrice: {
+      control: '',
+      description: `An Object that defines the discount price label and style:
+    | {
+        label: string;
+    color?: TextColor;
+    style: TextStyle;
+      }`,
+      table: {
+        category: 'Card Body'
+      }
     }
   }
 } as Meta;
 
 const Template: Story<ProductCardProps> = (args) => {
-  return <ProductCardComponent {...args} />;
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
+        <ProductCardComponent {...args} />
+      </div>
+
+      <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
+        <ProductCardComponent
+          productsCardsAlerts={[
+            { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
+          ]}
+          {...args}
+        />
+      </div>
+    </div>
+  );
 };
 
 const selectQuanityOptions: SelectOptionsType[] = [
@@ -147,7 +255,7 @@ switch (variant) {
     ProductCard.args = {
       title: 'This is an article card Title',
       imageSrc: 'https://picsum.photos/320/180',
-      dataTestId: 'Article-card',
+      dataTestId: 'Product-card',
       action: {
         color: ButtonColor.DigitalBlack,
         label: 'Add to cart',
@@ -161,11 +269,14 @@ switch (variant) {
       sku: 'Sku: 12512 512',
       loyalty: { label: '+30', icon: IconName.AddContent },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
-      alertMessage: 'Max order limit: 5',
       quantitySelectOptions: selectQuanityOptions,
       discountPill: { text: '20%', color: PillColor.alertStrong },
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
-      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart }
+      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
+      productsCardsAlerts: [
+        { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
+        { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
+      ]
     };
     break;
 
@@ -173,7 +284,7 @@ switch (variant) {
     ProductCard.args = {
       title: 'This is an article card Title',
       imageSrc: 'https://picsum.photos/320/180',
-      dataTestId: 'Article-card',
+      dataTestId: 'Product-card',
       action: {
         color: ButtonColor.DigitalBlack,
         label: 'Add to cart',
@@ -187,7 +298,6 @@ switch (variant) {
       sku: 'Sku: 12512 512',
       loyalty: { label: '+30', icon: IconName.AddContent },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
-      alertMessage: 'Max order limit: 5',
       quantitySelectOptions: selectQuanityOptions,
       discountPill: { text: '20%', color: PillColor.alertStrong },
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },

@@ -17,6 +17,7 @@ export const StyledCardContainer = styled.div<{
     if (orientation === CardOrientation.Landscape) {
       return css`
         width: 100%;
+        height: 100%;
         flex-direction: row;
       `;
     }

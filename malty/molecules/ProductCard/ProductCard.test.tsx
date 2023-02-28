@@ -2,7 +2,6 @@ import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { ProductCard } from './ProductCard';
-import {} from './ProductCard.types';
 
 const titleText = 'This is a Title';
 const paragraphText = 'This is a test';
@@ -15,7 +14,7 @@ const defaultBody = (
   </div>
 );
 
-describe('Card', () => {
+describe('ProductCard', () => {
   it('renders with correct content', () => {
     render(<ProductCard imageSrc={heroScr} title={titleText} sku={sku} />);
     expect(screen.getByText(titleText)).not.toBeNull();
@@ -24,9 +23,8 @@ describe('Card', () => {
 
   it('calls function on click', () => {
     const onClick = jest.fn();
-    render(<ProductCard onCardClick={onClick} imageSrc={heroScr} title={titleText} dataTestId="product-card" />);
-    fireEvent.click(screen.getByTestId('product-card'));
-    fireEvent.click(screen.getByText(titleText));
-    expect(onClick).toHaveBeenCalledTimes(2);
+    render(<ProductCard onProductClick={onClick} imageSrc={heroScr} title={titleText} dataTestId="product-card" />);
+    fireEvent.click(screen.getByTestId('product-card-title'));
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

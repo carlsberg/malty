@@ -1,18 +1,20 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { AlertInline, AlertInlineColor, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
+import { AlertInline, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
+  StyledAlert,
   StyledDiscountContainer,
   StyledDiscountPill,
-  StyledFavorite,
+  StyledFavoriteWrapper,
   StyledFooter,
   StyledImage,
   StyledLoyalty,
@@ -29,7 +31,7 @@ import { ProductCardProps } from './ProductCard.types';
 
 export function ProductCard({
   dataTestId,
-  onCardClick,
+  onProductClick,
   orientation = CardOrientation.Portrait,
   productCardStyle = CardStyle.Plain,
   imageSrc,
@@ -45,14 +47,14 @@ export function ProductCard({
   sku,
   loyalty,
   stock,
-  alertMessage,
   maxQuantity,
-  alertColor = AlertInlineColor.NotificationLight,
+  productsCardsAlerts,
   quantitySelectOptions,
   hideQuantityInput,
   discountPill,
   promoPill,
-  cartPill
+  cartPill,
+  favoriteIconColor = IconColor.DigitalBlack
 }: ProductCardProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
@@ -74,7 +76,6 @@ export function ProductCard({
     onFavoriteClick(favorite);
   };
 
-
   const handleWindowSizeChange = () => {
     setIsMobile(window.innerWidth <= 768);
   };
@@ -90,51 +91,52 @@ export function ProductCard({
       dataTestId={dataTestId}
       cardStyle={productCardStyle}
       orientation={orientation}
-      onClick={onCardClick}
       cardHero={
-        <StyledImage theme={theme} orientation={orientation} src={imageSrc} alt="" height={height} width={width}>
-          <>
-            <StyledPillWrapper theme={theme}>
-              <StyledDiscountContainer theme={theme}>
-                {discountPill ? (
-                  <StyledDiscountPill theme={theme}>
-                    <Pill
-                      text={discountPill?.text}
-                      color={discountPill?.color}
-                      size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                      icon={discountPill?.icon}
-                    />
-                  </StyledDiscountPill>
-                ) : null}
+        <div onClick={onProductClick}>
+          <StyledImage theme={theme} orientation={orientation} src={imageSrc} alt="" height={height} width={width}>
+            <>
+              <StyledPillWrapper theme={theme}>
+                <StyledDiscountContainer theme={theme}>
+                  {discountPill ? (
+                    <StyledDiscountPill theme={theme}>
+                      <Pill
+                        text={discountPill?.text}
+                        color={discountPill?.color}
+                        size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
+                        icon={discountPill?.icon}
+                      />
+                    </StyledDiscountPill>
+                  ) : null}
 
-                {promoPill ? (
+                  {promoPill ? (
+                    <Pill
+                      text={promoPill?.text}
+                      color={promoPill?.color}
+                      size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
+                      icon={promoPill?.icon}
+                    />
+                  ) : null}
+                </StyledDiscountContainer>
+                {cartPill ? (
                   <Pill
-                    text={promoPill?.text}
-                    color={promoPill?.color}
+                    text={cartPill?.text}
+                    color={cartPill?.color}
                     size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                    icon={promoPill?.icon}
+                    icon={cartPill?.icon}
                   />
                 ) : null}
-              </StyledDiscountContainer>
-              {cartPill ? (
-                <Pill
-                  text={cartPill?.text}
-                  color={cartPill?.color}
-                  size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                  icon={cartPill?.icon}
+              </StyledPillWrapper>
+              <StyledFavoriteWrapper theme={theme}>
+                <Icon
+                  onClick={handleFavoriteClick}
+                  name={favorite ? IconName.HeartFilled : IconName.Heart}
+                  color={favoriteIconColor}
+                  size={IconSize.MediumSmall}
                 />
-              ) : null}
-            </StyledPillWrapper>
-            {/* </StyledRow> */}
-            <StyledFavorite
-              theme={theme}
-              onClick={handleFavoriteClick}
-              name={favorite ? IconName.HeartFilled : IconName.Heart}
-              color={IconColor.DigitalBlack}
-              size={IconSize.MediumSmall}
-            />
-          </>
-        </StyledImage>
+              </StyledFavoriteWrapper>
+            </>
+          </StyledImage>
+        </div>
       }
       cardBody={
         <>
@@ -146,7 +148,7 @@ export function ProductCard({
             </StyledMargin>
           )}
           <StyledMargin theme={theme}>
-            <Text dataQaId={`${dataTestId}-title`} textStyle={TextStyle.MediumSmallBold}>
+            <Text onClick={onProductClick} dataQaId={`${dataTestId}-title`} textStyle={TextStyle.MediumSmallBold}>
               {title}
             </Text>
           </StyledMargin>
@@ -211,6 +213,7 @@ export function ProductCard({
                 value={quantityValue}
                 max={maxQuantity}
                 size={InputSize.Medium}
+                maxLength={2}
               />
             )}
             {action ? (
@@ -226,9 +229,12 @@ export function ProductCard({
               />
             ) : null}
           </StyledFooter>
-          {alertMessage ? (
-            <AlertInline color={alertColor} size={AlertInlineSize.Compact} message={alertMessage} />
-          ) : null}
+          {productsCardsAlerts?.map((alert, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <StyledAlert key={index} theme={theme}>
+              <AlertInline {...alert} color={alert.color} size={AlertInlineSize.Compact} message={alert.message} />
+            </StyledAlert>
+          ))}
         </>
       }
     />
