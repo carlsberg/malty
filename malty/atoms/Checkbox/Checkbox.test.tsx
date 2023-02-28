@@ -1,22 +1,62 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Checkbox } from './Checkbox';
+import { CheckboxProps } from './Checkbox.types';
 
-describe('checkbox', () => {
-  it('renders elements', () => {
-    const mockFn = jest.fn();
-    render(<Checkbox labelText="Label text" error="Error text" value="Test value" onValueChange={mockFn} checked />);
-    expect(screen.getByLabelText('Label text')).toBeInTheDocument();
-    expect(screen.getByText('Error text')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('Test value')).toBeInTheDocument();
+describe('Checkbox', () => {
+  const handleValueChange = jest.fn();
+  const props: CheckboxProps = {
+    id: 'checkbox',
+    labelText: 'Checkbox label',
+    value: 'Checkbox value',
+    onValueChange: handleValueChange,
+    dataTestId: 'checkbox'
+  };
+
+  test('renders correctly', () => {
+    render(<Checkbox {...props} />);
+
+    expect(screen.getByText('Checkbox label')).toBeVisible();
+    expect(screen.getByLabelText('Checkbox label')).toBeInTheDocument();
+    expect(screen.getByTestId('checkbox')).not.toBeChecked();
+    expect(screen.getByDisplayValue('Checkbox value')).toBeInTheDocument();
+    expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
   });
 
-  it('calls function on click', () => {
-    const mockFn = jest.fn();
-    render(<Checkbox labelText="Label text" error="Error text" value="Test value" onValueChange={mockFn} checked />);
-    const checkbox = screen.getByDisplayValue('Test value');
-    fireEvent.click(checkbox);
-    expect(mockFn).toHaveBeenCalledTimes(1);
+  test('handles onValueChange correctly', () => {
+    render(<Checkbox {...props} />);
+
+    const checkboxInput = screen.getByRole('checkbox', { hidden: true });
+
+    userEvent.click(checkboxInput);
+
+    expect(handleValueChange).toHaveBeenCalledTimes(1);
+  });
+
+  test('displays error message when error prop is provided', () => {
+    render(<Checkbox {...props} error="Error message" />);
+
+    expect(screen.getByText('Error message')).toBeVisible();
+  });
+
+  test('renders as disabled when disabled prop is true', () => {
+    render(<Checkbox {...props} disabled />);
+
+    expect(screen.getByLabelText('Checkbox label')).toBeDisabled();
+  });
+
+  test('renders as readonly and disables input when readOnly prop is true', () => {
+    render(<Checkbox {...props} readOnly />);
+
+    expect(screen.getByLabelText('Checkbox label')).toBeDisabled();
+  });
+
+  test('only displays checkbox when labelText prop is not passed', () => {
+    render(<Checkbox {...props} labelText={undefined} />);
+
+    expect(screen.queryByText('Checkbox label')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('Checkbox label')).not.toBeInTheDocument();
   });
 });

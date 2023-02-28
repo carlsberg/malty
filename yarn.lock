@@ -5412,6 +5412,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"CheckboxCheckOutline-0613e7@workspace:malty/icons/CheckboxCheckOutline":
+  version: 0.0.0-use.local
+  resolution: "CheckboxCheckOutline-0613e7@workspace:malty/icons/CheckboxCheckOutline"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "CheckboxCheckSquare-f33857@workspace:malty/icons/CheckboxCheckSquare":
   version: 0.0.0-use.local
   resolution: "CheckboxCheckSquare-f33857@workspace:malty/icons/CheckboxCheckSquare"
