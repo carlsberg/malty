@@ -21,6 +21,16 @@ import {
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
+function Container({ children }: { children: ReactNode }) {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
+  return (
+    <StyledContainer theme={theme}>
+      <StyledCalendar theme={theme}>{children}</StyledCalendar>
+    </StyledContainer>
+  );
+}
+
 export function Datepicker({
   startDate,
   endDate,
@@ -105,14 +115,6 @@ export function Datepicker({
       }
     }
   }, [size, theme]);
-
-  function Container({ children }: { children: ReactNode }) {
-    return (
-      <StyledContainer theme={theme}>
-        <StyledCalendar theme={theme}>{children}</StyledCalendar>
-      </StyledContainer>
-    );
-  }
 
   const renderDatepickerCaptions = () => {
     if (!captions || !captions.length) {

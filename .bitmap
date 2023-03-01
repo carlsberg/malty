@@ -1575,6 +1575,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/utils/colors"
     },
+    "utils/mixins": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/mixins"
+    },
     "utils/test": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.15",
