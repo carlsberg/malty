@@ -4,7 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledLabel } from './Label.styled';
 import { LabelProps } from './Label.types';
 
-export function Label({ htmlFor, label, dataTestId, required, disabled, ...props }: LabelProps) {
+export const Label = ({ htmlFor, label, dataTestId, required, disabled, ...props }: LabelProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return label ? (
@@ -20,4 +20,4 @@ export function Label({ htmlFor, label, dataTestId, required, disabled, ...props
       {label}
     </StyledLabel>
   ) : null;
-}
+};

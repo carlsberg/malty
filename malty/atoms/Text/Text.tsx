@@ -4,7 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledParagraph } from './Text.styled';
 import { TextAlign, TextColor, TextProps, TextStyle } from './Text.types';
 
-export function Text({
+export const Text = ({
   textStyle = TextStyle.MediumDefault,
   align = TextAlign.Left,
   color = TextColor.DigitalBlack,
@@ -15,7 +15,7 @@ export function Text({
   width,
   className,
   dataQaId
-}: TextProps) {
+}: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   let StyledTag = as;
   const allowedTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
@@ -40,4 +40,4 @@ export function Text({
       {children}
     </StyledParagraph>
   );
-}
+};

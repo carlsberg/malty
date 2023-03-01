@@ -14,7 +14,7 @@ import {
 } from './Stepper.styled';
 import { StepperProps } from './Stepper.types';
 
-export function Stepper({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) {
+export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [elHtml, setElHtml] = useState([<></>]);
 
@@ -103,4 +103,4 @@ export function Stepper({ steps, currentStep, isMultiStep, dataQaId }: StepperPr
       ))}
     </StyledStepperContainer>
   );
-}
+};

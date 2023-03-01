@@ -6,15 +6,15 @@ import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
 import { ItemProps, LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
 
-function LinkComponent({ component, href, children, componentProps }: LinkComponentProps) {
+const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
   // we need to spread props in this case in order to allow custom properties being passed to the custom component
   // eslint-disable-next-line react/jsx-props-no-spreading
   return component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>;
-}
+};
 
-function SubNavItem({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) {
+const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) => {
   const { component, name, href, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -28,9 +28,9 @@ function SubNavItem({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
       </LinkComponent>
     </StyledSubNavItem>
   );
-}
+};
 
-function NavItem({ item, itemIndex, setActiveNavItem, openSubNav, selected = false, className }: NavItemProps) {
+const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false, className }: NavItemProps) => {
   const { component, name, href, icon, subItems, category, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -58,9 +58,9 @@ function NavItem({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
       </LinkComponent>
     </StyledNavItem>
   );
-}
+};
 
-export function NavList({
+export const NavList = ({
   navItems,
   activeNavItem,
   activeSubItem,
@@ -68,7 +68,7 @@ export function NavList({
   setActiveNavItem,
   setActiveSubItem,
   toggleSubNav
-}: NavListProps) {
+}: NavListProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   useEffect(() => {
@@ -171,4 +171,4 @@ export function NavList({
       )}
     </StyledNavList>
   );
-}
+};
