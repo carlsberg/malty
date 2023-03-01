@@ -38,7 +38,6 @@ export function Radio({
           onChange={handleValueChange}
           disabled={disabled}
           required={required}
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
         <StyledLabel

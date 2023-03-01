@@ -213,7 +213,6 @@ export function Datepicker({
           dateFormatCalendar="MMMM"
           shouldCloseOnSelect={shouldCloseOnSelect}
           withPortal={withPortal}
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         >
           {renderDatepickerCaptions()}

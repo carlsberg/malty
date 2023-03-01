@@ -112,7 +112,6 @@ export function Button({
       tabIndex={tabIndex}
       className={selected ? `${className} active` : className}
       size={size}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
       <div className="text-container">

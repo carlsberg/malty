@@ -64,7 +64,6 @@ export function TextArea({
           readOnly={readOnly}
           maxLength={maxLength}
           required={required}
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         />
         <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>

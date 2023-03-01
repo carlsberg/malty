@@ -77,7 +77,6 @@ const Tooltip: TooltipType = function Tooltip({
       {triggerComponent(setReferenceElement)}
 
       <StyledTooltipWrapper
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...attributes.popper}
         ref={setPopperElement}
         style={styles.popper}

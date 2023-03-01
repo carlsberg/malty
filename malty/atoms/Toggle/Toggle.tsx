@@ -45,7 +45,6 @@ export function Toggle({
             checked={stateChecked}
             onChange={handleToggle}
             required={required}
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />
           <StyledSwitch id={id} theme={theme} disabled={disabled} className="switch" />
