@@ -43,6 +43,7 @@ export function Datepicker({
   required,
   dataTestId,
   withPortal,
+  withoutBorder,
   ...props
 }: DatepickerProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -108,7 +109,7 @@ export function Datepicker({
 
   function Container({ children }: { children: ReactNode }) {
     return (
-      <StyledContainer theme={theme}>
+      <StyledContainer theme={theme} withoutBorder={withoutBorder && inline}>
         <StyledCalendar theme={theme}>{children}</StyledCalendar>
       </StyledContainer>
     );
