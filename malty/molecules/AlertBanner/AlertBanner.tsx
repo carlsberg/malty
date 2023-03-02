@@ -31,11 +31,11 @@ const textColorsMap = {
   [AlertBannerType.Error]: TextColor.White
 };
 
-export function AlertBanner({
+export const AlertBanner = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
   animation
-}: PropsWithChildren<AlertBannerProps>) {
+}: PropsWithChildren<AlertBannerProps>) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
@@ -272,4 +272,4 @@ export function AlertBanner({
       {isMobile && renderMobileActionsContent()}
     </Container>
   );
-}
+};

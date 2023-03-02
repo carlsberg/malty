@@ -4,12 +4,12 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ProgressSpinnerColor, ProgressSpinnerProps, ProgressSpinnerStatus } from './ProgressSpinner.types';
 
-export function ProgressSpinner({
+export const ProgressSpinner = ({
   status = ProgressSpinnerStatus.Pending,
   dataQaId,
   negative,
   color = ProgressSpinnerColor.DigitalBlack
-}: ProgressSpinnerProps) {
+}: ProgressSpinnerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   if (status === ProgressSpinnerStatus.Failure) {
@@ -107,4 +107,4 @@ export function ProgressSpinner({
       </g>
     </svg>
   );
-}
+};

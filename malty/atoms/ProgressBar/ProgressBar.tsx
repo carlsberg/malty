@@ -10,7 +10,7 @@ import {
 } from './ProgressBar.styled';
 import { ProgressBarProps } from './ProgressBar.types';
 
-export function ProgressBar({ progress, label, displayAmount }: ProgressBarProps) {
+export const ProgressBar = ({ progress, label, displayAmount }: ProgressBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -22,4 +22,4 @@ export function ProgressBar({ progress, label, displayAmount }: ProgressBarProps
       {label && <StyledText theme={theme}>{label}</StyledText>}
     </StyledWrapper>
   );
-}
+};

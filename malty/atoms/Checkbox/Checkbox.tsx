@@ -13,7 +13,7 @@ import {
 } from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
 
-export function Checkbox({
+export const Checkbox = ({
   id,
   value = '',
   checked = false,
@@ -27,7 +27,7 @@ export function Checkbox({
   fullWidth,
   onValueChange,
   ...props
-}: CheckboxProps) {
+}: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const getIconName = () => {
@@ -100,4 +100,4 @@ export function Checkbox({
       )}
     </StyledCheckboxContainer>
   );
-}
+};

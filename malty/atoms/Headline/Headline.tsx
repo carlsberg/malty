@@ -4,14 +4,14 @@ import { ThemeContext } from 'styled-components';
 import { StyledHeadline } from './Headline.styled';
 import { HeadlineAlign, HeadlineColor, HeadlineProps, HeadlineStyle } from './Headline.types';
 
-export function Headline({
+export const Headline = ({
   headlineStyle = HeadlineStyle.Medium,
   align = HeadlineAlign.Left,
   color = HeadlineColor.DigitalBlack,
   as,
   children,
   dataTestId
-}: HeadlineProps) {
+}: HeadlineProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   let StyledTagHeadline = as;
@@ -56,4 +56,4 @@ export function Headline({
       {children}
     </StyledHeadline>
   );
-}
+};

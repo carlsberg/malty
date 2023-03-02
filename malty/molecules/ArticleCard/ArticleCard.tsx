@@ -8,7 +8,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledBody, StyledFooter, StyledImage, StyledMargin } from './ArticleCard.styled';
 import { ArticleCardProps } from './ArticleCard.types';
 
-export function ArticleCard({
+export const ArticleCard = ({
   orientation = CardOrientation.Portrait,
   cardStyle = CardStyle.Plain,
   onCardClick,
@@ -20,7 +20,7 @@ export function ArticleCard({
   dataTestId,
   imageHeight,
   imageWidth
-}: ArticleCardProps) {
+}: ArticleCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
   const [width] = useState(imageWidth || (orientation === CardOrientation.Landscape ? '180px' : undefined));
@@ -73,4 +73,4 @@ export function ArticleCard({
       />
     </article>
   );
-}
+};

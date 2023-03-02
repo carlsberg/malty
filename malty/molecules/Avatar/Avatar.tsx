@@ -24,7 +24,7 @@ const displayInitials = (username: string) => {
   return `${firstInitial}${lastInitial}`;
 };
 
-export function Avatar({
+export const Avatar = ({
   profileImg,
   userName,
   size,
@@ -32,7 +32,7 @@ export function Avatar({
   onClick = () => null,
   loading = false,
   dataQaId
-}: AvatarProps) {
+}: AvatarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [iconSize, setIconSize] = useState(IconSize.MediumSmall);
 
@@ -89,4 +89,4 @@ export function Avatar({
       {!profileImg && !userName && <Icon color={IconColor.Support40} size={iconSize} name={IconName.Customer} />}
     </StyledAvatar>
   );
-}
+};
