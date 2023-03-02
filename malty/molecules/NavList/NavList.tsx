@@ -6,44 +6,42 @@ import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
 import { ItemProps, LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
 
-function LinkComponent({ component, href, children, componentProps }: LinkComponentProps) {
+const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
-  // we need to spread props in this case in order to allow custom properties being passed to the custom component
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>;
-}
+};
 
-function SubNavItem({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) {
+const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) => {
   const { component, name, href, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <LinkComponent component={component} href={href} componentProps={componentProps}>
-      <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
+    <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
+      <LinkComponent component={component} href={href} componentProps={componentProps}>
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
           {name}
         </Text>
-      </StyledSubNavItem>
-    </LinkComponent>
+      </LinkComponent>
+    </StyledSubNavItem>
   );
-}
+};
 
-function NavItem({ item, itemIndex, setActiveNavItem, openSubNav, selected = false, className }: NavItemProps) {
+const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false, className }: NavItemProps) => {
   const { component, name, href, icon, subItems, category, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <LinkComponent component={component} href={href} componentProps={componentProps}>
-      <StyledNavItem
-        onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
-        selected={selected}
-        theme={theme}
-        data-category={category}
-        className={className}
-      >
+    <StyledNavItem
+      onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
+      selected={selected}
+      theme={theme}
+      data-category={category}
+      className={className}
+    >
+      <LinkComponent component={component} href={href} componentProps={componentProps}>
         {icon && <Icon name={IconName[icon]} size={IconSize.Small} color={IconColor.White} />}
 
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
@@ -55,12 +53,12 @@ function NavItem({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
             <Icon name={IconName.ArrowSmallRight} size={IconSize.Small} color={IconColor.White} />
           </StyledRightArrow>
         )}
-      </StyledNavItem>
-    </LinkComponent>
+      </LinkComponent>
+    </StyledNavItem>
   );
-}
+};
 
-export function NavList({
+export const NavList = ({
   navItems,
   activeNavItem,
   activeSubItem,
@@ -68,7 +66,7 @@ export function NavList({
   setActiveNavItem,
   setActiveSubItem,
   toggleSubNav
-}: NavListProps) {
+}: NavListProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   useEffect(() => {
@@ -81,7 +79,7 @@ export function NavList({
     for (let i = 0; i < navItems.length; i++) {
       const currentItem = navItems[i];
       const currentLocation = window.location.pathname;
-      const itemPath = currentItem.href;
+      const itemPath = currentItem.to || currentItem.href;
       const selected = itemPath === currentLocation;
       if (selected) {
         setActiveNavItem(i);
@@ -146,14 +144,15 @@ export function NavList({
 
       {subNavIsActive && (
         <>
-          <LinkComponent component={component} href={href} componentProps={componentProps}>
-            <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
+          <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
+            <LinkComponent component={component} href={href} componentProps={componentProps}>
               <Icon name={IconName.ArrowSmallLeft} size={IconSize.Small} color={IconColor.White} />
               <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.White}>
                 {name}
               </Text>
-            </StyledNavItem>
-          </LinkComponent>
+            </LinkComponent>
+          </StyledNavItem>
+
           {subItems?.map((item, index) => {
             const selected = activeSubItem === index;
             return (
@@ -170,4 +169,4 @@ export function NavList({
       )}
     </StyledNavList>
   );
-}
+};

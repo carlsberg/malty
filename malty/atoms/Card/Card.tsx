@@ -4,7 +4,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledCardBody, StyledCardContainer, StyledCardHero } from './Card.styled';
 import { CardOrientation, CardProps, CardStyle } from './Card.types';
 
-export function Card({
+export const Card = ({
   orientation = CardOrientation.Portrait,
   selected = false,
   cardStyle = CardStyle.Plain,
@@ -12,7 +12,7 @@ export function Card({
   cardBody,
   onClick,
   dataTestId = 'card-element'
-}: CardProps) {
+}: CardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -37,4 +37,4 @@ export function Card({
       )}
     </StyledCardContainer>
   );
-}
+};

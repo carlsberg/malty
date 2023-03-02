@@ -8,7 +8,7 @@ import { ButtonProps, ButtonSize } from '.';
 import { StyledAnchor, StyledPrimaryButton, StyledSecondaryButton, StyledTransparentButton } from './Button.styled';
 import { ButtonColor, ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
-export function Button({
+export const Button = ({
   text,
   style,
   type = ButtonType.Default,
@@ -29,7 +29,7 @@ export function Button({
   color = ButtonColor.DigitalBlack,
   className,
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
   switch (style) {
@@ -112,7 +112,6 @@ export function Button({
       tabIndex={tabIndex}
       className={selected ? `${className} active` : className}
       size={size}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
       <div className="text-container">
@@ -139,4 +138,4 @@ export function Button({
   ) : (
     renderComponent()
   );
-}
+};

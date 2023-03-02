@@ -1,6 +1,7 @@
 // import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Avatar, AvatarSize } from '@carlsberggroup/malty.molecules.avatar';
 import { LinkComponentProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { RefObject, useContext, useEffect, useState } from 'react';
@@ -22,13 +23,11 @@ import {
 } from './ProductsBar.styled';
 import { ProductsBarProps, ProfileMenuProps } from './ProductsBar.types';
 
-function LinkComponent({ component, href, children, componentProps }: LinkComponentProps) {
+const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
-  // we need to spread props in this case in order to allow custom properties being passed to the custom component
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>;
-}
+};
 
 const useClickOutside = (
   ref: RefObject<HTMLDivElement>,
@@ -57,7 +56,7 @@ const useClickOutside = (
   }, [open]);
 };
 
-function ProfileMenu({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) {
+const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const profileMenuRef = React.useRef<HTMLDivElement>(null);
 
@@ -69,11 +68,10 @@ function ProfileMenu({ open, setProfileMenuOpen, username, userRole, children }:
 
   return (
     <StyledProfileMenu open={open} ref={profileMenuRef} theme={theme}>
-      <StyledSystemOption onClick={toggleProfileMenu} theme={theme}>
+      <StyledSystemOption theme={theme}>
         <StyledOptionIcon theme={theme}>
           <StyledAvatar theme={theme} data-testid="avatar">
-            {/* To do: reset Avatar in this position when Avatar component is published
-            <Avatar username={username} /> */}
+            <Avatar userName={username} size={AvatarSize.Medium} onClick={toggleProfileMenu} />
           </StyledAvatar>
         </StyledOptionIcon>
       </StyledSystemOption>
@@ -88,9 +86,9 @@ function ProfileMenu({ open, setProfileMenuOpen, username, userRole, children }:
       </StyledProfileActions>
     </StyledProfileMenu>
   );
-}
+};
 
-export function ProductsBar({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) {
+export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const { username, userRole, profileActions } = profileMenu;
@@ -126,11 +124,10 @@ export function ProductsBar({ systemOptions, profileMenu, resetNavState }: Produ
 
         {profileActions.length === 1 && (
           <StyledProfileBtn theme={theme}>
-            <StyledOptionIcon theme={theme} onClick={resetNavState}>
+            <StyledOptionIcon theme={theme}>
               <LinkComponent component={singleItemComponent} href={singleItemHref} componentProps={singleItemCompProps}>
                 <StyledAvatar theme={theme} data-testid="avatar">
-                  {/* To do: reset Avatar in this position when Avatar component is published
-                    <Avatar username={username} /> */}
+                  <Avatar userName={username} size={AvatarSize.Medium} onClick={resetNavState} />
                 </StyledAvatar>
               </LinkComponent>
             </StyledOptionIcon>
@@ -166,4 +163,4 @@ export function ProductsBar({ systemOptions, profileMenu, resetNavState }: Produ
       </StyledSystemWrapper>
     </StyledProductsBar>
   );
-}
+};

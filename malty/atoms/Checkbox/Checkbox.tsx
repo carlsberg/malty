@@ -1,51 +1,103 @@
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   StyledCheckboxContainer,
-  StyledCheckboxDisplayInput,
-  StyledCheckboxHiddenInput,
-  StyledCheckboxLabel,
-  StyledCheckboxLabelText,
-  StyledError
+  StyledError,
+  StyledInput,
+  StyledLabel,
+  StyledSpan,
+  StyledText
 } from './Checkbox.styled';
 import { CheckboxProps } from './Checkbox.types';
 
-export function Checkbox({
+export const Checkbox = ({
   id,
   value = '',
   checked = false,
   labelText,
   error,
-  onValueChange,
   required = false,
   dataTestId,
   isIndeterminate,
+  readOnly,
+  disabled,
+  fullWidth,
+  onValueChange,
   ...props
-}: CheckboxProps) {
+}: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
+  const getIconName = () => {
+    if (checked) {
+      return IconName.CheckboxCheck;
+    }
+
+    if (isIndeterminate) {
+      return IconName.CheckboxCheckAlternate;
+    }
+
+    return IconName.CheckboxEmpty;
+  };
+
+  const getTextColor = () => {
+    if (disabled) {
+      return TextColor.DisableLightTheme;
+    }
+
+    if (readOnly) {
+      return TextColor.Support80;
+    }
+
+    return TextColor.DigitalBlack;
+  };
+
+  const getIconColor = () => {
+    if (disabled) {
+      return IconColor.DisableLight;
+    }
+
+    if (readOnly) {
+      return IconColor.Support80;
+    }
+
+    return IconColor.DigitalBlack;
+  };
+
   return (
-    <StyledCheckboxContainer theme={theme}>
-      <StyledCheckboxLabel required={required} htmlFor={id} theme={theme}>
-        <StyledCheckboxHiddenInput
-          type="checkbox"
-          data-testid={dataTestId}
-          id={id}
-          value={value}
-          onChange={(e) => onValueChange(e)}
-          checked={checked}
-          theme={theme}
-          required={required}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...props}
-        />
-        <StyledCheckboxDisplayInput indeterminate={isIndeterminate} checked={checked} theme={theme} />
-        <StyledCheckboxLabelText data-testid={`${dataTestId}-label`} theme={theme}>
-          {labelText}
-        </StyledCheckboxLabelText>
-      </StyledCheckboxLabel>
-      {error && <StyledError theme={theme}>{error}</StyledError>}
+    <StyledCheckboxContainer fullWidth={fullWidth}>
+      <StyledLabel htmlFor={id} disabled={readOnly || disabled} required={required} theme={theme}>
+        <StyledSpan theme={theme}>
+          <StyledInput
+            type="checkbox"
+            id={id}
+            data-testid={dataTestId}
+            value={value}
+            checked={checked}
+            disabled={readOnly || disabled}
+            onChange={onValueChange}
+            {...props}
+          />
+          <Icon name={getIconName()} color={getIconColor()} size={IconSize.Medium} />
+        </StyledSpan>
+        {labelText ? (
+          <StyledText
+            textStyle={TextStyle.MediumSmallDefault}
+            color={getTextColor()}
+            data-testid={`${dataTestId}-label`}
+            theme={theme}
+          >
+            {labelText}
+          </StyledText>
+        ) : null}
+      </StyledLabel>
+      {error && (
+        <StyledError textStyle={TextStyle.SmallBold} color={TextColor.Fail} theme={theme}>
+          {error}
+        </StyledError>
+      )}
     </StyledCheckboxContainer>
   );
-}
+};

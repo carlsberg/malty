@@ -18,6 +18,7 @@ export const StyledThead = styled.thead``;
 export const StyledHead = styled.th<{
   isSortable: boolean;
   alignPosition?: TableHeaderAlignment;
+  allowSelection?: boolean;
 }>`
   cursor: ${({ isSortable }) => (isSortable ? 'pointer' : 'default')};
   background-color: ${({ theme }) => theme.colors.colours.support[20].value};
@@ -27,7 +28,7 @@ export const StyledHead = styled.th<{
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};
   height: ${({ theme }) => theme.sizes.xl.value};
   text-align: ${({ alignPosition }) => alignPosition || 'left'};
-  padding: 0 ${({ theme }) => theme.sizes['2xs'].value};
+  padding: ${({ theme, allowSelection }) => (allowSelection ? '0' : `0 ${theme.sizes['2xs'].value}`)};
 
   > * {
     display: flex;

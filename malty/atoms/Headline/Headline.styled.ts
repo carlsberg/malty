@@ -72,4 +72,6 @@ export const StyledHeadline = styled.h1<{
       `}
     }
   `}
+  word-break: normal;
+  overflow-wrap: anywhere;
 `;

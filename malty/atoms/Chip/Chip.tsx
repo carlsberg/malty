@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { StyledChip, StyledIcon, StyledTextContainer } from './Chip.styled';
 import { ChipProps, ChipSize } from './Chip.types';
 
-export function Chip({
+export const Chip = ({
   label,
   size = ChipSize.Medium,
   selected = false,
@@ -17,7 +17,7 @@ export function Chip({
   dataTestId,
   disabled = false,
   readOnly = false
-}: ChipProps) {
+}: ChipProps) => {
   const theme = defaultTheme;
   const [chipSize, setChipSize] = useState(theme.sizes.l.value);
   const [fontSize, setFontSize] = useState(TextStyle.MediumSmallBold);
@@ -118,4 +118,4 @@ export function Chip({
       )}
     </StyledChip>
   );
-}
+};

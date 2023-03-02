@@ -14,7 +14,7 @@ import {
 } from './Rating.styled';
 import { RatingProps } from './Rating.types';
 
-export function Rating({
+export const Rating = ({
   name,
   label,
   value,
@@ -23,7 +23,7 @@ export function Rating({
   totalReview,
   onStarClick,
   dataTestId
-}: RatingProps) {
+}: RatingProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [ratingValue, setRatingValue] = useState(value);
   const [hoverRating, setHoverRating] = useState(0);
@@ -143,4 +143,4 @@ export function Rating({
       </StyledMainContainer>
     </StyledRatingContainer>
   );
-}
+};

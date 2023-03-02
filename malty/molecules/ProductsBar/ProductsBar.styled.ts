@@ -9,7 +9,7 @@ export const StyledProductsBar = styled.div`
   border-style: solid;
   box-sizing: border-box;
   padding: ${({ theme }) => `${theme.sizes.m.value} ${theme.sizes.l.value}`};
-  overflow-y: hidden;
+  overflow: hidden;
 `;
 export const StyledSystemWrapper = styled.div`
   position: absolute;
@@ -77,12 +77,12 @@ export const StyledProfileMenu = styled.div<{
   background-color: ${({ open }) => (open ? 'rgb(49,69,80)' : 'transparent')};
   position: absolute;
   transform: ${({ open }) => (open ? 'translateY(-100%)' : 'translateY(-84px)')};
-  overflow-y: hidden;
+  overflow: hidden;
   transition: all 0.2s ease-out;
   z-index: 200;
 `;
 export const StyledProfileHeader = styled.div`
-  padding-left: ${({ theme }) => theme.sizes[`4xl`].value};
+  padding-left: ${({ theme }) => theme.sizes[`5xl`].value};
   top: 0;
   position: absolute;
   padding-top: ${({ theme }) => theme.sizes.m.value};

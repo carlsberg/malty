@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen, within } from '@testing-library/react';
 import React from 'react';

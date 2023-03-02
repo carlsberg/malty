@@ -9,7 +9,7 @@ import { DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
-export function Pagination({
+export const Pagination = ({
   count,
   currentPage,
   onChange,
@@ -18,7 +18,7 @@ export function Pagination({
   dataQaId,
   isWhite = false,
   zeroBasedIndex = false
-}: PaginationProps) {
+}: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [inputValue, setInputValue] = useState<number | string>(currentPage);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
@@ -41,24 +41,6 @@ export function Pagination({
       : lastPage === currentPage;
   const isCompact = type === PaginationType.Compact;
   const isInput = type === PaginationType.Input;
-
-  useEffect(() => {
-    let timeOutId: NodeJS.Timeout;
-
-    if (type === PaginationType.Input) {
-      if (inputValue || inputValue === 0 || inputValue === '') {
-        timeOutId = setTimeout(() => onChange(inputValue, PaginationTrigger.PageNr), 350);
-      }
-    }
-
-    return () => clearTimeout(timeOutId);
-  }, [inputValue]);
-
-  useEffect(() => {
-    if (type === PaginationType.Input) {
-      setInputValue(currentPage);
-    }
-  }, [currentPage]);
 
   useEffect(() => {
     if (window.innerWidth <= 768) {
@@ -87,10 +69,7 @@ export function Pagination({
 
   const onPrevious = () => {
     if (type === PaginationType.Input) {
-      if (inputValue && inputValue > count && inputValue === undefined) {
-        return zeroBasedIndex ? setInputValue(0) : setInputValue(1);
-      }
-
+      onChange((inputValue as number) - 1);
       return setInputValue((inputValue as number) - 1);
     }
 
@@ -99,9 +78,7 @@ export function Pagination({
 
   const onNext = () => {
     if (type === PaginationType.Input) {
-      if (inputValue && inputValue < count && inputValue === undefined) {
-        return zeroBasedIndex ? setInputValue(0) : setInputValue(1);
-      }
+      onChange((inputValue as number) + 1);
       return setInputValue((inputValue as number) + 1);
     }
 
@@ -119,9 +96,17 @@ export function Pagination({
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.value !== '') {
       setInputValue(Number(event.target.value) - 1);
-    } else {
-      setInputValue('');
+      let timeOutId: NodeJS.Timeout;
+
+      if (type === PaginationType.Input) {
+        if (inputValue || inputValue === 0 || inputValue === '') {
+          timeOutId = setTimeout(() => onChange(Number(event.target.value) - 1, PaginationTrigger.PageNr), 350);
+        }
+      }
+
+      return () => clearTimeout(timeOutId);
     }
+    return setInputValue('');
   };
 
   const renderContent = () => {
@@ -227,4 +212,4 @@ export function Pagination({
       </ul>
     </StyledContainer>
   );
-}
+};

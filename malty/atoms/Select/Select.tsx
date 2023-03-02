@@ -26,7 +26,7 @@ import {
 } from './Select.styled';
 import { SelectOptionsType, SelectPosition, SelectProps, SelectSize, SelectType } from './Select.types';
 
-export function Select({
+export const Select = ({
   defaultValue = [],
   onValueChange,
   options,
@@ -48,7 +48,7 @@ export function Select({
   clearAllOption = true,
   alignPosition = SelectPosition.Left,
   onBlur
-}: SelectProps) {
+}: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
   const [numSize, setNumSize] = useState(theme.sizes.xl.value);
@@ -220,6 +220,7 @@ export function Select({
           >
             {multiple && (
               <Checkbox
+                fullWidth
                 data-testid={`${dataTestId}-option-checkbox-${index}`}
                 labelText={option.name as string}
                 value={option.value}
@@ -294,4 +295,4 @@ export function Select({
       )}
     </StyledMainWrapper>
   );
-}
+};
