@@ -2,6 +2,7 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
@@ -25,7 +26,8 @@ import {
   StyledRow,
   StyledSelect,
   StyledStock,
-  StyledStockInformation
+  StyledStockInformation,
+  StyledTitle
 } from './ProductCard.styled';
 import { ProductCardProps } from './ProductCard.types';
 
@@ -92,51 +94,58 @@ export function ProductCard({
       cardStyle={productCardStyle}
       orientation={orientation}
       cardHero={
-        <div onClick={onProductClick}>
-          <StyledImage theme={theme} orientation={orientation} src={imageSrc} alt="" height={height} width={width}>
-            <>
-              <StyledPillWrapper theme={theme}>
-                <StyledDiscountContainer theme={theme}>
-                  {discountPill ? (
-                    <StyledDiscountPill theme={theme}>
-                      <Pill
-                        text={discountPill?.text}
-                        color={discountPill?.color}
-                        size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                        icon={discountPill?.icon}
-                      />
-                    </StyledDiscountPill>
-                  ) : null}
-
-                  {promoPill ? (
+        <StyledImage
+          showCursor={!!onProductClick}
+          onClick={onProductClick}
+          theme={theme}
+          orientation={orientation}
+          src={imageSrc}
+          alt=""
+          height={height}
+          width={width}
+        >
+          <>
+            <StyledPillWrapper theme={theme}>
+              <StyledDiscountContainer theme={theme}>
+                {discountPill ? (
+                  <StyledDiscountPill theme={theme}>
                     <Pill
-                      text={promoPill?.text}
-                      color={promoPill?.color}
+                      text={discountPill?.text}
+                      color={discountPill?.color}
                       size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                      icon={promoPill?.icon}
+                      icon={discountPill?.icon}
                     />
-                  ) : null}
-                </StyledDiscountContainer>
-                {cartPill ? (
+                  </StyledDiscountPill>
+                ) : null}
+
+                {promoPill ? (
                   <Pill
-                    text={cartPill?.text}
-                    color={cartPill?.color}
+                    text={promoPill?.text}
+                    color={promoPill?.color}
                     size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
-                    icon={cartPill?.icon}
+                    icon={promoPill?.icon}
                   />
                 ) : null}
-              </StyledPillWrapper>
-              <StyledFavoriteWrapper theme={theme}>
-                <Icon
-                  onClick={handleFavoriteClick}
-                  name={favorite ? IconName.HeartFilled : IconName.Heart}
-                  color={favoriteIconColor}
-                  size={IconSize.MediumSmall}
+              </StyledDiscountContainer>
+              {cartPill ? (
+                <Pill
+                  text={cartPill?.text}
+                  color={cartPill?.color}
+                  size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
+                  icon={cartPill?.icon}
                 />
-              </StyledFavoriteWrapper>
-            </>
-          </StyledImage>
-        </div>
+              ) : null}
+            </StyledPillWrapper>
+            <StyledFavoriteWrapper theme={theme}>
+              <Icon
+                onClick={handleFavoriteClick}
+                name={favorite ? IconName.HeartFilled : IconName.Heart}
+                color={favoriteIconColor}
+                size={IconSize.MediumSmall}
+              />
+            </StyledFavoriteWrapper>
+          </>
+        </StyledImage>
       }
       cardBody={
         <>
@@ -148,9 +157,14 @@ export function ProductCard({
             </StyledMargin>
           )}
           <StyledMargin theme={theme}>
-            <Text onClick={onProductClick} dataQaId={`${dataTestId}-title`} textStyle={TextStyle.MediumSmallBold}>
+            <StyledTitle
+              showCursor={!!onProductClick}
+              onClick={onProductClick}
+              dataQaId={`${dataTestId}-title`}
+              textStyle={TextStyle.MediumSmallBold}
+            >
               {title}
-            </Text>
+            </StyledTitle>
           </StyledMargin>
           {quantitySelectOptions && (
             <StyledSelect theme={theme}>
@@ -191,7 +205,7 @@ export function ProductCard({
             {loyalty ? (
               <StyledLoyalty theme={theme}>
                 <Text textStyle={TextStyle.SmallBold}>{loyalty.label}</Text>
-                {/* <Icon  /> */}
+                <Image removeBackground src={loyalty.imageSrc} alt="loyalty-coin" />
               </StyledLoyalty>
             ) : null}
           </StyledRow>
@@ -213,7 +227,7 @@ export function ProductCard({
                 value={quantityValue}
                 max={maxQuantity}
                 size={InputSize.Medium}
-                maxLength={2}
+                maxLength={maxQuantity}
               />
             )}
             {action ? (

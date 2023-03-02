@@ -19,7 +19,9 @@ export function Image({
   figcaption,
   fallbackSrc,
   dataTestId,
-  className
+  className,
+  onClick,
+  removeBackground = false
 }: ImageProps) {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [test, setTest] = useState(false);
@@ -31,9 +33,9 @@ export function Image({
     }
   };
   return (
-    <StyledContainer className={className} theme={theme}>
+    <StyledContainer onClick={onClick} className={className} theme={theme}>
       <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
-        <StyledWrapper theme={theme}>
+        <StyledWrapper removeBackground={removeBackground} theme={theme}>
           <StyledOverlay
             data-testid={`${dataTestId}-overlay`}
             theme={theme}

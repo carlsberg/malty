@@ -12,6 +12,8 @@ export interface ImageProps {
   figcaption?: string;
   dataTestId?: string;
   className?: string;
+  onClick?: () => void;
+  removeBackground?: boolean;
 }
 
 export enum ImageEffectPosition {

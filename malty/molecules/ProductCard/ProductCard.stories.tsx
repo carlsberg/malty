@@ -64,7 +64,7 @@ export default {
       }
     },
     onProdcutClick: {
-      control: 'null'
+      control: ''
     },
     orientation: {
       description: 'Card orientation. Options are',
@@ -184,7 +184,7 @@ export default {
       description: `An Object that defines loyalty label and icon:
     | {
         label: string;
-        icon: IconName;
+        imageSrc: string;
       }`,
       table: {
         category: 'Card Body'
@@ -267,12 +267,13 @@ switch (variant) {
       price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
       discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
       sku: 'Sku: 12512 512',
-      loyalty: { label: '+30', icon: IconName.AddContent },
+      loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
       quantitySelectOptions: selectQuanityOptions,
       discountPill: { text: '20%', color: PillColor.alertStrong },
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
+      favoriteIconColor: IconColor.Primary,
       productsCardsAlerts: [
         { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
         { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
@@ -296,12 +297,13 @@ switch (variant) {
       price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
       discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
       sku: 'Sku: 12512 512',
-      loyalty: { label: '+30', icon: IconName.AddContent },
+      loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
       quantitySelectOptions: selectQuanityOptions,
       discountPill: { text: '20%', color: PillColor.alertStrong },
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
-      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart }
+      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
+      favoriteIconColor: IconColor.Primary
     };
     break;
 }

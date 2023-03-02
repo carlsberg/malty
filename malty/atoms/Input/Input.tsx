@@ -220,7 +220,7 @@ export const Input = forwardRef(
           theme={theme}
           size={inputSize}
           isError={!!error}
-          disabled={disabled || disableRightButton || value === max?.toString()}
+          disabled={disabled || disableRightButton || value >= max?.toString()}
           readOnly={readOnly}
           onClick={handleRightButtonClick}
           aria-label="Quantity Plus"

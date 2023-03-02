@@ -20,6 +20,11 @@ export const StyledPillWrapper = styled.div`
 export const StyledSelect = styled.div`
   margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
 `;
+export const StyledTitle = styled(Text)<{
+  showCursor: boolean;
+}>`
+  cursor: ${({ showCursor }) => (showCursor ? 'pointer' : 'default')};
+`;
 export const StyledFooter = styled.div`
   display: flex;
   justify-content: space-between;
@@ -30,7 +35,9 @@ export const StyledFooter = styled.div`
 `;
 export const StyledImage = styled(Image)<{
   orientation: CardOrientation;
+  showCursor: boolean;
 }>`
+  cursor: ${({ showCursor }) => (showCursor ? 'pointer' : 'default')};
   width: ${({ orientation }) => orientation === CardOrientation.Portrait && '100%'};
   height: ${({ orientation }) => orientation === CardOrientation.Landscape && '100%'};
 `;
@@ -44,7 +51,11 @@ export const StyledPrice = styled(Text)<{
   }
 `;
 export const StyledPriceContainer = styled.div``;
-export const StyledLoyalty = styled.div``;
+export const StyledLoyalty = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${({ theme }) => theme.sizes['4xs'].value};
+`;
 export const StyledStock = styled.div`
   display: flex;
   align-items: center;

@@ -30,7 +30,7 @@ export interface ProductCardProps {
   };
   loyalty?: {
     label: string;
-    icon: IconName;
+    imageSrc: string;
   };
   price?: {
     label: string;
