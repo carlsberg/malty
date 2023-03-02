@@ -14,7 +14,6 @@ export const Label = ({ htmlFor, label, dataTestId, required, disabled, ...props
       htmlFor={htmlFor}
       required={required}
       disabled={disabled}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
       {label}

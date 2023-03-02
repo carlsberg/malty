@@ -26,8 +26,6 @@ import { ProductsBarProps, ProfileMenuProps } from './ProductsBar.types';
 const LinkComponent = ({ component, href, children, componentProps }: LinkComponentProps) => {
   const CustomComponent = (component as keyof JSX.IntrinsicElements) || null;
 
-  // we need to spread props in this case in order to allow custom properties being passed to the custom component
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>;
 };
 
