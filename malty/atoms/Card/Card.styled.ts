@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { position, space } from 'styled-system';
 import { CardOrientation, CardStyle } from './Card.types';
 
 export const StyledCardContainer = styled.div<{
@@ -12,6 +13,8 @@ export const StyledCardContainer = styled.div<{
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   filter: brightness(100%);
   -webkit-filter: brightness(100%);
+  ${space}
+  ${position}
 
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {

@@ -1,8 +1,10 @@
 import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { Card as CardComponent } from './Card';
 import { CardOrientation, CardProps, CardStyle } from './Card.types';
 
@@ -56,7 +58,8 @@ export default {
 
 // eslint-disable-next-line react/function-component-definition
 const Template: Story<CardProps> = (args) => {
-  return <CardComponent {...args} />;
+  const theme = useContext(ThemeContext) || defaultTheme;
+  return <CardComponent mx={theme.sizes['5xs'].value} {...args} />;
 };
 
 export const Card = Template.bind({});

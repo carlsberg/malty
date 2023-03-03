@@ -1,4 +1,6 @@
-export interface CardProps {
+import { PositionProps, SpaceProps } from 'styled-system';
+
+export interface CardProps extends SpaceProps, PositionProps {
   cardStyle?: CardStyle;
   orientation?: CardOrientation;
   selected?: boolean;

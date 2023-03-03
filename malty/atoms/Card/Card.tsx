@@ -11,7 +11,8 @@ export const Card = ({
   cardHero,
   cardBody,
   onClick,
-  dataTestId = 'card-element'
+  dataTestId = 'card-element',
+  ...props
 }: CardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -24,6 +25,7 @@ export const Card = ({
       hover={!!onClick}
       theme={theme}
       data-testid={dataTestId}
+      {...props}
     >
       {cardHero && (
         <StyledCardHero orientation={orientation} theme={theme} data-testid={`${dataTestId}-hero`}>
