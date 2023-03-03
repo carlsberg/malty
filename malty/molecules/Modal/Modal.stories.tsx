@@ -9,23 +9,23 @@ export default {
   component: ModalComponent,
   parameters: {
     importObject: 'Modal',
-    importPath: '@carlsberggroup/malty.molecules.modal',
+    importPath: '@carlsberggroup/malty.molecules.modal'
   },
   argTypes: {
     open: {
       description: 'The bolean state that controlls whether the Modal is open or not',
-      control: '',
+      control: ''
     },
     setOpen: {
-      description: `The useState function that controlls the "open" state`,
+      description: `The useState function that controlls the "open" state`
     },
     title: {
       control: 'text',
-      description: 'Modal title',
+      description: 'Modal title'
     },
     dismissible: {
       control: 'boolean',
-      description: 'Defines if the user has the ability to close the Modal',
+      description: 'Defines if the user has the ability to close the Modal'
     },
     actions: {
       control: '',
@@ -35,24 +35,24 @@ export default {
         label: string;
         onClick: () => void;
         key?: string;
-      }[]" or any html or JSX element `,
+      }[]" or any html or JSX element `
     },
     whiteBackground: {
       control: 'boolean',
-      description: 'If true background overlay turns white instead of grayish',
+      description: 'If true background overlay turns white instead of grayish'
     },
     overlayZindex: {
       control: 'number',
-      description: 'Controls the z-index of the modal overlay',
+      description: 'Controls the z-index of the modal overlay'
     },
     size: {
       control: {
-        type: 'select',
+        type: 'select'
       },
       options: Object.values(ModalSize),
-      description: 'Picks the size of the modal',
-    },
-  },
+      description: 'Picks the size of the modal'
+    }
+  }
 } as Meta;
 
 const Template: Story<ModalProps> = ({
@@ -62,7 +62,7 @@ const Template: Story<ModalProps> = ({
   dismissible,
   whiteBackground,
   size,
-  overlayZindex,
+  overlayZindex
 }: ModalProps) => {
   const [open, setOpen] = useState(true);
   const toggleModal = () => setOpen(!open);
@@ -98,12 +98,12 @@ Modal.args = {
     {
       variant: ButtonStyle.Secondary,
       label: 'Cancel',
-      onClick: () => alert('secondary button pressed'),
+      onClick: () => alert('secondary button pressed')
     },
     {
       variant: ButtonStyle.Primary,
       label: 'Confirm',
-      onClick: () => alert('primary button pressed'),
-    },
-  ],
+      onClick: () => alert('primary button pressed')
+    }
+  ]
 };

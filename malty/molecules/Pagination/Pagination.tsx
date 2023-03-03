@@ -9,7 +9,7 @@ import { DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
-export function Pagination({
+export const Pagination = ({
   count,
   currentPage,
   onChange,
@@ -18,7 +18,7 @@ export function Pagination({
   dataQaId,
   isWhite = false,
   zeroBasedIndex = false
-}: PaginationProps) {
+}: PaginationProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [inputValue, setInputValue] = useState<number | string>(currentPage);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
@@ -212,4 +212,4 @@ export function Pagination({
       </ul>
     </StyledContainer>
   );
-}
+};

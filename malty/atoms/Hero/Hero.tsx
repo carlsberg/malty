@@ -8,7 +8,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledButtonsWrapper, StyledHeroContainer, StyledHeroContent, StyledHeroImage } from './Hero.styled';
 import { HeroLayout, HeroProps } from './Hero.types';
 
-export function Hero({
+export const Hero = ({
   imageSrc,
   imageHeight,
   label,
@@ -19,7 +19,7 @@ export function Hero({
   layout = HeroLayout.Full,
   actions,
   dataTestId = 'hero-component'
-}: HeroProps) {
+}: HeroProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const labelProps: PillProps = {
@@ -82,4 +82,4 @@ export function Hero({
       />
     </StyledHeroContainer>
   );
-}
+};

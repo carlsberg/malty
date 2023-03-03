@@ -35,7 +35,7 @@ import {
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
-export function Table({
+export const Table = ({
   headers,
   rows,
   onRowClick,
@@ -50,7 +50,7 @@ export function Table({
   totalRecords,
   serverSide = true,
   onPaginationChange = () => null
-}: TableProps) {
+}: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data, setData] = useState(rows);
@@ -348,4 +348,4 @@ export function Table({
       </div>
     </DragDropContext>
   );
-}
+};

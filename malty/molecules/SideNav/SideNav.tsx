@@ -7,7 +7,7 @@ import { ThemeContext } from 'styled-components';
 import { StyledListWrapper, StyledSideNav, StyledWrapper } from './SideNav.styled';
 import { SideNavProps } from './SideNav.types';
 
-export function SideNav({ navItems, systemOptions, profileMenu, productName }: SideNavProps) {
+export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: SideNavProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   // Nav list active menu items
@@ -47,4 +47,4 @@ export function SideNav({ navItems, systemOptions, profileMenu, productName }: S
       </StyledSideNav>
     </StyledWrapper>
   );
-}
+};

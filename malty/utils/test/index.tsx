@@ -2,7 +2,7 @@ import { render, RenderOptions } from '@testing-library/react';
 import React, { ComponentType, ReactElement } from 'react';
 import renderer from 'react-test-renderer';
 
-const AllTheProviders: React.FC = function AllTheProviders({ children }) {
+const AllTheProviders: React.FC = ({ children }) => {
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
 };

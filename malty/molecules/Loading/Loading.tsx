@@ -9,14 +9,14 @@ import React, { useEffect, useState } from 'react';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
-export function Loading({
+export const Loading = ({
   text,
   size = LoadingSize.Small,
   status = LoadingStatus.Pending,
   dataQaId,
   negative = false,
   color = ProgressSpinnerColor.DigitalBlack
-}: LoadingProps) {
+}: LoadingProps) => {
   const theme = defaultTheme;
 
   const [progressStatus, setProgressStatus] = useState<ProgressSpinnerStatus>(ProgressSpinnerStatus.Pending);
@@ -70,4 +70,4 @@ export function Loading({
       )}
     </StyledLoadingContainer>
   ) : null;
-}
+};

@@ -4,7 +4,7 @@ import { Label } from '@carlsberggroup/malty.atoms.label';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { KeyboardEvent, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { FC, KeyboardEvent, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -21,7 +21,17 @@ import {
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
-export function Datepicker({
+export const Container: FC<{ withoutBorder?: boolean }> = ({ children, withoutBorder }) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
+  return (
+    <StyledContainer theme={theme} withoutBorder={withoutBorder}>
+      <StyledCalendar theme={theme}>{children}</StyledCalendar>
+    </StyledContainer>
+  );
+};
+
+export const Datepicker = ({
   startDate,
   endDate,
   onChange,
@@ -45,7 +55,7 @@ export function Datepicker({
   withPortal,
   withoutBorder,
   ...props
-}: DatepickerProps) {
+}: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [numSize, setNumSize] = useState(theme.sizes.xl.value);
   const colors = useColorsMapping();
@@ -106,14 +116,6 @@ export function Datepicker({
       }
     }
   }, [size, theme]);
-
-  function Container({ children }: { children: ReactNode }) {
-    return (
-      <StyledContainer theme={theme} withoutBorder={withoutBorder && inline}>
-        <StyledCalendar theme={theme}>{children}</StyledCalendar>
-      </StyledContainer>
-    );
-  }
 
   const renderDatepickerCaptions = () => {
     if (!captions || !captions.length) {
@@ -199,7 +201,7 @@ export function Datepicker({
           locale={locale}
           showPopperArrow={false}
           calendarClassName="calendar"
-          calendarContainer={Container}
+          calendarContainer={({ children }) => Container({ children, withoutBorder: withoutBorder && inline })}
           calendarStartDay={1}
           useWeekdaysShort
           minDate={minDate}
@@ -214,7 +216,6 @@ export function Datepicker({
           dateFormatCalendar="MMMM"
           shouldCloseOnSelect={shouldCloseOnSelect}
           withPortal={withPortal}
-          // eslint-disable-next-line react/jsx-props-no-spreading
           {...props}
         >
           {renderDatepickerCaptions()}
@@ -223,4 +224,4 @@ export function Datepicker({
       </StyledDatepicker>
     </StyledWrapper>
   );
-}
+};
