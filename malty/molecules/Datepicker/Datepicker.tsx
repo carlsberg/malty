@@ -21,11 +21,11 @@ import {
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
-export const Container: FC = ({ children }) => {
+export const Container: FC<{ withoutBorder?: boolean }> = ({ children, withoutBorder }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledContainer theme={theme}>
+    <StyledContainer theme={theme} withoutBorder={withoutBorder}>
       <StyledCalendar theme={theme}>{children}</StyledCalendar>
     </StyledContainer>
   );
@@ -53,6 +53,7 @@ export const Datepicker = ({
   required,
   dataTestId,
   withPortal,
+  withoutBorder,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -200,7 +201,7 @@ export const Datepicker = ({
           locale={locale}
           showPopperArrow={false}
           calendarClassName="calendar"
-          calendarContainer={Container}
+          calendarContainer={({ children }) => Container({ children, withoutBorder: withoutBorder && inline })}
           calendarStartDay={1}
           useWeekdaysShort
           minDate={minDate}

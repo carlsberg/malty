@@ -132,6 +132,10 @@ export default {
     required: {
       control: 'boolean',
       description: 'Makes the Datepicker required to fill'
+    },
+    withoutBorder: {
+      control: 'boolean',
+      description: 'Disables the border and padding from the calendar portal only if inline is true'
     }
   }
 } as Meta;
@@ -155,7 +159,8 @@ const Template: Story<DatepickerProps> = ({
   size,
   required,
   dataTestId,
-  withPortal
+  withPortal,
+  withoutBorder
 }) => {
   const [startDate, setStartDate] = useState<Date | null>(new Date());
   const [endDate, setEndDate] = useState<Date | null>(new Date());
@@ -202,6 +207,7 @@ const Template: Story<DatepickerProps> = ({
         required={required}
         dataTestId={dataTestId}
         withPortal={withPortal}
+        withoutBorder={withoutBorder}
       />
     </div>
   );
