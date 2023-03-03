@@ -11,7 +11,7 @@ import {
 } from './Toggle.styled';
 import { ToggleProps } from './Toggle.types';
 
-export function Toggle({
+export const Toggle = ({
   disabled,
   onValueChange,
   label,
@@ -20,7 +20,7 @@ export function Toggle({
   required = false,
   dataTestId,
   ...props
-}: ToggleProps) {
+}: ToggleProps) => {
   const theme = defaultTheme;
   const [stateChecked, setStateChecked] = useState(checked);
   const id = useMemo(() => uuid(), []);
@@ -45,7 +45,6 @@ export function Toggle({
             checked={stateChecked}
             onChange={handleToggle}
             required={required}
-            // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />
           <StyledSwitch id={id} theme={theme} disabled={disabled} className="switch" />
@@ -63,4 +62,4 @@ export function Toggle({
       {error && <StyledError theme={theme}>{error}</StyledError>}
     </>
   );
-}
+};

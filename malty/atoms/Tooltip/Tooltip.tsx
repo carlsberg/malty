@@ -6,7 +6,7 @@ import { CLOSE_TOOLTIP_EVENT, OPEN_TOOLTIP_EVENT, START_TOOLTIP_TIMER_EVENT, use
 import { StyledArrow, StyledTooltip, StyledTooltipWrapper } from './Tooltip.styled';
 import { TooltipPositionStrategy, TooltipToggle, TooltipType } from './Tooltip.types';
 
-const Tooltip: TooltipType = function Tooltip({
+const Tooltip: TooltipType = ({
   placement,
   toggle = TooltipToggle.Hover,
   isDark = true,
@@ -18,7 +18,7 @@ const Tooltip: TooltipType = function Tooltip({
   tooltipId,
   positionStrategy = TooltipPositionStrategy.Absolute,
   children
-}) {
+}) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const {
     isOpen,
@@ -77,7 +77,6 @@ const Tooltip: TooltipType = function Tooltip({
       {triggerComponent(setReferenceElement)}
 
       <StyledTooltipWrapper
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...attributes.popper}
         ref={setPopperElement}
         style={styles.popper}

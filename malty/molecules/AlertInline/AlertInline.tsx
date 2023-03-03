@@ -15,7 +15,7 @@ import {
 } from './AlertInline.styled';
 import { AlertInlineColor, AlertInlineProps, AlertInlineSize } from './AlertInline.types';
 
-export function AlertInline({
+export const AlertInline = ({
   icon,
   size = AlertInlineSize.Default,
   color = AlertInlineColor.Notification,
@@ -26,7 +26,7 @@ export function AlertInline({
   secondActionText,
   message,
   title
-}: AlertInlineProps) {
+}: AlertInlineProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const labelFontColor =
     color === AlertInlineColor.Notification || color === AlertInlineColor.Fail
@@ -123,4 +123,4 @@ export function AlertInline({
       </StyledAlertInLine>
     </StyledAlertInLineWrapper>
   );
-}
+};

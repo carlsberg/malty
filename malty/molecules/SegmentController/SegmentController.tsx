@@ -5,14 +5,14 @@ import { ThemeContext } from 'styled-components';
 import { StyledDivider, StyledSegmentController } from './SegmentController.styled';
 import { SegmentControllerProps, SegmentControllerSize } from './SegmentController.types';
 
-export function SegmentController({
+export const SegmentController = ({
   options,
   size,
   dataQaId,
   disabled = false,
   selected = options[0].value,
   onChange = () => null
-}: SegmentControllerProps) {
+}: SegmentControllerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [chipSize, setchipSize] = useState(ChipSize.Medium);
 
@@ -54,4 +54,4 @@ export function SegmentController({
       ))}
     </StyledSegmentController>
   );
-}
+};
