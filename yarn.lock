@@ -5376,6 +5376,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Changelog-ce76f0@workspace:malty/atoms/Changelog":
+  version: 0.0.0-use.local
+  resolution: "Changelog-ce76f0@workspace:malty/atoms/Changelog"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Check-ed0187@workspace:malty/icons/Check":
   version: 0.0.0-use.local
   resolution: "Check-ed0187@workspace:malty/icons/Check"
