@@ -31,7 +31,7 @@ import {
 } from './ProductCard.styled';
 import { ProductCardProps } from './ProductCard.types';
 
-export function ProductCard({
+export const ProductCard = ({
   dataTestId,
   onProductClick,
   orientation = CardOrientation.Portrait,
@@ -57,7 +57,7 @@ export function ProductCard({
   promoPill,
   cartPill,
   favoriteIconColor = IconColor.DigitalBlack
-}: ProductCardProps) {
+}: ProductCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
   const [width] = useState(imageWidth);
@@ -149,13 +149,13 @@ export function ProductCard({
       }
       cardBody={
         <>
-          {sku && (
+          {sku ? (
             <StyledMargin theme={theme}>
               <Text dataQaId={`${dataTestId}-sku`} textStyle={TextStyle.SmallDefault} color={TextColor.Support80}>
                 {sku}
               </Text>
             </StyledMargin>
-          )}
+          ) : null}
           <StyledMargin theme={theme}>
             <StyledTitle
               showCursor={!!onProductClick}
@@ -166,7 +166,7 @@ export function ProductCard({
               {title}
             </StyledTitle>
           </StyledMargin>
-          {quantitySelectOptions && (
+          {quantitySelectOptions ? (
             <StyledSelect theme={theme}>
               <Select
                 placeholder={quantitySelectOptions[0].name}
@@ -175,7 +175,7 @@ export function ProductCard({
                 onValueChange={onSelectQuantityChange}
               />
             </StyledSelect>
-          )}
+          ) : null}
           <StyledRow theme={theme}>
             {price || discountPrice ? (
               <StyledPriceContainer theme={theme}>
@@ -190,7 +190,7 @@ export function ProductCard({
                     {price.label}
                   </StyledPrice>
                 ) : null}
-                {discountPrice && (
+                {discountPrice ? (
                   <Text
                     dataQaId={`${dataTestId}-discount-price`}
                     color={discountPrice?.color}
@@ -198,7 +198,7 @@ export function ProductCard({
                   >
                     {discountPrice.label}
                   </Text>
-                )}
+                ) : null}
               </StyledPriceContainer>
             ) : null}
 
@@ -219,7 +219,7 @@ export function ProductCard({
           ) : null}
 
           <StyledFooter theme={theme}>
-            {!hideQuantityInput && (
+            {!hideQuantityInput ? (
               <Input
                 onClick={(e) => e.stopPropagation()}
                 type={InputType.Quantity}
@@ -229,7 +229,7 @@ export function ProductCard({
                 size={InputSize.Medium}
                 maxLength={maxQuantity}
               />
-            )}
+            ) : null}
             {action ? (
               <Button
                 text={action?.icon ? undefined : action?.label}
@@ -253,4 +253,4 @@ export function ProductCard({
       }
     />
   );
-}
+};
