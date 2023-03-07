@@ -1,7 +1,12 @@
+import { srOnly } from '@carlsberggroup/malty.utils.mixins';
 import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.div`
   position: relative;
+
+  & .react-datepicker__aria-live {
+    ${srOnly};
+  }
 `;
 
 export const StyledDatepicker = styled.div<{
@@ -122,17 +127,28 @@ export const StyledInputIcon = styled.span<{
     `}
 `;
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.div<{
+  withoutBorder?: boolean;
+}>`
   //place container on top of datepicker input border
   margin-top: -1px;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   box-sizing: border-box;
-  border: ${({ theme }) => `${theme.borders['border-1px--solid']['border-width'].value}
-  ${theme.borders['border-1px--solid']['border-style'].value}
-  ${theme.colors.colours.default['digital-black'].value}`};
   width: 100%;
   user-select: none;
-  padding: ${({ theme }) => `${theme.sizes.xl.value} ${theme.sizes.m.value} ${theme.sizes.m.value}`};
+
+  ${({ theme, withoutBorder }) =>
+    withoutBorder
+      ? css`
+          padding: 0;
+          border: none;
+        `
+      : css`
+          padding: ${theme.sizes.l.value} ${theme.sizes.m.value} ${theme.sizes.m.value};
+          border: ${theme.borders['border-1px--solid']['border-width'].value}
+            ${theme.borders['border-1px--solid']['border-style'].value}
+            ${theme.colors.colours.default['digital-black'].value};
+        `}
 `;
 
 export const StyledCalendar = styled.div`
@@ -294,7 +310,6 @@ export const StyledCalendar = styled.div`
     z-index: 1;
     text-indent: -999em;
     overflow: hidden;
-    top: ${({ theme }) => `-${theme.sizes['2xs'].value}`};
   }
   & .react-datepicker__navigation-icon {
     position: relative;
@@ -321,7 +336,7 @@ export const StyledCalendar = styled.div`
   }
   & .react-datepicker__navigation--previous {
     left: initial;
-    right: ${({ theme }) => theme.sizes['4xl'].value};
+    right: ${({ theme }) => theme.sizes.xl.value};
   }
   & .react-datepicker__navigation-icon--previous {
     &:before {
@@ -330,7 +345,7 @@ export const StyledCalendar = styled.div`
   }
   & .react-datepicker__navigation--next {
     left: initial;
-    right: ${({ theme }) => theme.sizes.xs.value};
+    right: -${({ theme }) => theme.sizes.xs.value};
   }
   & .react-datepicker__navigation-icon--next {
     &:before {

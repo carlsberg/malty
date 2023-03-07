@@ -21,6 +21,7 @@ export interface DatepickerProps {
   size?: DatepickerSize;
   dataTestId?: string;
   withPortal?: boolean;
+  withoutBorder?: boolean;
 }
 
 export enum DatepickerSize {

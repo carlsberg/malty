@@ -4,7 +4,7 @@ import { Label } from '@carlsberggroup/malty.atoms.label';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { KeyboardEvent, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { FC, KeyboardEvent, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -20,6 +20,16 @@ import {
   StyledWrapper
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
+
+export const Container: FC<{ withoutBorder?: boolean }> = ({ children, withoutBorder }) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
+  return (
+    <StyledContainer theme={theme} withoutBorder={withoutBorder}>
+      <StyledCalendar theme={theme}>{children}</StyledCalendar>
+    </StyledContainer>
+  );
+};
 
 export const Datepicker = ({
   startDate,
@@ -43,6 +53,7 @@ export const Datepicker = ({
   required,
   dataTestId,
   withPortal,
+  withoutBorder,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -105,14 +116,6 @@ export const Datepicker = ({
       }
     }
   }, [size, theme]);
-
-  const Container = ({ children }: { children: ReactNode }) => {
-    return (
-      <StyledContainer theme={theme}>
-        <StyledCalendar theme={theme}>{children}</StyledCalendar>
-      </StyledContainer>
-    );
-  };
 
   const renderDatepickerCaptions = () => {
     if (!captions || !captions.length) {
@@ -198,7 +201,7 @@ export const Datepicker = ({
           locale={locale}
           showPopperArrow={false}
           calendarClassName="calendar"
-          calendarContainer={Container}
+          calendarContainer={({ children }) => Container({ children, withoutBorder: withoutBorder && inline })}
           calendarStartDay={1}
           useWeekdaysShort
           minDate={minDate}
