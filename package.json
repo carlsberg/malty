@@ -62,7 +62,7 @@
     "@storybook/theming": "^6.5.15",
     "jest-environment-jsdom": "^29.3.1",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/babel__core": "^7.1.20",
     "@types/jest": "^29.4.0",
