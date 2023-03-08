@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const Changelog = () => <h3>This is a etst component to check changelog changes</h3>;
+export const Changelog = () => <h1>This is a test component to check changelog changes 4</h1>;
