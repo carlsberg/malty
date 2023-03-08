@@ -23,7 +23,7 @@
     },
     "atoms/changelog": {
         "scope": "",
-        "version": "",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Changelog"
     },
