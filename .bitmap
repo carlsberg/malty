@@ -22,7 +22,7 @@
         "rootDir": "malty/atoms/Card"
     },
     "atoms/changelog": {
-        "scope": "carlsberggroup.malty",
+        "scope": "",
         "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Changelog"
