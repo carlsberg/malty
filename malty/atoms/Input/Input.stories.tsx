@@ -127,6 +127,14 @@ export default {
       control: 'number',
       description: 'Minimum length (number of characters)'
     },
+    max: {
+      control: 'number',
+      description: 'Maximum number'
+    },
+    min: {
+      control: 'number',
+      description: 'Minimum number'
+    },
     pattern: {
       control: 'text',
       description: 'Pattern to be applied to input value'
@@ -164,7 +172,9 @@ const Template: Story<InputProps> = ({
   disableLeftButton,
   disableRightButton,
   required,
-  disableQuantityInput
+  disableQuantityInput,
+  max,
+  min
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -188,6 +198,8 @@ const Template: Story<InputProps> = ({
       disableLeftButton={disableLeftButton}
       disableRightButton={disableRightButton}
       disableQuantityInput={disableQuantityInput}
+      max={max}
+      min={min}
     />
   );
 };

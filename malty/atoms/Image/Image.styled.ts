@@ -48,12 +48,14 @@ export const StyledContainer = styled.div<{
 `;
 export const StyledWrapper = styled.div<{
   isCover?: boolean;
+  removeBackground?: boolean;
 }>`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme }) => theme.colors.colours.support[20].value};
+  background-color: ${({ theme, removeBackground }) =>
+    removeBackground ? 'none' : theme.colors.colours.support[20].value};
   text-align: center;
   width: 100%;
   height: 100%;

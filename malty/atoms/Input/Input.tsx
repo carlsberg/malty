@@ -54,6 +54,8 @@ export const Input = forwardRef(
       required = false,
       onClickLeftInputButton,
       onClickRightInputButton,
+      min,
+      max,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement>
@@ -158,6 +160,8 @@ export const Input = forwardRef(
           theme={theme}
           ref={ref}
           required={required}
+          max={max}
+          min={min}
           {...props}
         />
         {renderClearable()}
@@ -172,7 +176,7 @@ export const Input = forwardRef(
           theme={theme}
           size={inputSize}
           isError={!!error}
-          disabled={disabled || disableLeftButton}
+          disabled={disabled || disableLeftButton || value === min?.toString()}
           readOnly={readOnly}
           onClick={handleLeftButtonClick}
           aria-label="Quantity Minus"
@@ -185,6 +189,8 @@ export const Input = forwardRef(
           />
         </StyledButton>
         <StyledInput
+          max={max}
+          min={min}
           disableQuantityInput={disableQuantityInput}
           className="quanity-input"
           data-testid={dataTestId}
@@ -213,7 +219,7 @@ export const Input = forwardRef(
           theme={theme}
           size={inputSize}
           isError={!!error}
-          disabled={disabled || disableRightButton}
+          disabled={disabled || disableRightButton || (max ? value >= max?.toString() : false)}
           readOnly={readOnly}
           onClick={handleRightButtonClick}
           aria-label="Quantity Plus"

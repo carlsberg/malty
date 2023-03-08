@@ -11,6 +11,9 @@ export interface ImageProps {
   children?: string | JSX.Element;
   figcaption?: string;
   dataTestId?: string;
+  className?: string;
+  onClick?: () => void;
+  removeBackground?: boolean;
 }
 
 export enum ImageEffectPosition {

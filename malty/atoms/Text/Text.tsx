@@ -14,7 +14,8 @@ export const Text = ({
   children,
   width,
   className,
-  dataQaId
+  dataQaId,
+  ...props
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   let StyledTag = as;
@@ -36,6 +37,8 @@ export const Text = ({
       theme={theme}
       as={StyledTag}
       className={className}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
     >
       {children}
     </StyledParagraph>

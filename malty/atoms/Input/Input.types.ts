@@ -28,6 +28,8 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   onClickLeftInputButton?: () => void;
   onClickRightInputButton?: () => void;
   pattern?: string;
+  min?: number;
+  max?: number;
 }
 
 export interface UseInputSizeProps {
