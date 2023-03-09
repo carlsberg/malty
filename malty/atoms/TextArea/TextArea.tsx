@@ -1,6 +1,6 @@
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
@@ -30,16 +30,31 @@ export const TextArea = ({
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [textAreaCount, setTextAreaCount] = useState(maxLength || 0);
+  const [textAreaCount, setTextAreaCount] = useState(maxLength ?? 0 - (value?.length ?? 0));
 
-  const handleCarachterCounter = (e: React.FormEvent<HTMLTextAreaElement>) => {
-    if (maxLength) {
-      setTextAreaCount(maxLength - e.currentTarget.value.length);
-    } else {
-      setTextAreaCount(e.currentTarget.value.length);
-    }
-    onValueChange(e.currentTarget.value as string);
+  const handleCharacterCounter = useCallback(
+    (internalValue?: string) => {
+      const charactersCount = internalValue?.length ?? 0;
+
+      if (maxLength) {
+        setTextAreaCount(maxLength - charactersCount);
+      } else {
+        setTextAreaCount(charactersCount);
+      }
+    },
+    [maxLength]
+  );
+
+  const handleOnValueChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
+    const currentValue = event.currentTarget.value;
+
+    handleCharacterCounter(currentValue);
+    onValueChange(currentValue);
   };
+
+  useEffect(() => {
+    handleCharacterCounter(value);
+  }, [value, handleCharacterCounter]);
 
   return (
     <StyledTextareaContainer theme={theme}>
@@ -58,7 +73,7 @@ export const TextArea = ({
           id={id}
           value={value}
           placeholder={placeholder}
-          onChange={handleCarachterCounter}
+          onChange={handleOnValueChange}
           theme={theme}
           disabled={disabled}
           readOnly={readOnly}
