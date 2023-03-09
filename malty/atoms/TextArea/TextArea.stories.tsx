@@ -43,7 +43,6 @@ export default {
       description: 'Maximum characters of textarea ',
       control: 'number'
     },
-
     value: {
       description: 'Default value of textarea',
       control: 'text'
@@ -64,9 +63,8 @@ export default {
 
 const Template: Story<TextAreaProps> = ({ value, onValueChange, ...args }) => {
   const [stateValue, setStateValue] = useState(value);
-  return (
-    <TextAreaComponent value={stateValue} onValueChange={(newValue: string) => setStateValue(newValue)} {...args} />
-  );
+
+  return <TextAreaComponent value={stateValue} onValueChange={setStateValue} {...args} />;
 };
 
 export const TextArea = Template.bind({});

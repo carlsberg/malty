@@ -1,6 +1,6 @@
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
@@ -18,7 +18,7 @@ export const TextArea = ({
   placeholder,
   resize = false,
   disabled = false,
-  value,
+  value: valueProp,
   onValueChange,
   error,
   maxLength,
@@ -30,31 +30,21 @@ export const TextArea = ({
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [textAreaCount, setTextAreaCount] = useState(maxLength ?? 0 - (value?.length ?? 0));
 
-  const handleCharacterCounter = useCallback(
-    (internalValue?: string) => {
-      const charactersCount = internalValue?.length ?? 0;
-
-      if (maxLength) {
-        setTextAreaCount(maxLength - charactersCount);
-      } else {
-        setTextAreaCount(charactersCount);
-      }
-    },
-    [maxLength]
-  );
+  const [value, setValue] = useState<string | undefined>(valueProp);
+  const valueCounter = value?.length ?? 0;
+  const textAreaCounter = maxLength ? maxLength - valueCounter : valueCounter;
 
   const handleOnValueChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
     const currentValue = event.currentTarget.value;
 
-    handleCharacterCounter(currentValue);
+    setValue(currentValue);
     onValueChange(currentValue);
   };
 
   useEffect(() => {
-    handleCharacterCounter(value);
-  }, [value, handleCharacterCounter]);
+    setValue(valueProp);
+  }, [valueProp]);
 
   return (
     <StyledTextareaContainer theme={theme}>
@@ -82,7 +72,7 @@ export const TextArea = ({
           {...props}
         />
         <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
-          {textAreaCount}
+          {textAreaCounter}
         </StyledTextAreaCharacterCounter>
       </StyledTextAreaWrapper>
       {error && (
