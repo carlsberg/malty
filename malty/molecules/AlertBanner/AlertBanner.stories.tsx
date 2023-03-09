@@ -33,10 +33,9 @@ AlertBanner.args = {
     {
       eid: '1',
       type: AlertBannerType.Error,
-      message: 'Hello, Im the AlertBanner!',
+      message:
+        'Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
-      action: action('First Action clicked'),
-      actionName: 'First Action',
       dismissible: true,
       onDismiss: action('Dismiss button clicked'),
       icon: true
@@ -44,7 +43,8 @@ AlertBanner.args = {
     {
       eid: '2',
       type: AlertBannerType.Information,
-      message: 'Hello, Im the AlertBanner!',
+      message:
+        'Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner!  Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
@@ -55,7 +55,8 @@ AlertBanner.args = {
     {
       eid: '3',
       type: AlertBannerType.Warning,
-      message: 'Hello, Im the AlertBanner!',
+      message:
+        'Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner! Hello, Im the AlertBanner!',
       dataQaId: 'alert-banner',
       action: action('First Action clicked'),
       actionName: 'First Action',
