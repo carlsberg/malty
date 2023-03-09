@@ -6,7 +6,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import React, { KeyboardEvent, PropsWithChildren, RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { usePrevious, useScrollPosition } from './AlertBanner.helper';
+import { useScrollPosition } from './AlertBanner.helper';
 import {
   CloseButtonContainer,
   Container,
@@ -51,8 +51,6 @@ export const AlertBanner = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   };
-  const prevAlertSelection: number = usePrevious(activeAlert);
-  const prevAlertArraySize: number = usePrevious(alertsArray.length);
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -100,13 +98,12 @@ export const AlertBanner = ({
   };
 
   useEffect(() => {
-    if (
-      isMobile &&
-      (prevAlertSelection <= 1 || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
-    ) {
+    console.log('useEffect');
+    if (isMobile) {
+      console.log('entered if');
       changeMobileTextWrapperSize();
     }
-  }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length, isMobile]);
+  }, [activeAlert, isMobile]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
