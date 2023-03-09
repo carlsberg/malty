@@ -42,7 +42,7 @@ export const AlertBanner = ({
   const [alertsArray, setAlertsArray] = useState(alerts);
   const currentAlert = alertsArray[activeAlert - 1];
   const breakpointNumber = Number(breakpoint.split('px')[0]);
-  const isMobile = width <= breakpointNumber;
+  const isMobile = width < breakpointNumber;
   const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
   const alertBannerStyledMessage: RefObject<HTMLDivElement> = useRef(null);
   const { showAnimations, triggerYPosition, isBannerTextCompressed, toggleBannerTextCompress } = animation || {
@@ -102,11 +102,11 @@ export const AlertBanner = ({
   useEffect(() => {
     if (
       isMobile &&
-      (!prevAlertSelection || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
+      (prevAlertSelection <= 1 || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
     ) {
       changeMobileTextWrapperSize();
     }
-  }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length]);
+  }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length, isMobile]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
