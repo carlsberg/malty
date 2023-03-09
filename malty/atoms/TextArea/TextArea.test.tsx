@@ -3,10 +3,17 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { TextArea } from './TextArea';
+import { TextAreaProps } from './TextArea.types';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
 const mockFn = jest.fn();
+
+const ControlledTextArea = ({ value: initialValue, ...props }: Omit<TextAreaProps, 'onValueChange'>) => {
+  const [value, setValue] = useState(initialValue);
+
+  return <TextArea {...props} label="Label" value={value} onValueChange={setValue} dataTestId="textarea" />;
+};
 
 describe('textarea', () => {
   it('renders elements', () => {
@@ -43,16 +50,10 @@ describe('textarea', () => {
     expect(screen.getByTestId('textarea-counter')).toHaveTextContent(text.length.toString());
   });
 
-  it('updates counter if component receives initial value', async () => {
+  it('updates counter if component receives initial value', () => {
     const initialValue = 'some long text';
 
-    const ControlledTextArea = () => {
-      const [value, setValue] = useState(initialValue);
-
-      return <TextArea label="Label" value={value} onValueChange={setValue} dataTestId="textarea" />;
-    };
-
-    render(<ControlledTextArea />);
+    render(<ControlledTextArea value={initialValue} />);
 
     expect(screen.getByTestId('textarea-counter')).toHaveTextContent(initialValue.length.toString());
 
@@ -63,5 +64,20 @@ describe('textarea', () => {
     userEvent.type(textarea, text);
 
     expect(screen.getByTestId('textarea-counter')).toHaveTextContent(totalCount.toString());
+  });
+
+  it('does not allow typing more than the maxLength', async () => {
+    const maxLength = 10;
+
+    render(<ControlledTextArea maxLength={maxLength} />);
+
+    const textarea = screen.getByLabelText('Label');
+    const expectedText = 'A'.repeat(maxLength);
+    const largerText = expectedText + expectedText;
+
+    userEvent.type(textarea, largerText);
+
+    expect(textarea).toHaveValue(expectedText);
+    expect(screen.getByTestId('textarea-counter')).toHaveTextContent('0');
   });
 });
