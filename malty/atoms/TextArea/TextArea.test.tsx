@@ -47,9 +47,9 @@ describe('textarea', () => {
     const initialValue = 'some long text';
 
     const ControlledTextArea = () => {
-      const [stateValue, setStateValue] = useState(initialValue);
+      const [value, setValue] = useState(initialValue);
 
-      return <TextArea label="Label" value={stateValue} onValueChange={setStateValue} dataTestId="textarea" />;
+      return <TextArea label="Label" value={value} onValueChange={setValue} dataTestId="textarea" />;
     };
 
     render(<ControlledTextArea />);
