@@ -3,7 +3,6 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { TextArea } from './TextArea';
-import { TextAreaProps } from './TextArea.types';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
@@ -32,12 +31,6 @@ describe('textarea', () => {
   });
 
   it('updates counter when typing', () => {
-    const ControlledTextArea = ({ value }: TextAreaProps) => {
-      const [stateValue, setStateValue] = useState(value);
-
-      return <TextArea label="Label" value={stateValue} onValueChange={setStateValue} dataTestId="textarea" />;
-    };
-
     render(<TextArea label="Label" onValueChange={mockFn} dataTestId="textarea" />);
 
     expect(screen.getByTestId('textarea-counter')).toHaveTextContent('0');
