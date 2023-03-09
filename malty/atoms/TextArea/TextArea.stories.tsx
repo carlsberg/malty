@@ -40,7 +40,7 @@ export default {
       control: 'text'
     },
     maxLength: {
-      description: 'Maxium characters of textarea ',
+      description: 'Maximum characters of textarea ',
       control: 'number'
     },
 
