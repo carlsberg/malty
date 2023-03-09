@@ -1533,6 +1533,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
     },
+    "molecules/product-card": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/ProductCard"
+    },
     "molecules/products-bar": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.53",
