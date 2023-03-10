@@ -30,6 +30,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   pattern?: string;
   min?: number;
   max?: number;
+  name?: string;
 }
 
 export interface UseInputSizeProps {
