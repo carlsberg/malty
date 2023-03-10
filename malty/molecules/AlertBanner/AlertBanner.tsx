@@ -98,9 +98,7 @@ export const AlertBanner = ({
   };
 
   useEffect(() => {
-    console.log('useEffect');
     if (isMobile) {
-      console.log('entered if');
       changeMobileTextWrapperSize();
     }
   }, [activeAlert, isMobile]);
