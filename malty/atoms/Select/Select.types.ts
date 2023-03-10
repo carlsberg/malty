@@ -19,6 +19,7 @@ export interface SelectProps {
   clearAllLabel?: string;
   clearAllOption?: boolean;
   alignPosition?: SelectPosition;
+  required?: boolean;
   onBlur?: () => void;
 }
 
