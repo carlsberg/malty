@@ -263,7 +263,7 @@ switch (variant) {
         variant: ButtonStyle.Primary,
         icon: IconName.Cart
       },
-      orientation: CardOrientation.Portrait,
+      orientation: CardOrientation.Landscape,
       price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
       discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
       sku: 'Sku: 12512 512',

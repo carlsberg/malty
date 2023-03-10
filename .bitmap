@@ -143,7 +143,7 @@
     },
     "atoms/text-area": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.42",
+        "version": "0.0.43",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/TextArea"
     },
@@ -1532,6 +1532,12 @@
         "version": "0.0.66",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
+    },
+    "molecules/product-card": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/ProductCard"
     },
     "molecules/products-bar": {
         "scope": "carlsberggroup.malty",
