@@ -18,7 +18,6 @@ export { default as ArrowSmallRight } from '@carlsberggroup/malty.icons.arrow-sm
 export { default as ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
 export { default as At } from '@carlsberggroup/malty.icons.at';
 export { default as Attachment } from '@carlsberggroup/malty.icons.attachment';
-export { default as Badge } from '@carlsberggroup/malty.icons.badge';
 export { default as Balance } from '@carlsberggroup/malty.icons.balance';
 export { default as Bell } from '@carlsberggroup/malty.icons.bell';
 export { default as BellNotification } from '@carlsberggroup/malty.icons.bell-notification';

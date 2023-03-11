@@ -3,12 +3,12 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useIconTextColor, usePillStyles } from './Pill.helper';
-import { StyledPill, StyledText } from './Pill.styled';
+import { StyledPill } from './Pill.styled';
 import { PillColor, PillProps, PillSize } from './Pill.types';
 
 export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Medium, dataTestId }: PillProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const { fontSize, fontFamily, iconSize, marginText, numSize, padding } = usePillStyles({ size });
+  const { fontSize, fontFamily, iconSize, gap, numSize, padding } = usePillStyles({ size });
   const colorStyle = useIconTextColor({ color });
 
   return (
@@ -21,9 +21,11 @@ export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Me
       iconSize={iconSize}
       padding={padding}
       hasText={!!text}
+      hasIcon={!!icon}
       theme={theme}
       textColor={colorStyle}
       pillSize={size}
+      gap={gap}
     >
       {icon && (
         <Icon
@@ -34,9 +36,7 @@ export const Pill = ({ text, icon, color = PillColor.Primary, size = PillSize.Me
           className="pill__icon"
         />
       )}
-      <StyledText data-testid={`${dataTestId}-text`} theme={theme} marginText={marginText} hasText={!!text}>
-        {text}
-      </StyledText>
+      {text}
     </StyledPill>
   );
 };

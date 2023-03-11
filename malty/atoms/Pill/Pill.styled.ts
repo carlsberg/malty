@@ -12,7 +12,9 @@ export const StyledPill = styled.div<{
   color: PillColor;
   textColor: IconColor;
   hasText: boolean;
+  hasIcon: boolean;
   pillSize: PillSize;
+  gap: string;
 }>`
   font-family: ${({ fontFamily }) => `${fontFamily}`};
   font-size: ${({ fontSize }) => `${fontSize}`};
@@ -35,6 +37,7 @@ export const StyledPill = styled.div<{
   height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
   border-radius: ${({ size }) => `${size}`};
+  gap: ${({ gap }) => `${gap}`};
 
   .pill {
     &__icon {
@@ -55,7 +58,7 @@ export const StyledPill = styled.div<{
     }
   }
 
-  ${({ size, hasText, padding, pillSize, theme }) => {
+  ${({ size, hasText, hasIcon, theme }) => {
     if (!hasText) {
       return css`
         padding: ${theme.sizes['5xs'].value};
@@ -65,9 +68,19 @@ export const StyledPill = styled.div<{
         justify-content: center;
       `;
     }
+    if (!hasIcon) {
+      return css`
+        // display: flex;
+        // align-items: center;
+        justify-content: center;
+      `;
+    }
+  }}
+  ${({ padding, pillSize, theme }) => {
     if (pillSize === PillSize.ExtraSmall) {
       return css`
-        padding: 0 ${padding} 0 ${theme.sizes['4xs'].value};
+        padding: 0 ${theme.sizes['4xs'].value};
+        min-width: ${theme.sizes['2xs'].value};
       `;
     }
     if (pillSize === PillSize.Small) {
@@ -79,10 +92,4 @@ export const StyledPill = styled.div<{
       padding: 0 ${padding} 0 ${theme.sizes.xs.value};
     `;
   }}
-`;
-export const StyledText = styled.div<{
-  marginText: string;
-  hasText: boolean;
-}>`
-  margin-left: ${({ hasText, marginText }) => hasText && marginText};
 `;

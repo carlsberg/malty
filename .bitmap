@@ -279,12 +279,6 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/icons/Attachment"
     },
-    "icons/badge": {
-        "scope": "carlsberggroup.malty",
-        "version": "0.0.50",
-        "mainFile": "index.tsx",
-        "rootDir": "malty/icons/Badge"
-    },
     "icons/balance": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.50",
