@@ -98,10 +98,9 @@ export const StyledMessage = styled.div<{
   overflow: hidden;
   display: flex;
   align-items: center;
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  transition: all 0.2s linear;
+  transition: all 0.2s linear, color 0;
   color: ${({ color, theme }) => theme.colors['text-colours'][color].value};
   ${({ hideText, isMobile }) => {
     if (hideText && isMobile) {
