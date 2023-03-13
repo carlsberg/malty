@@ -56,12 +56,14 @@ export const Input = forwardRef(
       onClickRightInputButton,
       min,
       max,
+      name: nameProp,
       ...props
     }: InputProps,
     ref: React.Ref<HTMLInputElement>
   ) => {
     const theme = useContext(ThemeContext) || defaultTheme;
     const id = useMemo(() => uuid(), []);
+    const name = nameProp || id;
     const inputSize = useInputSize({ size });
     const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
 
@@ -140,7 +142,7 @@ export const Input = forwardRef(
       <StyledClearableWrapper>
         <StyledInput
           data-testid={dataTestId}
-          name={id}
+          name={name}
           id={id}
           value={value}
           placeholder={placeholder}
@@ -194,7 +196,7 @@ export const Input = forwardRef(
           disableQuantityInput={disableQuantityInput}
           className="quanity-input"
           data-testid={dataTestId}
-          name={id}
+          name={name}
           id={id}
           value={value}
           placeholder="0"
@@ -271,7 +273,7 @@ export const Input = forwardRef(
           </StyledSelect>
           <StyledInput
             data-testid={dataTestId}
-            name={id}
+            name={name}
             id={id}
             value={value}
             placeholder={placeholder}
