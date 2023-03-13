@@ -63,6 +63,7 @@ jobs:
       - name: Check Tags
         run: |
           node scripts/check-tags.js
+          bit import
           bit tag
 
       - name: Bit Deps Install & Compile
