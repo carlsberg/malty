@@ -71,7 +71,9 @@ jobs:
       #   shell: bash
 
       - name: Check Tags
-        run: node scripts/check-tags.js
+        run: |
+          node scripts/check-tags.js
+          bit tag --persist
 
       # - name: Bit Tag Components
       #   if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
@@ -83,8 +85,6 @@ jobs:
       - name: Export components
         if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
         run: |
-          bit import
-          bit compile
           export PATH=${{ env.PATH }}
           bit export
         shell: bash
