@@ -57,19 +57,18 @@ jobs:
           bit config set anonymous_reporting false
           bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
-          bit -v
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
-      - name: Bit Deps Install & Compile
-        if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
-        run: |
-          export PATH=${{ env.PATH }}
-          yarn cache clean --force
-          bit clear-cache
-          bit install
-          bit compile
-        shell: bash
+      # - name: Bit Deps Install & Compile
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
+      #   run: |
+      #     export PATH=${{ env.PATH }}
+      #     yarn cache clean --force
+      #     bit clear-cache
+      #     bit install
+      #     bit compile
+      #   shell: bash
 
       - name: Check Tags
         run: node check-tag.js
