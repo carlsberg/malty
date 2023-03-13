@@ -131,7 +131,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.80",
+        "version": "0.0.81",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1535,7 +1535,7 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
