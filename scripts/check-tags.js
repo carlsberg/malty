@@ -17,6 +17,8 @@ function hasUnstagedComponents() {
       console.error(`New components:\n - ${newComponents.join('\n - ')}`);
     }
     process.exit(1);
+  } else {
+    console.log('All components are staged');
   }
 }
 
