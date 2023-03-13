@@ -83,6 +83,7 @@ jobs:
       - name: Export components
         if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
         run: |
+          bit compile
           export PATH=${{ env.PATH }}
           bit export
         shell: bash
