@@ -71,9 +71,7 @@ jobs:
       #   shell: bash
 
       - name: Check Tags
-        run: |
-          node scripts/check-tags.js
-          bit tag --persist
+        run: node scripts/check-tags.js
 
       # - name: Bit Tag Components
       #   if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
