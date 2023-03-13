@@ -29,6 +29,7 @@ const testOptions = [
     name: 'name 5'
   }
 ];
+
 describe('select', () => {
   it('renders elements', () => {
     render(
@@ -42,9 +43,13 @@ describe('select', () => {
         size={SelectSize.Medium}
       />
     );
+
+    const label = screen.getByText('Label text');
+
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();
     expect(screen.getByText('Placeholder text')).toBeInTheDocument();
     expect(screen.getByText('Error text')).toBeInTheDocument();
+    expect(label).not.toHaveAttribute('required');
   });
 
   it('calls onValueChange on click', () => {
@@ -145,5 +150,39 @@ describe('select', () => {
     selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
 
     expect(selectedOptionsButtonQueries.queryByText(testOptions[0].name)).not.toBeInTheDocument();
+  });
+
+  it('renders with a required attribute', () => {
+    render(
+      <Select
+        required
+        options={testOptions}
+        label="Label text"
+        placeholder="Placeholder text"
+        onValueChange={mockFn}
+        type={SelectType.Default}
+      />
+    );
+
+    const label = screen.getByText('Label text');
+
+    expect(label).toHaveAttribute('required');
+  });
+
+  it('does not render a required attribute to the user when select is inline', () => {
+    render(
+      <Select
+        required
+        options={testOptions}
+        label="Label text"
+        placeholder="Placeholder text"
+        onValueChange={mockFn}
+        type={SelectType.Inline}
+      />
+    );
+
+    const label = screen.getByText('Label text');
+
+    expect(label).not.toHaveAttribute('required');
   });
 });

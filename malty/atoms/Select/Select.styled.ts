@@ -5,9 +5,10 @@ import { SelectPosition } from './Select.types';
 
 const fadeIn = keyframes`
     0% {opacity: 0;}
-     50% {opacity: 0.5;}
+    50% {opacity: 0.5;}
     100% {opacity: 1;}
 `;
+
 const fadeOut = keyframes`
     0% {opacity: 1;}
     100% {opacity: 0;}
@@ -36,6 +37,7 @@ export const StyledError = styled.label`
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
 `;
+
 export const StyledHint = styled.label<{
   disabled?: boolean;
 }>`
@@ -191,12 +193,13 @@ export const StyledOptionsWrapper = styled.ul<{
       max-width: 400px;
       min-width: max-content;
     `}
-     ${({ selectStyle }) =>
+  ${({ selectStyle }) =>
     selectStyle === 'default' &&
     css`
       border-top: 0;
     `}
 `;
+
 export const StyledValuesName = styled.div`
   overflow: hidden;
   white-space: nowrap;
@@ -238,6 +241,7 @@ export const StyledOption = styled.li<{
       box-sizing: border-box;
     `}
 `;
+
 export const StyledChevronDown = styled(ChevronDown)<{
   disabled?: boolean;
   readOnly?: boolean;
@@ -268,6 +272,7 @@ export const StyledChevronDown = styled(ChevronDown)<{
       fill: ${({ theme }) => theme.colors.colours.support[80].value};
     `}
 `;
+
 export const StyledCheck = styled(Check)<{
   selectStyle?: string;
 }>`
@@ -286,6 +291,7 @@ export const StyledWrapper = styled.div`
     margin-right: ${({ theme }) => theme.sizes['4xs'].value};
   }
 `;
+
 export const StyledSelectedOptionsWrapper = styled.div`
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   display: block;
@@ -294,6 +300,7 @@ export const StyledSelectedOptionsWrapper = styled.div`
   text-overflow: ellipsis;
   width: calc(100% - 36px);
 `;
+
 export const StyledActionsWrapper = styled.div``;
 
 export const StyledSearchWrapper = styled.div`
@@ -308,6 +315,7 @@ export const StyledActionButtonWrapper = styled.div<{
   height: ${({ height }) => height};
   padding: 0 ${({ theme }) => theme.sizes.s.value};
 `;
+
 export const StyledActionButton = styled.div`
   color: ${({ theme }) => theme.colors.colours.support[80].value};
   text-decoration: underline;

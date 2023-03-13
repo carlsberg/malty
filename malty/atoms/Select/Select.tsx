@@ -47,6 +47,7 @@ export const Select = ({
   clearAllLabel = 'Clear all',
   clearAllOption = true,
   alignPosition = SelectPosition.Left,
+  required = false,
   onBlur
 }: SelectProps) => {
   const theme = defaultTheme;
@@ -82,7 +83,6 @@ export const Select = ({
       }
       auxSelected.push(option);
       update(auxSelected);
-      // setSelectedValueState((prev) => [...prev, option]);
     }
   };
 
@@ -100,6 +100,7 @@ export const Select = ({
     setSelectedValueState(auxSelected);
     onValueChange(auxSelected);
   };
+
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains((event.target as Node) || null)) {
       setShowOptionList(false);
@@ -126,9 +127,11 @@ export const Select = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   });
+
   useEffect(() => {
     if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
   }, [defaultValue]);
+
   useEffect(() => {
     if (value) setSelectedValueState(value);
   }, [value]);
@@ -168,6 +171,7 @@ export const Select = ({
     update([]);
     if (!multiple) setShowOptionList(false);
   };
+
   const renderDefaultDropdown = () => (
     <StyledMainWrapper>
       <StyledOptionsWrapper
@@ -244,10 +248,11 @@ export const Select = ({
       </StyledOptionsWrapper>
     </StyledMainWrapper>
   );
+
   return (
     <StyledMainWrapper>
       {type !== SelectType.Inline && (
-        <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
+        <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} required={required} htmlFor={id} />
       )}
       <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
         <StyledButton
@@ -257,7 +262,7 @@ export const Select = ({
           isActive={selectedValueState?.length > 0 || type === SelectType.Inline}
           selectStyle={type}
           height={numSize}
-          onClick={() => toggleOptionList()}
+          onClick={toggleOptionList}
           disabled={disabled}
           readOnly={readOnly}
           isError={!!error && type !== SelectType.Inline}
