@@ -8,6 +8,6 @@ function hasUnstagedComponents() {
 
 // This will stop the .yml process
 if (hasUnstagedComponents()) {
-  console.error('There are unstaged components. Please tag them and add a proper message for them.');
+  console.error('Error: There are unstaged components. Please tag them and add a proper message for each of them.');
   process.exit(1);
 }

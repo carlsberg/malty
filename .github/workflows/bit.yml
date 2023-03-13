@@ -57,6 +57,7 @@ jobs:
           bit config set anonymous_reporting false
           bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
+          bit -v
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
