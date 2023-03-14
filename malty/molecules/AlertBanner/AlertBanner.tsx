@@ -6,7 +6,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import React, { KeyboardEvent, PropsWithChildren, RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { usePrevious, useScrollPosition } from './AlertBanner.helper';
+import { useScrollPosition } from './AlertBanner.helper';
 import {
   CloseButtonContainer,
   Container,
@@ -42,7 +42,7 @@ export const AlertBanner = ({
   const [alertsArray, setAlertsArray] = useState(alerts);
   const currentAlert = alertsArray[activeAlert - 1];
   const breakpointNumber = Number(breakpoint.split('px')[0]);
-  const isMobile = width <= breakpointNumber;
+  const isMobile = width < breakpointNumber;
   const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
   const alertBannerStyledMessage: RefObject<HTMLDivElement> = useRef(null);
   const { showAnimations, triggerYPosition, isBannerTextCompressed, toggleBannerTextCompress } = animation || {
@@ -51,8 +51,6 @@ export const AlertBanner = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   };
-  const prevAlertSelection: number = usePrevious(activeAlert);
-  const prevAlertArraySize: number = usePrevious(alertsArray.length);
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -100,13 +98,10 @@ export const AlertBanner = ({
   };
 
   useEffect(() => {
-    if (
-      isMobile &&
-      (!prevAlertSelection || prevAlertSelection !== activeAlert || prevAlertArraySize !== alertsArray.length)
-    ) {
+    if (isMobile) {
       changeMobileTextWrapperSize();
     }
-  }, [activeAlert, prevAlertSelection, prevAlertArraySize, alertsArray.length]);
+  }, [activeAlert, isMobile]);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);

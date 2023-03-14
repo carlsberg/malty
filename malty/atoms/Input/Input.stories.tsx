@@ -150,6 +150,10 @@ export default {
     disableQuantityInput: {
       control: 'boolean',
       description: 'Input Quantity, disabled'
+    },
+    name: {
+      control: 'text',
+      description: `HTML name attribute for the input, useful if you're trying to enable browser native autocomplete`
     }
   }
 } as Meta;
@@ -174,7 +178,8 @@ const Template: Story<InputProps> = ({
   required,
   disableQuantityInput,
   max,
-  min
+  min,
+  name
 }: InputProps) => {
   const [stateValue, setStateValue] = useState(value);
   return (
@@ -190,7 +195,7 @@ const Template: Story<InputProps> = ({
       iconPosition={iconPosition}
       clearable={clearable}
       mask={mask}
-      onValueChange={(newValue: string) => setStateValue(newValue)}
+      onValueChange={setStateValue}
       hint={hint}
       dataTestId={dataTestId}
       readOnly={readOnly}
@@ -200,6 +205,7 @@ const Template: Story<InputProps> = ({
       disableQuantityInput={disableQuantityInput}
       max={max}
       min={min}
+      name={name}
     />
   );
 };

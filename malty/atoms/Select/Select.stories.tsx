@@ -86,6 +86,10 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'select data-testid'
+    },
+    required: {
+      description: 'Makes the select visually mandatory to be filled when not in inline version',
+      control: 'boolean'
     }
   }
 } as Meta;
@@ -141,7 +145,8 @@ switch (type) {
       defaultValue: [testOptions[0]],
       selectionText: 'options selected',
       search: !!search,
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 
@@ -159,7 +164,8 @@ switch (type) {
       selectionText: 'options selected',
       error: error ? 'error text' : '',
       search: !!search,
-      readOnly: false
+      readOnly: false,
+      required: false
     };
     break;
 }

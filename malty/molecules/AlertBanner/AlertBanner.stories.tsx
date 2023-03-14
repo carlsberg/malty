@@ -33,10 +33,9 @@ AlertBanner.args = {
     {
       eid: '1',
       type: AlertBannerType.Error,
-      message: 'Hello, Im the AlertBanner!',
+      message:
+        'Hello, Im the AlertBanner! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       dataQaId: 'alert-banner',
-      action: action('First Action clicked'),
-      actionName: 'First Action',
       dismissible: true,
       onDismiss: action('Dismiss button clicked'),
       icon: true
