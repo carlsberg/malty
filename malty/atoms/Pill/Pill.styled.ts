@@ -37,7 +37,6 @@ export const StyledPill = styled.div<{
   height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
   border-radius: ${({ size }) => `${size}`};
-  gap: ${({ gap }) => `${gap}`};
 
   .pill {
     &__icon {
@@ -58,7 +57,24 @@ export const StyledPill = styled.div<{
     }
   }
 
-  ${({ size, hasText, hasIcon, theme }) => {
+  ${({ padding, pillSize, theme }) => {
+    if (pillSize === PillSize.ExtraSmall) {
+      return css`
+        padding: 0 ${theme.sizes['4xs'].value};
+        min-width: ${theme.sizes['2xs'].value};
+      `;
+    }
+    if (pillSize === PillSize.Small) {
+      return css`
+        padding: 0 ${padding};
+      `;
+    }
+    return css`
+      padding: 0 ${padding};
+    `;
+  }}
+
+  ${({ size, hasText, hasIcon, gap, theme }) => {
     if (!hasText) {
       return css`
         padding: ${theme.sizes['5xs'].value};
@@ -70,26 +86,11 @@ export const StyledPill = styled.div<{
     }
     if (!hasIcon) {
       return css`
-        // display: flex;
-        // align-items: center;
         justify-content: center;
       `;
     }
-  }}
-  ${({ padding, pillSize, theme }) => {
-    if (pillSize === PillSize.ExtraSmall) {
-      return css`
-        padding: 0 ${theme.sizes['4xs'].value};
-        min-width: ${theme.sizes['2xs'].value};
-      `;
-    }
-    if (pillSize === PillSize.Small) {
-      return css`
-        padding: 0 ${padding} 0 ${theme.sizes['2xs'].value};
-      `;
-    }
     return css`
-      padding: 0 ${padding} 0 ${theme.sizes.xs.value};
+      gap: ${gap};
     `;
   }}
 `;
