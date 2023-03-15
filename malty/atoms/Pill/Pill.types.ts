@@ -5,6 +5,7 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   icon?: IconName;
   color?: PillColor;
   size?: PillSize;
+  badgeMode?: boolean;
   dataTestId?: string;
 }
 

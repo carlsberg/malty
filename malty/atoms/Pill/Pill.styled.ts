@@ -8,11 +8,10 @@ export const StyledPill = styled.div<{
   fontFamily: string;
   iconSize: string;
   padding: string;
-
   color: PillColor;
   textColor: IconColor;
   hasText: boolean;
-  hasIcon: boolean;
+  badgeMode: boolean;
   pillSize: PillSize;
   gap: string;
 }>`
@@ -34,63 +33,47 @@ export const StyledPill = styled.div<{
   color: ${({ textColor }) => textColor};
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
   border-radius: ${({ size }) => `${size}`};
+  padding: 0 ${({ padding }) => padding};
+  gap: ${({ gap }) => gap};
 
   .pill {
     &__icon {
-      ${({ pillSize, hasText }) => {
-        if (pillSize === PillSize.ExtraSmall || pillSize === PillSize.Small) {
-          return css`
-            margin-right: ${({ theme }) => hasText && theme.sizes['5xs'].value};
-          `;
-        }
-
-        return css`
-          margin-right: ${({ theme }) => hasText && theme.sizes['4xs'].value};
-        `;
-      }}
-
       height: ${({ iconSize }) => iconSize};
       width: ${({ iconSize }) => iconSize};
     }
   }
 
-  ${({ padding, pillSize, theme }) => {
+  ${({ size, hasText, theme }) =>
+    !hasText &&
+    css`
+      padding: ${theme.sizes['5xs'].value};
+      width: ${size};
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `}
+
+  ${({ badgeMode, pillSize, theme }) => {
+    if (!badgeMode) return null;
     if (pillSize === PillSize.ExtraSmall) {
       return css`
-        padding: 0 ${theme.sizes['4xs'].value};
         min-width: ${theme.sizes['2xs'].value};
+        padding: 0 ${theme.sizes['4xs'].value};
       `;
     }
     if (pillSize === PillSize.Small) {
       return css`
-        padding: 0 ${padding};
+        min-width: ${theme.sizes.s.value};
+        padding: 0 ${theme.sizes['4xs'].value};
       `;
     }
     return css`
-      padding: 0 ${padding};
-    `;
-  }}
-
-  ${({ size, hasText, hasIcon, gap, theme }) => {
-    if (!hasText) {
-      return css`
-        padding: ${theme.sizes['5xs'].value};
-        width: ${size};
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      `;
-    }
-    if (!hasIcon) {
-      return css`
-        justify-content: center;
-      `;
-    }
-    return css`
-      gap: ${gap};
+      min-width: ${theme.sizes.m.value};
+      padding: 0 ${theme.sizes['4xs'].value};
     `;
   }}
 `;
