@@ -22,7 +22,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       fontFamily: theme.typography.desktop.text.tiny_bold['font-family'].value,
       iconSize: theme.sizes.s.value,
       padding: theme.sizes.xs.value,
-      gap: theme.sizes['4xs'].value
+      gap: theme.sizes['5xs'].value
     },
     [PillSize.Medium]: {
       numSize: theme.sizes.l.value,

@@ -11,6 +11,7 @@ export const StyledPill = styled.div<{
   color: PillColor;
   textColor: IconColor;
   hasText: boolean;
+  hasIcon: boolean;
   badgeMode: boolean;
   pillSize: PillSize;
   gap: string;
@@ -56,6 +57,23 @@ export const StyledPill = styled.div<{
       align-items: center;
       justify-content: center;
     `}
+
+  ${({ hasIcon, pillSize, theme }) => {
+    if (!hasIcon) return null;
+    if (pillSize === PillSize.ExtraSmall) {
+      return css`
+        padding: 0 ${theme.sizes['3xs'].value} 0 ${theme.sizes['4xs'].value};
+      `;
+    }
+    if (pillSize === PillSize.Small) {
+      return css`
+        padding: 0 ${theme.sizes.xs.value} 0 ${theme.sizes['2xs'].value};
+      `;
+    }
+    return css`
+      padding: 0 ${theme.sizes.s.value} 0 ${theme.sizes.xs.value};
+    `;
+  }}
 
   ${({ badgeMode, pillSize, theme }) => {
     if (!badgeMode) return null;

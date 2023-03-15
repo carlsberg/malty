@@ -28,6 +28,7 @@ export const Pill = ({
       iconSize={iconSize}
       padding={padding}
       hasText={!!text}
+      hasIcon={!!icon}
       badgeMode={badgeMode}
       theme={theme}
       textColor={colorStyle}
