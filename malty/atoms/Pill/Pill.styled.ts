@@ -48,18 +48,20 @@ export const StyledPill = styled.div<{
     }
   }
 
-  ${({ size, hasText, theme }) =>
-    !hasText &&
-    css`
-      padding: ${theme.sizes['5xs'].value};
-      width: ${size};
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    `}
-
-  ${({ hasIcon, pillSize, theme }) => {
+  ${({ hasIcon, hasText, pillSize, size, theme }) => {
     if (!hasIcon) return null;
+    if (!hasText) {
+      if (pillSize === PillSize.ExtraSmall) {
+        return css`
+          padding: ${theme.sizes['5xs'].value};
+          width: ${size};
+        `;
+      }
+      return css`
+        padding: ${theme.sizes['4xs'].value};
+        width: ${size};
+      `;
+    }
     if (pillSize === PillSize.ExtraSmall) {
       return css`
         padding: 0 ${theme.sizes['3xs'].value} 0 ${theme.sizes['4xs'].value};
