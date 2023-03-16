@@ -60,12 +60,6 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
-      - name: Check Tags
-        run: |
-          node scripts/check-tags.js
-          bit import
-          bit tag
-
       - name: Bit Deps Install & Compile
         if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
         run: |
@@ -75,6 +69,10 @@ jobs:
           bit install
           bit compile
         shell: bash
+
+      # - name: Check Tags
+      #   run: |
+      #     node scripts/check-tags.js
 
       # - name: Bit Tag Components
       #   if: github.event_name == 'push' && github.ref == 'refs/heads/feat/changelog-poc-3'
