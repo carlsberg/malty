@@ -153,14 +153,10 @@ export const Select = ({
   };
 
   const handleSearch = (query: string) => {
-    setQueryText(query);
-    if (query.length >= 3) {
-      const filterOptions = options?.filter((el) => el.name.includes(query));
+    const filterOptions = options?.filter((el) => el.name.toUpperCase().includes(query.toUpperCase()));
 
-      setSelectOptions(filterOptions);
-    } else {
-      setSelectOptions(options);
-    }
+    setQueryText(query);
+    setSelectOptions(filterOptions);
   };
 
   const handleSelectAll = () => {
