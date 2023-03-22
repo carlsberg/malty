@@ -8,11 +8,13 @@ export const StyledPill = styled.div<{
   fontFamily: string;
   iconSize: string;
   padding: string;
-
   color: PillColor;
   textColor: IconColor;
   hasText: boolean;
+  hasIcon: boolean;
+  badgeMode: boolean;
   pillSize: PillSize;
+  gap: string;
 }>`
   font-family: ${({ fontFamily }) => `${fontFamily}`};
   font-size: ${({ fontSize }) => `${fontSize}`};
@@ -32,57 +34,66 @@ export const StyledPill = styled.div<{
   color: ${({ textColor }) => textColor};
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   height: ${({ size }) => `${size}`};
   transition: background-color 0.25s ease-in-out;
   border-radius: ${({ size }) => `${size}`};
+  padding: 0 ${({ padding }) => padding};
+  gap: ${({ gap }) => gap};
 
   .pill {
     &__icon {
-      ${({ pillSize, hasText }) => {
-        if (pillSize === PillSize.ExtraSmall || pillSize === PillSize.Small) {
-          return css`
-            margin-right: ${({ theme }) => hasText && theme.sizes['5xs'].value};
-          `;
-        }
-
-        return css`
-          margin-right: ${({ theme }) => hasText && theme.sizes['4xs'].value};
-        `;
-      }}
-
       height: ${({ iconSize }) => iconSize};
       width: ${({ iconSize }) => iconSize};
     }
   }
 
-  ${({ size, hasText, padding, pillSize, theme }) => {
+  ${({ hasIcon, hasText, pillSize, size, theme }) => {
+    if (!hasIcon) return null;
     if (!hasText) {
+      if (pillSize === PillSize.ExtraSmall) {
+        return css`
+          padding: ${theme.sizes['5xs'].value};
+          width: ${size};
+        `;
+      }
       return css`
-        padding: ${theme.sizes['5xs'].value};
+        padding: ${theme.sizes['4xs'].value};
         width: ${size};
-        display: flex;
-        align-items: center;
-        justify-content: center;
       `;
     }
     if (pillSize === PillSize.ExtraSmall) {
       return css`
-        padding: 0 ${padding} 0 ${theme.sizes['4xs'].value};
+        padding: 0 ${theme.sizes['3xs'].value} 0 ${theme.sizes['4xs'].value};
       `;
     }
     if (pillSize === PillSize.Small) {
       return css`
-        padding: 0 ${padding} 0 ${theme.sizes['2xs'].value};
+        padding: 0 ${theme.sizes.xs.value} 0 ${theme.sizes['2xs'].value};
       `;
     }
     return css`
-      padding: 0 ${padding} 0 ${theme.sizes.xs.value};
+      padding: 0 ${theme.sizes.s.value} 0 ${theme.sizes.xs.value};
     `;
   }}
-`;
-export const StyledText = styled.div<{
-  marginText: string;
-  hasText: boolean;
-}>`
-  margin-left: ${({ hasText, marginText }) => hasText && marginText};
+
+  ${({ badgeMode, pillSize, theme }) => {
+    if (!badgeMode) return null;
+    if (pillSize === PillSize.ExtraSmall) {
+      return css`
+        min-width: ${theme.sizes['2xs'].value};
+        padding: 0 ${theme.sizes['4xs'].value};
+      `;
+    }
+    if (pillSize === PillSize.Small) {
+      return css`
+        min-width: ${theme.sizes.s.value};
+        padding: 0 ${theme.sizes['4xs'].value};
+      `;
+    }
+    return css`
+      min-width: ${theme.sizes.m.value};
+      padding: 0 ${theme.sizes['4xs'].value};
+    `;
+  }}
 `;
