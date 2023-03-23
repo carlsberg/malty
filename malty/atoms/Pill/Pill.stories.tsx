@@ -57,6 +57,11 @@ export default {
         }
       }
     },
+    badgeMode: {
+      description: 'Decreases paddings and allows for a circled look as much as possible',
+      control: 'boolean',
+      table: { defaultValue: { summary: 'false' } }
+    },
     dataTestId: {
       control: 'text',
       description: 'Pill data-testid'
@@ -64,9 +69,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<PillProps> = ({ text, icon, color, size, dataTestId }: PillProps) => (
-  <PillComponent text={text} icon={icon} color={color} size={size} dataTestId={dataTestId} />
-);
+const Template: Story<PillProps> = (args: PillProps) => <PillComponent {...args} />;
 
 let PillEl;
 
@@ -79,7 +82,8 @@ switch (variant) {
     PillEl.args = {
       icon: IconName.CarlsbergFilled,
       color: PillColor.Success,
-      size: PillSize.Medium
+      size: PillSize.Medium,
+      badgeMode: false
     };
     break;
 
@@ -88,7 +92,18 @@ switch (variant) {
     PillEl.args = {
       text: 'Text',
       color: PillColor.Fail,
-      size: PillSize.Medium
+      size: PillSize.Medium,
+      badgeMode: false
+    };
+    break;
+
+  case 'badge':
+    PillEl = Template.bind({});
+    PillEl.args = {
+      text: '9',
+      color: PillColor.Success,
+      size: PillSize.ExtraSmall,
+      badgeMode: true
     };
     break;
 
@@ -98,7 +113,8 @@ switch (variant) {
       text: 'Text',
       icon: IconName.CarlsbergFilled,
       color: PillColor.Primary,
-      size: PillSize.Medium
+      size: PillSize.Medium,
+      badgeMode: false
     };
     break;
 }

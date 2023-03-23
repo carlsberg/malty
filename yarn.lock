@@ -5071,15 +5071,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"Badge-74c856@workspace:malty/icons/Badge":
-  version: 0.0.0-use.local
-  resolution: "Badge-74c856@workspace:malty/icons/Badge"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
 "Balance-bf399f@workspace:malty/icons/Balance":
   version: 0.0.0-use.local
   resolution: "Balance-bf399f@workspace:malty/icons/Balance"
@@ -20840,8 +20831,13 @@ __metadata:
   linkType: hard
 
 "webpack@npm:>=4.43.0 <6.0.0, webpack@npm:^5.75.0, webpack@npm:^5.9.0":
+<<<<<<< HEAD
   version: 5.76.2
   resolution: "webpack@npm:5.76.2"
+=======
+  version: 5.76.0
+  resolution: "webpack@npm:5.76.0"
+>>>>>>> main
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^0.0.51

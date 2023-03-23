@@ -29,7 +29,6 @@ export enum IconName {
   ArrowSmallUp = 'ArrowSmallUp',
   At = 'At',
   Attachment = 'Attachment',
-  Badge = 'Badge',
   Balance = 'Balance',
   BellNotification = 'BellNotification',
   Bell = 'Bell',
