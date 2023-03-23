@@ -20831,13 +20831,8 @@ __metadata:
   linkType: hard
 
 "webpack@npm:>=4.43.0 <6.0.0, webpack@npm:^5.75.0, webpack@npm:^5.9.0":
-<<<<<<< HEAD
   version: 5.76.2
   resolution: "webpack@npm:5.76.2"
-=======
-  version: 5.76.0
-  resolution: "webpack@npm:5.76.0"
->>>>>>> main
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^0.0.51
