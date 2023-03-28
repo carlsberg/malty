@@ -6,6 +6,7 @@ export const StyledCardContainer = styled.div<{
   selected: boolean;
   cardStyle: CardStyle;
   hover: boolean;
+  disabled?: boolean;
 }>`
   display: flex;
   align-items: stretch;
@@ -69,20 +70,28 @@ export const StyledCardContainer = styled.div<{
     `}
 
   ${({ theme, selected }) =>
-    theme &&
     selected &&
     css`
       border: ${theme.borders['border-3px--solid']['border-width'].value}
         ${theme.borders['border-3px--solid']['border-style'].value} ${theme.colors.theme.themePrimary.value};
+    `};
+
+  ${({ theme, disabled }) =>
+    disabled &&
+    css`
+      border-color: ${theme.colors.colours.system['disable-light-theme'].value};
     `}
 `;
 
 export const StyledCardHero = styled.div<{
   orientation: CardOrientation;
+  disabled?: boolean;
 }>`
   display: flex;
   align-items: stretch;
   position: relative;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 'initial')};
+
   ${({ orientation }) => {
     if (orientation === CardOrientation.Landscape) {
       return css`
@@ -99,6 +108,7 @@ export const StyledCardHero = styled.div<{
     `;
   }};
 `;
+
 export const StyledCardBody = styled.div<{
   orientation: CardOrientation;
 }>`

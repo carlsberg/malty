@@ -11,7 +11,8 @@ export const Card = ({
   cardHero,
   cardBody,
   onClick,
-  dataTestId = 'card-element'
+  dataTestId = 'card-element',
+  disabled
 }: CardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -20,13 +21,14 @@ export const Card = ({
       orientation={orientation}
       selected={selected}
       cardStyle={cardStyle}
-      onClick={onClick}
-      hover={!!onClick}
+      {...(!disabled && { onClick })}
+      hover={!disabled && !!onClick}
       theme={theme}
       data-testid={dataTestId}
+      disabled={disabled}
     >
       {cardHero && (
-        <StyledCardHero orientation={orientation} theme={theme} data-testid={`${dataTestId}-hero`}>
+        <StyledCardHero orientation={orientation} theme={theme} data-testid={`${dataTestId}-hero`} disabled={disabled}>
           {cardHero}
         </StyledCardHero>
       )}
