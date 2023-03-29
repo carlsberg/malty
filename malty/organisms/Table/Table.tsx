@@ -1,6 +1,6 @@
 /* eslint-disable no-return-assign */
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Tooltip, TooltipPlacement } from '@carlsberggroup/malty.atoms.tooltip';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
@@ -10,7 +10,6 @@ import {
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
-  getSortedRowModel,
   PaginationState,
   SortingState,
   useReactTable
@@ -34,6 +33,21 @@ import {
   StyledThead
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
+
+interface SortIconProps {
+  ref: React.Dispatch<React.SetStateAction<HTMLElement | null>>;
+  iconName: IconName;
+}
+
+const SortIcon = ({ ref, iconName }: SortIconProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
+  return (
+    <div ref={ref}>
+      <StyledSortIcon theme={theme} name={iconName} size={IconSize.MediumSmall} color={IconColor.Support40} />
+    </div>
+  );
+};
 
 export const Table = ({
   headers,
@@ -63,6 +77,7 @@ export const Table = ({
     pageIndex: 0,
     pageSize: paginationSize
   });
+
   const pagination = useMemo(
     () => ({
       pageIndex,
@@ -93,8 +108,7 @@ export const Table = ({
     getCoreRowModel: getCoreRowModel(),
     onPaginationChange: setPagination,
     getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
-    getSortedRowModel: getSortedRowModel()
+    onSortingChange: setSorting
   });
 
   const handlePageChange = (page: number | string) => {
@@ -104,6 +118,7 @@ export const Table = ({
       onPaginationChange(page);
     }
   };
+
   const handleDragEnd = (results: DropResult) => {
     if (!results.destination) return;
     const tempUser = [...data];
@@ -192,16 +207,9 @@ export const Table = ({
                             placement={TooltipPlacement.Bottom}
                             isDark
                             tooltipId="asc"
-                            triggerComponent={(setTriggerElement) => (
-                              <div ref={setTriggerElement}>
-                                <Icon
-                                  className="sort-icon"
-                                  name={IconName.ArrowSmallUp}
-                                  size={IconSize.MediumSmall}
-                                  color={IconColor.Support80}
-                                />
-                              </div>
-                            )}
+                            triggerComponent={(setTriggerElement) =>
+                              SortIcon({ ref: setTriggerElement, iconName: IconName.ArrowSmallUp })
+                            }
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                               Sorted A→Z
@@ -213,16 +221,9 @@ export const Table = ({
                             placement={TooltipPlacement.Bottom}
                             isDark
                             tooltipId="desc"
-                            triggerComponent={(setTriggerElement) => (
-                              <div ref={setTriggerElement}>
-                                <Icon
-                                  className="sort-icon"
-                                  name={IconName.ArrowSmallDown}
-                                  size={IconSize.MediumSmall}
-                                  color={IconColor.Support80}
-                                />
-                              </div>
-                            )}
+                            triggerComponent={(setTriggerElement) =>
+                              SortIcon({ ref: setTriggerElement, iconName: IconName.ArrowSmallDown })
+                            }
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                               Sorted Z→A
@@ -234,16 +235,9 @@ export const Table = ({
                           placement={TooltipPlacement.Bottom}
                           isDark
                           tooltipId="normal"
-                          triggerComponent={(setTriggerElement) => (
-                            <div ref={setTriggerElement}>
-                              <StyledSortIcon
-                                theme={theme}
-                                name={IconName.Sort}
-                                size={IconSize.MediumSmall}
-                                color={IconColor.Support40}
-                              />
-                            </div>
-                          )}
+                          triggerComponent={(setTriggerElement) =>
+                            SortIcon({ ref: setTriggerElement, iconName: IconName.Sort })
+                          }
                         >
                           <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                             Sort A→Z

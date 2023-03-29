@@ -20,7 +20,7 @@
     "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
   },
   "scripts": {
-    "clean": "rm -rf ./dist && rm -rf ./build && rm -rf ./node_modules && rm -rf .git/bit && rm -f yarn.lock",
+    "clean": "rm -rf ./dist && rm -rf ./build && rm -rf ./node_modules && rm -rf .git/bit",
     "wipe": "yarn cache clean --force && bit clear-cache",
     "reset": "yarn clean && yarn wipe && yarn serve",
     "watch": "tsc -b -w --preserveWatchOutput",
