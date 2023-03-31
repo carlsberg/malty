@@ -16,7 +16,7 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
@@ -35,12 +35,7 @@ import {
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
-interface SortIconProps {
-  ref: React.Dispatch<React.SetStateAction<HTMLElement | null>>;
-  iconName: IconName;
-}
-
-const SortIcon = ({ ref, iconName }: SortIconProps) => (
+const SortIcon = forwardRef<HTMLDivElement, { iconName: IconName }>(({ iconName }, ref) => (
   <div ref={ref}>
     <Icon
       name={iconName}
@@ -48,7 +43,9 @@ const SortIcon = ({ ref, iconName }: SortIconProps) => (
       color={iconName === IconName.Sort ? IconColor.Support40 : IconColor.Support80}
     />
   </div>
-);
+));
+
+SortIcon.displayName = 'SortIcon';
 
 export const Table = ({
   headers,
@@ -98,11 +95,10 @@ export const Table = ({
   );
 
   const handleOnSortingChange: OnChangeFn<SortingState> = (updaterFn) => {
-    setSorting((prevState) => {
-      const newSorting = typeof updaterFn === 'function' ? updaterFn(prevState) : [];
-      onSortingChange?.(newSorting);
-      return newSorting;
-    });
+    const value = typeof updaterFn === 'function' ? updaterFn(sorting) : [];
+
+    onSortingChange?.(value);
+    setSorting(value);
   };
 
   const table = useReactTable({
