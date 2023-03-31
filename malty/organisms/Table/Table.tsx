@@ -1,6 +1,6 @@
 /* eslint-disable no-return-assign */
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
-import { IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Tooltip, TooltipPlacement } from '@carlsberggroup/malty.atoms.tooltip';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
@@ -10,6 +10,8 @@ import {
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
+  getSortedRowModel,
+  OnChangeFn,
   PaginationState,
   SortingState,
   useReactTable
@@ -25,7 +27,6 @@ import {
   StyledNoRecordsWrapper,
   StyledPaginationWrapper,
   StyledRow,
-  StyledSortIcon,
   StyledTable,
   StyledTbody,
   StyledTd,
@@ -39,21 +40,19 @@ interface SortIconProps {
   iconName: IconName;
 }
 
-const SortIcon = ({ ref, iconName }: SortIconProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-
-  return (
-    <div ref={ref}>
-      <StyledSortIcon theme={theme} name={iconName} size={IconSize.MediumSmall} color={IconColor.Support40} />
-    </div>
-  );
-};
+const SortIcon = ({ ref, iconName }: SortIconProps) => (
+  <div ref={ref}>
+    <Icon
+      name={iconName}
+      size={IconSize.MediumSmall}
+      color={iconName === IconName.Sort ? IconColor.Support40 : IconColor.Support80}
+    />
+  </div>
+);
 
 export const Table = ({
   headers,
   rows,
-  onRowClick,
-  onRowSelect = () => null,
   size,
   paginationSize = 12,
   className,
@@ -63,6 +62,10 @@ export const Table = ({
   totalPagesCount,
   totalRecords,
   serverSide = true,
+  defaultSorting,
+  onRowClick,
+  onSortingChange,
+  onRowSelect = () => null,
   onPaginationChange = () => null
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
@@ -70,7 +73,7 @@ export const Table = ({
   const [data, setData] = useState(rows);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   const [rowSelection, setRowSelection] = useState({});
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
 
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
@@ -94,6 +97,14 @@ export const Table = ({
     })
   );
 
+  const handleOnSortingChange: OnChangeFn<SortingState> = (updaterFn) => {
+    setSorting((prevState) => {
+      const newSorting = typeof updaterFn === 'function' ? updaterFn(prevState) : [];
+      onSortingChange?.(newSorting);
+      return newSorting;
+    });
+  };
+
   const table = useReactTable({
     data,
     columns,
@@ -104,11 +115,13 @@ export const Table = ({
       pagination,
       sorting
     },
+    manualSorting: !!onSortingChange,
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     onPaginationChange: setPagination,
     getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting
+    onSortingChange: handleOnSortingChange,
+    getSortedRowModel: getSortedRowModel()
   });
 
   const handlePageChange = (page: number | string) => {

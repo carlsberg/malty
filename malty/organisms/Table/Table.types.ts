@@ -1,20 +1,24 @@
-import { Row, Table } from '@tanstack/react-table';
+import { ColumnSort, Row, SortingState, Table } from '@tanstack/react-table';
+
+export { ColumnSort } from '@tanstack/react-table';
 
 export interface TableProps {
   headers: TableHeaderProps[];
   rows: TableRowProps[];
   size?: TableSize;
-  onRowClick?: (row: TableRowProps) => void;
   dataTestId?: string;
   paginationSize?: number;
   className?: string;
   isDraggable?: boolean;
   allowSelection?: boolean;
-  onRowSelect?: (selectedRows: TableRowProps[]) => void;
   totalPagesCount?: number;
   totalRecords?: number;
-  onPaginationChange?: (page: number) => void;
   serverSide?: boolean;
+  defaultSorting?: ColumnSort;
+  onRowClick?: (row: TableRowProps) => void;
+  onRowSelect?: (selectedRows: TableRowProps[]) => void;
+  onPaginationChange?: (page: number) => void;
+  onSortingChange?: (sorting: SortingState) => void;
 }
 
 export interface TableHeaderProps {
