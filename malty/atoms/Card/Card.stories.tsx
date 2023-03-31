@@ -50,6 +50,10 @@ export default {
       table: {
         category: 'Events'
       }
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Makes the card disabled'
     }
   }
 };

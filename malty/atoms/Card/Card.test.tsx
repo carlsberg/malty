@@ -1,5 +1,6 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Card } from './Card';
 import { CardOrientation, CardStyle } from './Card.types';
@@ -44,8 +45,28 @@ describe('Card', () => {
         onClick={onClick}
       />
     );
-    fireEvent.click(screen.getByTestId('card-element'));
-    fireEvent.click(screen.getByText(titleText));
+    userEvent.click(screen.getByTestId('card-element'));
+    userEvent.click(screen.getByText(titleText));
     expect(onClick).toHaveBeenCalledTimes(2);
+  });
+
+  it('disables onClick function when is disabled', () => {
+    const onClick = jest.fn();
+    render(
+      <Card
+        dataTestId="card-element"
+        selected={false}
+        cardHero={defaultHero}
+        cardBody={defaultBody}
+        cardStyle={CardStyle.Plain}
+        orientation={CardOrientation.Portrait}
+        onClick={onClick}
+        disabled
+      />
+    );
+
+    userEvent.click(screen.getByTestId('card-element'));
+    userEvent.click(screen.getByText(titleText));
+    expect(onClick).not.toHaveBeenCalled();
   });
 });

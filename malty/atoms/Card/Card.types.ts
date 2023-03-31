@@ -6,6 +6,7 @@ export interface CardProps {
   cardBody?: React.ReactNode | JSX.Element;
   onClick?: React.MouseEventHandler<HTMLDivElement>;
   dataTestId?: string;
+  disabled?: boolean;
 }
 
 export enum CardStyle {
