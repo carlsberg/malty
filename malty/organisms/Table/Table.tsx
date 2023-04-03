@@ -16,7 +16,7 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { forwardRef, ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { forwardRef, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
@@ -173,6 +173,11 @@ export const Table = ({
     }
   }, [size, theme]);
 
+  const MemoizedSortIcon = useCallback(
+    (setTriggerElement, iconName) => <SortIcon ref={setTriggerElement} iconName={iconName} />,
+    []
+  );
+
   return (
     <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
       <div>
@@ -217,7 +222,7 @@ export const Table = ({
                             isDark
                             tooltipId="asc"
                             triggerComponent={(setTriggerElement) =>
-                              SortIcon({ ref: setTriggerElement, iconName: IconName.ArrowSmallUp })
+                              MemoizedSortIcon(setTriggerElement, IconName.ArrowSmallUp)
                             }
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
@@ -231,7 +236,7 @@ export const Table = ({
                             isDark
                             tooltipId="desc"
                             triggerComponent={(setTriggerElement) =>
-                              SortIcon({ ref: setTriggerElement, iconName: IconName.ArrowSmallDown })
+                              MemoizedSortIcon(setTriggerElement, IconName.ArrowSmallDown)
                             }
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
@@ -244,9 +249,7 @@ export const Table = ({
                           placement={TooltipPlacement.Bottom}
                           isDark
                           tooltipId="normal"
-                          triggerComponent={(setTriggerElement) =>
-                            SortIcon({ ref: setTriggerElement, iconName: IconName.Sort })
-                          }
+                          triggerComponent={(setTriggerElement) => MemoizedSortIcon(setTriggerElement, IconName.Sort)}
                         >
                           <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                             Sort A→Z
