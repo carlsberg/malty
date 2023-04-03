@@ -8,18 +8,33 @@ import {
   StyledText,
   StyledWrapper
 } from './ProgressBar.styled';
-import { ProgressBarProps } from './ProgressBar.types';
+import { ProgressBarProps, ProgressBarSize } from './ProgressBar.types';
 
-export const ProgressBar = ({ progress, label, displayAmount }: ProgressBarProps) => {
+export const ProgressBar = ({
+  progress,
+  label,
+  displayAmount,
+  disabled = false,
+  size = ProgressBarSize.Medium,
+  dataTestId
+}: ProgressBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledWrapper theme={theme}>
+    <StyledWrapper theme={theme} data-testid={dataTestId}>
       <StyledBarContainer theme={theme}>
-        <StyledProgressBar progress={progress} theme={theme} />
-        {displayAmount && <StyledProgressAmount theme={theme}>{progress}%</StyledProgressAmount>}
+        <StyledProgressBar progress={progress} size={size} disabled={disabled} theme={theme} />
+        {displayAmount && (
+          <StyledProgressAmount disabled={disabled} theme={theme}>
+            {progress}%
+          </StyledProgressAmount>
+        )}
       </StyledBarContainer>
-      {label && <StyledText theme={theme}>{label}</StyledText>}
+      {label && (
+        <StyledText size={size} disabled={disabled} theme={theme}>
+          {label}
+        </StyledText>
+      )}
     </StyledWrapper>
   );
 };
