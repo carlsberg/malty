@@ -16,7 +16,7 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { forwardRef, ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
@@ -35,17 +35,19 @@ import {
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
-const SortIcon = forwardRef<HTMLDivElement, { iconName: IconName }>(({ iconName }, ref) => (
-  <div ref={ref}>
-    <Icon
-      name={iconName}
-      size={IconSize.MediumSmall}
-      color={iconName === IconName.Sort ? IconColor.Support40 : IconColor.Support80}
-    />
-  </div>
-));
+const createSortIcon = (iconName: IconName) => {
+  const renderSortIcon = (ref: React.Dispatch<React.SetStateAction<HTMLElement | null>>) => (
+    <div ref={ref}>
+      <Icon
+        name={iconName}
+        size={IconSize.MediumSmall}
+        color={iconName === IconName.Sort ? IconColor.Support40 : IconColor.Support80}
+      />
+    </div>
+  );
 
-SortIcon.displayName = 'SortIcon';
+  return renderSortIcon;
+};
 
 export const Table = ({
   headers,
@@ -173,11 +175,6 @@ export const Table = ({
     }
   }, [size, theme]);
 
-  const MemoizedSortIcon = useCallback(
-    (setTriggerElement, iconName) => <SortIcon ref={setTriggerElement} iconName={iconName} />,
-    []
-  );
-
   return (
     <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
       <div>
@@ -221,9 +218,7 @@ export const Table = ({
                             placement={TooltipPlacement.Bottom}
                             isDark
                             tooltipId="asc"
-                            triggerComponent={(setTriggerElement) =>
-                              MemoizedSortIcon(setTriggerElement, IconName.ArrowSmallUp)
-                            }
+                            triggerComponent={createSortIcon(IconName.ArrowSmallUp)}
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                               Sorted A→Z
@@ -235,9 +230,7 @@ export const Table = ({
                             placement={TooltipPlacement.Bottom}
                             isDark
                             tooltipId="desc"
-                            triggerComponent={(setTriggerElement) =>
-                              MemoizedSortIcon(setTriggerElement, IconName.ArrowSmallDown)
-                            }
+                            triggerComponent={createSortIcon(IconName.ArrowSmallDown)}
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                               Sorted Z→A
@@ -249,7 +242,7 @@ export const Table = ({
                           placement={TooltipPlacement.Bottom}
                           isDark
                           tooltipId="normal"
-                          triggerComponent={(setTriggerElement) => MemoizedSortIcon(setTriggerElement, IconName.Sort)}
+                          triggerComponent={createSortIcon(IconName.Sort)}
                         >
                           <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                             Sort A→Z
