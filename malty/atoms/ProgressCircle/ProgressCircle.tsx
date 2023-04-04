@@ -31,7 +31,7 @@ export const ProgressCircle = ({
   }
 
   let displayValue: number;
-  let label = `${roundPercentage} %`;
+  let label = `${roundPercentage}%`;
   if (Number.isNaN(roundPercentage)) {
     displayValue = 0;
     label = 'Error';
@@ -39,6 +39,7 @@ export const ProgressCircle = ({
     displayValue = 100;
   } else if (roundPercentage < 0) {
     displayValue = 0;
+    label = `${Math.abs(roundPercentage)}%`;
   } else {
     displayValue = roundPercentage;
   }
