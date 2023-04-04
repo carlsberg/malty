@@ -111,6 +111,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/ProgressBar"
     },
+    "atoms/progress-circle": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/ProgressCircle"
+    },
     "atoms/progress-spinner": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.23",
