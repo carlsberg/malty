@@ -23,15 +23,15 @@ export const ProgressBar = ({
   return (
     <StyledWrapper theme={theme} data-testid={dataTestId}>
       <StyledBarContainer theme={theme}>
-        <StyledProgressBar progress={progress} size={size} disabled={disabled} theme={theme} />
+        <StyledProgressBar theme={theme} progress={progress} size={size} disabled={disabled} />
         {displayAmount && (
-          <StyledProgressAmount disabled={disabled} theme={theme}>
+          <StyledProgressAmount theme={theme} disabled={disabled}>
             {progress}%
           </StyledProgressAmount>
         )}
       </StyledBarContainer>
       {label && (
-        <StyledText size={size} disabled={disabled} theme={theme}>
+        <StyledText theme={theme} increaseMargin={!displayAmount}>
           {label}
         </StyledText>
       )}

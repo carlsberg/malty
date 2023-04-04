@@ -54,14 +54,13 @@ export const StyledProgressAmount = styled.span<{ disabled: boolean }>`
     `}
 `;
 
-export const StyledText = styled.span<{ disabled: boolean; size: ProgressBarSize }>`
+export const StyledText = styled.span<{ increaseMargin: boolean }>`
   width: 100%;
   text-align: center;
   font-weight: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-weight'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-size'].value};
   font-family: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-family'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_bold['line-height'].value};
-  margin-top: ${({ theme, size }) => (size === ProgressBarSize.Medium ? theme.sizes.xs.value : '14px')};
-  color: ${({ theme, disabled }) =>
-    disabled ? theme.colors.colours.system['disable-light-theme'].value : theme.colors.colours.support[60].value};
+  margin-top: ${({ theme, increaseMargin }) => (increaseMargin ? theme.sizes.xs.value : theme.sizes['2xs'].value)};
+  color: ${({ theme }) => theme.colors.colours.support[60].value};
 `;
