@@ -31,7 +31,7 @@ export const ProgressBar = ({
         )}
       </StyledBarContainer>
       {label && (
-        <StyledText theme={theme} increaseMargin={!displayAmount}>
+        <StyledText theme={theme} disabled={disabled}>
           {label}
         </StyledText>
       )}

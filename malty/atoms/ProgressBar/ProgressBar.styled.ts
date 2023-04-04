@@ -54,13 +54,14 @@ export const StyledProgressAmount = styled.span<{ disabled: boolean }>`
     `}
 `;
 
-export const StyledText = styled.span<{ increaseMargin: boolean }>`
+export const StyledText = styled.span<{ disabled: boolean }>`
   width: 100%;
   text-align: center;
   font-weight: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-weight'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-size'].value};
   font-family: ${({ theme }) => theme.typography.desktop.text.tiny_bold['font-family'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_bold['line-height'].value};
-  margin-top: ${({ theme, increaseMargin }) => (increaseMargin ? theme.sizes.xs.value : theme.sizes['2xs'].value)};
-  color: ${({ theme }) => theme.colors.colours.support[60].value};
+  margin-top: ${({ theme }) => theme.sizes.xs.value};
+  color: ${({ theme, disabled }) =>
+    !disabled ? theme.colors.colours.support[60].value : theme.colors.colours.system['disable-light-theme'].value};
 `;
