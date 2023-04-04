@@ -4,7 +4,7 @@ import { ForegroundCircleColor, PercentagePosition } from './ProgressCircle.type
 export const StyledWrapper = styled.div<{
   percentagePosition: PercentagePosition;
 }>`
-  width: auto;
+  min-width: ${({ theme }) => theme.sizes['4xl'].value};
   display: flex;
   flex-direction: ${({ percentagePosition }) =>
     percentagePosition === PercentagePosition.Left ? 'row' : 'row-reverse'};
