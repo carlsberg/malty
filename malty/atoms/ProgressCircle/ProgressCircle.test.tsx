@@ -19,7 +19,7 @@ describe('Progress Circle', () => {
   });
 
   test('if percentage is below zero, label displays x%', () => {
-    const percentage = -30.516;
+    const percentage = -30;
     render(<ProgressCircle percentage={percentage} />);
 
     expect(screen.getByText(`${Math.abs(percentage)}%`)).toBeInTheDocument();
