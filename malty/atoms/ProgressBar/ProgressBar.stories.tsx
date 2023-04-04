@@ -45,7 +45,7 @@ export default {
     },
     disabled: {
       control: 'boolean',
-      description: 'Disables the progress bar'
+      description: 'Changes the progress bar visuals to simulate a disabled state'
     },
     size: {
       description: 'Size of the progress bar',
