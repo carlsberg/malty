@@ -11,7 +11,7 @@ describe('progressBar', () => {
     expect(screen.getByText('30%')).toBeInTheDocument();
   });
 
-  it('does not display progrss when display amount is disabled', () => {
+  it('does not display progress when display amount is disabled', () => {
     render(<ProgressBar progress={30} displayAmount={false} />);
 
     expect(screen.queryByText('30%')).not.toBeInTheDocument();

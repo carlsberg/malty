@@ -24,11 +24,11 @@ export const ProgressBar = ({
     <StyledWrapper theme={theme} data-testid={dataTestId}>
       <StyledBarContainer theme={theme}>
         <StyledProgressBar theme={theme} progress={progress} size={size} disabled={disabled} />
-        {displayAmount && (
+        {displayAmount ? (
           <StyledProgressAmount theme={theme} disabled={disabled}>
             {progress}%
           </StyledProgressAmount>
-        )}
+        ) : null}
       </StyledBarContainer>
       {label && (
         <StyledText theme={theme} disabled={disabled}>
