@@ -1,4 +1,7 @@
-export interface CardProps {
+// TODO: bit add the whole types folder?
+import { SpaceProps } from 'malty/utils/types';
+
+export interface CardProps extends SpaceProps {
   cardStyle?: CardStyle;
   orientation?: CardOrientation;
   selected?: boolean;

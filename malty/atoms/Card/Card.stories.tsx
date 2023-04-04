@@ -2,7 +2,8 @@ import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { Card as CardComponent } from './Card';
 import { CardOrientation, CardProps, CardStyle } from './Card.types';
 
@@ -60,7 +61,9 @@ export default {
 
 // eslint-disable-next-line react/function-component-definition
 const Template: Story<CardProps> = (args) => {
-  return <CardComponent {...args} />;
+  const theme = useContext(ThemeContext);
+  // eslint-disable-next-line react/destructuring-assignment
+  return <CardComponent {...args} mx={theme.sizes.m.value} />;
 };
 
 export const Card = Template.bind({});

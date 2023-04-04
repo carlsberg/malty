@@ -1,3 +1,4 @@
+import { space } from '@carlsberggroup/malty.utils.mixins';
 import styled, { css } from 'styled-components';
 import { CardOrientation, CardStyle } from './Card.types';
 
@@ -8,6 +9,7 @@ export const StyledCardContainer = styled.div<{
   hover: boolean;
   disabled?: boolean;
 }>`
+  ${space}
   display: flex;
   align-items: stretch;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
