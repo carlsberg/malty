@@ -3,6 +3,12 @@ export interface ProgressCircleProps {
   displayPercentage?: boolean;
   percentage: number;
   percentagePosition?: PercentagePosition;
+  roundMethod?: RoundMethod;
+}
+
+export enum RoundMethod {
+  Down = 'down',
+  Up = 'up'
 }
 
 export enum PercentagePosition {

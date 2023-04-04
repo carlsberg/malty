@@ -2,7 +2,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { ProgressCircle as ProgressCircleComponent } from './ProgressCircle';
-import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps } from './ProgressCircle.types';
+import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps, RoundMethod } from './ProgressCircle.types';
 
 export default {
   title: 'Progress Indicators/Progress Circle',
@@ -12,6 +12,16 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.progress-circle'
   },
   argTypes: {
+    displayPercentage: {
+      control: 'boolean',
+      description: 'Show text information of percentage data?',
+      table: {
+        category: 'Percentage label',
+        defaultValue: {
+          summary: true
+        }
+      }
+    },
     foregroundColor: {
       description: 'The color of the foreground circle.<br />Options are:',
       options: Object.values(ForegroundCircleColor),
@@ -24,16 +34,6 @@ export default {
       control: {
         type: 'radio',
         labels: Object.assign({}, ...Object.entries(ForegroundCircleColor).map(([a, b]) => ({ [b]: a })))
-      }
-    },
-    displayPercentage: {
-      control: 'boolean',
-      description: 'Show text information of percentage data?',
-      table: {
-        category: 'Percentage label',
-        defaultValue: {
-          summary: true
-        }
       }
     },
     percentage: {
@@ -59,6 +59,21 @@ export default {
         type: 'radio',
         labels: Object.assign({}, ...Object.entries(PercentagePosition).map(([a, b]) => ({ [b]: a })))
       }
+    },
+    roundMethod: {
+      description:
+        'Method to round value of the percentage with decimal. Applies either `Math.floor()` or `Math.round()` static method <br />Options are:',
+
+      options: Object.values(RoundMethod),
+      table: {
+        defaultValue: {
+          summary: 'Up'
+        }
+      },
+      control: {
+        type: 'radio',
+        labels: Object.assign({}, ...Object.entries(RoundMethod).map(([a, b]) => ({ [b]: a })))
+      }
     }
   }
 } as ComponentMeta<typeof ProgressCircleComponent>;
@@ -70,8 +85,9 @@ const Template: ComponentStory<typeof ProgressCircleComponent> = (args: Progress
 export const ProgressCircle = Template.bind({});
 
 ProgressCircle.args = {
-  foregroundColor: ForegroundCircleColor.DigitalBlack,
   displayPercentage: true,
+  foregroundColor: ForegroundCircleColor.DigitalBlack,
   percentage: 27,
-  percentagePosition: PercentagePosition.Left
+  percentagePosition: PercentagePosition.Left,
+  roundMethod: RoundMethod.Up
 };
