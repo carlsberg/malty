@@ -23,6 +23,7 @@ export default {
       }
     },
     errorLabel: {
+      control: 'text',
       description: 'Error label which could be passed by the product as a translation',
       table: {
         category: 'Percentage label',
@@ -95,6 +96,7 @@ export const ProgressCircle = Template.bind({});
 
 ProgressCircle.args = {
   displayPercentage: true,
+  errorLabel: 'Error',
   foregroundColor: ForegroundCircleColor.DigitalBlack,
   percentage: 27,
   percentagePosition: PercentagePosition.Left,
