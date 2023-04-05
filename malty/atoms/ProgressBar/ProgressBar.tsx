@@ -30,11 +30,11 @@ export const ProgressBar = ({
           </StyledProgressAmount>
         ) : null}
       </StyledBarContainer>
-      {label && (
+      {label ? (
         <StyledText theme={theme} disabled={disabled}>
           {label}
         </StyledText>
-      )}
+      ) : null}
     </StyledWrapper>
   );
 };
