@@ -62,7 +62,7 @@ export default {
     },
     roundMethod: {
       description:
-        'Method to round value of the percentage with decimal. Applies either `Math.floor()` or `Math.round()` static method <br />Options are:',
+        'Method to round value of the percentage with decimal. Applies either `Math.ceil()`, `Math.floor()` or `Math.round()` static method <br />Options are:',
 
       options: Object.values(RoundMethod),
       table: {

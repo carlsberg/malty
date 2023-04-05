@@ -1,6 +1,9 @@
+import { DefaultTheme } from 'styled-components';
+
 export interface ProgressCircleProps {
   foregroundColor?: ForegroundCircleColor;
   displayPercentage?: boolean;
+  errorLabel?: string;
   percentage: number;
   percentagePosition?: PercentagePosition;
   roundMethod?: RoundMethod;
@@ -8,6 +11,7 @@ export interface ProgressCircleProps {
 
 export enum RoundMethod {
   Down = 'down',
+  Round = 'round',
   Up = 'up'
 }
 
@@ -29,4 +33,19 @@ export enum ForegroundCircleColor {
   ThemePrimary = 'themePrimary',
   ThemeSecondary = 'themeSecondary',
   Update = 'update'
+}
+
+export interface RoundPercentageProps {
+  percentage: number;
+  roundMethod: RoundMethod;
+}
+
+export interface DegreeValueAndLabelProps {
+  percentage: number;
+  errorLabel: string;
+}
+
+export interface SegmentColorProps {
+  foregroundColor: ForegroundCircleColor;
+  theme: DefaultTheme;
 }

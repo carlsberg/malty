@@ -1,15 +1,18 @@
 import styled from 'styled-components';
-import { ForegroundCircleColor, PercentagePosition } from './ProgressCircle.types';
+import { PercentagePosition } from './ProgressCircle.types';
 
 export const StyledWrapper = styled.div<{
   percentagePosition: PercentagePosition;
 }>`
-  min-width: ${({ theme }) => theme.sizes['4xl'].value};
   display: flex;
   flex-direction: ${({ percentagePosition }) =>
     percentagePosition === PercentagePosition.Left ? 'row' : 'row-reverse'};
   align-items: center;
   justify-content: start;
+
+  .label {
+    min-width: ${({ theme }) => theme.sizes.xl.value};
+  }
 `;
 
 export const StyledBackgroundCircle = styled.div<{
@@ -32,43 +35,10 @@ export const StyledBackgroundCircle = styled.div<{
 `;
 
 export const StyledForegroundCircle = styled.div<{
-  displayValue: number;
-  foregroundColor: ForegroundCircleColor;
+  color: string;
+  degreeValue: string;
 }>`
-  --background-color: ${({ foregroundColor, theme }) => {
-    switch (foregroundColor) {
-      case ForegroundCircleColor.DigitalBlack: {
-        return theme.colors.colours.default[foregroundColor].value;
-      }
-      case ForegroundCircleColor.Close:
-      case ForegroundCircleColor.Hold:
-      case ForegroundCircleColor.Live:
-      case ForegroundCircleColor.Multiple:
-      case ForegroundCircleColor.Parked:
-      case ForegroundCircleColor.Update: {
-        return theme.colors.colours.information[foregroundColor].value;
-      }
-      case ForegroundCircleColor.Notification: {
-        return theme.colors.colours.system['notification-strong'].value;
-      }
-      case ForegroundCircleColor.Support80: {
-        return theme.colors.colours.support['80'].value;
-      }
-      case ForegroundCircleColor.Support100: {
-        return theme.colors.colours.support['100'].value;
-      }
-      case ForegroundCircleColor.ThemePrimary:
-      case ForegroundCircleColor.ThemeSecondary: {
-        return theme.colors.theme[foregroundColor].value;
-      }
-      default: {
-        const exhaustiveCheck: never = foregroundColor;
-        return exhaustiveCheck;
-      }
-    }
-  }};
-  --degree-value: ${({ displayValue }) => `${displayValue * 3.6}deg`};
-  background: conic-gradient(var(--background-color) var(--degree-value), transparent var(--degree-value));
+  background: ${({ color, degreeValue }) => `conic-gradient(${color} ${degreeValue}, transparent ${degreeValue})`};
   width: ${({ theme }) => theme.sizes.s.value};
   height: ${({ theme }) => theme.sizes.s.value};
   border-radius: 50%;
