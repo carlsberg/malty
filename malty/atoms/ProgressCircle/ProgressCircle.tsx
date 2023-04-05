@@ -7,9 +7,9 @@ import { StyledBackgroundCircle, StyledForegroundCircle, StyledWrapper } from '.
 import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps, RoundMethod } from './ProgressCircle.types';
 
 export const ProgressCircle = ({
-  foregroundColor = ForegroundCircleColor.DigitalBlack,
   displayPercentage = true,
   errorLabel = 'Error',
+  foregroundColor = ForegroundCircleColor.DigitalBlack,
   percentage,
   percentagePosition = PercentagePosition.Left,
   roundMethod = RoundMethod.Up

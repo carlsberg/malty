@@ -16,7 +16,7 @@ export const useRoundPercentage = ({ percentage, roundMethod }: RoundPercentageP
   return mappedMethods[roundMethod](percentage);
 };
 
-export const useDegreeValueAndLabel = ({ percentage, errorLabel }: DegreeValueAndLabelProps) => {
+export const useDegreeValueAndLabel = ({ errorLabel, percentage }: DegreeValueAndLabelProps) => {
   let displayPercentage: number;
   let label = `${Math.abs(percentage)}%`;
 
@@ -37,18 +37,18 @@ export const useDegreeValueAndLabel = ({ percentage, errorLabel }: DegreeValueAn
 
 export const useSegmentColor = ({ foregroundColor, theme }: SegmentColorProps) => {
   const mappedColors: Record<ForegroundCircleColor, string> = {
-    [ForegroundCircleColor.DigitalBlack]: theme.colors.colours.default['digital-black'].value,
     [ForegroundCircleColor.Close]: theme.colors.colours.information.close.value,
+    [ForegroundCircleColor.DigitalBlack]: theme.colors.colours.default['digital-black'].value,
     [ForegroundCircleColor.Hold]: theme.colors.colours.information.hold.value,
     [ForegroundCircleColor.Live]: theme.colors.colours.information.live.value,
     [ForegroundCircleColor.Multiple]: theme.colors.colours.information.multiple.value,
-    [ForegroundCircleColor.Parked]: theme.colors.colours.information.parked.value,
-    [ForegroundCircleColor.Update]: theme.colors.colours.information.update.value,
     [ForegroundCircleColor.Notification]: theme.colors.colours.system['notification-strong'].value,
+    [ForegroundCircleColor.Parked]: theme.colors.colours.information.parked.value,
     [ForegroundCircleColor.Support80]: theme.colors.colours.support['80'].value,
     [ForegroundCircleColor.Support100]: theme.colors.colours.support['100'].value,
     [ForegroundCircleColor.ThemePrimary]: theme.colors.theme.themePrimary.value,
-    [ForegroundCircleColor.ThemeSecondary]: theme.colors.theme.themeSecondary.value
+    [ForegroundCircleColor.ThemeSecondary]: theme.colors.theme.themeSecondary.value,
+    [ForegroundCircleColor.Update]: theme.colors.colours.information.update.value
   };
 
   return mappedColors[foregroundColor];

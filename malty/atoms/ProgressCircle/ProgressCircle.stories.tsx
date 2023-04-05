@@ -22,6 +22,15 @@ export default {
         }
       }
     },
+    errorLabel: {
+      description: 'Error label which could be passed by the product as a translation',
+      table: {
+        category: 'Percentage label',
+        defaultValue: {
+          summary: 'Error'
+        }
+      }
+    },
     foregroundColor: {
       description: 'The color of the foreground circle.<br />Options are:',
       options: Object.values(ForegroundCircleColor),
