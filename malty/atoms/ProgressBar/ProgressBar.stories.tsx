@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { ProgressBar as ProgressBarContainer } from './ProgressBar';
-import { ProgressBarProps } from './ProgressBar.types';
+import { ProgressBarProps, ProgressBarSize } from './ProgressBar.types';
 
 export default {
   title: 'Progress Indicators/Progress Bar',
@@ -13,7 +13,7 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      description: 'Progress indeicating text',
+      description: 'Progress indicating text',
       table: {
         defaultValue: {
           summary: 'blank'
@@ -42,16 +42,34 @@ export default {
           summary: 0
         }
       }
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Changes the progress bar visuals to simulate a disabled state'
+    },
+    size: {
+      description: 'Size of the progress bar',
+      options: Object.keys(ProgressBarSize),
+      mapping: ProgressBarSize,
+      control: {
+        type: 'select',
+        label: Object.values(ProgressBarSize)
+      }
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'Progress bar data-testid'
     }
   }
 } as Meta;
-const Template: Story<ProgressBarProps> = ({ progress, displayAmount, label }: ProgressBarProps) => (
-  <ProgressBarContainer displayAmount={displayAmount} label={label} progress={progress} />
-);
+
+const Template: Story<ProgressBarProps> = (props: ProgressBarProps) => <ProgressBarContainer {...props} />;
 
 export const ProgressBar = Template.bind({});
+
 ProgressBar.args = {
   progress: 20,
   displayAmount: true,
-  label: 'Loading items...'
+  label: 'Loading items...',
+  size: ProgressBarSize.Medium
 };
