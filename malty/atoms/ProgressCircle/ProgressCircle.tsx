@@ -1,53 +1,35 @@
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import { useDegreeValueAndLabel, useRoundPercentage, useSegmentColor } from './ProgressCircle.helper';
 import { StyledBackgroundCircle, StyledForegroundCircle, StyledWrapper } from './ProgressCircle.styled';
 import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps, RoundMethod } from './ProgressCircle.types';
 
 export const ProgressCircle = ({
   foregroundColor = ForegroundCircleColor.DigitalBlack,
   displayPercentage = true,
+  errorLabel = 'Error',
   percentage,
   percentagePosition = PercentagePosition.Left,
   roundMethod = RoundMethod.Up
 }: ProgressCircleProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  let roundPercentage;
-  switch (roundMethod) {
-    case RoundMethod.Down: {
-      roundPercentage = Math.floor(percentage);
-      break;
-    }
-    case RoundMethod.Up: {
-      roundPercentage = Math.round(percentage);
-      break;
-    }
-    default: {
-      const exhaustiveCheck: never = roundMethod;
-      return exhaustiveCheck;
-    }
-  }
-
-  let displayValue: number;
-  let label = `${roundPercentage}%`;
-  if (Number.isNaN(roundPercentage)) {
-    displayValue = 0;
-    label = 'Error';
-  } else if (roundPercentage > 100) {
-    displayValue = 100;
-  } else if (roundPercentage < 0) {
-    displayValue = 0;
-    label = `${Math.abs(roundPercentage)}%`;
-  } else {
-    displayValue = roundPercentage;
-  }
+  const roundPercentage = useRoundPercentage({ percentage, roundMethod });
+  const { degreeValue, label } = useDegreeValueAndLabel({ percentage: roundPercentage, errorLabel });
+  const segmentColor = useSegmentColor({ foregroundColor, theme });
 
   return (
     <StyledWrapper theme={theme} percentagePosition={percentagePosition}>
       {displayPercentage && (
-        <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.Support80} as="span">
+        <Text
+          textStyle={TextStyle.MediumSmallBold}
+          color={TextColor.Support80}
+          as="span"
+          className="label"
+          align={percentagePosition === PercentagePosition.Left ? TextAlign.Right : TextAlign.Left}
+        >
           {label}
         </Text>
       )}
@@ -56,7 +38,7 @@ export const ProgressCircle = ({
         displayPercentage={displayPercentage}
         percentagePosition={percentagePosition}
       >
-        <StyledForegroundCircle theme={theme} displayValue={displayValue} foregroundColor={foregroundColor} />
+        <StyledForegroundCircle theme={theme} degreeValue={degreeValue} color={segmentColor} />
       </StyledBackgroundCircle>
     </StyledWrapper>
   );
