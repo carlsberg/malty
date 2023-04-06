@@ -1,3 +1,4 @@
+import { Text } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 import { PercentagePosition } from './ProgressCircle.types';
 
@@ -9,10 +10,10 @@ export const StyledWrapper = styled.div<{
     percentagePosition === PercentagePosition.Left ? 'row' : 'row-reverse'};
   align-items: center;
   justify-content: start;
+`;
 
-  .label {
-    min-width: ${({ theme }) => theme.sizes.xl.value};
-  }
+export const StyledLabel = styled(Text)`
+  min-width: ${({ theme }) => theme.sizes.xl.value};
 `;
 
 export const StyledBackgroundCircle = styled.div<{

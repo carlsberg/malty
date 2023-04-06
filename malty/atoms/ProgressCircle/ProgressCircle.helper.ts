@@ -1,3 +1,6 @@
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import {
   DegreeValueAndLabelProps,
   ForegroundCircleColor,
@@ -35,7 +38,9 @@ export const useDegreeValueAndLabel = ({ errorLabel, percentage }: DegreeValueAn
   return { degreeValue, label };
 };
 
-export const useSegmentColor = ({ foregroundColor, theme }: SegmentColorProps) => {
+export const useSegmentColor = ({ foregroundColor }: SegmentColorProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const mappedColors: Record<ForegroundCircleColor, string> = {
     [ForegroundCircleColor.Close]: theme.colors.colours.information.close.value,
     [ForegroundCircleColor.DigitalBlack]: theme.colors.colours.default['digital-black'].value,
