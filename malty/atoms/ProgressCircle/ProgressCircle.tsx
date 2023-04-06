@@ -24,6 +24,7 @@ export const ProgressCircle = ({
     <StyledWrapper theme={theme} percentagePosition={percentagePosition}>
       {displayPercentage && (
         <StyledLabel
+          theme={theme}
           textStyle={TextStyle.MediumSmallBold}
           color={TextColor.Support80}
           forwardedAs="span"
