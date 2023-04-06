@@ -1,5 +1,3 @@
-import { DefaultTheme } from 'styled-components';
-
 export interface ProgressCircleProps {
   displayPercentage?: boolean;
   errorLabel?: string;
@@ -47,5 +45,4 @@ export interface DegreeValueAndLabelProps {
 
 export interface SegmentColorProps {
   foregroundColor: ForegroundCircleColor;
-  theme: DefaultTheme;
 }
