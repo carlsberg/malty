@@ -1,4 +1,3 @@
-import { Icon } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
 import { TableHeaderAlignment } from './Table.types';
 
@@ -13,6 +12,7 @@ export const StyledTable = styled.table`
         ${theme.borders['border-1px--solid']['border-style'].value} ${theme.colors.colours.support[20].value};
     `}
 `;
+
 export const StyledThead = styled.thead``;
 
 export const StyledHead = styled.th<{
@@ -49,22 +49,26 @@ export const StyledHead = styled.th<{
       margin-left: ${({ theme }) => theme.sizes['2xs'].value};
     }
   }
+
   &.draggable-header {
     width: ${({ theme }) => theme.sizes.m.value};
     box-sizing: border-box;
   }
+
   &.checkbox-header {
     width: ${({ theme }) => theme.sizes.xl.value};
     box-sizing: border-box;
   }
-  .sort-icon {
-    &:hover {
-      fill: ${({ theme }) => theme.colors.colours.support[100].value};
+
+  &:hover {
+    svg {
+      fill: ${({ theme }) => theme.colors.colours.support[80].value};
     }
   }
 `;
 
 export const StyledTbody = styled.tbody``;
+
 export const StyledRow = styled.tr<{
   size?: string;
   isClickable: boolean;
@@ -84,6 +88,7 @@ export const StyledRow = styled.tr<{
       }
     `}
 `;
+
 export const StyledTd = styled.td<{
   width?: number;
   alignPosition?: TableHeaderAlignment;
@@ -98,6 +103,7 @@ export const StyledTd = styled.td<{
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   height: ${({ theme }) => theme.sizes.xl.value};
 `;
+
 export const StyledFooterWrapper = styled.div`
   margin-top: ${({ theme }) => theme.sizes.s.value};
   justify-content: space-between;
@@ -110,22 +116,21 @@ export const StyledFooterWrapper = styled.div`
     }
   `}
 `;
+
 export const StyledPaginationWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+
 export const StyledTextWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
-export const StyledSortIcon = styled(Icon)`
-  &:hover {
-    fill: ${({ theme }) => theme.colors.colours.support[80].value};
-  }
-`;
+
 export const StyledDraggableCell = styled(StyledTd)`
   padding-left: ${({ theme }) => theme.sizes['4xs'].value};
 `;
+
 export const StyledNoRecordsWrapper = styled.div`
   padding: ${({ theme }) => theme.sizes['3xl'].value} 0;
   display: flex;
