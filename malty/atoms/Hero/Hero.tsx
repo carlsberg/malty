@@ -61,7 +61,7 @@ export const Hero = ({
                   size={ButtonSize.Large}
                   style={ButtonStyle[btnInstance.variant as ButtonStyle]}
                   negative={negative}
-                  onClick={btnInstance.onClick || undefined}
+                  onClick={!btnInstance.url && btnInstance.onClick ? btnInstance.onClick : undefined}
                   url={btnInstance.url || undefined}
                 >
                   {btnInstance.label}
