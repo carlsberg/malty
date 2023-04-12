@@ -13,6 +13,7 @@ const headers: TableHeaderProps[] = [
     key: 'age'
   }
 ];
+
 const headersCenter: TableHeaderProps[] = [
   {
     header: 'Name',
@@ -25,6 +26,7 @@ const headersCenter: TableHeaderProps[] = [
     headerAlignment: TableHeaderAlignment.Center
   }
 ];
+
 const rows: TableRowProps[] = [
   {
     id: 1,
@@ -109,8 +111,13 @@ export default {
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
-    variants: ['dnd', 'selection', 'empty', 'headersCenter'],
-    // eslint-disable-next-line no-template-curly-in-string
+    variants: ['dnd', 'selection', 'empty', 'headersCenter', 'sorted'],
+    docs: {
+      description: {
+        component:
+          'For this component we are using an external library as our base table, you can check the docs here https://tanstack.com/table/v8'
+      }
+    },
     info: 'Please be careful with the use of <code>serverSide</code> prop. If you intend to use the table without server side pagination please set this prop to <b>false</b>. The Default value is true.'
   },
   argTypes: {
@@ -156,6 +163,14 @@ export default {
       description:
         "If true table works with server side pagination. Please turn it off if you don't want server side pagination on the table"
     },
+    defaultSorting: {
+      control: 'object',
+      description: 'This will be the default behaviour for the sorting at the beginning'
+    },
+    onSortingChange: {
+      description:
+        'This will return the SortingState when the column title is clicked. By providing this prop the manualSorting will be enabled so automatic sorting will be disabled, as you know we are using react-table and the library is managing the sorting automatically, this will disable this option'
+    },
     size: {
       description: 'Size for table rows',
       options: Object.keys(TableSize),
@@ -172,6 +187,7 @@ export default {
     }
   }
 } as Meta;
+
 const Template: Story<TableProps> = ({ ...args }) => <TableComponent {...args} />;
 
 export const Table = Template.bind({});
@@ -190,7 +206,8 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: false,
-      serverSide: false
+      serverSide: false,
+      onSortingChange: undefined
     };
     break;
   case 'selection':
@@ -204,7 +221,8 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
-      serverSide: false
+      serverSide: false,
+      onSortingChange: undefined
     };
     break;
   case 'empty':
@@ -218,7 +236,8 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
-      serverSide: false
+      serverSide: false,
+      onSortingChange: undefined
     };
     break;
   case 'headersCenter':
@@ -232,7 +251,25 @@ switch (variant) {
       size: TableSize.Large,
       dataTestId: 'table',
       allowSelection: false,
-      serverSide: false
+      serverSide: false,
+      onSortingChange: undefined
+    };
+    break;
+  case 'sorted':
+    Table.args = {
+      headers,
+      rows,
+      onRowClick: () => null,
+      paginationSize: 10,
+      className: '',
+      isDraggable: false,
+      size: TableSize.Medium,
+      dataTestId: 'table',
+      allowSelection: false,
+      totalRecords: rows.length,
+      serverSide: false,
+      defaultSorting: { id: 'name', desc: true },
+      onSortingChange: undefined
     };
     break;
 
@@ -248,7 +285,8 @@ switch (variant) {
       dataTestId: 'table',
       allowSelection: false,
       totalRecords: rows.length,
-      serverSide: false
+      serverSide: false,
+      onSortingChange: undefined
     };
     break;
 }

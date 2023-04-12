@@ -11,6 +11,7 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  OnChangeFn,
   PaginationState,
   SortingState,
   useReactTable
@@ -26,7 +27,6 @@ import {
   StyledNoRecordsWrapper,
   StyledPaginationWrapper,
   StyledRow,
-  StyledSortIcon,
   StyledTable,
   StyledTbody,
   StyledTd,
@@ -35,11 +35,23 @@ import {
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
+const createSortIcon = (iconName: IconName) => {
+  const renderSortIcon = (ref: React.Dispatch<React.SetStateAction<HTMLElement | null>>) => (
+    <div ref={ref}>
+      <Icon
+        name={iconName}
+        size={IconSize.MediumSmall}
+        color={iconName === IconName.Sort ? IconColor.Support40 : IconColor.Support80}
+      />
+    </div>
+  );
+
+  return renderSortIcon;
+};
+
 export const Table = ({
   headers,
   rows,
-  onRowClick,
-  onRowSelect = () => null,
   size,
   paginationSize = 12,
   className,
@@ -49,6 +61,10 @@ export const Table = ({
   totalPagesCount,
   totalRecords,
   serverSide = true,
+  defaultSorting,
+  onRowClick,
+  onSortingChange,
+  onRowSelect = () => null,
   onPaginationChange = () => null
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
@@ -56,13 +72,14 @@ export const Table = ({
   const [data, setData] = useState(rows);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
   const [rowSelection, setRowSelection] = useState({});
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
 
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: paginationSize
   });
+
   const pagination = useMemo(
     () => ({
       pageIndex,
@@ -79,6 +96,13 @@ export const Table = ({
     })
   );
 
+  const handleOnSortingChange: OnChangeFn<SortingState> = (updaterFn) => {
+    const value = typeof updaterFn === 'function' ? updaterFn(sorting) : [];
+
+    onSortingChange?.(value);
+    setSorting(value);
+  };
+
   const table = useReactTable({
     data,
     columns,
@@ -89,11 +113,12 @@ export const Table = ({
       pagination,
       sorting
     },
+    manualSorting: !!onSortingChange,
     onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     onPaginationChange: setPagination,
     getPaginationRowModel: getPaginationRowModel(),
-    onSortingChange: setSorting,
+    onSortingChange: handleOnSortingChange,
     getSortedRowModel: getSortedRowModel()
   });
 
@@ -104,6 +129,7 @@ export const Table = ({
       onPaginationChange(page);
     }
   };
+
   const handleDragEnd = (results: DropResult) => {
     if (!results.destination) return;
     const tempUser = [...data];
@@ -192,16 +218,7 @@ export const Table = ({
                             placement={TooltipPlacement.Bottom}
                             isDark
                             tooltipId="asc"
-                            triggerComponent={(setTriggerElement) => (
-                              <div ref={setTriggerElement}>
-                                <Icon
-                                  className="sort-icon"
-                                  name={IconName.ArrowSmallUp}
-                                  size={IconSize.MediumSmall}
-                                  color={IconColor.Support80}
-                                />
-                              </div>
-                            )}
+                            triggerComponent={createSortIcon(IconName.ArrowSmallUp)}
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                               Sorted A→Z
@@ -213,16 +230,7 @@ export const Table = ({
                             placement={TooltipPlacement.Bottom}
                             isDark
                             tooltipId="desc"
-                            triggerComponent={(setTriggerElement) => (
-                              <div ref={setTriggerElement}>
-                                <Icon
-                                  className="sort-icon"
-                                  name={IconName.ArrowSmallDown}
-                                  size={IconSize.MediumSmall}
-                                  color={IconColor.Support80}
-                                />
-                              </div>
-                            )}
+                            triggerComponent={createSortIcon(IconName.ArrowSmallDown)}
                           >
                             <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                               Sorted Z→A
@@ -234,16 +242,7 @@ export const Table = ({
                           placement={TooltipPlacement.Bottom}
                           isDark
                           tooltipId="normal"
-                          triggerComponent={(setTriggerElement) => (
-                            <div ref={setTriggerElement}>
-                              <StyledSortIcon
-                                theme={theme}
-                                name={IconName.Sort}
-                                size={IconSize.MediumSmall}
-                                color={IconColor.Support40}
-                              />
-                            </div>
-                          )}
+                          triggerComponent={createSortIcon(IconName.Sort)}
                         >
                           <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                             Sort A→Z
