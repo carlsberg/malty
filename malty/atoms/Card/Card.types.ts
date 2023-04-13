@@ -1,5 +1,4 @@
-// TODO: bit add the whole types folder?
-import { SpaceProps } from 'malty/utils/types';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
 export interface CardProps extends SpaceProps {
   cardStyle?: CardStyle;

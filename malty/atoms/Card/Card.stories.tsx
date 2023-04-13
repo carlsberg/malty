@@ -59,11 +59,10 @@ export default {
   }
 };
 
-// eslint-disable-next-line react/function-component-definition
 const Template: Story<CardProps> = (args) => {
   const theme = useContext(ThemeContext);
-  // eslint-disable-next-line react/destructuring-assignment
-  return <CardComponent {...args} mx={theme.sizes.m.value} />;
+
+  return <CardComponent {...args} mt="30px" />;
 };
 
 export const Card = Template.bind({});

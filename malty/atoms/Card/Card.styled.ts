@@ -1,14 +1,16 @@
-import { space } from '@carlsberggroup/malty.utils.mixins';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { CardOrientation, CardStyle } from './Card.types';
 
-export const StyledCardContainer = styled.div<{
+type StyledCardContainerProps = {
   orientation: CardOrientation;
   selected: boolean;
   cardStyle: CardStyle;
   hover: boolean;
   disabled?: boolean;
-}>`
+} & SpaceProps;
+
+export const StyledCardContainer = styled.div<StyledCardContainerProps>`
   ${space}
   display: flex;
   align-items: stretch;
