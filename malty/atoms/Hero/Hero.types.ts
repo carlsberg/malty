@@ -15,7 +15,8 @@ export interface HeroProps {
     | {
         variant: ButtonStyle;
         label: string;
-        onClick: () => void;
+        onClick?: () => void;
+        url?: string;
         key?: string;
       }[]
     | React.ReactNode
