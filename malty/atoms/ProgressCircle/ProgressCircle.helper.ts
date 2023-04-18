@@ -12,6 +12,9 @@ import {
 
 export const pxToInt = (value: string) => parseInt(value.replace(/px/g, ''), 10);
 
+/**
+ * @see https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/#svg-solution
+ */
 export const usePieChart = ({ diameter, percentage }: PieChartProps) => {
   const pieRadius = diameter / 2;
   const baseRadius = pieRadius / 2;
