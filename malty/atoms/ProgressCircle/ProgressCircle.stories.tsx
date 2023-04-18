@@ -48,8 +48,6 @@ export default {
     },
     percentage: {
       control: {
-        min: 0,
-        max: 100,
         step: 1
       },
       description: 'Percentage to be displayed in the foreground. Float number is truncated.'

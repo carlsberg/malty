@@ -2,12 +2,42 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
-  DegreeValueAndLabelProps,
   ForegroundCircleColor,
+  PieChartProps,
+  PiePercentageAndLabelProps,
   RoundMethod,
   RoundPercentageProps,
   SegmentColorProps
 } from './ProgressCircle.types';
+
+export const pxToInt = (value: string) => parseInt(value.replace(/px/g, ''), 10);
+
+export const usePieChart = ({ diameter, percentage }: PieChartProps) => {
+  const pieRadius = diameter / 2;
+  const baseRadius = pieRadius / 2;
+  const fullCircleLength = 2 * Math.PI * baseRadius;
+  const segmentLength = (percentage * fullCircleLength) / 100;
+
+  return { baseRadius, fullCircleLength, pieRadius, segmentLength };
+};
+
+export const usePiePercentageAndLabel = ({ errorLabel, percentage }: PiePercentageAndLabelProps) => {
+  let piePercentage: number;
+  let label = `${percentage}%`;
+
+  if (Number.isNaN(percentage)) {
+    piePercentage = 0;
+    label = errorLabel;
+  } else if (percentage > 100) {
+    piePercentage = 100;
+  } else if (percentage < 0) {
+    piePercentage = 0;
+  } else {
+    piePercentage = percentage;
+  }
+
+  return { piePercentage, label };
+};
 
 export const useRoundPercentage = ({ percentage, roundMethod }: RoundPercentageProps) => {
   const mappedMethods: Record<RoundMethod, (x: number) => number> = {
@@ -17,25 +47,6 @@ export const useRoundPercentage = ({ percentage, roundMethod }: RoundPercentageP
   };
 
   return mappedMethods[roundMethod](percentage);
-};
-
-export const useDegreeValueAndLabel = ({ errorLabel, percentage }: DegreeValueAndLabelProps) => {
-  let displayPercentage: number;
-  let label = `${Math.abs(percentage)}%`;
-
-  if (Number.isNaN(percentage)) {
-    displayPercentage = 0;
-    label = errorLabel;
-  } else if (percentage > 100) {
-    displayPercentage = 100;
-  } else if (percentage < 0) {
-    displayPercentage = 0;
-  } else {
-    displayPercentage = percentage;
-  }
-  const degreeValue = `${displayPercentage * 3.6}deg`;
-
-  return { degreeValue, label };
 };
 
 export const useSegmentColor = ({ foregroundColor }: SegmentColorProps) => {

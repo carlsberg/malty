@@ -2,24 +2,13 @@ import { Text } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 import { PercentagePosition } from './ProgressCircle.types';
 
-export const StyledWrapper = styled.div<{
-  percentagePosition: PercentagePosition;
-}>`
-  display: flex;
-  flex-direction: ${({ percentagePosition }) =>
-    percentagePosition === PercentagePosition.Left ? 'row' : 'row-reverse'};
-  align-items: center;
-  justify-content: start;
-`;
-
-export const StyledLabel = styled(Text)`
-  min-width: ${({ theme }) => theme.sizes.xl.value};
-`;
-
 export const StyledBackgroundCircle = styled.div<{
+  diameter: string;
   displayPercentage: boolean;
   percentagePosition: PercentagePosition;
 }>`
+  width: ${({ diameter }) => diameter};
+  height: ${({ diameter }) => diameter};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,12 +24,24 @@ export const StyledBackgroundCircle = styled.div<{
     displayPercentage && percentagePosition === PercentagePosition.Right ? theme.sizes['2xs'].value : 0};
 `;
 
-export const StyledForegroundCircle = styled.div<{
-  color: string;
-  degreeValue: string;
-}>`
-  background: ${({ color, degreeValue }) => `conic-gradient(${color} ${degreeValue}, transparent ${degreeValue})`};
-  width: ${({ theme }) => theme.sizes.s.value};
-  height: ${({ theme }) => theme.sizes.s.value};
+export const StyledLabel = styled(Text)`
+  min-width: ${({ theme }) => theme.sizes.xl.value};
+`;
+
+export const StyledSvg = styled.svg`
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
   border-radius: 50%;
+  display: block;
+`;
+
+export const StyledWrapper = styled.div<{
+  percentagePosition: PercentagePosition;
+}>`
+  display: flex;
+  flex-direction: ${({ percentagePosition }) =>
+    percentagePosition === PercentagePosition.Left ? 'row' : 'row-reverse'};
+  align-items: center;
+  justify-content: start;
 `;

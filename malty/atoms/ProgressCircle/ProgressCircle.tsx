@@ -2,8 +2,14 @@ import { TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.tex
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { useDegreeValueAndLabel, useRoundPercentage, useSegmentColor } from './ProgressCircle.helper';
-import { StyledBackgroundCircle, StyledForegroundCircle, StyledLabel, StyledWrapper } from './ProgressCircle.styled';
+import {
+  pxToInt,
+  usePieChart,
+  usePiePercentageAndLabel,
+  useRoundPercentage,
+  useSegmentColor
+} from './ProgressCircle.helper';
+import { StyledBackgroundCircle, StyledLabel, StyledSvg, StyledWrapper } from './ProgressCircle.styled';
 import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps, RoundMethod } from './ProgressCircle.types';
 
 export const ProgressCircle = ({
@@ -16,8 +22,15 @@ export const ProgressCircle = ({
 }: ProgressCircleProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
+  const pieDiameterInPx = theme.sizes.s.value;
+  const pieDiameterInt = pxToInt(pieDiameterInPx);
+
   const roundPercentage = useRoundPercentage({ percentage, roundMethod });
-  const { degreeValue, label } = useDegreeValueAndLabel({ percentage: roundPercentage, errorLabel });
+  const { label, piePercentage } = usePiePercentageAndLabel({ errorLabel, percentage: roundPercentage });
+  const { baseRadius, fullCircleLength, pieRadius, segmentLength } = usePieChart({
+    diameter: pieDiameterInt,
+    percentage: piePercentage
+  });
   const segmentColor = useSegmentColor({ foregroundColor });
 
   return (
@@ -35,10 +48,21 @@ export const ProgressCircle = ({
       )}
       <StyledBackgroundCircle
         theme={theme}
+        diameter={pieDiameterInPx}
         displayPercentage={displayPercentage}
         percentagePosition={percentagePosition}
       >
-        <StyledForegroundCircle theme={theme} degreeValue={degreeValue} color={segmentColor} />
+        <StyledSvg viewBox={`0 0 ${pieDiameterInt} ${pieDiameterInt}`}>
+          <circle
+            fill="transparent"
+            cx={pieRadius}
+            cy={pieRadius}
+            r={baseRadius}
+            stroke={segmentColor}
+            strokeDasharray={`${segmentLength} ${fullCircleLength}`}
+            strokeWidth={pieRadius}
+          />
+        </StyledSvg>
       </StyledBackgroundCircle>
     </StyledWrapper>
   );

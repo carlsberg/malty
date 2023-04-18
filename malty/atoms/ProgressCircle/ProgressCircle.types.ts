@@ -1,23 +1,3 @@
-export interface ProgressCircleProps {
-  displayPercentage?: boolean;
-  errorLabel?: string;
-  foregroundColor?: ForegroundCircleColor;
-  percentage: number;
-  percentagePosition?: PercentagePosition;
-  roundMethod?: RoundMethod;
-}
-
-export enum RoundMethod {
-  Down = 'down',
-  Round = 'round',
-  Up = 'up'
-}
-
-export enum PercentagePosition {
-  Left = 'left',
-  Right = 'right'
-}
-
 export enum ForegroundCircleColor {
   Close = 'close',
   DigitalBlack = 'digital-black',
@@ -33,14 +13,39 @@ export enum ForegroundCircleColor {
   Update = 'update'
 }
 
+export enum PercentagePosition {
+  Left = 'left',
+  Right = 'right'
+}
+
+export interface PieChartProps {
+  diameter: number;
+  percentage: number;
+}
+
+export interface PiePercentageAndLabelProps {
+  errorLabel: string;
+  percentage: number;
+}
+
+export interface ProgressCircleProps {
+  displayPercentage?: boolean;
+  errorLabel?: string;
+  foregroundColor?: ForegroundCircleColor;
+  percentage: number;
+  percentagePosition?: PercentagePosition;
+  roundMethod?: RoundMethod;
+}
+
+export enum RoundMethod {
+  Down = 'down',
+  Round = 'round',
+  Up = 'up'
+}
+
 export interface RoundPercentageProps {
   percentage: number;
   roundMethod: RoundMethod;
-}
-
-export interface DegreeValueAndLabelProps {
-  errorLabel: string;
-  percentage: number;
 }
 
 export interface SegmentColorProps {
