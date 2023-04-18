@@ -47,7 +47,7 @@
     },
     "atoms/hero": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Hero"
     },
@@ -1565,7 +1565,7 @@
     },
     "organisms/table": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.32",
+        "version": "0.0.33",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },
