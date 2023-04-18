@@ -23,12 +23,12 @@ export const ProgressCircle = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const pieDiameterInPx = theme.sizes.s.value;
-  const pieDiameterInt = pxToInt(pieDiameterInPx);
+  const pieDiameter = pxToInt(pieDiameterInPx);
 
   const roundPercentage = useRoundPercentage({ percentage, roundMethod });
   const { label, piePercentage } = usePiePercentageAndLabel({ errorLabel, percentage: roundPercentage });
   const { baseRadius, fullCircleLength, pieRadius, segmentLength } = usePieChart({
-    diameter: pieDiameterInt,
+    diameter: pieDiameter,
     percentage: piePercentage
   });
   const segmentColor = useSegmentColor({ foregroundColor });
@@ -52,7 +52,7 @@ export const ProgressCircle = ({
         displayPercentage={displayPercentage}
         percentagePosition={percentagePosition}
       >
-        <StyledSvg viewBox={`0 0 ${pieDiameterInt} ${pieDiameterInt}`}>
+        <StyledSvg viewBox={`0 0 ${pieDiameter} ${pieDiameter}`}>
           <circle
             fill="transparent"
             cx={pieRadius}
