@@ -73,8 +73,7 @@ export default {
       description: 'readOnly datepicker'
     },
     selectsRange: {
-      description:
-        "enable date range selection. This will set the input as readonly since the library doesn't provide a proper way to edit dates from the input directly",
+      description: 'enable date range selection. This will set the input as readonly',
       control: {
         type: 'boolean'
       }

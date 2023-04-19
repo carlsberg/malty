@@ -21,6 +21,8 @@ import {
 } from './Datepicker.styled';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
+const DATE_PICKER_INPUT_CLASSNAME = 'datepickerInput';
+
 export const Container: FC<{ withoutBorder?: boolean }> = ({ children, withoutBorder }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -118,9 +120,12 @@ export const Datepicker = ({
     }
   }, [size, theme]);
 
+  // This will set the input as readonly since the library doesn't provide a proper way to edit dates from the input directly ATM",
   useEffect(() => {
     if (selectsRange && datepickerRef.current) {
-      const inputElement = datepickerRef.current.querySelector('.datepickerInput') as HTMLInputElement | undefined;
+      const inputElement = datepickerRef.current.querySelector(`.${DATE_PICKER_INPUT_CLASSNAME}`) as
+        | HTMLInputElement
+        | undefined;
       if (inputElement) {
         inputElement.readOnly = true;
       }
@@ -218,7 +223,7 @@ export const Datepicker = ({
           minDate={minDate}
           maxDate={maxDate}
           excludeDates={excludeDates}
-          className="datepickerInput"
+          className={DATE_PICKER_INPUT_CLASSNAME}
           inline={inline}
           selectsRange={selectsRange}
           placeholderText={placeholderText}
