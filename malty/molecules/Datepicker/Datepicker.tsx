@@ -63,6 +63,7 @@ export const Datepicker = ({
   const [open, setOpen] = useState(false);
   const startDateRef = useRef<Date | null>(startDate);
   const endDateRef = useRef<Date | null | undefined>(endDate);
+  const datepickerRef = useRef<HTMLDivElement>(null);
 
   const handleClose = useCallback(() => setOpen(false), []);
   const handleOpen = useCallback(() => setOpen(true), []);
@@ -116,6 +117,15 @@ export const Datepicker = ({
       }
     }
   }, [size, theme]);
+
+  useEffect(() => {
+    if (selectsRange && datepickerRef.current) {
+      const inputElement = datepickerRef.current.querySelector('.datepickerInput') as HTMLInputElement | undefined;
+      if (inputElement) {
+        inputElement.readOnly = true;
+      }
+    }
+  }, [selectsRange]);
 
   const renderDatepickerCaptions = () => {
     if (!captions || !captions.length) {
@@ -177,6 +187,7 @@ export const Datepicker = ({
         readOnly={readOnly}
         isOpen={open}
         theme={theme}
+        ref={datepickerRef}
       >
         {!inline && (
           <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme} datePickerSize={numSize}>
