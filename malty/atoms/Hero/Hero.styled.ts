@@ -138,6 +138,6 @@ export const StyledButtonsWrapper = styled.div`
   display: flex;
   @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 `;
