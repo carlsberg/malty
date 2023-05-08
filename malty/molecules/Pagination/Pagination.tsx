@@ -8,6 +8,8 @@ import { LEFT_DOTS, RIGHT_DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
+const minAllowedValue = 1;
+
 export const Pagination = ({
   count,
   currentPage,
@@ -19,7 +21,6 @@ export const Pagination = ({
 }: PaginationProps) => {
   const isInput = type === PaginationType.Input;
   const isCompact = type === PaginationType.Compact;
-  const minAllowedValue = 1;
   const isLastPage = currentPage === count;
   const isFirstPage = currentPage === minAllowedValue;
 
