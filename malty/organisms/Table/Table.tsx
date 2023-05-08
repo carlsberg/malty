@@ -124,7 +124,7 @@ export const Table = ({
 
   const handlePageChange = (page: number | string) => {
     if (typeof page !== 'string') {
-      table.setPageIndex(page);
+      table.setPageIndex(page - 1);
 
       onPaginationChange(page);
     }
@@ -337,9 +337,8 @@ export const Table = ({
               <Pagination
                 type={PaginationType.Input}
                 count={calculateNumberOfPages()}
-                currentPage={table.getState().pagination.pageIndex}
-                onChange={(page) => handlePageChange(page)}
-                zeroBasedIndex
+                currentPage={table.getState().pagination.pageIndex + 1}
+                onChange={handlePageChange}
               />
             </StyledPaginationWrapper>
           </StyledFooterWrapper>

@@ -23,6 +23,11 @@ export default {
       description: 'Total number of pages',
       control: 'number'
     },
+    siblingCount: {
+      description: 'You can specify how many digits pages to display',
+      control: 'number',
+      defaultValue: 1
+    },
     dataQaId: {
       control: 'text',
       description: 'Pagination data-testid',

@@ -1,11 +1,10 @@
-/* eslint-disable react/no-array-index-key */
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { DOTS, usePagination } from './Pagination.helper';
+import { LEFT_DOTS, RIGHT_DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
@@ -16,43 +15,32 @@ export const Pagination = ({
   siblingCount,
   type = PaginationType.Default,
   dataQaId,
-  isWhite = false,
-  zeroBasedIndex = false
+  isWhite = false
 }: PaginationProps) => {
+  const isInput = type === PaginationType.Input;
+  const isCompact = type === PaginationType.Compact;
+  const minAllowedValue = 1;
+  const isLastPage = currentPage === count;
+  const isFirstPage = currentPage === minAllowedValue;
+
   const theme = useContext(ThemeContext) || defaultTheme;
+
+  const [provisionalInputValue, setProvisionalInputValue] = useState<number | string>(currentPage);
   const [inputValue, setInputValue] = useState<number | string>(currentPage);
   const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
 
-  const paginationRange = usePagination({
+  const displayedPages = usePagination({
     totalPageCount: count,
     siblingCount,
-    currentPage
+    currentPage,
+    isDefault: type === PaginationType.Default
   });
-  const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
-  const isFirstPage =
-    // eslint-disable-next-line no-nested-ternary
-    type === PaginationType.Input ? (zeroBasedIndex === true ? inputValue === 0 : inputValue === 1) : currentPage === 1;
-  const isLastPage =
-    // eslint-disable-next-line no-nested-ternary
-    type === PaginationType.Input
-      ? zeroBasedIndex === true && inputValue
-        ? lastPage === (inputValue as number) + 1
-        : lastPage === inputValue
-      : lastPage === currentPage;
-  const isCompact = type === PaginationType.Compact;
-  const isInput = type === PaginationType.Input;
 
   useEffect(() => {
     if (window.innerWidth <= 768) {
       setButtonSize(ButtonSize.Small);
     }
-  }, [window.innerWidth]);
-
-  if (!zeroBasedIndex) {
-    if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
-      return null;
-    }
-  }
+  }, [setButtonSize]);
 
   const onPageClick = (targetPage: number) => {
     onChange(targetPage, PaginationTrigger.PageNr);
@@ -93,20 +81,41 @@ export const Pagination = ({
     onPageKeyUp(currentPage + 1, PaginationTrigger.Next);
   };
 
-  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value !== '') {
-      setInputValue(Number(event.target.value) - 1);
-      let timeOutId: NodeJS.Timeout;
+  const handleOnInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let newValue: string | number = e.target.value;
 
-      if (type === PaginationType.Input) {
-        if (inputValue || inputValue === 0 || inputValue === '') {
-          timeOutId = setTimeout(() => onChange(Number(event.target.value) - 1, PaginationTrigger.PageNr), 350);
-        }
-      }
-
-      return () => clearTimeout(timeOutId);
+    if (newValue !== '') {
+      newValue = Number(newValue);
     }
-    return setInputValue('');
+
+    setInputValue(newValue);
+  };
+
+  const handleAssignInputValue = (value: string) => {
+    let newValue = value === '' ? Number(provisionalInputValue) : Number(value);
+
+    if (newValue > count) {
+      newValue = count;
+    } else if (newValue < minAllowedValue) {
+      newValue = minAllowedValue;
+    }
+
+    if (newValue !== provisionalInputValue) {
+      onChange(newValue, PaginationTrigger.PageNr);
+    }
+
+    setInputValue(newValue);
+    setProvisionalInputValue(newValue);
+  };
+
+  const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleAssignInputValue(e.currentTarget.value);
+    }
+  };
+
+  const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
+    handleAssignInputValue(e.target.value);
   };
 
   const renderContent = () => {
@@ -116,11 +125,12 @@ export const Pagination = ({
           <StyledInput
             theme={theme}
             data-testid={`${dataQaId}-input`}
-            // eslint-disable-next-line no-nested-ternary
-            value={zeroBasedIndex ? (typeof inputValue === 'string' ? inputValue : inputValue + 1) : inputValue}
-            onChange={(e) => handleInput(e)}
+            value={inputValue}
+            onChange={handleOnInputChange}
+            onBlur={handleOnBlur}
+            onKeyDown={handleOnKeyDown}
             max={count}
-            min={0}
+            min={minAllowedValue}
             type="number"
           />
           <Text
@@ -145,11 +155,11 @@ export const Pagination = ({
     }
 
     return (
-      paginationRange?.map((pageNr, idx) => {
+      displayedPages?.map((pageNr) => {
         const isCurrentPage = pageNr === currentPage;
-        if (pageNr === DOTS) {
+        if (pageNr === LEFT_DOTS || pageNr === RIGHT_DOTS) {
           return (
-            <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
+            <li data-testid={`${dataQaId}-${pageNr}`} key={pageNr} tabIndex={-1}>
               <StyledDots theme={theme} isWhite={isWhite}>
                 &#8230;
               </StyledDots>
