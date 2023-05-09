@@ -2,13 +2,14 @@ import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.but
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useEffect, useState } from 'react';
+import { EventKeys } from '@carlsberggroup/malty.utils.consts';
+import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { LEFT_DOTS, RIGHT_DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
 
-const minAllowedValue = 1;
+const MIN_ALLOWED_VALUE = 1;
 
 export const Pagination = ({
   count,
@@ -22,13 +23,16 @@ export const Pagination = ({
   const isInput = type === PaginationType.Input;
   const isCompact = type === PaginationType.Compact;
   const isLastPage = currentPage === count;
-  const isFirstPage = currentPage === minAllowedValue;
+  const isFirstPage = currentPage === MIN_ALLOWED_VALUE;
+  // TODO: in case this component needs to be used in SSR, include validation for the window or
+  // include a custom hook to check for the screen size
+  // https://github.com/CarlsbergGBS/cx-component-library/pull/629#discussion_r1187538517
+  const buttonSize = window.innerWidth <= 768 ? ButtonSize.Small : ButtonSize.Medium;
 
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const [provisionalInputValue, setProvisionalInputValue] = useState<number | string>(currentPage);
   const [inputValue, setInputValue] = useState<number | string>(currentPage);
-  const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
 
   const displayedPages = usePagination({
     totalPageCount: count,
@@ -37,21 +41,15 @@ export const Pagination = ({
     isDefault: type === PaginationType.Default
   });
 
-  useEffect(() => {
-    if (window.innerWidth <= 768) {
-      setButtonSize(ButtonSize.Small);
-    }
-  }, [setButtonSize]);
-
   const onPageClick = (targetPage: number) => {
     onChange(targetPage, PaginationTrigger.PageNr);
   };
 
   const onPageKeyUp =
     (pageNr: number, trigger: PaginationTrigger = PaginationTrigger.PageNr) =>
-    (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === 'Space') {
-        e.preventDefault();
+    (event: KeyboardEvent) => {
+      if (event.key === EventKeys.ENTER || event.key === EventKeys.SPACE) {
+        event.preventDefault();
         onChange(pageNr, trigger);
       }
     };
@@ -82,8 +80,8 @@ export const Pagination = ({
     onPageKeyUp(currentPage + 1, PaginationTrigger.Next);
   };
 
-  const handleOnInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    let newValue: string | number = e.target.value;
+  const handleOnInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    let newValue: string | number = event.target.value;
 
     if (newValue !== '') {
       newValue = Number(newValue);
@@ -92,13 +90,15 @@ export const Pagination = ({
     setInputValue(newValue);
   };
 
-  const handleAssignInputValue = (value: string) => {
-    let newValue = value === '' ? Number(provisionalInputValue) : Number(value);
+  const handleAssignInputValue = ({
+    currentTarget: { value }
+  }: KeyboardEvent<HTMLInputElement> | FocusEvent<HTMLInputElement>) => {
+    let newValue = Number(value === '' ? provisionalInputValue : value);
 
     if (newValue > count) {
       newValue = count;
-    } else if (newValue < minAllowedValue) {
-      newValue = minAllowedValue;
+    } else if (newValue < MIN_ALLOWED_VALUE) {
+      newValue = MIN_ALLOWED_VALUE;
     }
 
     if (newValue !== provisionalInputValue) {
@@ -109,14 +109,10 @@ export const Pagination = ({
     setProvisionalInputValue(newValue);
   };
 
-  const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      handleAssignInputValue(e.currentTarget.value);
+  const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === EventKeys.ENTER) {
+      handleAssignInputValue(event);
     }
-  };
-
-  const handleOnBlur = (e: FocusEvent<HTMLInputElement>) => {
-    handleAssignInputValue(e.target.value);
   };
 
   const renderContent = () => {
@@ -128,10 +124,10 @@ export const Pagination = ({
             data-testid={`${dataQaId}-input`}
             value={inputValue}
             onChange={handleOnInputChange}
-            onBlur={handleOnBlur}
+            onBlur={handleAssignInputValue}
             onKeyDown={handleOnKeyDown}
             max={count}
-            min={minAllowedValue}
+            min={MIN_ALLOWED_VALUE}
             type="number"
           />
           <Text

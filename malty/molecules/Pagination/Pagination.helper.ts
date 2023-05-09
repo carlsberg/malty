@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 export const LEFT_DOTS = 'left-dots';
 export const RIGHT_DOTS = 'right-dots';
 
-const range = (start: number, end: number): number[] => {
+const range = (start: number, end: number) => {
   const length = end - start + 1;
   return Array.from({ length }, (_, idx) => idx + start);
 };
