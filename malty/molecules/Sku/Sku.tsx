@@ -3,24 +3,32 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { getMROType } from './Sku.helper';
-import { StyledMRO, StyledWrapper } from './Sku.styled';
+import { StyledMRO } from './Sku.styled';
 import { SkuProps } from './Sku.types';
 
 export const Sku = ({ sku, mro, dataTestId }: SkuProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledWrapper theme={theme}>
+    <>
       {mro && (
         <StyledMRO theme={theme}>
-          <Text dataQaId={`${dataTestId}-mro`} textStyle={TextStyle.TinyBold} color={TextColor.White}>
+          <Text
+            dataQaId={dataTestId ? `${dataTestId}-mro` : undefined}
+            textStyle={TextStyle.TinyBold}
+            color={TextColor.White}
+          >
             {getMROType(mro)}
           </Text>
         </StyledMRO>
       )}
-      <Text dataQaId={`${dataTestId}-sku`} textStyle={TextStyle.SmallDefault} color={TextColor.Support80}>
+      <Text
+        dataQaId={dataTestId ? `${dataTestId}-sku` : undefined}
+        textStyle={TextStyle.SmallDefault}
+        color={TextColor.Support80}
+      >
         {sku}
       </Text>
-    </StyledWrapper>
+    </>
   );
 };
