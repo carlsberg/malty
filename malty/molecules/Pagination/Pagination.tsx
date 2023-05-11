@@ -80,14 +80,8 @@ export const Pagination = ({
     onPageKeyUp(currentPage + 1, PaginationTrigger.Next);
   };
 
-  const handleOnInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    let newValue: string | number = event.target.value;
-
-    if (newValue !== '') {
-      newValue = Number(newValue);
-    }
-
-    setInputValue(newValue);
+  const handleOnInputChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(value !== '' ? Number(value) : value);
   };
 
   const handleAssignInputValue = ({
