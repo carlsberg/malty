@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Sku as SkuComponent } from './Sku';

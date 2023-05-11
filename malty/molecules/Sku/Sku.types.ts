@@ -1,7 +1,7 @@
 export enum MRO {
-  mandatory = 'MANDATORY',
-  recommended = 'RECOMMENDED',
-  optional = 'OPTIONAL'
+  Mandatory = 'MANDATORY',
+  Recommended = 'RECOMMENDED',
+  Optional = 'OPTIONAL'
 }
 
 export interface SkuProps {
