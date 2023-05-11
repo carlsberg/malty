@@ -8,8 +8,7 @@ export default {
   component: SkuComponent,
   parameters: {
     importObject: 'Sku',
-    importPath: '@carlsberggroup/malty.molecules.sku',
-    variants: ['default']
+    importPath: '@carlsberggroup/malty.molecules.sku'
   },
   argTypes: {
     sku: {
@@ -31,14 +30,8 @@ const Template: Story<SkuProps> = (args) => {
 };
 
 export const Sku = Template.bind({});
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
 
-switch (variant) {
-  default:
-    Sku.args = {
-      sku: 'Sku: 12512 512',
-      mro: undefined
-    };
-    break;
-}
+Sku.args = {
+  sku: 'Sku: 12512 512',
+  mro: undefined
+};
