@@ -6,6 +6,7 @@ import { PillColor } from '@carlsberggroup/malty.atoms.pill';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
+import { MRO } from '@carlsberggroup/malty.molecules.sku';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { ProductCard as ProductCardComponent } from './ProductCard';
@@ -119,6 +120,16 @@ export default {
       table: {
         category: 'Card Body'
       }
+    },
+    mro: {
+      description: 'Product MRO',
+      table: {
+        category: 'Card Body'
+      },
+      control: {
+        type: 'select'
+      },
+      options: [undefined, ...Object.values(MRO)]
     },
     discountPill: {
       control: '',

@@ -6,8 +6,9 @@ import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { AlertInline, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
+import { Sku } from '@carlsberggroup/malty.molecules.sku';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -47,6 +48,7 @@ export const ProductCard = ({
   onFavoriteClick = () => null,
   action = { icon: IconName.Cart, onClick: () => null, variant: ButtonStyle.Primary },
   sku,
+  mro,
   loyalty,
   stock,
   maxQuantity,
@@ -151,9 +153,7 @@ export const ProductCard = ({
         <>
           {sku ? (
             <StyledMargin theme={theme}>
-              <Text dataQaId={`${dataTestId}-sku`} textStyle={TextStyle.SmallDefault} color={TextColor.Support80}>
-                {sku}
-              </Text>
+              <Sku sku={sku} mro={mro} dataTestId={dataTestId} />
             </StyledMargin>
           ) : null}
           <StyledMargin theme={theme}>
