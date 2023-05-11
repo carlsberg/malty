@@ -10,7 +10,7 @@ export const Sku = ({ sku, mro, dataTestId }: SkuProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledWrapper>
+    <StyledWrapper theme={theme}>
       {mro && (
         <StyledMRO theme={theme}>
           <Text dataQaId={`${dataTestId}-mro`} textStyle={TextStyle.TinyBold} color={TextColor.White}>
