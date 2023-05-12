@@ -17,7 +17,7 @@ export default {
     },
     mro: {
       description: 'Product MRO',
-      options: Object.values(MRO),
+      options: [undefined, ...Object.values(MRO)],
       control: {
         type: 'select',
         labels: {
