@@ -13,6 +13,7 @@ describe('Sku', () => {
   test('renders with correct content', () => {
     render(<Sku sku={sku} />);
     expect(screen.getByText(sku)).toBeInTheDocument();
+    expect(screen.queryByText('default-mro')).not.toBeInTheDocument();
   });
 
   test.each(MRO_OPTIONS)('renders mro correctly for %s', (mro) => {
