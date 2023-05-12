@@ -6,7 +6,7 @@ import { getMROType } from './Sku.helper';
 import { StyledMRO } from './Sku.styled';
 import { SkuProps } from './Sku.types';
 
-export const Sku = ({ sku, mro, dataTestId = 'sku' }: SkuProps) => {
+export const Sku = ({ sku, mro, dataTestId = 'default' }: SkuProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
