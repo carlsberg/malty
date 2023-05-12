@@ -15,7 +15,7 @@ describe('Sku', () => {
     expect(screen.getByText(sku)).toBeInTheDocument();
   });
 
-  test.each(MRO_OPTIONS)('renders mro correctly', (mro) => {
+  test.each(MRO_OPTIONS)('renders mro correctly for %s', (mro) => {
     render(<Sku sku={sku} mro={mro} />);
     expect(screen.getByText(getMROType(mro))).toBeInTheDocument();
   });
