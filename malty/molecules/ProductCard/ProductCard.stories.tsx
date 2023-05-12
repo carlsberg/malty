@@ -126,10 +126,15 @@ export default {
       table: {
         category: 'Card Body'
       },
+      options: Object.values(MRO),
       control: {
-        type: 'select'
-      },
-      options: [undefined, ...Object.values(MRO)]
+        type: 'select',
+        labels: {
+          MANDATORY: 'Mandatory',
+          RECOMMENDED: 'Recommended',
+          OPTIONAL: 'Optional'
+        }
+      }
     },
     discountPill: {
       control: '',

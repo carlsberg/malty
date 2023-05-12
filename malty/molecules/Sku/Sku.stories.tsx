@@ -17,9 +17,14 @@ export default {
     },
     mro: {
       description: 'Product MRO',
-      options: [undefined, ...Object.values(MRO)],
+      options: Object.values(MRO),
       control: {
-        type: 'select'
+        type: 'select',
+        labels: {
+          MANDATORY: 'Mandatory',
+          RECOMMENDED: 'Recommended',
+          OPTIONAL: 'Optional'
+        }
       }
     }
   }
