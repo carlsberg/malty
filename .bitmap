@@ -1503,6 +1503,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/Avatar"
     },
+    "molecules/card-actions": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/CardActions"
+    },
     "molecules/datepicker": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
@@ -1538,6 +1544,12 @@
         "version": "0.0.7",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
+    },
+    "molecules/product-quantity-actions": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/ProductQuantityActions"
     },
     "molecules/products-bar": {
         "scope": "carlsberggroup.malty",
