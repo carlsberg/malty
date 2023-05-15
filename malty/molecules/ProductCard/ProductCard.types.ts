@@ -5,6 +5,7 @@ import { PillProps } from '@carlsberggroup/malty.atoms.pill';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineProps } from '@carlsberggroup/malty.molecules.alert-inline';
+import { MRO } from '@carlsberggroup/malty.molecules.sku';
 
 export interface ProductCardProps {
   productCardStyle?: CardStyle;
@@ -15,6 +16,7 @@ export interface ProductCardProps {
   onFavoriteClick?: (favorite: boolean) => void;
   title: string;
   sku?: string;
+  mro?: MRO;
   productsCardsAlerts?: AlertInlineProps[];
   maxQuantity?: number;
   quantitySelectOptions?: SelectOptionsType[];

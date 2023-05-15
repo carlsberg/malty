@@ -1551,6 +1551,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/SideNav"
     },
+    "molecules/sku": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Sku"
+    },
     "molecules/stepper": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.67",
