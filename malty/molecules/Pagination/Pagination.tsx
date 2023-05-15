@@ -123,11 +123,13 @@ export const Pagination = ({
             max={count}
             min={MIN_ALLOWED_VALUE}
             type="number"
+            aria-label={`Page ${inputValue}`}
           />
           <Text
             dataQaId={`${dataQaId}-input-count`}
             textStyle={TextStyle.MediumSmallDefault}
             color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+            aria-label={`of ${count}`}
           >{` / ${count}`}</Text>
         </StyledInputPagination>
       );
@@ -140,6 +142,7 @@ export const Pagination = ({
             dataQaId={`${dataQaId}-pagination-compact`}
             textStyle={TextStyle.SmallDefault}
             color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+            aria-label={`Page ${currentPage} of ${count}`}
           >{`${currentPage} of ${count}`}</Text>
         </li>
       );
@@ -151,7 +154,7 @@ export const Pagination = ({
         if (pageNr === LEFT_DOTS || pageNr === RIGHT_DOTS) {
           return (
             <li data-testid={`${dataQaId}-${pageNr}`} key={pageNr} tabIndex={-1}>
-              <StyledDots theme={theme} isWhite={isWhite}>
+              <StyledDots theme={theme} isWhite={isWhite} aria-label="Ellipsis">
                 &#8230;
               </StyledDots>
             </li>
@@ -166,7 +169,7 @@ export const Pagination = ({
               onClick={() => onPageClick(Number(pageNr))}
               onKeyUp={() => onPageKeyUp(Number(pageNr))}
               aria-current={isCurrentPage}
-              aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
+              aria-label={isCurrentPage ? `Page ${pageNr}` : `Go to page ${pageNr}`}
               tabIndex={0}
               text={pageNr}
               negative={isWhite}
@@ -192,7 +195,7 @@ export const Pagination = ({
             icon={IconName.ChevronLeft}
             size={buttonSize}
             negative={isWhite}
-            aria-label="Previous button"
+            aria-label="Go to previous page"
           />
         </li>
         {renderContent()}
@@ -207,7 +210,7 @@ export const Pagination = ({
             icon={IconName.ChevronRight}
             size={buttonSize}
             negative={isWhite}
-            aria-label="Next button"
+            aria-label="Go to next page"
           />
         </li>
       </ul>
