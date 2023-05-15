@@ -6885,6 +6885,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Sku-28219a@workspace:malty/molecules/Sku":
+  version: 0.0.0-use.local
+  resolution: "Sku-28219a@workspace:malty/molecules/Sku"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Sort-d1cc5d@workspace:malty/icons/Sort":
   version: 0.0.0-use.local
   resolution: "Sort-d1cc5d@workspace:malty/icons/Sort"
