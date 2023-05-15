@@ -4,6 +4,7 @@ export const LEFT_DOTS = 'left-dots';
 export const RIGHT_DOTS = 'right-dots';
 const BASE_PAGES_COUNT = 3; // firstPage + lastPage + currentPage
 const SIBLING_COUNT_FACTOR = 2;
+const DOTS_AMOUNT = 2;
 
 const range = (start: number, end: number) => {
   const length = end - start + 1;
@@ -25,8 +26,7 @@ export const usePagination = ({ totalPageCount, siblingCount = 1, currentPage, i
 
     const renderedPages = BASE_PAGES_COUNT + siblingCount * SIBLING_COUNT_FACTOR;
 
-    // We need to consider here the 2 DOTS
-    if (renderedPages + 2 >= totalPageCount) {
+    if (renderedPages + DOTS_AMOUNT >= totalPageCount) {
       return range(1, totalPageCount);
     }
 
