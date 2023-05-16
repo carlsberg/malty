@@ -4264,9 +4264,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:>=5.1.26 <6.0.0":
+"@types/styled-components@npm:^5.1.26":
   version: 5.1.26
-  resolution: "@types/styled-components@npm:5.1.26::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fstyled-components%2F-%2Fstyled-components-5.1.26.tgz"
+  resolution: "@types/styled-components@npm:5.1.26"
   dependencies:
     "@types/hoist-non-react-statics": "*"
     "@types/react": "*"
@@ -4323,9 +4323,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:>=9.0.0 <10.0.0":
+"@types/uuid@npm:^9.0.0":
   version: 9.0.1
-  resolution: "@types/uuid@npm:9.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fuuid%2F-%2Fuuid-9.0.1.tgz"
+  resolution: "@types/uuid@npm:9.0.1"
   checksum: c472b8a77cbeded4bc529220b8611afa39bd64677f507838f8083d8aac8033b1f88cb9ddaa2f8589e0dcd2317291d0f6e1379f82d5ceebd6f74f3b4825288e00
   languageName: node
   linkType: hard
@@ -5304,15 +5304,6 @@ __metadata:
 "Card-ce2c9e@workspace:malty/atoms/Card":
   version: 0.0.0-use.local
   resolution: "Card-ce2c9e@workspace:malty/atoms/Card"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"CardActions-581732@workspace:malty/molecules/CardActions":
-  version: 0.0.0-use.local
-  resolution: "CardActions-581732@workspace:malty/molecules/CardActions"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -9419,9 +9410,9 @@ __metadata:
     "@types/react-dom": ">=17.0.5 <18.0.0"
     "@types/react-table": ^7.7.12
     "@types/react-test-renderer": ^17.0.2
-    "@types/styled-components": ">=5.1.26 <6.0.0"
+    "@types/styled-components": ^5.1.26
     "@types/testing-library__jest-dom": 5.9.5
-    "@types/uuid": ">=9.0.0 <10.0.0"
+    "@types/uuid": ^9.0.0
     "@typescript-eslint/eslint-plugin": ^5.54.0
     "@typescript-eslint/parser": ^5.53.0
     babel-jest: ^29.4.1
@@ -19651,8 +19642,6 @@ __metadata:
 "test-fd7b7f@workspace:malty/utils/test":
   version: 0.0.0-use.local
   resolution: "test-fd7b7f@workspace:malty/utils/test"
-  dependencies:
-    "@types/react": ^18.0.28
   peerDependencies:
     react: ^17.0.2
   languageName: unknown
@@ -20076,7 +20065,7 @@ __metadata:
 
 "typescript@patch:typescript@~4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=f456af"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=a1c5e5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
