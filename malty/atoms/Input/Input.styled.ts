@@ -227,10 +227,6 @@ export const StyledInput = styled.input<{
     `}
 `;
 
-export const StyledInputNumberWrapper = styled.span`
-  display: inline-flex;
-`;
-
 export const StyledButton = styled.button<{
   size?: string;
   isError?: boolean;
