@@ -1,11 +1,11 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
-import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledFooter, StyledStock, StyledStockInformation } from './ProductQuantityActions.styled';
+import { StyledActions, StyledStock, StyledStockStatusColor } from './ProductQuantityActions.styled';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
 export const ProductQuantityActions = ({
@@ -33,13 +33,18 @@ export const ProductQuantityActions = ({
     <>
       {stock ? (
         <StyledStock theme={theme}>
-          <StyledStockInformation theme={theme} infoColor={stock.stockColor} />
+          {stock.stockColor && <StyledStockStatusColor theme={theme} infoColor={stock.stockColor} />}
           <Text textStyle={TextStyle.SmallBold} color={stock.labelColor}>
             {stock.label}
           </Text>
+          {stock.availability && (
+            <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support100}>
+              {stock.availability}
+            </Text>
+          )}
         </StyledStock>
       ) : null}
-      <StyledFooter theme={theme}>
+      <StyledActions theme={theme}>
         {!hideQuantityInput ? (
           <Input
             onClick={(e) => e.stopPropagation()}
@@ -49,6 +54,7 @@ export const ProductQuantityActions = ({
             max={maxQuantity}
             size={InputSize.Medium}
             maxLength={maxQuantity}
+            dataTestId={dataTestId}
           />
         ) : null}
         {action ? (
@@ -63,7 +69,7 @@ export const ProductQuantityActions = ({
             icon={action?.icon}
           />
         ) : null}
-      </StyledFooter>
+      </StyledActions>
     </>
   );
 };

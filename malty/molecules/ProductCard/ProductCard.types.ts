@@ -29,6 +29,7 @@ export interface ProductCardProps {
     label: string;
     labelColor?: TextColor;
     stockColor?: TextColor;
+    availability?: string;
   };
   loyalty?: {
     label: string;

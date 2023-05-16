@@ -1,6 +1,6 @@
 import { CardOrientation } from '@carlsberggroup/malty.atoms.card';
 import { Image } from '@carlsberggroup/malty.atoms.image';
-import { Text, TextColor } from '@carlsberggroup/malty.atoms.text';
+import { Text } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 
 export const StyledMargin = styled.div`
@@ -25,14 +25,6 @@ export const StyledTitle = styled(Text)<{
 }>`
   cursor: ${({ showCursor }) => (showCursor ? 'pointer' : 'default')};
 `;
-export const StyledFooter = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: ${({ theme }) => theme.sizes.s.value};
-  flex-wrap: wrap;
-  gap: ${({ theme }) => theme.sizes['2xs'].value};
-`;
 export const StyledImage = styled(Image)<{
   orientation: CardOrientation;
   showCursor: boolean;
@@ -55,21 +47,6 @@ export const StyledLoyalty = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.sizes['4xs'].value};
-`;
-export const StyledStock = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: ${({ theme }) => theme.sizes['4xs'].value};
-  margin-top: ${({ theme }) => theme.sizes['2xs'].value};
-`;
-export const StyledStockInformation = styled.div<{
-  infoColor?: TextColor;
-}>`
-  margin-right: ${({ theme }) => theme.sizes['4xs'].value};
-  width: ${({ theme }) => theme.sizes['3xs'].value};
-  height: ${({ theme }) => theme.sizes['3xs'].value};
-  background-color: ${({ theme, infoColor }) => infoColor && theme.colors['text-colours'][infoColor].value};
-  border-radius: 50%;
 `;
 export const StyledRow = styled.div`
   display: flex;
@@ -102,4 +79,8 @@ export const StyledDiscountPill = styled.div`
 
 export const StyledAlert = styled.div`
   position: relative;
+`;
+
+export const StyledProductQuantityActionsWrapper = styled.div`
+  margin-top: ${({ theme }) => theme.sizes['2xs'].value};
 `;

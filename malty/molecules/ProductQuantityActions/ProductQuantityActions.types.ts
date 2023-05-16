@@ -11,6 +11,7 @@ export interface ProductQuantityActionsProps {
     label: string;
     labelColor?: TextColor;
     stockColor?: TextColor;
+    availability?: string;
   };
   action?: {
     variant: ButtonStyle;
