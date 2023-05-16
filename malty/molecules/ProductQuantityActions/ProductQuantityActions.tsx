@@ -61,18 +61,16 @@ export const ProductQuantityActions = ({
             dataTestId={dataTestId}
           />
         ) : null}
-        {action ? (
-          <Button
-            text={action.icon ? undefined : action.label}
-            fullWidth={hideQuantityInput}
-            dataTestId={`${dataTestId}-button`}
-            size={ButtonSize.Medium}
-            style={action.variant}
-            onClick={handleActionClick}
-            color={action.color}
-            icon={action.icon}
-          />
-        ) : null}
+        <Button
+          text={action.icon ? undefined : action.label}
+          fullWidth={hideQuantityInput}
+          dataTestId={`${dataTestId}-button`}
+          size={ButtonSize.Medium}
+          style={action.variant}
+          onClick={handleActionClick}
+          color={action.color}
+          icon={action.icon}
+        />
       </StyledActions>
     </>
   );
