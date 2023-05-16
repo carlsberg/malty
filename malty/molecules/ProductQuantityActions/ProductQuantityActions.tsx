@@ -3,7 +3,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useState } from 'react';
+import React, { MouseEvent, useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledActions, StyledStock, StyledStockStatusColor } from './ProductQuantityActions.styled';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
@@ -24,9 +24,13 @@ export const ProductQuantityActions = ({
     setQuantityValue(value);
   };
 
-  const handleActionClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e?.stopPropagation();
+  const handleActionClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event?.stopPropagation();
     action?.onClick();
+  };
+
+  const handleStopPropagation = (event: MouseEvent<HTMLInputElement>) => {
+    event?.stopPropagation();
   };
 
   return (
@@ -47,9 +51,9 @@ export const ProductQuantityActions = ({
       <StyledActions theme={theme}>
         {!hideQuantityInput ? (
           <Input
-            onClick={(e) => e.stopPropagation()}
+            onClick={handleStopPropagation}
             type={InputType.Quantity}
-            onValueChange={(value) => handleQuantityChange(value)}
+            onValueChange={handleQuantityChange}
             value={quantityValue}
             max={maxQuantity}
             size={InputSize.Medium}
@@ -59,14 +63,14 @@ export const ProductQuantityActions = ({
         ) : null}
         {action ? (
           <Button
-            text={action?.icon ? undefined : action?.label}
+            text={action.icon ? undefined : action.label}
             fullWidth={hideQuantityInput}
             dataTestId={`${dataTestId}-button`}
             size={ButtonSize.Medium}
             style={action.variant}
-            onClick={(e) => handleActionClick(e)}
-            color={action?.color}
-            icon={action?.icon}
+            onClick={handleActionClick}
+            color={action.color}
+            icon={action.icon}
           />
         ) : null}
       </StyledActions>

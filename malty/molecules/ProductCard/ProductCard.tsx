@@ -23,7 +23,6 @@ import {
   StyledPillWrapper,
   StyledPrice,
   StyledPriceContainer,
-  StyledProductQuantityActionsWrapper,
   StyledRow,
   StyledSelect,
   StyledTitle
@@ -204,16 +203,14 @@ export const ProductCard = ({
             ) : null}
           </StyledRow>
 
-          <StyledProductQuantityActionsWrapper theme={theme}>
-            <ProductQuantityActions
-              stock={stock}
-              action={action}
-              value={quantityValue}
-              hideQuantityInput={hideQuantityInput}
-              maxQuantity={maxQuantity}
-              onInputQuantityChange={handleQuantityChange}
-            />
-          </StyledProductQuantityActionsWrapper>
+          <ProductQuantityActions
+            stock={stock}
+            action={action}
+            value={quantityValue}
+            hideQuantityInput={hideQuantityInput}
+            maxQuantity={maxQuantity}
+            onInputQuantityChange={handleQuantityChange}
+          />
           {productsCardsAlerts?.map((alert, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <StyledAlert key={index} theme={theme}>

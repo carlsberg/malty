@@ -52,6 +52,7 @@ export const StyledRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 export const StyledDiscountContainer = styled.div`
   align-items: center;
@@ -79,8 +80,4 @@ export const StyledDiscountPill = styled.div`
 
 export const StyledAlert = styled.div`
   position: relative;
-`;
-
-export const StyledProductQuantityActionsWrapper = styled.div`
-  margin-top: ${({ theme }) => theme.sizes['2xs'].value};
 `;
