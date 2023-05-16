@@ -23,13 +23,13 @@ describe('Pagination', () => {
     it('disables the previous button on the first page', () => {
       render(<Pagination count={5} currentPage={1} onChange={onChange} />);
 
-      expect(screen.getByLabelText('Previous button')).toBeDisabled();
+      expect(screen.getByLabelText('Go to previous page')).toBeDisabled();
     });
 
     it('disables the next button on the last page', () => {
       render(<Pagination count={5} currentPage={5} onChange={onChange} />);
 
-      expect(screen.getByLabelText('Next button')).toBeDisabled();
+      expect(screen.getByLabelText('Go to next page')).toBeDisabled();
     });
 
     it('calls onChange with the correct page number when a page button is clicked', () => {
@@ -43,7 +43,7 @@ describe('Pagination', () => {
     it('calls onChange with the correct page number when the previous button is clicked', () => {
       render(<Pagination count={5} currentPage={2} onChange={onChange} />);
 
-      userEvent.click(screen.getByLabelText('Previous button'));
+      userEvent.click(screen.getByLabelText('Go to previous page'));
 
       expect(onChange).toHaveBeenCalledWith(1, PaginationTrigger.Prev);
     });
@@ -51,7 +51,7 @@ describe('Pagination', () => {
     it('calls onChange with the correct page number when the next button is clicked', () => {
       render(<Pagination count={5} currentPage={2} onChange={onChange} />);
 
-      userEvent.click(screen.getByLabelText('Next button'));
+      userEvent.click(screen.getByLabelText('Go to next page'));
 
       expect(onChange).toHaveBeenCalledWith(3, PaginationTrigger.Next);
     });
@@ -124,17 +124,17 @@ describe('Pagination', () => {
       render(<CompactPagination />);
 
       expect(screen.getByText('1 of 5')).toBeVisible();
-      expect(screen.getByLabelText('Previous button')).toBeDisabled();
-      expect(screen.getByLabelText('Next button')).not.toBeDisabled();
+      expect(screen.getByLabelText('Go to previous page')).toBeDisabled();
+      expect(screen.getByLabelText('Go to next page')).not.toBeDisabled();
 
       for (let i = 0; i < 4; i++) {
-        userEvent.click(screen.getByLabelText('Next button'));
+        userEvent.click(screen.getByLabelText('Go to next page'));
       }
 
       expect(onChange).toHaveBeenCalledTimes(4);
       expect(screen.getByText('5 of 5')).toBeVisible();
-      expect(screen.getByLabelText('Next button')).toBeDisabled();
-      expect(screen.getByLabelText('Previous button')).not.toBeDisabled();
+      expect(screen.getByLabelText('Go to next page')).toBeDisabled();
+      expect(screen.getByLabelText('Go to previous page')).not.toBeDisabled();
     });
   });
 
