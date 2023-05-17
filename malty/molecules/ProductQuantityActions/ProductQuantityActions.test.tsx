@@ -14,6 +14,7 @@ const action = {
   onClick: () => null,
   variant: ButtonStyle.Primary
 };
+const onInputQuantityChange = jest.fn();
 
 describe('ProductQuantityActions', () => {
   test('renders with correct content', () => {
@@ -32,6 +33,13 @@ describe('ProductQuantityActions', () => {
     expect(screen.getByTestId('default-quantity-plus')).toBeInTheDocument();
     expect(screen.queryByText('In Stock')).not.toBeInTheDocument();
     expect(screen.getByTestId('icon-Cart')).toBeInTheDocument();
+  });
+
+  test('calls onInputQuantityChange correctly', () => {
+    render(<ProductQuantityActions onInputQuantityChange={onInputQuantityChange} />);
+    const increaseButton = screen.getByTestId('default-quantity-plus');
+    userEvent.click(increaseButton);
+    expect(onInputQuantityChange).toHaveBeenCalledTimes(1);
   });
 
   test('renders with correct content when hideQuantityInput is true', () => {
