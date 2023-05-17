@@ -4,7 +4,7 @@ import { TextColor } from '@carlsberggroup/malty.atoms.text';
 
 export interface ProductQuantityActionsProps {
   dataTestId?: string;
-  value: string;
+  initialQuantityValue?: number;
   maxQuantity?: number;
   hideQuantityInput?: boolean;
   stock?: {
@@ -20,5 +20,5 @@ export interface ProductQuantityActionsProps {
     icon?: IconName;
     onClick: () => void;
   };
-  onInputQuantityChange?: (value: string) => void;
+  onInputQuantityChange?: (value: number) => void;
 }

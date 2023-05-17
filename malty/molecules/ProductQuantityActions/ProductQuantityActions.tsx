@@ -3,7 +3,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { MouseEvent, useContext, useState } from 'react';
+import React, { MouseEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledActions, StyledStock, StyledStockStatusColor } from './ProductQuantityActions.styled';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
@@ -12,25 +12,31 @@ export const ProductQuantityActions = ({
   stock,
   maxQuantity,
   hideQuantityInput,
+  initialQuantityValue = 0,
   action = { icon: IconName.Cart, onClick: () => null, variant: ButtonStyle.Primary },
   onInputQuantityChange = () => null,
   dataTestId = 'default'
 }: ProductQuantityActionsProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [quantityValue, setQuantityValue] = useState('');
+  const [quantityValue, setQuantityValue] = useState(initialQuantityValue);
+
+  useEffect(() => {
+    setQuantityValue(initialQuantityValue);
+  }, [initialQuantityValue]);
 
   const handleQuantityChange = (value: string) => {
-    onInputQuantityChange(value);
-    setQuantityValue(value);
+    const parsedValue = Number(value);
+    onInputQuantityChange(parsedValue);
+    setQuantityValue(parsedValue);
   };
 
   const handleActionClick = (event: MouseEvent<HTMLButtonElement>) => {
-    event?.stopPropagation();
-    action?.onClick();
+    event.stopPropagation();
+    action.onClick();
   };
 
   const handleStopPropagation = (event: MouseEvent<HTMLInputElement>) => {
-    event?.stopPropagation();
+    event.stopPropagation();
   };
 
   return (
@@ -54,7 +60,7 @@ export const ProductQuantityActions = ({
             onClick={handleStopPropagation}
             type={InputType.Quantity}
             onValueChange={handleQuantityChange}
-            value={quantityValue}
+            value={quantityValue.toString()}
             max={maxQuantity}
             size={InputSize.Medium}
             maxLength={maxQuantity}

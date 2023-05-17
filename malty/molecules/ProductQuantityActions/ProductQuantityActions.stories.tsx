@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { Meta, Story } from '@storybook/react';
@@ -44,12 +45,17 @@ export default {
     dataTestId: {
       description: 'Product Quantity Actions data-testid',
       control: 'text'
+    },
+    initialQuantityValue: {
+      description: 'Initial quantity value',
+      control: 'number'
     }
   }
 } as Meta;
 
 const Template: Story<ProductQuantityActionsProps> = (args) => {
-  return <ProductQuantityActionsComponent {...args} />;
+  const action = args.action ?? undefined;
+  return <ProductQuantityActionsComponent {...args} action={action} />;
 };
 
 export const ProductQuantityActions = Template.bind({});
@@ -63,5 +69,5 @@ ProductQuantityActions.args = {
     variant: ButtonStyle.Primary
   },
   hideQuantityInput: false,
-  value: '3'
+  initialQuantityValue: 3
 };

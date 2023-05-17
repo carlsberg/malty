@@ -55,19 +55,15 @@ export const ProductCard = ({
   discountPill,
   promoPill,
   cartPill,
+  initialQuantityValue,
   favoriteIconColor = IconColor.DigitalBlack
 }: ProductCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
   const [width] = useState(imageWidth);
-  const [quantityValue, setQuantityValue] = useState('');
   const [favorite, setFavorite] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const handleQuantityChange = (value: string) => {
-    onInputQuantityChange(value);
-    setQuantityValue(value);
-  };
   const handleFavoriteClick = () => {
     setFavorite(!favorite);
     onFavoriteClick(favorite);
@@ -206,10 +202,10 @@ export const ProductCard = ({
           <ProductQuantityActions
             stock={stock}
             action={action}
-            value={quantityValue}
+            initialQuantityValue={initialQuantityValue}
             hideQuantityInput={hideQuantityInput}
             maxQuantity={maxQuantity}
-            onInputQuantityChange={handleQuantityChange}
+            onInputQuantityChange={onInputQuantityChange}
           />
           {productsCardsAlerts?.map((alert, index) => (
             // eslint-disable-next-line react/no-array-index-key
