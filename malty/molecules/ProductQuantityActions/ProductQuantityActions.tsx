@@ -63,7 +63,6 @@ export const ProductQuantityActions = ({
             value={quantityValue.toString()}
             max={maxQuantity}
             size={InputSize.Medium}
-            maxLength={maxQuantity}
             dataTestId={dataTestId}
           />
         ) : null}
