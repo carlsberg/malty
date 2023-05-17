@@ -66,7 +66,7 @@ describe('ProductQuantityActions', () => {
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
   });
 
-  test('renders correctly when maxQuantity is changed after initial render', () => {
+  test('renders correctly when initialQuantityValue is changed after initial render', () => {
     const { rerender } = render(<ProductQuantityActions initialQuantityValue={initialQuantityValue} />);
 
     expect(screen.getByDisplayValue(initialQuantityValue)).toBeInTheDocument();
