@@ -234,6 +234,7 @@ export default {
 } as Meta;
 
 const Template: Story<ProductCardProps> = (args) => {
+  const action = args.action ?? undefined;
   return (
     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
       <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
@@ -245,6 +246,7 @@ const Template: Story<ProductCardProps> = (args) => {
           productsCardsAlerts={[
             { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
           ]}
+          action={action}
           {...args}
         />
       </div>
