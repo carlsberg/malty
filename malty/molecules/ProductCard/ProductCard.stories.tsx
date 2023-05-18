@@ -170,6 +170,13 @@ export default {
         category: 'Card Body'
       }
     },
+    quantityValue: {
+      control: 'number',
+      description: 'Quantity input value',
+      table: {
+        category: 'Card Body'
+      }
+    },
     action: {
       control: '',
       description: `An Object that define what type of button it will appear in the Product Card:
@@ -292,6 +299,7 @@ switch (variant) {
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
       favoriteIconColor: IconColor.Primary,
+      quantityValue: 0,
       productsCardsAlerts: [
         { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
         { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
@@ -321,7 +329,8 @@ switch (variant) {
       discountPill: { text: '20%', color: PillColor.alertStrong },
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
-      favoriteIconColor: IconColor.Primary
+      favoriteIconColor: IconColor.Primary,
+      quantityValue: 0
     };
     break;
 }

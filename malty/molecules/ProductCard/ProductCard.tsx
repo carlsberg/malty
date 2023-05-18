@@ -55,7 +55,7 @@ export const ProductCard = ({
   discountPill,
   promoPill,
   cartPill,
-  initialQuantityValue,
+  quantityValue,
   favoriteIconColor = IconColor.DigitalBlack
 }: ProductCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -202,7 +202,7 @@ export const ProductCard = ({
           <ProductQuantityActions
             stock={stock}
             action={action}
-            initialQuantityValue={initialQuantityValue}
+            value={quantityValue}
             hideQuantityInput={hideQuantityInput}
             maxQuantity={maxQuantity}
             onInputQuantityChange={onInputQuantityChange}

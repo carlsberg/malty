@@ -4,7 +4,7 @@ import { TextColor } from '@carlsberggroup/malty.atoms.text';
 
 export interface ProductQuantityActionsProps {
   dataTestId?: string;
-  initialQuantityValue?: number;
+  value?: number;
   maxQuantity?: number;
   hideQuantityInput?: boolean;
   stock?: {

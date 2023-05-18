@@ -2,7 +2,7 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { ProductQuantityActions as ProductQuantityActionsComponent } from './ProductQuantityActions';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
@@ -11,7 +11,7 @@ export default {
   component: ProductQuantityActionsComponent,
   parameters: {
     importObject: 'ProductQuantityActions',
-    importPath: '@carlsberggroup/malty.molecules.ProductQuantityActions'
+    importPath: '@carlsberggroup/malty.molecules.product-quantity-actions'
   },
   argTypes: {
     action: {
@@ -46,16 +46,24 @@ export default {
       description: 'Product Quantity Actions data-testid',
       control: 'text'
     },
-    initialQuantityValue: {
-      description: 'Initial quantity value',
+    value: {
+      description: 'Quantity value',
       control: 'number'
     }
   }
 } as Meta;
 
 const Template: Story<ProductQuantityActionsProps> = (args) => {
+  const [stateValue, setStateValue] = useState(args.value);
   const action = args.action ?? undefined;
-  return <ProductQuantityActionsComponent {...args} action={action} />;
+  return (
+    <ProductQuantityActionsComponent
+      {...args}
+      value={stateValue}
+      onInputQuantityChange={setStateValue}
+      action={action}
+    />
+  );
 };
 
 export const ProductQuantityActions = Template.bind({});
@@ -69,5 +77,5 @@ ProductQuantityActions.args = {
     variant: ButtonStyle.Primary
   },
   hideQuantityInput: false,
-  initialQuantityValue: 3
+  value: 3
 };

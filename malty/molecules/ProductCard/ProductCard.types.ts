@@ -57,5 +57,5 @@ export interface ProductCardProps {
     icon?: IconName;
     onClick: () => void;
   };
-  initialQuantityValue?: number;
+  quantityValue?: number;
 }

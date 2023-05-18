@@ -6,7 +6,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { ProductQuantityActions } from './ProductQuantityActions';
 
-const initialQuantityValue = 2;
+const defaultValue = 2;
 const stock = { label: 'In Stock', stockColor: TextColor.Success };
 const action = {
   color: ButtonColor.DigitalBlack,
@@ -18,11 +18,11 @@ const onInputQuantityChange = jest.fn();
 
 describe('ProductQuantityActions', () => {
   test('renders with correct content', () => {
-    render(<ProductQuantityActions initialQuantityValue={initialQuantityValue} stock={stock} action={action} />);
+    render(<ProductQuantityActions value={defaultValue} stock={stock} action={action} />);
 
     expect(screen.getByTestId('default-quantity-minus')).toBeInTheDocument();
     expect(screen.getByTestId('default-quantity-plus')).toBeInTheDocument();
-    expect(screen.getByDisplayValue(initialQuantityValue)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(defaultValue)).toBeInTheDocument();
     expect(screen.getByText('In Stock')).toBeInTheDocument();
     expect(screen.getByText('Add to cart')).toBeInTheDocument();
   });
@@ -54,7 +54,12 @@ describe('ProductQuantityActions', () => {
   });
 
   test('renders correctly when maxQuantity is set', () => {
-    render(<ProductQuantityActions maxQuantity={1} />);
+    const ProductQuantityActionsControlled = () => {
+      const [value, setValue] = React.useState(0);
+      return <ProductQuantityActions value={value} maxQuantity={1} onInputQuantityChange={setValue} />;
+    };
+
+    render(<ProductQuantityActionsControlled />);
 
     expect(screen.getByDisplayValue('0')).toBeInTheDocument();
     const increaseButton = screen.getByTestId('default-quantity-plus');
@@ -66,14 +71,14 @@ describe('ProductQuantityActions', () => {
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
   });
 
-  test('renders correctly when initialQuantityValue is changed after initial render', () => {
-    const { rerender } = render(<ProductQuantityActions initialQuantityValue={initialQuantityValue} />);
+  test('renders correctly when value is changed after initial render', () => {
+    const { rerender } = render(<ProductQuantityActions value={defaultValue} />);
 
-    expect(screen.getByDisplayValue(initialQuantityValue)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(defaultValue)).toBeInTheDocument();
 
-    rerender(<ProductQuantityActions initialQuantityValue={10} />);
+    rerender(<ProductQuantityActions value={10} />);
 
-    expect(screen.queryByDisplayValue(initialQuantityValue)).not.toBeInTheDocument();
+    expect(screen.queryByDisplayValue(defaultValue)).not.toBeInTheDocument();
     expect(screen.getByDisplayValue('10')).toBeInTheDocument();
   });
 });
