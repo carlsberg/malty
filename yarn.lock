@@ -6669,6 +6669,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"ProductQuantityActions-9d5a2c@workspace:malty/molecules/ProductQuantityActions":
+  version: 0.0.0-use.local
+  resolution: "ProductQuantityActions-9d5a2c@workspace:malty/molecules/ProductQuantityActions"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "ProductsBar-02d40e@workspace:malty/molecules/ProductsBar":
   version: 0.0.0-use.local
   resolution: "ProductsBar-02d40e@workspace:malty/molecules/ProductsBar"

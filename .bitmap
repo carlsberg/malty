@@ -71,7 +71,7 @@
     },
     "atoms/input": {
         "scope": "carlsberggroup.malty",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
@@ -137,7 +137,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.85",
+        "version": "0.0.86",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1535,13 +1535,13 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
     "molecules/product-quantity-actions": {
-        "scope": "",
-        "version": "",
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductQuantityActions"
     },
