@@ -1,11 +1,11 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { forwardRef, useContext, useMemo, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { emojiFlag } from './emojiFlag';
-import { useInputSize } from './Input.helper';
+import { ensureQuantityRange, useInputSize } from './Input.helper';
 import {
   StyledButton,
   StyledClearableWrapper,
@@ -105,6 +105,16 @@ export const Input = forwardRef(
       onClickRightInputButton?.();
     };
 
+    const handleOnQuantityChange = (event: ChangeEvent<HTMLInputElement>) => {
+      const val = event.currentTarget.value;
+      if (val === '') {
+        onValueChange(val);
+      } else {
+        const newValue = parseInt(val, 10);
+        onValueChange(ensureQuantityRange(newValue, min, max).toString());
+      }
+    };
+
     const renderClearable = () =>
       (clearable || type === InputType.Search) &&
       !!value && (
@@ -178,7 +188,7 @@ export const Input = forwardRef(
           theme={theme}
           size={inputSize}
           isError={!!error}
-          disabled={disabled || disableLeftButton || value === min?.toString()}
+          disabled={disabled || disableLeftButton || (min !== undefined && Number(value) <= min)}
           readOnly={readOnly}
           onClick={handleLeftButtonClick}
           aria-label="Quantity Minus"
@@ -208,7 +218,7 @@ export const Input = forwardRef(
           isError={!!error}
           isIconLeft={iconPosition === InputIconPosition.Left}
           addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Quantity}
-          onChange={(e) => onValueChange((e.target as HTMLInputElement).value)}
+          onChange={handleOnQuantityChange}
           onBlur={(e) => onInputBlur?.((e.target as HTMLInputElement).value)}
           type="number"
           theme={theme}
@@ -221,7 +231,7 @@ export const Input = forwardRef(
           theme={theme}
           size={inputSize}
           isError={!!error}
-          disabled={disabled || disableRightButton || (max ? value >= max?.toString() : false)}
+          disabled={disabled || disableRightButton || (max !== undefined && Number(value) >= max)}
           readOnly={readOnly}
           onClick={handleRightButtonClick}
           aria-label="Quantity Plus"
