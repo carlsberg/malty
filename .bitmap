@@ -1541,7 +1541,7 @@
     },
     "molecules/product-quantity-actions": {
         "scope": "",
-        "version": "0.0.1",
+        "version": "",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductQuantityActions"
     },
