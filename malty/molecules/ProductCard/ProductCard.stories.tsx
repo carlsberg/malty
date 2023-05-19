@@ -170,6 +170,13 @@ export default {
         category: 'Card Body'
       }
     },
+    quantityValue: {
+      control: 'number',
+      description: 'Quantity input value',
+      table: {
+        category: 'Card Body'
+      }
+    },
     action: {
       control: '',
       description: `An Object that define what type of button it will appear in the Product Card:
@@ -234,6 +241,7 @@ export default {
 } as Meta;
 
 const Template: Story<ProductCardProps> = (args) => {
+  const action = args.action ?? undefined;
   return (
     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
       <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
@@ -245,6 +253,7 @@ const Template: Story<ProductCardProps> = (args) => {
           productsCardsAlerts={[
             { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
           ]}
+          action={action}
           {...args}
         />
       </div>
@@ -290,6 +299,7 @@ switch (variant) {
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
       favoriteIconColor: IconColor.Primary,
+      quantityValue: 0,
       productsCardsAlerts: [
         { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
         { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
@@ -319,7 +329,8 @@ switch (variant) {
       discountPill: { text: '20%', color: PillColor.alertStrong },
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
-      favoriteIconColor: IconColor.Primary
+      favoriteIconColor: IconColor.Primary,
+      quantityValue: 0
     };
     break;
 }
