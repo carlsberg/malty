@@ -17,7 +17,7 @@ export const Pagination = ({
   onChange,
   siblingCount,
   type = PaginationType.Default,
-  dataQaId,
+  dataTestId,
   isWhite = false
 }: PaginationProps) => {
   const isInput = type === PaginationType.Input;
@@ -115,7 +115,7 @@ export const Pagination = ({
         <StyledInputPagination theme={theme}>
           <StyledInput
             theme={theme}
-            data-testid={`${dataQaId}-input`}
+            data-testid={`${dataTestId}-input`}
             value={inputValue}
             onChange={handleOnInputChange}
             onBlur={handleAssignInputValue}
@@ -126,7 +126,7 @@ export const Pagination = ({
             aria-label={`Page ${inputValue}`}
           />
           <Text
-            dataQaId={`${dataQaId}-input-count`}
+            dataQaId={`${dataTestId}-input-count`}
             textStyle={TextStyle.MediumSmallDefault}
             color={isWhite ? TextColor.White : TextColor.DigitalBlack}
             aria-label={`of ${count}`}
@@ -139,7 +139,7 @@ export const Pagination = ({
       return (
         <li>
           <Text
-            dataQaId={`${dataQaId}-pagination-compact`}
+            dataQaId={`${dataTestId}-pagination-compact`}
             textStyle={TextStyle.SmallDefault}
             color={isWhite ? TextColor.White : TextColor.DigitalBlack}
             aria-label={`Page ${currentPage} of ${count}`}
@@ -153,7 +153,7 @@ export const Pagination = ({
         const isCurrentPage = pageNr === currentPage;
         if (pageNr === LEFT_DOTS || pageNr === RIGHT_DOTS) {
           return (
-            <li data-testid={`${dataQaId}-${pageNr}`} key={pageNr} tabIndex={-1}>
+            <li data-testid={`${dataTestId}-${pageNr}`} key={pageNr} tabIndex={-1}>
               <StyledDots theme={theme} isWhite={isWhite} aria-label="Ellipsis">
                 &#8230;
               </StyledDots>
@@ -163,7 +163,7 @@ export const Pagination = ({
         return (
           <li className="default-pagination" key={pageNr}>
             <Button
-              dataTestId={`${dataQaId}-page-${pageNr}`}
+              dataTestId={`${dataTestId}-page-${pageNr}`}
               style={ButtonStyle.Transparent}
               selected={isCurrentPage}
               onClick={() => onPageClick(Number(pageNr))}
@@ -182,11 +182,11 @@ export const Pagination = ({
   };
 
   return (
-    <StyledContainer data-testid={dataQaId} isWhite={isWhite} theme={theme}>
+    <StyledContainer data-testid={dataTestId} isWhite={isWhite} theme={theme}>
       <ul>
         <li>
           <Button
-            dataTestId={`${dataQaId}-button-previous`}
+            dataTestId={`${dataTestId}-button-previous`}
             style={ButtonStyle.Transparent}
             disabled={isFirstPage}
             tabIndex={isFirstPage ? -1 : 0}
@@ -201,7 +201,7 @@ export const Pagination = ({
         {renderContent()}
         <li>
           <Button
-            dataTestId={`${dataQaId}-button-next`}
+            dataTestId={`${dataTestId}-button-next`}
             style={ButtonStyle.Transparent}
             disabled={isLastPage}
             tabIndex={isLastPage ? -1 : 0}

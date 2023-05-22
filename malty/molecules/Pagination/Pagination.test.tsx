@@ -57,28 +57,28 @@ describe('Pagination', () => {
     });
 
     it('renders right dots only', () => {
-      render(<Pagination count={10} currentPage={1} onChange={onChange} dataQaId="pagination" />);
+      render(<Pagination count={10} currentPage={1} onChange={onChange} dataTestId="pagination" />);
 
       expect(screen.queryByTestId(`pagination-${LEFT_DOTS}`)).not.toBeInTheDocument();
       expect(screen.getByTestId(`pagination-${RIGHT_DOTS}`)).toBeVisible();
     });
 
     it('renders left dots only', () => {
-      render(<Pagination count={10} currentPage={10} onChange={onChange} dataQaId="pagination" />);
+      render(<Pagination count={10} currentPage={10} onChange={onChange} dataTestId="pagination" />);
 
       expect(screen.getByTestId(`pagination-${LEFT_DOTS}`)).toBeVisible();
       expect(screen.queryByTestId(`pagination-${RIGHT_DOTS}`)).not.toBeInTheDocument();
     });
 
     it('renders both dots, left and rigth at the same time', () => {
-      render(<Pagination count={10} currentPage={5} onChange={onChange} dataQaId="pagination" />);
+      render(<Pagination count={10} currentPage={5} onChange={onChange} dataTestId="pagination" />);
 
       expect(screen.getByTestId(`pagination-${LEFT_DOTS}`)).toBeVisible();
       expect(screen.getByTestId(`pagination-${RIGHT_DOTS}`)).toBeVisible();
     });
 
     it('should not render dots if siblingCount is higher than total pages', () => {
-      render(<Pagination count={10} currentPage={1} onChange={onChange} siblingCount={5} dataQaId="pagination" />);
+      render(<Pagination count={10} currentPage={1} onChange={onChange} siblingCount={5} dataTestId="pagination" />);
 
       for (let i = 1; i <= 10; i++) {
         expect(screen.getByText(i)).toBeVisible();
@@ -88,7 +88,7 @@ describe('Pagination', () => {
     });
 
     it('renders dots if siblingCount is lower than total pages', () => {
-      render(<Pagination count={15} currentPage={7} onChange={onChange} siblingCount={3} dataQaId="pagination" />);
+      render(<Pagination count={15} currentPage={7} onChange={onChange} siblingCount={3} dataTestId="pagination" />);
 
       expect(screen.getByText(1)).toBeVisible();
       for (let i = 4; i <= 10; i++) {
@@ -100,7 +100,7 @@ describe('Pagination', () => {
     });
 
     it('should not render dots if siblingCount value is 3', () => {
-      render(<Pagination count={10} currentPage={1} siblingCount={3} onChange={onChange} dataQaId="pagination" />);
+      render(<Pagination count={10} currentPage={1} siblingCount={3} onChange={onChange} dataTestId="pagination" />);
 
       expect(screen.queryByTestId(`pagination-${LEFT_DOTS}`)).not.toBeInTheDocument();
       expect(screen.queryByTestId(`pagination-${RIGHT_DOTS}`)).not.toBeInTheDocument();

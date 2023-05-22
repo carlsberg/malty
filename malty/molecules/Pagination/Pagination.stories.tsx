@@ -28,7 +28,7 @@ export default {
       control: 'number',
       defaultValue: 1
     },
-    dataQaId: {
+    dataTestId: {
       control: 'text',
       description: 'Pagination data-testid',
       table: { defaultValue: { summary: 'none' } }
