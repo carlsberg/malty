@@ -226,7 +226,7 @@ export const AlertBanner = ({
               currentPage={activeAlert}
               type={PaginationType.Compact}
               isWhite={currentAlert.type !== AlertBannerType.Warning}
-              dataQaId="alert-banner-pagination"
+              dataTestId="alert-banner-pagination"
             />
             {renderAction()}
           </ContentRow>
