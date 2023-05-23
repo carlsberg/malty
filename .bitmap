@@ -1509,6 +1509,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Datepicker"
     },
+    "molecules/footer": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Footer"
+    },
     "molecules/loading": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.69",
