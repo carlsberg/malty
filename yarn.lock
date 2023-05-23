@@ -5922,6 +5922,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Footer-aa4c83@workspace:malty/molecules/Footer":
+  version: 0.0.0-use.local
+  resolution: "Footer-aa4c83@workspace:malty/molecules/Footer"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "GlassGoblet-f86f17@workspace:malty/icons/GlassGoblet":
   version: 0.0.0-use.local
   resolution: "GlassGoblet-f86f17@workspace:malty/icons/GlassGoblet"
