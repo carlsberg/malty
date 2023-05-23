@@ -1,13 +1,15 @@
-/* eslint-disable react/no-array-index-key */
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
+import { EventKeys } from '@carlsberggroup/malty.utils.consts';
+import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { DOTS, usePagination } from './Pagination.helper';
+import { LEFT_DOTS, RIGHT_DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
 import { PaginationProps, PaginationTrigger, PaginationType } from './Pagination.types';
+
+const MIN_ALLOWED_VALUE = 1;
 
 export const Pagination = ({
   count,
@@ -15,44 +17,29 @@ export const Pagination = ({
   onChange,
   siblingCount,
   type = PaginationType.Default,
-  dataQaId,
-  isWhite = false,
-  zeroBasedIndex = false
+  dataTestId,
+  isWhite = false
 }: PaginationProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-  const [inputValue, setInputValue] = useState<number | string>(currentPage);
-  const [buttonSize, setButtonSize] = useState(ButtonSize.Medium);
+  const isInput = type === PaginationType.Input;
+  const isCompact = type === PaginationType.Compact;
+  const isLastPage = currentPage === count;
+  const isFirstPage = currentPage === MIN_ALLOWED_VALUE;
+  // TODO: in case this component needs to be used in SSR, include validation for the window or
+  // include a custom hook to check for the screen size
+  // https://github.com/CarlsbergGBS/cx-component-library/pull/629#discussion_r1187538517
+  const buttonSize = window.innerWidth <= 768 ? ButtonSize.Small : ButtonSize.Medium;
 
-  const paginationRange = usePagination({
+  const theme = useContext(ThemeContext) || defaultTheme;
+
+  const [provisionalInputValue, setProvisionalInputValue] = useState<number | string>(currentPage);
+  const [inputValue, setInputValue] = useState<number | string>(currentPage);
+
+  const displayedPages = usePagination({
     totalPageCount: count,
     siblingCount,
-    currentPage
+    currentPage,
+    isDefault: type === PaginationType.Default
   });
-  const lastPage = paginationRange && paginationRange[paginationRange.length - 1];
-  const isFirstPage =
-    // eslint-disable-next-line no-nested-ternary
-    type === PaginationType.Input ? (zeroBasedIndex === true ? inputValue === 0 : inputValue === 1) : currentPage === 1;
-  const isLastPage =
-    // eslint-disable-next-line no-nested-ternary
-    type === PaginationType.Input
-      ? zeroBasedIndex === true && inputValue
-        ? lastPage === (inputValue as number) + 1
-        : lastPage === inputValue
-      : lastPage === currentPage;
-  const isCompact = type === PaginationType.Compact;
-  const isInput = type === PaginationType.Input;
-
-  useEffect(() => {
-    if (window.innerWidth <= 768) {
-      setButtonSize(ButtonSize.Small);
-    }
-  }, [window.innerWidth]);
-
-  if (!zeroBasedIndex) {
-    if (currentPage < 1 || !paginationRange || paginationRange.length < 2) {
-      return null;
-    }
-  }
 
   const onPageClick = (targetPage: number) => {
     onChange(targetPage, PaginationTrigger.PageNr);
@@ -60,9 +47,9 @@ export const Pagination = ({
 
   const onPageKeyUp =
     (pageNr: number, trigger: PaginationTrigger = PaginationTrigger.PageNr) =>
-    (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === 'Space') {
-        e.preventDefault();
+    (event: KeyboardEvent) => {
+      if (event.key === EventKeys.ENTER || event.key === EventKeys.SPACE) {
+        event.preventDefault();
         onChange(pageNr, trigger);
       }
     };
@@ -93,20 +80,33 @@ export const Pagination = ({
     onPageKeyUp(currentPage + 1, PaginationTrigger.Next);
   };
 
-  const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value !== '') {
-      setInputValue(Number(event.target.value) - 1);
-      let timeOutId: NodeJS.Timeout;
+  const handleOnInputChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(value !== '' ? Number(value) : value);
+  };
 
-      if (type === PaginationType.Input) {
-        if (inputValue || inputValue === 0 || inputValue === '') {
-          timeOutId = setTimeout(() => onChange(Number(event.target.value) - 1, PaginationTrigger.PageNr), 350);
-        }
-      }
+  const handleAssignInputValue = ({
+    currentTarget: { value }
+  }: KeyboardEvent<HTMLInputElement> | FocusEvent<HTMLInputElement>) => {
+    let newValue = Number(value === '' ? provisionalInputValue : value);
 
-      return () => clearTimeout(timeOutId);
+    if (newValue > count) {
+      newValue = count;
+    } else if (newValue < MIN_ALLOWED_VALUE) {
+      newValue = MIN_ALLOWED_VALUE;
     }
-    return setInputValue('');
+
+    if (newValue !== provisionalInputValue) {
+      onChange(newValue, PaginationTrigger.PageNr);
+    }
+
+    setInputValue(newValue);
+    setProvisionalInputValue(newValue);
+  };
+
+  const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === EventKeys.ENTER) {
+      handleAssignInputValue(event);
+    }
   };
 
   const renderContent = () => {
@@ -115,18 +115,21 @@ export const Pagination = ({
         <StyledInputPagination theme={theme}>
           <StyledInput
             theme={theme}
-            data-testid={`${dataQaId}-input`}
-            // eslint-disable-next-line no-nested-ternary
-            value={zeroBasedIndex ? (typeof inputValue === 'string' ? inputValue : inputValue + 1) : inputValue}
-            onChange={(e) => handleInput(e)}
+            data-testid={`${dataTestId}-input`}
+            value={inputValue}
+            onChange={handleOnInputChange}
+            onBlur={handleAssignInputValue}
+            onKeyDown={handleOnKeyDown}
             max={count}
-            min={0}
+            min={MIN_ALLOWED_VALUE}
             type="number"
+            aria-label={`Page ${inputValue}`}
           />
           <Text
-            dataQaId={`${dataQaId}-input-count`}
+            dataQaId={`${dataTestId}-input-count`}
             textStyle={TextStyle.MediumSmallDefault}
             color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+            aria-label={`of ${count}`}
           >{` / ${count}`}</Text>
         </StyledInputPagination>
       );
@@ -136,21 +139,22 @@ export const Pagination = ({
       return (
         <li>
           <Text
-            dataQaId={`${dataQaId}-pagination-compact`}
+            dataQaId={`${dataTestId}-pagination-compact`}
             textStyle={TextStyle.SmallDefault}
             color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+            aria-label={`Page ${currentPage} of ${count}`}
           >{`${currentPage} of ${count}`}</Text>
         </li>
       );
     }
 
     return (
-      paginationRange?.map((pageNr, idx) => {
+      displayedPages?.map((pageNr) => {
         const isCurrentPage = pageNr === currentPage;
-        if (pageNr === DOTS) {
+        if (pageNr === LEFT_DOTS || pageNr === RIGHT_DOTS) {
           return (
-            <li data-testid={`${dataQaId}-dots`} key={`dots-${idx}`} tabIndex={-1}>
-              <StyledDots theme={theme} isWhite={isWhite}>
+            <li data-testid={`${dataTestId}-${pageNr}`} key={pageNr} tabIndex={-1}>
+              <StyledDots theme={theme} isWhite={isWhite} aria-label="Ellipsis">
                 &#8230;
               </StyledDots>
             </li>
@@ -159,13 +163,13 @@ export const Pagination = ({
         return (
           <li className="default-pagination" key={pageNr}>
             <Button
-              dataTestId={`${dataQaId}-page-${pageNr}`}
+              dataTestId={`${dataTestId}-page-${pageNr}`}
               style={ButtonStyle.Transparent}
               selected={isCurrentPage}
               onClick={() => onPageClick(Number(pageNr))}
               onKeyUp={() => onPageKeyUp(Number(pageNr))}
               aria-current={isCurrentPage}
-              aria-label={isCurrentPage ? `page ${pageNr}` : `Go to page ${pageNr}`}
+              aria-label={isCurrentPage ? `Page ${pageNr}` : `Go to page ${pageNr}`}
               tabIndex={0}
               text={pageNr}
               negative={isWhite}
@@ -178,11 +182,11 @@ export const Pagination = ({
   };
 
   return (
-    <StyledContainer data-testid={dataQaId} isWhite={isWhite} theme={theme}>
+    <StyledContainer data-testid={dataTestId} isWhite={isWhite} theme={theme}>
       <ul>
         <li>
           <Button
-            dataTestId={`${dataQaId}-button-previous`}
+            dataTestId={`${dataTestId}-button-previous`}
             style={ButtonStyle.Transparent}
             disabled={isFirstPage}
             tabIndex={isFirstPage ? -1 : 0}
@@ -191,13 +195,13 @@ export const Pagination = ({
             icon={IconName.ChevronLeft}
             size={buttonSize}
             negative={isWhite}
-            aria-label="Previous button"
+            aria-label="Go to previous page"
           />
         </li>
         {renderContent()}
         <li>
           <Button
-            dataTestId={`${dataQaId}-button-next`}
+            dataTestId={`${dataTestId}-button-next`}
             style={ButtonStyle.Transparent}
             disabled={isLastPage}
             tabIndex={isLastPage ? -1 : 0}
@@ -206,7 +210,7 @@ export const Pagination = ({
             icon={IconName.ChevronRight}
             size={buttonSize}
             negative={isWhite}
-            aria-label="Next button"
+            aria-label="Go to next page"
           />
         </li>
       </ul>

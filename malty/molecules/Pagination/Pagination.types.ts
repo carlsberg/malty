@@ -3,10 +3,9 @@ export interface PaginationProps {
   onChange: (page: number | string, trigger?: PaginationTrigger) => void;
   currentPage: number;
   siblingCount?: number;
-  dataQaId?: string;
+  dataTestId?: string;
   type?: PaginationType;
   isWhite?: boolean;
-  zeroBasedIndex?: boolean;
 }
 
 export enum PaginationTrigger {
