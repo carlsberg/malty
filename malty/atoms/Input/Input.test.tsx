@@ -1,6 +1,7 @@
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
-import React from 'react';
+import userEvent from '@testing-library/user-event';
+import React, { useState } from 'react';
 import { Input } from './Input';
 import { InputType } from './Input.types';
 
@@ -84,5 +85,94 @@ describe('input', () => {
     const clearButton = screen.getByTestId(`icon-ItemClose`);
     fireEvent.click(clearButton);
     expect(onClearButtonClick).toHaveBeenCalledTimes(1);
+  });
+
+  describe(`Input type: ${InputType.Quantity}`, () => {
+    it('disables minus and plus buttons when value is equal to min and max', () => {
+      const handleValueChange = jest.fn();
+
+      render(
+        <Input
+          dataTestId="input"
+          value="0"
+          type={InputType.Quantity}
+          onValueChange={handleValueChange}
+          min={0}
+          max={0}
+        />
+      );
+
+      const minusButton = screen.getByTestId('input-quantity-minus');
+      const plusButton = screen.getByTestId('input-quantity-minus');
+
+      expect(minusButton).toBeDisabled();
+      expect(plusButton).toBeDisabled();
+
+      userEvent.click(minusButton);
+      userEvent.click(plusButton);
+
+      expect(handleValueChange).not.toHaveBeenCalled();
+    });
+
+    it('disables minus button when value is lower than min', () => {
+      const handleValueChange = jest.fn();
+
+      render(
+        <Input dataTestId="input" value="2" type={InputType.Quantity} onValueChange={handleValueChange} min={6} />
+      );
+
+      const minusButton = screen.getByTestId('input-quantity-minus');
+      expect(minusButton).toBeDisabled();
+
+      userEvent.click(minusButton);
+      expect(handleValueChange).not.toHaveBeenCalled();
+    });
+
+    it('disables plus button when value is greater than max', () => {
+      const handleValueChange = jest.fn();
+
+      render(
+        <Input dataTestId="input" value="2" type={InputType.Quantity} onValueChange={handleValueChange} min={6} />
+      );
+
+      const minusButton = screen.getByTestId('input-quantity-minus');
+      expect(minusButton).toBeDisabled();
+
+      userEvent.click(minusButton);
+      expect(handleValueChange).not.toHaveBeenCalled();
+    });
+
+    it('modifies the value to the min value passed if value is lower than min', () => {
+      const minValue = 6;
+      const handleOnChange = jest.fn();
+
+      const InputComponent = () => {
+        const [value, setValue] = useState('8');
+        const handleValueChange = (val: string) => {
+          setValue(val);
+          handleOnChange(val);
+        };
+
+        return (
+          <Input
+            dataTestId="input"
+            value={value}
+            type={InputType.Quantity}
+            onValueChange={handleValueChange}
+            min={minValue}
+          />
+        );
+      };
+
+      render(<InputComponent />);
+
+      const input = screen.getByTestId('input');
+
+      userEvent.clear(input);
+      userEvent.type(input, '4');
+
+      expect(handleOnChange).toHaveBeenCalledTimes(2);
+      expect(input).toHaveValue(minValue);
+    });
   });
 });
