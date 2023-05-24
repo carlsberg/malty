@@ -182,7 +182,7 @@ export const Input = forwardRef(
     );
 
     const renderInputNumber = () => (
-      <span>
+      <>
         <StyledButton
           data-testid={`${dataTestId}-quantity-minus`}
           theme={theme}
@@ -243,7 +243,7 @@ export const Input = forwardRef(
             className="quantity-control"
           />
         </StyledButton>
-      </span>
+      </>
     );
 
     const renderTelNumber = () => {

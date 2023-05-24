@@ -11,7 +11,7 @@ export interface ProductCardProps {
   productCardStyle?: CardStyle;
   orientation?: CardOrientation;
   onProductClick?: () => void;
-  onInputQuantityChange?: (value: string) => void;
+  onInputQuantityChange?: (value: number) => void;
   onSelectQuantityChange?: (value: SelectOptionsType[]) => void;
   onFavoriteClick?: (favorite: boolean) => void;
   title: string;
@@ -29,6 +29,7 @@ export interface ProductCardProps {
     label: string;
     labelColor?: TextColor;
     stockColor?: TextColor;
+    availability?: string;
   };
   loyalty?: {
     label: string;
@@ -56,4 +57,5 @@ export interface ProductCardProps {
     icon?: IconName;
     onClick: () => void;
   };
+  quantityValue?: number;
 }

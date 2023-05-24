@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
-import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { AlertInline, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
+import { ProductQuantityActions } from '@carlsberggroup/malty.molecules.product-quantity-actions';
 import { Sku } from '@carlsberggroup/malty.molecules.sku';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
@@ -17,7 +17,6 @@ import {
   StyledDiscountContainer,
   StyledDiscountPill,
   StyledFavoriteWrapper,
-  StyledFooter,
   StyledImage,
   StyledLoyalty,
   StyledMargin,
@@ -26,8 +25,6 @@ import {
   StyledPriceContainer,
   StyledRow,
   StyledSelect,
-  StyledStock,
-  StyledStockInformation,
   StyledTitle
 } from './ProductCard.styled';
 import { ProductCardProps } from './ProductCard.types';
@@ -58,23 +55,15 @@ export const ProductCard = ({
   discountPill,
   promoPill,
   cartPill,
+  quantityValue,
   favoriteIconColor = IconColor.DigitalBlack
 }: ProductCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
   const [width] = useState(imageWidth);
-  const [quantityValue, setQuantityValue] = useState('');
   const [favorite, setFavorite] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const handleActionClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e?.stopPropagation();
-    action?.onClick();
-  };
-  const handleQuantityChange = (value: string) => {
-    onInputQuantityChange(value);
-    setQuantityValue(value);
-  };
   const handleFavoriteClick = () => {
     setFavorite(!favorite);
     onFavoriteClick(favorite);
@@ -209,40 +198,15 @@ export const ProductCard = ({
               </StyledLoyalty>
             ) : null}
           </StyledRow>
-          {stock ? (
-            <StyledStock theme={theme}>
-              <StyledStockInformation theme={theme} infoColor={stock.stockColor} />
-              <Text textStyle={TextStyle.SmallBold} color={stock.labelColor}>
-                {stock.label}
-              </Text>
-            </StyledStock>
-          ) : null}
 
-          <StyledFooter theme={theme}>
-            {!hideQuantityInput ? (
-              <Input
-                onClick={(e) => e.stopPropagation()}
-                type={InputType.Quantity}
-                onValueChange={(value) => handleQuantityChange(value)}
-                value={quantityValue}
-                max={maxQuantity}
-                size={InputSize.Medium}
-                maxLength={maxQuantity}
-              />
-            ) : null}
-            {action ? (
-              <Button
-                text={action?.icon ? undefined : action?.label}
-                fullWidth={hideQuantityInput}
-                dataTestId={`${dataTestId}-button`}
-                size={ButtonSize.Medium}
-                style={action.variant}
-                onClick={(e) => handleActionClick(e)}
-                color={action?.color}
-                icon={action?.icon}
-              />
-            ) : null}
-          </StyledFooter>
+          <ProductQuantityActions
+            stock={stock}
+            action={action}
+            value={quantityValue}
+            hideQuantityInput={hideQuantityInput}
+            maxQuantity={maxQuantity}
+            onInputQuantityChange={onInputQuantityChange}
+          />
           {productsCardsAlerts?.map((alert, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <StyledAlert key={index} theme={theme}>

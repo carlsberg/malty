@@ -4266,7 +4266,7 @@ __metadata:
 
 "@types/styled-components@npm:^5.1.26":
   version: 5.1.26
-  resolution: "@types/styled-components@npm:5.1.26"
+  resolution: "@types/styled-components@npm:5.1.26::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fstyled-components%2F-%2Fstyled-components-5.1.26.tgz"
   dependencies:
     "@types/hoist-non-react-statics": "*"
     "@types/react": "*"
@@ -4325,7 +4325,7 @@ __metadata:
 
 "@types/uuid@npm:^9.0.0":
   version: 9.0.1
-  resolution: "@types/uuid@npm:9.0.1"
+  resolution: "@types/uuid@npm:9.0.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fuuid%2F-%2Fuuid-9.0.1.tgz"
   checksum: c472b8a77cbeded4bc529220b8611afa39bd64677f507838f8083d8aac8033b1f88cb9ddaa2f8589e0dcd2317291d0f6e1379f82d5ceebd6f74f3b4825288e00
   languageName: node
   linkType: hard
@@ -5922,6 +5922,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Footer-aa4c83@workspace:malty/molecules/Footer":
+  version: 0.0.0-use.local
+  resolution: "Footer-aa4c83@workspace:malty/molecules/Footer"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "GlassGoblet-f86f17@workspace:malty/icons/GlassGoblet":
   version: 0.0.0-use.local
   resolution: "GlassGoblet-f86f17@workspace:malty/icons/GlassGoblet"
@@ -6663,6 +6672,15 @@ __metadata:
 "ProductCard-0e498c@workspace:malty/molecules/ProductCard":
   version: 0.0.0-use.local
   resolution: "ProductCard-0e498c@workspace:malty/molecules/ProductCard"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
+"ProductQuantityActions-9d5a2c@workspace:malty/molecules/ProductQuantityActions":
+  version: 0.0.0-use.local
+  resolution: "ProductQuantityActions-9d5a2c@workspace:malty/molecules/ProductQuantityActions"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -10006,6 +10024,15 @@ __metadata:
   checksum: f7ac8c6d0b6e4e0c77340a1d47a3574e25abd580bfd99ad707b26ff7618596cf1a5e5ce9caf44715e9e01d4a5d12cb3b4edaf1176f34c19adb2874815a56e64f
   languageName: node
   linkType: hard
+
+"consts-d99358@workspace:malty/utils/consts":
+  version: 0.0.0-use.local
+  resolution: "consts-d99358@workspace:malty/utils/consts"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
 
 "content-disposition@npm:0.5.4":
   version: 0.5.4

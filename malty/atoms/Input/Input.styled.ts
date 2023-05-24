@@ -146,7 +146,6 @@ export const StyledInput = styled.input<{
     -moz-appearance: textfield;
     appearance: textfield;
     flex-grow: unset;
-    width: ${({ size }) => size}px;
     text-align: center;
     vertical-align: top;
     padding: 0;

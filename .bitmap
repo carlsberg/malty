@@ -71,7 +71,7 @@
     },
     "atoms/input": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.94",
+        "version": "0.1.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
@@ -137,7 +137,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.84",
+        "version": "0.0.86",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1487,7 +1487,7 @@
     },
     "molecules/alert-banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.70",
+        "version": "0.0.71",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertBanner"
     },
@@ -1505,9 +1505,15 @@
     },
     "molecules/datepicker": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.55",
+        "version": "0.0.56",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Datepicker"
+    },
+    "molecules/footer": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Footer"
     },
     "molecules/loading": {
         "scope": "carlsberggroup.malty",
@@ -1529,15 +1535,21 @@
     },
     "molecules/pagination": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.67",
+        "version": "0.0.68",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.7",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
+    },
+    "molecules/product-quantity-actions": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/ProductQuantityActions"
     },
     "molecules/products-bar": {
         "scope": "carlsberggroup.malty",
@@ -1571,7 +1583,7 @@
     },
     "organisms/table": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.33",
+        "version": "0.0.34",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },
@@ -1586,6 +1598,12 @@
         "version": "0.0.5",
         "mainFile": "index.tsx",
         "rootDir": "malty/utils/colors"
+    },
+    "utils/consts": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/consts"
     },
     "utils/mixins": {
         "scope": "carlsberggroup.malty",
