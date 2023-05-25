@@ -4,7 +4,7 @@ import { Sku as SkuComponent } from './Sku';
 import { MRO, SkuProps } from './Sku.types';
 
 export default {
-  title: 'Cards/Sku',
+  title: 'Information/Sku',
   component: SkuComponent,
   parameters: {
     importObject: 'Sku',
