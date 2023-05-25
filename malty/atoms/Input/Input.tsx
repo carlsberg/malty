@@ -105,12 +105,11 @@ export const Input = forwardRef(
       onClickRightInputButton?.();
     };
 
-    const handleOnQuantityChange = (event: ChangeEvent<HTMLInputElement>) => {
-      const val = event.currentTarget.value;
-      if (val === '') {
-        onValueChange(val);
+    const handleOnQuantityChange = ({ currentTarget: { value: currentValue } }: ChangeEvent<HTMLInputElement>) => {
+      if (currentValue === '') {
+        onValueChange(currentValue);
       } else {
-        const newValue = parseInt(val, 10);
+        const newValue = parseInt(currentValue, 10);
         onValueChange(ensureQuantityRange(newValue, min, max).toString());
       }
     };

@@ -132,13 +132,13 @@ describe('input', () => {
       const handleValueChange = jest.fn();
 
       render(
-        <Input dataTestId="input" value="2" type={InputType.Quantity} onValueChange={handleValueChange} min={6} />
+        <Input dataTestId="input" value="12" type={InputType.Quantity} onValueChange={handleValueChange} max={10} />
       );
 
-      const minusButton = screen.getByTestId('input-quantity-minus');
-      expect(minusButton).toBeDisabled();
+      const plusButton = screen.getByTestId('input-quantity-plus');
+      expect(plusButton).toBeDisabled();
 
-      userEvent.click(minusButton);
+      userEvent.click(plusButton);
       expect(handleValueChange).not.toHaveBeenCalled();
     });
 
@@ -148,9 +148,9 @@ describe('input', () => {
 
       const InputComponent = () => {
         const [value, setValue] = useState('8');
-        const handleValueChange = (val: string) => {
-          setValue(val);
-          handleOnChange(val);
+        const handleValueChange = (newValue: string) => {
+          setValue(newValue);
+          handleOnChange(newValue);
         };
 
         return (
@@ -173,6 +173,39 @@ describe('input', () => {
 
       expect(handleOnChange).toHaveBeenCalledTimes(2);
       expect(input).toHaveValue(minValue);
+    });
+
+    it('modifies the value to the max value passed if value is higher than max', () => {
+      const maxValue = 12;
+      const handleOnChange = jest.fn();
+
+      const InputComponent = () => {
+        const [value, setValue] = useState('10');
+        const handleValueChange = (newValue: string) => {
+          setValue(newValue);
+          handleOnChange(newValue);
+        };
+
+        return (
+          <Input
+            dataTestId="input"
+            value={value}
+            type={InputType.Quantity}
+            onValueChange={handleValueChange}
+            max={maxValue}
+          />
+        );
+      };
+
+      render(<InputComponent />);
+
+      const input = screen.getByTestId('input');
+
+      userEvent.clear(input);
+      userEvent.type(input, '16');
+
+      expect(handleOnChange).toHaveBeenCalledTimes(3);
+      expect(input).toHaveValue(maxValue);
     });
   });
 });
