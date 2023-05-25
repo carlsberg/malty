@@ -27,6 +27,11 @@ export const StyledRow = styled.div`
   `}
 `;
 export const StyledCluster = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   p {
     margin-top: ${({ theme }) => theme.sizes.m.value};
   }
