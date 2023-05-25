@@ -3,7 +3,7 @@ import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
 import { PillProps } from '@carlsberggroup/malty.atoms.pill';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
-import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineProps } from '@carlsberggroup/malty.molecules.alert-inline';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
 
@@ -35,16 +35,8 @@ export interface ProductCardProps {
     label: string;
     imageSrc: string;
   };
-  price?: {
-    label: string;
-    color?: TextColor;
-    style: TextStyle;
-  };
-  discountPrice?: {
-    label: string;
-    color?: TextColor;
-    style: TextStyle;
-  };
+  price?: string;
+  discount?: string;
 
   imageSrc: string;
   dataTestId?: string;

@@ -4,7 +4,7 @@ import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
 import { PillColor } from '@carlsberggroup/malty.atoms.pill';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
-import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
 import { Meta, Story } from '@storybook/react';
@@ -225,7 +225,7 @@ export default {
         category: 'Card Body'
       }
     },
-    discountPrice: {
+    discount: {
       control: '',
       description: `An Object that defines the discount price label and style:
     | {
@@ -289,8 +289,8 @@ switch (variant) {
         icon: IconName.Cart
       },
       orientation: CardOrientation.Landscape,
-      price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
-      discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
+      price: '₭ 99,800.00',
+      discount: '₭ 86,000.00',
       sku: 'Sku: 12512 512',
       loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
@@ -320,8 +320,8 @@ switch (variant) {
         icon: IconName.Cart
       },
       orientation: CardOrientation.Portrait,
-      price: { label: '₭ 99,800.00', style: TextStyle.MediumSmallDefault },
-      discountPrice: { label: '₭ 86,000.00', color: TextColor.AlertStrong, style: TextStyle.MediumSmallBold },
+      price: '₭ 99,800.00',
+      discount: '₭ 86,000.00',
       sku: 'Sku: 12512 512',
       loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },

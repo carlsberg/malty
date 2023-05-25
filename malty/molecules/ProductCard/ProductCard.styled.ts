@@ -33,16 +33,7 @@ export const StyledImage = styled(Image)<{
   width: ${({ orientation }) => orientation === CardOrientation.Portrait && '100%'};
   height: ${({ orientation }) => orientation === CardOrientation.Landscape && '100%'};
 `;
-export const StyledPrice = styled(Text)<{
-  discountPrice: boolean;
-}>`
-  text-decoration: ${({ discountPrice }) => discountPrice && 'line-through'};
-  margin-right: ${({ theme }) => theme.sizes['2xs'].value};
-  @media screen and (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
-    display: block;
-  }
-`;
-export const StyledPriceContainer = styled.div``;
+
 export const StyledLoyalty = styled.div`
   display: flex;
   align-items: center;
