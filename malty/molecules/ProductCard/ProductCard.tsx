@@ -164,9 +164,7 @@ export const ProductCard = ({
             </StyledSelect>
           ) : null}
           <StyledRow theme={theme}>
-            {price ? (
-              <Price base={price.base} discount={price.discount} credit={price.credit} dataTestId={dataTestId} />
-            ) : null}
+            {price ? <Price {...price} dataTestId={dataTestId} /> : null}
 
             {loyalty ? (
               <StyledLoyalty theme={theme}>
