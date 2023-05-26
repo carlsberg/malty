@@ -4,10 +4,10 @@ import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.ca
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
+import { Price } from '@carlsberggroup/malty.atoms.price';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { AlertInline, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
-import { Price } from '@carlsberggroup/malty.molecules.price';
 import { ProductQuantityActions } from '@carlsberggroup/malty.molecules.product-quantity-actions';
 import { Sku } from '@carlsberggroup/malty.molecules.sku';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';

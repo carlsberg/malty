@@ -8,7 +8,7 @@ export default {
   component: PriceComponent,
   parameters: {
     importObject: 'Price',
-    importPath: '@carlsberggroup/malty.molecules.price'
+    importPath: '@carlsberggroup/malty.atoms.price'
   },
   argTypes: {
     base: {
