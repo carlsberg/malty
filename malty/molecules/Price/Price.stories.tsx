@@ -11,7 +11,7 @@ export default {
     importPath: '@carlsberggroup/malty.molecules.price'
   },
   argTypes: {
-    defaultPrice: {
+    base: {
       control: 'text',
       description: 'Default price'
     },
@@ -33,7 +33,7 @@ const Template: Story<PriceProps> = (args) => {
 export const Price = Template.bind({});
 
 Price.args = {
-  defaultPrice: '₭ 99,800.00',
+  base: '₭ 99,800.00',
   discount: '₭ 86,000.00',
   credit: ''
 };

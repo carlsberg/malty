@@ -1,5 +1,5 @@
 export interface PriceProps {
-  defaultPrice?: string;
+  base?: string;
   discount?: string;
   credit?: string;
   dataTestId?: string;

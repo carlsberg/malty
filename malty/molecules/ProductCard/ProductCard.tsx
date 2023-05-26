@@ -38,7 +38,6 @@ export const ProductCard = ({
   imageWidth,
   title,
   price,
-  discount,
   onInputQuantityChange = () => null,
   onSelectQuantityChange = () => null,
   onFavoriteClick = () => null,
@@ -165,7 +164,9 @@ export const ProductCard = ({
             </StyledSelect>
           ) : null}
           <StyledRow theme={theme}>
-            {price || discount ? <Price defaultPrice={price} discount={discount} /> : null}
+            {price ? (
+              <Price base={price.base} discount={price.discount} credit={price.credit} dataTestId={dataTestId} />
+            ) : null}
 
             {loyalty ? (
               <StyledLoyalty theme={theme}>

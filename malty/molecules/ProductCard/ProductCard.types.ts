@@ -35,9 +35,11 @@ export interface ProductCardProps {
     label: string;
     imageSrc: string;
   };
-  price?: string;
-  discount?: string;
-
+  price?: {
+    base?: string;
+    discount?: string;
+    credit?: string;
+  };
   imageSrc: string;
   dataTestId?: string;
   imageHeight?: string;

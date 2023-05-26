@@ -215,24 +215,7 @@ export default {
     },
     price: {
       control: '',
-      description: `An Object that defines the price label and style:
-    | {
-        label: string;
-    color?: TextColor;
-    style: TextStyle;
-      }`,
-      table: {
-        category: 'Card Body'
-      }
-    },
-    discount: {
-      control: '',
-      description: `An Object that defines the discount price label and style:
-    | {
-        label: string;
-    color?: TextColor;
-    style: TextStyle;
-      }`,
+      description: 'An Object that defines the price information:',
       table: {
         category: 'Card Body'
       }
@@ -289,8 +272,7 @@ switch (variant) {
         icon: IconName.Cart
       },
       orientation: CardOrientation.Landscape,
-      price: '₭ 99,800.00',
-      discount: '₭ 86,000.00',
+      price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
       sku: 'Sku: 12512 512',
       loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
@@ -320,8 +302,7 @@ switch (variant) {
         icon: IconName.Cart
       },
       orientation: CardOrientation.Portrait,
-      price: '₭ 99,800.00',
-      discount: '₭ 86,000.00',
+      price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
       sku: 'Sku: 12512 512',
       loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
