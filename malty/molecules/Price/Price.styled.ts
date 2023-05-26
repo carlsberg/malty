@@ -6,8 +6,5 @@ export const StyledPrice = styled(Text)<{
 }>`
   text-decoration: ${({ discount }) => discount && 'line-through'};
   margin-right: ${({ theme }) => theme.sizes['2xs'].value};
-  /* @media screen and (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
-    display: block;
-  } */
 `;
 export const StyledPriceContainer = styled.div``;
