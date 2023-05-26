@@ -8,7 +8,8 @@ export default {
   component: PriceComponent,
   parameters: {
     importObject: 'Price',
-    importPath: '@carlsberggroup/malty.atoms.price'
+    importPath: '@carlsberggroup/malty.atoms.price',
+    variants: ['default', 'discount', 'credit', 'free', 'reward']
   },
   argTypes: {
     base: {
@@ -32,8 +33,44 @@ const Template: Story<PriceProps> = (args) => {
 
 export const Price = Template.bind({});
 
-Price.args = {
-  base: '₭ 99,800.00',
-  discount: '₭ 86,000.00',
-  credit: ''
-};
+const params = new URLSearchParams(window.location.search);
+const variant = params.get('variant');
+
+switch (variant) {
+  case 'default':
+    Price.args = {
+      base: '₭ 99,800.00',
+      discount: '',
+      credit: ''
+    };
+    break;
+  case 'credit':
+    Price.args = {
+      base: '',
+      discount: '',
+      credit: '₭ 86,000.00'
+    };
+    break;
+  case 'free':
+    Price.args = {
+      base: '',
+      discount: 'FREE',
+      credit: ''
+    };
+    break;
+  case 'reward':
+    Price.args = {
+      base: '',
+      discount: 'REWARD',
+      credit: ''
+    };
+    break;
+  case 'discount':
+  default:
+    Price.args = {
+      base: '₭ 99,800.00',
+      discount: '₭ 86,000.00',
+      credit: ''
+    };
+    break;
+}
