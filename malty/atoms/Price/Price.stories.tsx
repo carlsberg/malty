@@ -23,6 +23,10 @@ export default {
     credit: {
       control: 'text',
       description: 'Credit price'
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'dataTestId for testing'
     }
   }
 } as Meta;
@@ -41,28 +45,32 @@ switch (variant) {
     Price.args = {
       base: '₭ 99,800.00',
       discount: '',
-      credit: ''
+      credit: '',
+      dataTestId: ''
     };
     break;
   case 'credit':
     Price.args = {
       base: '',
       discount: '',
-      credit: '₭ 86,000.00'
+      credit: '₭ 86,000.00',
+      dataTestId: ''
     };
     break;
   case 'free':
     Price.args = {
       base: '',
       discount: 'FREE',
-      credit: ''
+      credit: '',
+      dataTestId: ''
     };
     break;
   case 'reward':
     Price.args = {
       base: '',
       discount: 'REWARD',
-      credit: ''
+      credit: '',
+      dataTestId: ''
     };
     break;
   case 'discount':
