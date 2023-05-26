@@ -10,7 +10,7 @@ export const Price = ({ base, discount, credit, dataTestId = 'default' }: PriceP
 
   return (
     <StyledPriceContainer theme={theme}>
-      {base ? (
+      {base && !credit ? (
         <StyledPrice
           theme={theme}
           discount={!!discount}
@@ -21,7 +21,7 @@ export const Price = ({ base, discount, credit, dataTestId = 'default' }: PriceP
           {base}
         </StyledPrice>
       ) : null}
-      {discount ? (
+      {discount && !credit ? (
         <Text
           dataQaId={`${dataTestId}-discount-price`}
           color={TextColor.AlertStrong}

@@ -35,4 +35,18 @@ describe('Price', () => {
     expect(screen.getByText(discount)).toBeInTheDocument();
     expect(screen.queryByText(credit)).not.toBeInTheDocument();
   });
+
+  test('renders default, discount and credit correctly', () => {
+    render(<Price base={base} discount={discount} credit={credit} />);
+    expect(screen.queryByText(base)).not.toBeInTheDocument();
+    expect(screen.queryByText(discount)).not.toBeInTheDocument();
+    expect(screen.getByText(credit)).toBeInTheDocument();
+  });
+
+  test('renders discount and credit correctly', () => {
+    render(<Price discount={discount} credit={credit} />);
+    expect(screen.queryByText(base)).not.toBeInTheDocument();
+    expect(screen.queryByText(discount)).not.toBeInTheDocument();
+    expect(screen.getByText(credit)).toBeInTheDocument();
+  });
 });
