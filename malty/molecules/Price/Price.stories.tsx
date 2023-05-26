@@ -17,11 +17,11 @@ export default {
     },
     discount: {
       control: 'text',
-      description: 'Discount'
+      description: 'Discount price or label (e.g. "FREE" or "REWARD"))'
     },
     credit: {
       control: 'text',
-      description: 'Credit'
+      description: 'Credit price'
     }
   }
 } as Meta;
