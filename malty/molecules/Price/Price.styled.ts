@@ -1,7 +1,9 @@
 import { Text } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 
-export const StyledPriceContainer = styled.div``;
+export const StyledPriceContainer = styled.div`
+  flex-wrap: wrap;
+`;
 
 export const StyledPrice = styled(Text)<{
   discount: boolean;
