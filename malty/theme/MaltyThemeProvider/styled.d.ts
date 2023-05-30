@@ -189,7 +189,7 @@ declare module 'styled-components' {
 
   interface TypographyHeadlineType {
     display: TypographyStyleType;
-    hero: TypographyStyleType;
+    banner: TypographyStyleType;
     huge: TypographyStyleType;
     big: TypographyStyleType;
     large: TypographyStyleType;

@@ -1503,6 +1503,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/Avatar"
     },
+    "molecules/banner": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Banner"
+    },
     "molecules/datepicker": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
