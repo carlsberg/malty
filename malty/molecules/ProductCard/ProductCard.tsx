@@ -4,6 +4,7 @@ import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.ca
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
+import { Price } from '@carlsberggroup/malty.atoms.price';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { AlertInline, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
@@ -21,8 +22,6 @@ import {
   StyledLoyalty,
   StyledMargin,
   StyledPillWrapper,
-  StyledPrice,
-  StyledPriceContainer,
   StyledRow,
   StyledSelect,
   StyledTitle
@@ -39,7 +38,6 @@ export const ProductCard = ({
   imageWidth,
   title,
   price,
-  discountPrice,
   onInputQuantityChange = () => null,
   onSelectQuantityChange = () => null,
   onFavoriteClick = () => null,
@@ -166,30 +164,7 @@ export const ProductCard = ({
             </StyledSelect>
           ) : null}
           <StyledRow theme={theme}>
-            {price || discountPrice ? (
-              <StyledPriceContainer theme={theme}>
-                {price ? (
-                  <StyledPrice
-                    theme={theme}
-                    discountPrice={!!discountPrice?.label}
-                    dataQaId={`${dataTestId}-price`}
-                    color={price?.color}
-                    textStyle={price?.style}
-                  >
-                    {price.label}
-                  </StyledPrice>
-                ) : null}
-                {discountPrice ? (
-                  <Text
-                    dataQaId={`${dataTestId}-discount-price`}
-                    color={discountPrice?.color}
-                    textStyle={discountPrice?.style}
-                  >
-                    {discountPrice.label}
-                  </Text>
-                ) : null}
-              </StyledPriceContainer>
-            ) : null}
+            {price ? <Price {...price} dataTestId={dataTestId} /> : null}
 
             {loyalty ? (
               <StyledLoyalty theme={theme}>
