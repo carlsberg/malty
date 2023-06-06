@@ -45,21 +45,6 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Headline"
     },
-    "atoms/hero": {
-        "scope": "carlsberggroup.malty",
-        "version": "0.0.10",
-        "mainFile": "index.ts",
-        "rootDir": "malty/atoms/Hero",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true,
-                "newId": {
-                    "name": "molecules/hero",
-                    "scope": "carlsberggroup.malty"
-                }
-            }
-        }
-    },
     "atoms/icon": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.73",
@@ -1538,7 +1523,7 @@
     },
     "molecules/hero": {
         "scope": "",
-        "version": "0.0.11",
+        "version": "",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Hero"
     },
