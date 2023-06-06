@@ -6669,6 +6669,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"Price-79832e@workspace:malty/atoms/Price":
+  version: 0.0.0-use.local
+  resolution: "Price-79832e@workspace:malty/atoms/Price"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "ProductCard-0e498c@workspace:malty/molecules/ProductCard":
   version: 0.0.0-use.local
   resolution: "ProductCard-0e498c@workspace:malty/molecules/ProductCard"

@@ -115,6 +115,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Pill"
     },
+    "atoms/price": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/Price"
+    },
     "atoms/progress-bar": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
@@ -1587,7 +1593,7 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.11",
+        "version": "0.0.13",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
@@ -1611,7 +1617,7 @@
     },
     "molecules/sku": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Sku"
     },
