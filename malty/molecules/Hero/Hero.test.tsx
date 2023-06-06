@@ -1,4 +1,4 @@
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
@@ -15,12 +15,14 @@ describe('Hero', () => {
 
   const actions: ActionButtonProps[] = [
     {
-      variant: ButtonStyle.Primary,
+      color: ButtonColor.ThemePrimary,
+      style: ButtonStyle.Primary,
       label: 'I want to know more',
       onClick: jest.fn()
     },
     {
-      variant: ButtonStyle.Secondary,
+      color: ButtonColor.ThemePrimary,
+      style: ButtonStyle.Secondary,
       label: 'I am ok',
       onClick: jest.fn()
     }
