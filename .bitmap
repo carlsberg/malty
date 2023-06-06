@@ -54,9 +54,8 @@
             "teambit.component/deprecation": {
                 "deprecate": true,
                 "newId": {
-                    "name": "molecules/Hero",
-                    "scope": "carlsberggroup.malty",
-                    "rootDir": "malty/molecules/Hero"
+                    "name": "molecules/hero",
+                    "scope": "carlsberggroup.malty"
                 }
             }
         }
@@ -1539,33 +1538,9 @@
     },
     "molecules/hero": {
         "scope": "",
-        "version": "",
+        "version": "0.0.11",
         "mainFile": "index.ts",
-        "rootDir": "malty/molecules/hero",
-        "config": {
-            "teambit.component/dev-files": {
-                "devFilePatterns": [
-                    "**/*.stories.+(js|ts|jsx|tsx)",
-                    "**/*.story.+(js|ts|jsx|tsx)"
-                ]
-            },
-            "teambit.react/react": {},
-            "teambit.envs/envs": {},
-            "teambit.dependencies/dependency-resolver": {},
-            "teambit.compilation/compiler": {},
-            "teambit.harmony/application": {},
-            "teambit.compositions/compositions": {},
-            "teambit.docs/docs": {},
-            "teambit.preview/preview": {},
-            "teambit.pipelines/builder": {},
-            "teambit.component/renaming": {
-                "renamedFrom": {
-                    "scope": "carlsberggroup.malty",
-                    "name": "atoms/hero",
-                    "version": "0.0.10"
-                }
-            }
-        }
+        "rootDir": "malty/molecules/Hero"
     },
     "molecules/loading": {
         "scope": "carlsberggroup.malty",
