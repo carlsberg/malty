@@ -16,7 +16,6 @@ import {
 } from './Hero.styled';
 import { ActionButtonProps, HeroProps } from './Hero.types';
 
-// TODO: remove old Hero from atoms
 export const Hero = ({
   title,
   description,

@@ -49,7 +49,17 @@
         "scope": "carlsberggroup.malty",
         "version": "0.0.10",
         "mainFile": "index.ts",
-        "rootDir": "malty/atoms/Hero"
+        "rootDir": "malty/atoms/Hero",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true,
+                "newId": {
+                    "name": "molecules/Hero",
+                    "scope": "carlsberggroup.malty",
+                    "rootDir": "malty/molecules/Hero"
+                }
+            }
+        }
     },
     "atoms/icon": {
         "scope": "carlsberggroup.malty",
@@ -1520,6 +1530,36 @@
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Footer"
+    },
+    "molecules/hero": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/hero",
+        "config": {
+            "teambit.component/dev-files": {
+                "devFilePatterns": [
+                    "**/*.stories.+(js|ts|jsx|tsx)",
+                    "**/*.story.+(js|ts|jsx|tsx)"
+                ]
+            },
+            "teambit.react/react": {},
+            "teambit.envs/envs": {},
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.compilation/compiler": {},
+            "teambit.harmony/application": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.preview/preview": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/renaming": {
+                "renamedFrom": {
+                    "scope": "carlsberggroup.malty",
+                    "name": "atoms/hero",
+                    "version": "0.0.10"
+                }
+            }
+        }
     },
     "molecules/loading": {
         "scope": "carlsberggroup.malty",

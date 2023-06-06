@@ -12,11 +12,10 @@ enum HeroVariants {
 }
 
 export default {
-  // TODO: rename this to unse Hero directly
-  title: 'Layout/Hero2',
+  title: 'Layout/Hero',
   component: HeroComponent,
   parameters: {
-    importObject: 'Hero2',
+    importObject: 'Hero',
     importPath: '@carlsberggroup/malty.molecules.Hero',
     variants: [HeroVariants.Required, HeroVariants.Actions, HeroVariants.Scroll, HeroVariants.Default]
   },
