@@ -58,27 +58,50 @@ describe('ProductQuantityActions', () => {
     expect(screen.queryByDisplayValue('0')).not.toBeInTheDocument();
   });
 
-  test('renders correctly when input quantity max is set', () => {
+  test('renders with correct content when button is disabled', () => {
+    render(<ProductQuantityActions actionButton={{ ...actionButton, disabled: true }} />);
+    expect(screen.getByTestId('default-button')).toBeDisabled();
+  });
+
+  test('renders with correct content when button is loading', () => {
+    render(<ProductQuantityActions actionButton={{ ...actionButton, loading: true }} />);
+    expect(screen.getByTestId('default-button-loading')).toBeInTheDocument();
+  });
+
+  test('renders with correct content when input quantity is readonly', () => {
+    render(<ProductQuantityActions actionQuantityInput={{ ...actionQuantityInput, readOnly: true }} />);
+    expect(screen.getByTestId('default')).toHaveAttribute('readonly');
+  });
+
+  test('renders correctly when input quantity min and max is set', () => {
     const ProductQuantityActionsControlled = () => {
       const [value, setValue] = React.useState('0');
       return (
         <ProductQuantityActions
           actionButton={actionButton}
-          actionQuantityInput={{ value, onValueChange: setValue, max: 1 }}
+          actionQuantityInput={{ value, onValueChange: setValue, min: 0, max: 1 }}
         />
       );
     };
 
     render(<ProductQuantityActionsControlled />);
 
-    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
     const increaseButton = screen.getByTestId('default-quantity-plus');
+    const decreaseButton = screen.getByTestId('default-quantity-minus');
+
+    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
     expect(increaseButton).toBeEnabled();
+    expect(decreaseButton).toBeDisabled();
+    userEvent.click(decreaseButton);
+    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
     userEvent.click(increaseButton);
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
     expect(increaseButton).toBeDisabled();
+    expect(decreaseButton).toBeEnabled();
     userEvent.click(increaseButton);
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
+    userEvent.click(decreaseButton);
+    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
   });
 
   test('renders correctly when value is changed after initial render', () => {
