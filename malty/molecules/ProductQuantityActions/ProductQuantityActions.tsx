@@ -10,24 +10,12 @@ import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
 export const ProductQuantityActions = ({
   stock,
-  maxQuantity,
   hideQuantityInput,
-  value = 0,
-  action = { icon: IconName.Cart, onClick: () => null, variant: ButtonStyle.Primary },
-  onInputQuantityChange = () => null,
+  actionQuantityInput = { value: '0', onValueChange: () => null },
+  actionButton = { icon: IconName.Cart, onClick: () => null, style: ButtonStyle.Primary },
   dataTestId = 'default'
 }: ProductQuantityActionsProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-
-  const handleQuantityChange = (valueChanged: string) => {
-    const parsedValue = Number(valueChanged);
-    onInputQuantityChange(parsedValue);
-  };
-
-  const handleActionClick = (event: MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    action.onClick();
-  };
 
   const handleStopPropagation = (event: MouseEvent<HTMLInputElement>) => {
     event.stopPropagation();
@@ -53,22 +41,26 @@ export const ProductQuantityActions = ({
           <Input
             onClick={handleStopPropagation}
             type={InputType.Quantity}
-            onValueChange={handleQuantityChange}
-            value={value?.toString() ?? ''}
-            max={maxQuantity}
+            onValueChange={actionQuantityInput.onValueChange}
+            value={actionQuantityInput.value}
+            min={actionQuantityInput.min}
+            max={actionQuantityInput.max}
             size={InputSize.Medium}
+            readOnly={actionQuantityInput.readOnly}
             dataTestId={dataTestId}
           />
         ) : null}
         <Button
-          text={action.icon ? undefined : action.label}
+          text={actionButton.icon ? undefined : actionButton.text}
           fullWidth={hideQuantityInput}
           dataTestId={`${dataTestId}-button`}
           size={ButtonSize.Medium}
-          style={action.variant}
-          onClick={handleActionClick}
-          color={action.color}
-          icon={action.icon}
+          style={actionButton.style}
+          onClick={actionButton.onClick}
+          color={actionButton.color}
+          icon={actionButton.icon}
+          loading={actionButton.loading}
+          disabled={actionButton.disabled}
         />
       </StyledActions>
     </>

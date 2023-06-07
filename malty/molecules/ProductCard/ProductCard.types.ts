@@ -1,55 +1,42 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor } from '@carlsberggroup/malty.atoms.icon';
 import { PillProps } from '@carlsberggroup/malty.atoms.pill';
+import { PriceProps } from '@carlsberggroup/malty.atoms.price';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
-import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineProps } from '@carlsberggroup/malty.molecules.alert-inline';
+import { Stock } from '@carlsberggroup/malty.molecules.product-quantity-actions';
+import {
+  ActionButton,
+  ActionQuantityInput
+} from '@carlsberggroup/malty.molecules.product-quantity-actions/ProductQuantityActions.types';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
 
 export interface ProductCardProps {
   productCardStyle?: CardStyle;
   orientation?: CardOrientation;
   onProductClick?: () => void;
-  onInputQuantityChange?: (value: number) => void;
   onSelectQuantityChange?: (value: SelectOptionsType[]) => void;
   onFavoriteClick?: (favorite: boolean) => void;
   title: string;
   sku?: string;
   mro?: MRO;
   productsCardsAlerts?: AlertInlineProps[];
-  maxQuantity?: number;
   quantitySelectOptions?: SelectOptionsType[];
   hideQuantityInput?: boolean;
   discountPill?: PillProps;
   promoPill?: PillProps;
   cartPill?: PillProps;
   favoriteIconColor?: IconColor;
-  stock?: {
-    label: string;
-    labelColor?: TextColor;
-    stockColor?: TextColor;
-    availability?: string;
-  };
+  stock?: Stock;
   loyalty?: {
     label: string;
     imageSrc: string;
   };
-  price?: {
-    base?: string;
-    discount?: string;
-    credit?: string;
-  };
+  price?: PriceProps;
   imageSrc: string;
   dataTestId?: string;
   imageHeight?: string;
   imageWidth?: string;
-  action?: {
-    variant: ButtonStyle;
-    color?: ButtonColor;
-    label?: string;
-    icon?: IconName;
-    onClick: () => void;
-  };
-  quantityValue?: number;
+  actionQuantityInput?: ActionQuantityInput;
+  actionButton?: ActionButton;
 }

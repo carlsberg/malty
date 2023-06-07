@@ -8,7 +8,7 @@ import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { ProductCard as ProductCardComponent } from './ProductCard';
 import { ProductCardProps } from './ProductCard.types';
 
@@ -39,14 +39,6 @@ export default {
     productsCardsAlerts: {
       control: '',
       description: 'Array of alerts to be displayed in the Product card',
-      table: {
-        category: 'Card Body'
-      }
-    },
-
-    maxQuantity: {
-      control: 'number',
-      description: 'Max quantity of the product',
       table: {
         category: 'Card Body'
       }
@@ -170,22 +162,34 @@ export default {
         category: 'Card Body'
       }
     },
-    quantityValue: {
-      control: 'number',
-      description: 'Quantity input value',
+    actionQuantityInput: {
+      control: '',
+      description: `An Object that define the properties of the quantity input that it will appear in the Product Quantity Actions:
+
+    {
+      value: string;
+      min?: number;
+      max?: number;
+      readOnly?: boolean;
+      onValueChange: () => void;
+    }`,
       table: {
         category: 'Card Body'
       }
     },
-    action: {
+    actionButton: {
       control: '',
-      description: `An Object that define what type of button it will appear in the Product Card:
-    | {
-        color: ButtonColor
-        variant: ButtonStyle;
-        label: string;
-        onClick: () => void;
-      }`,
+      description: `An Object that define what type of button it will appear in the Product Quantity Actions:
+
+    {
+      style: ButtonStyle;
+      color: ButtonColor
+      text: string;
+      icon: IconName;
+      loading: boolean;
+      disabled: boolean;
+      onClick: () => void;
+    }`,
       table: {
         category: 'Card Body'
       }
@@ -224,20 +228,34 @@ export default {
 } as Meta;
 
 const Template: Story<ProductCardProps> = (args) => {
-  const action = args.action ?? undefined;
+  const [stateValueComponent1, setStateValueComponent1] = useState(args.actionQuantityInput?.value || '0');
+  const [stateValueComponent2, setStateValueComponent2] = useState(args.actionQuantityInput?.value || '0');
+  const action = args.actionButton ?? undefined;
   return (
     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
       <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
-        <ProductCardComponent {...args} />
+        <ProductCardComponent
+          {...args}
+          actionQuantityInput={{
+            ...args.actionQuantityInput,
+            value: stateValueComponent1,
+            onValueChange: setStateValueComponent1
+          }}
+        />
       </div>
 
       <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
         <ProductCardComponent
+          {...args}
           productsCardsAlerts={[
             { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
           ]}
-          action={action}
-          {...args}
+          actionButton={action}
+          actionQuantityInput={{
+            ...args.actionQuantityInput,
+            value: stateValueComponent2,
+            onValueChange: setStateValueComponent2
+          }}
         />
       </div>
     </div>
@@ -264,12 +282,21 @@ switch (variant) {
       title: 'This is an article card Title',
       imageSrc: 'https://picsum.photos/320/180',
       dataTestId: 'Product-card',
-      action: {
+      actionButton: {
         color: ButtonColor.DigitalBlack,
-        label: 'Add to cart',
+        text: 'Add to cart',
         onClick: () => null,
-        variant: ButtonStyle.Primary,
-        icon: IconName.Cart
+        style: ButtonStyle.Primary,
+        icon: undefined,
+        loading: undefined,
+        disabled: undefined
+      },
+      actionQuantityInput: {
+        onValueChange: () => null,
+        value: '3',
+        min: undefined,
+        max: undefined,
+        readOnly: undefined
       },
       orientation: CardOrientation.Landscape,
       price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
@@ -281,7 +308,6 @@ switch (variant) {
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
       favoriteIconColor: IconColor.Primary,
-      quantityValue: 0,
       productsCardsAlerts: [
         { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
         { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
@@ -294,12 +320,21 @@ switch (variant) {
       title: 'This is an article card Title',
       imageSrc: 'https://picsum.photos/320/180',
       dataTestId: 'Product-card',
-      action: {
+      actionButton: {
         color: ButtonColor.DigitalBlack,
-        label: 'Add to cart',
+        text: 'Add to cart',
         onClick: () => null,
-        variant: ButtonStyle.Primary,
-        icon: IconName.Cart
+        style: ButtonStyle.Primary,
+        icon: undefined,
+        loading: undefined,
+        disabled: undefined
+      },
+      actionQuantityInput: {
+        onValueChange: () => null,
+        value: '3',
+        min: undefined,
+        max: undefined,
+        readOnly: undefined
       },
       orientation: CardOrientation.Portrait,
       price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
@@ -310,8 +345,7 @@ switch (variant) {
       discountPill: { text: '20%', color: PillColor.alertStrong },
       promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
-      favoriteIconColor: IconColor.Primary,
-      quantityValue: 0
+      favoriteIconColor: IconColor.Primary
     };
     break;
 }

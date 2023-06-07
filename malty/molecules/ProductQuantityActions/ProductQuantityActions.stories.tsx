@@ -14,54 +14,62 @@ export default {
     importPath: '@carlsberggroup/malty.molecules.product-quantity-actions'
   },
   argTypes: {
-    action: {
+    actionButton: {
       control: '',
       description: `An Object that define what type of button it will appear in the Product Quantity Actions:
-    | {
-        color: ButtonColor
-        variant: ButtonStyle;
-        label: string;
-        onClick: () => void;
-      }`
+
+    {
+      style: ButtonStyle;
+      color: ButtonColor
+      text: string;
+      icon: IconName;
+      loading: boolean;
+      disabled: boolean;
+      onClick: () => void;
+    }`
+    },
+    actionQuantityInput: {
+      control: '',
+      description: `An Object that define the properties of the quantity input that it will appear in the Product Quantity Actions:
+
+    {
+      value: string;
+      min?: number;
+      max?: number;
+      readOnly?: boolean;
+      onValueChange: () => void;
+    }`
     },
     stock: {
       control: '',
       description: `An Object that defines the stock label, stock color, status color and availability:
-    | {
-        label: string;
-        labelColor?: TextColor;
-        stockColor?: TextColor;
-        availability?: string;
-      }`
+
+    {
+      label: string;
+      labelColor?: TextColor;
+      stockColor?: TextColor;
+      availability?: string;
+    }`
     },
     hideQuantityInput: {
       description: 'Hides the quantity input',
       control: 'boolean'
     },
-    maxQuantity: {
-      description: 'Max quantity of the product',
-      control: 'number'
-    },
     dataTestId: {
       description: 'Product Quantity Actions data-testid',
       control: 'text'
-    },
-    value: {
-      description: 'Quantity value',
-      control: 'number'
     }
   }
 } as Meta;
 
 const Template: Story<ProductQuantityActionsProps> = (args) => {
-  const [stateValue, setStateValue] = useState(args.value);
-  const action = args.action ?? undefined;
+  const [stateValue, setStateValue] = useState(args.actionQuantityInput?.value || '0');
+  const actionButton = args.actionButton ?? undefined;
   return (
     <ProductQuantityActionsComponent
       {...args}
-      value={stateValue}
-      onInputQuantityChange={setStateValue}
-      action={action}
+      actionButton={actionButton}
+      actionQuantityInput={{ ...args.actionQuantityInput, value: stateValue, onValueChange: setStateValue }}
     />
   );
 };
@@ -70,12 +78,21 @@ export const ProductQuantityActions = Template.bind({});
 
 ProductQuantityActions.args = {
   stock: { label: 'In Stock', stockColor: TextColor.Success },
-  action: {
+  actionButton: {
     color: ButtonColor.DigitalBlack,
-    label: 'Add to cart',
+    text: 'Add to cart',
     onClick: () => null,
-    variant: ButtonStyle.Primary
+    style: ButtonStyle.Primary,
+    icon: undefined,
+    loading: undefined,
+    disabled: undefined
   },
-  hideQuantityInput: false,
-  value: 3
+  actionQuantityInput: {
+    onValueChange: () => null,
+    value: '3',
+    min: undefined,
+    max: undefined,
+    readOnly: undefined
+  },
+  hideQuantityInput: undefined
 };

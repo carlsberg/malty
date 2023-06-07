@@ -46,7 +46,7 @@ describe('ProductQuantityActions', () => {
   });
 
   test('renders with correct content when hideQuantityInput is true', () => {
-    render(<ProductQuantityActions hideQuantityInput />);
+    render(<ProductQuantityActions shouldHide />);
 
     expect(screen.queryByTestId('default-quantity-minus')).not.toBeInTheDocument();
     expect(screen.queryByTestId('default-quantity-plus')).not.toBeInTheDocument();

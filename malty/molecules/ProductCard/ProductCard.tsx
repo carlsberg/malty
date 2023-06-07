@@ -38,22 +38,20 @@ export const ProductCard = ({
   imageWidth,
   title,
   price,
-  onInputQuantityChange = () => null,
   onSelectQuantityChange = () => null,
   onFavoriteClick = () => null,
-  action = { icon: IconName.Cart, onClick: () => null, variant: ButtonStyle.Primary },
+  actionQuantityInput = { value: '0', onValueChange: () => null },
+  actionButton = { icon: IconName.Cart, onClick: () => null, style: ButtonStyle.Primary },
   sku,
   mro,
   loyalty,
   stock,
-  maxQuantity,
   productsCardsAlerts,
   quantitySelectOptions,
   hideQuantityInput,
   discountPill,
   promoPill,
   cartPill,
-  quantityValue,
   favoriteIconColor = IconColor.DigitalBlack
 }: ProductCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -176,11 +174,9 @@ export const ProductCard = ({
 
           <ProductQuantityActions
             stock={stock}
-            action={action}
-            value={quantityValue}
+            actionButton={actionButton}
+            actionQuantityInput={actionQuantityInput}
             hideQuantityInput={hideQuantityInput}
-            maxQuantity={maxQuantity}
-            onInputQuantityChange={onInputQuantityChange}
           />
           {productsCardsAlerts?.map((alert, index) => (
             // eslint-disable-next-line react/no-array-index-key

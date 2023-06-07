@@ -1,2 +1,7 @@
 export { ProductQuantityActions } from './ProductQuantityActions';
-export type { ProductQuantityActionsProps } from './ProductQuantityActions.types';
+export type {
+  ActionButton,
+  ActionQuantityInput,
+  ProductQuantityActionsProps,
+  Stock
+} from './ProductQuantityActions.types';
