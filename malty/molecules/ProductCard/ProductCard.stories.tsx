@@ -230,7 +230,6 @@ export default {
 const Template: Story<ProductCardProps> = (args) => {
   const [stateValueComponent1, setStateValueComponent1] = useState(args.actionQuantityInput?.value || '0');
   const [stateValueComponent2, setStateValueComponent2] = useState(args.actionQuantityInput?.value || '0');
-  const action = args.actionButton ?? undefined;
   return (
     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
       <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
@@ -250,7 +249,6 @@ const Template: Story<ProductCardProps> = (args) => {
           productsCardsAlerts={[
             { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
           ]}
-          actionButton={action}
           actionQuantityInput={{
             ...args.actionQuantityInput,
             value: stateValueComponent2,

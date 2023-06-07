@@ -64,11 +64,9 @@ export default {
 
 const Template: Story<ProductQuantityActionsProps> = (args) => {
   const [stateValue, setStateValue] = useState(args.actionQuantityInput?.value || '0');
-  const actionButton = args.actionButton ?? undefined;
   return (
     <ProductQuantityActionsComponent
       {...args}
-      actionButton={actionButton}
       actionQuantityInput={{ ...args.actionQuantityInput, value: stateValue, onValueChange: setStateValue }}
     />
   );

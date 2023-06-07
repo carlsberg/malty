@@ -5,24 +5,29 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { ProductQuantityActions } from './ProductQuantityActions';
+import { ActionButton, ActionQuantityInput } from './ProductQuantityActions.types';
 
-const defaultValue = 2;
 const stock = { label: 'In Stock', stockColor: TextColor.Success };
-const action = {
+const actionButton: ActionButton = {
   color: ButtonColor.DigitalBlack,
-  label: 'Add to cart',
-  onClick: () => null,
-  variant: ButtonStyle.Primary
+  text: 'Add to cart',
+  onClick: jest.fn(),
+  style: ButtonStyle.Primary
 };
-const onInputQuantityChange = jest.fn();
+const actionQuantityInput: ActionQuantityInput = {
+  value: '2',
+  onValueChange: jest.fn()
+};
 
 describe('ProductQuantityActions', () => {
   test('renders with correct content', () => {
-    render(<ProductQuantityActions value={defaultValue} stock={stock} action={action} />);
+    render(
+      <ProductQuantityActions actionButton={actionButton} actionQuantityInput={actionQuantityInput} stock={stock} />
+    );
 
     expect(screen.getByTestId('default-quantity-minus')).toBeInTheDocument();
     expect(screen.getByTestId('default-quantity-plus')).toBeInTheDocument();
-    expect(screen.getByDisplayValue(defaultValue)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(actionQuantityInput.value)).toBeInTheDocument();
     expect(screen.getByText('In Stock')).toBeInTheDocument();
     expect(screen.getByText('Add to cart')).toBeInTheDocument();
   });
@@ -38,25 +43,30 @@ describe('ProductQuantityActions', () => {
   });
 
   test('calls onInputQuantityChange correctly', () => {
-    render(<ProductQuantityActions onInputQuantityChange={onInputQuantityChange} />);
+    render(<ProductQuantityActions actionQuantityInput={actionQuantityInput} />);
 
     const increaseButton = screen.getByTestId('default-quantity-plus');
     userEvent.click(increaseButton);
-    expect(onInputQuantityChange).toHaveBeenCalledTimes(1);
+    expect(actionQuantityInput.onValueChange).toHaveBeenCalledTimes(1);
   });
 
   test('renders with correct content when hideQuantityInput is true', () => {
-    render(<ProductQuantityActions shouldHide />);
+    render(<ProductQuantityActions hideQuantityInput />);
 
     expect(screen.queryByTestId('default-quantity-minus')).not.toBeInTheDocument();
     expect(screen.queryByTestId('default-quantity-plus')).not.toBeInTheDocument();
     expect(screen.queryByDisplayValue('0')).not.toBeInTheDocument();
   });
 
-  test('renders correctly when maxQuantity is set', () => {
+  test('renders correctly when input quantity max is set', () => {
     const ProductQuantityActionsControlled = () => {
-      const [value, setValue] = React.useState(0);
-      return <ProductQuantityActions value={value} maxQuantity={1} onInputQuantityChange={setValue} />;
+      const [value, setValue] = React.useState('0');
+      return (
+        <ProductQuantityActions
+          actionButton={actionButton}
+          actionQuantityInput={{ value, onValueChange: setValue, max: 1 }}
+        />
+      );
     };
 
     render(<ProductQuantityActionsControlled />);
@@ -72,13 +82,13 @@ describe('ProductQuantityActions', () => {
   });
 
   test('renders correctly when value is changed after initial render', () => {
-    const { rerender } = render(<ProductQuantityActions value={defaultValue} />);
+    const { rerender } = render(<ProductQuantityActions actionQuantityInput={actionQuantityInput} />);
 
-    expect(screen.getByDisplayValue(defaultValue)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(actionQuantityInput.value)).toBeInTheDocument();
 
-    rerender(<ProductQuantityActions value={10} />);
+    rerender(<ProductQuantityActions actionQuantityInput={{ ...actionQuantityInput, value: '10' }} />);
 
-    expect(screen.queryByDisplayValue(defaultValue)).not.toBeInTheDocument();
+    expect(screen.queryByDisplayValue(actionQuantityInput.value)).not.toBeInTheDocument();
     expect(screen.getByDisplayValue('10')).toBeInTheDocument();
   });
 });
