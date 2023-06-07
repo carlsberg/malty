@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 export const StyledMargin = styled.div`
   margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
+  margin-top: ${({ theme }) => theme.sizes['2xs'].value};
 `;
 export const StyledPillWrapper = styled.div`
   position: absolute;

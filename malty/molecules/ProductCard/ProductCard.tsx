@@ -136,11 +136,7 @@ export const ProductCard = ({
       }
       cardBody={
         <>
-          {sku ? (
-            <StyledMargin theme={theme}>
-              <Sku sku={sku} mro={mro} dataTestId={dataTestId} />
-            </StyledMargin>
-          ) : null}
+          {sku ? <Sku sku={sku} mro={mro} dataTestId={dataTestId} /> : null}
           <StyledMargin theme={theme}>
             <StyledTitle
               showCursor={!!onProductClick}
