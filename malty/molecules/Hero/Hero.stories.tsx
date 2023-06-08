@@ -16,17 +16,17 @@ export default {
   component: HeroComponent,
   parameters: {
     importObject: 'Hero',
-    importPath: '@carlsberggroup/malty.molecules.Hero',
-    variants: [HeroVariants.Required, HeroVariants.Actions, HeroVariants.Scroll, HeroVariants.Default]
+    importPath: '@carlsberggroup/malty.molecules.hero',
+    variants: Object.values(HeroVariants)
   },
   argTypes: {
     title: {
       control: 'text',
-      description: 'Title of the banner'
+      description: 'Title of the hero'
     },
     description: {
       control: 'text',
-      description: 'Description of the banner'
+      description: 'Description of the hero'
     },
     imageSrc: {
       control: 'text',
