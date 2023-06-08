@@ -1,1 +1,1 @@
-export { useIsMobile } from './useIsMobile';
+export { Device, useMatchMedia } from './useMatchMedia';

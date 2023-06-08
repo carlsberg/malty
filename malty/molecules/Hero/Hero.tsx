@@ -3,7 +3,7 @@ import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsber
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { useIsMobile } from '@carlsberggroup/malty.utils.hooks';
+import { Device, useMatchMedia } from '@carlsberggroup/malty.utils.hooks';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -26,7 +26,7 @@ export const Hero = ({
   height
 }: HeroProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const isMobile = useIsMobile();
+  const isMobile = useMatchMedia(Device.Mobile);
 
   return (
     <StyledHero imageSrc={imageSrc} data-testid={dataTestId} theme={theme} height={height}>
