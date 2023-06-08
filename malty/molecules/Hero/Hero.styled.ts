@@ -11,7 +11,7 @@ export const StyledHero = styled.header<{
   justify-content: center;
   min-height: 80vh;
   height: ${({ height }) => height ?? 'initial'};
-  padding: ${({ theme }) => `${theme.sizes.s.value} ${theme.sizes['2xl'].value}`};
+  padding: ${({ theme }) => `${theme.sizes.s.value} ${theme.sizes.m.value}`};
 
   ${({ theme, imageSrc }) => {
     if (imageSrc) {
@@ -30,12 +30,12 @@ export const StyledHero = styled.header<{
     `;
   }};
 
-  @media only screen and (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
+  @media only screen and (min-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
     padding: ${({ theme }) => `${theme.sizes.s.value} ${theme.sizes.l.value}`};
   }
 
-  @media only screen and (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
-    padding: ${({ theme }) => `${theme.sizes.s.value} ${theme.sizes.m.value}`};
+  @media only screen and (min-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
+    padding: ${({ theme }) => `${theme.sizes.s.value} ${theme.sizes['2xl'].value}`};
   }
 `;
 
@@ -55,14 +55,15 @@ export const StyledActionsWrapper = styled.div`
   display: flex;
   align-self: center;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   gap: ${({ theme }) => theme.sizes['2xs'].value};
-  margin-top: ${({ theme }) => theme.sizes['3xl'].value};
+  margin-top: ${({ theme }) => theme.sizes['2xl'].value};
+  width: 100%;
 
-  @media only screen and (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
-    flex-direction: column;
-    margin-top: ${({ theme }) => theme.sizes['2xl'].value};
-    width: 100%;
+  @media only screen and (min-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
+    width: initial;
+    flex-direction: row;
+    margin-top: ${({ theme }) => theme.sizes['3xl'].value};
   }
 `;
 
