@@ -15,7 +15,7 @@ export interface HeroProps {
   description: string;
   imageSrc: string;
   actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;
-  scroll?: string;
+  scrollText?: string;
   dataTestId?: string;
   height?: string;
 }

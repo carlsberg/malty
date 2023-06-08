@@ -41,7 +41,7 @@ export default {
       desciption:
         'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
     },
-    scroll: {
+    scrollText: {
       control: 'text',
       description: 'The text for the scroll, if nothing is passed then the scroll will not be displayed'
     },
@@ -94,7 +94,7 @@ switch (variant) {
   case HeroVariants.Scroll:
     Hero.args = {
       ...requiredProps,
-      scroll: 'Scroll to know more'
+      scrollText: 'Scroll to know more'
     };
     break;
   default:
@@ -116,7 +116,7 @@ switch (variant) {
           onClick: () => alert('Second button pressed!')
         }
       ],
-      scroll: 'Scroll to know more'
+      scrollText: 'Scroll to know more'
     };
     break;
 }

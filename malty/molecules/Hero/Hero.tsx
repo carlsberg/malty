@@ -21,7 +21,7 @@ export const Hero = ({
   description,
   imageSrc,
   actions,
-  scroll,
+  scrollText,
   dataTestId = 'hero-component',
   height
 }: HeroProps) => {
@@ -30,7 +30,7 @@ export const Hero = ({
 
   return (
     <StyledHero imageSrc={imageSrc} data-testid={dataTestId} theme={theme} height={height}>
-      <StyledContentWrapper theme={theme} withScroll={!!scroll}>
+      <StyledContentWrapper theme={theme} withScroll={!!scrollText}>
         <StyledTitleWrapper theme={theme}>
           <Headline
             headlineStyle={isMobile ? HeadlineStyle.Huge : HeadlineStyle.Display}
@@ -59,10 +59,10 @@ export const Hero = ({
           actions
         )}
       </StyledContentWrapper>
-      {scroll ? (
+      {scrollText ? (
         <StyledScroll theme={theme}>
           <StyledText textStyle={TextStyle.MediumBold} color={TextColor.White} theme={theme}>
-            {scroll}
+            {scrollText}
           </StyledText>
           <Icon name={IconName.ArrowSmallDown} color={IconColor.White} size={IconSize.Medium} />
         </StyledScroll>

@@ -28,7 +28,7 @@ describe('Hero', () => {
     }
   ];
 
-  const scroll = 'Scroll to know more';
+  const scrollText = 'Scroll to know more';
   const scrollIcon = 'icon-ArrowSmallDown';
 
   it('renders required props successfully', () => {
@@ -40,7 +40,7 @@ describe('Hero', () => {
     expect(screen.getByText(heroProps.description)).toBeVisible();
     expect(primaryButton).not.toBeInTheDocument();
     expect(secondaryButton).not.toBeInTheDocument();
-    expect(screen.queryByText(scroll)).not.toBeInTheDocument();
+    expect(screen.queryByText(scrollText)).not.toBeInTheDocument();
     expect(screen.queryByTestId(scrollIcon)).not.toBeInTheDocument();
   });
 
@@ -61,9 +61,9 @@ describe('Hero', () => {
   });
 
   it('renders scroll successfully', () => {
-    render(<Hero {...heroProps} scroll={scroll} />);
+    render(<Hero {...heroProps} scrollText={scrollText} />);
 
-    expect(screen.getByText(scroll)).toBeVisible();
+    expect(screen.getByText(scrollText)).toBeVisible();
     expect(screen.getByTestId(scrollIcon)).toBeVisible();
   });
 });
