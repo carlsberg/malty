@@ -80,12 +80,12 @@ switch (variant) {
       actions: [
         {
           style: ButtonStyle.Primary,
-          label: 'I want to know more',
+          text: 'I want to know more',
           onClick: () => alert('First button pressed!')
         },
         {
           style: ButtonStyle.Secondary,
-          label: 'I am ok',
+          text: 'I am ok',
           onClick: () => alert('Second button pressed!')
         }
       ]
@@ -105,14 +105,14 @@ switch (variant) {
           negative: true,
           color: ButtonColor.DigitalBlack,
           style: ButtonStyle.Primary,
-          label: 'I want to know more',
+          text: 'I want to know more',
           onClick: () => alert('First button pressed!')
         },
         {
           negative: true,
           color: ButtonColor.DigitalBlack,
           style: ButtonStyle.Secondary,
-          label: 'I am ok',
+          text: 'I am ok',
           onClick: () => alert('Second button pressed!')
         }
       ],

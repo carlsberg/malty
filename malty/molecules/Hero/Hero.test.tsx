@@ -17,13 +17,13 @@ describe('Hero', () => {
     {
       color: ButtonColor.ThemePrimary,
       style: ButtonStyle.Primary,
-      label: 'I want to know more',
+      text: 'I want to know more',
       onClick: jest.fn()
     },
     {
       color: ButtonColor.ThemePrimary,
       style: ButtonStyle.Secondary,
-      label: 'I am ok',
+      text: 'I am ok',
       onClick: jest.fn()
     }
   ];
@@ -33,8 +33,8 @@ describe('Hero', () => {
 
   it('renders required props successfully', () => {
     render(<Hero {...heroProps} />);
-    const primaryButton = screen.queryByText(actions[0].label);
-    const secondaryButton = screen.queryByText(actions[1].label);
+    const primaryButton = screen.queryByText(actions[0].text as string);
+    const secondaryButton = screen.queryByText(actions[1].text as string);
 
     expect(screen.getByText(heroProps.title)).toBeVisible();
     expect(screen.getByText(heroProps.description)).toBeVisible();
@@ -47,8 +47,8 @@ describe('Hero', () => {
   it('renders actions successfully', () => {
     render(<Hero {...heroProps} actions={actions} />);
 
-    const primaryButton = screen.getByText(actions[0].label);
-    const secondaryButton = screen.getByText(actions[1].label);
+    const primaryButton = screen.getByText(actions[0].text as string);
+    const secondaryButton = screen.getByText(actions[1].text as string);
 
     expect(primaryButton).toBeVisible();
     expect(secondaryButton).toBeVisible();
