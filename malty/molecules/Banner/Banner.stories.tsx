@@ -4,13 +4,20 @@ import React from 'react';
 import { Banner as BannerComponent } from './Banner';
 import { BannerLayout, BannerProps } from './Banner.types';
 
+enum BannerVariants {
+  Negative = 'negative',
+  Half = 'half',
+  Third = 'third',
+  Reverse = 'reverse'
+}
+
 export default {
   title: 'Layout/Banner',
   component: BannerComponent,
   parameters: {
     importObject: 'Banner',
-    importPath: '@carlsberggroup/malty.atoms.Banner',
-    variants: ['negative', 'half', 'third', 'reverse']
+    importPath: '@carlsberggroup/malty.atoms.banner',
+    variants: Object.values(BannerVariants)
   },
   argTypes: {
     layout: {
@@ -77,7 +84,7 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'negative':
+  case BannerVariants.Negative:
     Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -102,7 +109,7 @@ switch (variant) {
       ]
     };
     break;
-  case 'half':
+  case BannerVariants.Half:
     Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -127,7 +134,7 @@ switch (variant) {
       ]
     };
     break;
-  case 'third':
+  case BannerVariants.Third:
     Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
@@ -152,7 +159,7 @@ switch (variant) {
       ]
     };
     break;
-  case 'reverse':
+  case BannerVariants.Reverse:
     Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
