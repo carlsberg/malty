@@ -1,11 +1,11 @@
+/* eslint-disable */
+// @ts-nocheck
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import React from 'react';
 import { Hero } from './Hero';
 
-/* eslint-disable */
-// @ts-nocheck
 const title = 'Title';
 const description = 'This is a test';
 const imageSrc = 'https://placehold.co/300x180';

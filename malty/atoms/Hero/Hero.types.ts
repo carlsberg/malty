@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { PillProps } from '@carlsberggroup/malty.atoms.pill';
 

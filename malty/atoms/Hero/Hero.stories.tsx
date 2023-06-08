@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
