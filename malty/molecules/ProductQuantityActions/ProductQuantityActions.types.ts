@@ -15,6 +15,6 @@ export interface ProductQuantityActionsProps {
   dataTestId?: string;
   stock?: Stock;
   actionQuantityInput?: ActionQuantityInput;
-  actionButton?: ActionButton;
+  actionButton: ActionButton;
   hideQuantityInput?: boolean;
 }

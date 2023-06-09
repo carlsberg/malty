@@ -1,5 +1,4 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { Button, ButtonSize } from '@carlsberggroup/malty.atoms.button';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -17,8 +16,8 @@ import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 export const ProductQuantityActions = ({
   stock,
   hideQuantityInput,
-  actionQuantityInput = { value: '0', onValueChange: () => null },
-  actionButton = { icon: IconName.Cart, onClick: () => null, style: ButtonStyle.Primary },
+  actionQuantityInput,
+  actionButton,
   dataTestId = 'default'
 }: ProductQuantityActionsProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -43,7 +42,7 @@ export const ProductQuantityActions = ({
         </StyledStock>
       ) : null}
       <StyledActions theme={theme}>
-        {!hideQuantityInput ? (
+        {actionQuantityInput && !hideQuantityInput ? (
           <StyledInputWrapper>
             <Input
               {...actionQuantityInput}

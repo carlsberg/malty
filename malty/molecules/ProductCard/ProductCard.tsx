@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
@@ -40,8 +39,8 @@ export const ProductCard = ({
   price,
   onSelectQuantityChange = () => null,
   onFavoriteClick = () => null,
-  actionQuantityInput = { value: '0', onValueChange: () => null },
-  actionButton = { icon: IconName.Cart, onClick: () => null, style: ButtonStyle.Primary },
+  actionQuantityInput,
+  actionButton,
   sku,
   mro,
   loyalty,

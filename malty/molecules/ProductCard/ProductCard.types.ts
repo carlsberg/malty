@@ -34,5 +34,5 @@ export interface ProductCardProps {
   imageHeight?: string;
   imageWidth?: string;
   actionQuantityInput?: ActionQuantityInput;
-  actionButton?: ActionButton;
+  actionButton: ActionButton;
 }

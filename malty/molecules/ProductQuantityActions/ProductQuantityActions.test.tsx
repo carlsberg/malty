@@ -33,17 +33,14 @@ describe('ProductQuantityActions', () => {
   });
 
   test('renders correctly if no optional prop is passed', () => {
-    render(<ProductQuantityActions />);
+    render(<ProductQuantityActions actionButton={actionButton} />);
 
-    expect(screen.getByTestId('default-quantity-minus')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
-    expect(screen.getByTestId('default-quantity-plus')).toBeInTheDocument();
     expect(screen.queryByText('In Stock')).not.toBeInTheDocument();
-    expect(screen.getByTestId('icon-Cart')).toBeInTheDocument();
+    expect(screen.getByText(actionButton.text ?? '')).toBeInTheDocument();
   });
 
   test('calls onInputQuantityChange correctly', () => {
-    render(<ProductQuantityActions actionQuantityInput={actionQuantityInput} />);
+    render(<ProductQuantityActions actionButton={actionButton} actionQuantityInput={actionQuantityInput} />);
 
     const increaseButton = screen.getByTestId('default-quantity-plus');
     userEvent.click(increaseButton);
@@ -51,7 +48,7 @@ describe('ProductQuantityActions', () => {
   });
 
   test('renders with correct content when hideQuantityInput is true', () => {
-    render(<ProductQuantityActions hideQuantityInput />);
+    render(<ProductQuantityActions actionButton={actionButton} hideQuantityInput />);
 
     expect(screen.queryByTestId('default-quantity-minus')).not.toBeInTheDocument();
     expect(screen.queryByTestId('default-quantity-plus')).not.toBeInTheDocument();
@@ -69,7 +66,12 @@ describe('ProductQuantityActions', () => {
   });
 
   test('renders with correct content when input quantity is readonly', () => {
-    render(<ProductQuantityActions actionQuantityInput={{ ...actionQuantityInput, readOnly: true }} />);
+    render(
+      <ProductQuantityActions
+        actionButton={actionButton}
+        actionQuantityInput={{ ...actionQuantityInput, readOnly: true }}
+      />
+    );
     expect(screen.getByTestId('default')).toHaveAttribute('readonly');
   });
 
@@ -105,11 +107,18 @@ describe('ProductQuantityActions', () => {
   });
 
   test('renders correctly when value is changed after initial render', () => {
-    const { rerender } = render(<ProductQuantityActions actionQuantityInput={actionQuantityInput} />);
+    const { rerender } = render(
+      <ProductQuantityActions actionButton={actionButton} actionQuantityInput={actionQuantityInput} />
+    );
 
     expect(screen.getByDisplayValue(actionQuantityInput.value)).toBeInTheDocument();
 
-    rerender(<ProductQuantityActions actionQuantityInput={{ ...actionQuantityInput, value: '10' }} />);
+    rerender(
+      <ProductQuantityActions
+        actionButton={actionButton}
+        actionQuantityInput={{ ...actionQuantityInput, value: '10' }}
+      />
+    );
 
     expect(screen.queryByDisplayValue(actionQuantityInput.value)).not.toBeInTheDocument();
     expect(screen.getByDisplayValue('10')).toBeInTheDocument();
