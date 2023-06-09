@@ -29,8 +29,4 @@ export const StyledInputWrapper = styled.div`
 
 export const StyledButtonWrapper = styled.div<{ hasIcon?: boolean }>`
   ${({ hasIcon }) => (!hasIcon ? 'flex: 1;' : '')}
-
-  button {
-    width: 100%;
-  }
 `;

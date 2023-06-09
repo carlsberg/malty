@@ -4,11 +4,7 @@ import { PillProps } from '@carlsberggroup/malty.atoms.pill';
 import { PriceProps } from '@carlsberggroup/malty.atoms.price';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { AlertInlineProps } from '@carlsberggroup/malty.molecules.alert-inline';
-import { Stock } from '@carlsberggroup/malty.molecules.product-quantity-actions';
-import {
-  ActionButton,
-  ActionQuantityInput
-} from '@carlsberggroup/malty.molecules.product-quantity-actions/ProductQuantityActions.types';
+import { ActionButton, ActionQuantityInput, Stock } from '@carlsberggroup/malty.molecules.product-quantity-actions';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
 
 export interface ProductCardProps {

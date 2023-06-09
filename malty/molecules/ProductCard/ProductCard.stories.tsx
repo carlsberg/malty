@@ -164,55 +164,29 @@ export default {
     },
     actionQuantityInput: {
       control: '',
-      description: `An Object that define the properties of the quantity input that it will appear in the Product Quantity Actions:
-
-    {
-      value: string;
-      min?: number;
-      max?: number;
-      readOnly?: boolean;
-      onValueChange: () => void;
-    }`,
+      description:
+        'An Object that define the properties of the quantity input that it will appear in the Product Quantity Actions',
       table: {
         category: 'Card Body'
       }
     },
     actionButton: {
       control: '',
-      description: `An Object that define what type of button it will appear in the Product Quantity Actions:
-
-    {
-      style: ButtonStyle;
-      color: ButtonColor
-      text: string;
-      icon: IconName;
-      loading: boolean;
-      disabled: boolean;
-      onClick: () => void;
-    }`,
+      description: 'An Object that define what type of button it will appear in the Product Quantity Actions',
       table: {
         category: 'Card Body'
       }
     },
     stock: {
       control: '',
-      description: `An Object that defines the stock label and color:
-    | {
-        label: string;
-        labelColor?: TextColor;
-        stockColor?: TextColor;
-      }`,
+      description: 'An Object that defines the stock label and color',
       table: {
         category: 'Card Body'
       }
     },
     loyalty: {
       control: '',
-      description: `An Object that defines loyalty label and icon:
-    | {
-        label: string;
-        imageSrc: string;
-      }`,
+      description: 'An Object that defines loyalty label and icon',
       table: {
         category: 'Card Body'
       }

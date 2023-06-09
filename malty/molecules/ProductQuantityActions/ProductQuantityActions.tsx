@@ -58,7 +58,7 @@ export const ProductQuantityActions = ({
           <Button
             {...actionButton}
             text={actionButton.icon ? undefined : actionButton.text}
-            fullWidth={hideQuantityInput}
+            fullWidth
             dataTestId={`${dataTestId}-button`}
             size={ButtonSize.Medium}
           />
