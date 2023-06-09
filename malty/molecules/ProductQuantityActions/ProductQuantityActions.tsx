@@ -1,4 +1,4 @@
-import { ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
@@ -7,7 +7,7 @@ import React, { MouseEvent, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   StyledActions,
-  StyledButton,
+  StyledButtonWrapper,
   StyledInputWrapper,
   StyledStock,
   StyledStockStatusColor
@@ -54,13 +54,15 @@ export const ProductQuantityActions = ({
             />
           </StyledInputWrapper>
         ) : null}
-        <StyledButton
-          {...actionButton}
-          text={actionButton.icon ? undefined : actionButton.text}
-          fullWidth={hideQuantityInput}
-          dataTestId={`${dataTestId}-button`}
-          size={ButtonSize.Medium}
-        />
+        <StyledButtonWrapper hasIcon={!!actionButton.icon}>
+          <Button
+            {...actionButton}
+            text={actionButton.icon ? undefined : actionButton.text}
+            fullWidth={hideQuantityInput}
+            dataTestId={`${dataTestId}-button`}
+            size={ButtonSize.Medium}
+          />
+        </StyledButtonWrapper>
       </StyledActions>
     </>
   );

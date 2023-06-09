@@ -1,4 +1,3 @@
-import { Button } from '@carlsberggroup/malty.atoms.button';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 
@@ -28,6 +27,10 @@ export const StyledInputWrapper = styled.div`
   flex: 1;
 `;
 
-export const StyledButton = styled(Button)`
-  ${({ icon }) => (!icon ? 'flex: 1;' : '')}
+export const StyledButtonWrapper = styled.div<{ hasIcon?: boolean }>`
+  ${({ hasIcon }) => (!hasIcon ? 'flex: 1;' : '')}
+
+  button {
+    width: 100%;
+  }
 `;
