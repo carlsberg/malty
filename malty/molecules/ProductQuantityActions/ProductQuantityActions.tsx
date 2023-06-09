@@ -1,11 +1,17 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { MouseEvent, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledActions, StyledStock, StyledStockStatusColor } from './ProductQuantityActions.styled';
+import {
+  StyledActions,
+  StyledButton,
+  StyledInputWrapper,
+  StyledStock,
+  StyledStockStatusColor
+} from './ProductQuantityActions.styled';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
 export const ProductQuantityActions = ({
@@ -38,19 +44,21 @@ export const ProductQuantityActions = ({
       ) : null}
       <StyledActions theme={theme}>
         {!hideQuantityInput ? (
-          <Input
-            onClick={handleStopPropagation}
-            type={InputType.Quantity}
-            onValueChange={actionQuantityInput.onValueChange}
-            value={actionQuantityInput.value}
-            min={actionQuantityInput.min}
-            max={actionQuantityInput.max}
-            size={InputSize.Medium}
-            readOnly={actionQuantityInput.readOnly}
-            dataTestId={dataTestId}
-          />
+          <StyledInputWrapper>
+            <Input
+              onClick={handleStopPropagation}
+              type={InputType.Quantity}
+              onValueChange={actionQuantityInput.onValueChange}
+              value={actionQuantityInput.value}
+              min={actionQuantityInput.min}
+              max={actionQuantityInput.max}
+              size={InputSize.Medium}
+              readOnly={actionQuantityInput.readOnly}
+              dataTestId={dataTestId}
+            />
+          </StyledInputWrapper>
         ) : null}
-        <Button
+        <StyledButton
           text={actionButton.icon ? undefined : actionButton.text}
           fullWidth={hideQuantityInput}
           dataTestId={`${dataTestId}-button`}

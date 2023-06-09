@@ -285,7 +285,7 @@ switch (variant) {
         text: 'Add to cart',
         onClick: () => null,
         style: ButtonStyle.Primary,
-        icon: undefined,
+        icon: IconName.Cart,
         loading: undefined,
         disabled: undefined
       },
@@ -323,7 +323,7 @@ switch (variant) {
         text: 'Add to cart',
         onClick: () => null,
         style: ButtonStyle.Primary,
-        icon: undefined,
+        icon: IconName.Cart,
         loading: undefined,
         disabled: undefined
       },

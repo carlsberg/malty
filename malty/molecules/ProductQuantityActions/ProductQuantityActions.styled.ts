@@ -1,3 +1,4 @@
+import { Button } from '@carlsberggroup/malty.atoms.button';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 
@@ -21,4 +22,12 @@ export const StyledActions = styled.div`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.sizes['2xs'].value};
+`;
+
+export const StyledInputWrapper = styled.div`
+  flex: 1;
+`;
+
+export const StyledButton = styled(Button)`
+  ${({ icon }) => (!icon ? 'flex: 1;' : '')}
 `;
