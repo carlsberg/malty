@@ -155,13 +155,6 @@ export default {
         category: 'Card Body'
       }
     },
-    hideQuantityInput: {
-      control: 'boolean',
-      description: 'Hides the quantity input',
-      table: {
-        category: 'Card Body'
-      }
-    },
     actionQuantityInput: {
       control: '',
       description:
@@ -209,11 +202,13 @@ const Template: Story<ProductCardProps> = (args) => {
       <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
         <ProductCardComponent
           {...args}
-          actionQuantityInput={{
-            ...args.actionQuantityInput,
-            value: stateValueComponent1,
-            onValueChange: setStateValueComponent1
-          }}
+          {...(args.actionQuantityInput && {
+            actionQuantityInput: {
+              ...args.actionQuantityInput,
+              value: stateValueComponent1,
+              onValueChange: setStateValueComponent1
+            }
+          })}
         />
       </div>
 
@@ -223,11 +218,13 @@ const Template: Story<ProductCardProps> = (args) => {
           productsCardsAlerts={[
             { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
           ]}
-          actionQuantityInput={{
-            ...args.actionQuantityInput,
-            value: stateValueComponent2,
-            onValueChange: setStateValueComponent2
-          }}
+          {...(args.actionQuantityInput && {
+            actionQuantityInput: {
+              ...args.actionQuantityInput,
+              value: stateValueComponent2,
+              onValueChange: setStateValueComponent2
+            }
+          })}
         />
       </div>
     </div>

@@ -47,7 +47,6 @@ export const ProductCard = ({
   stock,
   productsCardsAlerts,
   quantitySelectOptions,
-  hideQuantityInput,
   discountPill,
   promoPill,
   cartPill,
@@ -167,12 +166,7 @@ export const ProductCard = ({
             ) : null}
           </StyledRow>
 
-          <ProductQuantityActions
-            stock={stock}
-            actionButton={actionButton}
-            actionQuantityInput={actionQuantityInput}
-            hideQuantityInput={hideQuantityInput}
-          />
+          <ProductQuantityActions stock={stock} actionButton={actionButton} actionQuantityInput={actionQuantityInput} />
           {productsCardsAlerts?.map((alert, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <StyledAlert key={index} theme={theme}>

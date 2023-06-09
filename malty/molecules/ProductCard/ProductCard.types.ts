@@ -18,7 +18,6 @@ export interface ProductCardProps {
   mro?: MRO;
   productsCardsAlerts?: AlertInlineProps[];
   quantitySelectOptions?: SelectOptionsType[];
-  hideQuantityInput?: boolean;
   discountPill?: PillProps;
   promoPill?: PillProps;
   cartPill?: PillProps;

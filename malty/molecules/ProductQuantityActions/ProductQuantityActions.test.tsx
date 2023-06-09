@@ -47,14 +47,6 @@ describe('ProductQuantityActions', () => {
     expect(actionQuantityInput.onValueChange).toHaveBeenCalledTimes(1);
   });
 
-  test('renders with correct content when hideQuantityInput is true', () => {
-    render(<ProductQuantityActions actionButton={actionButton} hideQuantityInput />);
-
-    expect(screen.queryByTestId('default-quantity-minus')).not.toBeInTheDocument();
-    expect(screen.queryByTestId('default-quantity-plus')).not.toBeInTheDocument();
-    expect(screen.queryByDisplayValue('0')).not.toBeInTheDocument();
-  });
-
   test('renders with correct content when button is disabled', () => {
     render(<ProductQuantityActions actionButton={{ ...actionButton, disabled: true }} />);
     expect(screen.getByTestId('default-button')).toBeDisabled();

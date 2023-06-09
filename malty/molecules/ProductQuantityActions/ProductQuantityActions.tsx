@@ -15,7 +15,6 @@ import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
 export const ProductQuantityActions = ({
   stock,
-  hideQuantityInput,
   actionQuantityInput,
   actionButton,
   dataTestId = 'default'
@@ -42,7 +41,7 @@ export const ProductQuantityActions = ({
         </StyledStock>
       ) : null}
       <StyledActions theme={theme}>
-        {actionQuantityInput && !hideQuantityInput ? (
+        {actionQuantityInput ? (
           <StyledInputWrapper>
             <Input
               {...actionQuantityInput}
@@ -53,7 +52,7 @@ export const ProductQuantityActions = ({
             />
           </StyledInputWrapper>
         ) : null}
-        <StyledButtonWrapper hasIcon={!!actionButton.icon}>
+        <StyledButtonWrapper hasIcon={!!actionButton.icon} hasActionQuantityInput={!!actionQuantityInput}>
           <Button
             {...actionButton}
             text={actionButton.icon ? undefined : actionButton.text}

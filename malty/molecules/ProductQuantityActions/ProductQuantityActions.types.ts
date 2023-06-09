@@ -16,5 +16,4 @@ export interface ProductQuantityActionsProps {
   stock?: Stock;
   actionQuantityInput?: ActionQuantityInput;
   actionButton: ActionButton;
-  hideQuantityInput?: boolean;
 }

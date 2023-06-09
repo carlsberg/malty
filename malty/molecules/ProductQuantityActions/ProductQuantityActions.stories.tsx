@@ -27,10 +27,6 @@ export default {
       control: '',
       description: 'An Object that defines the stock label, stock color, status color and availability:'
     },
-    hideQuantityInput: {
-      description: 'Hides the quantity input',
-      control: 'boolean'
-    },
     dataTestId: {
       description: 'Product Quantity Actions data-testid',
       control: 'text'
@@ -43,7 +39,9 @@ const Template: Story<ProductQuantityActionsProps> = (args) => {
   return (
     <ProductQuantityActionsComponent
       {...args}
-      actionQuantityInput={{ ...args.actionQuantityInput, value: stateValue, onValueChange: setStateValue }}
+      {...(args.actionQuantityInput && {
+        actionQuantityInput: { ...args.actionQuantityInput, value: stateValue, onValueChange: setStateValue }
+      })}
     />
   );
 };
@@ -67,6 +65,5 @@ ProductQuantityActions.args = {
     min: undefined,
     max: undefined,
     readOnly: undefined
-  },
-  hideQuantityInput: undefined
+  }
 };
