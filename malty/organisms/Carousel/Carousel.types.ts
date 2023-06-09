@@ -4,7 +4,7 @@ export interface CarouselProps {
   autoHeight?: Options['autoHeight'];
   gapBetweenSliders?: Options['gap'];
   perPage?: Options['perPage'];
-  enableNegativeCarouselStyle?: string;
+  enableNegativeCarouselStyle?: boolean;
   breakpoints?: Record<string | number, Options>;
   carouselSlide: React.ReactNode[] | JSX.Element[];
   dataTestId?: string;
