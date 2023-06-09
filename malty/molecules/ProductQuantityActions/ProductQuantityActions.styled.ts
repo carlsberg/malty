@@ -25,9 +25,9 @@ export const StyledActions = styled.div`
 `;
 
 export const StyledInputWrapper = styled.div`
-  flex: 1;
+  flex: 1 1 0;
 `;
 
 export const StyledButton = styled(Button)`
-  ${({ icon }) => (!icon ? 'flex: 1;' : '')}
+  ${({ icon }) => (!icon ? 'flex: 1 1 0;' : '')}
 `;

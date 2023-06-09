@@ -46,29 +46,20 @@ export const ProductQuantityActions = ({
         {!hideQuantityInput ? (
           <StyledInputWrapper>
             <Input
+              {...actionQuantityInput}
               onClick={handleStopPropagation}
               type={InputType.Quantity}
-              onValueChange={actionQuantityInput.onValueChange}
-              value={actionQuantityInput.value}
-              min={actionQuantityInput.min}
-              max={actionQuantityInput.max}
               size={InputSize.Medium}
-              readOnly={actionQuantityInput.readOnly}
               dataTestId={dataTestId}
             />
           </StyledInputWrapper>
         ) : null}
         <StyledButton
+          {...actionButton}
           text={actionButton.icon ? undefined : actionButton.text}
           fullWidth={hideQuantityInput}
           dataTestId={`${dataTestId}-button`}
           size={ButtonSize.Medium}
-          style={actionButton.style}
-          onClick={actionButton.onClick}
-          color={actionButton.color}
-          icon={actionButton.icon}
-          loading={actionButton.loading}
-          disabled={actionButton.disabled}
         />
       </StyledActions>
     </>
