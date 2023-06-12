@@ -176,7 +176,7 @@ describe('AlertBanner with onActiveAlertChange', () => {
     fireEvent.click(dismissButton);
     expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(2);
   });
-  it('should be called when is not defined', () => {
+  it('should not be called when is not defined', () => {
     render(<AlertBanner alerts={alertsMock} />);
     expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(0);
   });
