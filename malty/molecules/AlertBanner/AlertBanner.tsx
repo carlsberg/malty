@@ -119,9 +119,7 @@ export const AlertBanner = ({
   const triggerAnimation = () => isBannerTextCompressed || false;
 
   useEffect(() => {
-    if (onActiveAlertChange) {
-      onActiveAlertChange(currentAlert);
-    }
+    onActiveAlertChange?.(currentAlert);
   }, [currentAlert, onActiveAlertChange]);
 
   if (!alertsArray?.length) {
