@@ -6831,6 +6831,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"SegmentedControl-2e86a0@workspace:malty/molecules/SegmentedControl":
+  version: 0.0.0-use.local
+  resolution: "SegmentedControl-2e86a0@workspace:malty/molecules/SegmentedControl"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "Select-d84d52@workspace:malty/atoms/Select":
   version: 0.0.0-use.local
   resolution: "Select-d84d52@workspace:malty/atoms/Select"

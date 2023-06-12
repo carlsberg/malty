@@ -1564,8 +1564,8 @@
         "rootDir": "malty/molecules/ProductsBar"
     },
     "molecules/segmented-control": {
-        "scope": "",
-        "version": "",
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/SegmentedControl"
     },
