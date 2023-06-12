@@ -34,7 +34,8 @@ const textColorsMap = {
 export const AlertBanner = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
-  animation
+  animation,
+  onActiveAlertChange = () => null
 }: PropsWithChildren<AlertBannerProps>) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
@@ -116,6 +117,12 @@ export const AlertBanner = ({
     };
 
   const triggerAnimation = () => isBannerTextCompressed || false;
+
+  useEffect(() => {
+    if (onActiveAlertChange) {
+      onActiveAlertChange(currentAlert);
+    }
+  }, [currentAlert, onActiveAlertChange]);
 
   if (!alertsArray?.length) {
     return null;
@@ -245,6 +252,7 @@ export const AlertBanner = ({
       >
         {!isMobile && (
           <Pagination
+            dataTestId="alert-banner-pagination"
             count={alertsArray.length}
             onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}

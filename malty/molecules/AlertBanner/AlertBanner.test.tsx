@@ -7,6 +7,7 @@ import { AlertBannerType, AnimatedProps } from './AlertBanner.types';
 const actionMockFn = jest.fn();
 const dismissButtonMockFn = jest.fn();
 const toggleBannerText = jest.fn();
+const onActiveAlertChangeMockFn = jest.fn();
 
 const alertsMock = [
   {
@@ -150,5 +151,33 @@ describe('AlertBanner with animations', () => {
       isBannerTextCompressed: false
     });
     expect(pagination).toBeVisible();
+  });
+});
+
+describe('AlertBanner with onActiveAlertChange', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+  it('should be called when it renders the alert banner', () => {
+    render(<AlertBanner alerts={alertsMock} onActiveAlertChange={onActiveAlertChangeMockFn} />);
+    expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(1);
+  });
+  it('should be called when the pagination is used', () => {
+    render(<AlertBanner alerts={alertsMock} onActiveAlertChange={onActiveAlertChangeMockFn} />);
+    const pagination = screen.getByTestId('alert-banner-pagination');
+    expect(pagination).toBeVisible();
+    const buttonNext = screen.getByTestId('alert-banner-pagination-button-next');
+    fireEvent.click(buttonNext);
+    expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(2);
+  });
+  it('should be called when dismisses an alert and the active alert change to a different one', () => {
+    render(<AlertBanner alerts={alertsMock} onActiveAlertChange={onActiveAlertChangeMockFn} />);
+    const dismissButton = screen.getByTestId('alert-banner-close-icon');
+    fireEvent.click(dismissButton);
+    expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(2);
+  });
+  it('should be called when is not defined', () => {
+    render(<AlertBanner alerts={alertsMock} />);
+    expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(0);
   });
 });
