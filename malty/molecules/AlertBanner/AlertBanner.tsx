@@ -35,7 +35,7 @@ export const AlertBanner = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
   animation,
-  onActiveAlertChange = () => null
+  onActiveAlertChange
 }: PropsWithChildren<AlertBannerProps>) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
