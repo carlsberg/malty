@@ -1,19 +1,19 @@
-export interface SegmentControllerProps {
-  size?: SegmentControllerSize;
+export interface SegmentedControlProps {
+  size?: SegmentedControlSize;
   onChange?: (value: string) => void;
   dataQaId?: string;
-  options: SegmentControllerOptions[];
+  options: SegmentedControlOptions[];
   disabled?: boolean;
   selected?: string;
 }
 
-export enum SegmentControllerSize {
+export enum SegmentedControlSize {
   XSmall = 'XSmall',
   Small = 'Small',
   Medium = 'Medium'
 }
 
-export interface SegmentControllerOptions {
+export interface SegmentedControlOptions {
   label: string;
   value: string;
 }
