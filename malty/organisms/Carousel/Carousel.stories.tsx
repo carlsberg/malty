@@ -1,3 +1,4 @@
+import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Carousel as CarouselComponent } from './Carousel';
@@ -19,25 +20,21 @@ export default {
       description: 'If true, the height of the carousel will be set to the height of the tallest slide',
       control: 'boolean'
     },
-    breakpoints: {
-      description: 'Object of breakpoints for the carousel',
-      control: 'object'
-    },
     enableNegativeCarouselStyle: {
       description: 'If true, the carousel will have a negative style',
       control: 'boolean'
-    },
-    gapBetweenSliders: {
-      description: 'The gap between the slides',
-      control: 'number'
     },
     perPage: {
       description: 'The number of slides to be shown at once',
       control: 'number'
     },
-    dataTestId: {
-      description: 'Data test id for the carousel',
+    gapBetweenSliders: {
+      description: 'The gap between the slides',
       control: 'text'
+    },
+    breakpoints: {
+      description: 'Object of breakpoints for the carousel',
+      control: 'object'
     }
   }
 } as Meta;
@@ -46,20 +43,20 @@ const Template: Story<CarouselProps> = ({
   carouselSlide,
   autoHeight,
   breakpoints,
-  dataTestId,
   enableNegativeCarouselStyle,
   gapBetweenSliders,
-  perPage
+  perPage,
+  dataTestId
 }) => {
   return (
-    <Carousel
+    <CarouselComponent
       carouselSlide={carouselSlide}
       autoHeight={autoHeight}
       breakpoints={breakpoints}
-      dataTestId={dataTestId}
       enableNegativeCarouselStyle={enableNegativeCarouselStyle}
       gapBetweenSliders={gapBetweenSliders}
       perPage={perPage}
+      dataTestId={dataTestId}
     />
   );
 };
@@ -68,21 +65,16 @@ export const Carousel = Template.bind({});
 
 Carousel.args = {
   carouselSlide: [
-    <div key="1" style={{ backgroundColor: 'red', height: '100%' }}>
-      1
-    </div>,
-    <div key="2" style={{ backgroundColor: 'blue', height: '100%' }}>
-      2
-    </div>,
-    <div key="3" style={{ backgroundColor: 'green', height: '100%' }}>
-      3
-    </div>,
-    <div key="4" style={{ backgroundColor: 'yellow', height: '100%' }}>
-      4
-    </div>,
-    <div key="5" style={{ backgroundColor: 'pink', height: '100%' }}>
-      5
-    </div>
+    {
+      id: 1,
+      slideComponent: <Image src="https://random.imagecdn.app/500/500" />,
+      slideDataTestId: 'carousel'
+    },
+    {
+      id: 2,
+      slideComponent: <Image src="https://random.imagecdn.app/500/500" />,
+      slideDataTestId: 'carousel2'
+    }
   ],
   autoHeight: true,
   breakpoints: {
@@ -102,5 +94,5 @@ Carousel.args = {
   enableNegativeCarouselStyle: false,
   gapBetweenSliders: '1rem',
   perPage: 4,
-  dataTestId: 'carousel'
+  dataTestId: 'malty'
 };
