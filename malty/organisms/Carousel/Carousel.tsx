@@ -1,8 +1,10 @@
-// eslint-disable-next-line import/no-unresolved
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+/* eslint-disable import/no-unresolved */
+import '@splidejs/react-splide/css';
 import React from 'react';
-import { CarouselProps } from './Carousel.types';
+import { CarouselItemProps, CarouselProps } from './Carousel.types';
 
 export const Carousel: React.FC<CarouselProps> = ({
   carouselSlide,
@@ -27,11 +29,17 @@ export const Carousel: React.FC<CarouselProps> = ({
   };
 
   return (
-    <Splide hasTrack={false} aria-label="malty-carousel" options={carouselOptions}>
+    <Splide
+      hasTrack={false}
+      aria-label="malty-carousel"
+      options={carouselOptions}
+      data-testid={`carousel-container-${dataTestId}`}
+    >
       <SplideTrack>
-        {carouselSlide.map((child, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <SplideSlide key={`${i}`}>{child}</SplideSlide>
+        {carouselSlide?.map((item: CarouselItemProps) => (
+          <SplideSlide key={item.id} data-testid={item.slideDataTestId}>
+            {item.slideComponent}
+          </SplideSlide>
         ))}
       </SplideTrack>
 
@@ -48,6 +56,7 @@ export const Carousel: React.FC<CarouselProps> = ({
             // tabIndex={0}
             negative={enableNegativeCarouselStyle}
             size={ButtonSize.Small}
+            icon={IconName.ArrowSmallLeft}
           />
         </div>
         <div className="splide__arrow splide__arrow--next">
@@ -62,6 +71,7 @@ export const Carousel: React.FC<CarouselProps> = ({
             // tabIndex={0}
             negative={enableNegativeCarouselStyle}
             size={ButtonSize.Small}
+            icon={IconName.ArrowSmallRight}
           />
         </div>
       </div>
