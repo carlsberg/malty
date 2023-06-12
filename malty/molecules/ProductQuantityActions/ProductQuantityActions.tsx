@@ -1,33 +1,25 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { Button, ButtonSize } from '@carlsberggroup/malty.atoms.button';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { MouseEvent, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledActions, StyledStock, StyledStockStatusColor } from './ProductQuantityActions.styled';
+import {
+  StyledActions,
+  StyledButtonWrapper,
+  StyledInputWrapper,
+  StyledStock,
+  StyledStockStatusColor
+} from './ProductQuantityActions.styled';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
 export const ProductQuantityActions = ({
   stock,
-  maxQuantity,
-  hideQuantityInput,
-  value = 0,
-  action = { icon: IconName.Cart, onClick: () => null, variant: ButtonStyle.Primary },
-  onInputQuantityChange = () => null,
+  actionQuantityInput,
+  actionButton,
   dataTestId = 'default'
 }: ProductQuantityActionsProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-
-  const handleQuantityChange = (valueChanged: string) => {
-    const parsedValue = Number(valueChanged);
-    onInputQuantityChange(parsedValue);
-  };
-
-  const handleActionClick = (event: MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation();
-    action.onClick();
-  };
 
   const handleStopPropagation = (event: MouseEvent<HTMLInputElement>) => {
     event.stopPropagation();
@@ -49,27 +41,26 @@ export const ProductQuantityActions = ({
         </StyledStock>
       ) : null}
       <StyledActions theme={theme}>
-        {!hideQuantityInput ? (
-          <Input
-            onClick={handleStopPropagation}
-            type={InputType.Quantity}
-            onValueChange={handleQuantityChange}
-            value={value?.toString() ?? ''}
-            max={maxQuantity}
-            size={InputSize.Medium}
-            dataTestId={dataTestId}
-          />
+        {actionQuantityInput ? (
+          <StyledInputWrapper>
+            <Input
+              {...actionQuantityInput}
+              onClick={handleStopPropagation}
+              type={InputType.Quantity}
+              size={InputSize.Medium}
+              dataTestId={dataTestId}
+            />
+          </StyledInputWrapper>
         ) : null}
-        <Button
-          text={action.icon ? undefined : action.label}
-          fullWidth={hideQuantityInput}
-          dataTestId={`${dataTestId}-button`}
-          size={ButtonSize.Medium}
-          style={action.variant}
-          onClick={handleActionClick}
-          color={action.color}
-          icon={action.icon}
-        />
+        <StyledButtonWrapper hasIcon={!!actionButton.icon} hasActionQuantityInput={!!actionQuantityInput}>
+          <Button
+            {...actionButton}
+            text={actionButton.icon ? undefined : actionButton.text}
+            fullWidth
+            dataTestId={`${dataTestId}-button`}
+            size={ButtonSize.Medium}
+          />
+        </StyledButtonWrapper>
       </StyledActions>
     </>
   );
