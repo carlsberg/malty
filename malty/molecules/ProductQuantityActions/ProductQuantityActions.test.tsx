@@ -36,6 +36,8 @@ describe('ProductQuantityActions', () => {
     render(<ProductQuantityActions actionButton={actionButton} />);
 
     expect(screen.queryByText('In Stock')).not.toBeInTheDocument();
+
+    // TODO: check if we can get rid of this fallback
     expect(screen.getByText(actionButton.text ?? '')).toBeInTheDocument();
   });
 
