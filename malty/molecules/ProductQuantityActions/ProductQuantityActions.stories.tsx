@@ -7,7 +7,7 @@ import { ProductQuantityActions as ProductQuantityActionsComponent } from './Pro
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
 export default {
-  title: 'Cards/ProductQuantityActions',
+  title: 'Information/ProductQuantityActions',
   component: ProductQuantityActionsComponent,
   parameters: {
     importObject: 'ProductQuantityActions',
