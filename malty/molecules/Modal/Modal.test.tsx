@@ -10,13 +10,13 @@ const text = (
 );
 const buttons = [
   {
-    variant: ButtonStyle.Secondary,
-    label: 'Cancel',
+    style: ButtonStyle.Secondary,
+    text: 'Cancel',
     onClick: jest.fn()
   },
   {
-    variant: ButtonStyle.Primary,
-    label: 'Confirm',
+    style: ButtonStyle.Primary,
+    text: 'Confirm',
     onClick: () => {
       const testText = document.createElement('p');
       testText.append('Clicked primary');
