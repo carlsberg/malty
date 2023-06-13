@@ -26,6 +26,7 @@ export const Hero = ({
   height
 }: HeroProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const isDesktop = useMatchMedia(Device.Desktop);
   const isMobile = useMatchMedia(Device.Mobile);
 
   return (
@@ -33,19 +34,19 @@ export const Hero = ({
       <StyledContentWrapper theme={theme} withScroll={!!scrollText}>
         <StyledTitleWrapper theme={theme}>
           <Headline
-            headlineStyle={isMobile ? HeadlineStyle.Huge : HeadlineStyle.Display}
+            headlineStyle={isDesktop ? HeadlineStyle.Display : HeadlineStyle.Huge}
             color={HeadlineColor.White}
             align={HeadlineAlign.Center}
           >
-            {isMobile !== undefined ? title : null}
+            {title}
           </Headline>
         </StyledTitleWrapper>
         <Headline
-          headlineStyle={isMobile ? HeadlineStyle.Medium : HeadlineStyle.MediumLarge}
+          headlineStyle={isDesktop ? HeadlineStyle.MediumLarge : HeadlineStyle.Medium}
           color={HeadlineColor.White}
           align={HeadlineAlign.Center}
         >
-          {isMobile !== undefined ? description : null}
+          {description}
         </Headline>
         {actions && Array.isArray(actions) ? (
           <StyledActionsWrapper theme={theme}>
