@@ -1,0 +1,35 @@
+import styled from 'styled-components';
+
+export const StyledCustomSplideArrows = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+
+  .splide__arrows {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  + .splide__pagination {
+    display: flex;
+    padding: 0;
+    column-gap: ${({ theme }) => theme.sizes.s.value};
+    margin-top: ${({ theme }) => theme.sizes.s.value};
+
+    .splide__pagination__page {
+      display: block;
+      border: none;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      padding: 0;
+      background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][25].value};
+
+      &.is-active {
+        background-color: ${({ theme }) => theme.colors.theme.themePrimary.value};
+      }
+    }
+  }
+`;
