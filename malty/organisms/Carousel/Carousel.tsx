@@ -2,8 +2,9 @@ import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.but
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 /* eslint-disable import/no-unresolved */
-import '@splidejs/react-splide/css';
+import '@splidejs/react-splide/css/core';
 import React from 'react';
+import { StyledCustomSplideArrows } from './Carousel.styled';
 import { CarouselItemProps, CarouselProps } from './Carousel.types';
 
 export const Carousel: React.FC<CarouselProps> = ({
@@ -13,19 +14,23 @@ export const Carousel: React.FC<CarouselProps> = ({
   enableNegativeCarouselStyle,
   gapBetweenSliders,
   perPage,
+  perMove,
+  arrowButtonSize = ButtonSize.Medium,
   dataTestId
 }) => {
+  const hasMoreThanOneSlide = carouselSlide?.length > 1;
+
   const carouselOptions: Options = {
-    type: 'loop',
-    start: 4,
-    perPage,
-    arrows: true,
-    height: '300px',
-    pagination: true,
+    type: hasMoreThanOneSlide ? 'loop' : 'slide',
+    perPage: hasMoreThanOneSlide ? perPage : 1,
+    arrows: hasMoreThanOneSlide,
+    pagination: hasMoreThanOneSlide,
+    paginationKeyboard: hasMoreThanOneSlide,
     gap: gapBetweenSliders,
     mediaQuery: 'min',
     breakpoints,
-    autoHeight
+    autoHeight,
+    perMove: hasMoreThanOneSlide ? perMove : perPage
   };
 
   return (
@@ -34,6 +39,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       aria-label="malty-carousel"
       options={carouselOptions}
       data-testid={`carousel-container-${dataTestId}`}
+      role="group"
     >
       <SplideTrack>
         {carouselSlide?.map((item: CarouselItemProps) => (
@@ -42,39 +48,34 @@ export const Carousel: React.FC<CarouselProps> = ({
           </SplideSlide>
         ))}
       </SplideTrack>
-
-      <div className="splide__arrows">
-        <div className="splide__arrow splide__arrow--prev">
-          <Button
-            dataTestId={`prev-carousel-btn-${dataTestId}`}
-            style={enableNegativeCarouselStyle ? ButtonStyle.Primary : ButtonStyle.Secondary}
-            // selected={isCurrentPage}
-            // onClick={() => onPageClick(Number(pageNr))}
-            // onKeyUp={() => onPageKeyUp(Number(pageNr))}
-            // aria-current={isCurrentPage}
-            aria-label="prev-carousel-btn"
-            // tabIndex={0}
-            negative={enableNegativeCarouselStyle}
-            size={ButtonSize.Small}
-            icon={IconName.ArrowSmallLeft}
-          />
-        </div>
-        <div className="splide__arrow splide__arrow--next">
-          <Button
-            dataTestId={`next-carousel-btn-${dataTestId}`}
-            style={enableNegativeCarouselStyle ? ButtonStyle.Primary : ButtonStyle.Secondary}
-            // selected={isCurrentPage}
-            // onClick={() => onPageClick(Number(pageNr))}
-            // onKeyUp={() => onPageKeyUp(Number(pageNr))}
-            // aria-current={isCurrentPage}
-            aria-label="next-carousel-btn"
-            // tabIndex={0}
-            negative={enableNegativeCarouselStyle}
-            size={ButtonSize.Small}
-            icon={IconName.ArrowSmallRight}
-          />
-        </div>
-      </div>
+      {hasMoreThanOneSlide ? (
+        <StyledCustomSplideArrows>
+          <div className="splide__arrows">
+            <div className="splide__arrow splide__arrow--prev">
+              <Button
+                dataTestId={`prev-carousel-btn-${dataTestId}`}
+                style={ButtonStyle.Primary}
+                aria-label="prev-carousel-btn"
+                tabIndex={0}
+                negative={enableNegativeCarouselStyle}
+                size={arrowButtonSize}
+                icon={IconName.ArrowSmallLeft}
+              />
+            </div>
+            <div className="splide__arrow splide__arrow--next">
+              <Button
+                dataTestId={`next-carousel-btn-${dataTestId}`}
+                style={ButtonStyle.Primary}
+                aria-label="next-carousel-btn"
+                tabIndex={0}
+                negative={enableNegativeCarouselStyle}
+                size={arrowButtonSize}
+                icon={IconName.ArrowSmallRight}
+              />
+            </div>
+          </div>
+        </StyledCustomSplideArrows>
+      ) : null}
     </Splide>
   );
 };
