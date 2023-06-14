@@ -65,7 +65,7 @@ const requiredProps: HeroProps = {
   title: 'Welcome to Carlsberg Online',
   description: 'Now you can order all your favourite products on your smartphone or computer within minutes.',
   imageSrc:
-    'https://s3-alpha-sig.figma.com/img/1a8e/2a97/368bfc9d97adcbd3d02f0159e7692a8e?Expires=1686528000&Signature=d4mISd9mfZCDWUkCfS57I9ft4qibCOQvC1iadlvHcs~QKPdybMicFZ7C~dqgrsDErGneBIf5~XNsPLqZRRHsxCRZqDXY6SpdbjNu9FtM-ak3uD7ZCSFB6my4Bx1wSJVv5arsbGil7PuqkrIVOSoK83d~9JOmAEP--OPFqQo8KF77P0kHVRZyOTTVIUSiszBe7b9GmzGBq1ebkXfKOwM20DIAc6dKQi1qIoqrPBep02PstrzbWHKr1LVsnNiY9~00mllHePEwUXmWKZz4UMLHnR~M7X6CwpDq1~JOB0E~xC80pJna8rrcV5Jl9gGkgu~y5w6W9zc6ad-W5GtIV9YOHg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+    'https://s3-alpha-sig.figma.com/img/1a8e/2a97/368bfc9d97adcbd3d02f0159e7692a8e?Expires=1687737600&Signature=BuALw8tE~LB0L6bXFJmvn~rTaFV56SCTpZsWch0c0Ogi75FXkfmaRiHX3wju3ACFut320tr73q4FIAe8y07AT3hH00dAPYJvIPIOXQ~TXP6ALj5zQQuLfvOJwSQwCtuUngrl~-0x2HHCN~8SFDcDVfkwxD-vyR1tBAHByh0jTtk8M1bipMX~ds1sVEQPbWxzJMFAzlrILxW16h5yDUBiWKF6WnpJTmvZh~luJyRwV9vKm5BC8rs4sA-HsBanSLdnbQXLQM37fyAGtsj5PVf7~1x11zaHUja2yhejXN~efkZId7csOqtz6rpuN2NRAp1DkWA36hZBTBoT573NaKSOqw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
 };
 
 switch (variant) {
