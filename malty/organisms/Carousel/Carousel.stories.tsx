@@ -81,7 +81,8 @@ export default {
       }
     },
     perMove: {
-      description: 'Determines the number of slides to move at once.',
+      description:
+        'Determines the number of slides to move at once - This value should NOT be higher than perPage prop',
       control: 'number',
       table: {
         category: 'Configuration',
