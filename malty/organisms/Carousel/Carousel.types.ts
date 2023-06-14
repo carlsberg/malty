@@ -1,12 +1,15 @@
+import { ButtonSize } from '@carlsberggroup/malty.atoms.button';
 import { Options, SplideProps } from '@splidejs/react-splide';
 
 export interface CarouselProps extends SplideProps {
   autoHeight?: Options['autoHeight'];
-  gapBetweenSliders?: Options['gap'];
-  perPage?: Options['perPage'];
+  gapBetweenSliders: Options['gap'];
+  perPage: Options['perPage'];
+  perMove?: Options['perMove'];
   enableNegativeCarouselStyle?: boolean;
   breakpoints?: Record<string | number, Options>;
-  carouselSlide?: CarouselItemProps[];
+  carouselSlide: CarouselItemProps[];
+  arrowButtonSize?: ButtonSize;
   dataTestId?: string;
 }
 
