@@ -1,4 +1,4 @@
-import { Image } from '@carlsberggroup/malty.atoms.image';
+import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { Carousel } from './Carousel';
@@ -7,60 +7,107 @@ import { CarouselItemProps } from './Carousel.types';
 const carouseSlideObject: CarouselItemProps[] = [
   {
     id: 1,
-    slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
-    slideDataTestId: 'carousel'
+    slideComponent: (
+      <ProductCard
+        imageSrc="https://picsum.photos/id/55/1920/1080"
+        title="Product 1"
+        dataTestId="product-card-1"
+        sku="Sku: 12512 512"
+        price={{ base: '₭ 99,800.00', discount: '₭ 86,000.00' }}
+      />
+    ),
+    slideDataTestId: 'carousel-1'
   },
-
   {
     id: 2,
-    slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
-    slideDataTestId: 'carousel'
+    slideComponent: (
+      <ProductCard
+        imageSrc="https://picsum.photos/id/80/1920/1080"
+        title="Product 2"
+        dataTestId="product-card-2"
+        sku="Sku: 12512 515"
+        price={{ base: '₭ 90,800.00' }}
+      />
+    ),
+    slideDataTestId: 'carousel-2'
   },
   {
     id: 3,
-    slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
-    slideDataTestId: 'carousel'
+    slideComponent: (
+      <ProductCard
+        imageSrc="https://picsum.photos/id/60/1920/1080"
+        title="Product 3"
+        dataTestId="product-card-3"
+        sku="Sku: 12512 516"
+        price={{ base: '₭ 19,800.00', discount: '₭ 6,000.00' }}
+      />
+    ),
+    slideDataTestId: 'carousel-3'
   },
   {
     id: 4,
-    slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
-    slideDataTestId: 'carousel'
+    slideComponent: (
+      <ProductCard
+        imageSrc="https://picsum.photos/id/50/1920/1080"
+        title="Product 4"
+        dataTestId="product-card-4"
+        sku="Sku: 12512 517"
+        price={{ base: '₭ 99,800.00', discount: '₭ 86,000.00' }}
+      />
+    ),
+    slideDataTestId: 'carousel-4'
   },
   {
     id: 5,
-    slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
-    slideDataTestId: 'carousel'
-  },
-  {
-    id: 6,
-    slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
-    slideDataTestId: 'carousel'
+    slideComponent: (
+      <ProductCard
+        imageSrc="https://picsum.photos/id/10/1920/1080"
+        title="Product 5"
+        dataTestId="product-card-5"
+        sku="Sku: 12512 518"
+        price={{ base: '₭ 59,800.00' }}
+      />
+    ),
+    slideDataTestId: 'carousel-5'
   }
 ];
 
 describe('Carousel', () => {
-  it('should render carousel with custom arrows and pagination', () => {
-    render(<Carousel carouselSlide={carouseSlideObject} perPage={1} gapBetweenSliders={0} />);
-    expect(screen.getByTestId('carousel-container')).toBeInTheDocument();
+  beforeAll(() => {
+    // https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+    window.matchMedia = () =>
+      ({
+        matches: true, // All queries match the media string.
+        media: '',
+        onchange: null,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn()
+      } as MediaQueryList);
   });
 
-  it('should render carousel with one slide perPage', () => {
-    render(<Carousel carouselSlide={carouseSlideObject} perPage={1} gapBetweenSliders={0} />);
-    expect(screen.getByTestId('carousel-container')).toBeInTheDocument();
+  it('should render carousel with custom arrows, pagination and slides', () => {
+    render(<Carousel carouselSlide={carouseSlideObject} perPage={1} gap={0} dataTestId="test" />);
+    expect(screen.getByTestId('carousel-container-test')).toBeVisible();
+    expect(screen.getByRole('button', { name: /prev-carousel-btn/i })).toBeVisible();
+    expect(screen.getByRole('button', { name: /next-carousel-btn/i })).toBeVisible();
+    expect(screen.getByRole('tab', { name: /go to slide 1/i })).toBeVisible();
+    expect(screen.getAllByTestId('carousel-1')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-2')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-3')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-4')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-5')[0]).toBeVisible();
   });
 
-  it('should render carousel with two slides perPage', () => {
-    render(<Carousel carouselSlide={carouseSlideObject} perPage={2} gapBetweenSliders={0} />);
-    expect(screen.getByTestId('carousel-container')).toBeInTheDocument();
-  });
-
-  it('should render carousel with three slides perPage and change the current slide once user clicks on arrow right', () => {
-    render(<Carousel carouselSlide={carouseSlideObject} perPage={3} gapBetweenSliders={0} />);
-    expect(screen.getByTestId('carousel-container')).toBeInTheDocument();
-  });
-
-  it('should NOT render arrows and pagination when there is only one slide', () => {
-    render(<Carousel carouselSlide={carouseSlideObject} perPage={1} gapBetweenSliders={0} />);
-    expect(screen.getByTestId('carousel-container')).toBeInTheDocument();
+  it('should NOT render custom arrows and pagination when is only one slide', () => {
+    const oneSlideObject: CarouselItemProps[] = carouseSlideObject.slice(0, 1);
+    render(<Carousel carouselSlide={oneSlideObject} perPage={1} gap={0} dataTestId="test" />);
+    expect(screen.getByTestId('carousel-container-test')).toBeVisible();
+    expect(screen.queryByRole('button', { name: /prev-carousel-btn/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /next-carousel-btn/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('tab', { name: /go to slide 1/i })).not.toBeInTheDocument();
+    expect(screen.getByTestId('carousel-1')).toBeVisible();
   });
 });
