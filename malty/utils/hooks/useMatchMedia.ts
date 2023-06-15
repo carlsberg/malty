@@ -1,5 +1,5 @@
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export enum Device {
   Mobile = 'mobile',
@@ -35,12 +35,12 @@ const getMatches = (device: Device) => {
 export const useMatchMedia = (device: Device) => {
   const [matches, setMatches] = useState<boolean>(getMatches(device));
 
-  const handleChange = useCallback(() => {
-    setMatches(getMatches(device));
-  }, [device]);
-
   useEffect(() => {
     const matchMedia = window.matchMedia(getBreakpoint(device));
+
+    const handleChange = () => {
+      setMatches(getMatches(device));
+    };
 
     handleChange();
 
@@ -49,7 +49,7 @@ export const useMatchMedia = (device: Device) => {
     return () => {
       matchMedia.removeEventListener('change', handleChange);
     };
-  }, [device, handleChange]);
+  }, [device]);
 
   return matches;
 };
