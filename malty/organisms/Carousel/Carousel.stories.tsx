@@ -36,16 +36,6 @@ export default {
         }
       }
     },
-    autoHeight: {
-      description: 'If true, the height of the carousel will be set to the height of the tallest slide',
-      control: 'boolean',
-      table: {
-        category: 'Configuration',
-        defaultValue: {
-          summary: false
-        }
-      }
-    },
     enableNegativeCarouselStyle: {
       description: 'If true, the carousel will have a negative style',
       table: {
@@ -116,7 +106,6 @@ export default {
 
 const Template: Story<CarouselProps> = ({
   carouselSlide,
-  autoHeight,
   breakpoints,
   enableNegativeCarouselStyle,
   gapBetweenSliders,
@@ -128,7 +117,6 @@ const Template: Story<CarouselProps> = ({
   return (
     <CarouselComponent
       carouselSlide={carouselSlide}
-      autoHeight={autoHeight}
       breakpoints={breakpoints}
       enableNegativeCarouselStyle={enableNegativeCarouselStyle}
       gapBetweenSliders={gapBetweenSliders}
@@ -146,7 +134,7 @@ Carousel.args = {
   carouselSlide: [
     {
       id: 1,
-      slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
+      slideComponent: <img src="https://random.imagecdn.app/1920/600" width="100%" />,
       slideDataTestId: 'carousel'
     },
     {
@@ -176,7 +164,6 @@ Carousel.args = {
     }
   ],
   arrowButtonSize: ButtonSize.Medium,
-  autoHeight: false,
   breakpoints: {},
   enableNegativeCarouselStyle: false,
   gapBetweenSliders: '1rem',

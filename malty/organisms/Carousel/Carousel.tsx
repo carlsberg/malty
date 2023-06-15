@@ -9,7 +9,6 @@ import { CarouselItemProps, CarouselProps } from './Carousel.types';
 
 export const Carousel: React.FC<CarouselProps> = ({
   carouselSlide,
-  autoHeight,
   breakpoints,
   enableNegativeCarouselStyle,
   gapBetweenSliders,
@@ -29,7 +28,6 @@ export const Carousel: React.FC<CarouselProps> = ({
     gap: gapBetweenSliders,
     mediaQuery: 'min',
     breakpoints,
-    autoHeight,
     perMove: hasMoreThanOneSlide ? perMove : perPage
   };
 
