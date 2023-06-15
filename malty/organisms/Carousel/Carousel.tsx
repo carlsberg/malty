@@ -2,8 +2,10 @@ import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.but
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 /* eslint-disable import/no-unresolved */
-import '@splidejs/react-splide/css/core';
-import React from 'react';
+// import '@splidejs/react-splide/css/core';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { StyledCustomSplideArrows } from './Carousel.styled';
 import { CarouselItemProps, CarouselProps } from './Carousel.types';
 
@@ -16,6 +18,8 @@ export const Carousel: React.FC<CarouselProps> = ({
   containerPaddingLeftAndRight = '0',
   dataTestId
 }) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const hasMoreThanOneSlide = carouselSlide?.length > 1;
 
   const handlePerPageMaxLimit = (perPageCarousel: number) => {
@@ -53,7 +57,7 @@ export const Carousel: React.FC<CarouselProps> = ({
         ))}
       </SplideTrack>
       {hasMoreThanOneSlide ? (
-        <StyledCustomSplideArrows>
+        <StyledCustomSplideArrows theme={theme}>
           <div className="splide__arrows">
             <div className="splide__arrow splide__arrow--prev">
               <Button
