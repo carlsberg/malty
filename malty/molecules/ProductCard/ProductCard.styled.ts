@@ -4,7 +4,7 @@ import { Text } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 
 export const StyledMargin = styled.div`
-  margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
+  margin: ${({ theme }) => theme.sizes['2xs'].value} 0;
 `;
 export const StyledPillWrapper = styled.div`
   position: absolute;

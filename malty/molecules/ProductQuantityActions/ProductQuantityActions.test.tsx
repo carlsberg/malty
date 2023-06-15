@@ -5,80 +5,116 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { ProductQuantityActions } from './ProductQuantityActions';
+import { ActionButton, ActionQuantityInput } from './ProductQuantityActions.types';
 
-const defaultValue = 2;
 const stock = { label: 'In Stock', stockColor: TextColor.Success };
-const action = {
+const actionButton: ActionButton = {
   color: ButtonColor.DigitalBlack,
-  label: 'Add to cart',
-  onClick: () => null,
-  variant: ButtonStyle.Primary
+  text: 'Add to cart',
+  onClick: jest.fn(),
+  style: ButtonStyle.Primary
 };
-const onInputQuantityChange = jest.fn();
+const actionQuantityInput: ActionQuantityInput = {
+  value: '2',
+  onValueChange: jest.fn()
+};
 
 describe('ProductQuantityActions', () => {
   test('renders with correct content', () => {
-    render(<ProductQuantityActions value={defaultValue} stock={stock} action={action} />);
+    render(
+      <ProductQuantityActions actionButton={actionButton} actionQuantityInput={actionQuantityInput} stock={stock} />
+    );
 
     expect(screen.getByTestId('default-quantity-minus')).toBeInTheDocument();
     expect(screen.getByTestId('default-quantity-plus')).toBeInTheDocument();
-    expect(screen.getByDisplayValue(defaultValue)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(actionQuantityInput.value)).toBeInTheDocument();
     expect(screen.getByText('In Stock')).toBeInTheDocument();
     expect(screen.getByText('Add to cart')).toBeInTheDocument();
   });
 
   test('renders correctly if no optional prop is passed', () => {
-    render(<ProductQuantityActions />);
+    render(<ProductQuantityActions actionButton={actionButton} />);
 
-    expect(screen.getByTestId('default-quantity-minus')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
-    expect(screen.getByTestId('default-quantity-plus')).toBeInTheDocument();
     expect(screen.queryByText('In Stock')).not.toBeInTheDocument();
-    expect(screen.getByTestId('icon-Cart')).toBeInTheDocument();
+
+    // TODO: check if we can get rid of this fallback
+    expect(screen.getByText(actionButton.text ?? '')).toBeInTheDocument();
   });
 
   test('calls onInputQuantityChange correctly', () => {
-    render(<ProductQuantityActions onInputQuantityChange={onInputQuantityChange} />);
+    render(<ProductQuantityActions actionButton={actionButton} actionQuantityInput={actionQuantityInput} />);
 
     const increaseButton = screen.getByTestId('default-quantity-plus');
     userEvent.click(increaseButton);
-    expect(onInputQuantityChange).toHaveBeenCalledTimes(1);
+    expect(actionQuantityInput.onValueChange).toHaveBeenCalledTimes(1);
   });
 
-  test('renders with correct content when hideQuantityInput is true', () => {
-    render(<ProductQuantityActions hideQuantityInput />);
-
-    expect(screen.queryByTestId('default-quantity-minus')).not.toBeInTheDocument();
-    expect(screen.queryByTestId('default-quantity-plus')).not.toBeInTheDocument();
-    expect(screen.queryByDisplayValue('0')).not.toBeInTheDocument();
+  test('renders with correct content when button is disabled', () => {
+    render(<ProductQuantityActions actionButton={{ ...actionButton, disabled: true }} />);
+    expect(screen.getByTestId('default-button')).toBeDisabled();
   });
 
-  test('renders correctly when maxQuantity is set', () => {
+  test('renders with correct content when button is loading', () => {
+    render(<ProductQuantityActions actionButton={{ ...actionButton, loading: true }} />);
+    expect(screen.getByTestId('default-button-loading')).toBeInTheDocument();
+  });
+
+  test('renders with correct content when input quantity is readonly', () => {
+    render(
+      <ProductQuantityActions
+        actionButton={actionButton}
+        actionQuantityInput={{ ...actionQuantityInput, readOnly: true }}
+      />
+    );
+    expect(screen.getByTestId('default')).toHaveAttribute('readonly');
+  });
+
+  test('renders correctly when input quantity min and max is set', () => {
     const ProductQuantityActionsControlled = () => {
-      const [value, setValue] = React.useState(0);
-      return <ProductQuantityActions value={value} maxQuantity={1} onInputQuantityChange={setValue} />;
+      const [value, setValue] = React.useState('0');
+      return (
+        <ProductQuantityActions
+          actionButton={actionButton}
+          actionQuantityInput={{ value, onValueChange: setValue, min: 0, max: 1 }}
+        />
+      );
     };
 
     render(<ProductQuantityActionsControlled />);
 
-    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
     const increaseButton = screen.getByTestId('default-quantity-plus');
+    const decreaseButton = screen.getByTestId('default-quantity-minus');
+
+    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
     expect(increaseButton).toBeEnabled();
+    expect(decreaseButton).toBeDisabled();
+    userEvent.click(decreaseButton);
+    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
     userEvent.click(increaseButton);
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
     expect(increaseButton).toBeDisabled();
+    expect(decreaseButton).toBeEnabled();
     userEvent.click(increaseButton);
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
+    userEvent.click(decreaseButton);
+    expect(screen.getByDisplayValue('0')).toBeInTheDocument();
   });
 
   test('renders correctly when value is changed after initial render', () => {
-    const { rerender } = render(<ProductQuantityActions value={defaultValue} />);
+    const { rerender } = render(
+      <ProductQuantityActions actionButton={actionButton} actionQuantityInput={actionQuantityInput} />
+    );
 
-    expect(screen.getByDisplayValue(defaultValue)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(actionQuantityInput.value)).toBeInTheDocument();
 
-    rerender(<ProductQuantityActions value={10} />);
+    rerender(
+      <ProductQuantityActions
+        actionButton={actionButton}
+        actionQuantityInput={{ ...actionQuantityInput, value: '10' }}
+      />
+    );
 
-    expect(screen.queryByDisplayValue(defaultValue)).not.toBeInTheDocument();
+    expect(screen.queryByDisplayValue(actionQuantityInput.value)).not.toBeInTheDocument();
     expect(screen.getByDisplayValue('10')).toBeInTheDocument();
   });
 });

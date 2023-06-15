@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
@@ -38,22 +37,19 @@ export const ProductCard = ({
   imageWidth,
   title,
   price,
-  onInputQuantityChange = () => null,
   onSelectQuantityChange = () => null,
   onFavoriteClick = () => null,
-  action = { icon: IconName.Cart, onClick: () => null, variant: ButtonStyle.Primary },
+  actionQuantityInput,
+  actionButton,
   sku,
   mro,
   loyalty,
   stock,
-  maxQuantity,
   productsCardsAlerts,
   quantitySelectOptions,
-  hideQuantityInput,
   discountPill,
   promoPill,
   cartPill,
-  quantityValue,
   favoriteIconColor = IconColor.DigitalBlack
 }: ProductCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -138,11 +134,7 @@ export const ProductCard = ({
       }
       cardBody={
         <>
-          {sku ? (
-            <StyledMargin theme={theme}>
-              <Sku sku={sku} mro={mro} dataTestId={dataTestId} />
-            </StyledMargin>
-          ) : null}
+          {sku ? <Sku sku={sku} mro={mro} dataTestId={dataTestId} /> : null}
           <StyledMargin theme={theme}>
             <StyledTitle
               showCursor={!!onProductClick}
@@ -174,14 +166,7 @@ export const ProductCard = ({
             ) : null}
           </StyledRow>
 
-          <ProductQuantityActions
-            stock={stock}
-            action={action}
-            value={quantityValue}
-            hideQuantityInput={hideQuantityInput}
-            maxQuantity={maxQuantity}
-            onInputQuantityChange={onInputQuantityChange}
-          />
+          <ProductQuantityActions stock={stock} actionButton={actionButton} actionQuantityInput={actionQuantityInput} />
           {productsCardsAlerts?.map((alert, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <StyledAlert key={index} theme={theme}>
