@@ -1,4 +1,3 @@
-import { Image } from '@carlsberggroup/malty.atoms.image';
 import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -132,32 +131,32 @@ switch (variant) {
       carouselSlide: [
         {
           id: 1,
-          slideComponent: <img src="https://random.imagecdn.app/1920/600" width="100%" />,
+          slideComponent: <img src="https://picsum.photos/id/45/1920/800" width="100%" />,
           slideDataTestId: 'carousel'
         },
         {
           id: 2,
-          slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
+          slideComponent: <img src="https://picsum.photos/id/15/1920/800" width="100%" />,
           slideDataTestId: 'carousel2'
         },
         {
           id: 3,
-          slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
+          slideComponent: <img src="https://picsum.photos/id/25/1920/800" width="100%" />,
           slideDataTestId: 'carousel3'
         },
         {
           id: 4,
-          slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
+          slideComponent: <img src="https://picsum.photos/id/75/1920/800" width="100%" />,
           slideDataTestId: 'carousel'
         },
         {
           id: 5,
-          slideComponent: <Image src="https://random.imagecdn.app/1920/800" height="300px" />,
+          slideComponent: <img src="https://picsum.photos/id/65/1920/800" width="100%" />,
           slideDataTestId: 'carousel2'
         },
         {
           id: 6,
-          slideComponent: <Image src="https://picsum.photos/id/50/1080/1080" height="300px" />,
+          slideComponent: <img src="https://picsum.photos/id/85/1920/800" width="100%" />,
           slideDataTestId: 'carousel3'
         }
       ],
@@ -165,6 +164,7 @@ switch (variant) {
       negative: false,
       gap: '1rem',
       perPage: 1,
+      containerPaddingLeftAndRight: '0',
       dataTestId: 'malty'
     };
 
