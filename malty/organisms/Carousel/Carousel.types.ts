@@ -1,14 +1,12 @@
-import { ButtonSize } from '@carlsberggroup/malty.atoms.button';
 import { Options, SplideProps } from '@splidejs/react-splide';
 
 export interface CarouselProps extends Pick<SplideProps, 'onVisible'> {
   gap: Options['gap'];
   perPage: Options['perPage'];
-  perMove?: Options['perMove'];
+  containerPaddingLeftAndRight?: number | string;
   negative?: boolean;
-  breakpoints?: Record<string | number, Pick<Options, 'perPage' | 'perMove' | 'gap'>>;
+  breakpoints?: Record<string | number, Pick<Options, 'perPage' | 'gap'>>;
   carouselSlide: CarouselItemProps[];
-  arrowButtonSize?: ButtonSize;
   dataTestId?: string;
 }
 
