@@ -10,8 +10,8 @@ import { CarouselItemProps, CarouselProps } from './Carousel.types';
 export const Carousel: React.FC<CarouselProps> = ({
   carouselSlide,
   breakpoints,
-  enableNegativeCarouselStyle,
-  gapBetweenSliders,
+  negative,
+  gap,
   perPage,
   perMove,
   arrowButtonSize = ButtonSize.Medium,
@@ -19,13 +19,20 @@ export const Carousel: React.FC<CarouselProps> = ({
 }) => {
   const hasMoreThanOneSlide = carouselSlide?.length > 1;
 
+  const handlePerPageMaxLimit = (perPageCarousel: number) => {
+    if (hasMoreThanOneSlide && perPageCarousel >= carouselSlide?.length) {
+      return Number(carouselSlide?.length) - 1;
+    }
+    return perPageCarousel;
+  };
+
   const carouselOptions: Options = {
     type: hasMoreThanOneSlide ? 'loop' : 'slide',
-    perPage: hasMoreThanOneSlide ? perPage : 1,
+    perPage: perPage ? handlePerPageMaxLimit(perPage) : 1,
     arrows: hasMoreThanOneSlide,
     pagination: hasMoreThanOneSlide,
     paginationKeyboard: hasMoreThanOneSlide,
-    gap: gapBetweenSliders,
+    gap,
     mediaQuery: 'min',
     breakpoints,
     perMove: hasMoreThanOneSlide ? perMove : perPage
@@ -55,7 +62,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                 style={ButtonStyle.Primary}
                 aria-label="prev-carousel-btn"
                 tabIndex={0}
-                negative={enableNegativeCarouselStyle}
+                negative={negative}
                 size={arrowButtonSize}
                 icon={IconName.ArrowSmallLeft}
               />
@@ -66,7 +73,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                 style={ButtonStyle.Primary}
                 aria-label="next-carousel-btn"
                 tabIndex={0}
-                negative={enableNegativeCarouselStyle}
+                negative={negative}
                 size={arrowButtonSize}
                 icon={IconName.ArrowSmallRight}
               />

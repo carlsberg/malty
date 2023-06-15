@@ -36,7 +36,7 @@ export default {
         }
       }
     },
-    enableNegativeCarouselStyle: {
+    negative: {
       description: 'If true, the carousel will have a negative style',
       table: {
         category: 'Styling',
@@ -81,7 +81,7 @@ export default {
         }
       }
     },
-    gapBetweenSliders: {
+    gap: {
       description: 'The gap between the slides - Accepts any valid CSS value',
       control: 'text',
       table: {
@@ -107,8 +107,8 @@ export default {
 const Template: Story<CarouselProps> = ({
   carouselSlide,
   breakpoints,
-  enableNegativeCarouselStyle,
-  gapBetweenSliders,
+  negative,
+  gap,
   perPage,
   perMove,
   arrowButtonSize,
@@ -118,8 +118,8 @@ const Template: Story<CarouselProps> = ({
     <CarouselComponent
       carouselSlide={carouselSlide}
       breakpoints={breakpoints}
-      enableNegativeCarouselStyle={enableNegativeCarouselStyle}
-      gapBetweenSliders={gapBetweenSliders}
+      negative={negative}
+      gap={gap}
       perPage={perPage}
       perMove={perMove}
       arrowButtonSize={arrowButtonSize}
@@ -165,8 +165,8 @@ Carousel.args = {
   ],
   arrowButtonSize: ButtonSize.Medium,
   breakpoints: {},
-  enableNegativeCarouselStyle: false,
-  gapBetweenSliders: '1rem',
+  negative: false,
+  gap: '1rem',
   perPage: 1,
   perMove: 1,
   dataTestId: 'malty'
