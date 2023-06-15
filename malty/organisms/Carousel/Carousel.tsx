@@ -13,8 +13,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   negative,
   gap,
   perPage,
-  perMove,
-  arrowButtonSize = ButtonSize.Medium,
+  containerPaddingLeftAndRight = '0',
   dataTestId
 }) => {
   const hasMoreThanOneSlide = carouselSlide?.length > 1;
@@ -34,8 +33,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     paginationKeyboard: hasMoreThanOneSlide,
     gap,
     mediaQuery: 'min',
-    breakpoints,
-    perMove: hasMoreThanOneSlide ? perMove : perPage
+    breakpoints
   };
 
   return (
@@ -45,6 +43,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       options={carouselOptions}
       data-testid={`carousel-container-${dataTestId}`}
       role="group"
+      style={{ padding: `0 ${containerPaddingLeftAndRight}` }}
     >
       <SplideTrack>
         {carouselSlide?.map((item: CarouselItemProps) => (
@@ -63,7 +62,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                 aria-label="prev-carousel-btn"
                 tabIndex={0}
                 negative={negative}
-                size={arrowButtonSize}
+                size={ButtonSize.Medium}
                 icon={IconName.ArrowSmallLeft}
               />
             </div>
@@ -74,7 +73,7 @@ export const Carousel: React.FC<CarouselProps> = ({
                 aria-label="next-carousel-btn"
                 tabIndex={0}
                 negative={negative}
-                size={arrowButtonSize}
+                size={ButtonSize.Medium}
                 icon={IconName.ArrowSmallRight}
               />
             </div>
