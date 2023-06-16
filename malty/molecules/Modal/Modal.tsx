@@ -15,7 +15,7 @@ import {
   StyledModalWrapper,
   StyledTitleContainer
 } from './Modal.styled';
-import { ActionButton, ModalProps, ModalSize } from './Modal.types';
+import { ActionButtonProps, ModalProps, ModalSize } from './Modal.types';
 
 export const Modal = ({
   open,
@@ -55,7 +55,7 @@ export const Modal = ({
 
           {actions && Array.isArray(actions) ? (
             <StyledButtonsWrapper theme={theme}>
-              {actions.map((btnInstance: ActionButton) => (
+              {actions.map((btnInstance: ActionButtonProps) => (
                 <StyledButtonContainer theme={theme} key={btnInstance.key}>
                   <Button fullWidth {...btnInstance} />
                 </StyledButtonContainer>

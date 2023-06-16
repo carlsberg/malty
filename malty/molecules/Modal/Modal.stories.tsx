@@ -29,7 +29,8 @@ export default {
     },
     actions: {
       control: '',
-      description: 'An array of maximum 2 actions structured as such "ActionButton[] | React.ReactNode | JSX.Element"'
+      description:
+        'An array of maximum 2 actions structured as such "ActionButtonProps[] | React.ReactNode | JSX.Element"'
     },
     whiteBackground: {
       control: 'boolean',

@@ -3,13 +3,13 @@ import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React, { useState } from 'react';
 import { Modal } from './Modal';
-import { ActionButton } from './Modal.types';
+import { ActionButtonProps } from './Modal.types';
 
 const title = 'Headline';
 const text = (
   <p>Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is just boring…</p>
 );
-const buttons: ActionButton[] = [
+const buttons: ActionButtonProps[] = [
   {
     key: 'pprimary',
     style: ButtonStyle.Secondary,
