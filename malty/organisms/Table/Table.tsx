@@ -13,6 +13,7 @@ import {
   getSortedRowModel,
   OnChangeFn,
   PaginationState,
+  Row,
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
@@ -103,6 +104,10 @@ export const Table = ({
     setSorting(value);
   };
 
+  const handleGetRowId = (row: TableRowProps, _: number, parent?: Row<TableRowProps>) => {
+    return parent ? [parent.id, row.id].join('.') : row.id.toString();
+  };
+
   const table = useReactTable({
     data,
     columns,
@@ -119,7 +124,8 @@ export const Table = ({
     onPaginationChange: setPagination,
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: handleOnSortingChange,
-    getSortedRowModel: getSortedRowModel()
+    getSortedRowModel: getSortedRowModel(),
+    getRowId: handleGetRowId
   });
 
   const handlePageChange = (page: number | string) => {
