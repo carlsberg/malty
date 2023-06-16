@@ -11,7 +11,7 @@ export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> 
 
 export enum HeadlineStyle {
   Display = 'display',
-  Hero = 'hero',
+  Banner = 'banner',
   Huge = 'huge',
   Big = 'big',
   Large = 'large',

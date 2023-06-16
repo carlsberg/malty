@@ -68,7 +68,7 @@
     }
   },
   "xlarge": {
-    "device-min-width": {
+    "device-max-width": {
       "value": "1367px"
     },
     "grid-width": {

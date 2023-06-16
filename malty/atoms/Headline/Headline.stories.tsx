@@ -64,7 +64,7 @@ const Template: Story<HeadlineProps> = ({ align, color, children, as }) => (
     <HeadlineComponent headlineStyle={HeadlineStyle.Display} align={align} color={color} as={as}>
       {children}
     </HeadlineComponent>
-    <HeadlineComponent headlineStyle={HeadlineStyle.Hero} align={align} color={color} as={as}>
+    <HeadlineComponent headlineStyle={HeadlineStyle.Banner} align={align} color={color} as={as}>
       {children}
     </HeadlineComponent>
     <HeadlineComponent headlineStyle={HeadlineStyle.Huge} align={align} color={color} as={as}>

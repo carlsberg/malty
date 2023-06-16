@@ -49,7 +49,16 @@
         "scope": "carlsberggroup.malty",
         "version": "0.0.10",
         "mainFile": "index.ts",
-        "rootDir": "malty/atoms/Hero"
+        "rootDir": "malty/atoms/Hero",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true,
+                "newId": {
+                    "name": "molecules/banner",
+                    "scope": "carlsberggroup.malty"
+                }
+            }
+        }
     },
     "atoms/icon": {
         "scope": "carlsberggroup.malty",
@@ -1509,6 +1518,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/Avatar"
     },
+    "molecules/banner": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Banner"
+    },
     "molecules/datepicker": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
@@ -1520,6 +1535,12 @@
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Footer"
+    },
+    "molecules/hero": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/Hero"
     },
     "molecules/loading": {
         "scope": "carlsberggroup.malty",
@@ -1616,6 +1637,18 @@
         "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/consts"
+    },
+    "utils/helpers": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/helpers"
+    },
+    "utils/hooks": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/hooks"
     },
     "utils/mixins": {
         "scope": "carlsberggroup.malty",

@@ -24,7 +24,7 @@
           "value": "black"
         }
       },
-      "hero": {
+      "banner": {
         "font-family": {
           "value": "'Montserrat', 'sans-serif'"
         },
@@ -520,7 +520,7 @@
           "value": "black"
         }
       },
-      "hero": {
+      "banner": {
         "font-family": {
           "value": "'Montserrat', 'sans-serif'"
         },
@@ -1016,7 +1016,7 @@
           "value": "black"
         }
       },
-      "hero": {
+      "banner": {
         "font-family": {
           "value": "'Montserrat', 'sans-serif'"
         },

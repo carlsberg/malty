@@ -18,22 +18,22 @@ export const Headline = ({
   const allowedTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
 
   switch (headlineStyle) {
-    case 'hero':
+    case HeadlineStyle.Banner:
       StyledTagHeadline = 'h2';
       break;
-    case 'huge':
+    case HeadlineStyle.Huge:
       StyledTagHeadline = 'h3';
       break;
-    case 'big':
+    case HeadlineStyle.Big:
       StyledTagHeadline = 'h4';
       break;
-    case 'large':
+    case HeadlineStyle.Large:
       StyledTagHeadline = 'h5';
       break;
-    case 'medium-large':
+    case HeadlineStyle.MediumLarge:
       StyledTagHeadline = 'h6';
       break;
-    case 'medium':
+    case HeadlineStyle.Medium:
       StyledTagHeadline = 'p';
       break;
     default:

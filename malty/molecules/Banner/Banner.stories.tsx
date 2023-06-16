@@ -1,23 +1,30 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
-import { Hero as HeroComponent } from './Hero';
-import { HeroLayout, HeroProps } from './Hero.types';
+import { Banner as BannerComponent } from './Banner';
+import { BannerLayout, BannerProps } from './Banner.types';
+
+enum BannerVariants {
+  Negative = 'negative',
+  Half = 'half',
+  Third = 'third',
+  Reverse = 'reverse'
+}
 
 export default {
-  title: 'Layout/Hero',
-  component: HeroComponent,
+  title: 'Layout/Banner',
+  component: BannerComponent,
   parameters: {
-    importObject: 'Hero',
-    importPath: '@carlsberggroup/malty.atoms.Hero',
-    variants: ['negative', 'half', 'third', 'reverse']
+    importObject: 'Banner',
+    importPath: '@carlsberggroup/malty.atoms.banner',
+    variants: Object.values(BannerVariants)
   },
   argTypes: {
     layout: {
       control: {
         type: 'select'
       },
-      options: Object.values(HeroLayout),
+      options: Object.values(BannerLayout),
       description: 'Picks the layout of the Content and Image'
     },
     reverse: {
@@ -30,11 +37,11 @@ export default {
     },
     title: {
       control: 'text',
-      description: 'Hero title'
+      description: 'Banner title'
     },
     description: {
       control: 'text',
-      description: 'Hero description'
+      description: 'Banner description'
     },
     label: {
       control: '',
@@ -48,53 +55,50 @@ export default {
     },
     actions: {
       control: '',
-      description: `An array of maximum 2 actions structured as such "actions?:
-    | {
-        variant: ButtonStyle;
-        label: string;
-        onClick: () => void;
-        key?: string;
-      }[]" or any html or JSX element `
+      description:
+        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
     },
     imageSrc: {
       control: 'text',
-      description: 'Hero Image URL'
+      description: 'Banner Image URL'
     },
     imageHeight: {
       control: 'text',
-      description: 'Hero Image Size override (in pixels)'
+      description: 'Banner Image Size override (in pixels)'
     }
   }
 } as Meta;
 
-const Template: Story<HeroProps> = (args) => {
-  return <HeroComponent {...args} />;
+const Template: Story<BannerProps> = (args) => {
+  return <BannerComponent {...args} />;
 };
 
-export const Hero = Template.bind({});
+export const Banner = Template.bind({});
 
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'negative':
-    Hero.args = {
+  case BannerVariants.Negative:
+    Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       imageSrc: 'https://picsum.photos/id/785/1400/800',
       reverse: false,
       negative: true,
-      layout: HeroLayout.Full,
+      layout: BannerLayout.Full,
       label: {
         text: 'Label'
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -102,24 +106,26 @@ switch (variant) {
       ]
     };
     break;
-  case 'half':
-    Hero.args = {
+  case BannerVariants.Half:
+    Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       imageSrc: 'https://picsum.photos/id/785/1400/800',
       reverse: false,
       negative: false,
-      layout: HeroLayout.Half,
+      layout: BannerLayout.Half,
       label: {
         text: 'Label'
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -127,24 +133,26 @@ switch (variant) {
       ]
     };
     break;
-  case 'third':
-    Hero.args = {
+  case BannerVariants.Third:
+    Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       imageSrc: 'https://picsum.photos/id/785/1400/800',
       reverse: false,
       negative: false,
-      layout: HeroLayout.Third,
+      layout: BannerLayout.Third,
       label: {
         text: 'Label'
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -152,24 +160,26 @@ switch (variant) {
       ]
     };
     break;
-  case 'reverse':
-    Hero.args = {
+  case BannerVariants.Reverse:
+    Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       imageSrc: 'https://picsum.photos/id/785/1400/800',
       reverse: true,
       negative: false,
-      layout: HeroLayout.Half,
+      layout: BannerLayout.Half,
       label: {
         text: 'Label'
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -178,23 +188,25 @@ switch (variant) {
     };
     break;
   default:
-    Hero.args = {
+    Banner.args = {
       title: 'Headline',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       imageSrc: 'https://picsum.photos/id/785/1400/800',
       reverse: false,
       negative: false,
-      layout: HeroLayout.Full,
+      layout: BannerLayout.Full,
       label: {
         text: 'Label'
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')

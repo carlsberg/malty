@@ -1,14 +1,14 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { Button } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Pill, PillColor, PillProps, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledButtonsWrapper, StyledHeroContainer, StyledHeroContent, StyledHeroImage } from './Hero.styled';
-import { HeroLayout, HeroProps } from './Hero.types';
+import { StyledBannerContainer, StyledBannerContent, StyledBannerImage, StyledButtonsWrapper } from './Banner.styled';
+import { ActionButtonProps, BannerLayout, BannerProps } from './Banner.types';
 
-export const Hero = ({
+export const Banner = ({
   imageSrc,
   imageHeight,
   label,
@@ -16,10 +16,10 @@ export const Hero = ({
   description,
   negative = false,
   reverse = false,
-  layout = HeroLayout.Full,
+  layout = BannerLayout.Full,
   actions,
-  dataTestId = 'hero-component'
-}: HeroProps) => {
+  dataTestId = 'banner-component'
+}: BannerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const labelProps: PillProps = {
@@ -35,14 +35,14 @@ export const Hero = ({
   }
 
   return (
-    <StyledHeroContainer negative={negative} reverse={reverse} layout={layout} theme={theme} data-testid={dataTestId}>
-      <StyledHeroContent layout={layout} theme={theme} data-testid={`${dataTestId}-content`}>
+    <StyledBannerContainer negative={negative} reverse={reverse} layout={layout} theme={theme} data-testid={dataTestId}>
+      <StyledBannerContent layout={layout} theme={theme} data-testid={`${dataTestId}-content`}>
         {label ? (
           <Pill text={labelProps.text} color={labelProps.color} size={labelProps.size} icon={labelProps.icon} />
         ) : null}
         {title ? (
           <Headline
-            headlineStyle={HeadlineStyle.Hero}
+            headlineStyle={HeadlineStyle.Banner}
             color={negative ? HeadlineColor.White : HeadlineColor.DigitalBlack}
           >
             {title}
@@ -55,25 +55,15 @@ export const Hero = ({
         ) : null}
         {actions && Array.isArray(actions) ? (
           <StyledButtonsWrapper theme={theme}>
-            {actions.map((btnInstance, index: number) => (
-              <div key={btnInstance.key || `button${index}`}>
-                <Button
-                  size={ButtonSize.Large}
-                  style={ButtonStyle[btnInstance.variant as ButtonStyle]}
-                  negative={negative}
-                  onClick={btnInstance.onClick}
-                  url={btnInstance.url}
-                >
-                  {btnInstance.label}
-                </Button>
-              </div>
+            {actions.map((btnInstance: ActionButtonProps) => (
+              <Button {...btnInstance} key={btnInstance.key} negative={negative} />
             ))}
           </StyledButtonsWrapper>
         ) : (
           actions
         )}
-      </StyledHeroContent>
-      <StyledHeroImage
+      </StyledBannerContent>
+      <StyledBannerImage
         layout={layout}
         negative={negative}
         imageSrc={imageSrc}
@@ -81,6 +71,6 @@ export const Hero = ({
         theme={theme}
         data-testid={`${dataTestId}-image`}
       />
-    </StyledHeroContainer>
+    </StyledBannerContainer>
   );
 };
