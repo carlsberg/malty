@@ -1,9 +1,9 @@
+/* eslint-disable import/no-unresolved */
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-/* eslint-disable import/no-unresolved */
-// import '@splidejs/react-splide/css/core';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css/core';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledCustomSplideArrows } from './Carousel.styled';
