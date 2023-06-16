@@ -1,4 +1,5 @@
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
+import { getBreakpointNumber } from '@carlsberggroup/malty.utils.helpers';
 import { useEffect, useState } from 'react';
 
 export enum Device {
@@ -6,8 +7,8 @@ export enum Device {
   Tablet = 'tablet',
   Desktop = 'desktop'
 }
-const minWidthTablet = `${Number(layoutProps.xsmall['device-max-width'].value.split('px')[0]) + 1}px`;
-const minWidthDesktop = `${Number(layoutProps.small['device-max-width'].value.split('px')[0]) + 1}px`;
+const minWidthTablet = `${getBreakpointNumber(layoutProps.xsmall['device-max-width'].value) + 1}px`;
+const minWidthDesktop = `${getBreakpointNumber(layoutProps.small['device-max-width'].value) + 1}px`;
 const mobileBreakpoint = `(max-width: ${layoutProps.xsmall['device-max-width'].value})`;
 const tabletBreakpoint = `(min-width: ${minWidthTablet}) and (max-width: ${layoutProps.small['device-max-width'].value})`;
 const desktopBreakpoint = `(min-width: ${minWidthDesktop})`;

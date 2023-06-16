@@ -50,8 +50,8 @@ export const Hero = ({
         </Headline>
         {actions && Array.isArray(actions) ? (
           <StyledActionsWrapper theme={theme}>
-            {actions.slice(0, 2).map((action: ActionButtonProps, index) => (
-              <Button {...action} key={action.key || index} size={ButtonSize.Large} fullWidth={isMobile} />
+            {actions.slice(0, 2).map((action: ActionButtonProps) => (
+              <Button {...action} key={action.key} size={ButtonSize.Large} fullWidth={isMobile} />
             ))}
           </StyledActionsWrapper>
         ) : (

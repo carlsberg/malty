@@ -1,6 +1,6 @@
 import { ButtonProps } from '@carlsberggroup/malty.atoms.button';
 
-export type ActionButtonProps = { key?: string } & Pick<
+export type ActionButtonProps = { key: React.Key } & Pick<
   ButtonProps,
   'color' | 'style' | 'text' | 'negative' | 'url' | 'onClick'
 >;

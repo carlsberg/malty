@@ -1,4 +1,4 @@
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { ButtonProps } from '@carlsberggroup/malty.atoms.button';
 import { PillProps } from '@carlsberggroup/malty.atoms.pill';
 
 export enum BannerLayout {
@@ -6,6 +6,11 @@ export enum BannerLayout {
   Half = 'half',
   Third = 'third'
 }
+
+export type ActionButtonProps = { key: React.Key } & Pick<
+  ButtonProps,
+  'color' | 'style' | 'text' | 'negative' | 'url' | 'onClick'
+>;
 
 export interface BannerProps {
   layout?: BannerLayout;
@@ -17,14 +22,5 @@ export interface BannerProps {
   title: string;
   description?: string;
   dataTestId?: string;
-  actions?:
-    | {
-        variant: ButtonStyle;
-        label: string;
-        onClick?: () => void;
-        url?: string;
-        key?: string;
-      }[]
-    | React.ReactNode
-    | JSX.Element;
+  actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;
 }

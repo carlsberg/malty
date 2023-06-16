@@ -15,12 +15,14 @@ describe('Hero', () => {
 
   const actions: ActionButtonProps[] = [
     {
+      key: 'primary',
       color: ButtonColor.ThemePrimary,
       style: ButtonStyle.Primary,
       text: 'I want to know more',
       onClick: jest.fn()
     },
     {
+      key: 'secondary',
       color: ButtonColor.ThemePrimary,
       style: ButtonStyle.Secondary,
       text: 'I am ok',

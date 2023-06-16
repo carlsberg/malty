@@ -1638,6 +1638,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/utils/consts"
     },
+    "utils/helpers": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/helpers"
+    },
     "utils/hooks": {
         "scope": "",
         "version": "",

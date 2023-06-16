@@ -55,13 +55,8 @@ export default {
     },
     actions: {
       control: '',
-      description: `An array of maximum 2 actions structured as such "actions?:
-    | {
-        variant: ButtonStyle;
-        label: string;
-        onClick: () => void;
-        key?: string;
-      }[]" or any html or JSX element `
+      description:
+        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
     },
     imageSrc: {
       control: 'text',
@@ -97,11 +92,13 @@ switch (variant) {
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -122,11 +119,13 @@ switch (variant) {
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -147,11 +146,13 @@ switch (variant) {
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -172,11 +173,13 @@ switch (variant) {
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')
@@ -197,11 +200,13 @@ switch (variant) {
       },
       actions: [
         {
+          key: 'primary',
           variant: ButtonStyle.Primary,
           label: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
+          key: 'secondary',
           variant: ButtonStyle.Secondary,
           label: 'Secondary',
           onClick: () => alert('secondary button pressed')

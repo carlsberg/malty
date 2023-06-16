@@ -79,11 +79,13 @@ switch (variant) {
       ...requiredProps,
       actions: [
         {
+          key: 'primary',
           style: ButtonStyle.Primary,
           text: 'I want to know more',
           onClick: () => alert('First button pressed!')
         },
         {
+          key: 'secondary',
           style: ButtonStyle.Secondary,
           text: 'I am ok',
           onClick: () => alert('Second button pressed!')
@@ -102,6 +104,7 @@ switch (variant) {
       ...requiredProps,
       actions: [
         {
+          key: 'primary',
           negative: true,
           color: ButtonColor.DigitalBlack,
           style: ButtonStyle.Primary,
@@ -109,6 +112,7 @@ switch (variant) {
           onClick: () => alert('First button pressed!')
         },
         {
+          key: 'secondary',
           negative: true,
           color: ButtonColor.DigitalBlack,
           style: ButtonStyle.Secondary,

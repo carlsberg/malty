@@ -1,4 +1,4 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { Button } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Pill, PillColor, PillProps, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
@@ -6,7 +6,7 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledBannerContainer, StyledBannerContent, StyledBannerImage, StyledButtonsWrapper } from './Banner.styled';
-import { BannerLayout, BannerProps } from './Banner.types';
+import { ActionButtonProps, BannerLayout, BannerProps } from './Banner.types';
 
 export const Banner = ({
   imageSrc,
@@ -55,18 +55,8 @@ export const Banner = ({
         ) : null}
         {actions && Array.isArray(actions) ? (
           <StyledButtonsWrapper theme={theme}>
-            {actions.map((btnInstance, index: number) => (
-              <div key={btnInstance.key || `button${index}`}>
-                <Button
-                  size={ButtonSize.Large}
-                  style={ButtonStyle[btnInstance.variant as ButtonStyle]}
-                  negative={negative}
-                  onClick={btnInstance.onClick}
-                  url={btnInstance.url}
-                >
-                  {btnInstance.label}
-                </Button>
-              </div>
+            {actions.map((btnInstance: ActionButtonProps) => (
+              <Button {...btnInstance} key={btnInstance.key} negative={negative} />
             ))}
           </StyledButtonsWrapper>
         ) : (
