@@ -1,4 +1,4 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { Button } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineAlign, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
@@ -15,7 +15,7 @@ import {
   StyledModalWrapper,
   StyledTitleContainer
 } from './Modal.styled';
-import { ModalProps, ModalSize } from './Modal.types';
+import { ActionButtonProps, ModalProps, ModalSize } from './Modal.types';
 
 export const Modal = ({
   open,
@@ -32,6 +32,7 @@ export const Modal = ({
     onClose();
   };
   const theme = useContext(ThemeContext) || defaultTheme;
+
   return open ? (
     <>
       <Overlay isWhite={whiteBackground} zIndex={overlayZindex} />
@@ -54,16 +55,9 @@ export const Modal = ({
 
           {actions && Array.isArray(actions) ? (
             <StyledButtonsWrapper theme={theme}>
-              {actions.map((btnInstance, index: number) => (
-                <StyledButtonContainer theme={theme} key={btnInstance.key || `button${index}`}>
-                  <Button
-                    fullWidth
-                    size={ButtonSize.Large}
-                    style={ButtonStyle[btnInstance.variant as ButtonStyle]}
-                    onClick={btnInstance.onClick}
-                  >
-                    {btnInstance.label}
-                  </Button>
+              {actions.map((btnInstance: ActionButtonProps) => (
+                <StyledButtonContainer theme={theme} key={btnInstance.key}>
+                  <Button fullWidth {...btnInstance} />
                 </StyledButtonContainer>
               ))}
             </StyledButtonsWrapper>
