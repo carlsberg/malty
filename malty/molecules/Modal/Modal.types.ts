@@ -6,9 +6,7 @@ export enum ModalSize {
   XLarge = 'XLarge'
 }
 
-export type ActionButton = { key?: string } & Pick<ButtonProps, 'text' | 'style' | 'color' | 'onClick'>;
-
-export type Actions = ActionButton[] | React.ReactNode | JSX.Element;
+export type ActionButton = { key: React.Key } & Pick<ButtonProps, 'text' | 'style' | 'color' | 'onClick'>;
 
 export interface ModalProps {
   open: boolean;
@@ -19,5 +17,5 @@ export interface ModalProps {
   content: React.ReactNode | JSX.Element;
   size?: ModalSize;
   overlayZindex?: number;
-  actions?: Actions;
+  actions?: ActionButton[] | React.ReactNode | JSX.Element;
 }
