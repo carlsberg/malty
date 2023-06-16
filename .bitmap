@@ -1547,13 +1547,13 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
     "molecules/product-quantity-actions": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductQuantityActions"
     },
