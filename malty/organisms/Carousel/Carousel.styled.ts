@@ -21,8 +21,8 @@ export const StyledCustomSplideArrows = styled.div`
     .splide__pagination__page {
       display: block;
       border: none;
-      width: 8px;
-      height: 8px;
+      width: ${({ theme }) => theme.sizes['2xs'].value};
+      height: ${({ theme }) => theme.sizes['2xs'].value};
       border-radius: 50%;
       padding: 0;
       background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][25].value};
