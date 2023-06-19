@@ -15,7 +15,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   negative,
   gap,
   perPage,
-  containerPaddingLeftAndRight = '0',
+  paddingX = '0',
   dataTestId
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -47,7 +47,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       options={carouselOptions}
       data-testid={`carousel-container-${dataTestId}`}
       role="group"
-      style={{ padding: `0 ${containerPaddingLeftAndRight}` }}
+      style={{ padding: `0 ${paddingX}` }}
     >
       <SplideTrack>
         {carouselSlide?.map((item: CarouselItemProps) => (

@@ -67,8 +67,9 @@ export default {
         }
       }
     },
-    containerPaddingLeftAndRight: {
-      description: 'Paddings left and right that will help positioning arrows - Accepts any valid CSS value',
+    paddingX: {
+      description:
+        'Paddings left and right applied in the container that will help positioning arrows - Accepts any valid CSS value',
       control: 'text',
       table: {
         category: 'Configuration',
@@ -105,7 +106,7 @@ const Template: Story<CarouselProps> = ({
   negative,
   gap,
   perPage,
-  containerPaddingLeftAndRight,
+  paddingX,
   dataTestId
 }) => {
   return (
@@ -115,7 +116,7 @@ const Template: Story<CarouselProps> = ({
       negative={negative}
       gap={gap}
       perPage={perPage}
-      containerPaddingLeftAndRight={containerPaddingLeftAndRight}
+      paddingX={paddingX}
       dataTestId={dataTestId}
     />
   );
@@ -164,7 +165,7 @@ switch (variant) {
       negative: false,
       gap: '1rem',
       perPage: 1,
-      containerPaddingLeftAndRight: '0',
+      paddingX: '0',
       dataTestId: 'malty'
     };
 
@@ -243,7 +244,7 @@ switch (variant) {
       negative: false,
       gap: '1rem',
       perPage: 3,
-      containerPaddingLeftAndRight: '0',
+      paddingX: '0',
       dataTestId: 'malty'
     };
 
