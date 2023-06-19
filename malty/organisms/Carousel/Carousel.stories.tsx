@@ -9,7 +9,7 @@ export default {
   component: CarouselComponent,
   parameters: {
     importObject: 'Carousel',
-    importPath: '@carlsberggroup/malty.organisms.Carousel',
+    importPath: '@carlsberggroup/malty.organisms.carousel',
     variants: ['default', 'image'],
     controls: {
       sort: 'requiredFirst'
