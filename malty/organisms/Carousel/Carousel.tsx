@@ -21,11 +21,12 @@ export const Carousel: React.FC<CarouselProps> = ({
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  const hasMoreThanOneSlide = carouselSlide?.length > 1;
+  const slidesAmount = carouselSlide?.length ?? 0;
+  const hasMoreThanOneSlide = slidesAmount > 1;
 
   const handlePerPageMaxLimit = (perPageCarousel: number) => {
-    if (hasMoreThanOneSlide && perPageCarousel >= carouselSlide?.length) {
-      return Number(carouselSlide?.length) - 1;
+    if (hasMoreThanOneSlide && perPageCarousel >= slidesAmount) {
+      return slidesAmount - 1;
     }
     return perPageCarousel;
   };
