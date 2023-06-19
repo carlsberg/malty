@@ -6,6 +6,18 @@ import { Hero } from './Hero';
 import { ActionButtonProps, HeroProps } from './Hero.types';
 
 describe('Hero', () => {
+  // TODO: find a way to incldue this on the jest-setup.ts and make it work when using "bit test"
+  window.matchMedia = jest.fn().mockImplementation(() => {
+    return {
+      matches: false,
+      media: '',
+      onchange: null,
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
+      dispatchEvent: jest.fn()
+    };
+  });
+
   const heroProps: HeroProps = {
     title: 'This is the title of the banner',
     description: 'This is the description of the banner',
