@@ -7,7 +7,7 @@ export type CarouselProps = {
   paddingX?: number | string;
   ariaLabels?: CarouselAriaLabels;
   breakpoints?: Record<string | number, Pick<Options, 'perPage' | 'gap'>>;
-} & Pick<SplideProps, 'onVisible' | 'aria-label'> &
+} & Pick<SplideProps, 'onVisible'> &
   Pick<Options, 'gap' | 'perPage'>;
 
 export interface CarouselItemProps {
