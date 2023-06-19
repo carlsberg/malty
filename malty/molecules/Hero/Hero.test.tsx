@@ -6,7 +6,7 @@ import { Hero } from './Hero';
 import { ActionButtonProps, HeroProps } from './Hero.types';
 
 describe('Hero', () => {
-  // TODO: find a way to incldue this on the jest-setup.ts and make it work when using "bit test"
+  // TODO: find a way to include this on the jest-setup.ts and make it work when using "bit test"
   window.matchMedia = jest.fn().mockImplementation(() => {
     return {
       matches: false,
