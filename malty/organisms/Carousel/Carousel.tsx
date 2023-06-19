@@ -17,6 +17,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   perPage,
   paddingX = '0',
   ariaLabels,
+  onVisible,
   dataTestId
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -49,6 +50,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       data-testid={`carousel-container-${dataTestId}`}
       role="group"
       style={{ padding: `0 ${paddingX}` }}
+      onVisible={onVisible}
       aria-label={ariaLabels?.carousel}
     >
       <SplideTrack>
