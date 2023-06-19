@@ -76,7 +76,7 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
-    "@typescript-eslint/parser": "^5.53.0",
+    "@typescript-eslint/parser": "^5.60.0",
     "babel-jest": "^29.4.1",
     "babel-loader": "^9.1.2",
     "babel-plugin-transform-hoist-jsx-style": "^1.0.0",
