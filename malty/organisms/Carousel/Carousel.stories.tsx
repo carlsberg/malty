@@ -78,6 +78,16 @@ export default {
         }
       }
     },
+    ariaLabels: {
+      description: 'Aria labels for the carousel and its elements - next & prev arrow buttons',
+      control: 'text',
+      table: {
+        category: 'Configuration',
+        defaultValue: {
+          summary: 'none'
+        }
+      }
+    },
     breakpoints: {
       description: 'Object of breakpoints for the carousel',
       control: 'object',
@@ -145,6 +155,11 @@ switch (variant) {
       ],
       breakpoints: {},
       negative: false,
+      ariaLabels: {
+        carousel: 'images-carousel',
+        next: 'next-image',
+        prev: 'previous-image'
+      },
       gap: '1rem',
       perPage: 1,
       paddingX: '0',
@@ -224,6 +239,11 @@ switch (variant) {
       ],
       breakpoints: {},
       negative: false,
+      ariaLabels: {
+        carousel: 'products-carousel',
+        next: 'next-product',
+        prev: 'previous-product'
+      },
       gap: '1rem',
       perPage: 3,
       paddingX: '0',

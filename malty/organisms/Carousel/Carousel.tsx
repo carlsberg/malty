@@ -16,6 +16,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   gap,
   perPage,
   paddingX = '0',
+  ariaLabels,
   dataTestId
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -43,11 +44,11 @@ export const Carousel: React.FC<CarouselProps> = ({
   return (
     <Splide
       hasTrack={false}
-      aria-label="malty-carousel"
       options={carouselOptions}
       data-testid={`carousel-container-${dataTestId}`}
       role="group"
       style={{ padding: `0 ${paddingX}` }}
+      aria-label={ariaLabels?.carousel}
     >
       <SplideTrack>
         {carouselSlide?.map((item: CarouselItemProps) => (
@@ -63,7 +64,7 @@ export const Carousel: React.FC<CarouselProps> = ({
               <Button
                 dataTestId={`prev-carousel-btn-${dataTestId}`}
                 style={ButtonStyle.Primary}
-                aria-label="prev-carousel-btn"
+                aria-label={ariaLabels?.prev}
                 tabIndex={0}
                 negative={negative}
                 size={ButtonSize.Medium}
@@ -74,7 +75,7 @@ export const Carousel: React.FC<CarouselProps> = ({
               <Button
                 dataTestId={`next-carousel-btn-${dataTestId}`}
                 style={ButtonStyle.Primary}
-                aria-label="next-carousel-btn"
+                aria-label={ariaLabels?.next}
                 tabIndex={0}
                 negative={negative}
                 size={ButtonSize.Medium}

@@ -5,12 +5,19 @@ export type CarouselProps = {
   negative?: boolean;
   carouselSlide: CarouselItemProps[];
   paddingX?: number | string;
+  ariaLabels?: CarouselAriaLabels;
   breakpoints?: Record<string | number, Pick<Options, 'perPage' | 'gap'>>;
-} & Pick<SplideProps, 'onVisible'> &
+} & Pick<SplideProps, 'onVisible' | 'aria-label'> &
   Pick<Options, 'gap' | 'perPage'>;
 
 export interface CarouselItemProps {
   id?: string | number;
   slideDataTestId?: string;
   slideComponent?: SplideProps['children'];
+}
+
+export interface CarouselAriaLabels {
+  prev?: string;
+  next?: string;
+  carousel?: string;
 }
