@@ -100,26 +100,8 @@ export default {
   }
 } as Meta;
 
-const Template: Story<CarouselProps> = ({
-  carouselSlide,
-  breakpoints,
-  negative,
-  gap,
-  perPage,
-  paddingX,
-  dataTestId
-}) => {
-  return (
-    <CarouselComponent
-      carouselSlide={carouselSlide}
-      breakpoints={breakpoints}
-      negative={negative}
-      gap={gap}
-      perPage={perPage}
-      paddingX={paddingX}
-      dataTestId={dataTestId}
-    />
-  );
+const Template: Story<CarouselProps> = (props) => {
+  return <CarouselComponent {...props} />;
 };
 
 export const Carousel = Template.bind({});
