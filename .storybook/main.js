@@ -1,9 +1,24 @@
+const path = require('path');
 module.exports = {
   stories: ['../malty/**/**/*.stories.mdx', '../malty/**/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
+    // '@storybook/addon-storysource',
     {
       name: '@storybook/addon-links',
       name: '@storybook/addon-essentials'
+      // name: '@storybook/addon-storysource'
+    },
+    {
+      name: '@storybook/addon-storysource',
+      options: {
+        rule: {
+          test: [/\.stories\.jsx?$/], // This is default
+          include: [path.resolve(__dirname, '../malty/**/**/*.stories.@(js|jsx|ts|tsx)')]
+        },
+        loaderOptions: {
+          prettierConfig: { printWidth: 80, singleQuote: false }
+        }
+      }
     }
   ],
   typescript: {
