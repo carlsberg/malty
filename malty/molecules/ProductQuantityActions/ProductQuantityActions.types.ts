@@ -1,24 +1,19 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { ButtonProps } from '@carlsberggroup/malty.atoms.button';
+import { InputProps } from '@carlsberggroup/malty.atoms.input';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 
+export interface Stock {
+  label: string;
+  labelColor?: TextColor;
+  stockColor?: TextColor;
+  availability?: string;
+}
+export type ActionButton = Pick<ButtonProps, 'text' | 'icon' | 'style' | 'disabled' | 'loading' | 'color' | 'onClick'>;
+
+export type ActionQuantityInput = Pick<InputProps, 'value' | 'min' | 'max' | 'readOnly' | 'onValueChange'>;
 export interface ProductQuantityActionsProps {
   dataTestId?: string;
-  value?: number;
-  maxQuantity?: number;
-  hideQuantityInput?: boolean;
-  stock?: {
-    label: string;
-    labelColor?: TextColor;
-    stockColor?: TextColor;
-    availability?: string;
-  };
-  action?: {
-    variant: ButtonStyle;
-    color?: ButtonColor;
-    label?: string;
-    icon?: IconName;
-    onClick: () => void;
-  };
-  onInputQuantityChange?: (value: number) => void;
+  stock?: Stock;
+  actionQuantityInput?: ActionQuantityInput;
+  actionButton: ActionButton;
 }

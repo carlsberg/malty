@@ -2,6 +2,7 @@ export interface AlertBannerProps {
   alerts: AlertBannerI[];
   breakpoint?: string;
   animation?: AnimatedProps;
+  onActiveAlertChange?: (currentAlert: AlertBannerI) => void;
 }
 
 export interface AnimatedProps {

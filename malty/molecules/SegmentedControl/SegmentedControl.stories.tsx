@@ -1,14 +1,14 @@
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
-import { SegmentController as SegmentControllerComponent } from './SegmentController';
-import { SegmentControllerOptions, SegmentControllerProps, SegmentControllerSize } from './SegmentController.types';
+import { SegmentedControl as SegmentedControlComponent } from './SegmentedControl';
+import { SegmentedControlOptions, SegmentedControlProps, SegmentedControlSize } from './SegmentedControl.types';
 
 export default {
-  title: 'Forms/SegmentedControl',
-  component: SegmentControllerComponent,
+  title: 'Forms/Segmented Control',
+  component: SegmentedControlComponent,
   parameters: {
-    importObject: 'SegmentController',
-    importPath: '@carlsberggroup/malty.molecules.SegmentController'
+    importObject: 'SegmentedControl',
+    importPath: '@carlsberggroup/malty.molecules.segmented-control'
   },
   argTypes: {
     options: {
@@ -19,10 +19,10 @@ export default {
     },
     size: {
       description: 'Segmented Control size. Options are',
-      options: Object.values(SegmentControllerSize),
+      options: Object.values(SegmentedControlSize),
       table: {
         defaultValue: {
-          summary: 'SegmentControllerSize.Medium'
+          summary: 'SegmentedControlSize.Medium'
         }
       },
       control: {
@@ -40,7 +40,7 @@ export default {
     }
   }
 };
-const segmentControlOptions1: SegmentControllerOptions[] = [
+const segmentedControlOptions1: SegmentedControlOptions[] = [
   {
     value: 'value 1',
     label: 'name 1'
@@ -50,7 +50,7 @@ const segmentControlOptions1: SegmentControllerOptions[] = [
     label: 'name 2'
   }
 ];
-const segmentControlOptions2: SegmentControllerOptions[] = [
+const segmentedControlOptions2: SegmentedControlOptions[] = [
   {
     value: 'value 1',
     label: 'name 1'
@@ -64,9 +64,9 @@ const segmentControlOptions2: SegmentControllerOptions[] = [
     label: 'name 3'
   }
 ];
-const Template: Story<SegmentControllerProps> = (args) => {
-  const [selected, setselected] = useState(segmentControlOptions1[1].value);
-  return <SegmentControllerComponent {...args} selected={selected} onChange={(value) => setselected(value)} />;
+const Template: Story<SegmentedControlProps> = (args) => {
+  const [selected, setselected] = useState(segmentedControlOptions1[1].value);
+  return <SegmentedControlComponent {...args} selected={selected} onChange={(value) => setselected(value)} />;
 };
 
 export const SegmentedControl = Template.bind({});
@@ -77,14 +77,14 @@ const variant = params.get('variant');
 switch (variant) {
   case 'three':
     SegmentedControl.args = {
-      options: segmentControlOptions2,
+      options: segmentedControlOptions2,
       selected: 'value 2'
     };
     break;
   case 'disabled':
     SegmentedControl.args = {
-      options: segmentControlOptions1,
-      size: SegmentControllerSize.XSmall,
+      options: segmentedControlOptions1,
+      size: SegmentedControlSize.XSmall,
       selected: 'value 1',
       disabled: true
     };
@@ -92,8 +92,8 @@ switch (variant) {
 
   default:
     SegmentedControl.args = {
-      options: segmentControlOptions1,
-      size: SegmentControllerSize.Small,
+      options: segmentedControlOptions1,
+      size: SegmentedControlSize.Small,
       selected: 'value 1'
     };
     break;

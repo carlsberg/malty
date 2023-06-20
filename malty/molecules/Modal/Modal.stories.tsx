@@ -1,4 +1,4 @@
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Modal as ModalComponent } from './Modal';
@@ -29,13 +29,8 @@ export default {
     },
     actions: {
       control: '',
-      description: `An array of maximum 2 actions structured as such "actions?:
-    | {
-        variant: ButtonStyle;
-        label: string;
-        onClick: () => void;
-        key?: string;
-      }[]" or any html or JSX element `
+      description:
+        'An array of maximum 2 actions structured as such "ActionButtonProps[] | React.ReactNode | JSX.Element"'
     },
     whiteBackground: {
       control: 'boolean',
@@ -96,13 +91,15 @@ Modal.args = {
   overlayZindex: 999,
   actions: [
     {
-      variant: ButtonStyle.Secondary,
-      label: 'Cancel',
+      text: 'Cancel',
+      style: ButtonStyle.Secondary,
+      color: ButtonColor.DigitalBlack,
       onClick: () => alert('secondary button pressed')
     },
     {
-      variant: ButtonStyle.Primary,
-      label: 'Confirm',
+      text: 'Confirm',
+      style: ButtonStyle.Primary,
+      color: ButtonColor.ThemePrimary,
       onClick: () => alert('primary button pressed')
     }
   ]

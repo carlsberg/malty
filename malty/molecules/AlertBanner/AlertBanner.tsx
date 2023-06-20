@@ -4,6 +4,7 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
+import { getBreakpointNumber } from '@carlsberggroup/malty.utils.helpers';
 import React, { KeyboardEvent, PropsWithChildren, RefObject, useContext, useEffect, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useScrollPosition } from './AlertBanner.helper';
@@ -34,14 +35,15 @@ const textColorsMap = {
 export const AlertBanner = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
-  animation
+  animation,
+  onActiveAlertChange
 }: PropsWithChildren<AlertBannerProps>) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeAlert, setActiveAlert] = useState(1);
   const [width, setWidth] = useState<number>(window.innerWidth);
   const [alertsArray, setAlertsArray] = useState(alerts);
   const currentAlert = alertsArray[activeAlert - 1];
-  const breakpointNumber = Number(breakpoint.split('px')[0]);
+  const breakpointNumber = getBreakpointNumber(breakpoint);
   const isMobile = width < breakpointNumber;
   const [textWrapperSize, setTextWrapperSize] = useState<number | undefined>(0);
   const alertBannerStyledMessage: RefObject<HTMLDivElement> = useRef(null);
@@ -116,6 +118,10 @@ export const AlertBanner = ({
     };
 
   const triggerAnimation = () => isBannerTextCompressed || false;
+
+  useEffect(() => {
+    onActiveAlertChange?.(currentAlert);
+  }, [currentAlert, onActiveAlertChange]);
 
   if (!alertsArray?.length) {
     return null;
@@ -245,6 +251,7 @@ export const AlertBanner = ({
       >
         {!isMobile && (
           <Pagination
+            dataTestId="alert-banner-pagination"
             count={alertsArray.length}
             onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}

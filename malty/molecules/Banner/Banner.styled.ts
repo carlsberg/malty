@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import { HeroLayout } from './Hero.types';
+import { BannerLayout } from './Banner.types';
 
-export const StyledHeroContainer = styled.div<{
+export const StyledBannerContainer = styled.div<{
   negative: boolean;
   reverse: boolean;
-  layout: HeroLayout;
+  layout: BannerLayout;
 }>`
   display: flex;
   flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
@@ -29,14 +29,14 @@ export const StyledHeroContainer = styled.div<{
   }
 `;
 
-export const StyledHeroImage = styled.div<{
-  layout: HeroLayout;
+export const StyledBannerImage = styled.div<{
+  layout: BannerLayout;
   negative: boolean;
   imageSrc: string;
   imageHeight?: string;
 }>`
   ${({ theme, negative, imageSrc, layout }) => {
-    if (layout !== HeroLayout.Full) {
+    if (layout !== BannerLayout.Full) {
       return css`
         background: url(${imageSrc});
       `;
@@ -58,12 +58,12 @@ export const StyledHeroImage = styled.div<{
   background-repeat: no-repeat;
   ${({ layout }) => {
     switch (layout) {
-      case HeroLayout.Third:
+      case BannerLayout.Third:
         return css`
           width: 33%;
           align-self: stretch;
         `;
-      case HeroLayout.Half:
+      case BannerLayout.Half:
         return css`
           width: 50%;
           align-self: stretch;
@@ -83,7 +83,7 @@ export const StyledHeroImage = styled.div<{
     ${({ layout, imageHeight }) => {
       const currentHeight = 0.3 * window.innerHeight;
       switch (layout) {
-        case HeroLayout.Full:
+        case BannerLayout.Full:
           return css`
             height: ${imageHeight ? imageHeight.replace('px', '').concat('px') : '100%'};
           `;
@@ -98,19 +98,19 @@ export const StyledHeroImage = styled.div<{
   }
 `;
 
-export const StyledHeroContent = styled.div<{
-  layout: HeroLayout;
+export const StyledBannerContent = styled.div<{
+  layout: BannerLayout;
 }>`
   padding: ${({ theme }) => theme.sizes.l.value};
   box-sizing: border-box;
 
   ${({ layout }) => {
     switch (layout) {
-      case HeroLayout.Third:
+      case BannerLayout.Third:
         return css`
           width: 67%;
         `;
-      case HeroLayout.Half:
+      case BannerLayout.Half:
         return css`
           width: 50%;
         `;
