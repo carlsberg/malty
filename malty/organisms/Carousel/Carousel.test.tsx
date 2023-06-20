@@ -1,3 +1,4 @@
+import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
@@ -14,6 +15,7 @@ const carouseSlideObject: CarouselItemProps[] = [
     id: 1,
     slideComponent: (
       <ProductCard
+        actionButton={{ style: ButtonStyle.Primary }}
         imageSrc="https://picsum.photos/id/55/1920/1080"
         title="Product 1"
         dataTestId="product-card-1"
@@ -27,6 +29,7 @@ const carouseSlideObject: CarouselItemProps[] = [
     id: 2,
     slideComponent: (
       <ProductCard
+        actionButton={{ style: ButtonStyle.Primary }}
         imageSrc="https://picsum.photos/id/80/1920/1080"
         title="Product 2"
         dataTestId="product-card-2"
@@ -40,6 +43,7 @@ const carouseSlideObject: CarouselItemProps[] = [
     id: 3,
     slideComponent: (
       <ProductCard
+        actionButton={{ style: ButtonStyle.Primary }}
         imageSrc="https://picsum.photos/id/60/1920/1080"
         title="Product 3"
         dataTestId="product-card-3"
@@ -53,6 +57,7 @@ const carouseSlideObject: CarouselItemProps[] = [
     id: 4,
     slideComponent: (
       <ProductCard
+        actionButton={{ style: ButtonStyle.Primary }}
         imageSrc="https://picsum.photos/id/50/1920/1080"
         title="Product 4"
         dataTestId="product-card-4"
@@ -66,6 +71,7 @@ const carouseSlideObject: CarouselItemProps[] = [
     id: 5,
     slideComponent: (
       <ProductCard
+        actionButton={{ style: ButtonStyle.Primary }}
         imageSrc="https://picsum.photos/id/10/1920/1080"
         title="Product 5"
         dataTestId="product-card-5"
@@ -94,7 +100,15 @@ describe('Carousel', () => {
   });
 
   it('should render carousel with custom arrows, pagination and slides', () => {
-    render(<Carousel carouselSlide={carouseSlideObject} perPage={1} gap={0} dataTestId="test" />);
+    render(
+      <Carousel
+        carouselSlide={carouseSlideObject}
+        perPage={1}
+        gap={0}
+        dataTestId="test"
+        ariaLabels={{ prev: 'prev-carousel-btn', next: 'next-carousel-btn' }}
+      />
+    );
     expect(screen.getByTestId('carousel-container-test')).toBeVisible();
     expect(screen.getByRole('button', { name: /prev-carousel-btn/i })).toBeVisible();
     expect(screen.getByRole('button', { name: /next-carousel-btn/i })).toBeVisible();
@@ -108,7 +122,15 @@ describe('Carousel', () => {
 
   it('should NOT render custom arrows and pagination when is only one slide', () => {
     const oneSlideObject: CarouselItemProps[] = carouseSlideObject.slice(0, 1);
-    render(<Carousel carouselSlide={oneSlideObject} perPage={1} gap={0} dataTestId="test" />);
+    render(
+      <Carousel
+        carouselSlide={oneSlideObject}
+        perPage={1}
+        gap={0}
+        dataTestId="test"
+        ariaLabels={{ prev: 'prev-carousel-btn', next: 'next-carousel-btn' }}
+      />
+    );
     expect(screen.getByTestId('carousel-container-test')).toBeVisible();
     expect(screen.queryByRole('button', { name: /prev-carousel-btn/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /next-carousel-btn/i })).not.toBeInTheDocument();

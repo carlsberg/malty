@@ -1,3 +1,4 @@
+import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -175,6 +176,7 @@ switch (variant) {
           id: 1,
           slideComponent: (
             <ProductCard
+              actionButton={{ style: ButtonStyle.Primary }}
               imageSrc="https://picsum.photos/id/55/1920/1080"
               title="Product 1"
               dataTestId="product-card-1"
@@ -188,6 +190,7 @@ switch (variant) {
           id: 2,
           slideComponent: (
             <ProductCard
+              actionButton={{ style: ButtonStyle.Primary }}
               imageSrc="https://picsum.photos/id/80/1920/1080"
               title="Product 2"
               dataTestId="product-card-2"
@@ -201,6 +204,7 @@ switch (variant) {
           id: 3,
           slideComponent: (
             <ProductCard
+              actionButton={{ style: ButtonStyle.Primary }}
               imageSrc="https://picsum.photos/id/60/1920/1080"
               title="Product 3"
               dataTestId="product-card-3"
@@ -214,6 +218,7 @@ switch (variant) {
           id: 4,
           slideComponent: (
             <ProductCard
+              actionButton={{ style: ButtonStyle.Primary }}
               imageSrc="https://picsum.photos/id/50/1920/1080"
               title="Product 4"
               dataTestId="product-card-4"
@@ -227,6 +232,7 @@ switch (variant) {
           id: 5,
           slideComponent: (
             <ProductCard
+              actionButton={{ style: ButtonStyle.Primary }}
               imageSrc="https://picsum.photos/id/10/1920/1080"
               title="Product 5"
               dataTestId="product-card-5"
