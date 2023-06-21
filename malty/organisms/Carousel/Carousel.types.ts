@@ -4,7 +4,7 @@ export type CarouselProps = {
   dataTestId?: string;
   negative?: boolean;
   carouselSlide: CarouselItemProps[];
-  paddingX?: number | string;
+  innerSpacingX?: boolean;
   ariaLabels?: CarouselAriaLabels;
   breakpoints?: Record<string | number, Pick<Options, 'perPage' | 'gap'>>;
 } & Pick<SplideProps, 'onVisible'> &

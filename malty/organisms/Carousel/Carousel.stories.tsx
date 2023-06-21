@@ -68,16 +68,15 @@ export default {
         }
       }
     },
-    paddingX: {
-      description:
-        'Paddings left and right applied in the container that will help positioning arrows - Accepts any valid CSS value',
-      control: 'text',
+    innerSpacingX: {
+      description: 'Paddings left and right applied in the container that will help positioning arrows',
       table: {
         category: 'Configuration',
         defaultValue: {
-          summary: '0'
+          summary: true
         }
-      }
+      },
+      control: 'boolean'
     },
     ariaLabels: {
       description: 'Aria labels for the carousel and its elements - next & prev arrow buttons',
@@ -163,7 +162,7 @@ switch (variant) {
       },
       gap: '1rem',
       perPage: 1,
-      paddingX: '0',
+      innerSpacingX: false,
       dataTestId: 'malty'
     };
 
@@ -252,7 +251,7 @@ switch (variant) {
       },
       gap: '1rem',
       perPage: 3,
-      paddingX: '0',
+      innerSpacingX: true,
       dataTestId: 'malty'
     };
 
