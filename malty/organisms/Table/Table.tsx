@@ -186,6 +186,8 @@ export const Table = ({
     if (columns[index].meta?.sorting) {
       return header.column.getToggleSortingHandler();
     }
+
+    return undefined;
   };
 
   return (

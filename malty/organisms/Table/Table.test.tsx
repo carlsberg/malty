@@ -34,7 +34,7 @@ const rows: TableRowProps[] = [
     id: '3',
     name: 'Liberty Bell',
     age: 66,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   }
 ];
 describe('table', () => {
