@@ -1,4 +1,4 @@
-import { ColumnSort, Row, SortingState, Table } from '@tanstack/react-table';
+import { ColumnSort, Row, RowData, SortingState, Table } from '@tanstack/react-table';
 
 export { ColumnSort } from '@tanstack/react-table';
 
@@ -25,6 +25,7 @@ export interface TableHeaderProps {
   key: string;
   header: unknown;
   headerAlignment?: TableHeaderAlignment;
+  emptyHeader?: boolean;
 }
 export interface TableRowProps {
   id: string | number;
@@ -50,4 +51,10 @@ export enum TableHeaderAlignment {
   Left = 'left',
   Right = 'right',
   Center = 'center'
+}
+declare module '@tanstack/table-core' {
+  export interface ColumnMeta<TData extends RowData, TValue> {
+    alignment?: TableHeaderAlignment;
+    sorting?: boolean;
+  }
 }
