@@ -41,7 +41,7 @@ export const Carousel: React.FC<CarouselProps> = ({
     gap,
     mediaQuery: 'min',
     breakpoints,
-    autoHeight: true
+    padding: { left: theme.sizes['5xs'].value, right: theme.sizes['5xs'].value, bottom: theme.sizes['4xs'].value }
   };
 
   return (
@@ -54,7 +54,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       onVisible={onVisible}
       aria-label={ariaLabels?.carousel}
     >
-      <SplideTrack style={{ padding: '2px 2px' }}>
+      <SplideTrack style={{ paddingBottom: `${theme.sizes['4xs'].value}` }}>
         {carouselSlide?.map((item: CarouselItemProps) => (
           <SplideSlide key={item.id} data-testid={item.slideDataTestId}>
             {item.slideComponent}

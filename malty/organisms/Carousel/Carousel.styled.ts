@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledCustomSplideArrows = styled.div`
   position: absolute;
@@ -17,6 +17,12 @@ export const StyledCustomSplideArrows = styled.div`
     padding: 0;
     column-gap: ${({ theme }) => theme.sizes.s.value};
     margin-top: ${({ theme }) => theme.sizes.s.value};
+
+    ${({ theme }) => css`
+      @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
+        column-gap: ${theme.sizes.l.value};
+      }
+    `}
 
     .splide__pagination__page {
       display: block;
