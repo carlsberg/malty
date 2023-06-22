@@ -50,7 +50,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       options={carouselOptions}
       data-testid={`carousel-container-${dataTestId}`}
       role="group"
-      style={{ padding: `0 ${innerSpacingX && '8px'}` }}
+      style={{ padding: `0 ${innerSpacingX ? theme.sizes['2xs'].value : '0'}` }}
       onVisible={onVisible}
       aria-label={ariaLabels?.carousel}
     >
