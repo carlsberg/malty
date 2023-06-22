@@ -182,7 +182,7 @@ export const Table = ({
     }
   }, [size, theme]);
 
-  const handleHeaderClick = (header: Header<TableRowProps, unknown>, index: number) => {
+  const createHandleHeaderClick = (header: Header<TableRowProps, unknown>, index: number) => {
     if (columns[index].meta?.sorting) {
       return header.column.getToggleSortingHandler();
     }
@@ -220,7 +220,7 @@ export const Table = ({
                     alignPosition={columns[index].meta?.alignment as TableHeaderAlignment | undefined}
                     ref={(elem: HTMLTableCellElement) => (nodesRef.current[index] = elem)}
                     isSortable={header.column.getCanSort()}
-                    onClick={handleHeaderClick(header, index)}
+                    onClick={createHandleHeaderClick(header, index)}
                     data-testid={`${dataTestId}-th-${header.id}`}
                     theme={theme}
                     key={header.id}
