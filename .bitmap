@@ -1503,6 +1503,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertInline"
     },
+    "molecules/article-card": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/ArticleCard"
+    },
     "molecules/avatar": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.46",
