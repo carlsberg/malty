@@ -25,7 +25,7 @@ export interface TableHeaderProps {
   key: string;
   header: unknown;
   headerAlignment?: TableHeaderAlignment;
-  emptyHeader?: boolean;
+  isEmpty?: boolean;
 }
 export interface TableRowProps {
   id: string | number;

@@ -16,7 +16,7 @@ const headers: TableHeaderProps[] = [
   {
     header: '',
     key: 'actions',
-    emptyHeader: true
+    isEmpty: true
   }
 ];
 const rows: TableRowProps[] = [

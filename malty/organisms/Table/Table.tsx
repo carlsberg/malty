@@ -93,8 +93,8 @@ export const Table = ({
   const columns = headers.map((header) =>
     columnHelper.accessor(header.key, {
       id: header.key,
-      header: () => (header.emptyHeader ? null : header.header),
-      meta: { alignment: header.headerAlignment, sorting: !header.emptyHeader }
+      header: () => (header.isEmpty ? null : header.header),
+      meta: { alignment: header.headerAlignment, sorting: !header.isEmpty }
     })
   );
 
