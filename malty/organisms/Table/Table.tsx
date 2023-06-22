@@ -219,7 +219,7 @@ export const Table = ({
                   <StyledHead
                     alignPosition={columns[index].meta?.alignment as TableHeaderAlignment | undefined}
                     ref={(elem: HTMLTableCellElement) => (nodesRef.current[index] = elem)}
-                    isSortable={header.column.getCanSort()}
+                    isSortable={!!columns[index].meta?.sorting && header.column.getCanSort()}
                     onClick={createHandleHeaderClick(header, index)}
                     data-testid={`${dataTestId}-th-${header.id}`}
                     theme={theme}
