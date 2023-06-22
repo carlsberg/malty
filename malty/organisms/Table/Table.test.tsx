@@ -12,6 +12,11 @@ const headers: TableHeaderProps[] = [
   {
     header: 'Age',
     key: 'age'
+  },
+  {
+    header: '',
+    key: 'actions',
+    isEmpty: true
   }
 ];
 const rows: TableRowProps[] = [
@@ -28,7 +33,8 @@ const rows: TableRowProps[] = [
   {
     id: '3',
     name: 'Liberty Bell',
-    age: 66
+    age: 66,
+    actions: <button type="button">Delete</button>
   }
 ];
 describe('table', () => {
@@ -59,5 +65,15 @@ describe('table', () => {
     userEvent.click(nameHeader);
 
     expect(onSortingChange).toHaveBeenCalledWith([{ id: 'name', desc: false }]);
+  });
+
+  it('should render a table with two named column headers and an empty column header', () => {
+    render(<Table headers={headers} rows={rows} defaultSorting={{ id: 'name', desc: true }} />);
+
+    const columnHeaders = screen.getAllByRole('columnheader');
+
+    expect(columnHeaders[0]).toHaveTextContent('Name');
+    expect(columnHeaders[1]).toHaveTextContent('Age');
+    expect(columnHeaders[2]).toHaveTextContent('');
   });
 });
