@@ -40,7 +40,8 @@ export const Carousel: React.FC<CarouselProps> = ({
     paginationKeyboard: hasMoreThanOneSlide,
     gap,
     mediaQuery: 'min',
-    breakpoints
+    breakpoints,
+    autoHeight: true
   };
 
   return (
@@ -53,7 +54,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       onVisible={onVisible}
       aria-label={ariaLabels?.carousel}
     >
-      <SplideTrack>
+      <SplideTrack style={{ padding: '2px 2px' }}>
         {carouselSlide?.map((item: CarouselItemProps) => (
           <SplideSlide key={item.id} data-testid={item.slideDataTestId}>
             {item.slideComponent}

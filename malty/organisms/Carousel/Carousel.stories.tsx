@@ -1,5 +1,5 @@
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
+import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
+import { ArticleCard } from '@carlsberggroup/malty.molecules.article-card';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Carousel as CarouselComponent } from './Carousel';
@@ -174,13 +174,14 @@ switch (variant) {
         {
           id: 1,
           slideComponent: (
-            <ProductCard
-              actionButton={{ style: ButtonStyle.Primary }}
-              imageSrc="https://picsum.photos/id/55/1920/1080"
-              title="Product 1"
-              dataTestId="product-card-1"
-              sku="Sku: 12512 512"
-              price={{ base: '₭ 99,800.00', discount: '₭ 86,000.00' }}
+            <ArticleCard
+              title="This is card 01 "
+              description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Shadowed}
             />
           ),
           slideDataTestId: 'carousel-1'
@@ -188,13 +189,14 @@ switch (variant) {
         {
           id: 2,
           slideComponent: (
-            <ProductCard
-              actionButton={{ style: ButtonStyle.Primary }}
-              imageSrc="https://picsum.photos/id/80/1920/1080"
-              title="Product 2"
-              dataTestId="product-card-2"
-              sku="Sku: 12512 515"
-              price={{ base: '₭ 90,800.00' }}
+            <ArticleCard
+              title="This is an article card 02"
+              description="Nunc vitae feugiat ante, uspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Outlined}
             />
           ),
           slideDataTestId: 'carousel-2'
@@ -202,13 +204,14 @@ switch (variant) {
         {
           id: 3,
           slideComponent: (
-            <ProductCard
-              actionButton={{ style: ButtonStyle.Primary }}
-              imageSrc="https://picsum.photos/id/60/1920/1080"
-              title="Product 3"
-              dataTestId="product-card-3"
-              sku="Sku: 12512 516"
-              price={{ base: '₭ 19,800.00', discount: '₭ 6,000.00' }}
+            <ArticleCard
+              title="This is an article card 03"
+              description="Nunc vitae feugitor porttitor ex. Suspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Plain}
             />
           ),
           slideDataTestId: 'carousel-3'
@@ -216,13 +219,14 @@ switch (variant) {
         {
           id: 4,
           slideComponent: (
-            <ProductCard
-              actionButton={{ style: ButtonStyle.Primary }}
-              imageSrc="https://picsum.photos/id/50/1920/1080"
-              title="Product 4"
-              dataTestId="product-card-4"
-              sku="Sku: 12512 517"
-              price={{ base: '₭ 99,800.00', discount: '₭ 86,000.00' }}
+            <ArticleCard
+              title="Card 04"
+              description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Shadowed}
             />
           ),
           slideDataTestId: 'carousel-4'
@@ -230,16 +234,77 @@ switch (variant) {
         {
           id: 5,
           slideComponent: (
-            <ProductCard
-              actionButton={{ style: ButtonStyle.Primary }}
-              imageSrc="https://picsum.photos/id/10/1920/1080"
-              title="Product 5"
-              dataTestId="product-card-5"
-              sku="Sku: 12512 518"
-              price={{ base: '₭ 59,800.00' }}
+            <ArticleCard
+              title="This is an article card Title 05"
+              description="Nunc vitae feugiat ante, in suscipit sapien. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Vivamus auctor porttitor ex. Suspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Shadowed}
             />
           ),
           slideDataTestId: 'carousel-5'
+        },
+        {
+          id: 6,
+          slideComponent: (
+            <ArticleCard
+              title="This is an article card 06"
+              description="Nunc vitae feugiat ante, uspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Outlined}
+            />
+          ),
+          slideDataTestId: 'carousel-6'
+        },
+        {
+          id: 7,
+          slideComponent: (
+            <ArticleCard
+              title="This is an 07"
+              description="Nunc vitae feugiat ante, uspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Outlined}
+            />
+          ),
+          slideDataTestId: 'carousel-7'
+        },
+        {
+          id: 8,
+          slideComponent: (
+            <ArticleCard
+              title="This is an article card Title 08"
+              description="Nunc vitae feugiat ante, uspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Outlined}
+            />
+          ),
+          slideDataTestId: 'carousel-8'
+        },
+        {
+          id: 9,
+          slideComponent: (
+            <ArticleCard
+              title="This is an article card 09"
+              description="Nunc vitae feugiat ante, uspendisse lorem odio."
+              date="12/06/2022"
+              imageSrc="https://picsum.photos/320/180"
+              dataTestId="article-card"
+              orientation={CardOrientation.Portrait}
+              cardStyle={CardStyle.Outlined}
+            />
+          ),
+          slideDataTestId: 'carousel-9'
         }
       ],
       breakpoints: {},
