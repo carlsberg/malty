@@ -5,33 +5,47 @@ import React from 'react';
 import { Hero } from './Hero';
 import { ActionButtonProps, HeroProps } from './Hero.types';
 
+const heroProps: HeroProps = {
+  title: 'This is the title of the banner',
+  description: 'This is the description of the banner',
+  imageSrc:
+    'https://s3-alpha-sig.figma.com/img/1a8e/2a97/368bfc9d97adcbd3d02f0159e7692a8e?Expires=1686528000&Signature=d4mISd9mfZCDWUkCfS57I9ft4qibCOQvC1iadlvHcs~QKPdybMicFZ7C~dqgrsDErGneBIf5~XNsPLqZRRHsxCRZqDXY6SpdbjNu9FtM-ak3uD7ZCSFB6my4Bx1wSJVv5arsbGil7PuqkrIVOSoK83d~9JOmAEP--OPFqQo8KF77P0kHVRZyOTTVIUSiszBe7b9GmzGBq1ebkXfKOwM20DIAc6dKQi1qIoqrPBep02PstrzbWHKr1LVsnNiY9~00mllHePEwUXmWKZz4UMLHnR~M7X6CwpDq1~JOB0E~xC80pJna8rrcV5Jl9gGkgu~y5w6W9zc6ad-W5GtIV9YOHg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+};
+
+const actions: ActionButtonProps[] = [
+  {
+    key: 'primary',
+    color: ButtonColor.ThemePrimary,
+    style: ButtonStyle.Primary,
+    text: 'I want to know more',
+    onClick: jest.fn()
+  },
+  {
+    key: 'secondary',
+    color: ButtonColor.ThemePrimary,
+    style: ButtonStyle.Secondary,
+    text: 'I am ok',
+    onClick: jest.fn()
+  }
+];
+
+const scrollText = 'Scroll to know more';
+const scrollIcon = 'icon-ArrowSmallDown';
+
 describe('Hero', () => {
-  const heroProps: HeroProps = {
-    title: 'This is the title of the banner',
-    description: 'This is the description of the banner',
-    imageSrc:
-      'https://s3-alpha-sig.figma.com/img/1a8e/2a97/368bfc9d97adcbd3d02f0159e7692a8e?Expires=1686528000&Signature=d4mISd9mfZCDWUkCfS57I9ft4qibCOQvC1iadlvHcs~QKPdybMicFZ7C~dqgrsDErGneBIf5~XNsPLqZRRHsxCRZqDXY6SpdbjNu9FtM-ak3uD7ZCSFB6my4Bx1wSJVv5arsbGil7PuqkrIVOSoK83d~9JOmAEP--OPFqQo8KF77P0kHVRZyOTTVIUSiszBe7b9GmzGBq1ebkXfKOwM20DIAc6dKQi1qIoqrPBep02PstrzbWHKr1LVsnNiY9~00mllHePEwUXmWKZz4UMLHnR~M7X6CwpDq1~JOB0E~xC80pJna8rrcV5Jl9gGkgu~y5w6W9zc6ad-W5GtIV9YOHg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-  };
-
-  const actions: ActionButtonProps[] = [
-    {
-      key: 'primary',
-      color: ButtonColor.ThemePrimary,
-      style: ButtonStyle.Primary,
-      text: 'I want to know more',
-      onClick: jest.fn()
-    },
-    {
-      key: 'secondary',
-      color: ButtonColor.ThemePrimary,
-      style: ButtonStyle.Secondary,
-      text: 'I am ok',
-      onClick: jest.fn()
-    }
-  ];
-
-  const scrollText = 'Scroll to know more';
-  const scrollIcon = 'icon-ArrowSmallDown';
+  beforeAll(() => {
+    // TODO: find a way to include this on the jest-setup.ts and make it work when using "bit test"
+    window.matchMedia = jest.fn().mockImplementation(() => {
+      return {
+        matches: false,
+        media: '',
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn()
+      };
+    });
+  });
 
   it('renders required props successfully', () => {
     render(<Hero {...heroProps} />);
