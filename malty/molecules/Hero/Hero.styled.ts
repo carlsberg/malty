@@ -17,7 +17,7 @@ export const StyledHero = styled.header<{
     if (imageSrc) {
       return css`
         background-image: url(${imageSrc});
-        background-color: ${theme.colors.colours.default['digital-black'].value};
+        background-color: ${theme.colors.colours.overlay['digital-black'][50].value};
         background-blend-mode: overlay;
         background-position: center;
         background-size: cover;
