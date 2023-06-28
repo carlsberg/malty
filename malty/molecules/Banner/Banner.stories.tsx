@@ -94,13 +94,13 @@ switch (variant) {
         {
           key: 'primary',
           variant: ButtonStyle.Primary,
-          label: 'Primary',
+          text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
           variant: ButtonStyle.Secondary,
-          label: 'Secondary',
+          text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
       ]
@@ -121,13 +121,13 @@ switch (variant) {
         {
           key: 'primary',
           variant: ButtonStyle.Primary,
-          label: 'Primary',
+          text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
           variant: ButtonStyle.Secondary,
-          label: 'Secondary',
+          text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
       ]
@@ -148,13 +148,13 @@ switch (variant) {
         {
           key: 'primary',
           variant: ButtonStyle.Primary,
-          label: 'Primary',
+          text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
           variant: ButtonStyle.Secondary,
-          label: 'Secondary',
+          text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
       ]
@@ -175,13 +175,13 @@ switch (variant) {
         {
           key: 'primary',
           variant: ButtonStyle.Primary,
-          label: 'Primary',
+          text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
           variant: ButtonStyle.Secondary,
-          label: 'Secondary',
+          text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
       ]
@@ -202,13 +202,13 @@ switch (variant) {
         {
           key: 'primary',
           variant: ButtonStyle.Primary,
-          label: 'Primary',
+          text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
           variant: ButtonStyle.Secondary,
-          label: 'Secondary',
+          text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
       ]
