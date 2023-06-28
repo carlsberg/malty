@@ -2,7 +2,7 @@ import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Modal as ModalComponent } from './Modal';
-import { ModalProps, ModalSize } from './Modal.types';
+import { ActionButtonProps, ModalProps, ModalSize } from './Modal.types';
 
 export default {
   title: 'Overlays/Modal',
@@ -91,16 +91,18 @@ Modal.args = {
   overlayZindex: 999,
   actions: [
     {
+      key: 'cancel',
       text: 'Cancel',
       style: ButtonStyle.Secondary,
       color: ButtonColor.DigitalBlack,
       onClick: () => alert('secondary button pressed')
     },
     {
+      key: 'confirm',
       text: 'Confirm',
       style: ButtonStyle.Primary,
       color: ButtonColor.ThemePrimary,
       onClick: () => alert('primary button pressed')
     }
-  ]
+  ] satisfies ActionButtonProps[]
 };

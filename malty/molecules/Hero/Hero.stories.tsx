@@ -2,7 +2,7 @@ import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Hero as HeroComponent } from './Hero';
-import { HeroProps } from './Hero.types';
+import { ActionButtonProps, HeroProps } from './Hero.types';
 
 enum HeroVariants {
   Required = 'required',
@@ -89,7 +89,7 @@ switch (variant) {
           text: 'I am ok',
           onClick: () => alert('Second button pressed!')
         }
-      ]
+      ] satisfies ActionButtonProps[]
     };
     break;
   case HeroVariants.Scroll:

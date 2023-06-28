@@ -2,7 +2,7 @@ import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Banner as BannerComponent } from './Banner';
-import { BannerLayout, BannerProps } from './Banner.types';
+import { ActionButtonProps, BannerLayout, BannerProps } from './Banner.types';
 
 enum BannerVariants {
   Negative = 'negative',
@@ -93,17 +93,17 @@ switch (variant) {
       actions: [
         {
           key: 'primary',
-          variant: ButtonStyle.Primary,
+          style: ButtonStyle.Primary,
           text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
-          variant: ButtonStyle.Secondary,
+          style: ButtonStyle.Secondary,
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ]
+      ] satisfies ActionButtonProps[]
     };
     break;
   case BannerVariants.Half:
@@ -120,17 +120,17 @@ switch (variant) {
       actions: [
         {
           key: 'primary',
-          variant: ButtonStyle.Primary,
+          style: ButtonStyle.Primary,
           text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
-          variant: ButtonStyle.Secondary,
+          style: ButtonStyle.Secondary,
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ]
+      ] satisfies ActionButtonProps[]
     };
     break;
   case BannerVariants.Third:
@@ -147,17 +147,17 @@ switch (variant) {
       actions: [
         {
           key: 'primary',
-          variant: ButtonStyle.Primary,
+          style: ButtonStyle.Primary,
           text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
-          variant: ButtonStyle.Secondary,
+          style: ButtonStyle.Secondary,
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ]
+      ] satisfies ActionButtonProps[]
     };
     break;
   case BannerVariants.Reverse:
@@ -174,17 +174,17 @@ switch (variant) {
       actions: [
         {
           key: 'primary',
-          variant: ButtonStyle.Primary,
+          style: ButtonStyle.Primary,
           text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
-          variant: ButtonStyle.Secondary,
+          style: ButtonStyle.Secondary,
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ]
+      ] satisfies ActionButtonProps[]
     };
     break;
   default:
@@ -201,17 +201,17 @@ switch (variant) {
       actions: [
         {
           key: 'primary',
-          variant: ButtonStyle.Primary,
+          style: ButtonStyle.Primary,
           text: 'Primary',
           onClick: () => alert('primary button pressed')
         },
         {
           key: 'secondary',
-          variant: ButtonStyle.Secondary,
+          style: ButtonStyle.Secondary,
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ]
+      ] satisfies ActionButtonProps[]
     };
     break;
 }
