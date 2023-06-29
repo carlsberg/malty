@@ -104,5 +104,5 @@ Modal.args = {
       color: ButtonColor.ThemePrimary,
       onClick: () => alert('primary button pressed')
     }
-  ] satisfies ActionButtonProps[]
+  ] satisfies Array<ActionButtonProps>
 };

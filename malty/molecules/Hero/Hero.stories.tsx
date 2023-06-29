@@ -89,7 +89,7 @@ switch (variant) {
           text: 'I am ok',
           onClick: () => alert('Second button pressed!')
         }
-      ] satisfies ActionButtonProps[]
+      ] satisfies Array<ActionButtonProps>
     };
     break;
   case HeroVariants.Scroll:

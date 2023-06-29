@@ -56,7 +56,7 @@ export default {
     actions: {
       control: '',
       description:
-        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
+        'An array of maximum 2 actions structured as such "actions?: Array<ActionButtonProps> | React.ReactNode | JSX.Element;"'
     },
     imageSrc: {
       control: 'text',
@@ -103,7 +103,7 @@ switch (variant) {
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ] satisfies ActionButtonProps[]
+      ] satisfies Array<ActionButtonProps>
     };
     break;
   case BannerVariants.Half:
@@ -130,7 +130,7 @@ switch (variant) {
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ] satisfies ActionButtonProps[]
+      ] satisfies Array<ActionButtonProps>
     };
     break;
   case BannerVariants.Third:
@@ -157,7 +157,7 @@ switch (variant) {
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ] satisfies ActionButtonProps[]
+      ] satisfies Array<ActionButtonProps>
     };
     break;
   case BannerVariants.Reverse:
@@ -184,7 +184,7 @@ switch (variant) {
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ] satisfies ActionButtonProps[]
+      ] satisfies Array<ActionButtonProps>
     };
     break;
   default:
@@ -211,7 +211,7 @@ switch (variant) {
           text: 'Secondary',
           onClick: () => alert('secondary button pressed')
         }
-      ] satisfies ActionButtonProps[]
+      ] satisfies Array<ActionButtonProps>
     };
     break;
 }
