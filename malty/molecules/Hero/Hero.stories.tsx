@@ -73,53 +73,59 @@ switch (variant) {
       ...requiredProps
     };
     break;
-  case HeroVariants.Actions:
+  case HeroVariants.Actions: {
+    const actions: ActionButtonProps[] = [
+      {
+        key: 'primary',
+        style: ButtonStyle.Primary,
+        text: 'I want to know more',
+        onClick: () => alert('First button pressed!')
+      },
+      {
+        key: 'secondary',
+        style: ButtonStyle.Secondary,
+        text: 'I am ok',
+        onClick: () => alert('Second button pressed!')
+      }
+    ];
+
     Hero.args = {
       ...requiredProps,
-      actions: [
-        {
-          key: 'primary',
-          style: ButtonStyle.Primary,
-          text: 'I want to know more',
-          onClick: () => alert('First button pressed!')
-        },
-        {
-          key: 'secondary',
-          style: ButtonStyle.Secondary,
-          text: 'I am ok',
-          onClick: () => alert('Second button pressed!')
-        }
-      ] satisfies Array<ActionButtonProps>
+      actions
     };
     break;
+  }
   case HeroVariants.Scroll:
     Hero.args = {
       ...requiredProps,
       scrollText: 'Scroll to know more'
     };
     break;
-  default:
+  default: {
+    const actions: ActionButtonProps[] = [
+      {
+        key: 'primary',
+        negative: true,
+        color: ButtonColor.DigitalBlack,
+        style: ButtonStyle.Primary,
+        text: 'I want to know more',
+        onClick: () => alert('First button pressed!')
+      },
+      {
+        key: 'secondary',
+        negative: true,
+        color: ButtonColor.DigitalBlack,
+        style: ButtonStyle.Secondary,
+        text: 'I am ok',
+        onClick: () => alert('Second button pressed!')
+      }
+    ];
+
     Hero.args = {
       ...requiredProps,
-      actions: [
-        {
-          key: 'primary',
-          negative: true,
-          color: ButtonColor.DigitalBlack,
-          style: ButtonStyle.Primary,
-          text: 'I want to know more',
-          onClick: () => alert('First button pressed!')
-        },
-        {
-          key: 'secondary',
-          negative: true,
-          color: ButtonColor.DigitalBlack,
-          style: ButtonStyle.Secondary,
-          text: 'I am ok',
-          onClick: () => alert('Second button pressed!')
-        }
-      ],
+      actions,
       scrollText: 'Scroll to know more'
     };
     break;
+  }
 }

@@ -82,6 +82,24 @@ const Template: Story<ModalProps> = ({
 };
 
 export const Modal = Template.bind({});
+
+const actions: ActionButtonProps[] = [
+  {
+    key: 'cancel',
+    text: 'Cancel',
+    style: ButtonStyle.Secondary,
+    color: ButtonColor.DigitalBlack,
+    onClick: () => alert('secondary button pressed')
+  },
+  {
+    key: 'confirm',
+    text: 'Confirm',
+    style: ButtonStyle.Primary,
+    color: ButtonColor.ThemePrimary,
+    onClick: () => alert('primary button pressed')
+  }
+];
+
 Modal.args = {
   title: 'Headline',
   content: <p>Anything you want</p>,
@@ -89,20 +107,5 @@ Modal.args = {
   whiteBackground: false,
   size: ModalSize.Medium,
   overlayZindex: 999,
-  actions: [
-    {
-      key: 'cancel',
-      text: 'Cancel',
-      style: ButtonStyle.Secondary,
-      color: ButtonColor.DigitalBlack,
-      onClick: () => alert('secondary button pressed')
-    },
-    {
-      key: 'confirm',
-      text: 'Confirm',
-      style: ButtonStyle.Primary,
-      color: ButtonColor.ThemePrimary,
-      onClick: () => alert('primary button pressed')
-    }
-  ] satisfies Array<ActionButtonProps>
+  actions
 };
