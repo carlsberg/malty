@@ -2,7 +2,7 @@ import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Hero as HeroComponent } from './Hero';
-import { HeroProps } from './Hero.types';
+import { ActionButtonProps, HeroProps } from './Hero.types';
 
 enum HeroVariants {
   Required = 'required',
@@ -73,53 +73,59 @@ switch (variant) {
       ...requiredProps
     };
     break;
-  case HeroVariants.Actions:
+  case HeroVariants.Actions: {
+    const actions: ActionButtonProps[] = [
+      {
+        key: 'primary',
+        style: ButtonStyle.Primary,
+        text: 'I want to know more',
+        onClick: () => alert('First button pressed!')
+      },
+      {
+        key: 'secondary',
+        style: ButtonStyle.Secondary,
+        text: 'I am ok',
+        onClick: () => alert('Second button pressed!')
+      }
+    ];
+
     Hero.args = {
       ...requiredProps,
-      actions: [
-        {
-          key: 'primary',
-          style: ButtonStyle.Primary,
-          text: 'I want to know more',
-          onClick: () => alert('First button pressed!')
-        },
-        {
-          key: 'secondary',
-          style: ButtonStyle.Secondary,
-          text: 'I am ok',
-          onClick: () => alert('Second button pressed!')
-        }
-      ]
+      actions
     };
     break;
+  }
   case HeroVariants.Scroll:
     Hero.args = {
       ...requiredProps,
       scrollText: 'Scroll to know more'
     };
     break;
-  default:
+  default: {
+    const actions: ActionButtonProps[] = [
+      {
+        key: 'primary',
+        negative: true,
+        color: ButtonColor.DigitalBlack,
+        style: ButtonStyle.Primary,
+        text: 'I want to know more',
+        onClick: () => alert('First button pressed!')
+      },
+      {
+        key: 'secondary',
+        negative: true,
+        color: ButtonColor.DigitalBlack,
+        style: ButtonStyle.Secondary,
+        text: 'I am ok',
+        onClick: () => alert('Second button pressed!')
+      }
+    ];
+
     Hero.args = {
       ...requiredProps,
-      actions: [
-        {
-          key: 'primary',
-          negative: true,
-          color: ButtonColor.DigitalBlack,
-          style: ButtonStyle.Primary,
-          text: 'I want to know more',
-          onClick: () => alert('First button pressed!')
-        },
-        {
-          key: 'secondary',
-          negative: true,
-          color: ButtonColor.DigitalBlack,
-          style: ButtonStyle.Secondary,
-          text: 'I am ok',
-          onClick: () => alert('Second button pressed!')
-        }
-      ],
+      actions,
       scrollText: 'Scroll to know more'
     };
     break;
+  }
 }
