@@ -1,0 +1,56 @@
+diff --git a/node_modules/@splidejs/react-splide/dist/js/react-splide.esm.js b/node_modules/@splidejs/react-splide/dist/js/react-splide.esm.js
+index 0b19767..4bf6303 100644
+--- a/node_modules/@splidejs/react-splide/dist/js/react-splide.esm.js
++++ b/node_modules/@splidejs/react-splide/dist/js/react-splide.esm.js
+@@ -2602,7 +2602,8 @@ var EVENTS = [
+   [EVENT_AUTOPLAY_PLAY, "onAutoplayPlay"],
+   [EVENT_AUTOPLAY_PLAYING, "onAutoplayPlaying"],
+   [EVENT_AUTOPLAY_PAUSE, "onAutoplayPause"],
+-  [EVENT_LAZYLOAD_LOADED, "onLazyLoadLoaded"]
++  [EVENT_LAZYLOAD_LOADED, "onLazyLoadLoaded"],
++  [EVENT_OVERFLOW, "onOverflow"]
+ ];
+ 
+ // src/js/utils/classNames/classNames.ts
+diff --git a/node_modules/@splidejs/react-splide/dist/types/types/events.d.ts b/node_modules/@splidejs/react-splide/dist/types/types/events.d.ts
+index 68631d8..31c1f41 100644
+--- a/node_modules/@splidejs/react-splide/dist/types/types/events.d.ts
++++ b/node_modules/@splidejs/react-splide/dist/types/types/events.d.ts
+@@ -28,6 +28,7 @@ export declare type SplideEventHandlerMap = {
+     onAutoplayPlaying: 'autoplay:playing';
+     onAutoplayPause: 'autoplay:pause';
+     onLazyLoadLoaded: 'lazyload:loaded';
++    onOverflow: 'overflow';
+ };
+ export declare type SplideEventHandlers = {
+     [K in keyof SplideEventHandlerMap]: (splide: Splide, ...args: Parameters<EventMap[SplideEventHandlerMap[K]]>) => ReturnType<EventMap[SplideEventHandlerMap[K]]>;
+diff --git a/node_modules/@splidejs/react-splide/src/js/constants/events.ts b/node_modules/@splidejs/react-splide/src/js/constants/events.ts
+index d48b48d..ae9b31b 100644
+--- a/node_modules/@splidejs/react-splide/src/js/constants/events.ts
++++ b/node_modules/@splidejs/react-splide/src/js/constants/events.ts
+@@ -27,6 +27,7 @@ import {
+   EVENT_SCROLLED,
+   EVENT_UPDATED,
+   EVENT_VISIBLE,
++  EVENT_OVERFLOW,
+   EventMap,
+ } from '@splidejs/splide';
+ import { SplideEventHandlerMap } from '../types';
+@@ -61,4 +62,5 @@ export const EVENTS: Array<[ keyof EventMap, keyof SplideEventHandlerMap ]> = [
+   [ EVENT_AUTOPLAY_PLAYING, 'onAutoplayPlaying' ],
+   [ EVENT_AUTOPLAY_PAUSE, 'onAutoplayPause' ],
+   [ EVENT_LAZYLOAD_LOADED, 'onLazyLoadLoaded' ],
++  [ EVENT_OVERFLOW, 'onOverflow' ],
+ ];
+diff --git a/node_modules/@splidejs/react-splide/src/js/types/events.ts b/node_modules/@splidejs/react-splide/src/js/types/events.ts
+index f165df1..ebaf14b 100644
+--- a/node_modules/@splidejs/react-splide/src/js/types/events.ts
++++ b/node_modules/@splidejs/react-splide/src/js/types/events.ts
+@@ -30,6 +30,7 @@ export type SplideEventHandlerMap = {
+   onAutoplayPlaying: 'autoplay:playing';
+   onAutoplayPause: 'autoplay:pause';
+   onLazyLoadLoaded: 'lazyload:loaded';
++  onOverflow: 'overflow';
+ }
+ 
+ export type SplideEventHandlers = {

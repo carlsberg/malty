@@ -2,9 +2,9 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { Options, Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { Options, Splide, SplideEventHandlers, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledCustomSplideArrows } from './Carousel.styled';
 import { CarouselItemProps, CarouselProps } from './Carousel.types';
@@ -14,45 +14,40 @@ export const Carousel: React.FC<CarouselProps> = ({
   breakpoints,
   negative,
   gap,
-  perPage,
+  perPage = 1,
   innerSpacingX,
   ariaLabels,
   onVisible,
   dataTestId
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const [areActionsVisible, setAreActionsVisible] = useState(true);
 
-  const slidesAmount = carouselSlide?.length ?? 0;
-  const hasMoreThanOneSlide = slidesAmount > 1;
-
-  const handlePerPageMaxLimit = (perPageCarousel: number) => {
-    if (hasMoreThanOneSlide && perPageCarousel >= slidesAmount) {
-      return slidesAmount - 1;
-    }
-    return perPageCarousel;
-  };
-
-  const carouselOptions: Options = {
-    type: hasMoreThanOneSlide ? 'loop' : 'slide',
-    perPage: perPage ? handlePerPageMaxLimit(perPage) : 1,
-    arrows: hasMoreThanOneSlide,
-    pagination: hasMoreThanOneSlide,
-    paginationKeyboard: hasMoreThanOneSlide,
+  const options: Options = {
+    type: 'loop',
+    // This needs to be sent completly empty because when this perPage is sent as undefined the perPage value will always be 1 when isOverflow
+    ...(breakpoints && Object.keys(breakpoints).length > 0 ? {} : { perPage }),
     gap,
     mediaQuery: 'min',
     breakpoints,
-    padding: { left: theme.sizes['5xs'].value, right: theme.sizes['5xs'].value, bottom: theme.sizes['4xs'].value }
+    padding: { left: theme.sizes['5xs'].value, right: theme.sizes['5xs'].value, bottom: theme.sizes['4xs'].value },
+    clones: areActionsVisible ? undefined : 0
+  };
+
+  const handleOnOverflow: SplideEventHandlers['onOverflow'] = (_, isOverflow) => {
+    setAreActionsVisible(isOverflow);
   };
 
   return (
     <Splide
-      hasTrack={false}
-      options={carouselOptions}
-      data-testid={`carousel-container-${dataTestId}`}
       role="group"
+      hasTrack={false}
+      options={options}
+      aria-label={ariaLabels?.carousel}
+      data-testid={`carousel-container-${dataTestId}`}
       style={{ padding: `0 ${innerSpacingX ? theme.sizes['2xs'].value : '0'}` }}
       onVisible={onVisible}
-      aria-label={ariaLabels?.carousel}
+      onOverflow={handleOnOverflow}
     >
       <SplideTrack style={{ paddingBottom: `${theme.sizes['4xs'].value}` }}>
         {carouselSlide?.map((item: CarouselItemProps) => (
@@ -61,7 +56,7 @@ export const Carousel: React.FC<CarouselProps> = ({
           </SplideSlide>
         ))}
       </SplideTrack>
-      {hasMoreThanOneSlide ? (
+      {areActionsVisible ? (
         <StyledCustomSplideArrows theme={theme}>
           <div className="splide__arrows">
             <div className="splide__arrow splide__arrow--prev">

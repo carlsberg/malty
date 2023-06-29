@@ -1,4 +1,6 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
+import { ArticleCard } from '@carlsberggroup/malty.molecules.article-card';
 import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
@@ -121,16 +123,33 @@ describe('Carousel', () => {
   });
 
   it('should NOT render custom arrows and pagination when is only one slide', () => {
-    const oneSlideObject: CarouselItemProps[] = carouseSlideObject.slice(0, 1);
+    // const oneSlideObject: CarouselItemProps[] = carouseSlideObject.slice(0, 1);
+
     render(
       <Carousel
-        carouselSlide={oneSlideObject}
+        carouselSlide={[
+          {
+            id: 1,
+            slideComponent: (
+              <ArticleCard
+                title="This is card 01 "
+                description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
+                date="12/06/2022"
+                imageSrc="https://picsum.photos/320/180"
+                dataTestId="article-card"
+                orientation={CardOrientation.Portrait}
+                cardStyle={CardStyle.Shadowed}
+              />
+            ),
+            slideDataTestId: 'carousel-1'
+          }
+        ]}
         perPage={1}
-        gap={0}
         dataTestId="test"
         ariaLabels={{ prev: 'prev-carousel-btn', next: 'next-carousel-btn' }}
       />
     );
+
     expect(screen.getByTestId('carousel-container-test')).toBeVisible();
     expect(screen.queryByRole('button', { name: /prev-carousel-btn/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /next-carousel-btn/i })).not.toBeInTheDocument();

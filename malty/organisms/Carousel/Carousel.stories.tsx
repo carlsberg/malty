@@ -1,5 +1,7 @@
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { ArticleCard } from '@carlsberggroup/malty.molecules.article-card';
+import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
+import { getBreakpointNumber } from '@carlsberggroup/malty.utils.helpers';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Carousel as CarouselComponent } from './Carousel';
@@ -307,7 +309,11 @@ switch (variant) {
           slideDataTestId: 'carousel-9'
         }
       ],
-      breakpoints: {},
+      breakpoints: {
+        [getBreakpointNumber(layoutProps.medium['device-max-width'].value)]: { perPage: 6 },
+        [getBreakpointNumber(layoutProps.small['device-max-width'].value)]: { perPage: 4 },
+        [getBreakpointNumber(layoutProps.xsmall['device-max-width'].value)]: { perPage: 2 }
+      },
       negative: false,
       ariaLabels: {
         carousel: 'products-carousel',
@@ -315,7 +321,7 @@ switch (variant) {
         prev: 'previous-product'
       },
       gap: '1rem',
-      perPage: 3,
+      perPage: 7,
       innerSpacingX: true,
       dataTestId: 'malty'
     };

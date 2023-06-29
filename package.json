@@ -33,11 +33,14 @@
     "test": "jest",
     "test:ci": "jest --silent --ci",
     "test:watch": "jest --watch",
-    "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\""
+    "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\"",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@tanstack/react-table": "^8.7.6",
+    "patch-package": "^7.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.1",
     "react-datepicker": "^4.8.0",
