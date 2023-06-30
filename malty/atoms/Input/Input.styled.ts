@@ -230,6 +230,7 @@ export const StyledButton = styled.button<{
   size?: string;
   isError?: boolean;
   readOnly?: boolean;
+  disabled?: boolean;
 }>`
   cursor: pointer;
   height: ${({ size }) => size}px;
