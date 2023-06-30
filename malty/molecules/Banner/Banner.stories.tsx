@@ -2,7 +2,7 @@ import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Banner as BannerComponent } from './Banner';
-import { BannerLayout, BannerProps } from './Banner.types';
+import { ActionButtonProps, BannerLayout, BannerProps } from './Banner.types';
 
 enum BannerVariants {
   Negative = 'negative',
@@ -56,7 +56,7 @@ export default {
     actions: {
       control: '',
       description:
-        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
+        'An array of maximum 2 actions structured as such "actions?: Array<ActionButtonProps> | React.ReactNode | JSX.Element;"'
     },
     imageSrc: {
       control: 'text',
@@ -78,6 +78,21 @@ export const Banner = Template.bind({});
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
+const actions: ActionButtonProps[] = [
+  {
+    key: 'primary',
+    style: ButtonStyle.Primary,
+    text: 'Primary',
+    onClick: () => alert('primary button pressed')
+  },
+  {
+    key: 'secondary',
+    style: ButtonStyle.Secondary,
+    text: 'Secondary',
+    onClick: () => alert('secondary button pressed')
+  }
+];
+
 switch (variant) {
   case BannerVariants.Negative:
     Banner.args = {
@@ -90,20 +105,7 @@ switch (variant) {
       label: {
         text: 'Label'
       },
-      actions: [
-        {
-          key: 'primary',
-          variant: ButtonStyle.Primary,
-          label: 'Primary',
-          onClick: () => alert('primary button pressed')
-        },
-        {
-          key: 'secondary',
-          variant: ButtonStyle.Secondary,
-          label: 'Secondary',
-          onClick: () => alert('secondary button pressed')
-        }
-      ]
+      actions
     };
     break;
   case BannerVariants.Half:
@@ -117,20 +119,7 @@ switch (variant) {
       label: {
         text: 'Label'
       },
-      actions: [
-        {
-          key: 'primary',
-          variant: ButtonStyle.Primary,
-          label: 'Primary',
-          onClick: () => alert('primary button pressed')
-        },
-        {
-          key: 'secondary',
-          variant: ButtonStyle.Secondary,
-          label: 'Secondary',
-          onClick: () => alert('secondary button pressed')
-        }
-      ]
+      actions
     };
     break;
   case BannerVariants.Third:
@@ -144,20 +133,7 @@ switch (variant) {
       label: {
         text: 'Label'
       },
-      actions: [
-        {
-          key: 'primary',
-          variant: ButtonStyle.Primary,
-          label: 'Primary',
-          onClick: () => alert('primary button pressed')
-        },
-        {
-          key: 'secondary',
-          variant: ButtonStyle.Secondary,
-          label: 'Secondary',
-          onClick: () => alert('secondary button pressed')
-        }
-      ]
+      actions
     };
     break;
   case BannerVariants.Reverse:
@@ -171,20 +147,7 @@ switch (variant) {
       label: {
         text: 'Label'
       },
-      actions: [
-        {
-          key: 'primary',
-          variant: ButtonStyle.Primary,
-          label: 'Primary',
-          onClick: () => alert('primary button pressed')
-        },
-        {
-          key: 'secondary',
-          variant: ButtonStyle.Secondary,
-          label: 'Secondary',
-          onClick: () => alert('secondary button pressed')
-        }
-      ]
+      actions
     };
     break;
   default:
@@ -198,20 +161,7 @@ switch (variant) {
       label: {
         text: 'Label'
       },
-      actions: [
-        {
-          key: 'primary',
-          variant: ButtonStyle.Primary,
-          label: 'Primary',
-          onClick: () => alert('primary button pressed')
-        },
-        {
-          key: 'secondary',
-          variant: ButtonStyle.Secondary,
-          label: 'Secondary',
-          onClick: () => alert('secondary button pressed')
-        }
-      ]
+      actions
     };
     break;
 }
