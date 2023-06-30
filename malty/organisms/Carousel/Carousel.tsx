@@ -25,13 +25,14 @@ export const Carousel: React.FC<CarouselProps> = ({
 
   const options: Options = {
     type: 'loop',
-    // This needs to be sent completly empty because when this perPage is sent as undefined the perPage value will always be 1 when isOverflow
+    // This needs to be sent completly empty because when perPage is sent as undefined the perPage value will always be 1 when isOverflow
     ...(breakpoints && Object.keys(breakpoints).length > 0 ? {} : { perPage }),
     gap,
     mediaQuery: 'min',
     breakpoints,
     padding: { left: theme.sizes['5xs'].value, right: theme.sizes['5xs'].value, bottom: theme.sizes['4xs'].value },
-    clones: areActionsVisible ? undefined : 0
+    clones: areActionsVisible ? undefined : 0,
+    pagination: areActionsVisible
   };
 
   const handleOnOverflow: SplideEventHandlers['onOverflow'] = (_, isOverflow) => {

@@ -1,9 +1,7 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { ArticleCard } from '@carlsberggroup/malty.molecules.article-card';
 import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
 import { render, screen } from '@testing-library/react';
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { Carousel } from './Carousel';
 import { CarouselItemProps } from './Carousel.types';
 
@@ -86,6 +84,8 @@ const carouseSlideObject: CarouselItemProps[] = [
 ];
 
 describe('Carousel', () => {
+  const spy = jest.spyOn(React, 'useState'); // This is needed because by default the library always returns overflow as false using jest
+
   beforeAll(() => {
     // https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
     window.matchMedia = () =>
@@ -101,7 +101,14 @@ describe('Carousel', () => {
       } as MediaQueryList);
   });
 
+  beforeEach(() => {
+    spy.mockReset();
+  });
+
   it('should render carousel with custom arrows, pagination and slides', () => {
+    const mockState = (initialValue: boolean) => [initialValue, jest.fn()];
+    spy.mockImplementation(mockState as () => [unknown, Dispatch<unknown>]);
+
     render(
       <Carousel
         carouselSlide={carouseSlideObject}
@@ -111,6 +118,7 @@ describe('Carousel', () => {
         ariaLabels={{ prev: 'prev-carousel-btn', next: 'next-carousel-btn' }}
       />
     );
+
     expect(screen.getByTestId('carousel-container-test')).toBeVisible();
     expect(screen.getByRole('button', { name: /prev-carousel-btn/i })).toBeVisible();
     expect(screen.getByRole('button', { name: /next-carousel-btn/i })).toBeVisible();
@@ -123,27 +131,11 @@ describe('Carousel', () => {
   });
 
   it('should NOT render custom arrows and pagination when is only one slide', () => {
-    // const oneSlideObject: CarouselItemProps[] = carouseSlideObject.slice(0, 1);
+    const oneSlideObject: CarouselItemProps[] = carouseSlideObject.slice(0, 1);
 
     render(
       <Carousel
-        carouselSlide={[
-          {
-            id: 1,
-            slideComponent: (
-              <ArticleCard
-                title="This is card 01 "
-                description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
-                date="12/06/2022"
-                imageSrc="https://picsum.photos/320/180"
-                dataTestId="article-card"
-                orientation={CardOrientation.Portrait}
-                cardStyle={CardStyle.Shadowed}
-              />
-            ),
-            slideDataTestId: 'carousel-1'
-          }
-        ]}
+        carouselSlide={oneSlideObject}
         perPage={1}
         dataTestId="test"
         ariaLabels={{ prev: 'prev-carousel-btn', next: 'next-carousel-btn' }}

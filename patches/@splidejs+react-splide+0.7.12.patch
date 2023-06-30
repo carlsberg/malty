@@ -1,3 +1,17 @@
+diff --git a/node_modules/@splidejs/react-splide/dist/js/react-splide.cjs.js b/node_modules/@splidejs/react-splide/dist/js/react-splide.cjs.js
+index 85cddb7..fda6a1d 100644
+--- a/node_modules/@splidejs/react-splide/dist/js/react-splide.cjs.js
++++ b/node_modules/@splidejs/react-splide/dist/js/react-splide.cjs.js
+@@ -2636,7 +2636,8 @@ var EVENTS = [
+   [EVENT_AUTOPLAY_PLAY, "onAutoplayPlay"],
+   [EVENT_AUTOPLAY_PLAYING, "onAutoplayPlaying"],
+   [EVENT_AUTOPLAY_PAUSE, "onAutoplayPause"],
+-  [EVENT_LAZYLOAD_LOADED, "onLazyLoadLoaded"]
++  [EVENT_LAZYLOAD_LOADED, "onLazyLoadLoaded"],
++  [EVENT_OVERFLOW, "onOverflow"]
+ ];
+ 
+ // src/js/utils/classNames/classNames.ts
 diff --git a/node_modules/@splidejs/react-splide/dist/js/react-splide.esm.js b/node_modules/@splidejs/react-splide/dist/js/react-splide.esm.js
 index 0b19767..4bf6303 100644
 --- a/node_modules/@splidejs/react-splide/dist/js/react-splide.esm.js
