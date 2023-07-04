@@ -50,9 +50,13 @@ export const Carousel: React.FC<CarouselProps> = ({
       onVisible={onVisible}
       onOverflow={handleOnOverflow}
     >
-      <SplideTrack style={{ paddingBottom: `${theme.sizes['4xs'].value}` }}>
+      <SplideTrack>
         {carouselSlide?.map((item: CarouselItemProps) => (
-          <SplideSlide key={item.id} data-testid={item.slideDataTestId}>
+          <SplideSlide
+            key={item.id}
+            data-testid={item.slideDataTestId}
+            style={{ paddingBottom: `${theme.sizes['4xs'].value}` }}
+          >
             {item.slideComponent}
           </SplideSlide>
         ))}

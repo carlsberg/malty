@@ -16,7 +16,7 @@ export const StyledCustomSplideArrows = styled.div`
     display: flex;
     padding: 0;
     column-gap: ${({ theme }) => theme.sizes.s.value};
-    margin-top: ${({ theme }) => theme.sizes.s.value};
+    margin-top: ${({ theme }) => theme.sizes.xs.value};
 
     ${({ theme }) => css`
       @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
