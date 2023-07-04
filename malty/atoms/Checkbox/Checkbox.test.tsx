@@ -1,7 +1,7 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
+import React, { useState } from 'react';
 import { Checkbox } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
@@ -15,7 +15,7 @@ describe('Checkbox', () => {
     dataTestId: 'checkbox'
   };
 
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     render(<Checkbox {...props} />);
 
     expect(screen.getByText('Checkbox label')).toBeVisible();
@@ -25,7 +25,7 @@ describe('Checkbox', () => {
     expect(screen.getByRole('checkbox', { hidden: true })).toBeInTheDocument();
   });
 
-  test('handles onValueChange correctly', () => {
+  it('handles onValueChange correctly', () => {
     render(<Checkbox {...props} />);
 
     const checkboxInput = screen.getByRole('checkbox', { hidden: true });
@@ -35,28 +35,49 @@ describe('Checkbox', () => {
     expect(handleValueChange).toHaveBeenCalledTimes(1);
   });
 
-  test('displays error message when error prop is provided', () => {
+  it('displays error message when error prop is provided', () => {
     render(<Checkbox {...props} error="Error message" />);
 
     expect(screen.getByText('Error message')).toBeVisible();
   });
 
-  test('renders as disabled when disabled prop is true', () => {
+  it('renders as disabled when disabled prop is true', () => {
     render(<Checkbox {...props} disabled />);
 
     expect(screen.getByLabelText('Checkbox label')).toBeDisabled();
   });
 
-  test('renders as readonly and disables input when readOnly prop is true', () => {
+  it('renders as readonly and disables input when readOnly prop is true', () => {
     render(<Checkbox {...props} readOnly />);
 
     expect(screen.getByLabelText('Checkbox label')).toBeDisabled();
   });
 
-  test('only displays checkbox when labelText prop is not passed', () => {
+  it('only displays checkbox when labelText prop is not passed', () => {
     render(<Checkbox {...props} labelText={undefined} />);
 
     expect(screen.queryByText('Checkbox label')).not.toBeInTheDocument();
     expect(screen.queryByLabelText('Checkbox label')).not.toBeInTheDocument();
+  });
+
+  it('renders checkbox unchecked by default and evaluates if it checks after being clicked', () => {
+    const CheckBoxComponent = () => {
+      const [isChecked, setIsChecked] = useState(false);
+     
+      return (
+        <Checkbox {...props}  onValueChange={() => setIsChecked(!isChecked)} checked={isChecked}/>
+      );
+    };
+    
+    render(<CheckBoxComponent />);
+    const checkboxInput = screen.getByRole('checkbox', { hidden: true });
+    
+    expect(screen.getByTestId("icon-CheckboxEmpty")).toBeVisible();
+    expect(checkboxInput).not.toBeChecked();
+    
+    userEvent.click(checkboxInput);
+
+    expect(checkboxInput).toBeChecked();
+    expect(screen.getByTestId("icon-CheckboxCheck")).toBeVisible();
   });
 });
