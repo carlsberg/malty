@@ -5,11 +5,6 @@ import React, { Dispatch } from 'react';
 import { Carousel } from './Carousel';
 import { CarouselItemProps } from './Carousel.types';
 
-jest.mock('@splidejs/react-splide/css/core', () => ({
-  __esModule: true,
-  default: jest.fn()
-}));
-
 const carouseSlideObject: CarouselItemProps[] = [
   {
     id: 1,

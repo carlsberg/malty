@@ -11,6 +11,12 @@
       "rules": {
         "no-alert": "off"
       }
+    },
+    {
+      "files": ["Carousel.tsx", "Carousel.test.tsx"],
+      "rules": {
+        "import/no-unresolved": ["error", { "ignore": ["@splidejs/react-splide/css/core"] }]
+      }
     }
   ]
 }
