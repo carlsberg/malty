@@ -32,7 +32,8 @@ export const Carousel: React.FC<CarouselProps> = ({
     breakpoints,
     padding: { left: theme.sizes['5xs'].value, right: theme.sizes['5xs'].value, bottom: theme.sizes['4xs'].value },
     clones: areActionsVisible ? undefined : 0,
-    pagination: areActionsVisible
+    pagination: areActionsVisible,
+    drag: areActionsVisible
   };
 
   const handleOnOverflow: SplideEventHandlers['onOverflow'] = (_, isOverflow) => {
