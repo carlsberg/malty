@@ -2,11 +2,11 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { Options, Splide, SplideEventHandlers, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import { Options, SplideEventHandlers, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css/core';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledCustomSplideArrows } from './Carousel.styled';
+import { StyledCustomSplideArrows, StyledSplide, StyledSplideTrack } from './Carousel.styled';
 import { CarouselItemProps, CarouselProps } from './Carousel.types';
 
 export const Carousel: React.FC<CarouselProps> = ({
@@ -15,7 +15,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   negative,
   gap,
   perPage = 1,
-  innerSpacingX,
+  innerSpacingX = false,
   ariaLabels,
   onVisible,
   dataTestId
@@ -41,27 +41,24 @@ export const Carousel: React.FC<CarouselProps> = ({
   };
 
   return (
-    <Splide
+    <StyledSplide
       role="group"
       hasTrack={false}
       options={options}
       aria-label={ariaLabels?.carousel}
       data-testid={`carousel-container-${dataTestId}`}
-      style={{ padding: `0 ${innerSpacingX ? theme.sizes['2xs'].value : '0'}` }}
       onVisible={onVisible}
       onOverflow={handleOnOverflow}
+      innerSpacingX={innerSpacingX}
+      theme={theme}
     >
-      <SplideTrack>
+      <StyledSplideTrack theme={theme}>
         {carouselSlide?.map((item: CarouselItemProps) => (
-          <SplideSlide
-            key={item.id}
-            data-testid={item.slideDataTestId}
-            style={{ paddingBottom: `${theme.sizes['4xs'].value}` }}
-          >
+          <SplideSlide key={item.id} data-testid={item.slideDataTestId}>
             {item.slideComponent}
           </SplideSlide>
         ))}
-      </SplideTrack>
+      </StyledSplideTrack>
       {areActionsVisible ? (
         <StyledCustomSplideArrows theme={theme}>
           <div className="splide__arrows">
@@ -90,6 +87,6 @@ export const Carousel: React.FC<CarouselProps> = ({
           </div>
         </StyledCustomSplideArrows>
       ) : null}
-    </Splide>
+    </StyledSplide>
   );
 };

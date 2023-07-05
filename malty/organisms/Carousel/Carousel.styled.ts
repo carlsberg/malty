@@ -1,4 +1,13 @@
+import { Splide, SplideTrack } from '@splidejs/react-splide';
 import styled, { css } from 'styled-components';
+
+export const StyledSplide = styled(Splide)<{ innerSpacingX: boolean }>`
+  padding: 0 ${({ theme, innerSpacingX }) => (innerSpacingX ? theme.sizes['2xs'].value : '0')};
+`;
+
+export const StyledSplideTrack = styled(SplideTrack)`
+  padding-bottom: ${({ theme }) => theme.sizes['4xs'].value};
+`;
 
 export const StyledCustomSplideArrows = styled.div`
   position: absolute;
