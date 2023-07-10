@@ -46,7 +46,7 @@ describe('button', () => {
   it('checks if button has color digital black', () => {
     render(<Button style={ButtonStyle.Primary} color={ButtonColor.DigitalBlack}>{defaultText}</Button>);
 
-    expect(screen.getByRole('button')).toHaveAttribute('color', 'digital-black')
+    expect(screen.getByRole('button')).toHaveAttribute('color', 'digital-black');
   });
 
   it('checks if button has color theme primary', () => {
@@ -95,17 +95,13 @@ describe('button', () => {
     render(<Button style={ButtonStyle.Primary} loading dataTestId='button'>{defaultText}</Button>);
 
     expect(screen.getByTestId('undefined-pending-icon')).toBeVisible()
-
-    render(
-      <Icon name={IconName.Loading} color={IconColor.Primary} size={IconSize.Small} />
-    );
-    
-    expect(screen.getByTestId('icon-Loading')).toBeVisible()
   });
 
   it('calls function on key up', () => {
     const onKeyUp = jest.fn();
+
     render(<Button text={defaultText} style={ButtonStyle.Primary} onKeyUp={onKeyUp} />);
+
     userEvent.type(screen.getByText(defaultText), '{enter}')
     
     expect(onKeyUp).toHaveBeenCalledTimes(1);
