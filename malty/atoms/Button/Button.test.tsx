@@ -4,10 +4,7 @@ import React from 'react';
 import { Button } from './Button';
 import { ButtonStyle, ButtonColor, ButtonType } from './Button.types';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-
 import userEvent from '@testing-library/user-event';
-import { StyledPrimaryButton } from './Button.styled';
-
 
 const defaultText = 'Submit';
 const newText = 'Go';
