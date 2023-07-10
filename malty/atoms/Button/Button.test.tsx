@@ -3,8 +3,6 @@ import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Button } from './Button';
 import { ButtonStyle, ButtonColor, ButtonType } from './Button.types';
-import { Icon } from '@carlsberggroup/malty.atoms.icon';
-import { IconName, IconColor, IconSize, IconProps } from '@carlsberggroup/malty.atoms.icon';
 import userEvent from '@testing-library/user-event';
 const defaultText = 'Submit';
 const newText = 'Go';
