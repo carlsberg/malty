@@ -3,7 +3,12 @@ import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Button } from './Button';
 import { ButtonStyle, ButtonColor, ButtonType } from './Button.types';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+
 import userEvent from '@testing-library/user-event';
+import { StyledPrimaryButton } from './Button.styled';
+
+
 const defaultText = 'Submit';
 const newText = 'Go';
 
@@ -44,12 +49,17 @@ describe('button', () => {
   it('checks if button has color digital black', () => {
     render(<Button style={ButtonStyle.Primary} color={ButtonColor.DigitalBlack}>{defaultText}</Button>);
 
-    expect(screen.getByRole('button')).toHaveAttribute('color', 'digital-black');
+    expect(screen.getByRole('button')).toHaveStyle(
+      `
+        background-color: ${defaultTheme.colors.colours.default['digital-black'].value};
+        color: ${defaultTheme.colors.colours.default.white.value}
+      `
+    );
   });
 
   it('checks if button has color theme primary', () => {
     render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemePrimary}>{defaultText}</Button>);
-
+    
     expect(screen.getByRole('button')).toHaveAttribute('color', 'themePrimary')
   });
 
