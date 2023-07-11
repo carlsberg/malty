@@ -77,7 +77,7 @@ describe('button', () => {
     );
   });
 
-  it.only('checks if button has color theme tertiary', () => {
+  it('checks if button has color theme tertiary', () => {
     render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemeTertiary}>{defaultText}</Button>);
 
     expect(screen.getByRole('button')).toHaveStyle(
