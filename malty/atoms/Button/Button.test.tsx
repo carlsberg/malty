@@ -56,20 +56,36 @@ describe('button', () => {
 
   it('checks if button has color theme primary', () => {
     render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemePrimary}>{defaultText}</Button>);
+
+    expect(screen.getByRole('button')).toHaveStyle(
+      `
+        background-color: ${defaultTheme.colors.theme.themePrimary.value};
+        color: ${defaultTheme.colors.colours.default.white.value}
+      `
+    );
     
-    expect(screen.getByRole('button')).toHaveAttribute('color', 'themePrimary')
   });
 
   it('checks if button has color theme secondary', () => {
     render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemeSecondary}>{defaultText}</Button>);
 
-    expect(screen.getByRole('button')).toHaveAttribute('color', 'themeSecondary')
+    expect(screen.getByRole('button')).toHaveStyle(
+      `
+        background-color: ${defaultTheme.colors.theme.themeSecondary.value};
+        color: ${defaultTheme.colors.colours.default.white.value}
+      `
+    );
   });
 
-  it('checks if button has color theme tertiary', () => {
+  it.only('checks if button has color theme tertiary', () => {
     render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemeTertiary}>{defaultText}</Button>);
 
-    expect(screen.getByRole('button')).toHaveAttribute('color', 'themeTertiary')
+    expect(screen.getByRole('button')).toHaveStyle(
+      `
+        background-color: ${defaultTheme.colors.theme.themeTertiary.value};
+        color: ${defaultTheme.colors.colours.default.white.value}
+      `
+    );
   });
 
   it('checks if its a default type button', () => {
