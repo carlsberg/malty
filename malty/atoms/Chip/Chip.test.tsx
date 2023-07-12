@@ -4,6 +4,7 @@ import React from 'react';
 import { Chip } from './Chip';
 import { ChipSize } from './Chip.types';
 import { IconName, IconColor, IconSize, IconProps } from '@carlsberggroup/malty.atoms.icon';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import userEvent from '@testing-library/user-event';
 
 const defaultLabel = 'label';
@@ -51,19 +52,31 @@ describe('chip', () => {
   it('checks if size is XSmall', () => {
     render(<Chip selected={false} label={defaultLabel} size={ChipSize.XSmall} dataTestId='chip'/>);
 
-    expect(screen.getByTestId('chip')).toHaveAttribute('height','24px');
+    expect(screen.getByTestId('chip')).toHaveStyle(
+      `
+        height: ${defaultTheme.sizes.m.value};
+      `
+    );
   });
 
   it('checks if size is Small', () => {
     render(<Chip selected={false} label={defaultLabel} size={ChipSize.Small} dataTestId='chip'/>);
 
-    expect(screen.getByTestId('chip')).toHaveAttribute('height','32px');
+    expect(screen.getByTestId('chip')).toHaveStyle(
+      `
+        height: ${defaultTheme.sizes.l.value};
+      `
+    );
   });
 
   it('checks if size is Medium', () => {
     render(<Chip selected={false} label={defaultLabel} size={ChipSize.Medium} dataTestId='chip'/>);
 
-    expect(screen.getByTestId('chip')).toHaveAttribute('height','40px');
+    expect(screen.getByTestId('chip')).toHaveStyle(
+      `
+        height: ${defaultTheme.sizes.xl.value};
+      `
+    );
   });
 
   it('checks if its displaying the Alert Icon', () => {
@@ -76,6 +89,7 @@ describe('chip', () => {
     const onClick = jest.fn();
     render(<Chip selected={false} label={defaultLabel} disabled dataTestId='chip'/>);
 
+    // TODO: remove skipPointerEventsCheck flag when user-event is bumped
     userEvent.click(screen.getByTestId('chip'),undefined,{skipPointerEventsCheck: true});
 
     expect(screen.getByTestId('chip')).toHaveAttribute("disabled","");
@@ -86,6 +100,7 @@ describe('chip', () => {
     const onClick = jest.fn();
     render(<Chip selected={false} label={defaultLabel} readOnly dataTestId='chip'/>);
 
+    // TODO: remove skipPointerEventsCheck flag when user-event is bumped
     userEvent.click(screen.getByTestId('chip'),undefined,{skipPointerEventsCheck: true});
 
     expect(screen.getByTestId('chip')).toHaveAttribute("readonly","");
