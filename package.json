@@ -25,7 +25,7 @@
     "reset": "yarn clean && yarn wipe && yarn serve",
     "watch": "tsc -b -w --preserveWatchOutput",
     "compile": "tsc -b",
-    "start": "bit compile && bit start",
+    "start": "bit compile && yarn storybook",
     "serve": "bit install && bit compile && bit start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --docs -o docs",
@@ -33,14 +33,11 @@
     "test": "jest",
     "test:ci": "jest --silent --ci",
     "test:watch": "jest --watch",
-    "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\"",
-    "postinstall": "patch-package"
+    "lint": "eslint \"malty/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@tanstack/react-table": "^8.7.6",
-    "patch-package": "^7.0.0",
-    "postinstall-postinstall": "^2.1.0",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.1",
     "react-datepicker": "^4.8.0",
