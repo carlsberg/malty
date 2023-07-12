@@ -4,29 +4,44 @@ import React from 'react';
 import { Chip } from './Chip';
 import { ChipSize } from './Chip.types';
 import { IconName, IconColor, IconSize, IconProps } from '@carlsberggroup/malty.atoms.icon';
+import userEvent from '@testing-library/user-event';
 
 const defaultLabel = 'label';
 
 describe('chip', () => {
   it('renders with correct text', () => {
     render(<Chip selected={false} label={defaultLabel} />);
+
     expect(screen.getByText(defaultLabel)).toBeInTheDocument();
   });
 
   it('calls function onChange', () => {
     const onChange = jest.fn();
+    
     render(<Chip selected={false} label={defaultLabel} onChange={onChange} />);
-    fireEvent.click(screen.getByText(defaultLabel));
+
+    userEvent.click(screen.getByText(defaultLabel));
+
     expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls function onClick', () => {
+    const onClick = jest.fn();
+    render(<Chip selected={false} label={defaultLabel} onChange={onClick} />)
+
+    userEvent.click(screen.getByText(defaultLabel));
+    
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('renders with the given test id', () => {
     render(<Chip selected={false} label={defaultLabel} dataTestId='chip'/>);
+
     expect(screen.getByTestId('chip')).toBeVisible();
   })
 
   it('displays add button', () => {
-    render(<Chip selected={false} label={defaultLabel} showAction={true}/>);
+    render(<Chip selected={false} label={defaultLabel} showAction/>);
 
     expect(screen.getByText(defaultLabel)).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
@@ -60,7 +75,8 @@ describe('chip', () => {
   it('checks if chip is disabled', () => {
     const onClick = jest.fn();
     render(<Chip selected={false} label={defaultLabel} disabled dataTestId='chip'/>);
-    fireEvent.click(screen.getByTestId('chip'));
+
+    userEvent.click(screen.getByTestId('chip'),undefined,{skipPointerEventsCheck: true});
 
     expect(screen.getByTestId('chip')).toHaveAttribute("disabled","");
     expect(onClick).toHaveBeenCalledTimes(0); 
@@ -69,7 +85,8 @@ describe('chip', () => {
   it('checks if chip is readOnly', () => {
     const onClick = jest.fn();
     render(<Chip selected={false} label={defaultLabel} readOnly dataTestId='chip'/>);
-    fireEvent.click(screen.getByTestId('chip'));
+
+    userEvent.click(screen.getByTestId('chip'),undefined,{skipPointerEventsCheck: true});
 
     expect(screen.getByTestId('chip')).toHaveAttribute("readonly","");
     expect(onClick).toHaveBeenCalledTimes(0);
