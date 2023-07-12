@@ -1,4 +1,4 @@
-import { Options, SplideProps } from '@splidejs/react-splide';
+import { EventMap, Options } from '@splidejs/splide';
 
 export type CarouselProps = {
   dataTestId?: string;
@@ -7,13 +7,13 @@ export type CarouselProps = {
   innerSpacingX?: boolean;
   ariaLabels?: CarouselAriaLabels;
   breakpoints?: Record<string | number, Pick<Options, 'perPage' | 'gap'>>;
-} & Pick<SplideProps, 'onVisible'> &
-  Pick<Options, 'gap' | 'perPage'>;
+  onVisible?: EventMap['visible'];
+} & Pick<Options, 'gap' | 'perPage'>;
 
 export interface CarouselItemProps {
   id?: string | number;
   slideDataTestId?: string;
-  slideComponent?: SplideProps['children'];
+  slideComponent?: React.ReactNode;
 }
 
 export interface CarouselAriaLabels {
