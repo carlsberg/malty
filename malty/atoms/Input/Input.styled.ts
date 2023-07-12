@@ -230,6 +230,7 @@ export const StyledButton = styled.button<{
   size?: string;
   isError?: boolean;
   readOnly?: boolean;
+  disabled?: boolean;
 }>`
   cursor: pointer;
   height: ${({ size }) => size}px;
@@ -251,12 +252,15 @@ export const StyledButton = styled.button<{
   &:last-child {
     border-left: 0;
   }
-  &:disabled {
-    background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
-    svg {
-      fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-    }
-  }
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: default;
+      background-color: ${({ theme }) => theme.colors.colours.default.transparent.value};
+      svg {
+        fill: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+      }
+    `}
   ${({ readOnly }) =>
     readOnly &&
     css`

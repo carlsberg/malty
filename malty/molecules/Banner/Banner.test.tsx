@@ -3,18 +3,21 @@ import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import React from 'react';
 import { Banner } from './Banner';
+import { ActionButtonProps } from './Banner.types';
 
 const title = 'Title';
 const description = 'This is a test';
 const imageSrc = 'https://placehold.co/300x180';
-const actions = [
+const actions: ActionButtonProps[] = [
   {
-    variant: ButtonStyle.Secondary,
-    label: 'Cancel'
+    key: 'cancel',
+    style: ButtonStyle.Primary,
+    text: 'Cancel'
   },
   {
-    variant: ButtonStyle.Primary,
-    label: 'Confirm'
+    key: 'confirm',
+    style: ButtonStyle.Secondary,
+    text: 'Confirm'
   }
 ];
 

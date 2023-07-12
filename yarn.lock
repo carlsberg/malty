@@ -5085,6 +5085,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"ArticleCard-c0edbd@workspace:malty/molecules/ArticleCard":
+  version: 0.0.0-use.local
+  resolution: "ArticleCard-c0edbd@workspace:malty/molecules/ArticleCard"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "At-20f857@workspace:malty/icons/At":
   version: 0.0.0-use.local
   resolution: "At-20f857@workspace:malty/icons/At"

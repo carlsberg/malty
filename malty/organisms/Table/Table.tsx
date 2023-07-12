@@ -11,6 +11,7 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  Header,
   OnChangeFn,
   PaginationState,
   Row,
@@ -92,8 +93,8 @@ export const Table = ({
   const columns = headers.map((header) =>
     columnHelper.accessor(header.key, {
       id: header.key,
-      header: () => header.header,
-      meta: header.headerAlignment
+      header: () => (header.isEmpty ? null : header.header),
+      meta: { alignment: header.headerAlignment, sorting: !header.isEmpty }
     })
   );
 
@@ -181,6 +182,14 @@ export const Table = ({
     }
   }, [size, theme]);
 
+  const createHandleHeaderClick = (header: Header<TableRowProps, unknown>, index: number) => {
+    if (columns[index].meta?.sorting) {
+      return header.column.getToggleSortingHandler();
+    }
+
+    return undefined;
+  };
+
   return (
     <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
       <div>
@@ -208,53 +217,55 @@ export const Table = ({
                 )}
                 {headerGroup.headers.map((header, index) => (
                   <StyledHead
-                    alignPosition={columns[index].meta as TableHeaderAlignment | undefined}
+                    alignPosition={columns[index].meta?.alignment as TableHeaderAlignment | undefined}
                     ref={(elem: HTMLTableCellElement) => (nodesRef.current[index] = elem)}
-                    isSortable={header.column.getCanSort()}
-                    onClick={header.column.getToggleSortingHandler()}
+                    isSortable={!!columns[index].meta?.sorting && header.column.getCanSort()}
+                    onClick={createHandleHeaderClick(header, index)}
                     data-testid={`${dataTestId}-th-${header.id}`}
                     theme={theme}
                     key={header.id}
                   >
                     <div>
                       {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                      {{
-                        asc: (
-                          <Tooltip
-                            placement={TooltipPlacement.Bottom}
-                            isDark
-                            tooltipId="asc"
-                            triggerComponent={createSortIcon(IconName.ArrowSmallUp)}
-                          >
-                            <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
-                              Sorted A→Z
-                            </Text>
-                          </Tooltip>
-                        ),
-                        desc: (
-                          <Tooltip
-                            placement={TooltipPlacement.Bottom}
-                            isDark
-                            tooltipId="desc"
-                            triggerComponent={createSortIcon(IconName.ArrowSmallDown)}
-                          >
-                            <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
-                              Sorted Z→A
-                            </Text>
-                          </Tooltip>
-                        )
-                      }[header.column.getIsSorted() as string] ?? (
-                        <Tooltip
-                          placement={TooltipPlacement.Bottom}
-                          isDark
-                          tooltipId="normal"
-                          triggerComponent={createSortIcon(IconName.Sort)}
-                        >
-                          <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
-                            Sort A→Z
-                          </Text>
-                        </Tooltip>
-                      )}
+                      {columns[index].meta?.sorting
+                        ? {
+                            asc: (
+                              <Tooltip
+                                placement={TooltipPlacement.Bottom}
+                                isDark
+                                tooltipId="asc"
+                                triggerComponent={createSortIcon(IconName.ArrowSmallUp)}
+                              >
+                                <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
+                                  Sorted A→Z
+                                </Text>
+                              </Tooltip>
+                            ),
+                            desc: (
+                              <Tooltip
+                                placement={TooltipPlacement.Bottom}
+                                isDark
+                                tooltipId="desc"
+                                triggerComponent={createSortIcon(IconName.ArrowSmallDown)}
+                              >
+                                <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
+                                  Sorted Z→A
+                                </Text>
+                              </Tooltip>
+                            )
+                          }[header.column.getIsSorted() as string] ?? (
+                            <Tooltip
+                              placement={TooltipPlacement.Bottom}
+                              isDark
+                              tooltipId="normal"
+                              triggerComponent={createSortIcon(IconName.Sort)}
+                            >
+                              <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
+                                Sort A→Z
+                              </Text>
+                            </Tooltip>
+                          )
+                        : null}
                     </div>
                   </StyledHead>
                 ))}

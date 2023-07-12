@@ -2,7 +2,7 @@ import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Hero as HeroComponent } from './Hero';
-import { HeroProps } from './Hero.types';
+import { ActionButtonProps, HeroProps } from './Hero.types';
 
 enum HeroVariants {
   Required = 'required',
@@ -64,8 +64,7 @@ const variant = params.get('variant');
 const requiredProps: HeroProps = {
   title: 'Welcome to Carlsberg Online',
   description: 'Now you can order all your favourite products on your smartphone or computer within minutes.',
-  imageSrc:
-    'https://s3-alpha-sig.figma.com/img/1a8e/2a97/368bfc9d97adcbd3d02f0159e7692a8e?Expires=1687737600&Signature=BuALw8tE~LB0L6bXFJmvn~rTaFV56SCTpZsWch0c0Ogi75FXkfmaRiHX3wju3ACFut320tr73q4FIAe8y07AT3hH00dAPYJvIPIOXQ~TXP6ALj5zQQuLfvOJwSQwCtuUngrl~-0x2HHCN~8SFDcDVfkwxD-vyR1tBAHByh0jTtk8M1bipMX~ds1sVEQPbWxzJMFAzlrILxW16h5yDUBiWKF6WnpJTmvZh~luJyRwV9vKm5BC8rs4sA-HsBanSLdnbQXLQM37fyAGtsj5PVf7~1x11zaHUja2yhejXN~efkZId7csOqtz6rpuN2NRAp1DkWA36hZBTBoT573NaKSOqw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+  imageSrc: 'https://picsum.photos/1400/800'
 };
 
 switch (variant) {
@@ -74,53 +73,59 @@ switch (variant) {
       ...requiredProps
     };
     break;
-  case HeroVariants.Actions:
+  case HeroVariants.Actions: {
+    const actions: ActionButtonProps[] = [
+      {
+        key: 'primary',
+        style: ButtonStyle.Primary,
+        text: 'I want to know more',
+        onClick: () => alert('First button pressed!')
+      },
+      {
+        key: 'secondary',
+        style: ButtonStyle.Secondary,
+        text: 'I am ok',
+        onClick: () => alert('Second button pressed!')
+      }
+    ];
+
     Hero.args = {
       ...requiredProps,
-      actions: [
-        {
-          key: 'primary',
-          style: ButtonStyle.Primary,
-          text: 'I want to know more',
-          onClick: () => alert('First button pressed!')
-        },
-        {
-          key: 'secondary',
-          style: ButtonStyle.Secondary,
-          text: 'I am ok',
-          onClick: () => alert('Second button pressed!')
-        }
-      ]
+      actions
     };
     break;
+  }
   case HeroVariants.Scroll:
     Hero.args = {
       ...requiredProps,
       scrollText: 'Scroll to know more'
     };
     break;
-  default:
+  default: {
+    const actions: ActionButtonProps[] = [
+      {
+        key: 'primary',
+        negative: true,
+        color: ButtonColor.DigitalBlack,
+        style: ButtonStyle.Primary,
+        text: 'I want to know more',
+        onClick: () => alert('First button pressed!')
+      },
+      {
+        key: 'secondary',
+        negative: true,
+        color: ButtonColor.DigitalBlack,
+        style: ButtonStyle.Secondary,
+        text: 'I am ok',
+        onClick: () => alert('Second button pressed!')
+      }
+    ];
+
     Hero.args = {
       ...requiredProps,
-      actions: [
-        {
-          key: 'primary',
-          negative: true,
-          color: ButtonColor.DigitalBlack,
-          style: ButtonStyle.Primary,
-          text: 'I want to know more',
-          onClick: () => alert('First button pressed!')
-        },
-        {
-          key: 'secondary',
-          negative: true,
-          color: ButtonColor.DigitalBlack,
-          style: ButtonStyle.Secondary,
-          text: 'I am ok',
-          onClick: () => alert('Second button pressed!')
-        }
-      ],
+      actions,
       scrollText: 'Scroll to know more'
     };
     break;
+  }
 }

@@ -24,7 +24,7 @@ export const StyledBannerContainer = styled.div<{
     `;
   }};
 
-  @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     flex-direction: ${({ reverse }) => (reverse ? 'column-reverse' : 'column')};
   }
 `;
@@ -78,7 +78,7 @@ export const StyledBannerImage = styled.div<{
         `;
     }
   }};
-  @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     width: 100%;
     ${({ layout, imageHeight }) => {
       const currentHeight = 0.3 * window.innerHeight;
@@ -125,7 +125,7 @@ export const StyledBannerContent = styled.div<{
   > * {
     margin-bottom: ${({ theme }) => theme.sizes.s.value};
   }
-  @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     width: 100%;
     padding: ${({ theme }) => theme.sizes.s.value};
   }
@@ -136,7 +136,7 @@ export const StyledButtonsWrapper = styled.div`
   margin-bottom: 0;
   gap: ${({ theme }) => theme.sizes['2xs'].value};
   display: flex;
-  @media (max-width: ${({ theme }) => theme.layout.xsmall['device-max-width']?.value}) {
+  @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     flex-direction: column;
     align-items: flex-start;
   }
