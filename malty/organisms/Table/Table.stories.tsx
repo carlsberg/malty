@@ -6,7 +6,8 @@ import { TableHeaderAlignment, TableHeaderProps, TableProps, TableRowProps, Tabl
 const headers: TableHeaderProps[] = [
   {
     header: 'Name',
-    key: 'name'
+    key: 'name',
+    sorting: true
   },
   {
     header: 'Age',
@@ -37,91 +38,91 @@ const rows: TableRowProps[] = [
     id: 1,
     name: 'Fitzgerald Moody',
     age: 35,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 2,
     name: 'Liberty Bell',
     age: 66,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 3,
     name: 'Clayton Carpenter',
     age: 25,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 4,
     name: 'Halla Pugh',
     age: 31,
-    actions: <button>B</button>
+    actions: <button type="button">B</button>
   },
   {
     id: 5,
     name: 'Jaquelyn Valenzuela',
     age: 52,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 6,
     name: 'Kyra Mcknight',
     age: 23,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 7,
     name: 'Naida Barlow',
     age: 52,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 8,
     name: 'Amir Joyce',
     age: 26,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 9,
     name: 'Lenore Dixon',
     age: 40,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 10,
     name: 'Carla Velazquez',
     age: 29,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 11,
     name: 'Quamar Petersen',
     age: 58,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 12,
     name: 'Patrick Stout',
     age: 61,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 13,
     name: 'Ian Rhodes',
     age: 33,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 14,
     name: 'Wesley Simmons',
     age: 67,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 15,
     name: 'Ivy Crawford',
     age: 47,
-    actions: <button>Delete</button>
+    actions: <button type="button">Delete</button>
   }
 ];
 
