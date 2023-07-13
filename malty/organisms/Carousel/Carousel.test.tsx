@@ -94,44 +94,44 @@ describe('Carousel', () => {
       } as MediaQueryList);
   });
 
-  // TODO: Commented because isOverflow function always returns false (so the arrows and pagination are not visible)
+  // TODO: Skipped because isOverflow function always returns false (so the arrows and pagination are not visible)
   // and we couldn't make the test run, the idea is to work on this in the future to find a proper solution
   // eslint-disable-next-line jest/no-commented-out-tests
-  // it('should render carousel with custom arrows, pagination and slides', () => {
-  //   const getBoundingClientRectSpy = jest.fn(() => ({ width: 100 }));
+  it.skip('should render carousel with custom arrows, pagination and slides', () => {
+    const getBoundingClientRectSpy = jest.fn(() => ({ width: 100 }));
 
-  //   render(
-  //     <Carousel
-  //       carouselSlide={carouseSlideObject}
-  //       perPage={1}
-  //       gap={0}
-  //       dataTestId="test"
-  //       ariaLabels={{ prev: 'prev-carousel-btn', next: 'next-carousel-btn' }}
-  //     />
-  //   );
+    render(
+      <Carousel
+        carouselSlide={carouseSlideObject}
+        perPage={1}
+        gap={0}
+        dataTestId="test"
+        ariaLabels={{ prev: 'prev-carousel-btn', next: 'next-carousel-btn' }}
+      />
+    );
 
-  //   // container.getBoundingClientRect = jest.fn(() => ({
-  //   //   x: 1000,
-  //   //   y: 800,
-  //   //   width: 1000,
-  //   //   height: 800,
-  //   //   top: 20,
-  //   //   right: 20,
-  //   //   bottom: 20,
-  //   //   left: 20,
-  //   //   toJSON: jest.fn()
-  //   // }));
+    // container.getBoundingClientRect = jest.fn(() => ({
+    //   x: 1000,
+    //   y: 800,
+    //   width: 1000,
+    //   height: 800,
+    //   top: 20,
+    //   right: 20,
+    //   bottom: 20,
+    //   left: 20,
+    //   toJSON: jest.fn()
+    // }));
 
-  //   expect(screen.getByTestId('carousel-container-test')).toBeVisible();
-  //   expect(screen.getByRole('button', { name: /prev-carousel-btn/i })).toBeVisible();
-  //   expect(screen.getByRole('button', { name: /next-carousel-btn/i })).toBeVisible();
-  //   expect(screen.getByRole('tab', { name: /go to slide 1/i })).toBeVisible();
-  //   expect(screen.getAllByTestId('carousel-1')[0]).toBeVisible();
-  //   expect(screen.queryAllByTestId('carousel-2')[0]).toBeVisible();
-  //   expect(screen.queryAllByTestId('carousel-3')[0]).toBeVisible();
-  //   expect(screen.queryAllByTestId('carousel-4')[0]).toBeVisible();
-  //   expect(screen.queryAllByTestId('carousel-5')[0]).toBeVisible();
-  // });
+    expect(screen.getByTestId('carousel-container-test')).toBeVisible();
+    expect(screen.getByRole('button', { name: /prev-carousel-btn/i })).toBeVisible();
+    expect(screen.getByRole('button', { name: /next-carousel-btn/i })).toBeVisible();
+    expect(screen.getByRole('tab', { name: /go to slide 1/i })).toBeVisible();
+    expect(screen.getAllByTestId('carousel-1')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-2')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-3')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-4')[0]).toBeVisible();
+    expect(screen.queryAllByTestId('carousel-5')[0]).toBeVisible();
+  });
 
   it('should NOT render custom arrows and pagination when is only one slide', () => {
     const oneSlideObject: CarouselItemProps[] = carouseSlideObject.slice(0, 1);

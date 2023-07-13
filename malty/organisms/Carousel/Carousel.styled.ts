@@ -1,33 +1,21 @@
+import { srOnly } from '@carlsberggroup/malty.utils.mixins';
 import styled, { css } from 'styled-components';
 
 export const StyledSplide = styled.section<{ innerSpacingX: boolean }>`
   position: relative;
   padding: 0 ${({ theme, innerSpacingX }) => (innerSpacingX ? theme.sizes['2xs'].value : '0')};
 
-  @keyframes splide-loading {
-    0% {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(1turn);
-    }
-  }
   .splide__list {
     backface-visibility: hidden;
-    display: -ms-flexbox;
     display: flex;
     height: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
   }
   .splide__pagination {
-    -ms-flex-align: center;
     align-items: center;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-pack: center;
     justify-content: center;
     margin: 0;
     pointer-events: none;
@@ -53,9 +41,8 @@ export const StyledSplide = styled.section<{ innerSpacingX: boolean }>`
   .splide__slide {
     backface-visibility: hidden;
     box-sizing: border-box;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
-    list-style-type: none !important;
+    list-style-type: none;
     margin: 0;
     position: relative;
   }
@@ -63,14 +50,7 @@ export const StyledSplide = styled.section<{ innerSpacingX: boolean }>`
     vertical-align: bottom;
   }
   .splide__sr {
-    clip: rect(0 0 0 0);
-    border: 0;
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+    ${srOnly}
   }
   .splide__track {
     overflow: hidden;
@@ -78,9 +58,6 @@ export const StyledSplide = styled.section<{ innerSpacingX: boolean }>`
     z-index: 0;
   }
   .splide__track--draggable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
 `;
