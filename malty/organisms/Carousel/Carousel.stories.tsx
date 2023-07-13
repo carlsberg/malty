@@ -51,7 +51,7 @@ export default {
     },
     perPage: {
       description:
-        'The number of slides to be shown at once - This value should NOT be higher than the number of slides',
+        'The number of slides to be shown at once - This value should NOT be higher than the number of slides. Do not use "breakpoints" in order to apply this rule',
       control: 'number',
       table: {
         category: 'Configuration',
