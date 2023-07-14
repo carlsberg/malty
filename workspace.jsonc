@@ -102,6 +102,15 @@
         }
       }
     },
+    "{organisms/carousel}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "@splidejs/splide": "^4.1.4"
+          }
+        }
+      }
+    },
     "{organisms/table}": {
       "teambit.dependencies/dependency-resolver": {
         "policy": {
