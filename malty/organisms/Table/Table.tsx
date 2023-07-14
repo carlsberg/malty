@@ -94,7 +94,7 @@ export const Table = ({
     columnHelper.accessor(header.key, {
       id: header.key,
       header: () => (header.isEmpty ? null : header.header),
-      meta: { alignment: header.headerAlignment, sorting: !header.isEmpty }
+      meta: { alignment: header.headerAlignment, sorting: !header.isEmpty && header.sorting }
     })
   );
 
