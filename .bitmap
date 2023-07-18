@@ -1611,9 +1611,15 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Toast"
     },
+    "organisms/carousel": {
+        "scope": "carlsberggroup.malty",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "malty/organisms/Carousel"
+    },
     "organisms/table": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.38",
+        "version": "0.0.39",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },
