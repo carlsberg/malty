@@ -81,12 +81,7 @@ export const Button = ({
   }
   const theme = useContext(ThemeContext) || defaultTheme;
 
-  const getIsLoadingNegative = (): boolean => {
-    if (style === ButtonStyle.Primary) {
-      return !negative;
-    }
-    return negative;
-  };
+  const getIsLoadingNegative = (): boolean => (style === ButtonStyle.Primary ? !negative : negative);
 
   const renderComponent = () => (
     <Component
