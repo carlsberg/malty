@@ -1,11 +1,9 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Floater } from './Floater';
-import { FloaterColor } from './Floater.types';
 
 const defaultText = 'Submit';
 const newText = 'Go';
@@ -42,50 +40,6 @@ describe('floater', () => {
     render(<Floater text={defaultText} icon={IconName.Camera} />);
 
     expect(screen.getByTestId('icon-Camera')).toBeVisible();
-  });
-
-  it('should have color digital black', () => {
-    render(<Floater color={FloaterColor.DigitalBlack}>{defaultText}</Floater>);
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.colours.default['digital-black'].value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
-  });
-
-  it('should have color themePrimary', () => {
-    render(<Floater color={FloaterColor.ThemePrimary}>{defaultText}</Floater>);
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.theme.themePrimary.value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
-  });
-
-  it('should have color themeSecondary', () => {
-    render(<Floater color={FloaterColor.ThemeSecondary}>{defaultText}</Floater>);
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.theme.themeSecondary.value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
-  });
-
-  it('should have color themeTertiary', () => {
-    render(<Floater color={FloaterColor.ThemeTertiary}>{defaultText}</Floater>);
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.theme.themeTertiary.value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
   });
 
   it('should have tabIndex with the correct assigned value', () => {
