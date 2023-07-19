@@ -1,10 +1,10 @@
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Button } from './Button';
-import { ButtonStyle, ButtonColor, ButtonType } from './Button.types';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import userEvent from '@testing-library/user-event';
+import { ButtonColor, ButtonStyle, ButtonType } from './Button.types';
 
 const defaultText = 'Submit';
 const newText = 'Go';
@@ -44,7 +44,11 @@ describe('button', () => {
   });
 
   it('checks if button has color digital black', () => {
-    render(<Button style={ButtonStyle.Primary} color={ButtonColor.DigitalBlack}>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} color={ButtonColor.DigitalBlack}>
+        {defaultText}
+      </Button>
+    );
 
     expect(screen.getByRole('button')).toHaveStyle(
       `
@@ -55,7 +59,11 @@ describe('button', () => {
   });
 
   it('checks if button has color theme primary', () => {
-    render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemePrimary}>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} color={ButtonColor.ThemePrimary}>
+        {defaultText}
+      </Button>
+    );
 
     expect(screen.getByRole('button')).toHaveStyle(
       `
@@ -63,11 +71,14 @@ describe('button', () => {
         color: ${defaultTheme.colors.colours.default.white.value}
       `
     );
-    
   });
 
   it('checks if button has color theme secondary', () => {
-    render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemeSecondary}>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} color={ButtonColor.ThemeSecondary}>
+        {defaultText}
+      </Button>
+    );
 
     expect(screen.getByRole('button')).toHaveStyle(
       `
@@ -78,7 +89,11 @@ describe('button', () => {
   });
 
   it('checks if button has color theme tertiary', () => {
-    render(<Button style={ButtonStyle.Primary} color={ButtonColor.ThemeTertiary}>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} color={ButtonColor.ThemeTertiary}>
+        {defaultText}
+      </Button>
+    );
 
     expect(screen.getByRole('button')).toHaveStyle(
       `
@@ -89,33 +104,53 @@ describe('button', () => {
   });
 
   it('checks if its a default type button', () => {
-    render(<Button style={ButtonStyle.Primary} type={ButtonType.Default}>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} type={ButtonType.Default}>
+        {defaultText}
+      </Button>
+    );
 
-    expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
   });
 
   it('checks if its a submit type button', () => {
-    render(<Button style={ButtonStyle.Primary} type={ButtonType.Submit}>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} type={ButtonType.Submit}>
+        {defaultText}
+      </Button>
+    );
 
-    expect(screen.getByRole('button')).toHaveAttribute('type', 'submit')
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
   });
 
   it('checks if its a reset type button', () => {
-    render(<Button style={ButtonStyle.Primary} type={ButtonType.Reset}>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} type={ButtonType.Reset}>
+        {defaultText}
+      </Button>
+    );
 
-    expect(screen.getByRole('button')).toHaveAttribute('type', 'reset')
+    expect(screen.getByRole('button')).toHaveAttribute('type', 'reset');
   });
 
   it('check if button is loading', () => {
-    render(<Button style={ButtonStyle.Primary} loading dataTestId='button'>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} loading dataTestId="button">
+        {defaultText}
+      </Button>
+    );
 
-    expect(screen.getByTestId('button-loading')).toBeVisible()
+    expect(screen.getByTestId('button-loading')).toBeVisible();
   });
 
   it('check if loading icon is showing up when button is loading', () => {
-    render(<Button style={ButtonStyle.Primary} loading dataTestId='button'>{defaultText}</Button>);
+    render(
+      <Button style={ButtonStyle.Primary} loading dataTestId="button">
+        {defaultText}
+      </Button>
+    );
 
-    expect(screen.getByTestId('undefined-pending-icon')).toBeVisible()
+    expect(screen.getByTestId('undefined-pending-icon')).toBeVisible();
   });
 
   it('calls function on key up', () => {
@@ -123,8 +158,8 @@ describe('button', () => {
 
     render(<Button text={defaultText} style={ButtonStyle.Primary} onKeyUp={onKeyUp} />);
 
-    userEvent.type(screen.getByText(defaultText), '{enter}')
-    
+    userEvent.type(screen.getByText(defaultText), '{enter}');
+
     expect(onKeyUp).toHaveBeenCalledTimes(1);
   });
 });
