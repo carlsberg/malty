@@ -63,21 +63,19 @@ describe('Checkbox', () => {
   it('renders checkbox unchecked by default and evaluates if it checks after being clicked', () => {
     const CheckBoxComponent = () => {
       const [isChecked, setIsChecked] = useState(false);
-     
-      return (
-        <Checkbox {...props}  onValueChange={() => setIsChecked(!isChecked)} checked={isChecked}/>
-      );
+
+      return <Checkbox {...props} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
     };
-    
+
     render(<CheckBoxComponent />);
     const checkboxInput = screen.getByRole('checkbox', { hidden: true });
-    
-    expect(screen.getByTestId("icon-CheckboxEmpty")).toBeVisible();
+
+    expect(screen.getByTestId('icon-CheckboxEmpty')).toBeVisible();
     expect(checkboxInput).not.toBeChecked();
-    
+
     userEvent.click(checkboxInput);
 
     expect(checkboxInput).toBeChecked();
-    expect(screen.getByTestId("icon-CheckboxCheck")).toBeVisible();
+    expect(screen.getByTestId('icon-CheckboxCheck')).toBeVisible();
   });
 });
