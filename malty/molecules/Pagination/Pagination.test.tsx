@@ -234,5 +234,33 @@ describe('Pagination', () => {
 
       expect(onChange).not.toHaveBeenCalled();
     });
+
+    it('should display current page after changing the value from outside', () => {
+      const buttonText = 'Increase page';
+      const PaginationComponent = () => {
+        const [currentPage, setCurrentPage] = useState(1);
+
+        const handleIncreasePage = () => {
+          setCurrentPage(currentPage + 1);
+        };
+
+        return (
+          <>
+            <Pagination count={10} currentPage={currentPage} onChange={onChange} type={PaginationType.Input} />
+            <button type="button" onClick={handleIncreasePage}>
+              {buttonText}
+            </button>
+          </>
+        );
+      };
+
+      render(<PaginationComponent />);
+
+      expect(screen.getByDisplayValue(1)).toBeVisible();
+
+      userEvent.click(screen.getByText(buttonText));
+
+      expect(screen.getByDisplayValue(2)).toBeVisible();
+    });
   });
 });

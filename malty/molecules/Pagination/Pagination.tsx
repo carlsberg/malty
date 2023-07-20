@@ -3,7 +3,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { EventKeys } from '@carlsberggroup/malty.utils.consts';
-import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useState } from 'react';
+import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { LEFT_DOTS, RIGHT_DOTS, usePagination } from './Pagination.helper';
 import { StyledContainer, StyledDots, StyledInput, StyledInputPagination } from './Pagination.styled';
@@ -40,6 +40,10 @@ export const Pagination = ({
     currentPage,
     isDefault: type === PaginationType.Default
   });
+
+  useEffect(() => {
+    setInputValue(currentPage);
+  }, [currentPage]);
 
   const onPageClick = (targetPage: number) => {
     onChange(targetPage, PaginationTrigger.PageNr);
