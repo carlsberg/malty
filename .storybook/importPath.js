@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Source, DocsContext, Description } from '@storybook/addon-docs';
+import { Description, DocsContext, Source } from '@storybook/addon-docs';
+import React, { useContext, useEffect, useState } from 'react';
 
 export const ImportPath = () => {
   const context = useContext(DocsContext);

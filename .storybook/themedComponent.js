@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { Canvas, Description, DocsContext } from '@storybook/addon-docs';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { DocsContext, Canvas, Description } from '@storybook/addon-docs';
 
 const StyledCanvas = styled(Canvas)`
   background-color: #d5eaff;

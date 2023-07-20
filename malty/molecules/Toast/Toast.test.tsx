@@ -1,5 +1,5 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { act, fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { Toast } from './Toast';
 import { ToastColor } from './Toast.types';
@@ -29,9 +29,9 @@ describe('Toast', () => {
     );
 
     expect(screen.getByText(message)).toBeInTheDocument();
-    act(() => {
-      fireEvent.click(screen.getByTestId(`${dataQaId}-close-icon`));
-    });
+
+    fireEvent.click(screen.getByTestId(`${dataQaId}-close-icon`));
+
     expect(dismissMock).toHaveBeenCalledTimes(1);
   });
 
