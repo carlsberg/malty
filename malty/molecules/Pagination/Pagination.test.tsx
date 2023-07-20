@@ -14,25 +14,25 @@ describe('Pagination', () => {
   });
 
   describe(`Pagination type: ${PaginationType.Default}`, () => {
-    it('renders the correct number of page buttons', () => {
+    it('should render the correct number of page buttons', () => {
       render(<Pagination count={5} currentPage={1} onChange={onChange} />);
 
       expect(screen.getAllByRole('button')).toHaveLength(7);
     });
 
-    it('disables the previous button on the first page', () => {
+    it('shoudl disable the previous button on the first page', () => {
       render(<Pagination count={5} currentPage={1} onChange={onChange} />);
 
       expect(screen.getByLabelText('Go to previous page')).toBeDisabled();
     });
 
-    it('disables the next button on the last page', () => {
+    it('should disable the next button on the last page', () => {
       render(<Pagination count={5} currentPage={5} onChange={onChange} />);
 
       expect(screen.getByLabelText('Go to next page')).toBeDisabled();
     });
 
-    it('calls onChange with the correct page number when a page button is clicked', () => {
+    it('should call onChange with the correct page number when a page button is clicked', () => {
       render(<Pagination count={5} currentPage={1} onChange={onChange} />);
 
       userEvent.click(screen.getByText('2'));
@@ -40,7 +40,7 @@ describe('Pagination', () => {
       expect(onChange).toHaveBeenCalledWith(2, PaginationTrigger.PageNr);
     });
 
-    it('calls onChange with the correct page number when the previous button is clicked', () => {
+    it('should call onChange with the correct page number when the previous button is clicked', () => {
       render(<Pagination count={5} currentPage={2} onChange={onChange} />);
 
       userEvent.click(screen.getByLabelText('Go to previous page'));
@@ -48,7 +48,7 @@ describe('Pagination', () => {
       expect(onChange).toHaveBeenCalledWith(1, PaginationTrigger.Prev);
     });
 
-    it('calls onChange with the correct page number when the next button is clicked', () => {
+    it('should call onChange with the correct page number when the next button is clicked', () => {
       render(<Pagination count={5} currentPage={2} onChange={onChange} />);
 
       userEvent.click(screen.getByLabelText('Go to next page'));
@@ -56,21 +56,21 @@ describe('Pagination', () => {
       expect(onChange).toHaveBeenCalledWith(3, PaginationTrigger.Next);
     });
 
-    it('renders right dots only', () => {
+    it('should render right dots only', () => {
       render(<Pagination count={10} currentPage={1} onChange={onChange} dataTestId="pagination" />);
 
       expect(screen.queryByTestId(`pagination-${LEFT_DOTS}`)).not.toBeInTheDocument();
       expect(screen.getByTestId(`pagination-${RIGHT_DOTS}`)).toBeVisible();
     });
 
-    it('renders left dots only', () => {
+    it('should render left dots only', () => {
       render(<Pagination count={10} currentPage={10} onChange={onChange} dataTestId="pagination" />);
 
       expect(screen.getByTestId(`pagination-${LEFT_DOTS}`)).toBeVisible();
       expect(screen.queryByTestId(`pagination-${RIGHT_DOTS}`)).not.toBeInTheDocument();
     });
 
-    it('renders both dots, left and rigth at the same time', () => {
+    it('should render both dots, left and rigth at the same time', () => {
       render(<Pagination count={10} currentPage={5} onChange={onChange} dataTestId="pagination" />);
 
       expect(screen.getByTestId(`pagination-${LEFT_DOTS}`)).toBeVisible();
@@ -87,7 +87,7 @@ describe('Pagination', () => {
       expect(screen.queryByTestId(`pagination-${RIGHT_DOTS}`)).not.toBeInTheDocument();
     });
 
-    it('renders dots if siblingCount is lower than total pages', () => {
+    it('should render dots if siblingCount is lower than total pages', () => {
       render(<Pagination count={15} currentPage={7} onChange={onChange} siblingCount={3} dataTestId="pagination" />);
 
       expect(screen.getByText(1)).toBeVisible();
@@ -108,7 +108,7 @@ describe('Pagination', () => {
   });
 
   describe(`Pagination type: ${PaginationType.Compact}`, () => {
-    it('renders elements and changes pages correctly', () => {
+    it('should render elements and changes pages correctly', () => {
       const CompactPagination = () => {
         const [currentPage, setCurrentPage] = useState(1);
         const handleOnChange = (page: string | number) => {
