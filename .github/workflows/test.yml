@@ -48,7 +48,7 @@ jobs:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Run Lint
-        uses: carlsberggbs/actions/lint/yarn/action@main
+        uses: carlsberggbs/actions/lint/yarn@main
         with:
           node-version: '16'
           bit-token: ${{ secrets.BIT_VERSION }}
