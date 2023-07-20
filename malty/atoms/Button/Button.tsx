@@ -2,7 +2,7 @@ import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';
 import { StyledAnchor, StyledPrimaryButton, StyledSecondaryButton, StyledTransparentButton } from './Button.styled';
@@ -80,18 +80,8 @@ export const Button = ({
       break;
   }
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [hPadding, _setHorizontalPadding] = useState(theme.sizes.s.value);
-  const [loadingNegative, setLoadingNegative] = useState(negative);
-  const handleLoadingColor = () => {
-    if (style !== ButtonStyle.Primary) {
-      setLoadingNegative(negative);
-    } else {
-      setLoadingNegative(!negative);
-    }
-  };
-  useEffect(() => {
-    handleLoadingColor();
-  }, [negative, style]);
+
+  const getIsLoadingNegative = (): boolean => (style === ButtonStyle.Primary ? !negative : negative);
 
   const renderComponent = () => (
     <Component
@@ -102,7 +92,6 @@ export const Button = ({
       isLoading={loading}
       hasText={!!text || !!children}
       hasIcon={!!icon}
-      horizontalPadding={hPadding}
       onClick={onClick}
       onKeyUp={onKeyUp}
       isNegative={negative}
@@ -123,7 +112,7 @@ export const Button = ({
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">
           <Loading
             color={color as unknown as ProgressSpinnerColor}
-            negative={loadingNegative}
+            negative={getIsLoadingNegative()}
             status={LoadingStatus.Pending}
           />
         </div>
