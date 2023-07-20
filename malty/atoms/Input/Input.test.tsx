@@ -1,3 +1,4 @@
+import { IconName } from '@carlsberggroup/malty.atoms.icon/_src/Icon.types';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -10,7 +11,7 @@ jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 const mockFn = jest.fn();
 
 describe('input', () => {
-  it('renders elements', () => {
+  it('should render elements', () => {
     render(
       <Input
         value="Value text"
@@ -27,7 +28,16 @@ describe('input', () => {
     expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
   });
 
-  it('calls onValueChange when typing', () => {
+  it('should render cart icon', () => {
+    render(
+      <Input value="Value text" icon={IconName.Cart} onValueChange={mockFn} type={InputType.Text} error="Error text" />
+    );
+
+    expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
+    expect(screen.getByTestId('icon-Cart')).toBeVisible();
+  });
+
+  it('should call onValueChange when typing', () => {
     const onValueChange = jest.fn();
     const { rerender } = render(
       <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
@@ -40,7 +50,48 @@ describe('input', () => {
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
   });
 
-  it('calls onInputBlur when lose focus', () => {
+  it('should not change display value after a given input with readOnly option on', () => {
+    const onValueChange = jest.fn();
+    render(
+      <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} readOnly />
+    );
+    const input = screen.getByDisplayValue('Initial value');
+    fireEvent.input(input, { target: { value: 'Test Input' } });
+
+    expect(onValueChange).toHaveBeenCalledTimes(1);
+
+    expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
+  });
+
+  it('should not allow to input value with disabled option active', () => {
+    const onValueChange = jest.fn();
+    render(
+      <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} disabled />
+    );
+    const input = screen.getByDisplayValue('Initial value');
+    fireEvent.input(input, { target: { value: 'Test Input' } });
+
+    expect(onValueChange).toHaveBeenCalledTimes(1);
+
+    expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
+  });
+
+  it('should have an hint message showing', () => {
+    const onValueChange = jest.fn();
+    render(
+      <Input
+        value="Initial value"
+        label="Input label"
+        onValueChange={onValueChange}
+        type={InputType.Text}
+        hint="Type here!"
+      />
+    );
+
+    expect(screen.getByTestId('undefined-hint')).toHaveTextContent('Type here!');
+  });
+
+  it('should call onInputBlur when lose focus', () => {
     const onValueChange = jest.fn();
     const onInputBlur = jest.fn();
     render(
@@ -57,19 +108,19 @@ describe('input', () => {
     expect(onInputBlur).toHaveBeenCalledTimes(1);
   });
 
-  it('renders input number', () => {
+  it('should render input number', () => {
     const onValueChange = jest.fn();
     render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
   });
 
-  it('renders input search', () => {
+  it('should render input search', () => {
     const onValueChange = jest.fn();
     render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
     expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
   });
 
-  it('calls clear function when clear icon is clicked', () => {
+  it('should call clear function when clear icon is clicked', () => {
     const onValueChange = jest.fn();
     const onClearButtonClick = jest.fn();
     render(
@@ -88,7 +139,7 @@ describe('input', () => {
   });
 
   describe(`Input type: ${InputType.Quantity}`, () => {
-    it('disables minus and plus buttons when value is equal to min and max', () => {
+    it('should disable minus and plus buttons when value is equal to min and max', () => {
       const handleValueChange = jest.fn();
 
       render(
@@ -103,7 +154,7 @@ describe('input', () => {
       );
 
       const minusButton = screen.getByTestId('input-quantity-minus');
-      const plusButton = screen.getByTestId('input-quantity-minus');
+      const plusButton = screen.getByTestId('input-quantity-plus');
 
       expect(minusButton).toBeDisabled();
       expect(plusButton).toBeDisabled();
@@ -114,7 +165,7 @@ describe('input', () => {
       expect(handleValueChange).not.toHaveBeenCalled();
     });
 
-    it('disables minus button when value is lower than min', () => {
+    it('should disable minus button when value is lower than min', () => {
       const handleValueChange = jest.fn();
 
       render(
@@ -128,7 +179,7 @@ describe('input', () => {
       expect(handleValueChange).not.toHaveBeenCalled();
     });
 
-    it('disables plus button when value is greater than max', () => {
+    it('should disable plus button when value is greater than max', () => {
       const handleValueChange = jest.fn();
 
       render(
@@ -142,7 +193,7 @@ describe('input', () => {
       expect(handleValueChange).not.toHaveBeenCalled();
     });
 
-    it('modifies the value to the min value passed if value is lower than min', () => {
+    it('should modify the value to the min value passed if value is lower than min', () => {
       const minValue = 6;
       const handleOnChange = jest.fn();
 
@@ -175,7 +226,7 @@ describe('input', () => {
       expect(input).toHaveValue(minValue);
     });
 
-    it('modifies the value to the max value passed if value is higher than max', () => {
+    it('should modify the value to the max value passed if value is higher than max', () => {
       const maxValue = 12;
       const handleOnChange = jest.fn();
 
@@ -206,6 +257,75 @@ describe('input', () => {
 
       expect(handleOnChange).toHaveBeenCalledTimes(3);
       expect(input).toHaveValue(maxValue);
+    });
+
+    it('should have the left input button disabled', () => {
+      const onClickLeftInputButton = jest.fn();
+      const onValueChange = jest.fn();
+      render(
+        <Input
+          dataTestId="input"
+          value="value"
+          onValueChange={onValueChange}
+          onClickLeftInputButton={onClickLeftInputButton}
+          type={InputType.Quantity}
+          disableLeftButton
+        />
+      );
+
+      const minusButton = screen.getByTestId('input-quantity-minus');
+      userEvent.click(minusButton);
+      expect(onClickLeftInputButton).toHaveBeenCalledTimes(0);
+    });
+
+    it('should have the right input button disabled', () => {
+      const onClickRightInputButton = jest.fn();
+      const onValueChange = jest.fn();
+      render(
+        <Input
+          dataTestId="input"
+          value="value"
+          onValueChange={onValueChange}
+          onClickRightInputButton={onClickRightInputButton}
+          type={InputType.Quantity}
+          disableRightButton
+        />
+      );
+
+      const plusButton = screen.getByTestId('input-quantity-plus');
+      userEvent.click(plusButton);
+      expect(onClickRightInputButton).toHaveBeenCalledTimes(0);
+    });
+
+    it('should have the quantity input button disabled', () => {
+      const handleOnChange = jest.fn();
+
+      const InputComponent = () => {
+        const [value, setValue] = useState('10');
+        const handleValueChange = (newValue: string) => {
+          setValue(newValue);
+          handleOnChange(newValue);
+        };
+
+        return (
+          <Input
+            dataTestId="input"
+            value={value}
+            type={InputType.Quantity}
+            onValueChange={handleValueChange}
+            disableQuantityInput
+          />
+        );
+      };
+
+      render(<InputComponent />);
+
+      const input = screen.getByTestId('input');
+
+      userEvent.clear(input);
+      userEvent.type(input, '16');
+
+      expect(handleOnChange).toHaveBeenCalledTimes(0);
     });
   });
 });
