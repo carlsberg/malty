@@ -47,12 +47,6 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
-      - name: Run Lint
-        uses: carlsberggbs/actions/lint/yarn@main
-        with:
-          node-version: '16'
-          bit-token: ${{ secrets.BIT_VERSION }}
-
       - name: Bit Deps Install & Compile
         run: |
           export PATH=${{ env.PATH }}
@@ -61,6 +55,12 @@ jobs:
           bit install
           bit compile
         shell: bash
+
+      - name: Run Lint
+        uses: carlsberggbs/actions/lint/yarn@main
+        with:
+          node-version: '16'
+          bit-token: ${{ secrets.BIT_VERSION }}
 
       - name: Run Unit Tests
         run: |
