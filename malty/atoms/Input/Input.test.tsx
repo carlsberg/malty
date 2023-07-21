@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon/_src/Icon.types';
+import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -10,7 +10,28 @@ jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
 const mockFn = jest.fn();
 
-describe('input', () => {
+describe('Input', () => {
+  const onValueChange = jest.fn();
+  const ControlledInput = ({ readOnly, disabled }: { readOnly?: boolean; disabled?: boolean }) => {
+    const [value, setValue] = useState('Initial value');
+
+    const handleValueChange = (newValue: string) => {
+      setValue(newValue);
+      onValueChange(newValue);
+    };
+
+    return (
+      <Input
+        value={value}
+        label="Input label"
+        onValueChange={handleValueChange}
+        type={InputType.Text}
+        readOnly={readOnly}
+        disabled={disabled}
+      />
+    );
+  };
+
   it('should render elements', () => {
     render(
       <Input
@@ -38,7 +59,6 @@ describe('input', () => {
   });
 
   it('should call onValueChange when typing', () => {
-    const onValueChange = jest.fn();
     const { rerender } = render(
       <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
     );
@@ -51,48 +71,45 @@ describe('input', () => {
   });
 
   it('should not change display value after a given input with readOnly option on', () => {
-    const onValueChange = jest.fn();
-    render(
-      <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} readOnly />
-    );
+    render(<ControlledInput readOnly />);
+
     const input = screen.getByDisplayValue('Initial value');
-    fireEvent.input(input, { target: { value: 'Test Input' } });
+    userEvent.type(input, 'Test Input');
 
-    expect(onValueChange).toHaveBeenCalledTimes(1);
+    expect(onValueChange).not.toHaveBeenCalled();
 
+    expect(screen.queryByDisplayValue('Test Input')).not.toBeInTheDocument();
     expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
   });
 
   it('should not allow to input value with disabled option active', () => {
-    const onValueChange = jest.fn();
-    render(
-      <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} disabled />
-    );
+    render(<ControlledInput disabled />);
+
     const input = screen.getByDisplayValue('Initial value');
-    fireEvent.input(input, { target: { value: 'Test Input' } });
+    userEvent.type(input, 'Test Input');
 
-    expect(onValueChange).toHaveBeenCalledTimes(1);
+    expect(onValueChange).not.toHaveBeenCalled();
 
+    expect(screen.queryByDisplayValue('Test Input')).not.toBeInTheDocument();
     expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
   });
 
   it('should have an hint message showing', () => {
-    const onValueChange = jest.fn();
     render(
       <Input
         value="Initial value"
         label="Input label"
+        dataTestId="Input"
         onValueChange={onValueChange}
         type={InputType.Text}
         hint="Type here!"
       />
     );
 
-    expect(screen.getByTestId('undefined-hint')).toHaveTextContent('Type here!');
+    expect(screen.getByTestId('Input-hint')).toHaveTextContent('Type here!');
   });
 
   it('should call onInputBlur when lose focus', () => {
-    const onValueChange = jest.fn();
     const onInputBlur = jest.fn();
     render(
       <Input
@@ -109,19 +126,16 @@ describe('input', () => {
   });
 
   it('should render input number', () => {
-    const onValueChange = jest.fn();
     render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
     expect(screen.getByDisplayValue('1')).toBeInTheDocument();
   });
 
   it('should render input search', () => {
-    const onValueChange = jest.fn();
     render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
     expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
   });
 
   it('should call clear function when clear icon is clicked', () => {
-    const onValueChange = jest.fn();
     const onClearButtonClick = jest.fn();
     render(
       <Input
@@ -261,7 +275,7 @@ describe('input', () => {
 
     it('should have the left input button disabled', () => {
       const onClickLeftInputButton = jest.fn();
-      const onValueChange = jest.fn();
+
       render(
         <Input
           dataTestId="input"
@@ -280,7 +294,7 @@ describe('input', () => {
 
     it('should have the right input button disabled', () => {
       const onClickRightInputButton = jest.fn();
-      const onValueChange = jest.fn();
+
       render(
         <Input
           dataTestId="input"
