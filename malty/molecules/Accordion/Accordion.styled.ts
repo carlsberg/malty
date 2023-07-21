@@ -5,6 +5,8 @@ import { AccordionColor } from '.';
 export const StyledAccordionWrapper = styled.ul<{
   variant?: AccordionColor;
 }>`
+  padding-inline-start: 0;
+
   li {
     ${({ variant, theme }) =>
       css`
