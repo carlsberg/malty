@@ -32,6 +32,10 @@ describe('Input', () => {
     );
   };
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should render elements', () => {
     render(
       <Input
