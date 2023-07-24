@@ -56,11 +56,25 @@ jobs:
           bit compile
         shell: bash
 
-      - name: Run Lint
-        uses: carlsberggbs/actions/lint/yarn@main
-        with:
-          node-version: '16'
-          bit-token: ${{ secrets.BIT_VERSION }}
+      # - name: Run Lint
+      #   uses: carlsberggbs/actions/lint/yarn@main
+      #   with:
+      #     node-version: '16'
+      #     bit-token: ${{ secrets.BIT_VERSION }}
+      - name: Run Check Lint
+        run: |
+          yarn check-lint
+        shell: bash
+
+      - name: Run Check Types
+        run: |
+          yarn check-types
+        shell: bash
+
+      - name: Run Check Format
+        run: |
+          yarn check-format
+        shell: bash
 
       - name: Run Unit Tests
         run: |
