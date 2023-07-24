@@ -4,7 +4,7 @@ import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { Input } from './Input';
-import { InputType } from './Input.types';
+import { InputProps, InputType } from './Input.types';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
@@ -12,7 +12,7 @@ const mockFn = jest.fn();
 
 describe('Input', () => {
   const onValueChange = jest.fn();
-  const ControlledInput = ({ readOnly, disabled }: { readOnly?: boolean; disabled?: boolean }) => {
+  const ControlledInput = ({ readOnly, disabled, disableQuantityInput, type }: InputProps) => {
     const [value, setValue] = useState('Initial value');
 
     const handleValueChange = (newValue: string) => {
@@ -22,12 +22,14 @@ describe('Input', () => {
 
     return (
       <Input
+        dataTestId="input"
         value={value}
         label="Input label"
         onValueChange={handleValueChange}
-        type={InputType.Text}
+        type={type}
         readOnly={readOnly}
         disabled={disabled}
+        disableQuantityInput={disableQuantityInput}
       />
     );
   };
@@ -75,7 +77,7 @@ describe('Input', () => {
   });
 
   it('should not change display value after a given input with readOnly option on', () => {
-    render(<ControlledInput readOnly />);
+    render(<ControlledInput readOnly type={InputType.Text} value="" onValueChange={onValueChange} />);
 
     const input = screen.getByDisplayValue('Initial value');
     userEvent.type(input, 'Test Input');
@@ -87,7 +89,7 @@ describe('Input', () => {
   });
 
   it('should not allow to input value with disabled option active', () => {
-    render(<ControlledInput disabled />);
+    render(<ControlledInput disabled type={InputType.Text} value="" onValueChange={onValueChange} />);
 
     const input = screen.getByDisplayValue('Initial value');
     userEvent.type(input, 'Test Input');
@@ -316,34 +318,14 @@ describe('Input', () => {
     });
 
     it('should have the quantity input button disabled', () => {
-      const handleOnChange = jest.fn();
-
-      const InputComponent = () => {
-        const [value, setValue] = useState('10');
-        const handleValueChange = (newValue: string) => {
-          setValue(newValue);
-          handleOnChange(newValue);
-        };
-
-        return (
-          <Input
-            dataTestId="input"
-            value={value}
-            type={InputType.Quantity}
-            onValueChange={handleValueChange}
-            disableQuantityInput
-          />
-        );
-      };
-
-      render(<InputComponent />);
+      render(<ControlledInput disableQuantityInput type={InputType.Quantity} value="" onValueChange={onValueChange} />);
 
       const input = screen.getByTestId('input');
 
       userEvent.clear(input);
       userEvent.type(input, '16');
 
-      expect(handleOnChange).toHaveBeenCalledTimes(0);
+      expect(onValueChange).not.toHaveBeenCalled();
     });
   });
 });
