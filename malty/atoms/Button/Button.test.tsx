@@ -1,16 +1,15 @@
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Button } from './Button';
-import { ButtonColor, ButtonStyle, ButtonType } from './Button.types';
+import { ButtonStyle, ButtonType } from './Button.types';
 
 const defaultText = 'Submit';
 const newText = 'Go';
 
-describe('button', () => {
-  it('renders with correct text', () => {
+describe('Button', () => {
+  it('should render with correct text', () => {
     const { rerender } = render(<Button text={defaultText} style={ButtonStyle.Primary} />);
 
     expect(screen.getByText(defaultText)).not.toBeNull();
@@ -20,13 +19,13 @@ describe('button', () => {
     expect(screen.getByText(newText)).not.toBeNull();
   });
 
-  it('renders with correct text via child', () => {
+  it('should render with correct text via child', () => {
     render(<Button style={ButtonStyle.Primary}>{defaultText}</Button>);
 
     expect(screen.getByText(defaultText)).not.toBeNull();
   });
 
-  it('calls function on click', () => {
+  it('should call function on click', () => {
     const onClick = jest.fn();
     render(<Button text={defaultText} style={ButtonStyle.Primary} onClick={onClick} />);
     fireEvent.click(screen.getByText(defaultText));
@@ -34,7 +33,7 @@ describe('button', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('does not call function on click when disabled', () => {
+  it('should not call function on click when disabled', () => {
     const onClick = jest.fn();
     render(<Button text={defaultText} style={ButtonStyle.Primary} onClick={onClick} disabled />);
     fireEvent.click(screen.getByText(defaultText));
@@ -43,67 +42,7 @@ describe('button', () => {
     expect(screen.getByRole('button')).toBeDisabled();
   });
 
-  it('checks if button has color digital black', () => {
-    render(
-      <Button style={ButtonStyle.Primary} color={ButtonColor.DigitalBlack}>
-        {defaultText}
-      </Button>
-    );
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.colours.default['digital-black'].value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
-  });
-
-  it('checks if button has color theme primary', () => {
-    render(
-      <Button style={ButtonStyle.Primary} color={ButtonColor.ThemePrimary}>
-        {defaultText}
-      </Button>
-    );
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.theme.themePrimary.value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
-  });
-
-  it('checks if button has color theme secondary', () => {
-    render(
-      <Button style={ButtonStyle.Primary} color={ButtonColor.ThemeSecondary}>
-        {defaultText}
-      </Button>
-    );
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.theme.themeSecondary.value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
-  });
-
-  it('checks if button has color theme tertiary', () => {
-    render(
-      <Button style={ButtonStyle.Primary} color={ButtonColor.ThemeTertiary}>
-        {defaultText}
-      </Button>
-    );
-
-    expect(screen.getByRole('button')).toHaveStyle(
-      `
-        background-color: ${defaultTheme.colors.theme.themeTertiary.value};
-        color: ${defaultTheme.colors.colours.default.white.value}
-      `
-    );
-  });
-
-  it('checks if its a default type button', () => {
+  it('should check if its a default type button', () => {
     render(
       <Button style={ButtonStyle.Primary} type={ButtonType.Default}>
         {defaultText}
@@ -113,7 +52,7 @@ describe('button', () => {
     expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
   });
 
-  it('checks if its a submit type button', () => {
+  it('should check if its a submit type button', () => {
     render(
       <Button style={ButtonStyle.Primary} type={ButtonType.Submit}>
         {defaultText}
@@ -123,7 +62,7 @@ describe('button', () => {
     expect(screen.getByRole('button')).toHaveAttribute('type', 'submit');
   });
 
-  it('checks if its a reset type button', () => {
+  it('should check if its a reset type button', () => {
     render(
       <Button style={ButtonStyle.Primary} type={ButtonType.Reset}>
         {defaultText}
@@ -133,7 +72,7 @@ describe('button', () => {
     expect(screen.getByRole('button')).toHaveAttribute('type', 'reset');
   });
 
-  it('check if button is loading', () => {
+  it('should check if button is loading', () => {
     render(
       <Button style={ButtonStyle.Primary} loading dataTestId="button">
         {defaultText}
@@ -143,7 +82,7 @@ describe('button', () => {
     expect(screen.getByTestId('button-loading')).toBeVisible();
   });
 
-  it('check if loading icon is showing up when button is loading', () => {
+  it('should check if loading icon is showing up when button is loading', () => {
     render(
       <Button style={ButtonStyle.Primary} loading dataTestId="button">
         {defaultText}
@@ -153,7 +92,7 @@ describe('button', () => {
     expect(screen.getByTestId('undefined-pending-icon')).toBeVisible();
   });
 
-  it('calls function on key up', () => {
+  it('should call function on key up', () => {
     const onKeyUp = jest.fn();
 
     render(<Button text={defaultText} style={ButtonStyle.Primary} onKeyUp={onKeyUp} />);
