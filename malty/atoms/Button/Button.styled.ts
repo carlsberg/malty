@@ -21,7 +21,6 @@ const StyledButton = styled.button<{
   isLoading?: boolean;
   isNegative?: boolean;
   fullWidth?: boolean;
-  horizontalPadding: string;
   iconPos: ButtonIconPosition;
   color: ButtonColor;
   size: ButtonSize;
@@ -29,7 +28,6 @@ const StyledButton = styled.button<{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: ${({ theme }) => `0 ${theme.sizes.s.value}`};
   font-weight: bold;
   transition: 0.25s ease-in-out;
   transition-property: background-color, color;
@@ -40,13 +38,15 @@ const StyledButton = styled.button<{
   flex-direction: ${({ iconPos }) =>
     ButtonIconPosition[iconPos] === ButtonIconPosition.Right ? 'row' : 'row-reverse'};
 
-  ${({ theme, size }) => {
+  ${({ theme, size, hasText }) => {
     switch (size) {
       case ButtonSize.XSmall: {
         return css`
           font-family: ${theme.typography.desktop.text.small_bold['font-family'].value};
           font-size: ${theme.typography.desktop.text.small_bold['font-size'].value};
           height: ${theme.sizes.m.value};
+          max-width: ${!hasText && theme.sizes.m.value};
+          padding: 0 ${hasText ? theme.sizes['2xs'].value : theme.sizes['4xs'].value};
 
           svg {
             height: ${theme.sizes.s.value};
@@ -59,6 +59,8 @@ const StyledButton = styled.button<{
           font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
           font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
           height: ${theme.sizes.l.value};
+          max-width: ${!hasText && theme.sizes.l.value};
+          padding: 0 ${hasText ? theme.sizes.xs.value : theme.sizes['3xs'].value};
 
           svg {
             height: ${theme.sizes.ms.value};
@@ -71,6 +73,8 @@ const StyledButton = styled.button<{
           font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
           font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
           height: ${theme.sizes['2xl'].value};
+          max-width: ${!hasText && theme.sizes['2xl'].value};
+          padding: 0 ${hasText ? `${theme.sizes.s.value}` : `${theme.sizes.xs.value}`};
 
           svg {
             height: ${theme.sizes.m.value};
@@ -83,6 +87,8 @@ const StyledButton = styled.button<{
           font-family: ${theme.typography.desktop.text.medium_bold['font-family'].value};
           font-size: ${theme.typography.desktop.text.medium_bold['font-size'].value};
           height: ${theme.sizes['3xl'].value};
+          max-width: ${!hasText && theme.sizes['3xl'].value};
+          padding: 0 ${theme.sizes.s.value};
 
           svg {
             height: ${theme.sizes.m.value};
@@ -95,6 +101,8 @@ const StyledButton = styled.button<{
           font-family: ${theme.typography.desktop.text['medium-small_bold']['font-family'].value};
           font-size: ${theme.typography.desktop.text['medium-small_bold']['font-size'].value};
           height: ${theme.sizes.xl.value};
+          max-width: ${!hasText && theme.sizes.xl.value};
+          padding: 0 ${hasText ? `${theme.sizes.s.value}` : `${theme.sizes['2xs'].value}`};
 
           svg {
             height: ${theme.sizes.m.value};
