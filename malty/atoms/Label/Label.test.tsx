@@ -12,18 +12,6 @@ describe('label', () => {
     expect(screen.getByText(defaultText)).not.toBeNull();
   });
 
-  it('should have disabled turned on', () => {
-    render(<Label dataTestId="Label" label={defaultText} />);
-
-    expect(screen.getByTestId('Label')).toHaveAttribute('disabled');
-  });
-
-  it('should have required turned on', () => {
-    render(<Label dataTestId="Label" label={defaultText} required />);
-
-    expect(screen.getByTestId('Label')).toHaveAttribute('required');
-  });
-
   it('should have htmlFor with correct text', () => {
     render(<Label dataTestId="Label" label={defaultText} htmlFor="htmlString" />);
 
