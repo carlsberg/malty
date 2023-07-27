@@ -4,15 +4,14 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Link } from './Link';
 
-const defaultText = 'Link text';
-const newText = 'New text';
-
 describe('link', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   const onClick = jest.fn();
+  const defaultText = 'Link text';
+  const newText = 'New text';
   const url = 'https://www.google.com/';
 
   it('should render with correct text', () => {
