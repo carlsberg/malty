@@ -8,25 +8,32 @@ const defaultText = 'Link text';
 const newText = 'New text';
 
 describe('link', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  const onClick = jest.fn();
+  const url = 'https://www.google.com/';
+
   it('should render with correct text', () => {
-    const { rerender } = render(<Link text={defaultText} url="https://www.google.com/" />);
+    const { rerender } = render(<Link text={defaultText} url={url} />);
 
     expect(screen.getByText(defaultText)).toBeInTheDocument();
 
-    rerender(<Link text={newText} url="https://www.google.com/" />);
+    rerender(<Link text={newText} url={url} />);
 
     expect(screen.getByText(newText)).toBeInTheDocument();
   });
 
   it('should render with correct text via child', () => {
-    render(<Link url="https://www.google.com/">{defaultText}</Link>);
+    render(<Link url={url}>{defaultText}</Link>);
 
     expect(screen.getByText(defaultText)).toBeInTheDocument();
   });
 
   it('should render with correct dataTestId', () => {
     render(
-      <Link dataTestId="link" url="https://www.google.com/">
+      <Link dataTestId="link" url={url}>
         {defaultText}
       </Link>
     );
@@ -35,25 +42,21 @@ describe('link', () => {
   });
 
   it('should click on defined url', () => {
-    const onClick = jest.fn();
-
     render(
-      <Link dataTestId="link" url="https://www.google.com/" onClick={onClick}>
+      <Link dataTestId="link" url={url} onClick={onClick}>
         {defaultText}
       </Link>
     );
 
     userEvent.click(screen.getByTestId('link'), undefined, { skipPointerEventsCheck: true });
 
-    expect(screen.getByTestId('link')).toHaveAttribute('href', 'https://www.google.com/');
+    expect(screen.getByTestId('link')).toHaveAttribute('href', url);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should not access link when disabled', () => {
-    const onClick = jest.fn();
-
     render(
-      <Link dataTestId="link" url="https://www.google.com/" disabled>
+      <Link dataTestId="link" url={url} disabled>
         {defaultText}
       </Link>
     );
