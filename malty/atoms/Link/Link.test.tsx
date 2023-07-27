@@ -47,10 +47,11 @@ describe('link', () => {
         {defaultText}
       </Link>
     );
+    const link = screen.getByTestId('link');
 
-    userEvent.click(screen.getByTestId('link'), undefined, { skipPointerEventsCheck: true });
+    userEvent.click(link, undefined, { skipPointerEventsCheck: true });
 
-    expect(screen.getByTestId('link')).toHaveAttribute('href', url);
+    expect(link).toHaveAttribute('href', url);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
