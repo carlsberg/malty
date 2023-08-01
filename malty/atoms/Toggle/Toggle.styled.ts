@@ -63,7 +63,6 @@ export const StyledInput = styled.input<{
     background-color: ${({ theme }) => theme.colors.colours.default.white.value};
     border: none;
     top: 1px;
-    transition: transform 0.3s ease;
   }
   &:checked + .switch {
     background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
@@ -106,7 +105,7 @@ export const StyledSwitch = styled.span<{
   right: 0;
   bottom: 0;
   left: 0;
-  transition: all 0.3s ease;
+  transition: transform 0.3s, background 0.3s;
 
   ${({ theme }) =>
     theme &&
@@ -136,7 +135,7 @@ export const StyledSwitch = styled.span<{
     background-color: ${({ theme }) => theme.colors.colours.default.white.value};
 
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: transform 0.3s, background 0.3s;
     ${({ theme }) =>
       theme &&
       css`
