@@ -28,17 +28,17 @@ export const StyledCardContainer = styled.div<{
     `;
   }};
 
-  ${({ hover, cardStyle }) => {
+  ${({ theme, hover, cardStyle }) => {
     if (!hover) return null;
 
     if (cardStyle === CardStyle.Shadowed) {
       return css`
         cursor: pointer;
         &:hover {
-          box-shadow: 0px 2px 12px 2px rgba(33, 40, 51, 0.15), 0px 1px 2px rgba(33, 40, 51, 0.15);
+          box-shadow: ${theme.shadows.hovered.value};
         }
         &:active {
-          box-shadow: 0px 2px 6px rgba(33, 40, 51, 0.15), 0px 1px 2px rgba(33, 40, 51, 0.15);
+          box-shadow: ${theme.shadows.pressed.value};
         }
       `;
     }
@@ -63,10 +63,10 @@ export const StyledCardContainer = styled.div<{
       border: ${theme.borders['border-1px--solid']['border-width'].value}
         ${theme.borders['border-1px--solid']['border-style'].value} ${theme.colors.colours.support['40'].value};
     `}
-  ${({ cardStyle }) =>
+  ${({ theme, cardStyle }) =>
     cardStyle === CardStyle.Shadowed &&
     css`
-      box-shadow: 0px 2px 6px 1px rgba(33, 40, 51, 0.1), 0px 1px 2px rgba(33, 40, 51, 0.15);
+      box-shadow: ${theme.shadows.resting.value};
     `}
 
   ${({ theme, selected }) =>
