@@ -19,6 +19,7 @@ const nonThemeLayout = require('./layout.json');
 const nonThemeBorders = require('./borders.json');
 const nonThemeGradients = require('./gradients.json');
 const nonThemeVariables = require('./variables.json');
+const nonThemeShadows = require('./shadows.json');
 
 const globalMarket = require('./themes/global.json');
 const cadiMarket = require('./themes/cadi.json');
@@ -32,7 +33,8 @@ const defaultTheme: DefaultTheme = {
   layout: { ...nonThemeLayout },
   borders: { ...nonThemeBorders },
   gradients: { ...nonThemeGradients },
-  variables: { ...nonThemeVariables }
+  variables: { ...nonThemeVariables },
+  shadows: { ...nonThemeShadows }
 };
 
 /*
