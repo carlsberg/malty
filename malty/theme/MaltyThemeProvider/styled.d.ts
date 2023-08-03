@@ -11,6 +11,7 @@ declare module 'styled-components' {
     gradients: GradientsType;
     typography: TypographyType;
     variables: VariablesType;
+    shadows: ShadowsType;
   }
 
   interface SizesType {
@@ -174,6 +175,13 @@ declare module 'styled-components' {
       success: PropValue;
       'success-light': PropValue;
     };
+  }
+
+  interface ShadowsType {
+    hovered: PropValue;
+    overlay: PropValue;
+    pressed: PropValue;
+    resting: PropValue;
   }
 
   interface TypographyType {
