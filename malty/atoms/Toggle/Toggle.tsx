@@ -47,7 +47,7 @@ export const Toggle = ({
             required={required}
             {...props}
           />
-          <StyledSwitch id={id} theme={theme} disabled={disabled} className="switch" />
+          <StyledSwitch id={id} theme={theme} disabled={disabled} />
         </StyledToggleSwitch>
 
         <StyledLabel

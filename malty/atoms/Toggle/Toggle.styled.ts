@@ -35,21 +35,16 @@ export const StyledLabelWrapper = styled.div<{
     theme &&
     css`
       &:hover {
-        input:checked + .switch {
+        input:checked + ${StyledSwitch} {
           background-color: ${theme.colors.colours.overlay['digital-black'][75].value};
-          border: ${theme.borders['border-2px--solid']['border-width'].value}
-            ${theme.borders['border-2px--solid']['border-style'].value} transparent;
+          border-color: transparent;
         }
 
-        .switch {
-          border: ${theme.borders['border-2px--solid']['border-width'].value}
-            ${theme.borders['border-2px--solid']['border-style'].value}
-            ${theme.colors.colours.overlay['digital-black'][75].value};
+        ${StyledSwitch} {
+          border-color: ${theme.colors.colours.overlay['digital-black'][75].value};
 
           &:before {
-            border: ${theme.borders['border-2px--solid']['border-width'].value}
-              ${theme.borders['border-2px--solid']['border-style'].value}
-              ${theme.colors.colours.overlay['digital-black'][75].value};
+            border-color: ${theme.colors.colours.overlay['digital-black'][75].value};
           }
         }
       }
@@ -78,35 +73,6 @@ export const StyledLabel = styled(Label)<{
   line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
   margin-left: ${({ theme }) => theme.sizes['2xs'].value};
   margin-bottom: 0;
-`;
-export const StyledInput = styled.input<{
-  disabled?: boolean;
-}>`
-  display: none;
-  &:checked + .switch::before {
-    transform: translateX(14px);
-    background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-    border: none;
-    top: 1px;
-  }
-  &:checked + .switch {
-    background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  }
-  &:focus,
-  &:focus-visible {
-    box-shadow: none;
-    outline: none;
-  }
-  ${({ disabled, theme }) =>
-    disabled &&
-    css`
-      &:checked + .switch {
-        background-color: ${theme.colors.colours.system['disable-light-theme'].value};
-        pointer-events: none;
-        border: ${theme.borders['border-2px--solid']['border-width'].value}
-          ${theme.borders['border-2px--solid']['border-style'].value} transparent;
-      }
-    `}
 `;
 
 export const StyledSwitch = styled.span<{
@@ -152,14 +118,39 @@ export const StyledSwitch = styled.span<{
     disabled &&
     css`
       &:before {
-        border: ${theme.borders['border-2px--solid']['border-width'].value}
-          ${theme.borders['border-2px--solid']['border-style'].value}
-          ${theme.colors.colours.system['disable-light-theme'].value};
+        border-color: ${theme.colors.colours.system['disable-light-theme'].value};
         pointer-events: none;
       }
       pointer-events: none;
-      border: ${theme.borders['border-2px--solid']['border-width'].value}
-        ${theme.borders['border-2px--solid']['border-style'].value}
-        ${theme.colors.colours.system['disable-light-theme'].value};
+      border-color: ${theme.colors.colours.system['disable-light-theme'].value};
+    `}
+`;
+
+export const StyledInput = styled.input<{
+  disabled?: boolean;
+}>`
+  display: none;
+  &:checked + ${StyledSwitch}::before {
+    transform: translateX(14px);
+    background-color: ${({ theme }) => theme.colors.colours.default.white.value};
+    border: none;
+    top: 1px;
+  }
+  &:checked + ${StyledSwitch} {
+    background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  }
+  &:focus,
+  &:focus-visible {
+    box-shadow: none;
+    outline: none;
+  }
+  ${({ disabled, theme }) =>
+    disabled &&
+    css`
+      &:checked + ${StyledSwitch} {
+        background-color: ${theme.colors.colours.system['disable-light-theme'].value};
+        pointer-events: none;
+        border-color: transparent;
+      }
     `}
 `;
