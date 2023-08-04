@@ -5,20 +5,20 @@ import React from 'react';
 import { Radio } from './Radio';
 import { RadioProps } from './Radio.types';
 
+const handleValueChange = jest.fn();
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
+
+const props: RadioProps = {
+  label: 'Label text',
+  value: 'Test value',
+  onValueChange: handleValueChange,
+  name: 'radio'
+};
+
 describe('radio', () => {
-  const mockFn = jest.fn();
-
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  const props: RadioProps = {
-    label: 'Label text',
-    value: 'Test value',
-    onValueChange: mockFn,
-    name: 'radio'
-  };
-
   it('should render elements', () => {
     render(<Radio {...props} error="Error text" selected />);
 
@@ -33,16 +33,16 @@ describe('radio', () => {
     const radio = screen.getByDisplayValue('Test value');
     userEvent.click(radio);
 
-    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(handleValueChange).toHaveBeenCalledTimes(1);
   });
 
   it('should be disabled', () => {
     render(<Radio {...props} error="Error text" disabled />);
-    const radio = screen.getByDisplayValue('Test value');
 
+    const radio = screen.getByDisplayValue('Test value');
     userEvent.click(radio, undefined, { skipPointerEventsCheck: true });
 
-    expect(mockFn).toHaveBeenCalledTimes(0);
+    expect(handleValueChange).toHaveBeenCalledTimes(0);
     expect(radio).toBeDisabled();
   });
 
