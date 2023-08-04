@@ -10,7 +10,9 @@ const props: RadioProps = {
   label: 'Label text',
   value: 'Test value',
   onValueChange: handleValueChange,
-  name: 'radio'
+  name: 'radio',
+  dataTestId: 'radio',
+  error: 'Error text'
 };
 
 describe('radio', () => {
@@ -19,26 +21,26 @@ describe('radio', () => {
   });
 
   it('should render elements', () => {
-    render(<Radio {...props} error="Error text" selected />);
+    render(<Radio {...props} selected />);
 
-    expect(screen.getByLabelText('Label text')).toBeInTheDocument();
-    expect(screen.getByText('Error text')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('Test value')).toBeInTheDocument();
+    expect(screen.getByLabelText(props.label)).toBeInTheDocument();
+    expect(screen.getByText(props.error as string)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(props.value)).toBeInTheDocument();
   });
 
   it('should call function on click', () => {
-    render(<Radio {...props} error="Error text" />);
+    render(<Radio {...props} />);
 
-    const radio = screen.getByDisplayValue('Test value');
+    const radio = screen.getByDisplayValue(props.value);
     userEvent.click(radio);
 
     expect(handleValueChange).toHaveBeenCalledTimes(1);
   });
 
   it('should be disabled', () => {
-    render(<Radio {...props} error="Error text" disabled />);
+    render(<Radio {...props} disabled />);
 
-    const radio = screen.getByDisplayValue('Test value');
+    const radio = screen.getByDisplayValue(props.value);
     userEvent.click(radio, undefined, { skipPointerEventsCheck: true });
 
     expect(handleValueChange).toHaveBeenCalledTimes(0);
@@ -46,8 +48,8 @@ describe('radio', () => {
   });
 
   it('should have the correct data test id', () => {
-    render(<Radio {...props} dataTestId="radio" />);
+    render(<Radio {...props} />);
 
-    expect(screen.getByTestId('radio')).toBeInTheDocument();
+    expect(screen.getByTestId(props.dataTestId as string)).toBeInTheDocument();
   });
 });
