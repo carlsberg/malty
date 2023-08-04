@@ -43,7 +43,7 @@ export const StyledLabelWrapper = styled.div<{
         ${StyledSwitch} {
           border-color: ${theme.colors.colours.overlay['digital-black'][75].value};
 
-          &:before {
+          &::before {
             border-color: ${theme.colors.colours.overlay['digital-black'][75].value};
           }
         }
@@ -95,7 +95,7 @@ export const StyledSwitch = styled.span<{
         ${theme.colors.colours.default['digital-black'].value};
     `}
 
-  &:before {
+  &::before {
     position: absolute;
     content: '';
     left: -2px;
@@ -117,7 +117,7 @@ export const StyledSwitch = styled.span<{
   ${({ disabled, theme }) =>
     disabled &&
     css`
-      &:before {
+      &::before {
         border-color: ${theme.colors.colours.system['disable-light-theme'].value};
         pointer-events: none;
       }
