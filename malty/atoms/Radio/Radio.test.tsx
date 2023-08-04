@@ -6,11 +6,6 @@ import { Radio } from './Radio';
 import { RadioProps } from './Radio.types';
 
 const handleValueChange = jest.fn();
-
-afterEach(() => {
-  jest.clearAllMocks();
-});
-
 const props: RadioProps = {
   label: 'Label text',
   value: 'Test value',
@@ -19,6 +14,10 @@ const props: RadioProps = {
 };
 
 describe('radio', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should render elements', () => {
     render(<Radio {...props} error="Error text" selected />);
 
