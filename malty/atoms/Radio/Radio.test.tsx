@@ -5,11 +5,10 @@ import React from 'react';
 import { Radio } from './Radio';
 import { RadioProps } from './Radio.types';
 
-const handleValueChange = jest.fn();
 const props: RadioProps = {
   label: 'Label text',
   value: 'Test value',
-  onValueChange: handleValueChange,
+  onValueChange: jest.fn(),
   name: 'radio',
   dataTestId: 'radio',
   error: 'Error text'
@@ -34,7 +33,7 @@ describe('radio', () => {
     const radio = screen.getByDisplayValue(props.value);
     userEvent.click(radio);
 
-    expect(handleValueChange).toHaveBeenCalledTimes(1);
+    expect(props.onValueChange).toHaveBeenCalledTimes(1);
   });
 
   it('should be disabled', () => {
@@ -43,7 +42,7 @@ describe('radio', () => {
     const radio = screen.getByDisplayValue(props.value);
     userEvent.click(radio, undefined, { skipPointerEventsCheck: true });
 
-    expect(handleValueChange).toHaveBeenCalledTimes(0);
+    expect(props.onValueChange).toHaveBeenCalledTimes(0);
     expect(radio).toBeDisabled();
   });
 
