@@ -1,24 +1,54 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Radio } from './Radio';
+import { RadioProps } from './Radio.types';
+
+const props: RadioProps = {
+  label: 'Label text',
+  value: 'Test value',
+  onValueChange: jest.fn(),
+  name: 'radio',
+  dataTestId: 'radio',
+  error: 'Error text'
+};
 
 describe('radio', () => {
-  it('renders elements', () => {
-    const mockFn = jest.fn();
-    render(
-      <Radio name="radio" label="Label text" error="Error text" value="Test value" onValueChange={mockFn} selected />
-    );
-    expect(screen.getByLabelText('Label text')).toBeInTheDocument();
-    expect(screen.getByText('Error text')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('Test value')).toBeInTheDocument();
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  it('calls function on click', () => {
-    const mockFn = jest.fn();
-    render(<Radio label="Label text" error="Error text" value="Test value" onValueChange={mockFn} name="radio" />);
-    const radio = screen.getByDisplayValue('Test value');
-    fireEvent.click(radio);
-    expect(mockFn).toHaveBeenCalledTimes(1);
+  it('should render elements', () => {
+    render(<Radio {...props} selected />);
+
+    expect(screen.getByLabelText(props.label)).toBeInTheDocument();
+    expect(screen.getByText(props.error as string)).toBeInTheDocument();
+    expect(screen.getByDisplayValue(props.value)).toBeInTheDocument();
+  });
+
+  it('should call function on click', () => {
+    render(<Radio {...props} />);
+
+    const radio = screen.getByDisplayValue(props.value);
+    userEvent.click(radio);
+
+    expect(props.onValueChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('should be disabled', () => {
+    render(<Radio {...props} disabled />);
+
+    const radio = screen.getByDisplayValue(props.value);
+    userEvent.click(radio, undefined, { skipPointerEventsCheck: true });
+
+    expect(props.onValueChange).toHaveBeenCalledTimes(0);
+    expect(radio).toBeDisabled();
+  });
+
+  it('should have the correct data test id', () => {
+    render(<Radio {...props} />);
+
+    expect(screen.getByTestId(props.dataTestId as string)).toBeInTheDocument();
   });
 });
