@@ -1,25 +1,20 @@
-import { render } from '@carlsberggroup/malty.utils.test';
-import { RenderResult, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Rating } from './Rating';
+import { RatingProps } from './Rating.types';
 
-const renderComponent = (name: string, rating: number, disabled: boolean, readOnly: boolean): RenderResult =>
-  render(
-    <Rating
-      label="Test label"
-      dataTestId="rating"
-      totalReview={55}
-      name={name}
-      value={rating}
-      disabled={disabled}
-      readOnly={readOnly}
-    />
-  );
+const props: RatingProps = {
+  label: 'Test label',
+  dataTestId: 'rating',
+  totalReview: 55,
+  name: 'testname',
+  value: 0
+};
 
 describe('rating', () => {
-  it('should be defined', () => {
-    renderComponent('testname', 4, false, false);
+  it('should have 1 star empty', () => {
+    render(<Rating {...props} value={4} disabled={false} readOnly={false} />);
 
     const element = screen.getAllByTestId('rating-empty-star');
 
@@ -27,47 +22,45 @@ describe('rating', () => {
   });
 
   it('should have 3 star selected', () => {
-    renderComponent('testname', 3, false, false);
+    render(<Rating {...props} value={3} disabled={false} readOnly={false} />);
 
     const element = screen.getAllByTestId('rating-filled-star');
 
     expect(element).toHaveLength(3);
   });
 
-  it('should have 1 star empty', () => {
-    renderComponent('testname', 4, false, false);
-
-    const element = screen.getAllByTestId('rating-empty-star');
-
-    expect(element).toHaveLength(1);
-  });
-
   it('should render elements', () => {
-    renderComponent('rating', 1, false, false);
+    render(<Rating {...props} value={1} disabled={false} readOnly={false} />);
 
-    expect(screen.getByText('Test label')).toBeInTheDocument();
-    expect(screen.getByTestId('rating')).toBeInTheDocument();
+    expect(screen.getByText(props.label)).toBeInTheDocument();
+    expect(screen.getByTestId(props.dataTestId as string)).toBeInTheDocument();
     expect(screen.getByDisplayValue(1)).toBeInTheDocument();
     expect(screen.getByText('(55)')).toBeInTheDocument();
   });
 
   it('should be disabled', () => {
-    renderComponent('rating', 0, true, false);
+    const onStarClick = jest.fn();
+
+    render(<Rating {...props} value={0} disabled readOnly={false} onStarClick={onStarClick} />);
 
     const star = screen.getByDisplayValue('3');
 
     userEvent.click(star);
 
+    expect(onStarClick).not.toHaveBeenCalled();
     expect(star).not.toBeChecked();
   });
 
   it('should be readOnly', () => {
-    renderComponent('rating', 0, false, true);
+    const onStarClick = jest.fn();
+
+    render(<Rating {...props} value={0} disabled={false} readOnly onStarClick={onStarClick} />);
 
     const star = screen.getByDisplayValue('3');
 
     userEvent.click(star);
 
+    expect(onStarClick).not.toHaveBeenCalled();
     expect(star).not.toBeChecked();
   });
 });
