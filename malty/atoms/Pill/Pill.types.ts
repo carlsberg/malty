@@ -20,9 +20,12 @@ export enum PillColor {
   Secondary = 'secondary',
   Archive = 'support40',
   Success = 'success',
-  alertStrong = 'alert-strong',
+  AlertStrong = 'alert-strong',
   Fail = 'fail',
-  NotificationStrong = 'notification-strong'
+  NotificationStrong = 'notification-strong',
+  AlertLight = 'alert-light',
+  NotificationLight = 'notification-light',
+  SuccessLight = 'success-light'
 }
 
 export interface UsePillStylesProps {

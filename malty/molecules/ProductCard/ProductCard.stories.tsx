@@ -273,8 +273,8 @@ switch (variant) {
       loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
       quantitySelectOptions: selectQuanityOptions,
-      discountPill: { text: '20%', color: PillColor.alertStrong },
-      promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
+      discountPill: { text: '20%', color: PillColor.AlertStrong },
+      promoPill: { text: 'Promo', color: PillColor.AlertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
       favoriteIconColor: IconColor.Primary,
       productsCardsAlerts: [
@@ -311,8 +311,8 @@ switch (variant) {
       loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
       stock: { label: 'In Stock', stockColor: TextColor.Success },
       quantitySelectOptions: selectQuanityOptions,
-      discountPill: { text: '20%', color: PillColor.alertStrong },
-      promoPill: { text: 'Promo', color: PillColor.alertStrong, icon: IconName.Coupon },
+      discountPill: { text: '20%', color: PillColor.AlertStrong },
+      promoPill: { text: 'Promo', color: PillColor.AlertStrong, icon: IconName.Coupon },
       cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
       favoriteIconColor: IconColor.Primary
     };
