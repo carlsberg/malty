@@ -16,7 +16,7 @@ export default {
   component: BannerComponent,
   parameters: {
     importObject: 'Banner',
-    importPath: '@carlsberggroup/malty.atoms.banner',
+    importPath: '@carlsberggroup/malty.molecules.banner',
     variants: Object.values(BannerVariants)
   },
   argTypes: {
