@@ -101,7 +101,7 @@
     },
     "atoms/pill": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.81",
+        "version": "0.0.82",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Pill"
     },
@@ -1517,7 +1517,7 @@
     },
     "molecules/banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Banner"
     },
@@ -1565,7 +1565,7 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.26",
+        "version": "0.0.27",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
@@ -1613,7 +1613,7 @@
     },
     "organisms/carousel": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.9",
+        "version": "0.0.10",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Carousel"
     },
