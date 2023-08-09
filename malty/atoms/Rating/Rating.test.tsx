@@ -9,28 +9,34 @@ const props: RatingProps = {
   dataTestId: 'rating',
   totalReview: 55,
   name: 'testname',
-  value: 0
+  value: 0,
+  disabled: false,
+  readOnly: false
 };
 
 describe('rating', () => {
   it('should have 1 star empty', () => {
-    render(<Rating {...props} value={4} disabled={false} readOnly={false} />);
+    render(<Rating {...props} value={4} />);
 
-    const element = screen.getAllByTestId('rating-empty-star');
+    const element = screen.getByTestId('rating-empty-star-5');
 
-    expect(element).toHaveLength(1);
+    expect(element).toBeInTheDocument();
   });
 
   it('should have 3 star selected', () => {
-    render(<Rating {...props} value={3} disabled={false} readOnly={false} />);
+    render(<Rating {...props} value={3} />);
 
-    const element = screen.getAllByTestId('rating-filled-star');
+    const starOne = screen.getByTestId('rating-filled-star-1');
+    const starTwo = screen.getByTestId('rating-filled-star-2');
+    const starThree = screen.getByTestId('rating-filled-star-3');
 
-    expect(element).toHaveLength(3);
+    expect(starOne).toBeInTheDocument();
+    expect(starTwo).toBeInTheDocument();
+    expect(starThree).toBeInTheDocument();
   });
 
   it('should render elements', () => {
-    render(<Rating {...props} value={1} disabled={false} readOnly={false} />);
+    render(<Rating {...props} value={1} />);
 
     expect(screen.getByText(props.label)).toBeInTheDocument();
     expect(screen.getByTestId(props.dataTestId as string)).toBeInTheDocument();
@@ -41,7 +47,7 @@ describe('rating', () => {
   it('should be disabled', () => {
     const onStarClick = jest.fn();
 
-    render(<Rating {...props} value={0} disabled readOnly={false} onStarClick={onStarClick} />);
+    render(<Rating {...props} disabled onStarClick={onStarClick} />);
 
     const star = screen.getByDisplayValue('3');
 
@@ -54,7 +60,7 @@ describe('rating', () => {
   it('should be readOnly', () => {
     const onStarClick = jest.fn();
 
-    render(<Rating {...props} value={0} disabled={false} readOnly onStarClick={onStarClick} />);
+    render(<Rating {...props} readOnly onStarClick={onStarClick} />);
 
     const star = screen.getByDisplayValue('3');
 
@@ -62,5 +68,19 @@ describe('rating', () => {
 
     expect(onStarClick).not.toHaveBeenCalled();
     expect(star).not.toBeChecked();
+  });
+
+  it('should click one of the stars', () => {
+    const onStarClick = jest.fn();
+
+    render(<Rating {...props} onStarClick={onStarClick} />);
+
+    const star = screen.getByTestId('rating-empty-star-5');
+
+    expect(star).toBeVisible();
+
+    userEvent.click(star);
+
+    expect(onStarClick).toHaveBeenCalled();
   });
 });
