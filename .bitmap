@@ -137,7 +137,7 @@
     },
     "atoms/rating": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.27",
+        "version": "0.0.28",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Rating"
     },
