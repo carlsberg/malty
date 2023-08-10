@@ -9,9 +9,9 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
 
   const pillStyles = {
     [PillSize.ExtraSmall]: {
-      numSize: theme.sizes.s.value,
-      fontSize: theme.typography.desktop.text.micro_bold['font-size'].value,
-      fontFamily: theme.typography.desktop.text.micro_bold['font-family'].value,
+      numSize: theme.sizes.ms.value,
+      fontSize: theme.typography.desktop.text.tiny_bold['font-size'].value,
+      fontFamily: theme.typography.desktop.text.tiny_bold['font-family'].value,
       iconSize: theme.sizes.xs.value,
       padding: theme.sizes['3xs'].value,
       gap: theme.sizes['4xs'].value
@@ -38,7 +38,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
 };
 
 export const useIconTextColor = ({ color }: IconTextColorProps) => {
-  if (color === PillColor.Archive || color === PillColor.Success || color === PillColor.alertStrong) {
+  if (color === PillColor.Archive || color === PillColor.Success || color === PillColor.AlertStrong) {
     return IconColor.DigitalBlack;
   }
 

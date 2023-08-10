@@ -149,7 +149,7 @@ export const StyledInput = styled.input<{
     text-align: center;
     vertical-align: top;
     padding: 0;
-    flex: 1 1 100%;
+    flex: 1;
 
     ${({ disableQuantityInput }) =>
       disableQuantityInput &&
