@@ -21,11 +21,6 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Run git diff
-        run: |
-          git --no-pager diff
-        shell: bash
-
       - name: Install Bit CLI
         run: |
           npm i -g @teambit/bvm
@@ -33,20 +28,10 @@ jobs:
         env:
           BIT_VERSION: ${{ secrets.BIT_VERSION }}
 
-      - name: Run git diff
-        run: |
-          git --no-pager diff
-        shell: bash
-
       - name: Add bvm bin folder to path
         run: |
           echo "$HOME/bin" >> $GITHUB_PATH
           echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-
-      - name: Run git diff
-        run: |
-          git --no-pager diff
-        shell: bash
 
       - name: Set up bit config
         run: |
@@ -62,11 +47,6 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
-      - name: Run git diff
-        run: |
-          git --no-pager diff
-        shell: bash
-
       - name: Bit Deps Install & Compile
         run: |
           export PATH=${{ env.PATH }}
@@ -76,19 +56,9 @@ jobs:
           bit compile
         shell: bash
 
-      - name: Run git diff
-        run: |
-          git --no-pager diff
-        shell: bash
-
-      - name: Restore workspace.jsonc
+      - name: Restore workspace.jsonc changes
         run: |
           git restore workspace.jsonc
-        shell: bash
-
-      - name: Run git diff after restore
-        run: |
-          git --no-pager diff
         shell: bash
 
       - name: Run Check Lint
