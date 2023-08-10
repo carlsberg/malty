@@ -66,6 +66,11 @@ jobs:
           yarn check-types
         shell: bash
 
+      - name: RUn git diff
+        run: |
+          git diff --exit-code
+        shell: bash
+
       - name: Run Check Format
         run: |
           yarn check-format
