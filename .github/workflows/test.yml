@@ -81,24 +81,24 @@ jobs:
           git --no-pager diff
         shell: bash
 
+      - name: Restore workspace.jsonc
+        run: |
+          git restore workspace.jsonc
+        shell: bash
+
+      - name: Run git diff after restore
+        run: |
+          git --no-pager diff
+        shell: bash
+
       - name: Run Check Lint
         run: |
           yarn check-lint
         shell: bash
 
-      - name: Run git diff
-        run: |
-          git --no-pager diff
-        shell: bash
-
       - name: Run Check Types
         run: |
           yarn check-types
-        shell: bash
-
-      - name: Run git diff
-        run: |
-          git --no-pager diff
         shell: bash
 
       - name: Run Check Format
