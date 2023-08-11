@@ -21,11 +21,6 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Run git diff after restore
-        run: |
-          git --no-pager diff
-        shell: bash
-
       - name: Install Bit CLI
         run: |
           npm i -g @teambit/bvm
@@ -61,19 +56,9 @@ jobs:
           bit compile
         shell: bash
 
-      - name: Run git diff after restore
-        run: |
-          git --no-pager diff
-        shell: bash
-
       - name: Restore workspace.jsonc changes
         run: |
           git restore workspace.jsonc
-        shell: bash
-
-      - name: Run git diff after restore
-        run: |
-          git --no-pager diff
         shell: bash
 
       - name: Run Check Lint
