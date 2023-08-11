@@ -1,5 +1,6 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Toast } from './Toast';
 import { ToastColor } from './Toast.types';
@@ -13,7 +14,7 @@ describe('Toast', () => {
     expect(screen.getByTestId(`${dataQaId}-message`)).toBeInTheDocument();
   });
 
-  it('Should call On close action', async () => {
+  it('should call On close action', async () => {
     const dismissMock = jest.fn();
     const dataQaId = 'toast';
     const message = 'Toast with close icon';
@@ -30,12 +31,12 @@ describe('Toast', () => {
 
     expect(screen.getByText(message)).toBeInTheDocument();
 
-    fireEvent.click(screen.getByTestId(`${dataQaId}-close-icon`));
+    userEvent.click(screen.getByTestId(`${dataQaId}-close-icon`));
 
     expect(dismissMock).toHaveBeenCalledTimes(1);
   });
 
-  it('Should call custom action', async () => {
+  it('should call custom action', async () => {
     const dismissMock = jest.fn();
     render(
       <Toast
