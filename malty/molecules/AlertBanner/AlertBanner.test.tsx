@@ -53,28 +53,42 @@ const animationMock: AnimatedProps = {
 };
 
 describe('<AlertBanner />', () => {
-  beforeEach(() => {
-    render(<AlertBanner alerts={alertsMock} animation={animationMock} />);
-  });
   it('should render AlertBanner', () => {
+    render(<AlertBanner alerts={alertsMock} animation={animationMock} />);
+
     const message = screen.getByText(alertsMock[0].message);
+
     expect(message).toBeDefined();
   });
+
   it('should render icon', () => {
+    render(<AlertBanner alerts={alertsMock} animation={animationMock} />);
+
     // Improvement: give a custom test id to svg element
     const svg = screen.getAllByTestId('icon-Close');
+
     expect(svg[0]).toBeDefined();
   });
+
   it('should render dismiss button', () => {
+    render(<AlertBanner alerts={alertsMock} animation={animationMock} />);
+
     const dismissButton = screen.getByTestId('alert-banner-close-icon');
+
     fireEvent.click(dismissButton);
     fireEvent.keyUp(dismissButton, { key: 'Enter', code: 'Enter', charCode: 13 });
+
     expect(dismissButtonMockFn).toHaveBeenCalledTimes(2);
   });
+
   it('should render action text', () => {
+    render(<AlertBanner alerts={alertsMock} animation={animationMock} />);
+
     const actionName = screen.getByText(alertsMock[0].actionName);
+
     fireEvent.click(actionName);
     fireEvent.keyUp(actionName, { key: 'Enter', code: 'Enter', charCode: 13 });
+
     expect(actionMockFn).toHaveBeenCalledTimes(2);
   });
 });
@@ -106,50 +120,65 @@ const renderWithAnimation = () => {
 };
 
 describe('AlertBanner with animations', () => {
-  test('Text is compressed and botton actions is hidden', () => {
+  it('should have Text compressed and bottom actions as hidden', () => {
     const { rerender } = renderWithAnimation();
+
     rerender({
       isBannerTextCompressed: true
     });
+
     const fadeWrapper = screen.getByTestId('fade-wrapper');
     const pagination = screen.getByTestId('alert-banner-pagination');
+
     expect(fadeWrapper).toBeDefined();
     expect(pagination).not.toBeVisible();
   });
 
-  test('Text is compressed and the user clicks on Banner', () => {
+  it('should have Text compressed and user should click on Banner', () => {
     const { rerender } = renderWithAnimation();
+
     rerender({
       isBannerTextCompressed: true
     });
+
     const fadeWrapper = screen.getByTestId(/-AlertBanner-content/);
+
     fireEvent.click(fadeWrapper);
+
     expect(toggleBannerText).toHaveBeenCalledTimes(1);
   });
 
-  test('Text is not compressed and bottom options is visible', () => {
+  it('should have Text not compressed and bottom options visible', () => {
     const { rerender } = renderWithAnimation();
+
     rerender({
       isBannerTextCompressed: false
     });
+
     const fadeWrapper = screen.getByTestId('fade-wrapper');
     const pagination = screen.getByTestId('alert-banner-pagination');
+
     expect(fadeWrapper).toBeDefined();
     expect(pagination).toBeVisible();
   });
 
-  test('Text is compressed and bottom options are visible', () => {
+  it('should have Text compressed and bottom options visible', () => {
     const { rerender } = renderWithAnimation();
+
     rerender({
       isBannerTextCompressed: true
     });
+
     const fadeWrapper = screen.getByTestId('fade-wrapper');
     const pagination = screen.getByTestId('alert-banner-pagination');
+
     expect(fadeWrapper).toBeDefined();
     expect(pagination).not.toBeVisible();
+
     rerender({
       isBannerTextCompressed: false
     });
+
     expect(pagination).toBeVisible();
   });
 });
@@ -158,26 +187,40 @@ describe('AlertBanner with onActiveAlertChange', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+
   it('should be called when it renders the alert banner', () => {
     render(<AlertBanner alerts={alertsMock} onActiveAlertChange={onActiveAlertChangeMockFn} />);
+
     expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(1);
   });
+
   it('should be called when the pagination is used', () => {
     render(<AlertBanner alerts={alertsMock} onActiveAlertChange={onActiveAlertChangeMockFn} />);
+
     const pagination = screen.getByTestId('alert-banner-pagination');
+
     expect(pagination).toBeVisible();
+
     const buttonNext = screen.getByTestId('alert-banner-pagination-button-next');
+
     fireEvent.click(buttonNext);
+
     expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(2);
   });
+
   it('should be called when dismisses an alert and the active alert change to a different one', () => {
     render(<AlertBanner alerts={alertsMock} onActiveAlertChange={onActiveAlertChangeMockFn} />);
+
     const dismissButton = screen.getByTestId('alert-banner-close-icon');
+
     fireEvent.click(dismissButton);
+
     expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(2);
   });
+
   it('should not be called when is not defined', () => {
     render(<AlertBanner alerts={alertsMock} />);
+
     expect(onActiveAlertChangeMockFn).toHaveBeenCalledTimes(0);
   });
 });

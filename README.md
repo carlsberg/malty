@@ -110,15 +110,8 @@ Alternatively you can add the `--watch` flag for continued refresh and testing, 
 import React from 'react';
 import { Component, ComponentProps } from '@carlsberggroup/malty.atoms.component';
 
-export const component = ({
-  children
-}: ComponentProps) => {
-
-  const renderComponent = () => (
-    <Component>
-      {childen}
-    </Component>
-  )
+export const component = ({ children }: ComponentProps) => {
+  const renderComponent = () => <Component>{childen}</Component>;
 };
 ```
 

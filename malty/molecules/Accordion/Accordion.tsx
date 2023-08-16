@@ -24,6 +24,13 @@ export const Accordion = ({
 }: AccordionProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeEventKey, setActiveEnventKey] = useState([...defaultActiveKey]);
+  const providerValue = useMemo(
+    () => ({
+      activeEventKey,
+      alwaysOpen
+    }),
+    [activeEventKey, alwaysOpen]
+  );
 
   const handleAccordionItem = (itemKey: string) => {
     if (alwaysOpen) {
@@ -51,7 +58,7 @@ export const Accordion = ({
   };
 
   return (
-    <ContextAccordion.Provider value={{ activeEventKey, alwaysOpen }}>
+    <ContextAccordion.Provider value={providerValue}>
       <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
         {children?.map((el, index) =>
           // eslint-disable-next-line react/no-array-index-key
@@ -70,21 +77,21 @@ export const AccordionItem = ({
   onChange = () => null,
   eventKey
 }: AccordionItemProps) => {
-  const accordionContext = useContext(ContextAccordion);
+  const { activeEventKey } = useContext(ContextAccordion);
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [openAccordion, setOpenAccordion] = useState(accordionContext.activeEventKey?.includes(eventKey));
+  const [openAccordion, setOpenAccordion] = useState(activeEventKey?.includes(eventKey));
 
   const [numSize, setNumSize] = useState(theme.sizes.l.value);
   const [numPadding, setNumPadding] = useState(theme.sizes['2xs'].value);
   const id = useMemo(() => uuid(), []);
 
   useEffect(() => {
-    if (accordionContext.activeEventKey?.includes(eventKey)) {
+    if (activeEventKey?.includes(eventKey)) {
       setOpenAccordion(true);
     } else {
       setOpenAccordion(false);
     }
-  }, [accordionContext.activeEventKey]);
+  }, [activeEventKey, eventKey]);
 
   const handleOpenAccordion = () => {
     onChange(eventKey);
