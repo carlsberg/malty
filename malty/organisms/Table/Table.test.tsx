@@ -75,7 +75,7 @@ describe('table', () => {
     expect(sortedRows[2]).toHaveTextContent('Aguila Restaurant');
   });
 
-  it('checks if sorting option is available for the first column', () => {
+  it('should display sorting option for the first column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[0]);
@@ -83,7 +83,7 @@ describe('table', () => {
     expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
   });
 
-  it('checks if sorting option is not available for the second column', () => {
+  it('should not display sorting option for the second column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { queryByTestId } = within(screen.getAllByRole('columnheader')[1]);
@@ -91,7 +91,7 @@ describe('table', () => {
     expect(queryByTestId(`icon-${IconName.Sort}`)).not.toBeInTheDocument();
   });
 
-  it('checks if sorting option is available for the third column', () => {
+  it('should display sorting option for the third column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
@@ -146,7 +146,7 @@ describe('table', () => {
     expect(tableRows[2]).toHaveTextContent('1953/4/20');
   });
 
-  it('should sort the table by birthdate - from the older one to the recent one - by clicking twice in the sorting icon', async () => {
+  it('should sort the table by birthdate - from the older one to the recent one - by clicking twice in the sorting icon', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
