@@ -47,6 +47,9 @@ jobs:
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
+      - name: Git log
+        run: git --no-pager diff
+
       - name: Bit Deps Install & Compile
         run: |
           export PATH=${{ env.PATH }}
@@ -56,10 +59,16 @@ jobs:
           bit compile
         shell: bash
 
+      - name: Git log
+        run: git --no-pager diff
+
       - name: Restore workspace.jsonc changes
         run: |
           git restore workspace.jsonc
         shell: bash
+
+      - name: Git log
+        run: git --no-pager diff
 
       - name: Run Check Lint
         run: |
