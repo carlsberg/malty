@@ -81,10 +81,11 @@ export default {
   }
 } as Meta;
 
-// eslint-disable-next-line react/function-component-definition
 const Template: Story<ArticleCardProps> = (args) => {
+  const { orientation } = args;
+
   return (
-    <div style={args.orientation === CardOrientation.Portrait ? { width: '320px' } : { width: '500px' }}>
+    <div style={orientation === CardOrientation.Portrait ? { width: '320px' } : { width: '500px' }}>
       <ArticleCardComponent {...args} />
     </div>
   );

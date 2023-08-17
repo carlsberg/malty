@@ -1,7 +1,7 @@
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { Tooltip as TooltipComponent } from './Tooltip';
 import { TooltipPlacement, TooltipPositionStrategy, TooltipProps, TooltipToggle } from './Tooltip.types';
@@ -140,13 +140,16 @@ const Template: Story<TooltipProps> = ({
     TooltipComponent.startTooltipTimer('tooltip');
   };
 
+  const renderTriggerComponent = useCallback(
+    (setTriggerElement) => <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>,
+    []
+  );
+
   return (
     <StyledContainer>
       <TooltipComponent
         tooltipId="tooltip"
-        triggerComponent={(setTriggerElement) => (
-          <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
-        )}
+        triggerComponent={renderTriggerComponent}
         placement={placement}
         toggle={toggle}
         isOpen={isOpen}

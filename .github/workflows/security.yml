@@ -9,4 +9,3 @@ on:
 jobs:
   security:
     uses: carlsberggbs/cx-github-workflows/.github/workflows/security.yml@main
-    

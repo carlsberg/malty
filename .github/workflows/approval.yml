@@ -79,6 +79,5 @@ jobs:
                 summary: "This pull request requires an approval from a designer",
               },
             });
-            
-            console.log("Got response from checks.create:", resp);
 
+            console.log("Got response from checks.create:", resp);

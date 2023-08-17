@@ -102,7 +102,7 @@ export const Rating = ({
           theme={theme}
           key={`label_${id}`}
           hideCursor={readOnly || disabled}
-          data-testid={ratingValue >= i ? 'rating-filled-star' : 'rating-empty-star'}
+          data-testid={ratingValue >= i ? `rating-filled-star-${i}` : `rating-empty-star-${i}`}
           htmlFor={id}
           onClick={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarClick(i, ratingValue, name, e)}
           onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, e)}
