@@ -75,6 +75,9 @@ jobs:
           yarn check-lint
         shell: bash
 
+      - name: Git log
+        run: git --no-pager diff
+
       - name: Run Check Types
         run: |
           yarn check-types
