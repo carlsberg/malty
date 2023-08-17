@@ -83,6 +83,9 @@ jobs:
           yarn check-types
         shell: bash
 
+      - name: Git diff
+        run: git --no-pager diff
+
       - name: Run Check Format
         run: |
           yarn check-format
