@@ -1,4 +1,4 @@
-import { ColumnSort, Row, RowData, SortingState, Table } from '@tanstack/react-table';
+import { CellContext, ColumnDefTemplate, ColumnSort, Row, RowData, SortingState, Table } from '@tanstack/react-table';
 
 export { ColumnSort } from '@tanstack/react-table';
 
@@ -27,6 +27,7 @@ export interface TableHeaderProps {
   headerAlignment?: TableHeaderAlignment;
   isEmpty?: boolean;
   sorting?: boolean;
+  cell?: ColumnDefTemplate<CellContext<TableRowProps, unknown>>;
 }
 export interface TableRowProps {
   id: string | number;
