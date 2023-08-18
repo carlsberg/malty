@@ -16,6 +16,19 @@ const headers: TableHeaderProps[] = [
     key: 'age'
   },
   {
+    header: 'Birthdate',
+    key: 'birthdate',
+    sorting: true,
+    cell: (props) => {
+      const date = props.getValue() as Date;
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+
+      return `${year}/${month}/${day}`;
+    }
+  },
+  {
     header: '',
     key: 'actions',
     isEmpty: true
@@ -25,17 +38,20 @@ const rows: TableRowProps[] = [
   {
     id: '1',
     name: 'Aguila Restaurant',
-    age: 70
+    age: 70,
+    birthdate: new Date(1953, 3, 20)
   },
   {
     id: '2',
     name: 'Fitzgerald Moody',
-    age: 35
+    age: 35,
+    birthdate: new Date(1988, 5, 12)
   },
   {
     id: '3',
     name: 'Liberty Bell',
     age: 66,
+    birthdate: new Date(1957, 6, 22),
     actions: <button type="button">Delete</button>
   }
 ];
@@ -59,7 +75,7 @@ describe('table', () => {
     expect(sortedRows[2]).toHaveTextContent('Aguila Restaurant');
   });
 
-  it('checks if sorting option is available for the first column', () => {
+  it('should display sorting option for the first column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[0]);
@@ -67,12 +83,20 @@ describe('table', () => {
     expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
   });
 
-  it('checks if sorting option is not available for the second column', () => {
+  it('should not display sorting option for the second column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { queryByTestId } = within(screen.getAllByRole('columnheader')[1]);
 
     expect(queryByTestId(`icon-${IconName.Sort}`)).not.toBeInTheDocument();
+  });
+
+  it('should display sorting option for the third column', () => {
+    render(<Table headers={headers} rows={rows} />);
+
+    const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
+
+    expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
   });
 
   it('should call the onSortingChange prop when column title is clicked', () => {
@@ -85,13 +109,60 @@ describe('table', () => {
     expect(onSortingChange).toHaveBeenCalledWith([{ id: 'name', desc: false }]);
   });
 
-  it('should render a table with two named column headers and an empty column header', () => {
+  it('should render a table with three named column headers and an empty column header', () => {
     render(<Table headers={headers} rows={rows} defaultSorting={{ id: 'name', desc: true }} />);
 
     const columnHeaders = screen.getAllByRole('columnheader');
 
     expect(columnHeaders[0]).toHaveTextContent('Name');
     expect(columnHeaders[1]).toHaveTextContent('Age');
-    expect(columnHeaders[2]).toHaveTextContent('');
+    expect(columnHeaders[2]).toHaveTextContent('Birthdate');
+    expect(columnHeaders[3]).toHaveTextContent('');
+  });
+
+  it('should render a table where the column date has the values formatted according to the method passed on the cell property in the column definition', () => {
+    render(<Table headers={headers} rows={rows} />);
+
+    const tableRows = screen.getAllByRole('row').slice(1);
+
+    expect(tableRows[0]).toHaveTextContent('1953/4/20');
+    expect(tableRows[1]).toHaveTextContent('1988/6/12');
+    expect(tableRows[2]).toHaveTextContent('1957/7/22');
+  });
+
+  it('should sort the table by birthdate - from the recent one to the older one - by clicking once in the sorting icon', () => {
+    render(<Table headers={headers} rows={rows} />);
+
+    const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
+
+    const sortingButton = getByTestId(`icon-${IconName.Sort}`);
+
+    userEvent.click(sortingButton);
+
+    const tableRows = screen.getAllByRole('row').slice(1);
+
+    expect(tableRows[0]).toHaveTextContent('1988/6/12');
+    expect(tableRows[1]).toHaveTextContent('1957/7/22');
+    expect(tableRows[2]).toHaveTextContent('1953/4/20');
+  });
+
+  it('should sort the table by birthdate - from the older one to the recent one - by clicking twice in the sorting icon', () => {
+    render(<Table headers={headers} rows={rows} />);
+
+    const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
+
+    const defaultSortingButton = getByTestId(`icon-${IconName.Sort}`);
+
+    userEvent.click(defaultSortingButton);
+
+    const descSortingButton = getByTestId(`icon-${IconName.ArrowSmallDown}`);
+
+    userEvent.click(descSortingButton);
+
+    const tableRows = screen.getAllByRole('row').slice(1);
+
+    expect(tableRows[0]).toHaveTextContent('1953/4/20');
+    expect(tableRows[1]).toHaveTextContent('1957/7/22');
+    expect(tableRows[2]).toHaveTextContent('1988/6/12');
   });
 });

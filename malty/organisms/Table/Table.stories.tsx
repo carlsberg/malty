@@ -14,6 +14,19 @@ const headers: TableHeaderProps[] = [
     key: 'age'
   },
   {
+    header: 'Birthdate',
+    key: 'birthdate',
+    sorting: true,
+    cell: (props) => {
+      const date = props.getValue() as Date;
+      const year = date.getFullYear();
+      const month = date.getMonth() + 1;
+      const day = date.getDate();
+
+      return `${year}/${month}/${day}`;
+    }
+  },
+  {
     header: '',
     key: 'actions',
     isEmpty: true
@@ -38,90 +51,105 @@ const rows: TableRowProps[] = [
     id: 1,
     name: 'Fitzgerald Moody',
     age: 35,
+    birthdate: new Date(1988, 5, 12),
     actions: <button type="button">Delete</button>
   },
   {
     id: 2,
     name: 'Liberty Bell',
     age: 66,
+    birthdate: new Date(1957, 6, 22),
     actions: <button type="button">Delete</button>
   },
   {
     id: 3,
     name: 'Clayton Carpenter',
     age: 25,
+    birthdate: new Date(1998, 6, 10),
     actions: <button type="button">Delete</button>
   },
   {
     id: 4,
     name: 'Halla Pugh',
     age: 31,
+    birthdate: new Date(1992, 2, 12),
     actions: <button type="button">B</button>
   },
   {
     id: 5,
     name: 'Jaquelyn Valenzuela',
     age: 52,
+    birthdate: new Date(1971, 4, 23),
     actions: <button type="button">Delete</button>
   },
   {
     id: 6,
     name: 'Kyra Mcknight',
     age: 23,
+    birthdate: new Date(2000, 3, 30),
     actions: <button type="button">Delete</button>
   },
   {
     id: 7,
     name: 'Naida Barlow',
     age: 52,
+    birthdate: new Date(1971, 1, 25),
     actions: <button type="button">Delete</button>
   },
   {
     id: 8,
     name: 'Amir Joyce',
     age: 26,
+    birthdate: new Date(1997, 7, 10),
     actions: <button type="button">Delete</button>
   },
   {
     id: 9,
     name: 'Lenore Dixon',
     age: 40,
+    birthdate: new Date(1983, 2, 22),
     actions: <button type="button">Delete</button>
   },
   {
     id: 10,
     name: 'Carla Velazquez',
     age: 29,
+    birthdate: new Date(1994, 5, 15),
     actions: <button type="button">Delete</button>
   },
   {
     id: 11,
     name: 'Quamar Petersen',
     age: 58,
+    birthdate: new Date(1965, 4, 27),
     actions: <button type="button">Delete</button>
   },
   {
     id: 12,
     name: 'Patrick Stout',
     age: 61,
+    birthdate: new Date(1962, 6, 7),
     actions: <button type="button">Delete</button>
   },
   {
     id: 13,
     name: 'Ian Rhodes',
     age: 33,
+    birthdate: new Date(1990, 3, 11),
     actions: <button type="button">Delete</button>
   },
   {
     id: 14,
     name: 'Wesley Simmons',
     age: 67,
+    birthdate: new Date(1956, 4, 20),
     actions: <button type="button">Delete</button>
   },
   {
     id: 15,
     name: 'Ivy Crawford',
     age: 47,
+    birthdate: new Date(1976, 3, 28),
     actions: <button type="button">Delete</button>
   }
 ];
