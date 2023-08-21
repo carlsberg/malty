@@ -80,7 +80,7 @@
     "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.53.0",
-    "babel-jest": "^29.4.1",
+    "babel-jest": "^29.6.3",
     "babel-loader": "^9.1.2",
     "babel-plugin-transform-hoist-jsx-style": "^1.0.0",
     "eslint": "^8.35.0",
