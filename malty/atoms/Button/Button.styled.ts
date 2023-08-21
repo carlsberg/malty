@@ -179,10 +179,16 @@ export const StyledPrimaryButton = styled(StyledButton)`
 
   &:hover {
     filter: brightness(${({ isNegative }) => (isNegative ? '95%' : '140%')});
+    > div:first-child {
+      filter: brightness(70%);
+    }
   }
 
   &:active {
     filter: brightness(${({ isNegative }) => (isNegative ? '90%' : '170%')});
+    > div:first-child {
+      filter: brightness(60%);
+    }
   }
   &:disabled {
     ${({ isNegative, theme }) =>
