@@ -18,7 +18,7 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { ReactNode, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
@@ -94,7 +94,11 @@ export const Table = ({
     columnHelper.accessor(header.key, {
       id: header.key,
       header: () => (header.isEmpty ? null : header.header),
-      meta: { alignment: header.headerAlignment, sorting: !header.isEmpty && header.sorting }
+      meta: {
+        alignment: header.headerAlignment,
+        sorting: !header.isEmpty && header.sorting
+      },
+      cell: header.cell
     })
   );
 
@@ -323,7 +327,9 @@ export const Table = ({
                             theme={theme}
                             key={cell.id}
                           >
-                            {cell.renderValue() as ReactNode}
+                            {cell.column.columnDef.cell
+                              ? flexRender(cell.column.columnDef.cell, cell.getContext())
+                              : cell.renderValue()}
                           </StyledTd>
                         ))}
                       </StyledRow>

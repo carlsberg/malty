@@ -1,7 +1,8 @@
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ReactNode, useContext } from 'react';
+import { flexRender } from '@tanstack/react-table';
+import React, { useContext } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { ThemeContext } from 'styled-components';
 import { StyledDraggableCell, StyledRow, StyledTd } from './Table.styled';
@@ -52,7 +53,9 @@ export const DraggableRow = ({
               theme={theme}
               key={cell.id}
             >
-              {cell.renderValue() as ReactNode}
+              {cell.column.columnDef.cell
+                ? flexRender(cell.column.columnDef.cell, cell.getContext())
+                : cell.renderValue()}
             </StyledTd>
           ))}
         </StyledRow>
