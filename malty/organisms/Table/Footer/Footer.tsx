@@ -15,7 +15,6 @@ export const Footer = ({
   onChange
 }: FooterProps) => {
   const getPaginationInformation = () => {
-    // TODO: check the of translation
     const firstIndex = pageIndex * pageSize + 1;
     const lastIndex = firstIndex + pageSize - 1;
     const limitedLastIndex = totalRecords && lastIndex < totalRecords ? lastIndex : totalRecords;

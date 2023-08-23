@@ -185,6 +185,10 @@ export const Table = ({
     nodesRef.current[index] = elem;
   };
 
+  const handleOnRowClick = (row: TableRowProps) => {
+    onRowClick?.(row);
+  };
+
   return (
     <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
       <StyledTable data-testid={dataTestId} className={className} theme={theme}>
@@ -275,7 +279,6 @@ export const Table = ({
                   <td colSpan={table.getFlatHeaders().length}>
                     <StyledNoRecordsWrapper theme={theme}>
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
-                        {/* TODO: check this translation, most probably add a new prop noRecordsTranslation */}
                         No records found
                       </Text>
                     </StyledNoRecordsWrapper>
@@ -290,7 +293,7 @@ export const Table = ({
                       elementRef={nodesRef}
                       row={row}
                       allowSelection={allowSelection}
-                      onRowClick={() => onRowClick && onRowClick(row.original)}
+                      onRowClick={() => handleOnRowClick(row.original)}
                       size={tableSize}
                       dataTestId={dataTestId}
                     />
@@ -299,7 +302,7 @@ export const Table = ({
                     <StyledRow
                       theme={theme}
                       key={row.id}
-                      onClick={() => onRowClick && onRowClick(row.original)}
+                      onClick={() => handleOnRowClick(row.original)}
                       isClickable={!!onRowClick}
                       size={tableSize}
                     >
