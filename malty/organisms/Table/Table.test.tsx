@@ -143,7 +143,7 @@ describe('table', () => {
     expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
   });
 
-  it('should not display sorting option for the second column', () => {
+  it('should NOT display sorting option for the second column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { queryByTestId } = within(screen.getAllByRole('columnheader')[1]);
@@ -227,4 +227,25 @@ describe('table', () => {
     expect(tableRows[2]).toHaveTextContent('1953/4/20');
     expect(tableRows[tableRows.length - 1]).toHaveTextContent('1997/8/10');
   });
+
+  it('should render pagination information correctly', () => {
+    render(<Table headers={headers} rows={rows} />);
+
+    expect(screen.getByText('1 - 12 of 13')).toBeVisible();
+    expect(screen.getByRole('spinbutton', { name: /page 1/i })).toBeVisible();
+  });
+
+  // describe('Automatic pagination', () => {
+  //   it('should render first 12 elements correctly and ignore the rest', () => {
+  //     render(<Table headers={headers} rows={rows} />);
+  //     rows.slice(0, 12).forEach((row) => {
+  //       expect(screen.getByText(row.name as string)).toBeVisible();
+  //     });
+  //     rows.slice(12).forEach((row) => {
+  //       expect(screen.getByText(row.name as string)).not.toBeVisible();
+  //     });
+  //   });
+  // });
+
+  // describe('Manual pagination', () => {});
 });
