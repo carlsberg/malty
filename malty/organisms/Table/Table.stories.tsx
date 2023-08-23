@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { Table as TableComponent } from './Table';
 import { TableHeaderAlignment, TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
 
@@ -151,6 +151,55 @@ const rows: TableRowProps[] = [
     age: 47,
     birthdate: new Date(1976, 3, 28),
     actions: <button type="button">Delete</button>
+  },
+  {
+    id: 16,
+    name: 'adf dsf sd',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 17,
+    name: 'Ivy asdf',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 18,
+    name: 'Ivy 2',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 19,
+    name: 'Ivy 3',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 20,
+    name: 'Ivy Crawasdfford',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 21,
+    name: 'Ivy 5',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 22,
+    name: 'Ivy last',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
   }
 ];
 
@@ -237,7 +286,23 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TableProps> = ({ ...args }) => <TableComponent {...args} />;
+const Template: Story<TableProps> = ({ ...args }) => {
+  const [pageIndex, setPageIndex] = useState(0);
+  // TODO: create a test with this behaviour
+  console.log('Page index from outside', pageIndex);
+  return (
+    <div>
+      <button type="submit" onClick={() => setPageIndex(1)}>
+        Increase page from outside
+      </button>
+      <TableComponent
+        {...args}
+        // paginationIndex={pageIndex}
+        // manualPagination={{ totalPagesCount: 3, totalRecords: 22 }}
+      />
+    </div>
+  );
+};
 
 export const Table = Template.bind({});
 
