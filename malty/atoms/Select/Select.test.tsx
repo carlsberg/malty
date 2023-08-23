@@ -1,5 +1,6 @@
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Select } from './Select';
 import { SelectProps, SelectSize, SelectType } from './Select.types';
@@ -31,7 +32,7 @@ const testOptions = [
 ];
 
 describe('select', () => {
-  it('renders elements', () => {
+  it('should render elements', () => {
     render(
       <Select
         options={testOptions}
@@ -40,7 +41,9 @@ describe('select', () => {
         onValueChange={mockFn}
         type={SelectType.Default}
         error="Error text"
+        hint="Select something"
         size={SelectSize.Medium}
+        dataTestId="select"
       />
     );
 
@@ -52,7 +55,66 @@ describe('select', () => {
     expect(label).not.toHaveAttribute('required');
   });
 
-  it('calls onValueChange on click', () => {
+  it('should render hint correctly', () => {
+    render(
+      <Select
+        options={testOptions}
+        label="Label text"
+        placeholder="Placeholder text"
+        onValueChange={mockFn}
+        type={SelectType.Default}
+        size={SelectSize.Medium}
+        dataTestId="select"
+        hint="Select something"
+      />
+    );
+    const hintlabel = screen.getByTestId('select-hint');
+
+    expect(hintlabel).toBeInTheDocument();
+    expect(hintlabel).toHaveTextContent('Select something');
+  });
+
+  it('should have options disabled', () => {
+    const onValueChange = jest.fn();
+    render(
+      <Select
+        options={testOptions}
+        label="select label"
+        placeholder="select"
+        onValueChange={onValueChange}
+        type={SelectType.Default}
+        size={SelectSize.Medium}
+        dataTestId="select"
+        disabled
+      />
+    );
+
+    const selectOption = screen.getByTestId('select-option-1');
+
+    expect(selectOption).not.toBeVisible();
+  });
+
+  it('should have options readOnly', () => {
+    const onValueChange = jest.fn();
+    render(
+      <Select
+        options={testOptions}
+        label="select label"
+        placeholder="select"
+        onValueChange={onValueChange}
+        type={SelectType.Default}
+        size={SelectSize.Medium}
+        dataTestId="select"
+        readOnly
+      />
+    );
+
+    const selectOption = screen.getByTestId('select-option-1');
+
+    expect(selectOption).not.toBeVisible();
+  });
+
+  it('should call onValueChange on click', () => {
     const onValueChange = jest.fn();
     const { rerender } = render(
       <Select
@@ -65,14 +127,18 @@ describe('select', () => {
         dataTestId="select"
       />
     );
+
     const select = screen.getByText('select');
+
     expect(select).toBeVisible();
-    // TODO: Replace with click event
-    select.click();
+
+    userEvent.click(select);
+
     const selectOption = screen.getByTestId('select-option-1');
     expect(selectOption).toBeVisible();
-    // TODO: Replace with click event
-    selectOption.click();
+
+    userEvent.click(selectOption);
+
     expect(onValueChange).toHaveBeenCalledTimes(1);
     rerender(
       <Select
@@ -89,13 +155,13 @@ describe('select', () => {
     expect(selectedValue.innerHTML).toEqual(testOptions[1].name);
   });
 
-  it('renders inline select', () => {
+  it('should render inline select', () => {
     const onValueChange = jest.fn();
     render(<Select options={testOptions} label="inline" onValueChange={onValueChange} type={SelectType.Inline} />);
     expect(screen.getByText('inline')).toBeInTheDocument();
   });
 
-  it('updates selected option correctly if external value is passed', () => {
+  it('should update selected option correctly if external value is passed', () => {
     const props: SelectProps = {
       options: testOptions,
       label: 'select label',
@@ -122,7 +188,7 @@ describe('select', () => {
     expect(selectedOptionsButtonQueries.queryByText(testOptions[0].name)).not.toBeInTheDocument();
   });
 
-  it('updates selected options correctly if external value is passed with multiple enabled', () => {
+  it('should update selected options correctly if external value is passed with multiple enabled', () => {
     const props: SelectProps = {
       options: testOptions,
       label: 'select label',
@@ -152,7 +218,7 @@ describe('select', () => {
     expect(selectedOptionsButtonQueries.queryByText(testOptions[0].name)).not.toBeInTheDocument();
   });
 
-  it('renders with a required attribute', () => {
+  it('should render with a required attribute', () => {
     render(
       <Select
         required
@@ -169,7 +235,7 @@ describe('select', () => {
     expect(label).toHaveAttribute('required');
   });
 
-  it('does not render a required attribute to the user when select is inline', () => {
+  it('should not render a required attribute to the user when select is inline', () => {
     render(
       <Select
         required
