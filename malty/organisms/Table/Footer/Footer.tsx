@@ -34,7 +34,7 @@ export const Footer = ({
         </Text>
       ) : null}
       <StyledPaginationWrapper theme={theme}>
-        <StyledInfo color={TextColor.Support60} textStyle={TextStyle.SmallDefault}>
+        <StyledInfo color={TextColor.Support60} textStyle={TextStyle.SmallDefault} theme={theme}>
           {getPaginationInformation()}
         </StyledInfo>
         <Pagination type={PaginationType.Input} count={pageCount} currentPage={pageIndex + 1} onChange={onChange} />
