@@ -56,9 +56,9 @@ jobs:
           bit compile
         shell: bash
 
-      - name: Restore workspace.jsonc changes
+      - name: Format workspace.jsonc
         run: |
-          git restore workspace.jsonc
+          yarn prettier --write workspace.jsonc
         shell: bash
 
       - name: Run Check Lint
