@@ -286,19 +286,30 @@ export default {
   }
 } as Meta;
 
+const firstPageItems = rows.slice(0, 10);
+const secondPageItems = rows.slice(10);
+
 const Template: Story<TableProps> = ({ ...args }) => {
+  const [tableRows, setTableRows] = useState(firstPageItems);
   const [pageIndex, setPageIndex] = useState(0);
-  // TODO: create a test with this behaviour
-  console.log('Page index from outside', pageIndex);
+
+  const handleOnClick = () => {
+    setPageIndex(1);
+    setTableRows(secondPageItems);
+  };
+
   return (
     <div>
-      <button type="submit" onClick={() => setPageIndex(1)}>
+      <button type="submit" onClick={handleOnClick}>
         Increase page from outside
       </button>
       <TableComponent
         {...args}
-        // paginationIndex={pageIndex}
-        // manualPagination={{ totalPagesCount: 3, totalRecords: 22 }}
+        headers={headers}
+        rows={tableRows}
+        paginationIndex={pageIndex}
+        paginationSize={10}
+        manualPagination={{ totalPagesCount: 3, totalRecords: 13 }}
       />
     </div>
   );

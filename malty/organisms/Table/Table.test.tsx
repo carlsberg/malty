@@ -1,7 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
+import React, { useState } from 'react';
 import { Table } from './Table';
 import { TableHeaderProps, TableRowProps } from './Table.types';
 
@@ -232,20 +232,120 @@ describe('table', () => {
     render(<Table headers={headers} rows={rows} />);
 
     expect(screen.getByText('1 - 12 of 13')).toBeVisible();
-    expect(screen.getByRole('spinbutton', { name: /page 1/i })).toBeVisible();
+    expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
   });
 
-  // describe('Automatic pagination', () => {
-  //   it('should render first 12 elements correctly and ignore the rest', () => {
-  //     render(<Table headers={headers} rows={rows} />);
-  //     rows.slice(0, 12).forEach((row) => {
-  //       expect(screen.getByText(row.name as string)).toBeVisible();
-  //     });
-  //     rows.slice(12).forEach((row) => {
-  //       expect(screen.getByText(row.name as string)).not.toBeVisible();
-  //     });
-  //   });
-  // });
+  describe('Automatic pagination', () => {
+    it('should render first 12 elements correctly and ignore the rest', () => {
+      render(<Table headers={headers} rows={rows} />);
 
-  // describe('Manual pagination', () => {});
+      const tableRows = screen.getAllByRole('row').slice(1);
+
+      expect(tableRows).toHaveLength(12);
+
+      rows.slice(0, 12).forEach((row) => {
+        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+      });
+
+      expect(screen.queryByRole('cell', { name: rows[12].name as string })).not.toBeInTheDocument();
+    });
+
+    it('should render rest of elements after clicking on next page arrow', () => {
+      render(<Table headers={headers} rows={rows} />);
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+
+      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+      expect(screen.getByRole('cell', { name: rows[12].name as string })).toBeVisible();
+
+      rows.slice(0, 12).forEach((row) => {
+        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('Manual pagination', () => {
+    const firstPageItems = rows.slice(0, 10);
+    const secondPageItems = rows.slice(10);
+
+    it('should render second page items successfully after clicking on next page arrow', () => {
+      const TableComponent = () => {
+        const [tableRows, setTableRows] = useState(firstPageItems);
+        const [pageIndex, setPageIndex] = useState(0);
+
+        const handleOnPaginationChange = (page: number) => {
+          setPageIndex(page - 1);
+          setTableRows([...tableRows, ...secondPageItems]);
+        };
+
+        return (
+          <Table
+            headers={headers}
+            rows={tableRows}
+            paginationIndex={pageIndex}
+            paginationSize={10}
+            manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+            onPaginationChange={handleOnPaginationChange}
+          />
+        );
+      };
+
+      render(<TableComponent />);
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+      });
+
+      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+      });
+    });
+
+    it('should update pageIndex and items from outside successfully', () => {
+      const TableComponent = () => {
+        const [tableRows, setTableRows] = useState(firstPageItems);
+        const [pageIndex, setPageIndex] = useState(0);
+
+        const handleOnClick = () => {
+          setTableRows([...tableRows, ...secondPageItems]);
+          setPageIndex(1);
+        };
+
+        return (
+          <div>
+            <button type="submit" onClick={handleOnClick}>
+              Increase page from outside
+            </button>
+            <Table
+              headers={headers}
+              rows={tableRows}
+              paginationIndex={pageIndex}
+              paginationSize={10}
+              manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+            />
+          </div>
+        );
+      };
+
+      render(<TableComponent />);
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+      });
+
+      userEvent.click(screen.getByText('Increase page from outside'));
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+      });
+    });
+  });
 });

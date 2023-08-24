@@ -84,10 +84,6 @@ export const Table = ({
     [pageIndex, pageSize]
   );
 
-  useEffect(() => {
-    setPagination({ pageIndex: paginationIndex, pageSize: paginationSize });
-  }, [paginationIndex, paginationSize]);
-
   const columns = headers.map((header) =>
     columnHelper.accessor(header.key, {
       id: header.key,
@@ -146,6 +142,10 @@ export const Table = ({
     tempUser.splice(results.destination.index, 0, selectRow);
     setData(tempUser);
   };
+
+  useEffect(() => {
+    setPagination({ pageIndex: paginationIndex, pageSize: paginationSize });
+  }, [paginationIndex, paginationSize]);
 
   useEffect(() => {
     setData(rows);
