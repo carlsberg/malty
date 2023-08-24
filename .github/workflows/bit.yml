@@ -75,6 +75,11 @@ jobs:
           bit tag
         shell: bash
 
+      - name: Format workspace.jsonc
+        run: |
+          yarn prettier --write workspace.jsonc
+        shell: bash
+
       - name: Export components
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
