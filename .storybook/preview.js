@@ -114,6 +114,7 @@ export const globalTypes = {
     description: 'Global theme for components',
     defaultValue: 'global',
     toolbar: {
+      title: 'Theme',
       items: [
         { value: 'global', title: 'Global' },
         { value: 'cadi', title: 'Cadi' },

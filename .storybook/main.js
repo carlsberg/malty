@@ -1,7 +1,8 @@
 module.exports = {
-  stories: ['../malty/**/**/*.stories.mdx', '../malty/**/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../malty/!(icons)/!(IconWrapper)/*.stories.@(mdx|js|jsx|ts|tsx)'],
   addons: [
     {
+      name: '@storybook/addon-docs',
       name: '@storybook/addon-links',
       name: '@storybook/addon-essentials'
     }
@@ -15,10 +16,12 @@ module.exports = {
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
     }
   },
-  core: {
-    builder: 'webpack5'
-  },
-  staticDirs: [{ from: '../public/storybook', to: '/' }],
+  staticDirs: [
+    {
+      from: '../public/storybook',
+      to: '/'
+    }
+  ],
   previewHead: (head) => `
     ${head}
     <style>
@@ -29,5 +32,12 @@ module.exports = {
         display: none !important;
       }
     </style>
-  `
+  `,
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {}
+  },
+  docs: {
+    autodocs: true
+  }
 };

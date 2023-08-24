@@ -3,9 +3,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledCanvas = styled(Canvas)`
+  font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular', 'San Francisco', BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #d5eaff;
   padding: 0;
-  p.sbdocs.sbdocs-p {
+  p {
     margin: 0px !important;
   }
 `;
