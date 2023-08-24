@@ -222,18 +222,20 @@ export const AlertBanner = ({
 
   const showBottomArea = () => alertsArray.length > 1 || currentAlert.action;
   const renderMobileActionsContent = () => {
-    if ((isMobile && alertsArray.length > 1) || currentAlert.action) {
+    if (showBottomArea()) {
       return (
         <FadeWrapper theme={theme} show={isBannerTextCompressed} data-testid="fade-wrapper">
           <ContentRow theme={theme}>
-            <Pagination
-              count={alertsArray?.length}
-              onChange={(pageNr) => setActiveAlert(Number(pageNr))}
-              currentPage={activeAlert}
-              type={PaginationType.Compact}
-              isWhite={currentAlert.type !== AlertBannerType.Warning}
-              dataTestId="alert-banner-pagination"
-            />
+            {alertsArray.length > 1 && (
+              <Pagination
+                count={alertsArray?.length}
+                onChange={(pageNr) => setActiveAlert(Number(pageNr))}
+                currentPage={activeAlert}
+                type={PaginationType.Compact}
+                isWhite={currentAlert.type !== AlertBannerType.Warning}
+                dataTestId="alert-banner-pagination"
+              />
+            )}
             {renderAction()}
           </ContentRow>
         </FadeWrapper>
@@ -249,7 +251,7 @@ export const AlertBanner = ({
         theme={theme}
         onClick={showAlertBannerDetails}
       >
-        {!isMobile && (
+        {!isMobile && alertsArray.length > 1 && (
           <Pagination
             dataTestId="alert-banner-pagination"
             count={alertsArray.length}
