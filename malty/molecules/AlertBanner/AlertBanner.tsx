@@ -53,6 +53,7 @@ export const AlertBanner = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   };
+  const showBottomArea = alertsArray.length > 1 || !!currentAlert.action;
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -220,13 +221,12 @@ export const AlertBanner = ({
       </StyledMessage>
     );
 
-  const showBottomArea = () => alertsArray.length > 1 || currentAlert.action;
   const renderMobileActionsContent = () => {
-    if (showBottomArea()) {
+    if (showBottomArea) {
       return (
         <FadeWrapper theme={theme} show={isBannerTextCompressed} data-testid="fade-wrapper">
           <ContentRow theme={theme}>
-            {alertsArray.length > 1 && (
+            {alertsArray.length > 1 ? (
               <Pagination
                 count={alertsArray?.length}
                 onChange={(pageNr) => setActiveAlert(Number(pageNr))}
@@ -235,7 +235,7 @@ export const AlertBanner = ({
                 isWhite={currentAlert.type !== AlertBannerType.Warning}
                 dataTestId="alert-banner-pagination"
               />
-            )}
+            ) : null}
             {renderAction()}
           </ContentRow>
         </FadeWrapper>
@@ -251,7 +251,7 @@ export const AlertBanner = ({
         theme={theme}
         onClick={showAlertBannerDetails}
       >
-        {!isMobile && alertsArray.length > 1 && (
+        {!isMobile && alertsArray.length > 1 ? (
           <Pagination
             dataTestId="alert-banner-pagination"
             count={alertsArray.length}
@@ -260,10 +260,10 @@ export const AlertBanner = ({
             type={PaginationType.Compact}
             isWhite={currentAlert.type !== AlertBannerType.Warning}
           />
-        )}
+        ) : null}
         <MessageContainer
           theme={theme}
-          applyMarginBottom={!showBottomArea()}
+          applyMarginBottom={!showBottomArea}
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >
