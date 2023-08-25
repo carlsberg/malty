@@ -1,7 +1,15 @@
 import { Meta, Story } from '@storybook/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { Table as TableComponent } from './Table';
 import { TableHeaderAlignment, TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
+
+enum TableVariants {
+  Dnd = 'dnd',
+  Selection = 'selection',
+  Empty = 'empty',
+  HeadersCenter = 'headersCenter',
+  Sorted = 'sorted'
+}
 
 const headers: TableHeaderProps[] = [
   {
@@ -209,7 +217,7 @@ export default {
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
-    variants: ['dnd', 'selection', 'empty', 'headersCenter', 'sorted'],
+    variants: Object.values(TableVariants),
     docs: {
       description: {
         component:
@@ -232,6 +240,10 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'Table data-testid'
+    },
+    paginationIndex: {
+      control: 'number',
+      description: 'This is the page number, being 0 the first index. It is required if manualPagination is enabled'
     },
     paginationSize: {
       control: 'number',
@@ -256,11 +268,6 @@ export default {
       control: 'boolean',
       description: 'If true Rows are selectable'
     },
-    serverSide: {
-      control: 'boolean',
-      description:
-        "If true table works with server side pagination. Please turn it off if you don't want server side pagination on the table"
-    },
     defaultSorting: {
       control: 'object',
       description: 'This will be the default behaviour for the sorting at the beginning'
@@ -268,6 +275,17 @@ export default {
     onSortingChange: {
       description:
         'This will return the SortingState when the column title is clicked. By providing this prop the manualSorting will be enabled so automatic sorting will be disabled, as you know we are using react-table and the library is managing the sorting automatically, this will disable this option'
+    },
+    manualPagination: {
+      control: 'object',
+      description:
+        'If this object is passed paginationIndex and the data for each page needs to be updated manually in every page change, onPaginationChange is now required',
+      table: {
+        type: {
+          summary: 'ManualPagination',
+          detail: `totalPagesCount: number - Total amount of pages \ntotalRecords: number - Total amount of elements`
+        }
+      }
     },
     size: {
       description: 'Size for table rows',
@@ -286,41 +304,15 @@ export default {
   }
 } as Meta;
 
-const firstPageItems = rows.slice(0, 10);
-const secondPageItems = rows.slice(10);
-
-const Template: Story<TableProps> = ({ ...args }) => {
-  const [tableRows, setTableRows] = useState(firstPageItems);
-  const [pageIndex, setPageIndex] = useState(0);
-
-  const handleOnClick = () => {
-    setPageIndex(1);
-    setTableRows(secondPageItems);
-  };
-
-  return (
-    <div>
-      <button type="submit" onClick={handleOnClick}>
-        Increase page from outside
-      </button>
-      <TableComponent
-        {...args}
-        headers={headers}
-        rows={tableRows}
-        paginationIndex={pageIndex}
-        paginationSize={10}
-        manualPagination={{ totalPagesCount: 3, totalRecords: 13 }}
-      />
-    </div>
-  );
-};
+const Template: Story<TableProps> = ({ ...args }) => <TableComponent {...args} />;
 
 export const Table = Template.bind({});
 
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
+
 switch (variant) {
-  case 'dnd':
+  case TableVariants.Dnd:
     Table.args = {
       headers,
       rows,
@@ -331,11 +323,10 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: false,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'selection':
+  case TableVariants.Selection:
     Table.args = {
       headers,
       rows,
@@ -346,11 +337,10 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'empty':
+  case TableVariants.Empty:
     Table.args = {
       headers,
       rows: [],
@@ -361,11 +351,10 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'headersCenter':
+  case TableVariants.HeadersCenter:
     Table.args = {
       headers: headersCenter,
       rows,
@@ -376,11 +365,10 @@ switch (variant) {
       size: TableSize.Large,
       dataTestId: 'table',
       allowSelection: false,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'sorted':
+  case TableVariants.Sorted:
     Table.args = {
       headers,
       rows,
@@ -391,8 +379,6 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: false,
-      totalRecords: rows.length,
-      serverSide: false,
       defaultSorting: { id: 'name', desc: true },
       onSortingChange: undefined
     };
@@ -409,8 +395,6 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: false,
-      totalRecords: rows.length,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
