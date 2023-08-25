@@ -53,7 +53,8 @@ export const AlertBanner = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   };
-  const showBottomArea = alertsArray.length > 1 || !!currentAlert.action;
+  const hasMoreThanOneAlert = alertsArray.length > 1;
+  const showBottomArea = hasMoreThanOneAlert || !!currentAlert.action;
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -124,7 +125,7 @@ export const AlertBanner = ({
     onActiveAlertChange?.(currentAlert);
   }, [currentAlert, onActiveAlertChange]);
 
-  if (!alertsArray?.length) {
+  if (!alertsArray.length) {
     return null;
   }
 
@@ -156,7 +157,7 @@ export const AlertBanner = ({
     if (currentAlert.onDismiss) {
       const newAnnouncementContentArray = alertsArray.filter((item) => item.eid !== currentAlert.eid);
       setAlertsArray(newAnnouncementContentArray);
-      if (alertsArray.length > 1 && activeAlert === alertsArray.length) {
+      if (hasMoreThanOneAlert && activeAlert === alertsArray.length) {
         setActiveAlert(activeAlert - 1);
       }
       return currentAlert.onDismiss();
@@ -226,9 +227,9 @@ export const AlertBanner = ({
       return (
         <FadeWrapper theme={theme} show={isBannerTextCompressed} data-testid="fade-wrapper">
           <ContentRow theme={theme}>
-            {alertsArray.length > 1 ? (
+            {hasMoreThanOneAlert ? (
               <Pagination
-                count={alertsArray?.length}
+                count={alertsArray.length}
                 onChange={(pageNr) => setActiveAlert(Number(pageNr))}
                 currentPage={activeAlert}
                 type={PaginationType.Compact}
@@ -251,7 +252,7 @@ export const AlertBanner = ({
         theme={theme}
         onClick={showAlertBannerDetails}
       >
-        {!isMobile && alertsArray.length > 1 ? (
+        {!isMobile && hasMoreThanOneAlert ? (
           <Pagination
             dataTestId="alert-banner-pagination"
             count={alertsArray.length}
