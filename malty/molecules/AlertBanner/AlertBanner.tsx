@@ -57,6 +57,8 @@ export const AlertBanner = ({
   };
   const hasMoreThanOneAlert = alertsArray.length > 1;
   const showBottomArea = hasMoreThanOneAlert || !!currentAlert.action;
+  const displayContentInWhiteColor =
+    currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success;
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -146,11 +148,7 @@ export const AlertBanner = ({
         breakpoint={breakpoint}
       >
         <Link
-          color={
-            currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success
-              ? LinkColor.White
-              : LinkColor.DigitalBlack
-          }
+          color={displayContentInWhiteColor ? LinkColor.White : LinkColor.DigitalBlack}
           linkStyle={LinkStyle.MediumSmallBold}
         >
           {currentAlert.actionName}
@@ -240,7 +238,7 @@ export const AlertBanner = ({
                 onChange={(pageNr) => setActiveAlert(Number(pageNr))}
                 currentPage={activeAlert}
                 type={PaginationType.Compact}
-                isWhite={currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success}
+                isWhite={displayContentInWhiteColor}
                 dataTestId="alert-banner-pagination"
               />
             ) : null}
@@ -266,7 +264,7 @@ export const AlertBanner = ({
             onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}
             type={PaginationType.Compact}
-            isWhite={currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success}
+            isWhite={displayContentInWhiteColor}
           />
         ) : null}
         <MessageContainer
