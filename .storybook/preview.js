@@ -111,7 +111,6 @@ export const parameters = {
 
 export const globalTypes = {
   theme: {
-    name: 'Theme',
     description: 'Global theme for components',
     defaultValue: 'global',
     toolbar: {
@@ -121,7 +120,7 @@ export const globalTypes = {
         { value: 'carlsberg', title: 'Carlsberg' },
         { value: 'lbc', title: 'LBC' }
       ],
-      showName: true
+      title: 'Theme'
     }
   }
 };

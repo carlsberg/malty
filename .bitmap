@@ -11,7 +11,7 @@
 {
     "atoms/button": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.96",
+        "version": "0.0.97",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Button"
     },
@@ -29,7 +29,7 @@
     },
     "atoms/chip": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.52",
+        "version": "0.0.53",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Chip"
     },
@@ -143,7 +143,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.98",
+        "version": "0.0.99",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1493,7 +1493,7 @@
     },
     "molecules/alert-banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.81",
+        "version": "0.0.82",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertBanner"
     },
@@ -1505,7 +1505,7 @@
     },
     "molecules/article-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ArticleCard"
     },
@@ -1517,25 +1517,25 @@
     },
     "molecules/banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.11",
+        "version": "0.0.12",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Banner"
     },
     "molecules/datepicker": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.64",
+        "version": "0.0.65",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Datepicker"
     },
     "molecules/footer": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.10",
+        "version": "0.0.11",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Footer"
     },
     "molecules/hero": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.9",
+        "version": "0.0.10",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Hero"
     },
@@ -1547,7 +1547,7 @@
     },
     "molecules/modal": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.72",
+        "version": "0.0.73",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Modal"
     },
@@ -1559,19 +1559,19 @@
     },
     "molecules/pagination": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.76",
+        "version": "0.0.77",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.29",
+        "version": "0.0.30",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
     "molecules/product-quantity-actions": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.15",
+        "version": "0.0.16",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductQuantityActions"
     },
@@ -1583,7 +1583,7 @@
     },
     "molecules/segmented-control": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/SegmentedControl"
     },
@@ -1607,19 +1607,19 @@
     },
     "molecules/toast": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.62",
+        "version": "0.0.63",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Toast"
     },
     "organisms/carousel": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.12",
+        "version": "0.0.13",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Carousel"
     },
     "organisms/table": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.46",
+        "version": "0.0.47",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },

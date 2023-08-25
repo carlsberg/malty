@@ -178,10 +178,17 @@ export const StyledPrimaryButton = styled(StyledButton)`
   border: 1px solid ${({ theme }) => theme.colors.colours.default.transparent.value};
 
   &:hover {
-    opacity: 0.95;
+    filter: brightness(${({ isNegative }) => (isNegative ? '95%' : '140%')});
+    > div:first-child {
+      filter: brightness(70%);
+    }
   }
+
   &:active {
-    opacity: 0.9;
+    filter: brightness(${({ isNegative }) => (isNegative ? '90%' : '170%')});
+    > div:first-child {
+      filter: brightness(60%);
+    }
   }
   &:disabled {
     ${({ isNegative, theme }) =>
