@@ -23,13 +23,15 @@ import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
   [AlertBannerType.Warning]: IconColor.DigitalBlack,
-  [AlertBannerType.Error]: IconColor.White
+  [AlertBannerType.Error]: IconColor.White,
+  [AlertBannerType.Success]: IconColor.DigitalBlack
 };
 
 const textColorsMap = {
   [AlertBannerType.Information]: TextColor.White,
   [AlertBannerType.Warning]: TextColor.DigitalBlack,
-  [AlertBannerType.Error]: TextColor.White
+  [AlertBannerType.Error]: TextColor.White,
+  [AlertBannerType.Success]: TextColor.DigitalBlack
 };
 
 export const AlertBanner = ({
@@ -142,7 +144,11 @@ export const AlertBanner = ({
         breakpoint={breakpoint}
       >
         <Link
-          color={currentAlert.type !== AlertBannerType.Warning ? LinkColor.White : LinkColor.DigitalBlack}
+          color={
+            currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success
+              ? LinkColor.White
+              : LinkColor.DigitalBlack
+          }
           linkStyle={LinkStyle.MediumSmallBold}
         >
           {currentAlert.actionName}
@@ -189,7 +195,8 @@ export const AlertBanner = ({
     const iconNameMap = {
       [AlertBannerType.Information]: IconName.Information,
       [AlertBannerType.Warning]: IconName.Alert,
-      [AlertBannerType.Error]: IconName.Alert
+      [AlertBannerType.Error]: IconName.Alert,
+      [AlertBannerType.Success]: IconName.Alert
     };
 
     return (
@@ -231,7 +238,7 @@ export const AlertBanner = ({
               onChange={(pageNr) => setActiveAlert(Number(pageNr))}
               currentPage={activeAlert}
               type={PaginationType.Compact}
-              isWhite={currentAlert.type !== AlertBannerType.Warning}
+              isWhite={currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success}
               dataTestId="alert-banner-pagination"
             />
             {renderAction()}
@@ -256,7 +263,7 @@ export const AlertBanner = ({
             onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}
             type={PaginationType.Compact}
-            isWhite={currentAlert.type !== AlertBannerType.Warning}
+            isWhite={currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success}
           />
         )}
         <MessageContainer
