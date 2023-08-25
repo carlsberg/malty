@@ -91,6 +91,28 @@ describe('<AlertBanner />', () => {
 
     expect(actionMockFn).toHaveBeenCalledTimes(2);
   });
+
+  it('should not render pagination when only exists one alert', () => {
+    const alertsNewMock = [
+      {
+        eid: '1',
+        type: AlertBannerType.Error,
+        message: 'Hello, Im the AlertBanner!',
+        dataQaId: 'alert-banner',
+        action: actionMockFn,
+        actionName: 'First Action',
+        dismissible: true,
+        onDismiss: dismissButtonMockFn,
+        icon: true
+      }
+    ];
+
+    render(<AlertBanner alerts={alertsNewMock} animation={animationMock} />);
+
+    const pagination = screen.queryByTestId('alert-banner-pagination');
+
+    expect(pagination).not.toBeInTheDocument();
+  });
 });
 
 const renderWithAnimation = () => {
