@@ -249,14 +249,6 @@ export default {
       control: 'number',
       description: 'Number of rows to be displayed in a page'
     },
-    totalPagesCount: {
-      control: 'number',
-      description: 'Number of total pages'
-    },
-    totalRecords: {
-      control: 'number',
-      description: 'Number of total records'
-    },
     onRowClick: {
       description: ''
     },
