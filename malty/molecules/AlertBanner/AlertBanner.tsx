@@ -34,6 +34,13 @@ const textColorsMap = {
   [AlertBannerType.Success]: TextColor.DigitalBlack
 };
 
+const iconNameMap = {
+  [AlertBannerType.Information]: IconName.Information,
+  [AlertBannerType.Warning]: IconName.Alert,
+  [AlertBannerType.Error]: IconName.Alert,
+  [AlertBannerType.Success]: IconName.Alert
+};
+
 export const AlertBanner = ({
   alerts,
   breakpoint = layoutProps.small['device-max-width'].value,
@@ -191,19 +198,6 @@ export const AlertBanner = ({
     </CloseButtonContainer>
   );
 
-  const renderIcon = () => {
-    const iconNameMap = {
-      [AlertBannerType.Information]: IconName.Information,
-      [AlertBannerType.Warning]: IconName.Alert,
-      [AlertBannerType.Error]: IconName.Alert,
-      [AlertBannerType.Success]: IconName.Alert
-    };
-
-    return (
-      <Icon name={iconNameMap[currentAlert.type]} color={iconColorsMap[currentAlert.type]} size={IconSize.Medium} />
-    );
-  };
-
   const renderMessage = () =>
     isMobile ? (
       <FadeText fire={triggerAnimation()} currentElementHeight={textWrapperSize}>
@@ -273,7 +267,13 @@ export const AlertBanner = ({
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >
-          {currentAlert.icon && renderIcon()}
+          {currentAlert.icon ? (
+            <Icon
+              name={iconNameMap[currentAlert.type]}
+              color={iconColorsMap[currentAlert.type]}
+              size={IconSize.Medium}
+            />
+          ) : null}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}
         </MessageContainer>
