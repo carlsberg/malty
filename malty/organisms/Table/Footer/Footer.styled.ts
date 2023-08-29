@@ -4,13 +4,15 @@ import styled, { css } from 'styled-components';
 export const StyledWrapper = styled.footer`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.sizes['2xs'].value};
   margin-top: ${({ theme }) => theme.sizes.s.value};
 
   ${({ theme }) => css`
-    @media screen and (max-width: ${theme.layout.xsmall['device-max-width']?.value}) {
-      flex-direction: column;
-      align-items: center;
-      gap: ${theme.sizes['2xs'].value};
+    @media only screen and (min-width: ${theme.layout.xsmall['device-max-width']?.value}) {
+      flex-direction: row;
+      gap: initial;
     }
   `}
 `;
