@@ -23,13 +23,22 @@ import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
   [AlertBannerType.Warning]: IconColor.DigitalBlack,
-  [AlertBannerType.Error]: IconColor.White
+  [AlertBannerType.Error]: IconColor.White,
+  [AlertBannerType.Success]: IconColor.DigitalBlack
 };
 
 const textColorsMap = {
   [AlertBannerType.Information]: TextColor.White,
   [AlertBannerType.Warning]: TextColor.DigitalBlack,
-  [AlertBannerType.Error]: TextColor.White
+  [AlertBannerType.Error]: TextColor.White,
+  [AlertBannerType.Success]: TextColor.DigitalBlack
+};
+
+const iconNameMap = {
+  [AlertBannerType.Information]: IconName.Information,
+  [AlertBannerType.Warning]: IconName.Alert,
+  [AlertBannerType.Error]: IconName.Alert,
+  [AlertBannerType.Success]: IconName.Alert
 };
 
 export const AlertBanner = ({
@@ -55,6 +64,8 @@ export const AlertBanner = ({
   };
   const hasMoreThanOneAlert = alertsArray.length > 1;
   const showBottomArea = hasMoreThanOneAlert || !!currentAlert.action;
+  const displayContentInWhiteColor =
+    currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success;
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -144,7 +155,7 @@ export const AlertBanner = ({
         breakpoint={breakpoint}
       >
         <Link
-          color={currentAlert.type !== AlertBannerType.Warning ? LinkColor.White : LinkColor.DigitalBlack}
+          color={displayContentInWhiteColor ? LinkColor.White : LinkColor.DigitalBlack}
           linkStyle={LinkStyle.MediumSmallBold}
         >
           {currentAlert.actionName}
@@ -187,18 +198,6 @@ export const AlertBanner = ({
     </CloseButtonContainer>
   );
 
-  const renderIcon = () => {
-    const iconNameMap = {
-      [AlertBannerType.Information]: IconName.Information,
-      [AlertBannerType.Warning]: IconName.Alert,
-      [AlertBannerType.Error]: IconName.Alert
-    };
-
-    return (
-      <Icon name={iconNameMap[currentAlert.type]} color={iconColorsMap[currentAlert.type]} size={IconSize.Medium} />
-    );
-  };
-
   const renderMessage = () =>
     isMobile ? (
       <FadeText fire={triggerAnimation()} currentElementHeight={textWrapperSize}>
@@ -233,7 +232,7 @@ export const AlertBanner = ({
                 onChange={(pageNr) => setActiveAlert(Number(pageNr))}
                 currentPage={activeAlert}
                 type={PaginationType.Compact}
-                isWhite={currentAlert.type !== AlertBannerType.Warning}
+                isWhite={displayContentInWhiteColor}
                 dataTestId="alert-banner-pagination"
               />
             ) : null}
@@ -259,7 +258,7 @@ export const AlertBanner = ({
             onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}
             type={PaginationType.Compact}
-            isWhite={currentAlert.type !== AlertBannerType.Warning}
+            isWhite={displayContentInWhiteColor}
           />
         ) : null}
         <MessageContainer
@@ -268,7 +267,13 @@ export const AlertBanner = ({
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >
-          {currentAlert.icon && renderIcon()}
+          {currentAlert.icon ? (
+            <Icon
+              name={iconNameMap[currentAlert.type]}
+              color={iconColorsMap[currentAlert.type]}
+              size={IconSize.Medium}
+            />
+          ) : null}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}
         </MessageContainer>

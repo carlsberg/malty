@@ -26,6 +26,9 @@ export const Container = styled.div<{
     if (type === AlertBannerType.Warning) {
       return theme.colors.colours.system['alert-strong'].value;
     }
+    if (type === AlertBannerType.Success) {
+      return theme.colors.colours.system.success.value;
+    }
     return theme.colors.colours.system['notification-strong'].value;
   }};
 `;

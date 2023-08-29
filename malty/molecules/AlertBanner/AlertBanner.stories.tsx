@@ -61,6 +61,17 @@ AlertBanner.args = {
       dismissible: true,
       onDismiss: action('Dismiss button clicked'),
       icon: true
+    },
+    {
+      eid: '4',
+      type: AlertBannerType.Success,
+      message: 'Hello, Im the AlertBanner!',
+      dataQaId: 'alert-banner',
+      action: action('First Action clicked'),
+      actionName: 'First Action',
+      dismissible: true,
+      onDismiss: action('Dismiss button clicked'),
+      icon: true
     }
   ],
   breakpoint: layoutProps.small['device-max-width'].value,
