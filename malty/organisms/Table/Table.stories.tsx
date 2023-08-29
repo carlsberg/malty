@@ -223,8 +223,7 @@ export default {
         component:
           'For this component we are using an external library as our base table, you can check the docs here https://tanstack.com/table/v8'
       }
-    },
-    info: 'Please be careful with the use of <code>serverSide</code> prop. If you intend to use the table without server side pagination please set this prop to <b>false</b>. The Default value is true.'
+    }
   },
   argTypes: {
     headers: {
