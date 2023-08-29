@@ -81,7 +81,7 @@ const rows: TableRowProps[] = [
     name: 'Halla Pugh',
     age: 31,
     birthdate: new Date(1992, 2, 12),
-    actions: <button type="button">B</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 5,

@@ -181,8 +181,8 @@ export const Table = ({
     return undefined;
   };
 
-  const handleHeadRef = (elem: HTMLTableCellElement, index: number) => {
-    nodesRef.current[index] = elem;
+  const createHandleHeadRef = (index: number) => (element: HTMLTableCellElement) => {
+    nodesRef.current[index] = element;
   };
 
   const handleOnRowClick = (row: TableRowProps) => {
@@ -216,7 +216,7 @@ export const Table = ({
               {headerGroup.headers.map((header, index) => (
                 <StyledHead
                   alignPosition={columns[index].meta?.alignment as TableHeaderAlignment | undefined}
-                  ref={(elem: HTMLTableCellElement) => handleHeadRef(elem, index)}
+                  ref={createHandleHeadRef(index)}
                   isSortable={!!columns[index].meta?.sorting && header.column.getCanSort()}
                   onClick={createHandleHeaderClick(header, index)}
                   data-testid={`${dataTestId}-th-${header.id}`}
