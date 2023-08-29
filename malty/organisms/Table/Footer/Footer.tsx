@@ -1,6 +1,8 @@
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
-import React from 'react';
+import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import { StyledInfo, StyledPaginationWrapper, StyledWrapper } from './Footer.styled';
 import { FooterProps } from './Footer.types';
 
@@ -9,11 +11,12 @@ export const Footer = ({
   pageSize,
   totalRecords,
   itemsSelected,
-  theme,
   dataTestId,
   pageCount,
   onChange
 }: FooterProps) => {
+  const theme = useContext(ThemeContext) || defaultTheme;
+
   const getPaginationInformation = () => {
     const firstIndex = pageIndex * pageSize + 1;
     const lastIndex = firstIndex + pageSize - 1;

@@ -338,7 +338,6 @@ export const Table = ({
       </StyledTable>
       {data?.length > 0 ? (
         <Footer
-          theme={theme}
           pageIndex={pageIndex}
           pageSize={pageSize}
           totalRecords={manualPagination?.totalRecords ?? data.length}
