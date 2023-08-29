@@ -27,5 +27,6 @@ export interface AlertBannerI {
 export enum AlertBannerType {
   Information = 'information',
   Warning = 'warning',
-  Error = 'error'
+  Error = 'error',
+  Success = 'success'
 }

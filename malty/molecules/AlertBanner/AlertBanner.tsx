@@ -23,13 +23,22 @@ import { AlertBannerProps, AlertBannerType } from './AlertBanner.types';
 export const iconColorsMap = {
   [AlertBannerType.Information]: IconColor.White,
   [AlertBannerType.Warning]: IconColor.DigitalBlack,
-  [AlertBannerType.Error]: IconColor.White
+  [AlertBannerType.Error]: IconColor.White,
+  [AlertBannerType.Success]: IconColor.DigitalBlack
 };
 
 const textColorsMap = {
   [AlertBannerType.Information]: TextColor.White,
   [AlertBannerType.Warning]: TextColor.DigitalBlack,
-  [AlertBannerType.Error]: TextColor.White
+  [AlertBannerType.Error]: TextColor.White,
+  [AlertBannerType.Success]: TextColor.DigitalBlack
+};
+
+const iconNameMap = {
+  [AlertBannerType.Information]: IconName.Information,
+  [AlertBannerType.Warning]: IconName.Alert,
+  [AlertBannerType.Error]: IconName.Alert,
+  [AlertBannerType.Success]: IconName.Alert
 };
 
 export const AlertBanner = ({
@@ -53,6 +62,10 @@ export const AlertBanner = ({
     isBannerTextCompressed: false,
     toggleBannerTextCompress: undefined
   };
+  const hasMoreThanOneAlert = alertsArray.length > 1;
+  const showBottomArea = hasMoreThanOneAlert || !!currentAlert.action;
+  const displayContentInWhiteColor =
+    currentAlert.type !== AlertBannerType.Warning && currentAlert.type !== AlertBannerType.Success;
 
   const handleToggle = (value: boolean) => {
     if (isMobile) {
@@ -123,7 +136,7 @@ export const AlertBanner = ({
     onActiveAlertChange?.(currentAlert);
   }, [currentAlert, onActiveAlertChange]);
 
-  if (!alertsArray?.length) {
+  if (!alertsArray.length) {
     return null;
   }
 
@@ -142,7 +155,7 @@ export const AlertBanner = ({
         breakpoint={breakpoint}
       >
         <Link
-          color={currentAlert.type !== AlertBannerType.Warning ? LinkColor.White : LinkColor.DigitalBlack}
+          color={displayContentInWhiteColor ? LinkColor.White : LinkColor.DigitalBlack}
           linkStyle={LinkStyle.MediumSmallBold}
         >
           {currentAlert.actionName}
@@ -155,7 +168,7 @@ export const AlertBanner = ({
     if (currentAlert.onDismiss) {
       const newAnnouncementContentArray = alertsArray.filter((item) => item.eid !== currentAlert.eid);
       setAlertsArray(newAnnouncementContentArray);
-      if (alertsArray.length > 1 && activeAlert === alertsArray.length) {
+      if (hasMoreThanOneAlert && activeAlert === alertsArray.length) {
         setActiveAlert(activeAlert - 1);
       }
       return currentAlert.onDismiss();
@@ -185,18 +198,6 @@ export const AlertBanner = ({
     </CloseButtonContainer>
   );
 
-  const renderIcon = () => {
-    const iconNameMap = {
-      [AlertBannerType.Information]: IconName.Information,
-      [AlertBannerType.Warning]: IconName.Alert,
-      [AlertBannerType.Error]: IconName.Alert
-    };
-
-    return (
-      <Icon name={iconNameMap[currentAlert.type]} color={iconColorsMap[currentAlert.type]} size={IconSize.Medium} />
-    );
-  };
-
   const renderMessage = () =>
     isMobile ? (
       <FadeText fire={triggerAnimation()} currentElementHeight={textWrapperSize}>
@@ -220,20 +221,21 @@ export const AlertBanner = ({
       </StyledMessage>
     );
 
-  const showBottomArea = () => alertsArray.length > 1 || currentAlert.action;
   const renderMobileActionsContent = () => {
-    if ((isMobile && alertsArray.length > 1) || currentAlert.action) {
+    if (showBottomArea) {
       return (
         <FadeWrapper theme={theme} show={isBannerTextCompressed} data-testid="fade-wrapper">
           <ContentRow theme={theme}>
-            <Pagination
-              count={alertsArray?.length}
-              onChange={(pageNr) => setActiveAlert(Number(pageNr))}
-              currentPage={activeAlert}
-              type={PaginationType.Compact}
-              isWhite={currentAlert.type !== AlertBannerType.Warning}
-              dataTestId="alert-banner-pagination"
-            />
+            {hasMoreThanOneAlert ? (
+              <Pagination
+                count={alertsArray.length}
+                onChange={(pageNr) => setActiveAlert(Number(pageNr))}
+                currentPage={activeAlert}
+                type={PaginationType.Compact}
+                isWhite={displayContentInWhiteColor}
+                dataTestId="alert-banner-pagination"
+              />
+            ) : null}
             {renderAction()}
           </ContentRow>
         </FadeWrapper>
@@ -249,23 +251,29 @@ export const AlertBanner = ({
         theme={theme}
         onClick={showAlertBannerDetails}
       >
-        {!isMobile && (
+        {!isMobile && hasMoreThanOneAlert ? (
           <Pagination
             dataTestId="alert-banner-pagination"
             count={alertsArray.length}
             onChange={(pageNr) => setActiveAlert(Number(pageNr))}
             currentPage={activeAlert}
             type={PaginationType.Compact}
-            isWhite={currentAlert.type !== AlertBannerType.Warning}
+            isWhite={displayContentInWhiteColor}
           />
-        )}
+        ) : null}
         <MessageContainer
           theme={theme}
-          applyMarginBottom={!showBottomArea()}
+          applyMarginBottom={!showBottomArea}
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >
-          {currentAlert.icon && renderIcon()}
+          {currentAlert.icon ? (
+            <Icon
+              name={iconNameMap[currentAlert.type]}
+              color={iconColorsMap[currentAlert.type]}
+              size={IconSize.Medium}
+            />
+          ) : null}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}
         </MessageContainer>
