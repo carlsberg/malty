@@ -33,12 +33,13 @@ const testOptions = [
 
 describe('select', () => {
   it('should render elements', () => {
+    const onValueChange = jest.fn();
     render(
       <Select
         options={testOptions}
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         type={SelectType.Default}
         error="Error text"
         hint="Select something"
@@ -56,12 +57,13 @@ describe('select', () => {
   });
 
   it('should render hint correctly', () => {
+    const onValueChange = jest.fn();
     render(
       <Select
         options={testOptions}
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         type={SelectType.Default}
         size={SelectSize.Medium}
         dataTestId="select"
@@ -89,9 +91,9 @@ describe('select', () => {
       />
     );
 
-    const selectOption = screen.getByTestId('select-option-1');
+    const selectOption = screen.queryByTestId('select-option-1');
 
-    expect(selectOption).not.toBeVisible();
+    expect(selectOption).not.toBeInTheDocument();
   });
 
   it('should have options readOnly', () => {
@@ -109,9 +111,9 @@ describe('select', () => {
       />
     );
 
-    const selectOption = screen.getByTestId('select-option-1');
+    const selectOption = screen.queryByTestId('select-option-1');
 
-    expect(selectOption).not.toBeVisible();
+    expect(selectOption).not.toBeInTheDocument();
   });
 
   it('should call onValueChange on click', () => {
@@ -189,6 +191,7 @@ describe('select', () => {
   });
 
   it('should update selected options correctly if external value is passed with multiple enabled', () => {
+    const onValueChange = jest.fn();
     const props: SelectProps = {
       options: testOptions,
       label: 'select label',
@@ -210,7 +213,13 @@ describe('select', () => {
     expect(selectedOptionsButtonQueries.getByText('3 selected')).toBeVisible();
 
     rerender(
-      <Select options={testOptions} label="select label" onValueChange={mockFn} type={SelectType.Default} value={[]} />
+      <Select
+        options={testOptions}
+        label="select label"
+        onValueChange={onValueChange}
+        type={SelectType.Default}
+        value={[]}
+      />
     );
 
     selectedOptionsButtonQueries = within(screen.getByLabelText('select label'));
@@ -219,13 +228,14 @@ describe('select', () => {
   });
 
   it('should render with a required attribute', () => {
+    const onValueChange = jest.fn();
     render(
       <Select
         required
         options={testOptions}
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         type={SelectType.Default}
       />
     );
@@ -236,13 +246,14 @@ describe('select', () => {
   });
 
   it('should not render a required attribute to the user when select is inline', () => {
+    const onValueChange = jest.fn();
     render(
       <Select
         required
         options={testOptions}
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         type={SelectType.Inline}
       />
     );
