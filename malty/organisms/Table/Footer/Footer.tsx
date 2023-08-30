@@ -20,7 +20,7 @@ export const Footer = ({
   const getPaginationInformation = () => {
     const firstIndex = pageIndex * pageSize + 1;
     const lastIndex = firstIndex + pageSize - 1;
-    const limitedLastIndex = totalRecords && lastIndex < totalRecords ? lastIndex : totalRecords;
+    const limitedLastIndex = totalRecords > 0 && lastIndex < totalRecords ? lastIndex : totalRecords;
 
     if (firstIndex === totalRecords) {
       return `${limitedLastIndex} of ${totalRecords}`;
