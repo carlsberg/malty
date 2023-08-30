@@ -1619,7 +1619,7 @@
     },
     "organisms/table": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.47",
+        "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },
