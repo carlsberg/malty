@@ -207,6 +207,7 @@ export const Select = ({
           )}
         </StyledActionsWrapper>
         {!disabled &&
+          !readOnly &&
           selectOptions?.map((option: SelectOptionsType, index: number) => (
             <StyledOption
               theme={theme}
