@@ -13,6 +13,7 @@ export const StyledParagraph = styled.p<{
   display: inline;
   margin: 0;
   padding: 0;
+  word-break: break-word;
   color: ${({ color, theme }) => theme.colors['text-colours'][color].value};
   ${({ theme, textStyle }) =>
     css`

@@ -21,7 +21,6 @@ export const StyledContainer = styled.div<{
   justify-content: center;
   box-sizing: border-box;
   row-gap: ${({ theme }) => theme.sizes['4xs'].value};
-  word-break: break-all;
 
   svg {
     flex-shrink: 0;
