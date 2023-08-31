@@ -66,7 +66,8 @@ export default {
       description: 'Initial selected option'
     },
     options: {
-      description: 'Select options.'
+      description:
+        'This is the collection of possible options on the select, keep in mind that value will be evaluated as case-sensitive'
     },
     multiple: {
       description: 'Select state, when active allows for multi selection',
