@@ -52,7 +52,7 @@ jobs:
           export PATH=${{ env.PATH }}
           yarn cache clean --force
           bit clear-cache
-          bit merge --auto-merge-resolve ours
+          bit merge --ours
           bit install
         shell: bash
 
