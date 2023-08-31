@@ -1,7 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
+import React, { useState } from 'react';
 import { Table } from './Table';
 import { TableHeaderProps, TableRowProps } from './Table.types';
 
@@ -51,12 +51,72 @@ const rows: TableRowProps[] = [
     id: '3',
     name: 'Liberty Bell',
     age: 66,
-    birthdate: new Date(1957, 6, 22),
-    actions: <button type="button">Delete</button>
+    birthdate: new Date(1957, 6, 22)
+  },
+  {
+    id: '4',
+    name: 'Halla Pugh',
+    age: 31,
+    birthdate: new Date(1992, 2, 12)
+  },
+  {
+    id: '5',
+    name: 'Jaquelyn Valenzuela',
+    age: 52,
+    birthdate: new Date(1971, 4, 23)
+  },
+  {
+    id: '6',
+    name: 'Kyra Mcknight',
+    age: 23,
+    birthdate: new Date(2000, 3, 30)
+  },
+  {
+    id: '7',
+    name: 'Naida Barlow',
+    age: 52,
+    birthdate: new Date(1971, 1, 25)
+  },
+  {
+    id: '8',
+    name: 'Amir Joyce',
+    age: 26,
+    birthdate: new Date(1997, 7, 10)
+  },
+  {
+    id: '9',
+    name: 'Lenore Dixon',
+    age: 40,
+    birthdate: new Date(1983, 2, 22)
+  },
+  {
+    id: '10',
+    name: 'Carla Velazquez',
+    age: 29,
+    birthdate: new Date(1994, 5, 15)
+  },
+  {
+    id: '11',
+    name: 'Quamar Petersen',
+    age: 58,
+    birthdate: new Date(1965, 4, 27)
+  },
+  {
+    id: '12',
+    name: 'Frank Lemar',
+    age: 46,
+    birthdate: new Date(1922, 10, 4)
+  },
+  {
+    id: '13',
+    name: 'Patrick Stout',
+    age: 61,
+    birthdate: new Date(1923, 6, 7)
   }
 ];
+
 describe('table', () => {
-  it('renders elements', () => {
+  it('should render elements', () => {
     render(<Table rows={rows} headers={headers} dataTestId="table" />);
 
     const firstRow = screen.getAllByRole('row').slice(1)[0];
@@ -70,9 +130,9 @@ describe('table', () => {
 
     const sortedRows = screen.getAllByRole('row').slice(1);
 
-    expect(sortedRows[0]).toHaveTextContent('Liberty Bell');
-    expect(sortedRows[1]).toHaveTextContent('Fitzgerald Moody');
-    expect(sortedRows[2]).toHaveTextContent('Aguila Restaurant');
+    expect(sortedRows[0]).toHaveTextContent('Quamar Petersen');
+    expect(sortedRows[1]).toHaveTextContent('Patrick Stout');
+    expect(sortedRows[2]).toHaveTextContent('Naida Barlow');
   });
 
   it('should display sorting option for the first column', () => {
@@ -83,7 +143,7 @@ describe('table', () => {
     expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
   });
 
-  it('should not display sorting option for the second column', () => {
+  it('should NOT display sorting option for the second column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { queryByTestId } = within(screen.getAllByRole('columnheader')[1]);
@@ -141,9 +201,10 @@ describe('table', () => {
 
     const tableRows = screen.getAllByRole('row').slice(1);
 
-    expect(tableRows[0]).toHaveTextContent('1988/6/12');
-    expect(tableRows[1]).toHaveTextContent('1957/7/22');
-    expect(tableRows[2]).toHaveTextContent('1953/4/20');
+    expect(tableRows[0]).toHaveTextContent('2000/4/30');
+    expect(tableRows[1]).toHaveTextContent('1997/8/10');
+    expect(tableRows[2]).toHaveTextContent('1994/6/15');
+    expect(tableRows[tableRows.length - 1]).toHaveTextContent('1923/7/7');
   });
 
   it('should sort the table by birthdate - from the older one to the recent one - by clicking twice in the sorting icon', () => {
@@ -161,8 +222,130 @@ describe('table', () => {
 
     const tableRows = screen.getAllByRole('row').slice(1);
 
-    expect(tableRows[0]).toHaveTextContent('1953/4/20');
-    expect(tableRows[1]).toHaveTextContent('1957/7/22');
-    expect(tableRows[2]).toHaveTextContent('1988/6/12');
+    expect(tableRows[0]).toHaveTextContent('1922/11/4');
+    expect(tableRows[1]).toHaveTextContent('1923/7/7');
+    expect(tableRows[2]).toHaveTextContent('1953/4/20');
+    expect(tableRows[tableRows.length - 1]).toHaveTextContent('1997/8/10');
+  });
+
+  it('should render pagination information correctly', () => {
+    render(<Table headers={headers} rows={rows} />);
+
+    expect(screen.getByText('1 - 12 of 13')).toBeVisible();
+    expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+  });
+
+  describe('Automatic pagination', () => {
+    it('should render first 12 elements correctly and ignore the rest', () => {
+      render(<Table headers={headers} rows={rows} />);
+
+      const tableRows = screen.getAllByRole('row').slice(1);
+
+      expect(tableRows).toHaveLength(12);
+
+      rows.slice(0, 12).forEach((row) => {
+        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+      });
+
+      expect(screen.queryByRole('cell', { name: rows[12].name as string })).not.toBeInTheDocument();
+    });
+
+    it('should render rest of elements after clicking on next page arrow', () => {
+      render(<Table headers={headers} rows={rows} />);
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+
+      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+      expect(screen.getByRole('cell', { name: rows[12].name as string })).toBeVisible();
+
+      rows.slice(0, 12).forEach((row) => {
+        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+      });
+    });
+  });
+
+  describe('Manual pagination', () => {
+    const firstPageItems = rows.slice(0, 10);
+    const secondPageItems = rows.slice(10);
+
+    it('should render second page items successfully after clicking on next page arrow', () => {
+      const TableComponent = () => {
+        const [tableRows, setTableRows] = useState(firstPageItems);
+        const [pageIndex, setPageIndex] = useState(0);
+
+        const handleOnPaginationChange = (page: number) => {
+          setPageIndex(page - 1);
+          setTableRows([...tableRows, ...secondPageItems]);
+        };
+
+        return (
+          <Table
+            headers={headers}
+            rows={tableRows}
+            paginationIndex={pageIndex}
+            paginationSize={10}
+            manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+            onPaginationChange={handleOnPaginationChange}
+          />
+        );
+      };
+
+      render(<TableComponent />);
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+      });
+
+      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+      });
+    });
+
+    it('should update pageIndex and items from outside successfully', () => {
+      const TableComponent = () => {
+        const [tableRows, setTableRows] = useState(firstPageItems);
+        const [pageIndex, setPageIndex] = useState(0);
+
+        const handleOnClick = () => {
+          setTableRows([...tableRows, ...secondPageItems]);
+          setPageIndex(1);
+        };
+
+        return (
+          <div>
+            <button type="submit" onClick={handleOnClick}>
+              Increase page from outside
+            </button>
+            <Table
+              headers={headers}
+              rows={tableRows}
+              paginationIndex={pageIndex}
+              paginationSize={10}
+              manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+            />
+          </div>
+        );
+      };
+
+      render(<TableComponent />);
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+      });
+
+      userEvent.click(screen.getByText('Increase page from outside'));
+
+      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+      secondPageItems.forEach((row) => {
+        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+      });
+    });
   });
 });

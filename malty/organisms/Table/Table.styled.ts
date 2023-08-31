@@ -104,29 +104,6 @@ export const StyledTd = styled.td<{
   height: ${({ theme }) => theme.sizes.xl.value};
 `;
 
-export const StyledFooterWrapper = styled.div`
-  margin-top: ${({ theme }) => theme.sizes.s.value};
-  justify-content: space-between;
-  display: flex;
-  ${({ theme }) => css`
-    @media screen and (max-width: ${theme.layout.xsmall['device-max-width']?.value}) {
-      flex-direction: column;
-      align-items: center;
-      gap: ${theme.sizes['2xs'].value};
-    }
-  `}
-`;
-
-export const StyledPaginationWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const StyledTextWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 export const StyledDraggableCell = styled(StyledTd)`
   padding-left: ${({ theme }) => theme.sizes['4xs'].value};
 `;
