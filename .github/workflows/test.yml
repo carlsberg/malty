@@ -52,8 +52,8 @@ jobs:
           export PATH=${{ env.PATH }}
           yarn cache clean --force
           bit clear-cache
-          bit merge --ours
           bit install
+          bit compile
         shell: bash
 
       - name: Format workspace.jsonc
