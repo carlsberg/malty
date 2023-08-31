@@ -52,9 +52,7 @@ jobs:
           export PATH=${{ env.PATH }}
           yarn cache clean --force
           bit clear-cache
-          bit import
           bit install
-          bit compile
         shell: bash
 
       - name: Format workspace.jsonc
