@@ -208,7 +208,6 @@ export const StyledValuesName = styled.div`
 `;
 
 export const StyledOption = styled.li<{
-  disabled?: boolean;
   height: string;
   selected?: boolean;
   selectStyle?: string;
