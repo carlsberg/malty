@@ -137,19 +137,6 @@ describe('select', () => {
     userEvent.click(selectOption);
 
     expect(mockFn).toHaveBeenCalledTimes(1);
-    rerender(
-      <Select
-        options={testOptions}
-        defaultValue={[testOptions[1]]}
-        label="Input label"
-        onValueChange={mockFn}
-        type={SelectType.Default}
-        size={SelectSize.Medium}
-        dataTestId="select"
-      />
-    );
-    const selectedValue = screen.getByTestId('select-selected-values');
-    expect(selectedValue.innerHTML).toEqual(testOptions[1].name);
   });
 
   it('should render inline select', () => {
@@ -246,5 +233,21 @@ describe('select', () => {
     const label = screen.getByText('Label text');
 
     expect(label).not.toHaveAttribute('required');
+  });
+
+  it('should render the default value if provided', () => {
+    render(
+      <Select
+        options={testOptions}
+        defaultValue={[testOptions[1]]}
+        label="Input label"
+        onValueChange={mockFn}
+        type={SelectType.Default}
+        size={SelectSize.Medium}
+        dataTestId="select"
+      />
+    );
+    const selectedValue = screen.getByTestId('select-selected-values');
+    expect(selectedValue.innerHTML).toEqual(testOptions[1].name);
   });
 });
