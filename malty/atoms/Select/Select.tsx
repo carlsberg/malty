@@ -48,7 +48,8 @@ export const Select = ({
   clearAllOption = true,
   alignPosition = SelectPosition.Left,
   required = false,
-  onBlur
+  onBlur,
+  optionsZIndex = 2
 }: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -130,7 +131,7 @@ export const Select = ({
 
   useEffect(() => {
     if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
-  }, [defaultValue]);
+  }, [defaultValue, value]);
 
   useEffect(() => {
     if (value) setSelectedValueState(value);
@@ -177,6 +178,7 @@ export const Select = ({
         theme={theme}
         height={numSize}
         position={type === SelectType.Inline ? alignPosition : undefined}
+        zIndex={optionsZIndex}
       >
         <StyledActionsWrapper theme={theme}>
           {search && (

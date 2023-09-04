@@ -91,6 +91,10 @@ export default {
     required: {
       description: 'Makes the select visually mandatory to be filled when not in inline version',
       control: 'boolean'
+    },
+    optionsZIndex: {
+      control: 'number',
+      description: 'Controls the z-index of the options wrapper'
     }
   }
 } as Meta;
@@ -147,7 +151,8 @@ switch (type) {
       selectionText: 'options selected',
       search: !!search,
       readOnly: false,
-      required: false
+      required: false,
+      optionsZIndex: 2
     };
     break;
 
@@ -166,7 +171,8 @@ switch (type) {
       error: error ? 'error text' : '',
       search: !!search,
       readOnly: false,
-      required: false
+      required: false,
+      optionsZIndex: 2
     };
     break;
 }

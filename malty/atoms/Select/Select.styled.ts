@@ -155,6 +155,7 @@ export const StyledOptionsWrapper = styled.ul<{
   selectStyle?: string;
   position?: SelectPosition;
   isOpen?: boolean;
+  zIndex: number;
 }>`
   position: absolute;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
@@ -163,7 +164,7 @@ export const StyledOptionsWrapper = styled.ul<{
   background: ${({ theme }) => theme.colors.colours.default.white.value};
   overflow-y: auto;
   padding: 0;
-  z-index: 2;
+  z-index: ${({ zIndex }) => zIndex};
   transform-origin: top center;
   visibility: hidden;
   box-sizing: border-box;
