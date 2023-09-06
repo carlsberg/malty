@@ -7,14 +7,13 @@ export interface TableProps {
   rows: TableRowProps[];
   size?: TableSize;
   dataTestId?: string;
+  paginationIndex?: number;
   paginationSize?: number;
   className?: string;
   isDraggable?: boolean;
   allowSelection?: boolean;
-  totalPagesCount?: number;
-  totalRecords?: number;
-  serverSide?: boolean;
   defaultSorting?: ColumnSort;
+  manualPagination?: ManualPagination;
   onRowClick?: (row: TableRowProps) => void;
   onRowSelect?: (selectedRows: TableRowProps[]) => void;
   onPaginationChange?: (page: number) => void;
@@ -59,4 +58,9 @@ declare module '@tanstack/table-core' {
     alignment?: TableHeaderAlignment;
     sorting?: boolean;
   }
+}
+
+export interface ManualPagination {
+  totalPagesCount: number;
+  totalRecords: number;
 }

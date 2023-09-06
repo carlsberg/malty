@@ -3,6 +3,14 @@ import React from 'react';
 import { Table as TableComponent } from './Table';
 import { TableHeaderAlignment, TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
 
+enum TableVariants {
+  Dnd = 'dnd',
+  Selection = 'selection',
+  Empty = 'empty',
+  HeadersCenter = 'headersCenter',
+  Sorted = 'sorted'
+}
+
 const headers: TableHeaderProps[] = [
   {
     header: 'Name',
@@ -73,7 +81,7 @@ const rows: TableRowProps[] = [
     name: 'Halla Pugh',
     age: 31,
     birthdate: new Date(1992, 2, 12),
-    actions: <button type="button">B</button>
+    actions: <button type="button">Delete</button>
   },
   {
     id: 5,
@@ -151,6 +159,55 @@ const rows: TableRowProps[] = [
     age: 47,
     birthdate: new Date(1976, 3, 28),
     actions: <button type="button">Delete</button>
+  },
+  {
+    id: 16,
+    name: 'adf dsf sd',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 17,
+    name: 'Ivy asdf',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 18,
+    name: 'Ivy 2',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 19,
+    name: 'Ivy 3',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 20,
+    name: 'Ivy Crawasdfford',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 21,
+    name: 'Ivy 5',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
+  },
+  {
+    id: 22,
+    name: 'Ivy last',
+    age: 47,
+    birthdate: new Date(1976, 3, 28),
+    actions: <button type="button">Delete</button>
   }
 ];
 
@@ -160,14 +217,13 @@ export default {
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
-    variants: ['dnd', 'selection', 'empty', 'headersCenter', 'sorted'],
+    variants: Object.values(TableVariants),
     docs: {
       description: {
         component:
           'For this component we are using an external library as our base table, you can check the docs here https://tanstack.com/table/v8'
       }
-    },
-    info: 'Please be careful with the use of <code>serverSide</code> prop. If you intend to use the table without server side pagination please set this prop to <b>false</b>. The Default value is true.'
+    }
   },
   argTypes: {
     headers: {
@@ -184,17 +240,13 @@ export default {
       control: 'text',
       description: 'Table data-testid'
     },
+    paginationIndex: {
+      control: 'number',
+      description: 'This is the page number, being 0 the first index. It is required if manualPagination is enabled'
+    },
     paginationSize: {
       control: 'number',
       description: 'Number of rows to be displayed in a page'
-    },
-    totalPagesCount: {
-      control: 'number',
-      description: 'Number of total pages'
-    },
-    totalRecords: {
-      control: 'number',
-      description: 'Number of total records'
     },
     onRowClick: {
       description: ''
@@ -207,11 +259,6 @@ export default {
       control: 'boolean',
       description: 'If true Rows are selectable'
     },
-    serverSide: {
-      control: 'boolean',
-      description:
-        "If true table works with server side pagination. Please turn it off if you don't want server side pagination on the table"
-    },
     defaultSorting: {
       control: 'object',
       description: 'This will be the default behaviour for the sorting at the beginning'
@@ -219,6 +266,17 @@ export default {
     onSortingChange: {
       description:
         'This will return the SortingState when the column title is clicked. By providing this prop the manualSorting will be enabled so automatic sorting will be disabled, as you know we are using react-table and the library is managing the sorting automatically, this will disable this option'
+    },
+    manualPagination: {
+      control: 'object',
+      description:
+        'If this object is passed paginationIndex and the data for each page needs to be updated manually in every page change, onPaginationChange is now required',
+      table: {
+        type: {
+          summary: 'ManualPagination',
+          detail: `totalPagesCount: number - Total amount of pages \ntotalRecords: number - Total amount of elements`
+        }
+      }
     },
     size: {
       description: 'Size for table rows',
@@ -243,8 +301,9 @@ export const Table = Template.bind({});
 
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
+
 switch (variant) {
-  case 'dnd':
+  case TableVariants.Dnd:
     Table.args = {
       headers,
       rows,
@@ -255,11 +314,10 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: false,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'selection':
+  case TableVariants.Selection:
     Table.args = {
       headers,
       rows,
@@ -270,11 +328,10 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'empty':
+  case TableVariants.Empty:
     Table.args = {
       headers,
       rows: [],
@@ -285,11 +342,10 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'headersCenter':
+  case TableVariants.HeadersCenter:
     Table.args = {
       headers: headersCenter,
       rows,
@@ -300,11 +356,10 @@ switch (variant) {
       size: TableSize.Large,
       dataTestId: 'table',
       allowSelection: false,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;
-  case 'sorted':
+  case TableVariants.Sorted:
     Table.args = {
       headers,
       rows,
@@ -315,8 +370,6 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: false,
-      totalRecords: rows.length,
-      serverSide: false,
       defaultSorting: { id: 'name', desc: true },
       onSortingChange: undefined
     };
@@ -333,8 +386,6 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: false,
-      totalRecords: rows.length,
-      serverSide: false,
       onSortingChange: undefined
     };
     break;

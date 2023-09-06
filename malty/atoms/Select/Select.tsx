@@ -48,7 +48,8 @@ export const Select = ({
   clearAllOption = true,
   alignPosition = SelectPosition.Left,
   required = false,
-  onBlur
+  onBlur,
+  optionsZIndex = 2
 }: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -130,7 +131,7 @@ export const Select = ({
 
   useEffect(() => {
     if (defaultValue.length > 0 && (value === undefined || value?.length === 0)) setSelectedValueState(defaultValue);
-  }, [defaultValue]);
+  }, [defaultValue, value]);
 
   useEffect(() => {
     if (value) setSelectedValueState(value);
@@ -177,6 +178,7 @@ export const Select = ({
         theme={theme}
         height={numSize}
         position={type === SelectType.Inline ? alignPosition : undefined}
+        zIndex={optionsZIndex}
       >
         <StyledActionsWrapper theme={theme}>
           {search && (
@@ -206,41 +208,47 @@ export const Select = ({
             </StyledActionButtonWrapper>
           )}
         </StyledActionsWrapper>
-        {selectOptions?.map((option: SelectOptionsType, index: number) => (
-          <StyledOption
-            theme={theme}
-            key={option.value}
-            value={option.value}
-            onClick={() => handleOptionSelected(option)}
-            height={numSize}
-            selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-            selectStyle={type}
-            disabled={disabled}
-            data-testid={`${dataTestId}-option-${index}`}
-          >
-            {multiple && (
-              <Checkbox
-                fullWidth
-                data-testid={`${dataTestId}-option-checkbox-${index}`}
-                labelText={option.name as string}
-                value={option.value}
-                onValueChange={() => null}
-                checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
-              />
-            )}
-            {!multiple && (
-              <>
-                <StyledWrapper data-testid={`${dataTestId}-option-label-${index}`} theme={theme}>
-                  {option.icon}
-                  {option.name}
-                </StyledWrapper>
-                {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                  <StyledCheck theme={theme} selectStyle={type} color={IconColor.DigitalBlack} size={IconSize.Small} />
-                )}
-              </>
-            )}
-          </StyledOption>
-        ))}
+        {!disabled &&
+          !readOnly &&
+          selectOptions?.map((option: SelectOptionsType, index: number) => (
+            <StyledOption
+              theme={theme}
+              key={option.value}
+              value={option.value}
+              onClick={() => handleOptionSelected(option)}
+              height={numSize}
+              selected={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+              selectStyle={type}
+              data-testid={`${dataTestId}-option-${index}`}
+            >
+              {multiple && (
+                <Checkbox
+                  fullWidth
+                  data-testid={`${dataTestId}-option-checkbox-${index}`}
+                  labelText={option.name as string}
+                  value={option.value}
+                  onValueChange={() => null}
+                  checked={!!selectedValueState.find((el: SelectOptionsType) => el.value === option.value)}
+                />
+              )}
+              {!multiple && (
+                <>
+                  <StyledWrapper data-testid={`${dataTestId}-option-label-${index}`} theme={theme}>
+                    {option.icon}
+                    {option.name}
+                  </StyledWrapper>
+                  {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
+                    <StyledCheck
+                      theme={theme}
+                      selectStyle={type}
+                      color={IconColor.DigitalBlack}
+                      size={IconSize.Small}
+                    />
+                  )}
+                </>
+              )}
+            </StyledOption>
+          ))}
       </StyledOptionsWrapper>
     </StyledMainWrapper>
   );

@@ -66,7 +66,8 @@ export default {
       description: 'Initial selected option'
     },
     options: {
-      description: 'Select options.'
+      description:
+        'This is the collection of possible options on the select, keep in mind that value will be evaluated as case-sensitive'
     },
     multiple: {
       description: 'Select state, when active allows for multi selection',
@@ -90,6 +91,10 @@ export default {
     required: {
       description: 'Makes the select visually mandatory to be filled when not in inline version',
       control: 'boolean'
+    },
+    optionsZIndex: {
+      control: 'number',
+      description: 'Controls the z-index of the options wrapper'
     }
   }
 } as Meta;
@@ -146,7 +151,8 @@ switch (type) {
       selectionText: 'options selected',
       search: !!search,
       readOnly: false,
-      required: false
+      required: false,
+      optionsZIndex: 2
     };
     break;
 
@@ -165,7 +171,8 @@ switch (type) {
       error: error ? 'error text' : '',
       search: !!search,
       readOnly: false,
-      required: false
+      required: false,
+      optionsZIndex: 2
     };
     break;
 }

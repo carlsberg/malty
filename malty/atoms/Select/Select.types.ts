@@ -21,6 +21,7 @@ export interface SelectProps {
   alignPosition?: SelectPosition;
   required?: boolean;
   onBlur?: () => void;
+  optionsZIndex?: number;
 }
 
 export enum SelectPosition {

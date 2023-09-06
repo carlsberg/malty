@@ -38,7 +38,7 @@ const iconNameMap = {
   [AlertBannerType.Information]: IconName.Information,
   [AlertBannerType.Warning]: IconName.Alert,
   [AlertBannerType.Error]: IconName.Alert,
-  [AlertBannerType.Success]: IconName.Alert
+  [AlertBannerType.Success]: IconName.ItemCheck
 };
 
 export const AlertBanner = ({
