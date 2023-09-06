@@ -1,29 +1,14 @@
-/* eslint-disable react/destructuring-assignment */
-import { DocsContext } from '@storybook/addon-docs';
-import { Meta, Story } from '@storybook/react';
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import { Icon } from './Icon';
 import { IconColor, IconName, IconProps, IconSize } from './Icon.types';
 
-const convertToKebabCase = (string: string) =>
-  string
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/\s+/g, '-')
-    .toLowerCase();
-
-const getValueByKeyForStringEnum = (value: string) => Object.entries(IconName).find(([key]) => key === value)?.[1];
-
-const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
-const variant: string = urlParams.get('variant') || 'CarlsbergFilled';
-
-const defaultIconName: IconName = getValueByKeyForStringEnum(variant) || IconName.CarlsbergFilled;
-
-export default {
-  title: 'Icons/Single Icon',
+const meta: Meta<IconProps> = {
   component: Icon,
+  title: 'Icons/Single Icon',
   parameters: {
     importObject: 'CarlsbergFilled',
-    importPath: '@carlsberggroup/malty.icons.add-content',
+    importPath: '@carlsberggroup/malty.atoms.icon',
     variants: Object.keys(IconName)
   },
   argTypes: {
@@ -41,7 +26,7 @@ export default {
           summary: null
         }
       },
-      defaultValue: defaultIconName
+      defaultValue: IconName.CarlsbergFilled
     },
     color: {
       options: Object.keys(IconColor),
@@ -56,7 +41,7 @@ export default {
           summary: 'IconColor.DigitalBlack'
         }
       },
-      defaultValue: 'DigitalBlack'
+      defaultValue: IconColor.DigitalBlack
     },
     size: {
       options: Object.keys(IconSize),
@@ -68,7 +53,7 @@ export default {
       description: 'Icon size, options are',
       table: {
         defaultValue: {
-          summary: 'IconSize.Medium'
+          summary: IconSize.Medium
         }
       },
       defaultValue: 'Medium'
@@ -82,32 +67,15 @@ export default {
       description: 'Function to run when icon is clicked.'
     }
   }
-} as Meta;
-
-const Template: Story<IconProps> = (args) => {
-  const context = useContext(DocsContext);
-  const [story] = useState(context.getStoryContext(context.storyById(context.id)));
-  const params = story.parameters;
-  const [object, setObject] = useState(args.name);
-  const [path, setPath] = useState(`@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
-
-  useLayoutEffect(() => {
-    params.importObject = object;
-    params.importPath = path;
-  }, [story, object, path]);
-
-  useEffect(() => {
-    setObject(args.name);
-    setPath(`@carlsberggroup/malty.icons.${convertToKebabCase(args.name || 'CarlsbergFilled')}`);
-  }, [args.name]);
-
-  useEffect(() => {
-    const name: string = args.name || 'CarlsbergFilled';
-    params.importObject = name;
-    params.importPath = `@carlsberggroup/malty.icons.${convertToKebabCase(name)}`;
-  }, [args.name]);
-
-  return <Icon name={getValueByKeyForStringEnum(args.name || 'CarlsbergFilled')} color={args.color} size={args.size} />;
 };
 
-export const SingleIcon = Template.bind({});
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
+const variant: IconName = urlParams.get('variant') as IconName;
+
+export const Base: Story = {
+  render: (args) => <Icon {...args} name={IconName[variant] ? variant : args.name} />
+};
