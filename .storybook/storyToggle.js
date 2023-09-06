@@ -3,8 +3,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledCanvas = styled(Canvas)`
-  font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular', 'San Francisco', BlinkMacSystemFont, 'Segoe UI',
-    'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:
+    'Nunito Sans',
+    -apple-system,
+    '.SFNSText-Regular',
+    'San Francisco',
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif;
   background-color: #fff5e0;
   padding: 0;
   p {

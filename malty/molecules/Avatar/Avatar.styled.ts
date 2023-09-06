@@ -11,11 +11,10 @@ export const StyledCamera = styled.div<{
   position: absolute;
   box-sizing: content-box;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
-  ${({ theme }) =>
-    css`
-      border: ${theme.borders['border-1px--solid']['border-width'].value}
-        ${theme.borders['border-1px--solid']['border-style'].value} ${theme.colors.colours.support[20].value};
-    `}
+  ${({ theme }) => css`
+    border: ${theme.borders['border-1px--solid']['border-width'].value}
+      ${theme.borders['border-1px--solid']['border-style'].value} ${theme.colors.colours.support[20].value};
+  `}
   border-radius: ${({ theme }) => theme.sizes.s.value};
   width: ${({ theme, size }) => {
     if (size === AvatarSize.Large) {

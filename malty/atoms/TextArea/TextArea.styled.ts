@@ -45,10 +45,9 @@ export const StyledtextArea = styled.textarea<{
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  ${({ theme }) =>
-    css`
-      padding: ${theme.sizes.xs.value} ${theme.sizes.xs.value};
-    `}
+  ${({ theme }) => css`
+    padding: ${theme.sizes.xs.value} ${theme.sizes.xs.value};
+  `}
   resize: none;
   border: 0;
   &:hover,

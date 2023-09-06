@@ -15,14 +15,13 @@ export const StyledParagraph = styled.p<{
   padding: 0;
   word-break: break-word;
   color: ${({ color, theme }) => theme.colors['text-colours'][color].value};
-  ${({ theme, textStyle }) =>
-    css`
-      font-family: ${theme.typography.desktop.text[textStyle]['font-family'].value};
-      font-size: ${theme.typography.desktop.text[textStyle]['font-size'].value};
-      letter-spacing: ${theme.typography.desktop.text[textStyle]['letter-spacing'].value};
-      line-height: ${theme.typography.desktop.text[textStyle]['line-height'].value};
-      font-weight: ${theme.typography.desktop.text[textStyle]['font-weight'].value};
-    `}
+  ${({ theme, textStyle }) => css`
+    font-family: ${theme.typography.desktop.text[textStyle]['font-family'].value};
+    font-size: ${theme.typography.desktop.text[textStyle]['font-size'].value};
+    letter-spacing: ${theme.typography.desktop.text[textStyle]['letter-spacing'].value};
+    line-height: ${theme.typography.desktop.text[textStyle]['line-height'].value};
+    font-weight: ${theme.typography.desktop.text[textStyle]['font-weight'].value};
+  `}
   text-align: ${({ align }) => align ?? TextAlign.Left};
   ${({ theme, textStyle }) =>
     theme.typography.desktop.text[textStyle]['text-transform']?.value &&

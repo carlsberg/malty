@@ -17,14 +17,13 @@ export const StyledHeadline = styled.h1<{
     }
     return tempColor;
   }};
-  ${({ theme, headlineStyle }) =>
-    css`
-      font-family: ${theme.typography.desktop.headline[headlineStyle]['font-family'].value};
-      font-size: ${theme.typography.desktop.headline[headlineStyle]['font-size'].value};
-      letter-spacing: ${theme.typography.desktop.headline[headlineStyle]['letter-spacing'].value};
-      line-height: ${theme.typography.desktop.headline[headlineStyle]['line-height'].value};
-      font-weight: ${theme.typography.desktop.headline[headlineStyle]['font-weight'].value};
-    `}
+  ${({ theme, headlineStyle }) => css`
+    font-family: ${theme.typography.desktop.headline[headlineStyle]['font-family'].value};
+    font-size: ${theme.typography.desktop.headline[headlineStyle]['font-size'].value};
+    letter-spacing: ${theme.typography.desktop.headline[headlineStyle]['letter-spacing'].value};
+    line-height: ${theme.typography.desktop.headline[headlineStyle]['line-height'].value};
+    font-weight: ${theme.typography.desktop.headline[headlineStyle]['font-weight'].value};
+  `}
   text-align: ${({ align }) => align ?? HeadlineAlign.Left};
   ${({ theme, headlineStyle }) =>
     theme.typography.desktop.headline[headlineStyle]['text-transform']?.value &&

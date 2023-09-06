@@ -91,7 +91,7 @@ describe('Carousel', () => {
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn()
-      } as MediaQueryList);
+      }) as MediaQueryList;
   });
 
   // TODO: Skipped because isOverflow function always returns false (so the arrows and pagination are not visible)

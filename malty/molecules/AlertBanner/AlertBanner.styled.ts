@@ -103,7 +103,9 @@ export const StyledMessage = styled.div<{
   align-items: center;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  transition: all 0.2s linear, color 0;
+  transition:
+    all 0.2s linear,
+    color 0;
   color: ${({ color, theme }) => theme.colors['text-colours'][color].value};
   ${({ hideText, isMobile }) => {
     if (hideText && isMobile) {

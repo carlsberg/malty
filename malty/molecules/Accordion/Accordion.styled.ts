@@ -8,12 +8,9 @@ export const StyledAccordionWrapper = styled.ul<{
   padding-inline-start: 0;
 
   li {
-    ${({ variant, theme }) =>
-      css`
-        background-color: ${variant === AccordionColor.Support
-          ? theme.colors.colours.support[20].value
-          : 'transparent'};
-      `}
+    ${({ variant, theme }) => css`
+      background-color: ${variant === AccordionColor.Support ? theme.colors.colours.support[20].value : 'transparent'};
+    `}
   }
 `;
 
