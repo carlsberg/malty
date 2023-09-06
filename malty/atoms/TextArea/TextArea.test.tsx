@@ -36,9 +36,7 @@ describe('textarea', () => {
       />
     );
 
-    const error = screen.getByTestId('Textarea-error-label');
-
-    expect(error).toHaveTextContent('Error text');
+    expect(screen.getByText('Error text')).toBeVisible();
   });
 
   it('should have an hint message', () => {
@@ -53,9 +51,7 @@ describe('textarea', () => {
       />
     );
 
-    const hint = screen.getByTestId('Textarea-hint-label');
-
-    expect(hint).toHaveTextContent('Hint text');
+    expect(screen.getByText('Hint text')).toBeVisible();
   });
 
   it('should be disabled', () => {
@@ -105,6 +101,7 @@ describe('textarea', () => {
     expect(mockFn).toHaveBeenCalledTimes(text.length);
 
     rerender(<TextArea value="Test" label="textarea label" onValueChange={mockFn} />);
+
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
   });
 
