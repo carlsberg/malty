@@ -99,7 +99,7 @@ export const NavList = ({
   };
 
   const activeItem = navItems[activeNavItem] || ({} as ItemProps);
-  const { component, name, href, subItems, icon, category, ...customProps } = activeItem;
+  const { component, name, href, subItems, ...customProps } = activeItem;
   const componentProps = { ...customProps };
 
   const resolveItemClass = (itemsInCategory: ItemProps[], item: ItemProps) => {

@@ -61,10 +61,14 @@ export default {
   }
 } as Meta;
 
-const Template: Story<TextAreaProps> = ({ value, onValueChange, ...args }) => {
+const Template: Story<TextAreaProps> = ({ value, ...args }) => {
   const [stateValue, setStateValue] = useState(value);
 
-  return <TextAreaComponent value={stateValue} onValueChange={setStateValue} {...args} />;
+  const handleOnValueChange = (newValue: string) => {
+    setStateValue(newValue);
+  };
+
+  return <TextAreaComponent {...args} value={stateValue} onValueChange={handleOnValueChange} />;
 };
 
 export const TextArea = Template.bind({});

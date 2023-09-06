@@ -1,4 +1,3 @@
-// import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Avatar, AvatarSize } from '@carlsberggroup/malty.molecules.avatar';
@@ -92,12 +91,7 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
   const theme = useContext(ThemeContext) || defaultTheme;
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const { username, userRole, profileActions } = profileMenu;
-  const {
-    component: singleItemComponent,
-    href: singleItemHref,
-    icon: singleItemIcon,
-    ...singleItemCustomProps
-  } = profileActions[0];
+  const { component: singleItemComponent, href: singleItemHref, ...singleItemCustomProps } = profileActions[0];
 
   const singleItemCompProps = { ...singleItemCustomProps };
 

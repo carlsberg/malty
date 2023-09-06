@@ -91,14 +91,14 @@ describe('Carousel', () => {
         addEventListener: jest.fn(),
         removeEventListener: jest.fn(),
         dispatchEvent: jest.fn()
-      }) as MediaQueryList;
+      } as MediaQueryList);
   });
 
   // TODO: Skipped because isOverflow function always returns false (so the arrows and pagination are not visible)
   // and we couldn't make the test run, the idea is to work on this in the future to find a proper solution
   // eslint-disable-next-line jest/no-commented-out-tests
   it.skip('should render carousel with custom arrows, pagination and slides', () => {
-    const getBoundingClientRectSpy = jest.fn(() => ({ width: 100 }));
+    // const getBoundingClientRectSpy = jest.fn(() => ({ width: 100 }));
 
     render(
       <Carousel

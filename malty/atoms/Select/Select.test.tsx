@@ -113,7 +113,7 @@ describe('select', () => {
   });
 
   it('should call onValueChange on click', () => {
-    const { rerender } = render(
+    render(
       <Select
         options={testOptions}
         label="select label"
