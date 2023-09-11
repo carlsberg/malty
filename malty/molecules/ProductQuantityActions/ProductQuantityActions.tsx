@@ -1,16 +1,10 @@
 import { Button, ButtonSize } from '@carlsberggroup/malty.atoms.button';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { StockStatus } from '@carlsberggroup/malty.molecules.stock-status';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { MouseEvent, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import {
-  StyledActions,
-  StyledButtonWrapper,
-  StyledInputWrapper,
-  StyledStock,
-  StyledStockStatusColor
-} from './ProductQuantityActions.styled';
+import { StyledActions, StyledButtonWrapper, StyledInputWrapper } from './ProductQuantityActions.styled';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
 export const ProductQuantityActions = ({
@@ -28,17 +22,13 @@ export const ProductQuantityActions = ({
   return (
     <>
       {stock ? (
-        <StyledStock theme={theme}>
-          {stock.stockColor && <StyledStockStatusColor theme={theme} infoColor={stock.stockColor} />}
-          <Text textStyle={TextStyle.SmallBold} color={stock.labelColor}>
-            {stock.label}
-          </Text>
-          {stock.availability && (
-            <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support100}>
-              {stock.availability}
-            </Text>
-          )}
-        </StyledStock>
+        <StockStatus
+          withMarginBottom
+          label={stock.label}
+          labelColor={stock.labelColor}
+          stockColor={stock.stockColor}
+          availability={stock.availability}
+        />
       ) : null}
       <StyledActions theme={theme}>
         {actionQuantityInput ? (

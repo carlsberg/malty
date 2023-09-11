@@ -4,11 +4,13 @@ import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { ProductCard } from './ProductCard';
+import { ProductCardQuantityType } from './ProductCard.types';
 
 const titleText = 'This is a Title';
 const paragraphText = 'This is a test';
 const sku = 'Sku: 12512 512';
 const heroScr = 'https://placehold.co/300x180';
+const dataTestId = 'product-card';
 const actionButton: ActionButton = {
   color: ButtonColor.DigitalBlack,
   text: 'Add to cart',
@@ -23,14 +25,16 @@ const defaultBody = (
 );
 
 describe('ProductCard', () => {
-  it('renders with correct content', () => {
+  it('should render with correct content', () => {
     render(<ProductCard imageSrc={heroScr} title={titleText} sku={sku} actionButton={actionButton} />);
+
     expect(screen.getByText(titleText)).not.toBeNull();
     expect(screen.getByText(sku)).not.toBeNull();
   });
 
-  it('calls function on click', () => {
+  it('should call function on click', () => {
     const onClick = jest.fn();
+
     render(
       <ProductCard
         onProductClick={onClick}
@@ -40,7 +44,53 @@ describe('ProductCard', () => {
         dataTestId="product-card"
       />
     );
+
     fireEvent.click(screen.getByTestId('product-card-title'));
+
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render quantity content correctly', () => {
+    const actionQuantityInput = {
+      value: '3',
+      onValueChange: jest.fn()
+    };
+
+    render(
+      <ProductCard
+        imageSrc={heroScr}
+        title={titleText}
+        sku={sku}
+        actionButton={actionButton}
+        dataTestId={dataTestId}
+        actionQuantityInput={actionQuantityInput}
+      />
+    );
+
+    expect(screen.getByTestId(`${dataTestId}-quantity-plus`)).toBeVisible();
+    expect(screen.getByDisplayValue('3')).toBeVisible();
+    expect(screen.getByTestId(`${dataTestId}-quantity-minus`)).toBeVisible();
+  });
+
+  it('should not display signs when readOnly', () => {
+    const actionQuantityInput: ProductCardQuantityType = {
+      readOnly: true,
+      value: '3'
+    };
+
+    render(
+      <ProductCard
+        imageSrc={heroScr}
+        title={titleText}
+        actionButton={actionButton}
+        dataTestId="product-card"
+        actionQuantityInput={actionQuantityInput}
+      />
+    );
+
+    expect(screen.queryByTestId(`${dataTestId}-quantity-plus`)).not.toBeInTheDocument();
+    expect(screen.getByDisplayValue('3')).toBeVisible();
+    expect(screen.getByDisplayValue('3')).toHaveAttribute('readonly');
+    expect(screen.queryByTestId(`${dataTestId}-quantity-minus`)).not.toBeInTheDocument();
   });
 });

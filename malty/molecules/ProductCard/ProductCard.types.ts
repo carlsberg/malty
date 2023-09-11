@@ -7,6 +7,9 @@ import { AlertInlineProps } from '@carlsberggroup/malty.molecules.alert-inline';
 import { ActionButton, ActionQuantityInput, Stock } from '@carlsberggroup/malty.molecules.product-quantity-actions';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
 
+type ActionQuantityInputType = Omit<ActionQuantityInput, 'readOnly'> & { readOnly?: false };
+export type ProductCardQuantityType = { readOnly: true; value: string } | ActionQuantityInputType;
+
 export interface ProductCardProps {
   productCardStyle?: CardStyle;
   orientation?: CardOrientation;
@@ -32,6 +35,6 @@ export interface ProductCardProps {
   dataTestId?: string;
   imageHeight?: string;
   imageWidth?: string;
-  actionQuantityInput?: ActionQuantityInput;
+  actionQuantityInput?: ProductCardQuantityType;
   actionButton: ActionButton;
 }

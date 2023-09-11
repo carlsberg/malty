@@ -6,6 +6,7 @@ import styled from 'styled-components';
 export const StyledMargin = styled.div`
   margin: ${({ theme }) => theme.sizes['2xs'].value} 0;
 `;
+
 export const StyledPillWrapper = styled.div`
   position: absolute;
   display: flex;
@@ -17,14 +18,23 @@ export const StyledPillWrapper = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.sizes['4xs'].value} 0;
 `;
+
+export const StyledReadOnlyQuantity = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 134px;
+`;
+
 export const StyledSelect = styled.div`
   margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
 `;
+
 export const StyledTitle = styled(Text)<{
   showCursor: boolean;
 }>`
   cursor: ${({ showCursor }) => (showCursor ? 'pointer' : 'default')};
 `;
+
 export const StyledImage = styled(Image)<{
   orientation: CardOrientation;
   showCursor: boolean;
@@ -39,6 +49,7 @@ export const StyledLoyalty = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.sizes['4xs'].value};
 `;
+
 export const StyledRow = styled.div`
   display: flex;
   justify-content: space-between;
@@ -51,6 +62,7 @@ export const StyledDiscountContainer = styled.div`
   flex-wrap: wrap;
   gap: ${({ theme }) => theme.sizes['4xs'].value} 0;
 `;
+
 export const StyledFavoriteWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   border-radius: 50%;

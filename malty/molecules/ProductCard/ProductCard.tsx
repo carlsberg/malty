@@ -1,7 +1,7 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
+import { Input, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Price } from '@carlsberggroup/malty.atoms.price';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
@@ -9,6 +9,7 @@ import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { AlertInline, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
 import { ProductQuantityActions } from '@carlsberggroup/malty.molecules.product-quantity-actions';
 import { Sku } from '@carlsberggroup/malty.molecules.sku';
+import { StockStatus } from '@carlsberggroup/malty.molecules.stock-status';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -21,6 +22,7 @@ import {
   StyledLoyalty,
   StyledMargin,
   StyledPillWrapper,
+  StyledReadOnlyQuantity,
   StyledRow,
   StyledSelect,
   StyledTitle
@@ -73,6 +75,37 @@ export const ProductCard = ({
       window.removeEventListener('resize', handleWindowSizeChange);
     };
   }, []);
+
+  const renderQuantity = () => {
+    if (!actionQuantityInput) return null;
+
+    if (actionQuantityInput.readOnly) {
+      return (
+        <StyledReadOnlyQuantity>
+          {stock ? (
+            <StockStatus
+              withMarginBottom
+              label={stock.label}
+              labelColor={stock.labelColor}
+              stockColor={stock.stockColor}
+              availability={stock.availability}
+            />
+          ) : null}
+          <Input type={InputType.Number} readOnly value={actionQuantityInput.value} onValueChange={() => null} />
+        </StyledReadOnlyQuantity>
+      );
+    }
+
+    return (
+      <ProductQuantityActions
+        stock={stock}
+        dataTestId={dataTestId}
+        actionButton={actionButton}
+        actionQuantityInput={actionQuantityInput}
+      />
+    );
+  };
+
   return (
     <Card
       dataTestId={dataTestId}
@@ -165,8 +198,7 @@ export const ProductCard = ({
               </StyledLoyalty>
             ) : null}
           </StyledRow>
-
-          <ProductQuantityActions stock={stock} actionButton={actionButton} actionQuantityInput={actionQuantityInput} />
+          {renderQuantity()}
           {productsCardsAlerts?.map((alert, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <StyledAlert key={index} theme={theme}>

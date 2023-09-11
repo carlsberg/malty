@@ -1605,6 +1605,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Stepper"
     },
+    "molecules/stock-status": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/StockStatus"
+    },
     "molecules/toast": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.64",
