@@ -19,6 +19,7 @@ export const StyledHead = styled.th<{
   isSortable: boolean;
   alignPosition?: TableHeaderAlignment;
   allowSelection?: boolean;
+  width?: number;
 }>`
   cursor: ${({ isSortable }) => (isSortable ? 'pointer' : 'default')};
   background-color: ${({ theme }) => theme.colors.colours.support[20].value};
@@ -29,6 +30,7 @@ export const StyledHead = styled.th<{
   height: ${({ theme }) => theme.sizes.xl.value};
   text-align: ${({ alignPosition }) => alignPosition || 'left'};
   padding: ${({ theme, allowSelection }) => (allowSelection ? '0' : `0 ${theme.sizes['2xs'].value}`)};
+  width: ${({ width }) => width || 'auto'};
 
   > * {
     display: flex;
