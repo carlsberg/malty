@@ -71,7 +71,7 @@ const meta: Meta<IconProps> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<IconProps>;
 
 const urlParams: URLSearchParams = new URLSearchParams(window.location.search);
 const variant: IconName = urlParams.get('variant') as IconName;

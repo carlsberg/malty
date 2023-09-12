@@ -66,7 +66,7 @@ const meta: Meta<IconProps> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<IconProps>;
 
 export const Base: Story = {
   render: (args) => {
