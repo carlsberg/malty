@@ -222,6 +222,7 @@ export const Table = ({
                   data-testid={`${dataTestId}-th-${header.id}`}
                   theme={theme}
                   key={header.id}
+                  width={header.getSize()}
                 >
                   <div>
                     {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
@@ -229,6 +230,7 @@ export const Table = ({
                       ? {
                           asc: (
                             <Tooltip
+                              key="tooltip_asc"
                               placement={TooltipPlacement.Bottom}
                               isDark
                               tooltipId="asc"
@@ -241,6 +243,7 @@ export const Table = ({
                           ),
                           desc: (
                             <Tooltip
+                              key="tooltip_desc"
                               placement={TooltipPlacement.Bottom}
                               isDark
                               tooltipId="desc"
@@ -253,6 +256,7 @@ export const Table = ({
                           )
                         }[header.column.getIsSorted() as string] ?? (
                           <Tooltip
+                            key="tooltip_normal"
                             placement={TooltipPlacement.Bottom}
                             isDark
                             tooltipId="normal"
