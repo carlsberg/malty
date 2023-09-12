@@ -3,7 +3,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon';
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   value: string;
   label?: string;
-  onValueChange: (value: string) => void;
+  onValueChange?: (value: string) => void;
   onInputBlur?: (value: string) => void;
   type: InputType;
   placeholder?: string;

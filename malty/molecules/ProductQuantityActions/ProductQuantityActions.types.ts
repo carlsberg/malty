@@ -8,12 +8,14 @@ export interface Stock {
   stockColor?: TextColor;
   availability?: string;
 }
+
 export type ActionButton = Pick<ButtonProps, 'text' | 'icon' | 'style' | 'disabled' | 'loading' | 'color' | 'onClick'>;
 
 export type ActionQuantityInput = Pick<InputProps, 'value' | 'min' | 'max' | 'readOnly' | 'onValueChange'>;
+
 export interface ProductQuantityActionsProps {
   dataTestId?: string;
   stock?: Stock;
   actionQuantityInput?: ActionQuantityInput;
-  actionButton: ActionButton;
+  actionButton?: ActionButton;
 }

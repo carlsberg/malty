@@ -8,6 +8,7 @@ import {
   StyledActions,
   StyledButtonWrapper,
   StyledInputWrapper,
+  StyledReadOnlyInput,
   StyledStock,
   StyledStockStatusColor
 } from './ProductQuantityActions.styled';
@@ -20,26 +21,20 @@ export const ProductQuantityActions = ({
   dataTestId = 'default'
 }: ProductQuantityActionsProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const isReadOnly = actionQuantityInput?.readOnly;
 
   const handleStopPropagation = (event: MouseEvent<HTMLInputElement>) => {
     event.stopPropagation();
   };
 
-  return (
-    <>
-      {stock ? (
-        <StyledStock theme={theme}>
-          {stock.stockColor && <StyledStockStatusColor theme={theme} infoColor={stock.stockColor} />}
-          <Text textStyle={TextStyle.SmallBold} color={stock.labelColor}>
-            {stock.label}
-          </Text>
-          {stock.availability && (
-            <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support100}>
-              {stock.availability}
-            </Text>
-          )}
-        </StyledStock>
-      ) : null}
+  const renderContent = () => {
+    if (!actionQuantityInput && !actionButton) return null;
+
+    if (isReadOnly) {
+      return <StyledReadOnlyInput readOnly type={InputType.Number} value={actionQuantityInput.value} />;
+    }
+
+    return (
       <StyledActions theme={theme}>
         {actionQuantityInput ? (
           <StyledInputWrapper>
@@ -52,16 +47,43 @@ export const ProductQuantityActions = ({
             />
           </StyledInputWrapper>
         ) : null}
-        <StyledButtonWrapper hasIcon={!!actionButton.icon} hasActionQuantityInput={!!actionQuantityInput}>
-          <Button
-            {...actionButton}
-            text={actionButton.icon ? undefined : actionButton.text}
-            fullWidth
-            dataTestId={`${dataTestId}-button`}
-            size={ButtonSize.Medium}
-          />
-        </StyledButtonWrapper>
+        {actionButton ? (
+          <StyledButtonWrapper hasIcon={!!actionButton.icon} hasActionQuantityInput={!!actionQuantityInput}>
+            <Button
+              {...actionButton}
+              text={actionButton.icon ? undefined : actionButton.text}
+              fullWidth
+              dataTestId={`${dataTestId}-button`}
+              size={ButtonSize.Medium}
+            />
+          </StyledButtonWrapper>
+        ) : null}
       </StyledActions>
+    );
+  };
+
+  return (
+    <>
+      {stock ? (
+        <StyledStock theme={theme} data-testid={`${dataTestId}-stock`}>
+          {stock.stockColor && (
+            <StyledStockStatusColor
+              theme={theme}
+              infoColor={stock.stockColor}
+              data-testid={`${dataTestId}-stock-info`}
+            />
+          )}
+          <Text textStyle={TextStyle.SmallBold} color={stock.labelColor}>
+            {stock.label}
+          </Text>
+          {stock.availability && (
+            <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support100}>
+              {stock.availability}
+            </Text>
+          )}
+        </StyledStock>
+      ) : null}
+      {renderContent()}
     </>
   );
 };
