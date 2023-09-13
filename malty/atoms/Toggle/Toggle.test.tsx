@@ -8,11 +8,11 @@ jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
 const mockFn = jest.fn();
 
-afterEach(() => {
-  jest.clearAllMocks();
-});
-
 describe('toggle', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should render elements', () => {
     render(<Toggle label="Label text" error="Error text" dataTestId="toggle" checked onValueChange={mockFn} />);
     expect(screen.getByText('Label text')).toBeInTheDocument();
@@ -25,6 +25,7 @@ describe('toggle', () => {
     const toggle = screen.getByText('Label text');
 
     userEvent.click(toggle);
+
     expect(mockFn).toHaveBeenCalledTimes(1);
   });
 
@@ -32,7 +33,7 @@ describe('toggle', () => {
     render(
       <Toggle label="Label text" error="Error text" dataTestId="toggle" checked disabled onValueChange={mockFn} />
     );
-    const toggle = screen.getByTestId('toggle');
+    const toggle = screen.getByRole('checkbox', { hidden: true });
 
     expect(toggle).toBeDisabled();
   });
