@@ -1,31 +1,17 @@
-/* eslint-disable react/destructuring-assignment */
-import { DocsContext } from '@storybook/addon-docs';
-import { Meta, Story } from '@storybook/react';
-import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
-import styled from 'styled-components';
-import { Icon as IconComponent } from './Icon';
+import { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { Icon } from './Icon';
 import { IconColor, IconName, IconProps, IconSize } from './Icon.types';
 
-const StyledWrapper = styled.div`
-  display: inline;
-  margin: 10px;
-`;
-
-interface MultiIconNames extends IconProps {
-  names: IconName[];
-}
-
-const getValueByKeyForStringEnum = (value: string) => Object.entries(IconName).find(([key]) => key === value)?.[1];
-
-export default {
+const meta: Meta<IconProps> = {
+  component: Icon,
   title: 'Icons/Multiple Icons',
-  component: IconComponent,
   parameters: {
     importObject: 'CarlsbergFilled',
     importPath: '@carlsberggroup/malty.atoms.icon'
   },
   argTypes: {
-    names: {
+    name: {
       name: 'names',
       description:
         'Icon name will define what icon is displayed. You can also see the icons, on the last story "All Icons"',
@@ -72,44 +58,27 @@ export default {
         disable: true
       }
     },
-    name: {
-      table: {
-        disable: true
-      }
-    },
     onClick: {
       description: 'Function to run when icon is clicked.'
     }
   }
-} as Meta;
-
-const Template: Story<MultiIconNames> = (args) => {
-  const context = useContext(DocsContext);
-  const [story] = useState(context.getStoryContext(context.storyById(context.id)));
-  const params = story.parameters;
-  const [object, setObject] = useState(args.names);
-
-  useLayoutEffect(() => {
-    params.importObject = object;
-  }, [story, object]);
-
-  useEffect(() => {
-    setObject(args.names);
-  }, [args.names]);
-
-  return typeof args.names === 'string' ? (
-    <StyledWrapper title={args.names} key={0}>
-      <IconComponent size={args.size} color={args.color} name={getValueByKeyForStringEnum(args.names)} />
-    </StyledWrapper>
-  ) : (
-    <>
-      {Object.values(args.names).map((itemName: string, index: number) => (
-        <StyledWrapper title={itemName} key={index}>
-          <IconComponent size={args.size} color={args.color} name={getValueByKeyForStringEnum(itemName)} />
-        </StyledWrapper>
-      ))}
-    </>
-  );
 };
 
-export const MultipleIcons = Template.bind({});
+export default meta;
+
+type Story = StoryObj<IconProps>;
+
+export const Base: Story = {
+  render: (args) => {
+    if (Array.isArray(args.name)) {
+      return (
+        <div style={{ display: 'inline', margin: '10px' }}>
+          {args.name.map((name) => (
+            <Icon key={name} {...args} name={name} />
+          ))}
+        </div>
+      );
+    }
+    return <Icon {...args} />;
+  }
+};
