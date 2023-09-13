@@ -119,8 +119,7 @@ export const globalTypes = {
         { value: 'cadi', title: 'Cadi' },
         { value: 'carlsberg', title: 'Carlsberg' },
         { value: 'lbc', title: 'LBC' }
-      ],
-      title: 'Theme'
+      ]
     }
   }
 };
