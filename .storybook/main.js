@@ -1,6 +1,7 @@
-import { dirname, join } from "path";
+import { dirname, join } from 'path';
+
 module.exports = {
-  stories: ['../malty/**/**/*.stories.mdx', '../malty/**/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../malty/!(icons)/!(IconWrapper)/*.stories.@(mdx|js|jsx|ts|tsx)'],
 
   addons: [
     {
@@ -34,7 +35,7 @@ module.exports = {
   `,
 
   framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
+    name: getAbsolutePath('@storybook/react-webpack5'),
     options: {}
   },
 
@@ -44,5 +45,5 @@ module.exports = {
 };
 
 function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
+  return dirname(require.resolve(join(value, 'package.json')));
 }
