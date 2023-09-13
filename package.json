@@ -12,8 +12,8 @@
   ],
   "description": "Malty, probably the best Design System in the world",
   "engines": {
-    "node": ">=12 <=16",
-    "npm": ">=6 <=8"
+    "node": "16.x",
+    "npm": "8.x"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,8 @@
     "compile": "tsc -b",
     "start": "bit compile && yarn storybook",
     "serve": "bit install && bit compile && bit start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --docs -o docs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build --docs -o docs",
     "build": "bit build",
     "test": "jest",
     "test:ci": "jest --silent --ci",
