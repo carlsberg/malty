@@ -33,7 +33,9 @@ describe('toggle', () => {
     render(
       <Toggle label="Label text" error="Error text" dataTestId="toggle" checked disabled onValueChange={mockFn} />
     );
-    const toggle = screen.getByRole('checkbox', { hidden: true });
+
+    // TODO: transform this into "getByText(labelText)" on the following ticket https://carlsberggbs.atlassian.net/browse/DSM-822
+    const toggle = screen.getByTestId('toggle');
 
     expect(toggle).toBeDisabled();
   });
