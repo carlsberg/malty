@@ -71,7 +71,7 @@
     },
     "atoms/input": {
         "scope": "carlsberggroup.malty",
-        "version": "0.1.9",
+        "version": "0.1.10",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
@@ -143,7 +143,7 @@
     },
     "atoms/select": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.103",
+        "version": "0.0.104",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
@@ -1565,13 +1565,13 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.34",
+        "version": "0.0.35",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
     "molecules/product-quantity-actions": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.17",
+        "version": "0.0.18",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductQuantityActions"
     },
@@ -1613,7 +1613,7 @@
     },
     "organisms/carousel": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.17",
+        "version": "0.0.18",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Carousel"
     },
