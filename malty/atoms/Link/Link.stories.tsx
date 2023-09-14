@@ -65,5 +65,5 @@ const Template: Story<LinkProps> = (args) => <LinkComponent {...args} />;
 export const Link = Template.bind({});
 
 Link.args = {
-  text: 'Link text'
+  //text: 'Link text'
 };

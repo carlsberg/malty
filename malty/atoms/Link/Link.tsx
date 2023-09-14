@@ -1,10 +1,8 @@
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { ForwardedRef, forwardRef, RefObject, useImperativeHandle, useRef } from 'react';
 import { StyledAnchor } from './Link.styled';
-import { LinkColor, LinkProps, LinkStyle } from './Link.types';
+import { ForwardRefComponent as PolymorphicForwardRefComponent, LinkProps } from './Link.types';
 
-export const Link = ({
+/*export const Link = ({
   text,
   disabled = false,
   url,
@@ -12,12 +10,16 @@ export const Link = ({
   dataTestId,
   color = LinkColor.DigitalBlack,
   linkStyle = LinkStyle.MediumDefault,
-  onClick
+  onClick,
+  as = 'a',
+  to
 }: LinkProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
     <StyledAnchor
+      as={as}
+      to={to}
       onClick={onClick}
       data-testid={dataTestId}
       disabled={disabled}
@@ -28,7 +30,19 @@ export const Link = ({
       color={color}
       linkStyle={linkStyle}
     >
-      <div>{text || children}</div>
+      {text || children}
     </StyledAnchor>
   );
-};
+};*/
+export function useRefObjectAsForwardedRef<T>(forwardedRef: ForwardedRef<T>, refObject: RefObject<T>): void {
+  useImperativeHandle<T | null, T | null>(forwardedRef, () => refObject.current);
+}
+
+export const Link = forwardRef(({ as = 'a', ...props }, forwardedRef) => {
+  const innerRef = useRef<HTMLAnchorElement>(null);
+  useRefObjectAsForwardedRef(forwardedRef, innerRef);
+
+  return <StyledAnchor as={as} {...props} ref={innerRef} />;
+}) as PolymorphicForwardRefComponent<'a', LinkProps>;
+
+Link.displayName = 'Link';
