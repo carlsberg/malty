@@ -1,3 +1,4 @@
+import { Input } from '@carlsberggroup/malty.atoms.input';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import styled from 'styled-components';
 
@@ -15,6 +16,10 @@ export const StyledStockStatusColor = styled.div<{
   height: ${({ theme }) => theme.sizes['3xs'].value};
   background-color: ${({ theme, infoColor }) => infoColor && theme.colors['text-colours'][infoColor].value};
   border-radius: 50%;
+`;
+
+export const StyledReadOnlyInput = styled(Input)`
+  max-width: 50%;
 `;
 
 export const StyledActions = styled.div`

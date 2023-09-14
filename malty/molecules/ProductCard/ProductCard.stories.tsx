@@ -12,13 +12,18 @@ import React, { useState } from 'react';
 import { ProductCard as ProductCardComponent } from './ProductCard';
 import { ProductCardProps } from './ProductCard.types';
 
+enum ProductCardVariants {
+  Landscape = 'landscape',
+  ReadOnly = 'readOnly'
+}
+
 export default {
   title: 'Cards/ProductCard',
   component: ProductCardComponent,
   parameters: {
     importObject: 'ProductCard',
     importPath: '@carlsberggroup/malty.molecules.product-card',
-    variants: ['default', 'landscape']
+    variants: Object.values(ProductCardVariants)
   },
   argTypes: {
     title: {
@@ -246,7 +251,7 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'landscape':
+  case ProductCardVariants.Landscape:
     ProductCard.args = {
       title: 'This is an article card Title',
       imageSrc: 'https://picsum.photos/320/180',
@@ -281,6 +286,26 @@ switch (variant) {
         { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
         { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
       ]
+    };
+    break;
+  case ProductCardVariants.ReadOnly:
+    ProductCard.args = {
+      title: 'This is an article card Title',
+      imageSrc: 'https://picsum.photos/320/180',
+      dataTestId: 'Product-card',
+      actionQuantityInput: {
+        value: '3',
+        readOnly: true
+      },
+      price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
+      sku: 'Sku: 12512 512',
+      loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
+      stock: { label: 'In Stock', stockColor: TextColor.Success },
+      quantitySelectOptions: selectQuanityOptions,
+      discountPill: { text: '20%', color: PillColor.AlertStrong },
+      promoPill: { text: 'Promo', color: PillColor.AlertStrong, icon: IconName.Coupon },
+      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
+      favoriteIconColor: IconColor.Primary
     };
     break;
 
