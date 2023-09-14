@@ -34,7 +34,7 @@
     "test:ci": "jest --silent --ci",
     "test:watch": "jest --watch",
     "format": "prettier --write . --loglevel error",
-    "check-lint": "eslint \"malty/**/*.{js,ts,tsx}\" --max-warnings=14",
+    "check-lint": "eslint \"malty/**/*.{js,ts,tsx}\" --max-warnings=9",
     "lint": "yarn check-lint --fix",
     "check-types": "tsc --noemit",
     "check-format": "prettier --check ."
