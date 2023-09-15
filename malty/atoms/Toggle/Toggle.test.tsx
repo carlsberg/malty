@@ -1,23 +1,56 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Toggle } from './Toggle';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
+const mockFn = jest.fn();
+
 describe('toggle', () => {
-  it('renders elements', () => {
-    const mockFn = jest.fn();
-    render(<Toggle label="Label text" error="Error text" checked onValueChange={mockFn} />);
-    expect(screen.getByText('Label text')).toBeInTheDocument();
-    expect(screen.getByText('Error text')).toBeInTheDocument();
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  it('calls function on click', () => {
-    const mockFn = jest.fn();
+  it('should render elements', () => {
+    render(<Toggle label="Label text" error="Error text" dataTestId="toggle" checked onValueChange={mockFn} />);
+    expect(screen.getByText('Label text')).toBeInTheDocument();
+    expect(screen.getByText('Error text')).toBeInTheDocument();
+    expect(screen.getByTestId('toggle')).toBeInTheDocument();
+  });
+
+  it('should call function on click', () => {
     render(<Toggle label="Label text" error="Error text" checked onValueChange={mockFn} />);
     const toggle = screen.getByText('Label text');
-    fireEvent.click(toggle);
+
+    userEvent.click(toggle);
+
     expect(mockFn).toHaveBeenCalledTimes(1);
+  });
+
+  it('should be disabled', () => {
+    render(
+      <Toggle label="Label text" error="Error text" dataTestId="toggle" checked disabled onValueChange={mockFn} />
+    );
+
+    // TODO: transform this into "getByText(labelText)" on the following ticket https://carlsberggbs.atlassian.net/browse/DSM-822
+    const toggle = screen.getByTestId('toggle');
+
+    expect(toggle).toBeDisabled();
+  });
+
+  it('should be checked', () => {
+    render(<Toggle label="Label text" error="Error text" dataTestId="toggle" checked onValueChange={mockFn} />);
+    const toggle = screen.getByTestId('toggle');
+
+    expect(toggle).toBeChecked();
+  });
+
+  it('should be unchecked', () => {
+    render(<Toggle label="Label text" error="Error text" dataTestId="toggle" disabled onValueChange={mockFn} />);
+    const toggle = screen.getByTestId('toggle');
+
+    expect(toggle).not.toBeChecked();
   });
 });
