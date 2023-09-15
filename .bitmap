@@ -161,7 +161,7 @@
     },
     "atoms/toggle": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.40",
+        "version": "0.0.41",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Toggle"
     },
