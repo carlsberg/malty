@@ -15,24 +15,18 @@ describe('link', () => {
   const url = 'https://www.google.com/';
 
   it('should render with correct text', () => {
-    const { rerender } = render(<Link text={defaultText} url={url} />);
+    const { rerender } = render(<Link href={url}>{defaultText}</Link>);
 
     expect(screen.getByText(defaultText)).toBeInTheDocument();
 
-    rerender(<Link text={newText} url={url} />);
+    rerender(<Link href={url}>{newText}</Link>);
 
     expect(screen.getByText(newText)).toBeInTheDocument();
   });
 
-  it('should render with correct text via child', () => {
-    render(<Link url={url}>{defaultText}</Link>);
-
-    expect(screen.getByText(defaultText)).toBeInTheDocument();
-  });
-
   it('should render with correct dataTestId', () => {
     render(
-      <Link dataTestId="link" url={url}>
+      <Link dataTestId="link" href={url}>
         {defaultText}
       </Link>
     );
@@ -42,7 +36,7 @@ describe('link', () => {
 
   it('should click on defined url', () => {
     render(
-      <Link dataTestId="link" url={url} onClick={onClick}>
+      <Link dataTestId="link" href={url} onClick={onClick}>
         {defaultText}
       </Link>
     );
@@ -56,7 +50,7 @@ describe('link', () => {
 
   it('should not access link when disabled', () => {
     render(
-      <Link dataTestId="link" url={url} disabled>
+      <Link dataTestId="link" href={url} disabled>
         {defaultText}
       </Link>
     );

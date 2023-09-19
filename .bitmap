@@ -1665,5 +1665,11 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/utils/test"
     },
+    "utils/types": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/types"
+    },
     "$schema-version": "15.0.0"
 }
