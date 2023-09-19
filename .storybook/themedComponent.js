@@ -1,10 +1,12 @@
-import { Canvas, Description, DocsContext } from '@storybook/addon-docs';
+import { DocsContext, Markdown } from '@storybook/addon-docs';
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const StyledCanvas = styled(Canvas)`
-  background-color: #d5eaff;
-  padding: 0;
+const StyledCanvas = styled.div`
+  background-color: #ffe1e1;
+  padding: 15px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
   p.sbdocs.sbdocs-p {
     margin: 0px !important;
   }
@@ -23,18 +25,14 @@ export const ThemedComponent = () => {
   }, [context]);
 
   return themed ? (
-    <>
-      <StyledCanvas>
-        <Description>
-          **This is a themed component:** To see the Theme menu, and be able to change the theme for the
-          _MaltyThemeProvider_, please press the 'T' key on your keyboard, and the toolbar should appear above. For more
-          details, or if this doesn't work, please reach out to the Malty team.
-        </Description>
-      </StyledCanvas>
-    </>
-  ) : (
-    <></>
-  );
+    <StyledCanvas>
+      <Markdown>
+        **This is a themed component:** To see the Theme menu, and be able to change the theme for the
+        _MaltyThemeProvider_, please press the 'T' key on your keyboard, and the toolbar should appear above. For more
+        details, or if this doesn't work, please reach out to the Malty team.
+      </Markdown>
+    </StyledCanvas>
+  ) : null;
 };
 
 export default ThemedComponent;
