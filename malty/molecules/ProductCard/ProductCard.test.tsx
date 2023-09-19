@@ -23,13 +23,13 @@ const defaultBody = (
 );
 
 describe('ProductCard', () => {
-  it('renders with correct content', () => {
+  it('should render with correct content', () => {
     render(<ProductCard imageSrc={heroScr} title={titleText} sku={sku} actionButton={actionButton} />);
     expect(screen.getByText(titleText)).not.toBeNull();
     expect(screen.getByText(sku)).not.toBeNull();
   });
 
-  it('calls function on click', () => {
+  it('should call function on click', () => {
     const onClick = jest.fn();
     render(
       <ProductCard

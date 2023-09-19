@@ -91,27 +91,31 @@ export const Input = forwardRef(
     };
 
     const handleClear = () => {
-      onValueChange('');
+      onValueChange?.('');
       onClearButtonClick?.();
     };
 
     const handleLeftButtonClick = () => {
-      onValueChange(value ? (+value - 1).toString() : '-1');
+      onValueChange?.(value ? (+value - 1).toString() : '-1');
       onClickLeftInputButton?.();
     };
 
     const handleRightButtonClick = () => {
-      onValueChange(value ? (+value + 1).toString() : '1');
+      onValueChange?.(value ? (+value + 1).toString() : '1');
       onClickRightInputButton?.();
     };
 
     const handleOnQuantityChange = ({ currentTarget: { value: currentValue } }: ChangeEvent<HTMLInputElement>) => {
       if (currentValue === '') {
-        onValueChange(currentValue);
+        onValueChange?.(currentValue);
       } else {
         const newValue = parseInt(currentValue, 10);
-        onValueChange(ensureQuantityRange(newValue, min, max).toString());
+        onValueChange?.(ensureQuantityRange(newValue, min, max).toString());
       }
+    };
+
+    const handleOnInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+      onValueChange?.(transform((event.target as HTMLInputElement).value));
     };
 
     const renderClearable = () =>
@@ -165,7 +169,7 @@ export const Input = forwardRef(
           addRight={
             (iconPosition !== InputIconPosition.Left && type !== InputType.Quantity) || type === InputType.Password
           }
-          onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+          onChange={handleOnInputChange}
           onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
           type={type === InputType.Password ? passwordToggleType : type}
           theme={theme}
@@ -294,7 +298,7 @@ export const Input = forwardRef(
             isError={!!error}
             isIconLeft={iconPosition === InputIconPosition.Left}
             addRight={iconPosition !== InputIconPosition.Left && type !== InputType.Quantity}
-            onChange={(e) => onValueChange(transform((e.target as HTMLInputElement).value))}
+            onChange={handleOnInputChange}
             onBlur={(e) => onInputBlur?.(transform((e.target as HTMLInputElement).value))}
             type={type}
             theme={theme}
