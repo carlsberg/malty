@@ -60,10 +60,18 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'Link data-testid'
+    },
+    children: {
+      description: 'Label your link with a child, as a string',
+      control: 'text'
     }
   }
 };
 
-const Template: Story<LinkProps> = (args) => <LinkComponent {...args}>Link text</LinkComponent>;
+const Template: Story<LinkProps> = (args) => <LinkComponent {...args} />;
 
 export const Link = Template.bind({});
+
+Link.args = {
+  children: 'Link text'
+};

@@ -11,6 +11,7 @@ export const Link = (({
   color = LinkColor.DigitalBlack,
   linkStyle = LinkStyle.MediumDefault,
   dataTestId,
+  children,
   ...props
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -23,6 +24,8 @@ export const Link = (({
       data-testid={dataTestId}
       theme={theme}
       {...props}
-    />
+    >
+      {children}
+    </StyledAnchor>
   );
 }) as PolymorphicComponent<'a', LinkProps>;

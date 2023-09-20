@@ -1,4 +1,5 @@
 export interface LinkProps {
+  children?: string;
   color?: LinkColor;
   disabled?: boolean;
   linkStyle?: LinkStyle;
