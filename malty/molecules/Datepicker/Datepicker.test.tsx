@@ -10,12 +10,20 @@ jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 const mockFn = jest.fn();
 
 describe('datepicker', () => {
-  it('renders elements', () => {
-    render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} />);
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should render elements', () => {
+    render(
+      <Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} placeholderText="datepicker" />
+    );
     expect(screen.getByLabelText(label)).toBeInTheDocument();
     expect(screen.getByDisplayValue('01/01/2022')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('datepicker')).toBeInTheDocument();
   });
-  it('renders datepicker with range', () => {
+
+  it('should render datepicker with range', () => {
     render(
       <Datepicker
         label={label}
@@ -29,14 +37,14 @@ describe('datepicker', () => {
     expect(screen.getByDisplayValue('01/01/2022 - 01/03/2022')).toBeInTheDocument();
   });
 
-  it('opens datepicker when clicked', () => {
+  it('should open datepicker when clicked', () => {
     render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} />);
     expect(screen.queryByText('January')).not.toBeInTheDocument();
     userEvent.click(screen.getByLabelText(label));
     expect(screen.getByText('January')).toBeInTheDocument();
   });
 
-  it('renders datepicker within a Portal and close it when selecting date', () => {
+  it('should render datepicker within a Portal and close it when selecting date', () => {
     render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} withPortal />);
     userEvent.click(screen.getByLabelText(label));
     expect(screen.getByText('January')).toBeInTheDocument();
@@ -46,7 +54,7 @@ describe('datepicker', () => {
     expect(screen.queryByText('January')).not.toBeInTheDocument();
   });
 
-  it('renders datepicker within a Portal and not close it when selecting date if shouldCloseOnSelect is false', () => {
+  it('should render datepicker within a Portal and not close it when selecting date if shouldCloseOnSelect is false', () => {
     render(
       <Datepicker
         label={label}
@@ -62,5 +70,55 @@ describe('datepicker', () => {
     userEvent.click(dayToBeClicked);
     expect(mockFn).toHaveBeenCalled();
     expect(screen.getByText('January')).toBeInTheDocument();
+  });
+
+  it('should not open datepicker when disabled', () => {
+    render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} disabled />);
+
+    expect(screen.queryByText('January')).not.toBeInTheDocument();
+
+    userEvent.click(screen.getByLabelText(label));
+
+    expect(mockFn).not.toHaveBeenCalled();
+  });
+
+  it('should not open datepicker when readOnly', () => {
+    render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} readOnly />);
+
+    expect(screen.queryByText('January')).not.toBeInTheDocument();
+
+    userEvent.click(screen.getByLabelText(label));
+
+    expect(mockFn).not.toHaveBeenCalled();
+  });
+
+  it('should not set a certain date when its off the minmax date interval', () => {
+    render(
+      <Datepicker
+        label={label}
+        onChange={mockFn}
+        startDate={new Date(2023, 8, 5)}
+        minDate={new Date(2023, 8, 1)}
+        maxDate={new Date(2023, 8, 20)}
+      />
+    );
+
+    userEvent.click(screen.getByLabelText(label));
+
+    const dayToBeClicked = screen.getByText('25');
+
+    expect(screen.getByText('September')).toBeInTheDocument();
+
+    userEvent.click(dayToBeClicked);
+
+    expect(mockFn).not.toHaveBeenCalled();
+  });
+
+  it('should be required to fill', () => {
+    render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} required />);
+
+    // userEvent.click(screen.getByLabelText(label));
+
+    expect(screen.getByLabelText(label)).toBeRequired();
   });
 });
