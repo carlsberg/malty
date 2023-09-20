@@ -14,7 +14,7 @@ export default {
     as: {
       control: false,
       description:
-        'Use this prop to override the default value and, for example, integrate with other routing libraries like React Router or Next.js',
+        'Use this prop to override the default value and, for example, integrate with other routing libraries like React Router or Next.js. The props of the component passed in the "as" prop will be part of the Link component',
       table: {
         defaultValue: {
           summary: 'a'
@@ -62,7 +62,7 @@ export default {
       description: 'Link data-testid'
     },
     children: {
-      description: 'Label your link with a child, as a string',
+      description: 'Use this prop to give a label to the component',
       control: 'text'
     }
   }
