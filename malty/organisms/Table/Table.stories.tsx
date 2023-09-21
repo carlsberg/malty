@@ -291,6 +291,9 @@ export default {
           summary: 'TableSize.Medium'
         }
       }
+    },
+    selectedRows: {
+      description: 'Use this prop to define which rows are selected by default'
     }
   }
 } as Meta;
@@ -328,6 +331,7 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
+      selectedRows: { '1': true, '7': true, '8': true, '15': true },
       onSortingChange: undefined
     };
     break;

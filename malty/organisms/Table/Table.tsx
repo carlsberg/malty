@@ -13,6 +13,7 @@ import {
   OnChangeFn,
   PaginationState,
   Row,
+  RowSelectionState,
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
@@ -58,6 +59,7 @@ export const Table = ({
   allowSelection = false,
   manualPagination,
   defaultSorting,
+  selectedRows,
   onRowClick,
   onSortingChange,
   onRowSelect = () => null,
@@ -67,7 +69,7 @@ export const Table = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data, setData] = useState(rows);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
-  const [rowSelection, setRowSelection] = useState({});
+  const [rowSelection, setRowSelection] = useState(selectedRows ?? {});
   const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
 
@@ -107,6 +109,13 @@ export const Table = ({
     return parent ? [parent.id, row.id].join('.') : row.id.toString();
   };
 
+  const handleOnRowSelectionChange: OnChangeFn<RowSelectionState> = (updaterFn) => {
+    const value = typeof updaterFn === 'function' ? updaterFn(rowSelection) : {};
+
+    onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
+    setRowSelection(value);
+  };
+
   const table = useReactTable({
     data,
     columns,
@@ -118,7 +127,7 @@ export const Table = ({
       sorting
     },
     manualSorting: !!onSortingChange,
-    onRowSelectionChange: setRowSelection,
+    onRowSelectionChange: handleOnRowSelectionChange,
     getCoreRowModel: getCoreRowModel(),
     onPaginationChange: setPagination,
     getPaginationRowModel: manualPagination ? undefined : getPaginationRowModel(),
@@ -150,10 +159,6 @@ export const Table = ({
   useEffect(() => {
     setData(rows);
   }, [rows]);
-
-  useEffect(() => {
-    onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
-  }, [onRowSelect, rowSelection, table]);
 
   useEffect(() => {
     switch (size) {

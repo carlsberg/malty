@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { RowSelectionState } from '@tanstack/react-table';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
@@ -39,79 +40,92 @@ const rows: TableRowProps[] = [
     id: '1',
     name: 'Aguila Restaurant',
     age: 70,
-    birthdate: new Date(1953, 3, 20)
+    birthdate: new Date(1953, 3, 20),
+    selected: true
   },
   {
     id: '2',
     name: 'Fitzgerald Moody',
     age: 35,
-    birthdate: new Date(1988, 5, 12)
+    birthdate: new Date(1988, 5, 12),
+    selected: true
   },
   {
     id: '3',
     name: 'Liberty Bell',
     age: 66,
-    birthdate: new Date(1957, 6, 22)
+    birthdate: new Date(1957, 6, 22),
+    selected: false
   },
   {
     id: '4',
     name: 'Halla Pugh',
     age: 31,
-    birthdate: new Date(1992, 2, 12)
+    birthdate: new Date(1992, 2, 12),
+    selected: false
   },
   {
     id: '5',
     name: 'Jaquelyn Valenzuela',
     age: 52,
-    birthdate: new Date(1971, 4, 23)
+    birthdate: new Date(1971, 4, 23),
+    selected: false
   },
   {
     id: '6',
     name: 'Kyra Mcknight',
     age: 23,
-    birthdate: new Date(2000, 3, 30)
+    birthdate: new Date(2000, 3, 30),
+    selected: false
   },
   {
     id: '7',
     name: 'Naida Barlow',
     age: 52,
-    birthdate: new Date(1971, 1, 25)
+    birthdate: new Date(1971, 1, 25),
+    selected: false
   },
   {
     id: '8',
     name: 'Amir Joyce',
     age: 26,
-    birthdate: new Date(1997, 7, 10)
+    birthdate: new Date(1997, 7, 10),
+    selected: false
   },
   {
     id: '9',
     name: 'Lenore Dixon',
     age: 40,
-    birthdate: new Date(1983, 2, 22)
+    birthdate: new Date(1983, 2, 22),
+    selected: false
   },
   {
     id: '10',
     name: 'Carla Velazquez',
     age: 29,
-    birthdate: new Date(1994, 5, 15)
+    birthdate: new Date(1994, 5, 15),
+    selected: false
   },
   {
     id: '11',
     name: 'Quamar Petersen',
     age: 58,
-    birthdate: new Date(1965, 4, 27)
+    birthdate: new Date(1965, 4, 27),
+    selected: false
   },
   {
     id: '12',
     name: 'Frank Lemar',
     age: 46,
-    birthdate: new Date(1922, 10, 4)
+    birthdate: new Date(1922, 10, 4),
+    selected: false
   },
   {
     id: '13',
     name: 'Patrick Stout',
     age: 61,
-    birthdate: new Date(1923, 6, 7)
+    birthdate: new Date(1923, 6, 7),
+    selected: true
   }
 ];
 
@@ -264,6 +278,24 @@ describe('table', () => {
         expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
       });
     });
+
+    it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
+      const defaultSelectedRows = { '1': true, '2': true, '13': true };
+
+      render(<Table headers={headers} rows={rows} allowSelection selectedRows={defaultSelectedRows} />);
+
+      const firstPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
+      const firstPageSecondRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[2];
+
+      expect(firstPageFirstRowCheckbox).toBeChecked();
+      expect(firstPageSecondRowCheckbox).toBeChecked();
+
+      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+      const secondPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
+
+      expect(secondPageFirstRowCheckbox).toBeChecked();
+    });
   });
 
   describe('Manual pagination', () => {
@@ -346,6 +378,61 @@ describe('table', () => {
       secondPageItems.forEach((row) => {
         expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
       });
+    });
+
+    it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
+      const firstPageRowsSelectedArray = firstPageItems.filter((item) => item.selected);
+      const firstPageRowsSelected: RowSelectionState = {};
+
+      firstPageRowsSelectedArray.forEach((row) => {
+        firstPageRowsSelected[`${row.id}`] = true;
+      });
+
+      const secondPageRowsSelectedArray = secondPageItems.filter((item) => item.selected);
+      const secondPageRowsSelected: RowSelectionState = {};
+
+      secondPageRowsSelectedArray.forEach((row) => {
+        secondPageRowsSelected[`${row.id}`] = true;
+      });
+
+      const TableComponent = () => {
+        const [tableRows, setTableRows] = useState(firstPageItems);
+        const [pageIndex, setPageIndex] = useState(0);
+        const [rowSelection, setRowSelection] = useState<RowSelectionState>(firstPageRowsSelected);
+
+        const handleOnPaginationChange = (page: number) => {
+          setPageIndex(page - 1);
+          setTableRows([...tableRows, ...secondPageItems]);
+          setRowSelection(secondPageRowsSelected);
+        };
+
+        return (
+          <Table
+            headers={headers}
+            rows={tableRows}
+            allowSelection
+            selectedRows={rowSelection}
+            paginationIndex={pageIndex}
+            paginationSize={10}
+            manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+            onPaginationChange={handleOnPaginationChange}
+          />
+        );
+      };
+
+      render(<TableComponent />);
+
+      const firstPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
+      const firstPageSecondRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[2];
+
+      expect(firstPageFirstRowCheckbox).toBeChecked();
+      expect(firstPageSecondRowCheckbox).toBeChecked();
+
+      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+      const secondPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
+
+      expect(secondPageFirstRowCheckbox).toBeChecked();
     });
   });
 });
