@@ -13,7 +13,6 @@ export default {
   parameters: {
     importObject: 'Card',
     importPath: '@carlsberggroup/malty.atoms.Card',
-    backgrounds: { name: 'dark background', value: '#000', default: true },
     variants: ['shadowed', 'landscape', 'selected', 'onclick']
   },
   argTypes: {
@@ -58,7 +57,6 @@ export default {
   }
 };
 
-// eslint-disable-next-line react/function-component-definition
 const Template: Story<CardProps> = (args) => {
   return <CardComponent {...args} />;
 };
