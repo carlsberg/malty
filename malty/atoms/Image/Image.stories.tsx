@@ -76,13 +76,13 @@ export default {
           summary: 'JSX.Element'
         }
       },
-      control: {
-        type: 'select',
-        options: {
-          'No children': [],
-          'Example H1 tag': [<h1>This is an h1 tag</h1>]
-        }
-      }
+      options: ['No children', 'Example H1 tag', 'This is a simple string'],
+      mapping: {
+        'No children': undefined,
+        'Example H1 tag': <h1>This is an h1 tag</h1>,
+        'This is a simple string': 'This is a simple string'
+      },
+      control: 'select'
     },
     alt: {
       control: 'text',

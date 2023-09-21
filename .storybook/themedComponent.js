@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledCanvas = styled.div`
-  background-color: #ffe1e1;
+  background-color: #d5eaff;
   padding: 15px 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
