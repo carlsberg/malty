@@ -1,1 +1,1 @@
-export type { PolymorphicComponent } from './polymorphic';
+export type { PolymorphicProps } from './polymorphic';

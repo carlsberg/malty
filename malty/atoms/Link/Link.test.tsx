@@ -4,6 +4,19 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Link } from './Link';
 
+type MagicLinkProps = {
+  href?: string;
+  magicAttribute?: string;
+};
+
+const MagicLink = ({ href, magicAttribute }: MagicLinkProps) => {
+  return (
+    <a href={href} data-magic-attribute={magicAttribute} data-testid="magic-link">
+      MagicLink
+    </a>
+  );
+};
+
 describe('link', () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -58,5 +71,15 @@ describe('link', () => {
     userEvent.click(screen.getByTestId('link'), undefined, { skipPointerEventsCheck: true });
 
     expect(onClick).toHaveBeenCalledTimes(0);
+  });
+
+  it('should render the link component with the properties of the component passed on the "as" prop', () => {
+    const magicAttribute = 'magicAttr';
+    render(<Link as={MagicLink} href={url} magicAttribute={magicAttribute} />);
+
+    const link = screen.getByTestId('magic-link');
+
+    expect(link).toHaveAttribute('href', url);
+    expect(link).toHaveAttribute('data-magic-attribute', magicAttribute);
   });
 });

@@ -63,12 +63,16 @@ export default {
     },
     children: {
       description: 'Use this prop to give a label to the component',
-      control: 'text'
+      table: {
+        type: {
+          summary: 'ReactNode'
+        }
+      }
     }
   }
 };
 
-const Template: Story<LinkProps> = (args) => <LinkComponent {...args} />;
+const Template: Story<LinkProps<'a'>> = (args) => <LinkComponent {...args} />;
 
 export const Link = Template.bind({});
 

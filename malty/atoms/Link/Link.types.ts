@@ -1,5 +1,8 @@
-export interface LinkProps {
-  children?: string;
+import { ElementType, ReactNode } from 'react';
+
+export interface LinkProps<Component extends ElementType> {
+  as?: Component;
+  children?: ReactNode;
   color?: LinkColor;
   disabled?: boolean;
   linkStyle?: LinkStyle;
