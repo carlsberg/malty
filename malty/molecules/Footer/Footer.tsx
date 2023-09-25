@@ -41,7 +41,7 @@ export const Footer = ({
                 dataTestId={`${dataQaId}-link-${el.label}`}
                 key={el.label}
                 color={LinkColor.White}
-                url={el.url}
+                href={el.url}
                 linkStyle={LinkStyle.MediumSmallDefault}
               >
                 {el.label}

@@ -1,12 +1,12 @@
-export interface LinkProps {
-  text?: string | number;
+import { ElementType, ReactNode } from 'react';
+
+export interface LinkProps<Component extends ElementType = 'a'> {
+  as?: Component;
+  children?: ReactNode;
   color?: LinkColor;
-  url?: string;
-  linkStyle?: LinkStyle;
   disabled?: boolean;
-  children?: string | JSX.Element;
+  linkStyle?: LinkStyle;
   dataTestId?: string;
-  onClick?: () => void;
 }
 
 export enum LinkColor {
