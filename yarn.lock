@@ -20679,6 +20679,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"types-e8c443@workspace:malty/utils/types":
+  version: 0.0.0-use.local
+  resolution: "types-e8c443@workspace:malty/utils/types"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "typescript@npm:~4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Ftypescript%2F-%2Ftypescript-4.9.5.tgz"
