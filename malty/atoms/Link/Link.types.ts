@@ -1,6 +1,6 @@
 import { ElementType, ReactNode } from 'react';
 
-export interface LinkProps<Component extends ElementType> {
+export interface LinkProps<Component extends ElementType = 'a'> {
   as?: Component;
   children?: ReactNode;
   color?: LinkColor;
