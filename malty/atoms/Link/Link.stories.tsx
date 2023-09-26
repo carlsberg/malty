@@ -11,25 +11,34 @@ export default {
     importPath: '@carlsberggroup/malty.atoms.link'
   },
   argTypes: {
-    text: {
-      control: 'text',
-      description: 'Text to be displayed as link'
-    },
-
-    url: {
-      control: 'text',
-      description: 'Use this component as link or button with a simple URL, no click function needed'
+    as: {
+      control: false,
+      description:
+        'Use this prop to override the default value and, for example, integrate with other routing libraries like React Router or Next.js. The props of the component passed in the "as" prop will be part of the Link component',
+      table: {
+        defaultValue: {
+          summary: 'a'
+        },
+        type: {
+          summary: 'ElementType<any> | undefined'
+        }
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Disable link'
+      description: 'Disable link',
+      table: {
+        defaultValue: {
+          summary: 'false'
+        }
+      }
     },
     color: {
       description: 'Link Color. Options are',
       options: Object.values(LinkColor),
       table: {
         defaultValue: {
-          summary: 'LinkColor..DigitalBlack'
+          summary: 'LinkColor.DigitalBlack'
         }
       },
       control: {
@@ -41,21 +50,24 @@ export default {
       options: Object.values(LinkStyle),
       table: {
         defaultValue: {
-          summary: 'LinkStyle..MediumDefault'
+          summary: 'LinkStyle.MediumDefault'
         }
       },
       control: {
         type: 'select'
       }
     },
-
     dataTestId: {
       control: 'text',
       description: 'Link data-testid'
     },
     children: {
-      control: 'text',
-      description: 'Label your button with a child, as a string. This is an alternative to the `text` property'
+      description: 'Use this prop to give a label to the component',
+      table: {
+        type: {
+          summary: 'ReactNode'
+        }
+      }
     }
   }
 };
@@ -65,5 +77,5 @@ const Template: Story<LinkProps> = (args) => <LinkComponent {...args} />;
 export const Link = Template.bind({});
 
 Link.args = {
-  text: 'Link text'
+  children: 'Link text'
 };
