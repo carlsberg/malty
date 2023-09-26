@@ -18,6 +18,7 @@ describe('datepicker', () => {
     render(
       <Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} placeholderText="datepicker" />
     );
+
     expect(screen.getByLabelText(label)).toBeInTheDocument();
     expect(screen.getByDisplayValue('01/01/2022')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('datepicker')).toBeInTheDocument();
@@ -33,23 +34,32 @@ describe('datepicker', () => {
         endDate={new Date(2022, 0, 3)}
       />
     );
+
     expect(screen.getByLabelText(label)).toBeInTheDocument();
     expect(screen.getByDisplayValue('01/01/2022 - 01/03/2022')).toBeInTheDocument();
   });
 
   it('should open datepicker when clicked', () => {
     render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} />);
+
     expect(screen.queryByText('January')).not.toBeInTheDocument();
+
     userEvent.click(screen.getByLabelText(label));
+
     expect(screen.getByText('January')).toBeInTheDocument();
   });
 
   it('should render datepicker within a Portal and close it when selecting date', () => {
     render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} withPortal />);
+
     userEvent.click(screen.getByLabelText(label));
+
     expect(screen.getByText('January')).toBeInTheDocument();
+
     const dayToBeClicked = screen.getByText('10');
+
     userEvent.click(dayToBeClicked);
+
     expect(mockFn).toHaveBeenCalled();
     expect(screen.queryByText('January')).not.toBeInTheDocument();
   });
@@ -65,9 +75,13 @@ describe('datepicker', () => {
       />
     );
     userEvent.click(screen.getByLabelText(label));
+
     expect(screen.getByText('January')).toBeInTheDocument();
+
     const dayToBeClicked = screen.getByText('10');
+
     userEvent.click(dayToBeClicked);
+
     expect(mockFn).toHaveBeenCalled();
     expect(screen.getByText('January')).toBeInTheDocument();
   });
@@ -80,6 +94,8 @@ describe('datepicker', () => {
     userEvent.click(screen.getByLabelText(label));
 
     expect(mockFn).not.toHaveBeenCalled();
+
+    expect(screen.queryByText('January')).not.toBeInTheDocument();
   });
 
   it('should not open datepicker when readOnly', () => {
@@ -90,6 +106,8 @@ describe('datepicker', () => {
     userEvent.click(screen.getByLabelText(label));
 
     expect(mockFn).not.toHaveBeenCalled();
+
+    expect(screen.queryByText('January')).not.toBeInTheDocument();
   });
 
   it('should not set a certain date when its off the minmax date interval', () => {
@@ -112,12 +130,11 @@ describe('datepicker', () => {
     userEvent.click(dayToBeClicked);
 
     expect(mockFn).not.toHaveBeenCalled();
+    expect(dayToBeClicked).toHaveAttribute('aria-disabled', 'true');
   });
 
   it('should be required to fill', () => {
     render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} required />);
-
-    // userEvent.click(screen.getByLabelText(label));
 
     expect(screen.getByLabelText(label)).toBeRequired();
   });
