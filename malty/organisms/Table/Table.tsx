@@ -59,7 +59,7 @@ export const Table = ({
   allowSelection = false,
   manualPagination,
   defaultSorting,
-  selectedRows,
+  selectedRows = {},
   onRowClick,
   onSortingChange,
   onRowSelect = () => null,
@@ -69,7 +69,7 @@ export const Table = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data, setData] = useState(rows);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
-  const [rowSelection, setRowSelection] = useState(selectedRows ?? {});
+  const [rowSelection, setRowSelection] = useState(selectedRows);
   const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
 
@@ -151,6 +151,10 @@ export const Table = ({
     tempUser.splice(results.destination.index, 0, selectRow);
     setData(tempUser);
   };
+
+  useEffect(() => {
+    setRowSelection(selectedRows);
+  }, [selectedRows]);
 
   useEffect(() => {
     setPagination({ pageIndex: paginationIndex, pageSize: paginationSize });
@@ -314,6 +318,7 @@ export const Table = ({
                       onClick={() => handleOnRowClick(row.original)}
                       isClickable={!!onRowClick}
                       size={tableSize}
+                      data-testid={`${dataTestId}-row-${row.id}`}
                     >
                       {allowSelection && (
                         <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>

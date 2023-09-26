@@ -130,6 +130,9 @@ const rows: TableRowProps[] = [
 ];
 
 describe('table', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it('should render elements', () => {
     render(<Table rows={rows} headers={headers} dataTestId="table" />);
 
@@ -282,19 +285,21 @@ describe('table', () => {
     it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
       const defaultSelectedRows = { '1': true, '2': true, '13': true };
 
-      render(<Table headers={headers} rows={rows} allowSelection selectedRows={defaultSelectedRows} />);
+      render(
+        <Table headers={headers} rows={rows} allowSelection selectedRows={defaultSelectedRows} dataTestId="table" />
+      );
 
-      const firstPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
-      const firstPageSecondRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[2];
+      const firstPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[0].id}`);
+      const firstPageSecondRowCheckbox = screen.getByTestId(`table-row-${rows[1].id}`);
 
-      expect(firstPageFirstRowCheckbox).toBeChecked();
-      expect(firstPageSecondRowCheckbox).toBeChecked();
+      expect(within(firstPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
+      expect(within(firstPageSecondRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
 
       userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
 
-      const secondPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
+      const secondPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[12].id}`);
 
-      expect(secondPageFirstRowCheckbox).toBeChecked();
+      expect(within(secondPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
     });
   });
 
@@ -381,18 +386,15 @@ describe('table', () => {
     });
 
     it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
-      const firstPageRowsSelectedArray = firstPageItems.filter((item) => item.selected);
       const firstPageRowsSelected: RowSelectionState = {};
-
-      firstPageRowsSelectedArray.forEach((row) => {
-        firstPageRowsSelected[`${row.id}`] = true;
-      });
-
-      const secondPageRowsSelectedArray = secondPageItems.filter((item) => item.selected);
       const secondPageRowsSelected: RowSelectionState = {};
 
-      secondPageRowsSelectedArray.forEach((row) => {
-        secondPageRowsSelected[`${row.id}`] = true;
+      firstPageItems.forEach((row) => {
+        if (row.selected) firstPageRowsSelected[`${row.id}`] = true;
+      });
+
+      secondPageItems.forEach((row) => {
+        if (row.selected) secondPageRowsSelected[`${row.id}`] = true;
       });
 
       const TableComponent = () => {
@@ -414,6 +416,7 @@ describe('table', () => {
             selectedRows={rowSelection}
             paginationIndex={pageIndex}
             paginationSize={10}
+            dataTestId="table"
             manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
             onPaginationChange={handleOnPaginationChange}
           />
@@ -422,17 +425,17 @@ describe('table', () => {
 
       render(<TableComponent />);
 
-      const firstPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
-      const firstPageSecondRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[2];
+      const firstPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[0].id}`);
+      const firstPageSecondRowCheckbox = screen.getByTestId(`table-row-${rows[1].id}`);
 
-      expect(firstPageFirstRowCheckbox).toBeChecked();
-      expect(firstPageSecondRowCheckbox).toBeChecked();
+      expect(within(firstPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
+      expect(within(firstPageSecondRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
 
       userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
 
-      const secondPageFirstRowCheckbox = screen.getAllByRole('checkbox', { hidden: true })[1];
+      const secondPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[12].id}`);
 
-      expect(secondPageFirstRowCheckbox).toBeChecked();
+      expect(within(secondPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
     });
   });
 });
