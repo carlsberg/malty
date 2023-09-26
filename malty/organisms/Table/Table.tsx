@@ -59,7 +59,7 @@ export const Table = ({
   allowSelection = false,
   manualPagination,
   defaultSorting,
-  selectedRows = {},
+  rowSelection: rowSelectionProp = {},
   onRowClick,
   onSortingChange,
   onRowSelect = () => null,
@@ -69,7 +69,7 @@ export const Table = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const [data, setData] = useState(rows);
   const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
-  const [rowSelection, setRowSelection] = useState(selectedRows);
+  const [rowSelection, setRowSelection] = useState(rowSelectionProp);
   const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
 
@@ -152,9 +152,11 @@ export const Table = ({
     setData(tempUser);
   };
 
+  const rowSelectionPropString = JSON.stringify(rowSelectionProp);
+
   useEffect(() => {
-    setRowSelection(selectedRows);
-  }, [selectedRows]);
+    setRowSelection(JSON.parse(rowSelectionPropString));
+  }, [rowSelectionPropString]);
 
   useEffect(() => {
     setPagination({ pageIndex: paginationIndex, pageSize: paginationSize });

@@ -133,6 +133,7 @@ describe('table', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+
   it('should render elements', () => {
     render(<Table rows={rows} headers={headers} dataTestId="table" />);
 
@@ -160,7 +161,7 @@ describe('table', () => {
     expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
   });
 
-  it('should NOT display sorting option for the second column', () => {
+  it('should not display sorting option for the second column', () => {
     render(<Table headers={headers} rows={rows} />);
 
     const { queryByTestId } = within(screen.getAllByRole('columnheader')[1]);
@@ -286,7 +287,7 @@ describe('table', () => {
       const defaultSelectedRows = { '1': true, '2': true, '13': true };
 
       render(
-        <Table headers={headers} rows={rows} allowSelection selectedRows={defaultSelectedRows} dataTestId="table" />
+        <Table headers={headers} rows={rows} allowSelection rowSelection={defaultSelectedRows} dataTestId="table" />
       );
 
       const firstPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[0].id}`);
@@ -413,7 +414,7 @@ describe('table', () => {
             headers={headers}
             rows={tableRows}
             allowSelection
-            selectedRows={rowSelection}
+            rowSelection={rowSelection}
             paginationIndex={pageIndex}
             paginationSize={10}
             dataTestId="table"

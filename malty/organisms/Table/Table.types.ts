@@ -23,7 +23,7 @@ export interface TableProps {
   allowSelection?: boolean;
   defaultSorting?: ColumnSort;
   manualPagination?: ManualPagination;
-  selectedRows?: RowSelectionState;
+  rowSelection?: RowSelectionState;
   onRowClick?: (row: TableRowProps) => void;
   onRowSelect?: (selectedRows: TableRowProps[]) => void;
   onPaginationChange?: (page: number) => void;
