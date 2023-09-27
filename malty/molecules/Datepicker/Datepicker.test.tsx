@@ -94,7 +94,6 @@ describe('datepicker', () => {
     userEvent.click(screen.getByLabelText(label));
 
     expect(mockFn).not.toHaveBeenCalled();
-
     expect(screen.queryByText('January')).not.toBeInTheDocument();
   });
 
@@ -133,7 +132,7 @@ describe('datepicker', () => {
     expect(dayToBeClicked).toHaveAttribute('aria-disabled', 'true');
   });
 
-  it('should be required to fill', () => {
+  it('should be required to fill when required', () => {
     render(<Datepicker label={label} onChange={mockFn} startDate={new Date(2022, 0, 1)} required />);
 
     expect(screen.getByLabelText(label)).toBeRequired();
