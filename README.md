@@ -114,7 +114,3 @@ export const component = ({ children }: ComponentProps) => {
   const renderComponent = () => <Component>{childen}</Component>;
 };
 ```
-
-## Governance and contribution
-
-To read on this topic, please do so [here](https://carlsberggbs.atlassian.net/l/c/NsExD0AT).
