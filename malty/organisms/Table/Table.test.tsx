@@ -253,190 +253,207 @@ describe('table', () => {
     expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
   });
 
-  describe('Automatic pagination', () => {
-    it('should render first 12 elements correctly and ignore the rest', () => {
-      render(<Table headers={headers} rows={rows} />);
-
-      const tableRows = screen.getAllByRole('row').slice(1);
-
-      expect(tableRows).toHaveLength(12);
-
-      rows.slice(0, 12).forEach((row) => {
-        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
-      });
-
-      expect(screen.queryByRole('cell', { name: rows[12].name as string })).not.toBeInTheDocument();
-    });
-
-    it('should render rest of elements after clicking on next page arrow', () => {
-      render(<Table headers={headers} rows={rows} />);
-
-      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
-
-      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
-
-      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
-      expect(screen.getByRole('cell', { name: rows[12].name as string })).toBeVisible();
-
-      rows.slice(0, 12).forEach((row) => {
-        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
-      });
-    });
-
-    it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
-      const defaultSelectedRows = { '1': true, '2': true, '13': true };
-
-      render(
-        <Table headers={headers} rows={rows} allowSelection rowSelection={defaultSelectedRows} dataTestId="table" />
-      );
-
-      const firstPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[0].id}`);
-      const firstPageSecondRowCheckbox = screen.getByTestId(`table-row-${rows[1].id}`);
-
-      expect(within(firstPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
-      expect(within(firstPageSecondRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
-
-      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
-
-      const secondPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[12].id}`);
-
-      expect(within(secondPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
-    });
-  });
-
-  describe('Manual pagination', () => {
+  describe('Table Pagination', () => {
     const firstPageItems = rows.slice(0, 10);
     const secondPageItems = rows.slice(10);
+    const firstPageRowsSelectedArray = firstPageItems.filter((item) => item.selected);
+    const secondPageRowsSelectedArray = secondPageItems.filter((item) => item.selected);
 
-    it('should render second page items successfully after clicking on next page arrow', () => {
-      const TableComponent = () => {
-        const [tableRows, setTableRows] = useState(firstPageItems);
-        const [pageIndex, setPageIndex] = useState(0);
+    describe('Automatic pagination', () => {
+      it('should render first 10 elements correctly and ignore the rest', () => {
+        render(<Table headers={headers} rows={rows} paginationSize={10} />);
 
-        const handleOnPaginationChange = (page: number) => {
-          setPageIndex(page - 1);
-          setTableRows([...tableRows, ...secondPageItems]);
-        };
+        const tableRows = screen.getAllByRole('row').slice(1);
 
-        return (
-          <Table
-            headers={headers}
-            rows={tableRows}
-            paginationIndex={pageIndex}
-            paginationSize={10}
-            manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
-            onPaginationChange={handleOnPaginationChange}
-          />
-        );
-      };
+        expect(tableRows).toHaveLength(10);
 
-      render(<TableComponent />);
+        firstPageItems.forEach((row) => {
+          expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+        });
 
-      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
-      secondPageItems.forEach((row) => {
-        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+        secondPageItems.forEach((row) => {
+          expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+        });
       });
 
-      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+      it('should render rest of elements after clicking on next page arrow', () => {
+        render(<Table headers={headers} rows={rows} paginationSize={10} />);
 
-      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
-      secondPageItems.forEach((row) => {
-        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+        expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+
+        userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+        expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+        secondPageItems.forEach((row) => {
+          expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+        });
+
+        firstPageItems.forEach((row) => {
+          expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+        });
+      });
+
+      it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
+        const defaultSelectedRows: RowSelectionState = {};
+
+        rows.forEach((row) => {
+          if (row.selected) defaultSelectedRows[`${row.id}`] = true;
+        });
+
+        render(
+          <Table headers={headers} rows={rows} allowSelection rowSelection={defaultSelectedRows} dataTestId="table" />
+        );
+
+        firstPageRowsSelectedArray.forEach((selectedRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${selectedRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeChecked();
+        });
+
+        userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+        secondPageRowsSelectedArray.forEach((selectedRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${selectedRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeChecked();
+        });
       });
     });
 
-    it('should update pageIndex and items from outside successfully', () => {
-      const TableComponent = () => {
-        const [tableRows, setTableRows] = useState(firstPageItems);
-        const [pageIndex, setPageIndex] = useState(0);
+    describe('Manual pagination', () => {
+      it('should render second page items successfully after clicking on next page arrow', () => {
+        const TableComponent = () => {
+          const [tableRows, setTableRows] = useState(firstPageItems);
+          const [pageIndex, setPageIndex] = useState(0);
 
-        const handleOnClick = () => {
-          setTableRows([...tableRows, ...secondPageItems]);
-          setPageIndex(1);
-        };
+          const handleOnPaginationChange = (page: number) => {
+            setPageIndex(page - 1);
+            setTableRows([...tableRows, ...secondPageItems]);
+          };
 
-        return (
-          <div>
-            <button type="submit" onClick={handleOnClick}>
-              Increase page from outside
-            </button>
+          return (
             <Table
               headers={headers}
               rows={tableRows}
               paginationIndex={pageIndex}
               paginationSize={10}
               manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+              onPaginationChange={handleOnPaginationChange}
             />
-          </div>
-        );
-      };
-
-      render(<TableComponent />);
-
-      expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
-      secondPageItems.forEach((row) => {
-        expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
-      });
-
-      userEvent.click(screen.getByText('Increase page from outside'));
-
-      expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
-      secondPageItems.forEach((row) => {
-        expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
-      });
-    });
-
-    it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
-      const firstPageRowsSelected: RowSelectionState = {};
-      const secondPageRowsSelected: RowSelectionState = {};
-
-      firstPageItems.forEach((row) => {
-        if (row.selected) firstPageRowsSelected[`${row.id}`] = true;
-      });
-
-      secondPageItems.forEach((row) => {
-        if (row.selected) secondPageRowsSelected[`${row.id}`] = true;
-      });
-
-      const TableComponent = () => {
-        const [tableRows, setTableRows] = useState(firstPageItems);
-        const [pageIndex, setPageIndex] = useState(0);
-        const [rowSelection, setRowSelection] = useState<RowSelectionState>(firstPageRowsSelected);
-
-        const handleOnPaginationChange = (page: number) => {
-          setPageIndex(page - 1);
-          setTableRows([...tableRows, ...secondPageItems]);
-          setRowSelection(secondPageRowsSelected);
+          );
         };
 
-        return (
-          <Table
-            headers={headers}
-            rows={tableRows}
-            allowSelection
-            rowSelection={rowSelection}
-            paginationIndex={pageIndex}
-            paginationSize={10}
-            dataTestId="table"
-            manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
-            onPaginationChange={handleOnPaginationChange}
-          />
-        );
-      };
+        render(<TableComponent />);
 
-      render(<TableComponent />);
+        expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+        secondPageItems.forEach((row) => {
+          expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+        });
 
-      const firstPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[0].id}`);
-      const firstPageSecondRowCheckbox = screen.getByTestId(`table-row-${rows[1].id}`);
+        userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
 
-      expect(within(firstPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
-      expect(within(firstPageSecondRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
+        expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+        secondPageItems.forEach((row) => {
+          expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+        });
+      });
 
-      userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+      it('should update pageIndex and items from outside successfully', () => {
+        const TableComponent = () => {
+          const [tableRows, setTableRows] = useState(firstPageItems);
+          const [pageIndex, setPageIndex] = useState(0);
 
-      const secondPageFirstRowCheckbox = screen.getByTestId(`table-row-${rows[12].id}`);
+          const handleOnClick = () => {
+            setTableRows([...tableRows, ...secondPageItems]);
+            setPageIndex(1);
+          };
 
-      expect(within(secondPageFirstRowCheckbox).getByRole('checkbox', { hidden: true })).toBeChecked();
+          return (
+            <div>
+              <button type="submit" onClick={handleOnClick}>
+                Increase page from outside
+              </button>
+              <Table
+                headers={headers}
+                rows={tableRows}
+                paginationIndex={pageIndex}
+                paginationSize={10}
+                manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+              />
+            </div>
+          );
+        };
+
+        render(<TableComponent />);
+
+        expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+        secondPageItems.forEach((row) => {
+          expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
+        });
+
+        userEvent.click(screen.getByText('Increase page from outside'));
+
+        expect(screen.getByRole('spinbutton', { name: 'Page 2' })).toBeVisible();
+
+        secondPageItems.forEach((row) => {
+          expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
+        });
+      });
+
+      it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
+        const firstPageRowsSelected: RowSelectionState = {};
+        const secondPageRowsSelected: RowSelectionState = {};
+
+        firstPageRowsSelectedArray.forEach((row) => {
+          firstPageRowsSelected[`${row.id}`] = true;
+        });
+
+        secondPageRowsSelectedArray.forEach((row) => {
+          secondPageRowsSelected[`${row.id}`] = true;
+        });
+
+        const TableComponent = () => {
+          const [tableRows, setTableRows] = useState(firstPageItems);
+          const [pageIndex, setPageIndex] = useState(0);
+          const [rowSelection, setRowSelection] = useState<RowSelectionState>(firstPageRowsSelected);
+
+          const handleOnPaginationChange = (page: number) => {
+            setPageIndex(page - 1);
+            setTableRows([...tableRows, ...secondPageItems]);
+            setRowSelection(secondPageRowsSelected);
+          };
+
+          return (
+            <Table
+              headers={headers}
+              rows={tableRows}
+              allowSelection
+              rowSelection={rowSelection}
+              paginationIndex={pageIndex}
+              paginationSize={10}
+              dataTestId="table"
+              manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+              onPaginationChange={handleOnPaginationChange}
+            />
+          );
+        };
+
+        render(<TableComponent />);
+
+        firstPageRowsSelectedArray.forEach((selectedRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${selectedRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeChecked();
+        });
+
+        userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+        secondPageRowsSelectedArray.forEach((selectedRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${selectedRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeChecked();
+        });
+      });
     });
   });
 });
