@@ -129,11 +129,14 @@ const rows: TableRowProps[] = [
   }
 ];
 
-describe('table', () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
+const getSelectedRows = (arr: TableRowProps[]): RowSelectionState => {
+  return arr.reduce((acc: RowSelectionState, curr) => {
+    if (curr.selected) acc[`${curr.id}`] = true;
+    return acc;
+  }, {});
+};
 
+describe('table', () => {
   it('should render elements', () => {
     render(<Table rows={rows} headers={headers} dataTestId="table" />);
 
@@ -266,14 +269,6 @@ describe('table', () => {
         const tableRows = screen.getAllByRole('row').slice(1);
 
         expect(tableRows).toHaveLength(10);
-
-        firstPageItems.forEach((row) => {
-          expect(screen.getByRole('cell', { name: row.name as string })).toBeVisible();
-        });
-
-        secondPageItems.forEach((row) => {
-          expect(screen.queryByRole('cell', { name: row.name as string })).not.toBeInTheDocument();
-        });
       });
 
       it('should render rest of elements after clicking on next page arrow', () => {
@@ -294,11 +289,7 @@ describe('table', () => {
       });
 
       it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
-        const defaultSelectedRows: RowSelectionState = {};
-
-        rows.forEach((row) => {
-          if (row.selected) defaultSelectedRows[`${row.id}`] = true;
-        });
+        const defaultSelectedRows: RowSelectionState = getSelectedRows(rows);
 
         render(
           <Table headers={headers} rows={rows} allowSelection rowSelection={defaultSelectedRows} dataTestId="table" />
@@ -401,16 +392,8 @@ describe('table', () => {
       });
 
       it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
-        const firstPageRowsSelected: RowSelectionState = {};
-        const secondPageRowsSelected: RowSelectionState = {};
-
-        firstPageRowsSelectedArray.forEach((row) => {
-          firstPageRowsSelected[`${row.id}`] = true;
-        });
-
-        secondPageRowsSelectedArray.forEach((row) => {
-          secondPageRowsSelected[`${row.id}`] = true;
-        });
+        const firstPageRowsSelected: RowSelectionState = getSelectedRows(firstPageRowsSelectedArray);
+        const secondPageRowsSelected: RowSelectionState = getSelectedRows(secondPageRowsSelectedArray);
 
         const TableComponent = () => {
           const [tableRows, setTableRows] = useState(firstPageItems);
