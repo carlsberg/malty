@@ -15,6 +15,7 @@ export const StyledPill = styled.div<{
   badgeMode: boolean;
   pillSize: PillSize;
   gap: string;
+  isUppercase: boolean;
 }>`
   font-family: ${({ fontFamily }) => `${fontFamily}`};
   font-size: ${({ fontSize }) => `${fontSize}`};
@@ -40,6 +41,7 @@ export const StyledPill = styled.div<{
   border-radius: ${({ size }) => `${size}`};
   padding: 0 ${({ padding }) => padding};
   gap: ${({ gap }) => gap};
+  text-transform: ${({ isUppercase }) => (isUppercase ? 'uppercase' : 'initial')};
 
   .pill {
     &__icon {
