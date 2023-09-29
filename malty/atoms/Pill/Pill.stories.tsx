@@ -10,7 +10,7 @@ export default {
   parameters: {
     importObject: 'Pill',
     importPath: '@carlsberggroup/malty.atoms.pill',
-    variants: ['text', 'icon', 'combo']
+    variants: ['text', 'icon', 'badge']
   },
   argTypes: {
     text: {
@@ -62,6 +62,11 @@ export default {
       control: 'boolean',
       table: { defaultValue: { summary: 'false' } }
     },
+    isUppercase: {
+      description: 'Use this property to uppercase the text content',
+      control: 'boolean',
+      table: { defaultValue: { summary: 'false' } }
+    },
     dataTestId: {
       control: 'text',
       description: 'Pill data-testid'
@@ -83,7 +88,8 @@ switch (variant) {
       icon: IconName.CarlsbergFilled,
       color: PillColor.Success,
       size: PillSize.Medium,
-      badgeMode: false
+      badgeMode: false,
+      isUppercase: false
     };
     break;
 
@@ -93,7 +99,8 @@ switch (variant) {
       text: 'Text',
       color: PillColor.Fail,
       size: PillSize.Medium,
-      badgeMode: false
+      badgeMode: false,
+      isUppercase: false
     };
     break;
 
@@ -103,7 +110,8 @@ switch (variant) {
       text: '9',
       color: PillColor.Success,
       size: PillSize.ExtraSmall,
-      badgeMode: true
+      badgeMode: true,
+      isUppercase: false
     };
     break;
 
@@ -114,7 +122,8 @@ switch (variant) {
       icon: IconName.CarlsbergFilled,
       color: PillColor.Primary,
       size: PillSize.Medium,
-      badgeMode: false
+      badgeMode: false,
+      isUppercase: false
     };
     break;
 }

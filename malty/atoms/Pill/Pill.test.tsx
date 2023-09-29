@@ -5,10 +5,12 @@ import React from 'react';
 import { Pill } from './Pill';
 
 describe('pill', () => {
-  const name = IconName.CarlsbergFilled;
-  it('renders elements', () => {
-    render(<Pill text="Pill text" icon={IconName.CarlsbergFilled} />);
-    expect(screen.getByText('Pill text')).toBeInTheDocument();
-    expect(screen.getByTestId(`icon-${name}`)).toBeInTheDocument();
+  const iconName = IconName.CarlsbergFilled;
+  const text = 'Pill text';
+
+  it('should render the component correctly', () => {
+    render(<Pill text={text} icon={iconName} />);
+    expect(screen.getByText(text)).toBeInTheDocument();
+    expect(screen.getByTestId(`icon-${iconName}`)).toBeInTheDocument();
   });
 });

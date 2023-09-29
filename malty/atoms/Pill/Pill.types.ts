@@ -7,6 +7,7 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   size?: PillSize;
   badgeMode?: boolean;
   dataTestId?: string;
+  isUppercase?: boolean;
 }
 
 export enum PillSize {
