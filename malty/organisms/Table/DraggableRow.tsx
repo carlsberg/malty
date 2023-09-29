@@ -30,6 +30,7 @@ export const DraggableRow = ({
           isClickable={!!onRowClick}
           size={size}
           theme={theme}
+          data-testid={`${dataTestId}-row-${row.id}`}
         >
           <StyledDraggableCell {...provided?.dragHandleProps} theme={theme}>
             <div>
