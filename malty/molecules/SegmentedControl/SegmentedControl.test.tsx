@@ -1,5 +1,6 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { SegmentedControl } from './SegmentedControl';
 import { SegmentedControlOptions } from './SegmentedControl.types';
@@ -20,17 +21,48 @@ const segmentedControlOptions: SegmentedControlOptions[] = [
 ];
 
 describe('SegmentedControl', () => {
-  it('renders chips', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should render chips', () => {
     render(<SegmentedControl options={segmentedControlOptions} />);
+
     expect(screen.getByText(segmentedControlOptions[0].label)).toBeInTheDocument();
     expect(screen.getByText(segmentedControlOptions[1].label)).toBeInTheDocument();
     expect(screen.getByText(segmentedControlOptions[2].label)).toBeInTheDocument();
   });
 
-  it('calls function onChange', () => {
+  it('should call function onChange', () => {
+    const onChange = jest.fn();
+
+    render(<SegmentedControl options={segmentedControlOptions} onChange={onChange} />);
+
+    userEvent.click(screen.getByText(segmentedControlOptions[1].label));
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('should be disabled', () => {
+    const onChange = jest.fn();
+
+    render(
+      <SegmentedControl options={segmentedControlOptions} onChange={onChange} dataQaId="segmentedcontrol" disabled />
+    );
+
+    expect(screen.getByTestId('segmentedcontrol-chip-0')).toHaveAttribute('disabled');
+  });
+
+  it('should click on third option', () => {
     const onChange = jest.fn();
     render(<SegmentedControl options={segmentedControlOptions} onChange={onChange} />);
-    fireEvent.click(screen.getByText(segmentedControlOptions[1].label));
+
+    const option2 = screen.getByText(segmentedControlOptions[2].label);
+
+    expect(option2).toBeInTheDocument();
+
+    userEvent.click(option2);
+
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
