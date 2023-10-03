@@ -64,8 +64,6 @@ const meta: Meta<IconProps> = {
   }
 };
 
-export default meta;
-
 type Story = StoryObj<IconProps>;
 
 export const Base: Story = {
@@ -82,3 +80,5 @@ export const Base: Story = {
     return <Icon {...args} />;
   }
 };
+
+export default meta;

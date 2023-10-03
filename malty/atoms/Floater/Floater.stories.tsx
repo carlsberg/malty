@@ -16,6 +16,11 @@ const meta: Meta<FloaterProps> = {
     importObject: 'Floater',
     importPath: '@carlsberggroup/malty.atoms.floater'
   },
+  render: (args) => (
+    <StyledWrapper>
+      <Floater {...args} />
+    </StyledWrapper>
+  ),
   argTypes: {
     text: {
       control: 'text',
@@ -62,8 +67,6 @@ const meta: Meta<FloaterProps> = {
   }
 };
 
-export default meta;
-
 type Story = StoryObj<FloaterProps>;
 
 export const Base: Story = {
@@ -72,18 +75,14 @@ export const Base: Story = {
     negative: false,
     icon: IconName.ArrowSmallUp,
     iconPos: FloaterIconPosition.Right
-  },
-  render: (args) => (
-    <StyledWrapper>
-      <Floater {...args} />
-    </StyledWrapper>
-  )
+  }
 };
 
 export const Text: Story = {
-  render: Base.render,
   args: {
     ...Base.args,
     text: 'Floater'
   }
 };
+
+export default meta;
