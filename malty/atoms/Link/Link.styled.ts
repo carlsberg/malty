@@ -9,27 +9,23 @@ export const StyledAnchor = styled.a<{
   ${({ theme, $linkStyle }) =>
     css`
       font-family: ${theme.typography.desktop.text[$linkStyle]['font-family'].value};
-      font-size: ${theme.typography.desktop.text[$linkStyle]['font-size'].value};
-      letter-spacing: ${theme.typography.desktop.text[$linkStyle]['letter-spacing'].value};
-      line-height: ${theme.typography.desktop.text[$linkStyle]['line-height'].value};
-      font-weight: ${theme.typography.desktop.text[$linkStyle]['font-weight'].value};
+      font-size: ${theme.typography.mobile.text[$linkStyle]['font-size'].value};
+      letter-spacing: ${theme.typography.mobile.text[$linkStyle]['letter-spacing'].value};
+      line-height: ${theme.typography.mobile.text[$linkStyle]['line-height'].value};
+      font-weight: ${theme.typography.mobile.text[$linkStyle]['font-weight'].value};
 
-      @media screen and (max-width: ${theme.layout.small['device-max-width']?.value}) {
-        ${css`
-          font-size: ${theme.typography.tablet.text[$linkStyle]['font-size'].value};
-          letter-spacing: ${theme.typography.tablet.text[$linkStyle]['letter-spacing'].value};
-          line-height: ${theme.typography.tablet.text[$linkStyle]['line-height'].value};
-          font-weight: ${theme.typography.tablet.text[$linkStyle]['font-weight'].value};
-        `}
+      @media screen and (min-width: ${theme.layout.small['device-max-width']?.value}) {
+        font-size: ${theme.typography.tablet.text[$linkStyle]['font-size'].value};
+        letter-spacing: ${theme.typography.tablet.text[$linkStyle]['letter-spacing'].value};
+        line-height: ${theme.typography.tablet.text[$linkStyle]['line-height'].value};
+        font-weight: ${theme.typography.tablet.text[$linkStyle]['font-weight'].value};
       }
 
-      @media screen and (max-width: ${theme.layout.xsmall['device-max-width']?.value}) {
-        ${css`
-          font-size: ${theme.typography.mobile.text[$linkStyle]['font-size'].value};
-          letter-spacing: ${theme.typography.mobile.text[$linkStyle]['letter-spacing'].value};
-          line-height: ${theme.typography.mobile.text[$linkStyle]['line-height'].value};
-          font-weight: ${theme.typography.mobile.text[$linkStyle]['font-weight'].value};
-        `}
+      @media screen and (min-width: ${theme.layout.medium['device-max-width']?.value}) {
+        font-size: ${theme.typography.desktop.text[$linkStyle]['font-size'].value};
+        letter-spacing: ${theme.typography.desktop.text[$linkStyle]['letter-spacing'].value};
+        line-height: ${theme.typography.desktop.text[$linkStyle]['line-height'].value};
+        font-weight: ${theme.typography.desktop.text[$linkStyle]['font-weight'].value};
       }
     `}
 
