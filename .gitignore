@@ -7,3 +7,4 @@ public/bit
 public/bit/*
 **/package-lock.json
 **/install-state.gz
+docs/*

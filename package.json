@@ -28,7 +28,7 @@
     "start": "bit compile && yarn storybook",
     "serve": "bit install && bit compile && bit start",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --docs -o docs",
+    "build-storybook": "storybook build -o docs",
     "build": "bit build",
     "test": "jest",
     "test:ci": "jest --silent --ci",
