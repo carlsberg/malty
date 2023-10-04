@@ -1,18 +1,26 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { FloaterProps } from '.';
-import { Floater as FloaterComponent } from './Floater';
-import { FloaterColor, FloaterIconPosition } from './Floater.types';
+import styled from 'styled-components';
+import { Floater } from './Floater';
+import { FloaterColor, FloaterIconPosition, FloaterProps } from './Floater.types';
 
-export default {
+const StyledWrapper = styled.div`
+  height: 50px;
+`;
+
+const meta: Meta<FloaterProps> = {
+  component: Floater,
   title: 'Forms/Floater',
-  component: FloaterComponent,
   parameters: {
     importObject: 'Floater',
-    importPath: '@carlsberggroup/malty.atoms.floater',
-    variants: ['text']
+    importPath: '@carlsberggroup/malty.atoms.floater'
   },
+  render: (args) => (
+    <StyledWrapper>
+      <Floater {...args} />
+    </StyledWrapper>
+  ),
   argTypes: {
     text: {
       control: 'text',
@@ -24,75 +32,57 @@ export default {
     },
     scroll: {
       description: 'Scroll position where will floater show',
-      table: {
-        defaultValue: {
-          summary: 0
-        }
+      defaultValue: {
+        summary: 0
       },
       control: {
         type: 'number'
-      }
-    },
-
-    icon: {
-      description: 'When selected, button label will contain the selected icon',
-      options: Object.values({ undefined, ...IconName }),
-      control: {
-        type: 'select'
-      }
-    },
-    iconPos: {
-      description: 'When icon present, position will be',
-      options: Object.values(FloaterIconPosition),
-      table: {
-        defaultValue: {
-          summary: 'Right'
-        }
-      },
-      control: {
-        type: 'select'
       }
     },
     negative: {
       control: 'boolean',
       description: 'Should this be a white button?'
     },
+    icon: {
+      description: 'When selected, button label will contain the selected icon',
+      control: 'select',
+      mapping: IconName,
+      options: Object.values({ undefined, ...IconName })
+    },
+    iconPos: {
+      description: 'When icon present, position will be',
+      control: 'select',
+      mapping: FloaterIconPosition,
+      options: Object.keys(FloaterIconPosition)
+    },
     color: {
       description: 'Floater color. Options are',
-      options: Object.values(FloaterColor),
-      table: {
-        defaultValue: {
-          summary: 'FloaterColor.DigitalBlack'
-        }
-      },
-      control: {
-        type: 'select'
-      }
+      control: 'select',
+      mapping: FloaterColor,
+      options: Object.keys(FloaterColor)
+    },
+    dataTestId: {
+      control: 'text'
     }
   }
 };
 
-const Template: Story<FloaterProps> = (args) => <FloaterComponent {...args} />;
+type Story = StoryObj<FloaterProps>;
 
-export const Floater = Template.bind({});
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Base: Story = {
+  args: {
+    text: '',
+    negative: false,
+    icon: IconName.ArrowSmallUp,
+    iconPos: FloaterIconPosition.Right
+  }
+};
 
-switch (variant) {
-  case 'text':
-    Floater.args = {
-      text: 'Floater',
-      iconPos: FloaterIconPosition.Right,
-      negative: false,
-      icon: IconName.ArrowSmallUp
-    };
-    break;
-  default:
-    Floater.args = {
-      text: '',
-      iconPos: FloaterIconPosition.Right,
-      negative: false,
-      icon: IconName.ArrowSmallUp
-    };
-    break;
-}
+export const Text: Story = {
+  args: {
+    ...Base.args,
+    text: 'Floater'
+  }
+};
+
+export default meta;

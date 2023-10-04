@@ -1,6 +1,13 @@
-import { CellContext, ColumnDefTemplate, ColumnSort, Row, RowData, SortingState, Table } from '@tanstack/react-table';
-
-export { ColumnSort } from '@tanstack/react-table';
+import {
+  CellContext,
+  ColumnDefTemplate,
+  ColumnSort,
+  Row,
+  RowData,
+  RowSelectionState,
+  SortingState,
+  Table
+} from '@tanstack/react-table';
 
 export interface TableProps {
   headers: TableHeaderProps[];
@@ -14,6 +21,7 @@ export interface TableProps {
   allowSelection?: boolean;
   defaultSorting?: ColumnSort;
   manualPagination?: ManualPagination;
+  rowSelection?: RowSelectionState;
   onRowClick?: (row: TableRowProps) => void;
   onRowSelect?: (selectedRows: TableRowProps[]) => void;
   onPaginationChange?: (page: number) => void;

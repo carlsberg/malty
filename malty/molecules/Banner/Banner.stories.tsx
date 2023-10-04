@@ -54,9 +54,9 @@ export default {
       }[]" or any html or JSX element `
     },
     actions: {
-      control: '',
+      control: 'object',
       description:
-        'An array of maximum 2 actions structured as such "actions?: Array<ActionButtonProps> | React.ReactNode | JSX.Element;"'
+        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
     },
     imageSrc: {
       control: 'text',

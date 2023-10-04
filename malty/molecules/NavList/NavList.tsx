@@ -33,9 +33,17 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
 
+  const handleOnClick = () => {
+    if (subItems) {
+      openSubNav(itemIndex);
+    } else {
+      setActiveNavItem(itemIndex);
+    }
+  };
+
   return (
     <StyledNavItem
-      onClick={subItems ? () => openSubNav(itemIndex) : () => setActiveNavItem(itemIndex)}
+      onClick={handleOnClick}
       selected={selected}
       theme={theme}
       data-category={category}

@@ -12,11 +12,13 @@ export const Pill = ({
   color = PillColor.Primary,
   size = PillSize.Medium,
   badgeMode = false,
+  isUppercase = false,
   dataTestId
 }: PillProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const { fontSize, fontFamily, iconSize, gap, numSize, padding } = usePillStyles({ size });
   const colorStyle = useIconTextColor({ color });
+  const hasText = !!text;
 
   return (
     <StyledPill
@@ -27,13 +29,14 @@ export const Pill = ({
       fontFamily={fontFamily}
       iconSize={iconSize}
       padding={padding}
-      hasText={!!text}
+      hasText={hasText}
       hasIcon={!!icon}
       badgeMode={badgeMode}
       theme={theme}
       textColor={colorStyle}
       pillSize={size}
       gap={gap}
+      isUppercase={hasText && isUppercase}
     >
       {icon && (
         <Icon

@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
@@ -24,14 +23,16 @@ export const Image = ({
   removeBackground = false
 }: ImageProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const [test, setTest] = useState(false);
-  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  const [hasImageError, setHasImageError] = useState(false);
+
+  const handleError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
     if (fallbackSrc) {
-      e.currentTarget.src = fallbackSrc;
+      event.currentTarget.setAttribute('src', fallbackSrc);
     } else {
-      setTest(true);
+      setHasImageError(true);
     }
   };
+
   return (
     <StyledContainer onClick={onClick} className={className} theme={theme}>
       <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
@@ -44,11 +45,17 @@ export const Image = ({
           >
             {children}
           </StyledOverlay>
-          {!test && (
+          {hasImageError ? (
+            <Icon
+              data-testid={`${dataTestId}-icon`}
+              size={IconSize.ExtraLarge}
+              name={IconName.Image}
+              color={IconColor.Support40}
+            />
+          ) : (
             <StyledImage
               data-testid={`${dataTestId}`}
-              // eslint-disable-next-line no-return-assign
-              onError={(e) => handleError(e)}
+              onError={handleError}
               height={height || '100%'}
               width={width || '100%'}
               src={src}
@@ -56,14 +63,6 @@ export const Image = ({
               isCover={cover}
               alt={alt}
               theme={theme}
-            />
-          )}
-          {test && (
-            <Icon
-              data-testid={`${dataTestId}-icon`}
-              size={IconSize.ExtraLarge}
-              name={IconName.Image}
-              color={IconColor.Support40}
             />
           )}
         </StyledWrapper>

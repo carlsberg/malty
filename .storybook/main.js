@@ -1,5 +1,11 @@
-module.exports = {
-  stories: ['../malty/**/**/*.stories.mdx', '../malty/**/**/*.stories.@(js|jsx|ts|tsx)'],
+import { dirname, join } from 'path';
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
+
+export default {
+  stories: ['../malty/!(icons)/!(IconWrapper)/*.stories.@(mdx|js|jsx|ts|tsx)'],
   addons: [
     {
       name: '@storybook/addon-links',
@@ -15,9 +21,6 @@ module.exports = {
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
     }
   },
-  core: {
-    builder: 'webpack5'
-  },
   staticDirs: [{ from: '../public/storybook', to: '/' }],
   previewHead: (head) => `
     ${head}
@@ -29,5 +32,12 @@ module.exports = {
         display: none !important;
       }
     </style>
-  `
+  `,
+  framework: {
+    name: getAbsolutePath('@storybook/react-webpack5'),
+    options: {}
+  },
+  docs: {
+    autodocs: true
+  }
 };
