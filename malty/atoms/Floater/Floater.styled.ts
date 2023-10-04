@@ -10,13 +10,15 @@ export const StyledFloaterButton = styled.button<{
   iconPos: FloaterIconPosition;
   showButton: boolean;
 }>`
-  background-color: ${({ isNegative, theme, color }) =>
-    // eslint-disable-next-line no-nested-ternary
-    isNegative
-      ? theme.colors.colours.default.white.value
-      : color === FloaterColor.DigitalBlack
-      ? theme.colors.colours.default['digital-black'].value
-      : theme.colors.theme[color].value};
+  background-color: ${({ isNegative, theme, color }) => {
+    if (isNegative) {
+      return theme.colors.colours.default.white.value;
+    }
+    if (color === FloaterColor.DigitalBlack) {
+      return theme.colors.colours.default['digital-black'].value;
+    }
+    return theme.colors.theme[color].value;
+  }};
   color: ${({ isNegative, theme }) =>
     isNegative ? theme.colors.colours.default['digital-black'].value : theme.colors.colours.default.white.value};
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_bold']['font-family'].value};

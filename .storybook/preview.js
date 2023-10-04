@@ -1,14 +1,5 @@
 import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import {
-  ArgsTable,
-  Description,
-  DocsContainer,
-  Primary,
-  PRIMARY_STORY,
-  Stories,
-  Subtitle,
-  Title
-} from '@storybook/addon-docs';
+import { Controls, Description, DocsContainer, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import React from 'react';
 import styled from 'styled-components';
 import { ImportPath } from './importPath';
@@ -72,7 +63,7 @@ export const parameters = {
           <Primary />
           <StoryToggle />
           <InfoComponent />
-          <ArgsTable story={PRIMARY_STORY} />
+          <Controls />
           <Stories />
         </DocsContainer>
       )) ||
@@ -88,14 +79,13 @@ export const parameters = {
           <DocsContainer {...rest}>
             <Primary />
             <InfoComponent />
-            <ArgsTable story={PRIMARY_STORY} />
+            <Controls />
           </DocsContainer>
         </StyledDocsContainer>
       ))
   },
   controls: {
     matchers: {
-      color: /(background|color)$/i,
       date: /Date$/
     }
   },
@@ -114,13 +104,13 @@ export const globalTypes = {
     description: 'Global theme for components',
     defaultValue: 'global',
     toolbar: {
+      title: 'Theme',
       items: [
         { value: 'global', title: 'Global' },
         { value: 'cadi', title: 'Cadi' },
         { value: 'carlsberg', title: 'Carlsberg' },
         { value: 'lbc', title: 'LBC' }
-      ],
-      title: 'Theme'
+      ]
     }
   }
 };

@@ -6,6 +6,7 @@ export interface SubItemProps {
   key?: string;
   href?: string;
   component?: React.ReactNode | JSX.Element;
+  to?: string;
 }
 
 export type ItemProps = {

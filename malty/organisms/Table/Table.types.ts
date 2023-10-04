@@ -9,8 +9,6 @@ import {
   Table
 } from '@tanstack/react-table';
 
-export { ColumnSort } from '@tanstack/react-table';
-
 export interface TableProps {
   headers: TableHeaderProps[];
   rows: TableRowProps[];

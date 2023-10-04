@@ -6,7 +6,6 @@ import { Accordion as AccordionComponent } from './Accordion';
 export default {
   title: 'Layout/Accordion',
   component: AccordionComponent,
-  subcomponents: { AccordionItem },
   parameters: {
     importObject: 'Accordion',
     importPath: '@carlsberggroup/malty.molecules.accordion',

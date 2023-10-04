@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { ItemProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
@@ -30,35 +31,30 @@ export default {
   }
 } as Meta;
 
-const navItemsMock = [
+const navItemsMock: ItemProps[] = [
   { icon: IconName.DataTransfer, name: 'item 1', href: '/' },
   {
     icon: IconName.DataTransfer,
     name: 'item 2',
     component: NavLink,
-    to: '/iframe.html',
-    category: 'favourites',
-    activeClassName: 'active'
+    to: '/item2',
+    category: 'favourites'
   },
   {
     icon: IconName.DataTransfer,
     name: 'item 3',
-    component: NavLink,
-    to: '/item3',
     category: 'favourites',
-    replace: true,
     subItems: [
-      { name: 'sub item 1', component: NavLink, to: '/sub-item1', activeClassName: 'active' },
-      { name: 'sub item 2', component: NavLink, to: '/sub-item2', activeClassName: 'active' }
-    ],
-    activeClassName: 'active'
+      { name: 'sub item 1', component: NavLink, to: '/sub-item1' },
+      { name: 'sub item 2', component: NavLink, to: '/sub-item2' }
+    ]
   },
-  { icon: IconName.DataTransfer, name: 'item 4', component: NavLink, to: '/item4', activeClassName: 'active' }
+  { icon: IconName.DataTransfer, name: 'item 4', component: NavLink, to: '/item4' }
 ];
 
 const systemOptionsMock = [
-  { icon: IconName.DataTransfer, href: '/iframe.html' },
-  { icon: IconName.DataTransfer, component: NavLink, to: '/item2', activeClassName: 'active' }
+  { icon: IconName.DataTransfer, href: '/item3' },
+  { icon: IconName.DataTransfer, component: NavLink, to: '/item4' }
 ];
 
 const profileMenuMock = {
@@ -69,6 +65,8 @@ const profileMenuMock = {
     { name: 'Sign out', icon: IconName.DataTransfer, component: NavLink, to: '/sign-out' }
   ]
 };
+
+const Element = () => <h1>ELEMENT</h1>;
 
 const Template: Story<SideNavProps> = ({ productName, navItems, systemOptions, profileMenu }) => (
   <BrowserRouter>
@@ -81,7 +79,12 @@ const Template: Story<SideNavProps> = ({ productName, navItems, systemOptions, p
       />
     </div>
     <Routes>
-      <Route path="/item3"> </Route>
+      <Route path="/item2" element={<Element />} />
+      <Route path="/item3" element={<Element />} />
+      <Route path="/sub-item1" element={<Element />} />
+      <Route path="/sub-item2" element={<Element />} />
+      <Route path="/item4" element={<Element />} />
+      <Route path="/iframe.html" element={<Element />} />
     </Routes>
   </BrowserRouter>
 );

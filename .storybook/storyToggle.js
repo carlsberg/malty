@@ -1,10 +1,12 @@
-import { Canvas, Description, DocsContext } from '@storybook/addon-docs';
+import { DocsContext, Markdown } from '@storybook/addon-docs';
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-const StyledCanvas = styled(Canvas)`
+const StyledCanvas = styled.div`
   background-color: #fff5e0;
-  padding: 0;
+  padding: 15px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
   p.sbdocs.sbdocs-p {
     margin: 0px !important;
   }
@@ -33,14 +35,10 @@ export const StoryToggle = () => {
   }, [context]);
 
   return copy && variants ? (
-    <>
-      <StyledCanvas>
-        <Description>{copy}</Description>
-      </StyledCanvas>
-    </>
-  ) : (
-    <></>
-  );
+    <StyledCanvas>
+      <Markdown>{copy}</Markdown>
+    </StyledCanvas>
+  ) : null;
 };
 
 export default StoryToggle;
