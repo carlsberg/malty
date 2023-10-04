@@ -27,8 +27,7 @@ export const Image = ({
 
   const handleError = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
     if (fallbackSrc) {
-      const newEvent = { ...event };
-      newEvent.currentTarget.src = fallbackSrc;
+      event.currentTarget.setAttribute('src', fallbackSrc);
     } else {
       setHasImageError(true);
     }
