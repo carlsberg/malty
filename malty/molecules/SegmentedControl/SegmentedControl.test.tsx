@@ -21,6 +21,8 @@ const segmentedControlOptions: SegmentedControlOptions[] = [
 ];
 
 describe('SegmentedControl', () => {
+  const onChange = jest.fn();
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -34,8 +36,6 @@ describe('SegmentedControl', () => {
   });
 
   it('should call function onChange', () => {
-    const onChange = jest.fn();
-
     render(<SegmentedControl options={segmentedControlOptions} onChange={onChange} />);
 
     userEvent.click(screen.getByText(segmentedControlOptions[1].label));
@@ -44,8 +44,6 @@ describe('SegmentedControl', () => {
   });
 
   it('should be disabled', () => {
-    const onChange = jest.fn();
-
     render(
       <SegmentedControl options={segmentedControlOptions} onChange={onChange} dataQaId="segmentedcontrol" disabled />
     );
@@ -60,7 +58,6 @@ describe('SegmentedControl', () => {
   });
 
   it('should click on third option', () => {
-    const onChange = jest.fn();
     render(<SegmentedControl options={segmentedControlOptions} onChange={onChange} />);
 
     const option2 = screen.getByText(segmentedControlOptions[2].label);
@@ -70,5 +67,6 @@ describe('SegmentedControl', () => {
     userEvent.click(option2);
 
     expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith(segmentedControlOptions[2].value);
   });
 });
