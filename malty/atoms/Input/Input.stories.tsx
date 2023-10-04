@@ -4,13 +4,23 @@ import React, { useState } from 'react';
 import { Input as InputComponent } from './Input';
 import { InputIconPosition, InputMaskTypes, InputProps, InputSize, InputType } from './Input.types';
 
+enum InputVariants {
+  URL = 'url',
+  Number = 'number',
+  Email = 'email',
+  Password = 'password',
+  Search = 'search',
+  Phone = 'phone',
+  Quantity = 'quantity'
+}
+
 export default {
   title: 'Forms/Input',
   component: InputComponent,
   parameters: {
     importObject: 'Input',
     importPath: '@carlsberggroup/malty.atoms.input',
-    variants: ['url', 'number', 'email', 'password', 'search', 'phone']
+    variants: Object.values(InputVariants)
   },
   argTypes: {
     label: {
@@ -216,7 +226,7 @@ const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
 switch (variant) {
-  case 'url':
+  case InputVariants.URL:
     Input.args = {
       size: InputSize.Medium,
       label: 'Label',
@@ -231,7 +241,7 @@ switch (variant) {
     };
     break;
 
-  case 'number':
+  case InputVariants.Number:
     Input.args = {
       size: InputSize.Medium,
       label: 'Label',
@@ -248,7 +258,7 @@ switch (variant) {
     };
     break;
 
-  case 'email':
+  case InputVariants.Email:
     Input.args = {
       size: InputSize.Medium,
       label: 'Label',
@@ -263,7 +273,7 @@ switch (variant) {
     };
     break;
 
-  case 'password':
+  case InputVariants.Password:
     Input.args = {
       size: InputSize.Medium,
       label: 'Label',
@@ -278,7 +288,7 @@ switch (variant) {
     };
     break;
 
-  case 'search':
+  case InputVariants.Search:
     Input.args = {
       size: InputSize.Medium,
       label: 'Label',
@@ -294,11 +304,26 @@ switch (variant) {
     };
     break;
 
-  case 'phone':
+  case InputVariants.Phone:
     Input.args = {
       size: InputSize.Medium,
       label: 'Label',
       type: InputType.Telephone,
+      placeholder: 'Placeholder',
+      error: '',
+      disabled: false,
+      clearable: false,
+      hint: 'hint text',
+      readOnly: false,
+      required: false
+    };
+    break;
+
+  case InputVariants.Quantity:
+    Input.args = {
+      size: InputSize.Medium,
+      label: 'Label',
+      type: InputType.Quantity,
       placeholder: 'Placeholder',
       error: '',
       disabled: false,
