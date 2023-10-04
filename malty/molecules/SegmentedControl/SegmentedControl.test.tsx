@@ -50,7 +50,13 @@ describe('SegmentedControl', () => {
       <SegmentedControl options={segmentedControlOptions} onChange={onChange} dataQaId="segmentedcontrol" disabled />
     );
 
-    expect(screen.getByTestId('segmentedcontrol-chip-0')).toHaveAttribute('disabled');
+    userEvent.click(screen.getByText(segmentedControlOptions[1].label), undefined, { skipPointerEventsCheck: true });
+
+    segmentedControlOptions.forEach((_, index) => {
+      expect(screen.getByTestId(`segmentedcontrol-chip-${index}`)).toHaveAttribute('disabled');
+    });
+
+    expect(onChange).not.toHaveBeenCalled();
   });
 
   it('should click on third option', () => {
