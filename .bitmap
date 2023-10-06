@@ -29,7 +29,7 @@
     },
     "atoms/chip": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.55",
+        "version": "0.0.56",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Chip"
     },
@@ -1583,7 +1583,7 @@
     },
     "molecules/segmented-control": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.11",
+        "version": "0.0.12",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/SegmentedControl"
     },
