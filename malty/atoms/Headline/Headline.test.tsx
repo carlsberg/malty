@@ -8,7 +8,7 @@ const testId = 'headline';
 
 describe('Headline component', () => {
   it('should render with the correct text', () => {
-    render(<Headline>{text} </Headline>);
+    render(<Headline>{text}</Headline>);
 
     const rendered = screen.getByText(text);
 
@@ -16,7 +16,7 @@ describe('Headline component', () => {
   });
 
   it('should have the assigned data test id', () => {
-    render(<Headline dataTestId={testId}>{text} </Headline>);
+    render(<Headline dataTestId={testId}>{text}</Headline>);
 
     const rendered = screen.getByTestId(testId);
 
