@@ -37,7 +37,6 @@ export const Text = ({
       theme={theme}
       as={StyledTag}
       className={className}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
       {children}
