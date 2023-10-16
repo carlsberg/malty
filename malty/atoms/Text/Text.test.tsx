@@ -7,13 +7,11 @@ import { Text } from './Text';
 const text = 'this is a text block';
 const testId = 'text';
 
-describe('text', () => {
+describe('Text', () => {
   it('should render with the correct text', () => {
     render(<Text textStyle={TextStyle.MediumBold}>{text}</Text>);
 
-    const rendered = screen.getByText(text);
-
-    expect(rendered).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeInTheDocument();
   });
 
   it('should have the assigned data test id', () => {
@@ -23,8 +21,17 @@ describe('text', () => {
       </Text>
     );
 
-    const rendered = screen.getByTestId(testId);
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
+  });
 
-    expect(rendered).toBeInTheDocument();
+  it('should render children element', () => {
+    render(
+      <Text dataQaId={testId} textStyle={TextStyle.MediumBold}>
+        <span data-testid="span">{text}</span>
+      </Text>
+    );
+
+    expect(screen.getByTestId('span')).toBeInTheDocument();
+    expect(screen.getByTestId(testId)).toBeInTheDocument();
   });
 });
