@@ -5,10 +5,26 @@ import { TextStyle } from '.';
 import { Text } from './Text';
 
 const text = 'this is a text block';
+const testId = 'text';
+
 describe('text', () => {
   it('should render with the correct text', () => {
     render(<Text textStyle={TextStyle.MediumBold}>{text}</Text>);
+
     const rendered = screen.getByText(text);
+
+    expect(rendered).toBeInTheDocument();
+  });
+
+  it('should have the assigned data test id', () => {
+    render(
+      <Text dataQaId={testId} textStyle={TextStyle.MediumBold}>
+        {text}
+      </Text>
+    );
+
+    const rendered = screen.getByTestId(testId);
+
     expect(rendered).toBeInTheDocument();
   });
 });
