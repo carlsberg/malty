@@ -161,7 +161,7 @@ export const ProductCard = ({
             {loyalty ? (
               <StyledLoyalty theme={theme}>
                 <Text textStyle={TextStyle.SmallBold}>{loyalty.label}</Text>
-                <Image removeBackground src={loyalty.imageSrc} alt="loyalty-coin" />
+                <Image height="18" width="18" removeBackground src={loyalty.imageSrc} alt="loyalty-coin" />
               </StyledLoyalty>
             ) : null}
           </StyledRow>
