@@ -12,7 +12,7 @@ describe('Image component', () => {
   it('should render the component with the correct alt description', () => {
     render(<Image src={testImageSrc} cover={false} alt={altText} dataTestId={dataTestId} />);
 
-    expect(screen.getByAltText(altText)).toBeDefined();
+    expect(screen.getByAltText(altText)).toBeInTheDocument();
   });
 
   it('should render with the assigned dataTestid', () => {
@@ -26,6 +26,7 @@ describe('Image component', () => {
 
     expect(screen.getByText('caption text')).toBeInTheDocument();
   });
+
   it('should render with the correct caption testId', () => {
     render(<Image src={testImageSrc} cover={false} alt={altText} dataTestId={dataTestId} figcaption="caption text" />);
 
@@ -45,8 +46,9 @@ describe('Image component', () => {
 
     fireEvent.error(screen.getByTestId(dataTestId));
 
+    expect(screen.queryByTestId('icon-Image')).not.toBeInTheDocument();
     expect(screen.getByTestId(dataTestId)).toBeInTheDocument();
-    expect(screen.getByAltText(altText)).toBeDefined();
+    expect(screen.getByAltText(altText)).toBeInTheDocument();
   });
 
   it('should trigger the onClick function when clicked', () => {
@@ -55,7 +57,7 @@ describe('Image component', () => {
 
     userEvent.click(screen.getByTestId(dataTestId));
 
-    expect(mockFn).toHaveBeenCalled();
+    expect(mockFn).toHaveBeenCalledTimes(1);
   });
 
   it('should render with the correct children', () => {
