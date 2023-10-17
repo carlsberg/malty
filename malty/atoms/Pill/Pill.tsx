@@ -4,12 +4,12 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useIconTextColor, usePillStyles } from './Pill.helper';
 import { StyledPill } from './Pill.styled';
-import { PillColor, PillProps, PillSize } from './Pill.types';
+import { PillProps, PillSize, PillType } from './Pill.types';
 
 export const Pill = ({
   text,
   icon,
-  color = PillColor.Primary,
+  type = PillType.Primary,
   size = PillSize.Medium,
   badgeMode = false,
   isUppercase = false,
@@ -17,13 +17,13 @@ export const Pill = ({
 }: PillProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const { fontSize, fontFamily, iconSize, gap, numSize, padding } = usePillStyles({ size });
-  const colorStyle = useIconTextColor({ color });
+  const colorStyle = useIconTextColor({ type });
   const hasText = !!text;
 
   return (
     <StyledPill
       data-testid={dataTestId}
-      color={color}
+      type={type}
       size={numSize}
       fontSize={fontSize}
       fontFamily={fontFamily}

@@ -96,7 +96,7 @@ export const ProductCard = ({
                   <StyledDiscountPill theme={theme}>
                     <Pill
                       text={discountPill?.text}
-                      color={discountPill?.color}
+                      type={discountPill?.type}
                       size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                       icon={discountPill?.icon}
                     />
@@ -106,7 +106,7 @@ export const ProductCard = ({
                 {promoPill ? (
                   <Pill
                     text={promoPill?.text}
-                    color={promoPill?.color}
+                    type={promoPill?.type}
                     size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                     icon={promoPill?.icon}
                   />
@@ -115,7 +115,7 @@ export const ProductCard = ({
               {cartPill ? (
                 <Pill
                   text={cartPill?.text}
-                  color={cartPill?.color}
+                  type={cartPill?.type}
                   size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                   icon={cartPill?.icon}
                 />

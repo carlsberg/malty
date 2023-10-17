@@ -1,6 +1,6 @@
 import { Button } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Pill, PillColor, PillProps, PillSize } from '@carlsberggroup/malty.atoms.pill';
+import { Pill, PillProps, PillSize, PillType } from '@carlsberggroup/malty.atoms.pill';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
@@ -24,7 +24,7 @@ export const Banner = ({
 
   const labelProps: PillProps = {
     text: label && typeof label === 'string' ? label : '',
-    color: negative ? PillColor.Archive : PillColor.Primary,
+    type: negative ? PillType.Archive : PillType.Primary,
     size: PillSize.Medium,
     icon: undefined
   };
@@ -38,7 +38,7 @@ export const Banner = ({
     <StyledBannerContainer negative={negative} reverse={reverse} layout={layout} theme={theme} data-testid={dataTestId}>
       <StyledBannerContent layout={layout} theme={theme} data-testid={`${dataTestId}-content`}>
         {label ? (
-          <Pill text={labelProps.text} color={labelProps.color} size={labelProps.size} icon={labelProps.icon} />
+          <Pill text={labelProps.text} type={labelProps.type} size={labelProps.size} icon={labelProps.icon} />
         ) : null}
         {title ? (
           <Headline

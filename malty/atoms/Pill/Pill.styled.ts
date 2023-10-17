@@ -1,6 +1,6 @@
 import { IconColor } from '@carlsberggroup/malty.atoms.icon';
 import styled, { css } from 'styled-components';
-import { PillColor, PillSize } from './Pill.types';
+import { PillSize, PillType } from './Pill.types';
 
 export const StyledPill = styled.div<{
   size: string;
@@ -8,7 +8,7 @@ export const StyledPill = styled.div<{
   fontFamily: string;
   iconSize: string;
   padding: string;
-  color: PillColor;
+  type: PillType;
   textColor: IconColor;
   hasText: boolean;
   hasIcon: boolean;
@@ -20,17 +20,17 @@ export const StyledPill = styled.div<{
   font-family: ${({ fontFamily }) => `${fontFamily}`};
   font-size: ${({ fontSize }) => `${fontSize}`};
   font-weight: bold;
-  background-color: ${({ color, theme }) => {
-    if (color === PillColor.Primary) {
+  background-color: ${({ type, theme }) => {
+    if (type === PillType.Primary) {
       return theme.colors.theme.themePrimary.value;
     }
-    if (color === PillColor.Secondary) {
+    if (type === PillType.Secondary) {
       return theme.colors.theme.themeSecondary.value;
     }
-    if (color === PillColor.Archive) {
+    if (type === PillType.Archive) {
       return theme.colors.colours.support[40].value;
     }
-    return theme.colors.colours.system[color].value;
+    return theme.colors.colours.system[type].value;
   }};
   color: ${({ textColor }) => textColor};
   display: inline-flex;

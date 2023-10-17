@@ -3,7 +3,7 @@ import { IconName } from '@carlsberggroup/malty.atoms.icon';
 export interface PillProps extends React.HTMLAttributes<HTMLElement> {
   text?: string;
   icon?: IconName;
-  color?: PillColor;
+  type?: PillType;
   size?: PillSize;
   badgeMode?: boolean;
   dataTestId?: string;
@@ -16,7 +16,7 @@ export enum PillSize {
   Medium = 'Medium'
 }
 
-export enum PillColor {
+export enum PillType {
   Primary = 'primary',
   Secondary = 'secondary',
   Archive = 'support40',
@@ -26,7 +26,8 @@ export enum PillColor {
   NotificationStrong = 'notification-strong',
   AlertLight = 'alert-light',
   NotificationLight = 'notification-light',
-  SuccessLight = 'success-light'
+  SuccessLight = 'success-light',
+  Disabled = 'disable-light-theme'
 }
 
 export interface UsePillStylesProps {
@@ -34,5 +35,5 @@ export interface UsePillStylesProps {
 }
 
 export interface IconTextColorProps {
-  color: PillColor;
+  type: PillType;
 }

@@ -1,131 +1,92 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Pill as PillComponent } from './Pill';
-import { PillColor, PillProps, PillSize } from './Pill.types';
+import { Pill } from './Pill';
+import { PillProps, PillSize, PillType } from './Pill.types';
 
-export default {
+const meta: Meta<PillProps> = {
+  component: Pill,
   title: 'Information/Pill',
-  component: PillComponent,
   parameters: {
     importObject: 'Pill',
-    importPath: '@carlsberggroup/malty.atoms.pill',
-    variants: ['text', 'icon', 'badge']
+    importPath: '@carlsberggroup/malty.atoms.pill'
   },
+  render: (args) => <Pill {...args} />,
   argTypes: {
     text: {
       control: 'text',
-      description: 'Pill content text.'
+      description: 'Pill content text'
     },
     size: {
-      description: 'Pill size, options below.',
+      description: 'Pill size, options below',
       options: Object.values(PillSize),
-      control: {
-        type: 'select'
-      },
-      table: {
-        defaultValue: {
-          summary: 'PillSize.Medium'
-        }
-      }
+      control: 'select'
     },
-    color: {
-      description: 'Pill colors, from design predefined colors, as follows.',
-      options: Object.keys(PillColor),
-      mapping: PillColor,
-      control: {
-        type: 'select',
-        label: Object.values(PillColor)
-      },
-      table: {
-        defaultValue: {
-          summary: 'PillColor.Closed'
-        }
-      }
+    type: {
+      description: 'Pill type',
+      options: Object.keys(PillType),
+      mapping: PillType,
+      control: 'select'
     },
     icon: {
       description: 'Icon to be displayed',
       options: Object.keys({ undefined, ...IconName }),
       mapping: { undefined, ...IconName },
-      control: {
-        type: 'select',
-        label: Object.values({ undefined, ...IconName })
-      },
-      table: {
-        defaultValue: {
-          summary: 'IconName.CarlsbergFilled'
-        }
-      }
+      control: 'select'
     },
     badgeMode: {
       description: 'Decreases paddings and allows for a circled look as much as possible',
-      control: 'boolean',
-      table: { defaultValue: { summary: 'false' } }
+      control: 'boolean'
     },
     isUppercase: {
       description: 'Use this property to uppercase the text content',
-      control: 'boolean',
-      table: { defaultValue: { summary: 'false' } }
+      control: 'boolean'
     },
     dataTestId: {
       control: 'text',
       description: 'Pill data-testid'
     }
   }
-} as Meta;
+};
 
-const Template: Story<PillProps> = (args: PillProps) => <PillComponent {...args} />;
+type Story = StoryObj<PillProps>;
 
-let PillEl;
+export const Base: Story = {
+  args: {
+    text: 'Text',
+    icon: IconName.CarlsbergFilled,
+    type: PillType.Primary,
+    size: PillSize.Medium,
+    badgeMode: false,
+    isUppercase: false
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Icon: Story = {
+  args: {
+    ...Base.args,
+    type: PillType.Success,
+    text: ''
+  }
+};
 
-switch (variant) {
-  case 'icon':
-    PillEl = Template.bind({});
-    PillEl.args = {
-      icon: IconName.CarlsbergFilled,
-      color: PillColor.Success,
-      size: PillSize.Medium,
-      badgeMode: false,
-      isUppercase: false
-    };
-    break;
+export const Text: Story = {
+  args: {
+    ...Base.args,
+    type: PillType.Fail,
+    icon: undefined
+  }
+};
 
-  case 'text':
-    PillEl = Template.bind({});
-    PillEl.args = {
-      text: 'Text',
-      color: PillColor.Fail,
-      size: PillSize.Medium,
-      badgeMode: false,
-      isUppercase: false
-    };
-    break;
+export const Badge: Story = {
+  args: {
+    ...Base.args,
+    type: PillType.Success,
+    size: PillSize.ExtraSmall,
+    icon: undefined,
+    text: '9',
+    badgeMode: true
+  }
+};
 
-  case 'badge':
-    PillEl = Template.bind({});
-    PillEl.args = {
-      text: '9',
-      color: PillColor.Success,
-      size: PillSize.ExtraSmall,
-      badgeMode: true,
-      isUppercase: false
-    };
-    break;
-
-  default:
-    PillEl = Template.bind({});
-    PillEl.args = {
-      text: 'Text',
-      icon: IconName.CarlsbergFilled,
-      color: PillColor.Primary,
-      size: PillSize.Medium,
-      badgeMode: false,
-      isUppercase: false
-    };
-    break;
-}
-
-export const Pill = PillEl;
+export default meta;
