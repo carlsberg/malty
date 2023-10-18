@@ -40,7 +40,7 @@ const meta: Meta<BannerProps> = {
     | {
         text: string;
         icon: IconName;
-        color: PillType
+        type: PillType
         size: PillSize;
       }[]" or any html or JSX element `
     },
