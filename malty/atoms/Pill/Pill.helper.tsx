@@ -2,7 +2,7 @@ import { IconColor } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { IconTextColorProps, PillColor, PillSize, UsePillStylesProps } from './Pill.types';
+import { IconTextColorProps, PillSize, PillType, UsePillStylesProps } from './Pill.types';
 
 export const usePillStyles = ({ size }: UsePillStylesProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -37,8 +37,8 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
   return pillStyles[size];
 };
 
-export const useIconTextColor = ({ color }: IconTextColorProps) => {
-  if (color === PillColor.Archive || color === PillColor.Success || color === PillColor.AlertStrong) {
+export const useIconTextColor = ({ type }: IconTextColorProps) => {
+  if (type === PillType.Archive || type === PillType.Success || type === PillType.AlertStrong) {
     return IconColor.DigitalBlack;
   }
 

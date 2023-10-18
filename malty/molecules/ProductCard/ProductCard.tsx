@@ -96,7 +96,7 @@ export const ProductCard = ({
                   <StyledDiscountPill theme={theme}>
                     <Pill
                       text={discountPill?.text}
-                      color={discountPill?.color}
+                      type={discountPill?.type}
                       size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                       icon={discountPill?.icon}
                     />
@@ -106,7 +106,7 @@ export const ProductCard = ({
                 {promoPill ? (
                   <Pill
                     text={promoPill?.text}
-                    color={promoPill?.color}
+                    type={promoPill?.type}
                     size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                     icon={promoPill?.icon}
                   />
@@ -115,7 +115,7 @@ export const ProductCard = ({
               {cartPill ? (
                 <Pill
                   text={cartPill?.text}
-                  color={cartPill?.color}
+                  type={cartPill?.type}
                   size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                   icon={cartPill?.icon}
                 />
@@ -161,7 +161,7 @@ export const ProductCard = ({
             {loyalty ? (
               <StyledLoyalty theme={theme}>
                 <Text textStyle={TextStyle.SmallBold}>{loyalty.label}</Text>
-                <Image removeBackground src={loyalty.imageSrc} alt="loyalty-coin" />
+                <Image height="18" width="18" removeBackground src={loyalty.imageSrc} alt="loyalty-coin" />
               </StyledLoyalty>
             ) : null}
           </StyledRow>
