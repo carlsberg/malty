@@ -1,30 +1,63 @@
-/* eslint-disable react/destructuring-assignment */
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
-import { PillColor } from '@carlsberggroup/malty.atoms.pill';
+import { PillType } from '@carlsberggroup/malty.atoms.pill';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { ProductCard as ProductCardComponent } from './ProductCard';
+import { ProductCard } from './ProductCard';
 import { ProductCardProps } from './ProductCard.types';
 
-enum ProductCardVariants {
-  Landscape = 'landscape',
-  ReadOnly = 'readOnly'
-}
+const ProductCardComponent = (args: ProductCardProps) => {
+  const { actionQuantityInput, orientation } = args;
+  const [stateValueComponent1, setStateValueComponent1] = useState(actionQuantityInput?.value || '0');
+  const [stateValueComponent2, setStateValueComponent2] = useState(actionQuantityInput?.value || '0');
 
-export default {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div style={orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
+        <ProductCard
+          {...args}
+          {...(actionQuantityInput && {
+            actionQuantityInput: {
+              ...actionQuantityInput,
+              value: stateValueComponent1,
+              onValueChange: setStateValueComponent1
+            }
+          })}
+        />
+      </div>
+
+      <div style={orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
+        <ProductCard
+          {...args}
+          productsCardsAlerts={[
+            { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
+          ]}
+          {...(actionQuantityInput && {
+            actionQuantityInput: {
+              ...actionQuantityInput,
+              value: stateValueComponent2,
+              onValueChange: setStateValueComponent2
+            }
+          })}
+        />
+      </div>
+    </div>
+  );
+};
+
+const meta: Meta<ProductCardProps> = {
+  component: ProductCard,
   title: 'Cards/ProductCard',
-  component: ProductCardComponent,
   parameters: {
     importObject: 'ProductCard',
-    importPath: '@carlsberggroup/malty.molecules.product-card',
-    variants: Object.values(ProductCardVariants)
+    importPath: '@carlsberggroup/malty.molecules.product-card'
   },
+  render: (args) => <ProductCardComponent {...args} />,
   argTypes: {
     title: {
       control: 'text',
@@ -52,43 +85,28 @@ export default {
       description: 'Product card style. Options are',
       options: Object.values(CardStyle),
       table: {
-        category: 'Card config',
-        defaultValue: {
-          summary: 'CardStyle.Plain'
-        }
+        category: 'Card config'
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
-    onProdcutClick: {
+    onProductClick: {
       control: ''
     },
     orientation: {
       description: 'Card orientation. Options are',
       options: Object.values(CardOrientation),
       table: {
-        category: 'Card config',
-        defaultValue: {
-          summary: 'CardOrientation.Portrait'
-        }
+        category: 'Card config'
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     favoriteIconColor: {
       description: 'Color for favorite icon',
       options: Object.values(IconColor),
       table: {
-        category: 'Card config',
-        defaultValue: {
-          summary: 'IconColor.DigitalBlack'
-        }
+        category: 'Card config'
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     dataTestId: {
       control: 'text',
@@ -197,44 +215,9 @@ export default {
       }
     }
   }
-} as Meta;
-
-const Template: Story<ProductCardProps> = (args) => {
-  const [stateValueComponent1, setStateValueComponent1] = useState(args.actionQuantityInput?.value || '0');
-  const [stateValueComponent2, setStateValueComponent2] = useState(args.actionQuantityInput?.value || '0');
-  return (
-    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-      <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
-        <ProductCardComponent
-          {...args}
-          {...(args.actionQuantityInput && {
-            actionQuantityInput: {
-              ...args.actionQuantityInput,
-              value: stateValueComponent1,
-              onValueChange: setStateValueComponent1
-            }
-          })}
-        />
-      </div>
-
-      <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
-        <ProductCardComponent
-          {...args}
-          productsCardsAlerts={[
-            { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
-          ]}
-          {...(args.actionQuantityInput && {
-            actionQuantityInput: {
-              ...args.actionQuantityInput,
-              value: stateValueComponent2,
-              onValueChange: setStateValueComponent2
-            }
-          })}
-        />
-      </div>
-    </div>
-  );
 };
+
+type Story = StoryObj<ProductCardProps>;
 
 const selectQuanityOptions: SelectOptionsType[] = [
   {
@@ -246,100 +229,61 @@ const selectQuanityOptions: SelectOptionsType[] = [
     name: 'full-pack (24 bottles)'
   }
 ];
-export const ProductCard = Template.bind({});
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
 
-switch (variant) {
-  case ProductCardVariants.Landscape:
-    ProductCard.args = {
-      title: 'This is an article card Title',
-      imageSrc: 'https://picsum.photos/320/180',
-      dataTestId: 'Product-card',
-      actionButton: {
-        color: ButtonColor.DigitalBlack,
-        text: 'Add to cart',
-        onClick: () => null,
-        style: ButtonStyle.Primary,
-        icon: IconName.Cart,
-        loading: undefined,
-        disabled: undefined
-      },
-      actionQuantityInput: {
-        onValueChange: () => null,
-        value: '3',
-        min: undefined,
-        max: undefined,
-        readOnly: undefined
-      },
-      orientation: CardOrientation.Landscape,
-      price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
-      sku: 'Sku: 12512 512',
-      loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
-      stock: { label: 'In Stock', stockColor: TextColor.Success },
-      quantitySelectOptions: selectQuanityOptions,
-      discountPill: { text: '20%', color: PillColor.AlertStrong },
-      promoPill: { text: 'Promo', color: PillColor.AlertStrong, icon: IconName.Coupon },
-      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
-      favoriteIconColor: IconColor.Primary,
-      productsCardsAlerts: [
-        { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
-        { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
-      ]
-    };
-    break;
-  case ProductCardVariants.ReadOnly:
-    ProductCard.args = {
-      title: 'This is an article card Title',
-      imageSrc: 'https://picsum.photos/320/180',
-      dataTestId: 'Product-card',
-      actionQuantityInput: {
-        value: '3',
-        readOnly: true
-      },
-      price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
-      sku: 'Sku: 12512 512',
-      loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
-      stock: { label: 'In Stock', stockColor: TextColor.Success },
-      quantitySelectOptions: selectQuanityOptions,
-      discountPill: { text: '20%', color: PillColor.AlertStrong },
-      promoPill: { text: 'Promo', color: PillColor.AlertStrong, icon: IconName.Coupon },
-      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
-      favoriteIconColor: IconColor.Primary
-    };
-    break;
+export const Base: Story = {
+  args: {
+    title: 'This is an article card Title',
+    imageSrc: 'https://picsum.photos/320/180',
+    dataTestId: 'Product-card',
+    actionButton: {
+      color: ButtonColor.DigitalBlack,
+      text: 'Add to cart',
+      onClick: () => null,
+      style: ButtonStyle.Primary,
+      icon: IconName.Cart,
+      loading: undefined,
+      disabled: undefined
+    },
+    actionQuantityInput: {
+      onValueChange: () => null,
+      value: '3',
+      min: undefined,
+      max: undefined,
+      readOnly: undefined
+    },
+    orientation: CardOrientation.Portrait,
+    price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
+    sku: 'Sku: 12512 512',
+    loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
+    stock: { label: 'In Stock', stockColor: TextColor.Success },
+    quantitySelectOptions: selectQuanityOptions,
+    discountPill: { text: '20%', type: PillType.AlertStrong },
+    promoPill: { text: 'Promo', type: PillType.AlertStrong, icon: IconName.Coupon },
+    cartPill: { text: '2', type: PillType.Success, icon: IconName.Cart },
+    favoriteIconColor: IconColor.Primary
+  }
+};
 
-  default:
-    ProductCard.args = {
-      title: 'This is an article card Title',
-      imageSrc: 'https://picsum.photos/320/180',
-      dataTestId: 'Product-card',
-      actionButton: {
-        color: ButtonColor.DigitalBlack,
-        text: 'Add to cart',
-        onClick: () => null,
-        style: ButtonStyle.Primary,
-        icon: IconName.Cart,
-        loading: undefined,
-        disabled: undefined
-      },
-      actionQuantityInput: {
-        onValueChange: () => null,
-        value: '3',
-        min: undefined,
-        max: undefined,
-        readOnly: undefined
-      },
-      orientation: CardOrientation.Portrait,
-      price: { base: '₭ 99,800.00', discount: '₭ 86,000.00' },
-      sku: 'Sku: 12512 512',
-      loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
-      stock: { label: 'In Stock', stockColor: TextColor.Success },
-      quantitySelectOptions: selectQuanityOptions,
-      discountPill: { text: '20%', color: PillColor.AlertStrong },
-      promoPill: { text: 'Promo', color: PillColor.AlertStrong, icon: IconName.Coupon },
-      cartPill: { text: '2', color: PillColor.Success, icon: IconName.Cart },
-      favoriteIconColor: IconColor.Primary
-    };
-    break;
-}
+export const Landscape: Story = {
+  args: {
+    ...Base.args,
+    orientation: CardOrientation.Landscape,
+    productsCardsAlerts: [
+      { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' },
+      { message: 'Max order limit: 5', color: AlertInlineColor.NotificationLight }
+    ]
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    actionButton: undefined,
+    actionQuantityInput: {
+      value: '3',
+      readOnly: true
+    }
+  }
+};
+
+export default meta;

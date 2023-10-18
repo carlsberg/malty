@@ -1,29 +1,20 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Banner as BannerComponent } from './Banner';
+import { Banner } from './Banner';
 import { ActionButtonProps, BannerLayout, BannerProps } from './Banner.types';
 
-enum BannerVariants {
-  Negative = 'negative',
-  Half = 'half',
-  Third = 'third',
-  Reverse = 'reverse'
-}
-
-export default {
+const meta: Meta<BannerProps> = {
+  component: Banner,
   title: 'Layout/Banner',
-  component: BannerComponent,
   parameters: {
     importObject: 'Banner',
-    importPath: '@carlsberggroup/malty.molecules.banner',
-    variants: Object.values(BannerVariants)
+    importPath: '@carlsberggroup/malty.molecules.banner'
   },
+  render: (args) => <Banner {...args} />,
   argTypes: {
     layout: {
-      control: {
-        type: 'select'
-      },
+      control: 'select',
       options: Object.values(BannerLayout),
       description: 'Picks the layout of the Content and Image'
     },
@@ -49,7 +40,7 @@ export default {
     | {
         text: string;
         icon: IconName;
-        color: PillColor
+        type: PillType
         size: PillSize;
       }[]" or any html or JSX element `
     },
@@ -67,16 +58,9 @@ export default {
       description: 'Banner Image Size override (in pixels)'
     }
   }
-} as Meta;
-
-const Template: Story<BannerProps> = (args) => {
-  return <BannerComponent {...args} />;
 };
 
-export const Banner = Template.bind({});
-
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+type Story = StoryObj<BannerProps>;
 
 const actions: ActionButtonProps[] = [
   {
@@ -93,75 +77,48 @@ const actions: ActionButtonProps[] = [
   }
 ];
 
-switch (variant) {
-  case BannerVariants.Negative:
-    Banner.args = {
-      title: 'Headline',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      imageSrc: 'https://picsum.photos/id/785/1400/800',
-      reverse: false,
-      negative: true,
-      layout: BannerLayout.Full,
-      label: {
-        text: 'Label'
-      },
-      actions
-    };
-    break;
-  case BannerVariants.Half:
-    Banner.args = {
-      title: 'Headline',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      imageSrc: 'https://picsum.photos/id/785/1400/800',
-      reverse: false,
-      negative: false,
-      layout: BannerLayout.Half,
-      label: {
-        text: 'Label'
-      },
-      actions
-    };
-    break;
-  case BannerVariants.Third:
-    Banner.args = {
-      title: 'Headline',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      imageSrc: 'https://picsum.photos/id/785/1400/800',
-      reverse: false,
-      negative: false,
-      layout: BannerLayout.Third,
-      label: {
-        text: 'Label'
-      },
-      actions
-    };
-    break;
-  case BannerVariants.Reverse:
-    Banner.args = {
-      title: 'Headline',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      imageSrc: 'https://picsum.photos/id/785/1400/800',
-      reverse: true,
-      negative: false,
-      layout: BannerLayout.Half,
-      label: {
-        text: 'Label'
-      },
-      actions
-    };
-    break;
-  default:
-    Banner.args = {
-      title: 'Headline',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      imageSrc: 'https://picsum.photos/id/785/1400/800',
-      reverse: false,
-      negative: false,
-      layout: BannerLayout.Full,
-      label: {
-        text: 'Label'
-      },
-      actions
-    };
-    break;
-}
+export const Base: Story = {
+  args: {
+    title: 'Headline',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    imageSrc: 'https://picsum.photos/id/785/1400/800',
+    reverse: false,
+    negative: false,
+    layout: BannerLayout.Full,
+    label: {
+      text: 'Label'
+    },
+    actions
+  }
+};
+
+export const Negative: Story = {
+  args: {
+    ...Base.args,
+    negative: true
+  }
+};
+
+export const Half: Story = {
+  args: {
+    ...Base.args,
+    layout: BannerLayout.Half
+  }
+};
+
+export const Third: Story = {
+  args: {
+    ...Base.args,
+    layout: BannerLayout.Third
+  }
+};
+
+export const Reverse: Story = {
+  args: {
+    ...Base.args,
+    layout: BannerLayout.Half,
+    reverse: true
+  }
+};
+
+export default meta;
