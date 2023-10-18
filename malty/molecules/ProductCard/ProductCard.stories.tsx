@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
@@ -12,17 +11,19 @@ import React, { useState } from 'react';
 import { ProductCard } from './ProductCard';
 import { ProductCardProps } from './ProductCard.types';
 
-const ProductCardComponent = ({ ...args }) => {
-  const [stateValueComponent1, setStateValueComponent1] = useState(args.actionQuantityInput?.value || '0');
-  const [stateValueComponent2, setStateValueComponent2] = useState(args.actionQuantityInput?.value || '0');
+const ProductCardComponent = (args: ProductCardProps) => {
+  const { actionQuantityInput, orientation } = args;
+  const [stateValueComponent1, setStateValueComponent1] = useState(actionQuantityInput?.value || '0');
+  const [stateValueComponent2, setStateValueComponent2] = useState(actionQuantityInput?.value || '0');
+
   return (
     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-      <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
+      <div style={orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
         <ProductCard
           {...args}
-          {...(args.actionQuantityInput && {
+          {...(actionQuantityInput && {
             actionQuantityInput: {
-              ...args.actionQuantityInput,
+              ...actionQuantityInput,
               value: stateValueComponent1,
               onValueChange: setStateValueComponent1
             }
@@ -30,15 +31,15 @@ const ProductCardComponent = ({ ...args }) => {
         />
       </div>
 
-      <div style={args.orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
+      <div style={orientation === CardOrientation.Portrait ? { maxWidth: '480px' } : { maxWidth: '680px' }}>
         <ProductCard
           {...args}
           productsCardsAlerts={[
             { message: 'Max order limit reached', color: AlertInlineColor.NotificationLight, firstActionText: 'Edit' }
           ]}
-          {...(args.actionQuantityInput && {
+          {...(actionQuantityInput && {
             actionQuantityInput: {
-              ...args.actionQuantityInput,
+              ...actionQuantityInput,
               value: stateValueComponent2,
               onValueChange: setStateValueComponent2
             }
@@ -216,6 +217,8 @@ const meta: Meta<ProductCardProps> = {
   }
 };
 
+type Story = StoryObj<ProductCardProps>;
+
 const selectQuanityOptions: SelectOptionsType[] = [
   {
     value: 'halfpack',
@@ -226,8 +229,6 @@ const selectQuanityOptions: SelectOptionsType[] = [
     name: 'full-pack (24 bottles)'
   }
 ];
-
-type Story = StoryObj<ProductCardProps>;
 
 export const Base: Story = {
   args: {
