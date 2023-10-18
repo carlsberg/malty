@@ -112,7 +112,6 @@ export const Table = ({
   const handleOnRowSelectionChange: OnChangeFn<RowSelectionState> = (updaterFn) => {
     const value = typeof updaterFn === 'function' ? updaterFn(rowSelection) : {};
 
-    onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
     setRowSelection(value);
   };
 
@@ -161,6 +160,10 @@ export const Table = ({
   useEffect(() => {
     setPagination({ pageIndex: paginationIndex, pageSize: paginationSize });
   }, [paginationIndex, paginationSize]);
+
+  useEffect(() => {
+    onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
+  }, [rowSelection]);
 
   useEffect(() => {
     setData(rows);
