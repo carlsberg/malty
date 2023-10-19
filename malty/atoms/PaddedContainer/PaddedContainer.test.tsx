@@ -8,7 +8,7 @@ const defaultText =
 const newText = 'New test text';
 
 describe('paddedContainer', () => {
-  it('renders with correct text', () => {
+  it('should render with correct text', () => {
     const { rerender } = render(<PaddedContainer>{defaultText}</PaddedContainer>);
     expect(screen.getByText(defaultText)).toBeVisible();
 
