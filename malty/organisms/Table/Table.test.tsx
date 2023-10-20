@@ -1,6 +1,6 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { RowSelectionState } from '@tanstack/react-table';
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { Table } from './Table';
@@ -440,7 +440,7 @@ describe('table', () => {
     });
     describe('Row selection', () => {
       it('should call onRowSelect with the correct value when a row is selected', () => {
-        const onRowSelectMock = jest.fn((selectedRow) => selectedRow);
+        const onRowSelectMock = jest.fn();
 
         render(
           <Table
@@ -459,9 +459,10 @@ describe('table', () => {
           hidden: true
         });
 
-        fireEvent.click(checkBoxRowToSelect);
+        userEvent.click(checkBoxRowToSelect);
 
         expect(onRowSelectMock).toHaveBeenCalledWith({ [rowId]: true });
+        expect(onRowSelectMock).toHaveBeenCalledTimes(1);
       });
     });
   });
