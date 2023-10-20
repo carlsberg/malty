@@ -45,6 +45,7 @@ jobs:
           bit config set user.token ${BIT_TOKEN}
           echo "Completed adding bit.dev to npm registry"
         env:
+          BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_TOKEN }}
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
       - name: Bit Deps Install & Compile
