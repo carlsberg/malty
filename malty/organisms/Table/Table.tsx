@@ -112,7 +112,7 @@ export const Table = ({
   const handleOnRowSelectionChange: OnChangeFn<RowSelectionState> = (updaterFn) => {
     const value = typeof updaterFn === 'function' ? updaterFn(rowSelection) : {};
 
-    onRowSelect(table.getSelectedRowModel().flatRows.map((row) => row.original));
+    onRowSelect(value);
     setRowSelection(value);
   };
 
