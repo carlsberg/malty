@@ -1,6 +1,6 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { RowSelectionState } from '@tanstack/react-table';
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { Table } from './Table';
@@ -436,6 +436,32 @@ describe('table', () => {
             within(screen.getByTestId(`table-row-${selectedRow.id}`)).getByRole('checkbox', { hidden: true })
           ).toBeChecked();
         });
+      });
+    });
+    describe('Row selection', () => {
+      it('should call onRowSelect with the correct value when a row is selected', () => {
+        const onRowSelectMock = jest.fn((selectedRow) => selectedRow);
+
+        render(
+          <Table
+            headers={headers}
+            rows={rows}
+            allowSelection
+            rowSelection={{}}
+            dataTestId="table"
+            onRowSelect={onRowSelectMock}
+          />
+        );
+
+        const rowId = 1;
+
+        const checkBoxRowToSelect = within(screen.getByTestId(`table-row-${rowId}`)).getByRole('checkbox', {
+          hidden: true
+        });
+
+        fireEvent.click(checkBoxRowToSelect);
+
+        expect(onRowSelectMock).toHaveBeenCalledWith({ [rowId]: true });
       });
     });
   });
