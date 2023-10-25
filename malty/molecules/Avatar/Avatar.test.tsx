@@ -3,6 +3,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Avatar } from './Avatar';
+import { AvatarSize } from './Avatar.types';
 
 const imageSrc =
   'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80';
@@ -64,5 +65,17 @@ describe('Avatar component', () => {
     render(<Avatar />);
 
     expect(screen.getByTestId('icon-Customer')).toBeInTheDocument();
+  });
+
+  it('should show a camera icon when avatar is large and editable', () => {
+    render(<Avatar dataQaId={dataTestId} editable size={AvatarSize.Large} />);
+
+    expect(screen.getByTestId('avatar-camera-icon')).toBeInTheDocument();
+  });
+
+  it('should show a camera icon when avatar is extra large and editable', () => {
+    render(<Avatar dataQaId={dataTestId} editable size={AvatarSize.XLarge} />);
+
+    expect(screen.getByTestId('avatar-camera-icon')).toBeInTheDocument();
   });
 });
