@@ -78,4 +78,10 @@ describe('Avatar component', () => {
 
     expect(screen.getByTestId('avatar-camera-icon')).toBeInTheDocument();
   });
+
+  it('should not display camera icon', () => {
+    render(<Avatar dataQaId={dataTestId} />);
+
+    expect(screen.queryByTestId('avatar-camera-icon')).not.toBeInTheDocument();
+  });
 });
