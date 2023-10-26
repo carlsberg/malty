@@ -29,7 +29,7 @@ const buttons: ActionButtonProps[] = [
 ];
 
 describe('modal', () => {
-  it('OnClick function passed successfully', () => {
+  it('should have OnClick function working successfully', () => {
     render(<Modal open onClose={() => false} title={title} content={text} actions={buttons} />);
     const primaryButton = screen.getByText('Confirm');
 
@@ -43,7 +43,7 @@ describe('modal', () => {
     expect(screen.getByText('Clicked primary')).toBeInTheDocument();
   });
 
-  it('Modal closed correctly', () => {
+  it('should have modal closed correctly', () => {
     const ModalTest = () => {
       const [open, setOpen] = useState(true);
       return <Modal open={open} onClose={() => setOpen(false)} title={title} content={text} actions={buttons} />;
@@ -61,5 +61,31 @@ describe('modal', () => {
       })
     );
     expect(screen.queryByText('Headline')).not.toBeInTheDocument();
+  });
+
+  it('should disable close icon when dismissible is set as false', () => {
+    render(<Modal open onClose={() => false} title={title} content={text} actions={buttons} dismissible={false} />);
+
+    const closeIcon = screen.queryByTestId('icon-component');
+
+    expect(closeIcon).not.toBeInTheDocument();
+  });
+
+  it('should render with the correct headline', () => {
+    render(<Modal open onClose={() => false} title={title} content={text} actions={buttons} dismissible={false} />);
+
+    const headline = screen.getByText(title);
+
+    expect(headline).toBeInTheDocument();
+  });
+
+  it('should render with the correct content', () => {
+    render(<Modal open onClose={() => false} title={title} content={text} actions={buttons} dismissible={false} />);
+
+    const content = screen.getByText(
+      'Paragraph block to support main headline(optional) And…it can have 2 lines, more than that is just boring…'
+    );
+
+    expect(content).toBeInTheDocument();
   });
 });
