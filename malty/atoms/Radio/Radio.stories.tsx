@@ -1,16 +1,16 @@
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { RadioProps } from '.';
-import { Radio as RadioComponent } from './Radio';
+import { Radio } from './Radio';
 
-export default {
+const meta: Meta<RadioProps> = {
+  component: Radio,
   title: 'Forms/Radio',
-  component: RadioComponent,
   parameters: {
     importObject: 'Radio',
-    importPath: '@carlsberggroup/malty.atoms.radio',
-    variants: ['disabled']
+    importPath: '@carlsberggroup/malty.atoms.radio'
   },
+  render: (args) => <Radio {...args} />,
   argTypes: {
     label: {
       description: 'label text radio',
@@ -45,43 +45,25 @@ export default {
     }
   }
 };
-const Template: Story<RadioProps> = ({ value, label, selected, onValueChange, name, error, disabled, required }) => (
-  <RadioComponent
-    id={value.toString()}
-    value={value}
-    label={label}
-    selected={selected}
-    onValueChange={onValueChange}
-    name={name}
-    error={error}
-    disabled={disabled}
-    required={required}
-  />
-);
-export const Radio = Template.bind({});
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+type Story = StoryObj<RadioProps>;
 
-switch (variant) {
-  case 'disabled':
-    Radio.args = {
-      label: 'Option 1',
-      name: 'radioOptions',
-      value: 'Option 1',
-      selected: true,
-      disabled: true,
-      required: false
-    };
-    break;
-  default:
-    Radio.args = {
-      label: 'Option 1',
-      name: 'radioOptions',
-      value: 'Option 1',
-      selected: true,
-      disabled: false,
-      required: false
-    };
-    break;
-}
+export const Base: Story = {
+  args: {
+    label: 'Option 1',
+    name: 'radioOptions',
+    value: 'Option 1',
+    selected: true,
+    disabled: false,
+    required: false
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export default meta;
