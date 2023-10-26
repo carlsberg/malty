@@ -95,13 +95,13 @@
     },
     "atoms/padded-container": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.48",
+        "version": "0.0.49",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/PaddedContainer"
     },
     "atoms/pill": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.87",
+        "version": "0.1.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Pill"
     },
@@ -1511,13 +1511,13 @@
     },
     "molecules/avatar": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.52",
+        "version": "0.0.53",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/Avatar"
     },
     "molecules/banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.18",
+        "version": "0.0.20",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Banner"
     },
@@ -1565,7 +1565,7 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.45",
+        "version": "0.0.47",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
@@ -1577,7 +1577,7 @@
     },
     "molecules/products-bar": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.61",
+        "version": "0.0.62",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/ProductsBar"
     },
@@ -1589,7 +1589,7 @@
     },
     "molecules/side-nav": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.67",
+        "version": "0.0.68",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/SideNav"
     },
@@ -1613,13 +1613,13 @@
     },
     "organisms/carousel": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.28",
+        "version": "0.0.30",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Carousel"
     },
     "organisms/table": {
         "scope": "carlsberggroup.malty",
-        "version": "0.1.7",
+        "version": "0.1.8",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },

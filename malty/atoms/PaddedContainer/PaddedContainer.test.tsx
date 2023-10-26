@@ -8,11 +8,11 @@ const defaultText =
 const newText = 'New test text';
 
 describe('paddedContainer', () => {
-  it('renders with correct text', () => {
+  it('should render with correct text', () => {
     const { rerender } = render(<PaddedContainer>{defaultText}</PaddedContainer>);
-    expect(screen.getByText(defaultText)).not.toBeNull();
+    expect(screen.getByText(defaultText)).toBeVisible();
 
     rerender(<PaddedContainer>{newText}</PaddedContainer>);
-    expect(screen.getByText(newText)).not.toBeNull();
+    expect(screen.getByText(newText)).toBeVisible();
   });
 });

@@ -438,5 +438,32 @@ describe('table', () => {
         });
       });
     });
+    describe('Row selection', () => {
+      it('should call onRowSelect with the correct value when a row is selected', () => {
+        const onRowSelectMock = jest.fn();
+
+        render(
+          <Table
+            headers={headers}
+            rows={rows}
+            allowSelection
+            rowSelection={{}}
+            dataTestId="table"
+            onRowSelect={onRowSelectMock}
+          />
+        );
+
+        const rowId = 1;
+
+        const checkBoxRowToSelect = within(screen.getByTestId(`table-row-${rowId}`)).getByRole('checkbox', {
+          hidden: true
+        });
+
+        userEvent.click(checkBoxRowToSelect);
+
+        expect(onRowSelectMock).toHaveBeenCalledWith({ [rowId]: true });
+        expect(onRowSelectMock).toHaveBeenCalledTimes(1);
+      });
+    });
   });
 });
