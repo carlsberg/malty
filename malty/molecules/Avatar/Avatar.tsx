@@ -77,7 +77,7 @@ export const Avatar = ({
     >
       {loading && (
         <StyledLoadingContainer>
-          <Loading size={LoadingSize.Small} status={LoadingStatus.Pending} />
+          <Loading dataQaId={`${dataQaId}-loading`} size={LoadingSize.Small} status={LoadingStatus.Pending} />
         </StyledLoadingContainer>
       )}
       {editable && (
