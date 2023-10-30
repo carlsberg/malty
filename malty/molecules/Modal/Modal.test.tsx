@@ -82,6 +82,7 @@ describe('modal', () => {
     render(<ModalTest />);
 
     expect(screen.queryByText('Clicked Primary')).not.toBeInTheDocument();
+    expect(screen.queryByText('Headline')).not.toBeInTheDocument();
   });
 
   it('should not display close icon when dismissible is set as false', () => {
