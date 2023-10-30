@@ -73,10 +73,9 @@ describe('modal', () => {
     expect(screen.queryByText('Headline')).not.toBeInTheDocument();
   });
 
-  it('should render modal with open property set to false', () => {
+  it('should not render modal with open property set to false', () => {
     const ModalTest = () => {
-      const [open, setOpen] = useState(false);
-      return <Modal open={open} onClose={() => setOpen(false)} title={title} content={text} actions={buttons} />;
+      return <Modal open={false} onClose={() => false} title={title} content={text} actions={buttons} />;
     };
 
     render(<ModalTest />);
