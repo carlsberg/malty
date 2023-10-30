@@ -131,7 +131,7 @@
     },
     "atoms/radio": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.41",
+        "version": "0.0.42",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Radio"
     },
@@ -1511,7 +1511,7 @@
     },
     "molecules/avatar": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.52",
+        "version": "0.0.53",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/Avatar"
     },
@@ -1577,7 +1577,7 @@
     },
     "molecules/products-bar": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.61",
+        "version": "0.0.62",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/ProductsBar"
     },
@@ -1589,7 +1589,7 @@
     },
     "molecules/side-nav": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.67",
+        "version": "0.0.68",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/SideNav"
     },
