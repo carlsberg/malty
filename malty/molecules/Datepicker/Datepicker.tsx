@@ -48,15 +48,16 @@ export const Datepicker = ({
   inline,
   readOnly,
   placeholderText,
-  captions,
+  captions = [],
   primaryAction,
   secondaryAction,
   shouldCloseOnSelect = true,
   size = DatepickerSize.Medium,
   required,
   dataTestId,
-  withPortal,
+  withPortal = false,
   withoutBorder,
+  dateFormat = 'MM/dd/yyyy',
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -231,6 +232,7 @@ export const Datepicker = ({
           showYearDropdown
           dropdownMode="select"
           dateFormatCalendar="MMMM"
+          dateFormat={dateFormat}
           shouldCloseOnSelect={shouldCloseOnSelect}
           withPortal={withPortal}
           {...props}

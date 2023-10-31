@@ -1,168 +1,13 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
+import { isValid } from 'date-fns';
 import React, { useState } from 'react';
-import { Datepicker as DatepickerComponent } from './Datepicker';
+import { Datepicker } from './Datepicker';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
-export default {
-  title: 'Forms/Datepicker',
-  component: DatepickerComponent,
-  parameters: {
-    importObject: 'Datepicker',
-    importPath: '@carlsberggroup/malty.molecules.datepicker',
-    variants: ['range', 'readonly', 'disabled', 'captionsAndActions']
-  },
-  argTypes: {
-    label: {
-      description: 'The datepicker input label',
-      control: {
-        type: 'text'
-      }
-    },
-    startDate: {
-      description: 'Initial selected date'
-    },
-    onChange: {
-      description: 'Action to perform when clicking a calendar day'
-    },
-    minDate: {
-      description: 'disable days before defined min. date',
-      control: {
-        type: 'date'
-      }
-    },
-    maxDate: {
-      description: 'disable days after defined max. date',
-      control: {
-        type: 'date'
-      }
-    },
-    dateFormat: {
-      description: 'custom date format, default is MM/dd/yyyy',
-      control: {
-        type: 'text'
-      }
-    },
-    excludeDates: {
-      description: 'disable array of days',
-      control: {
-        type: 'array'
-      }
-    },
-    size: {
-      description: 'Button size. Options are',
-      options: Object.values(DatepickerSize),
-      table: {
-        defaultValue: {
-          summary: 'DatepickerSize.Medium'
-        }
-      },
-      control: {
-        type: 'select'
-      }
-    },
-    disabled: {
-      description: 'disable datepicker',
-      control: {
-        type: 'boolean'
-      }
-    },
-    readOnly: {
-      control: {
-        type: 'boolean'
-      },
-      description: 'readOnly datepicker'
-    },
-    selectsRange: {
-      description: 'enable date range selection. This will set the input as readonly',
-      control: {
-        type: 'boolean'
-      }
-    },
-    inline: {
-      description: 'display calendar without input',
-      control: {
-        type: 'boolean'
-      }
-    },
-    placeholderText: {
-      description: 'input placeholder',
-      control: {
-        type: 'text'
-      }
-    },
-    locale: {
-      description: 'iso language code',
-      control: {
-        type: 'text'
-      }
-    },
-    captions: {
-      description: 'captions for datepicker',
-      control: {
-        type: 'object'
-      },
-      defaultValue: []
-    },
-    primaryAction: {
-      description: 'apply date',
-      control: {
-        type: 'object'
-      }
-    },
-    secondaryAction: {
-      description: 'cancel apply date',
-      control: {
-        type: 'object'
-      }
-    },
-    shouldCloseOnSelect: {
-      description: 'whether the datepicker should close automatically upon selection',
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: true
-    },
-    withPortal: {
-      description: 'whether the datepicker should open within a [Portal](https://reactjs.org/docs/portals.html)',
-      control: {
-        type: 'boolean'
-      },
-      defaultValue: false
-    },
-    required: {
-      control: 'boolean',
-      description: 'Makes the Datepicker required to fill'
-    },
-    withoutBorder: {
-      control: 'boolean',
-      description: 'Disables the border and padding from the calendar portal only if inline is true'
-    }
-  }
-} as Meta;
-
-const Template: Story<DatepickerProps> = ({
-  label,
-  minDate,
-  maxDate,
-  disabled,
-  locale,
-  excludeDates,
-  placeholderText,
-  selectsRange,
-  dateFormat,
-  readOnly,
-  captions,
-  inline,
-  primaryAction,
-  secondaryAction,
-  shouldCloseOnSelect,
-  size,
-  required,
-  dataTestId,
-  withPortal,
-  withoutBorder
-}) => {
+const DatepickerComponent = ({ ...args }) => {
+  const { selectsRange, dateFormat } = args;
   const [startDate, setStartDate] = useState<Date | null>(new Date());
+
   const [endDate, setEndDate] = useState<Date | null>(new Date());
 
   const onChange = (date: (Date | null) | [Date | null, Date | null]) => {
@@ -184,96 +29,175 @@ const Template: Story<DatepickerProps> = ({
 
   return (
     <div style={{ height: '560px' }}>
-      <DatepickerComponent
-        label={label}
-        onChange={selectsRange ? onChange : onChangeStartDate}
+      <Datepicker
+        {...args}
+        dateFormat={isValid(dateFormat) ? dateFormat : 'MM/dd/yyyy'}
         startDate={startDate}
         endDate={endDate}
-        minDate={minDate}
-        maxDate={maxDate}
-        disabled={disabled}
-        locale={locale}
-        excludeDates={excludeDates}
-        placeholderText={placeholderText}
-        selectsRange={selectsRange}
-        dateFormat={dateFormat}
-        readOnly={readOnly}
-        captions={captions}
-        primaryAction={primaryAction}
-        secondaryAction={secondaryAction}
-        inline={inline}
-        shouldCloseOnSelect={shouldCloseOnSelect}
-        size={size}
-        required={required}
-        dataTestId={dataTestId}
-        withPortal={withPortal}
-        withoutBorder={withoutBorder}
+        onChange={selectsRange ? onChange : onChangeStartDate}
       />
     </div>
   );
 };
 
-export const Datepicker = Template.bind({});
+const meta: Meta<DatepickerProps> = {
+  component: Datepicker,
+  title: 'Forms/Datepicker',
+  parameters: {
+    importObject: 'Datepicker',
+    importPath: '@carlsberggroup/malty.molecules.datepicker'
+  },
+  render: (args) => <DatepickerComponent {...args} />,
+  argTypes: {
+    label: {
+      description: 'The datepicker input label',
+      control: 'text'
+    },
+    startDate: {
+      description: 'Initial selected date'
+    },
+    onChange: {
+      description: 'Action to perform when clicking a calendar day'
+    },
+    minDate: {
+      description: 'disable days before defined min. date',
+      control: 'date'
+    },
+    maxDate: {
+      description: 'disable days after defined max. date',
+      control: 'date'
+    },
+    dateFormat: {
+      description: 'custom date format, default is MM/dd/yyyy',
+      control: 'text'
+    },
+    excludeDates: {
+      description: 'disable array of days',
+      control: 'array'
+    },
+    size: {
+      description: 'Button size. Options are',
+      options: Object.values(DatepickerSize),
+      control: 'select'
+    },
+    disabled: {
+      description: 'disable datepicker',
+      control: 'boolean'
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'readOnly datepicker'
+    },
+    selectsRange: {
+      description: 'enable date range selection. This will set the input as readonly',
+      control: 'boolean'
+    },
+    inline: {
+      description: 'display calendar without input',
+      control: 'boolean'
+    },
+    placeholderText: {
+      description: 'input placeholder',
+      control: 'text'
+    },
+    locale: {
+      description: 'iso language code',
+      control: 'text'
+    },
+    captions: {
+      description: 'captions for datepicker',
+      control: 'array'
+    },
+    primaryAction: {
+      description: 'apply date',
+      control: 'object'
+    },
+    secondaryAction: {
+      description: 'cancel apply date',
+      control: 'object'
+    },
+    shouldCloseOnSelect: {
+      description: 'whether the datepicker should close automatically upon selection',
+      control: 'boolean'
+    },
+    withPortal: {
+      description: 'whether the datepicker should open within a [Portal](https://reactjs.org/docs/portals.html)',
+      control: 'boolean'
+    },
+    required: {
+      control: 'boolean',
+      description: 'Makes the Datepicker required to fill'
+    },
+    withoutBorder: {
+      control: 'boolean',
+      description: 'Disables the border and padding from the calendar portal only if inline is true'
+    }
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+type Story = StoryObj<DatepickerProps>;
 
-switch (variant) {
-  case 'disabled':
-    Datepicker.args = {
-      label: 'Select date',
-      disabled: true,
-      required: false
-    };
-    break;
-  case 'readonly':
-    Datepicker.args = {
-      label: 'Select date',
-      readOnly: true,
-      required: false
-    };
-    break;
-  case 'range':
-    Datepicker.args = {
-      label: 'Select date',
-      selectsRange: true,
-      required: false
-    };
-    break;
-  case 'captionsAndActions':
-    Datepicker.args = {
-      label: 'Select date',
-      captions: [
-        {
-          label: 'Selected',
-          color: Colors.DigitalBlack
-        },
-        {
-          label: 'Today',
-          color: Colors.SystemFail
-        },
-        {
-          label: 'Available if you order until 5pm',
-          color: Colors.White,
-          borderColor: Colors.InformationIndirect,
-          dotted: true
-        },
-        {
-          label: 'Order placed',
-          color: Colors.SystemSuccess
-        }
-      ],
-      primaryAction: {
-        label: 'Apply',
-        action: () => true
+export const Base: Story = {
+  args: {
+    label: 'Select date',
+    required: false,
+    dateFormat: 'MM/dd/yyyy'
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export const Readonly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
+  }
+};
+
+export const Range: Story = {
+  args: {
+    ...Base.args,
+    selectsRange: true
+  }
+};
+
+export const CaptionsAndActions: Story = {
+  args: {
+    ...Base.args,
+    captions: [
+      {
+        label: 'Selected',
+        color: Colors.DigitalBlack
       },
-      secondaryAction: {
-        label: 'Cancel',
-        action: () => true
+      {
+        label: 'Today',
+        color: Colors.SystemFail
+      },
+      {
+        label: 'Available if you order until 5pm',
+        color: Colors.White,
+        borderColor: Colors.InformationIndirect,
+        dotted: true
+      },
+      {
+        label: 'Order placed',
+        color: Colors.SystemSuccess
       }
-    };
-    break;
-  default:
-    Datepicker.args = { label: 'Select date', required: false };
-    break;
-}
+    ],
+    primaryAction: {
+      label: 'Apply',
+      action: () => true
+    },
+    secondaryAction: {
+      label: 'Cancel',
+      action: () => true
+    }
+  }
+};
+
+export default meta;
