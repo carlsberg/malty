@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { isValid } from 'date-fns';
 import React, { useState } from 'react';
 import { Datepicker } from './Datepicker';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
@@ -31,7 +30,7 @@ const DatepickerComponent = ({ ...args }) => {
     <div style={{ height: '560px' }}>
       <Datepicker
         {...args}
-        dateFormat={isValid(dateFormat) ? dateFormat : 'MM/dd/yyyy'}
+        dateFormat={dateFormat === '' ? 'MM/dd/yyyy' : dateFormat}
         startDate={startDate}
         endDate={endDate}
         onChange={selectsRange ? onChange : onChangeStartDate}
