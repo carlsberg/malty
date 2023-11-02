@@ -137,4 +137,18 @@ describe('datepicker', () => {
 
     expect(screen.getByLabelText(label)).toBeRequired();
   });
+
+  it('should display the datepicker input according to the date format provided', () => {
+    render(
+      <Datepicker
+        label={label}
+        onChange={mockFn}
+        startDate={new Date(2022, 11, 1)}
+        placeholderText="datepicker"
+        dateFormat="dd/MM/yyyy"
+      />
+    );
+
+    expect(screen.getByDisplayValue('01/12/2022')).toBeInTheDocument();
+  });
 });

@@ -1,13 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Datepicker } from './Datepicker';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
 const DatepickerComponent = ({ ...args }) => {
-  const { selectsRange, dateFormat } = args;
-  const [startDate, setStartDate] = useState<Date | null>(new Date());
+  const { selectsRange, dateFormat, startDate, endDate } = args;
+  const [newStartDate, setNewStartDate] = useState<Date | null>(startDate);
 
-  const [endDate, setEndDate] = useState<Date | null>(new Date());
+  useEffect(() => {
+    setNewStartDate(startDate);
+  }, [startDate]);
+
+  const [newEndDate, setNewEndDate] = useState<Date | null>(endDate);
+
+  useEffect(() => {
+    setNewEndDate(endDate);
+  }, [endDate]);
 
   const onChange = (date: (Date | null) | [Date | null, Date | null]) => {
     let start;
@@ -15,14 +23,14 @@ const DatepickerComponent = ({ ...args }) => {
 
     if (Array.isArray(date)) {
       [start, end] = date;
-      setStartDate(start);
-      setEndDate(end);
+      setNewStartDate(start);
+      setNewEndDate(end);
     }
   };
 
   const onChangeStartDate = (date: (Date | null) | [Date | null, Date | null]) => {
     if (!Array.isArray(date)) {
-      setStartDate(date);
+      setNewStartDate(date);
     }
   };
 
@@ -31,8 +39,8 @@ const DatepickerComponent = ({ ...args }) => {
       <Datepicker
         {...args}
         dateFormat={dateFormat === '' ? 'MM/dd/yyyy' : dateFormat}
-        startDate={startDate}
-        endDate={endDate}
+        startDate={newStartDate}
+        endDate={newEndDate}
         onChange={selectsRange ? onChange : onChangeStartDate}
       />
     </div>
@@ -53,25 +61,31 @@ const meta: Meta<DatepickerProps> = {
       control: 'text'
     },
     startDate: {
-      description: 'Initial selected date'
+      description: 'Initial selected date',
+      control: 'date'
+    },
+    endDate: {
+      description: 'Final selected date. Is only visible if the selectRanges prop is set to true',
+      control: 'date',
+      if: { arg: 'selectsRange' }
     },
     onChange: {
       description: 'Action to perform when clicking a calendar day'
     },
     minDate: {
-      description: 'disable days before defined min. date',
+      description: 'Disable days before defined min. date',
       control: 'date'
     },
     maxDate: {
-      description: 'disable days after defined max. date',
+      description: 'Disable days after defined max. date',
       control: 'date'
     },
     dateFormat: {
-      description: 'custom date format, default is MM/dd/yyyy',
+      description: 'Custom date format, default is MM/dd/yyyy',
       control: 'text'
     },
     excludeDates: {
-      description: 'disable array of days',
+      description: 'Disable array of days',
       control: 'array'
     },
     size: {
@@ -80,47 +94,47 @@ const meta: Meta<DatepickerProps> = {
       control: 'select'
     },
     disabled: {
-      description: 'disable datepicker',
+      description: 'Disable datepicker',
       control: 'boolean'
     },
     readOnly: {
       control: 'boolean',
-      description: 'readOnly datepicker'
+      description: 'ReadOnly datepicker'
     },
     selectsRange: {
-      description: 'enable date range selection. This will set the input as readonly',
+      description: 'Enable date range selection. This will set the input as readonly',
       control: 'boolean'
     },
     inline: {
-      description: 'display calendar without input',
+      description: 'Display calendar without input',
       control: 'boolean'
     },
     placeholderText: {
-      description: 'input placeholder',
+      description: 'Input placeholder',
       control: 'text'
     },
     locale: {
-      description: 'iso language code',
+      description: 'ISO language code',
       control: 'text'
     },
     captions: {
-      description: 'captions for datepicker',
+      description: 'Captions for datepicker',
       control: 'array'
     },
     primaryAction: {
-      description: 'apply date',
+      description: 'Apply date',
       control: 'object'
     },
     secondaryAction: {
-      description: 'cancel apply date',
+      description: 'Cancel apply date',
       control: 'object'
     },
     shouldCloseOnSelect: {
-      description: 'whether the datepicker should close automatically upon selection',
+      description: 'Whether the datepicker should close automatically upon selection',
       control: 'boolean'
     },
     withPortal: {
-      description: 'whether the datepicker should open within a [Portal](https://reactjs.org/docs/portals.html)',
+      description: 'Whether the datepicker should open within a [Portal](https://reactjs.org/docs/portals.html)',
       control: 'boolean'
     },
     required: {
@@ -140,6 +154,7 @@ export const Base: Story = {
   args: {
     label: 'Select date',
     required: false,
+    startDate: new Date(),
     dateFormat: 'MM/dd/yyyy'
   }
 };
@@ -161,6 +176,7 @@ export const Readonly: Story = {
 export const Range: Story = {
   args: {
     ...Base.args,
+    endDate: new Date(),
     selectsRange: true
   }
 };
