@@ -12,10 +12,10 @@ export const StyledRadio = styled.input`
 
   cursor: pointer;
   &:hover {
-    &:before {
+    &::before {
       background: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
     }
-    &:after {
+    &::after {
       ${({ theme }) =>
         theme &&
         css`
@@ -26,7 +26,7 @@ export const StyledRadio = styled.input`
     }
   }
 
-  &:before {
+  &::before {
     content: '';
     transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
     position: absolute;
@@ -44,12 +44,12 @@ export const StyledRadio = styled.input`
   }
 
   &:checked {
-    &:before {
+    &::before {
       transform: translateY(-50%) scale(1, 1);
     }
   }
 
-  &:after {
+  &::after {
     content: '';
 
     position: absolute;
@@ -72,10 +72,12 @@ export const StyledRadio = styled.input`
     disabled &&
     css`
       pointer-events: none;
-      &:before {
+      &::before,
+      &:hover::before {
         background: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
       }
-      &:after {
+      &::after,
+      &:hover::after {
         ${({ theme }) =>
           theme &&
           css`
@@ -97,6 +99,12 @@ export const StyledLabel = styled(Label)`
   padding-left: 10px;
   margin-bottom: 0;
   cursor: pointer;
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: default;
+    `}
 `;
 export const StyledError = styled.label`
   color: ${({ theme }) => theme.colors.colours.system.fail.value};
