@@ -1,5 +1,6 @@
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Accordion, AccordionItem, AccordionSize } from '.';
 
@@ -52,8 +53,8 @@ describe('Accordion', () => {
     const accordionItem1 = screen.getByText('Accordion title 1');
     const accordionItem2 = screen.getByText('Accordion title 2');
 
-    fireEvent.click(accordionItem1);
-    fireEvent.click(accordionItem2);
+    userEvent.click(accordionItem1);
+    userEvent.click(accordionItem2);
 
     const text1 = screen.queryByText('Accordion content 1');
     const text2 = screen.queryByText('Accordion content 2');
@@ -62,7 +63,7 @@ describe('Accordion', () => {
     expect(text2).toBeVisible();
   });
 
-  it('should open on click and have default behavior working properly so that when an new item is opened the other one closes', () => {
+  it('should open item content and close the rest when click', () => {
     render(
       <Accordion size={AccordionSize.Medium} dataQaId="accordion">
         <AccordionItem eventKey="1" title="Accordion title 1">
@@ -77,29 +78,21 @@ describe('Accordion', () => {
     const accordionItem1 = screen.getByText('Accordion title 1');
     const accordionItem2 = screen.getByText('Accordion title 2');
 
-    fireEvent.click(accordionItem1);
-    fireEvent.click(accordionItem2);
-
     const text1 = screen.queryByText('Accordion content 1');
     const text2 = screen.queryByText('Accordion content 2');
 
     expect(text1).not.toBeVisible();
+    expect(text2).not.toBeVisible();
+
+    userEvent.click(accordionItem1);
+
+    expect(text1).toBeVisible();
+    expect(text2).not.toBeVisible();
+
+    userEvent.click(accordionItem2);
+
+    expect(text1).not.toBeVisible();
     expect(text2).toBeVisible();
-  });
-
-  it('should have the correct test id', () => {
-    render(
-      <Accordion size={AccordionSize.Medium} dataQaId="accordion">
-        <AccordionItem eventKey="1" title="Accordion title 1">
-          <div>Accordion content 1</div>
-        </AccordionItem>
-        <AccordionItem eventKey="2" title="Accordion title 2">
-          <div>Accordion content 2</div>
-        </AccordionItem>
-      </Accordion>
-    );
-
-    expect(screen.getByTestId('accordion-accordion-container')).toBeInTheDocument();
   });
 
   it('should have the item open according to the defaultActivekey', () => {
@@ -115,7 +108,9 @@ describe('Accordion', () => {
     );
 
     const text1 = screen.queryByText('Accordion content 1');
+    const text2 = screen.queryByText('Accordion content 2');
 
     expect(text1).toBeVisible();
+    expect(text2).not.toBeVisible();
   });
 });
