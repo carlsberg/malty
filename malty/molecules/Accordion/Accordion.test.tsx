@@ -86,4 +86,36 @@ describe('Accordion', () => {
     expect(text1).not.toBeVisible();
     expect(text2).toBeVisible();
   });
+
+  it('should have the correct test id', () => {
+    render(
+      <Accordion size={AccordionSize.Medium} dataQaId="accordion">
+        <AccordionItem eventKey="1" title="Accordion title 1">
+          <div>Accordion content 1</div>
+        </AccordionItem>
+        <AccordionItem eventKey="2" title="Accordion title 2">
+          <div>Accordion content 2</div>
+        </AccordionItem>
+      </Accordion>
+    );
+
+    expect(screen.getByTestId('accordion-accordion-container')).toBeInTheDocument();
+  });
+
+  it('should have the item open according to the defaultActivekey', () => {
+    render(
+      <Accordion size={AccordionSize.Medium} dataQaId="accordion" defaultActiveKey="1">
+        <AccordionItem eventKey="1" title="Accordion title 1">
+          <div>Accordion content 1</div>
+        </AccordionItem>
+        <AccordionItem eventKey="2" title="Accordion title 2">
+          <div>Accordion content 2</div>
+        </AccordionItem>
+      </Accordion>
+    );
+
+    const text1 = screen.queryByText('Accordion content 1');
+
+    expect(text1).toBeVisible();
+  });
 });
