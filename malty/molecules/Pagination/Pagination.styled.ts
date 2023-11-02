@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledContainer = styled.div<{ isWhite?: boolean }>`
   display: flex;
@@ -49,15 +49,24 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
   }
 `;
 
-export const StyledDots = styled.div<{ isWhite?: boolean }>`
+export const StyledDots = styled.div<{ isWhite?: boolean; disabled: boolean }>`
   height: ${({ theme }) => theme.sizes.xl.value};
   width: ${({ theme }) => theme.sizes.xl.value};
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: default;
-  color: ${({ theme, isWhite }) =>
-    isWhite ? theme.colors['text-colours'].white.value : theme.colors['text-colours']['digital-black'].value};
+  color: ${({ theme, isWhite, disabled }) => {
+    if (isWhite) {
+      return theme.colors['text-colours'].white.value;
+    }
+
+    if (disabled) {
+      return theme.colors.colours.system['disable-light-theme'].value;
+    }
+
+    return theme.colors['text-colours']['digital-black'].value;
+  }};
   @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     height: ${({ theme }) => theme.sizes.l.value};
     width: ${({ theme }) => theme.sizes.l.value};
@@ -78,7 +87,10 @@ export const StyledInput = styled.input`
   transition: 0.25s ease-in-out;
   transition-property: border-color, color;
   border: 1px solid ${({ theme }) => theme.colors.colours.support[40].value};
-  color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+  color: ${({ theme, disabled }) =>
+    disabled
+      ? theme.colors.colours.system['disable-light-theme'].value
+      : theme.colors.colours.default['digital-black'].value};
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
@@ -96,9 +108,15 @@ export const StyledInput = styled.input`
   &:focus-visible {
     outline: none;
   }
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
-  }
+
+  ${({ disabled }) =>
+    !disabled &&
+    css`
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+      }
+    `}
+
   &:focus {
     border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
     color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};

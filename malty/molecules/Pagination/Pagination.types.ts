@@ -6,6 +6,7 @@ export interface PaginationProps {
   dataTestId?: string;
   type?: PaginationType;
   isWhite?: boolean;
+  disabled?: boolean;
 }
 
 export enum PaginationTrigger {
