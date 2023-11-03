@@ -24,6 +24,7 @@ const StyledButton = styled.button<{
   iconPos: ButtonIconPosition;
   color: ButtonColor;
   size: ButtonSize;
+  $selected: boolean;
 }>`
   display: inline-flex;
   align-items: center;
@@ -122,10 +123,6 @@ const StyledButton = styled.button<{
     cursor: default;
     color: ${({ theme }) => theme.colors.colours.default.white.value};
     background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-    &:hover {
-      color: ${({ theme }) => theme.colors.colours.default.white.value};
-      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-    }
   }
 
   .text-container {
@@ -190,6 +187,7 @@ export const StyledPrimaryButton = styled(StyledButton)`
       filter: brightness(60%);
     }
   }
+
   &:disabled {
     ${({ isNegative, theme }) =>
       isNegative &&
@@ -206,6 +204,12 @@ export const StyledPrimaryButton = styled(StyledButton)`
         }
       `};
   }
+
+  ${({ $selected }) =>
+    $selected &&
+    css`
+      opacity: 0.75;
+    `};
 `;
 
 export const StyledSecondaryButton = styled(StyledButton)`
@@ -269,6 +273,14 @@ export const StyledSecondaryButton = styled(StyledButton)`
           : theme.colors.colours.system['disable-light-theme'].value};
     }
   }
+
+  ${({ $selected, isNegative, theme }) =>
+    $selected &&
+    css`
+      background-color: ${isNegative
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
+    `}
 `;
 
 export const StyledTransparentButton = styled(StyledButton)`
@@ -319,4 +331,12 @@ export const StyledTransparentButton = styled(StyledButton)`
           : theme.colors.colours.system['disable-light-theme'].value};
     }
   }
+
+  ${({ $selected, isNegative, theme }) =>
+    $selected &&
+    css`
+      background-color: ${isNegative
+        ? theme.colors.colours.overlay.white[10].value
+        : theme.colors.colours.overlay['digital-black'][10].value};
+    `}
 `;
