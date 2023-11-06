@@ -23,6 +23,7 @@ import {
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
 const DATE_PICKER_INPUT_CLASSNAME = 'datepickerInput';
+export const DATE_PICKER_DEFAULT_FORMAT = 'MM/dd/yyyy';
 
 export const Container: FC<{ withoutBorder?: boolean }> = ({ children, withoutBorder }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -57,6 +58,7 @@ export const Datepicker = ({
   dataTestId,
   withPortal,
   withoutBorder,
+  dateFormat = DATE_PICKER_DEFAULT_FORMAT,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -231,6 +233,7 @@ export const Datepicker = ({
           showYearDropdown
           dropdownMode="select"
           dateFormatCalendar="MMMM"
+          dateFormat={dateFormat}
           shouldCloseOnSelect={shouldCloseOnSelect}
           withPortal={withPortal}
           {...props}
