@@ -81,7 +81,7 @@ const meta: Meta<DatepickerProps> = {
       control: 'date'
     },
     dateFormat: {
-      description: 'Custom date format, default is MM/dd/yyyy',
+      description: `Custom date format, default is ${DATE_PICKER_DEFAULT_FORMAT}`,
       control: 'text'
     },
     excludeDates: {
