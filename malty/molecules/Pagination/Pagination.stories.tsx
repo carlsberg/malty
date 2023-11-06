@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { Pagination } from './Pagination';
 import { PaginationProps, PaginationType } from './Pagination.types';
 
-const PaginationComponent = ({ ...args }) => {
-  const { currentPage, count } = args;
+const PaginationComponent = (props: PaginationProps) => {
+  const { currentPage, count } = props;
   const [statePage, setStatePage] = useState(currentPage);
 
   return (
     <Pagination
-      {...args}
+      {...props}
       count={count}
       onChange={(page) => {
         setStatePage(page as number);
