@@ -49,19 +49,19 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
   }
 `;
 
-export const StyledDots = styled.div<{ isWhite?: boolean; disabled: boolean }>`
+export const StyledDots = styled.div<{ isWhite?: boolean; $disabled: boolean }>`
   height: ${({ theme }) => theme.sizes.xl.value};
   width: ${({ theme }) => theme.sizes.xl.value};
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: default;
-  color: ${({ theme, isWhite, disabled }) => {
+  color: ${({ theme, isWhite, $disabled }) => {
     if (isWhite) {
       return theme.colors['text-colours'].white.value;
     }
 
-    if (disabled) {
+    if ($disabled) {
       return theme.colors.colours.system['disable-light-theme'].value;
     }
 

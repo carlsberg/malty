@@ -172,7 +172,7 @@ export const Pagination = ({
         if (pageNr === LEFT_DOTS || pageNr === RIGHT_DOTS) {
           return (
             <li data-testid={`${dataTestId}-${pageNr}`} key={pageNr} tabIndex={-1}>
-              <StyledDots theme={theme} isWhite={isWhite} disabled={disabled} aria-label="Ellipsis">
+              <StyledDots theme={theme} isWhite={isWhite} $disabled={disabled} aria-label="Ellipsis">
                 &#8230;
               </StyledDots>
             </li>
