@@ -1,17 +1,17 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
-import { Datepicker } from './Datepicker';
+import { Datepicker, DATE_PICKER_DEFAULT_FORMAT } from './Datepicker';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
-const DatepickerComponent = ({ ...args }) => {
-  const { selectsRange, dateFormat, startDate, endDate } = args;
+const DatepickerComponent = (props: DatepickerProps) => {
+  const { selectsRange, dateFormat, startDate, endDate } = props;
   const [newStartDate, setNewStartDate] = useState<Date | null>(startDate);
 
   useEffect(() => {
     setNewStartDate(startDate);
   }, [startDate]);
 
-  const [newEndDate, setNewEndDate] = useState<Date | null>(endDate);
+  const [newEndDate, setNewEndDate] = useState<Date | null | undefined>(endDate);
 
   useEffect(() => {
     setNewEndDate(endDate);
@@ -37,8 +37,8 @@ const DatepickerComponent = ({ ...args }) => {
   return (
     <div style={{ height: '560px' }}>
       <Datepicker
-        {...args}
-        dateFormat={dateFormat === '' ? 'MM/dd/yyyy' : dateFormat}
+        {...props}
+        dateFormat={dateFormat === '' ? DATE_PICKER_DEFAULT_FORMAT : dateFormat}
         startDate={newStartDate}
         endDate={newEndDate}
         onChange={selectsRange ? onChange : onChangeStartDate}
@@ -155,7 +155,7 @@ export const Base: Story = {
     label: 'Select date',
     required: false,
     startDate: new Date(),
-    dateFormat: 'MM/dd/yyyy'
+    dateFormat: DATE_PICKER_DEFAULT_FORMAT
   }
 };
 
