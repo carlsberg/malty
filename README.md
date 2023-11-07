@@ -114,3 +114,5 @@ export const component = ({ children }: ComponentProps) => {
   const renderComponent = () => <Component>{childen}</Component>;
 };
 ```
+
+testing
