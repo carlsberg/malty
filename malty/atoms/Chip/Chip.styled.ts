@@ -1,3 +1,4 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 import { ChipSize } from './Chip.types';
 
@@ -6,14 +7,17 @@ const fadeIn = keyframes`
     
     100% {opacity: 1;}
 `;
-export const StyledChip = styled.div<{
+
+type StyledChipProps = {
   height: string;
   hasButton?: boolean;
   selected: boolean;
   disabled?: boolean;
   readOnly?: boolean;
   size?: ChipSize;
-}>`
+} & SpaceProps;
+
+export const StyledChip = styled.div<StyledChipProps>`
   transition: background-color 0.3s ease-in-out !important;
   animation-name: ${fadeIn};
   cursor: pointer;
@@ -73,6 +77,8 @@ export const StyledChip = styled.div<{
         `};
     }
   }
+
+  ${space}
 `;
 export const StyledTextContainer = styled.div<{
   size?: ChipSize;
