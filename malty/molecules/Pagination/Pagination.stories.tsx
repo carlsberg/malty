@@ -4,19 +4,10 @@ import { Pagination } from './Pagination';
 import { PaginationProps, PaginationType } from './Pagination.types';
 
 const PaginationComponent = (props: PaginationProps) => {
-  const { currentPage, count } = props;
+  const { currentPage } = props;
   const [statePage, setStatePage] = useState(currentPage);
 
-  return (
-    <Pagination
-      {...props}
-      count={count}
-      onChange={(page) => {
-        setStatePage(page as number);
-      }}
-      currentPage={statePage}
-    />
-  );
+  return <Pagination {...props} onChange={(page) => setStatePage(Number(page))} currentPage={statePage} />;
 };
 
 const meta: Meta<PaginationProps> = {
@@ -26,7 +17,7 @@ const meta: Meta<PaginationProps> = {
     importObject: 'Pagination',
     importPath: '@carlsberggroup/malty.molecules.pagination'
   },
-  render: (args) => <Pagination {...args} />,
+  render: (args) => <PaginationComponent {...args} />,
   argTypes: {
     onChange: {
       description: 'Function to be executed when page changes'
