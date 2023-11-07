@@ -1,6 +1,7 @@
 import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Card as CardComponent } from './Card';
@@ -53,7 +54,8 @@ export default {
     disabled: {
       control: 'boolean',
       description: 'Makes the card disabled'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

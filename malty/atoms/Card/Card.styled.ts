@@ -1,13 +1,16 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { CardOrientation, CardStyle } from './Card.types';
 
-export const StyledCardContainer = styled.div<{
+type StyledCardContainer = {
   orientation: CardOrientation;
   selected: boolean;
   cardStyle: CardStyle;
   hover: boolean;
   disabled?: boolean;
-}>`
+} & SpaceProps;
+
+export const StyledCardContainer = styled.div<StyledCardContainer>`
   display: flex;
   align-items: stretch;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
@@ -81,6 +84,8 @@ export const StyledCardContainer = styled.div<{
     css`
       border-color: ${theme.colors.colours.system['disable-light-theme'].value};
     `}
+
+  ${space}
 `;
 
 export const StyledCardHero = styled.div<{
