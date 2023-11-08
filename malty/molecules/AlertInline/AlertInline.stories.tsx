@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -79,7 +80,8 @@ export default {
       control: 'text',
       description: 'Second Action text',
       table: { defaultValue: { summary: 'none' } }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 const StyledContainer = styled.div`
