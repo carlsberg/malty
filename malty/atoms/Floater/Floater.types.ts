@@ -1,7 +1,8 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import React from 'react';
 
-export interface FloaterProps {
+export interface FloaterProps extends SpaceProps {
   text?: string | number;
   icon?: IconName;
   iconPos?: FloaterIconPosition;
