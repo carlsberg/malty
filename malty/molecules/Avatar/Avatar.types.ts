@@ -1,4 +1,6 @@
-export interface AvatarProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface AvatarProps extends SpaceProps {
   profileImg?: string;
   userName?: string;
   size?: AvatarSize;

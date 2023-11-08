@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Avatar as AvatarComponent } from './Avatar';
@@ -46,12 +47,13 @@ export default {
       control: {
         type: 'boolean'
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
-const Template: Story<AvatarProps> = ({ profileImg, userName, size, editable, loading }) => (
+const Template: Story<AvatarProps> = (args) => (
   <div style={{ width: '100px' }}>
-    <AvatarComponent profileImg={profileImg} userName={userName} size={size} editable={editable} loading={loading} />
+    <AvatarComponent {...args} />
   </div>
 );
 export const Avatar = Template.bind({});
