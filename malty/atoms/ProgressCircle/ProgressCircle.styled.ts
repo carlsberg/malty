@@ -1,6 +1,21 @@
 import { Text } from '@carlsberggroup/malty.atoms.text';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
 import { PercentagePosition } from './ProgressCircle.types';
+
+type StyledWrapperProps = {
+  percentagePosition: PercentagePosition;
+} & SpaceProps;
+
+export const StyledWrapper = styled.div<StyledWrapperProps>`
+  display: flex;
+  flex-direction: ${({ percentagePosition }) =>
+    percentagePosition === PercentagePosition.Left ? 'row' : 'row-reverse'};
+  align-items: center;
+  justify-content: start;
+
+  ${space}
+`;
 
 export const StyledBackgroundCircle = styled.div<{
   diameter: string;
@@ -34,14 +49,4 @@ export const StyledSvg = styled.svg`
   transform: rotate(-90deg);
   border-radius: 50%;
   display: block;
-`;
-
-export const StyledWrapper = styled.div<{
-  percentagePosition: PercentagePosition;
-}>`
-  display: flex;
-  flex-direction: ${({ percentagePosition }) =>
-    percentagePosition === PercentagePosition.Left ? 'row' : 'row-reverse'};
-  align-items: center;
-  justify-content: start;
 `;
