@@ -20,7 +20,8 @@ export const Image = ({
   dataTestId,
   className,
   onClick,
-  removeBackground = false
+  removeBackground = false,
+  ...props
 }: ImageProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [hasImageError, setHasImageError] = useState(false);
@@ -34,7 +35,7 @@ export const Image = ({
   };
 
   return (
-    <StyledContainer onClick={onClick} className={className} theme={theme}>
+    <StyledContainer onClick={onClick} className={className} theme={theme} {...props}>
       <StyledFigure data-testid={`${dataTestId}-figure`} theme={theme} height={height} width={width}>
         <StyledWrapper removeBackground={removeBackground} theme={theme}>
           <StyledOverlay

@@ -1,4 +1,6 @@
-export interface ImageProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface ImageProps extends SpaceProps {
   src: string;
   fallbackSrc?: string;
   cover?: boolean;
