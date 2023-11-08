@@ -1,6 +1,7 @@
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import React from 'react';
 
-export interface AccordionProps {
+export interface AccordionProps extends SpaceProps {
   size: AccordionSize;
   children: React.ReactElement<AccordionItemProps>[];
   variant?: AccordionColor;
