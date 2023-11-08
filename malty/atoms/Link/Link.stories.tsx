@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Link as LinkComponent } from './Link';
@@ -68,7 +69,8 @@ export default {
           summary: 'ReactNode'
         }
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 
