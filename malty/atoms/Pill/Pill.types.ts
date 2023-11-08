@@ -1,6 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
-export interface PillProps extends React.HTMLAttributes<HTMLElement> {
+export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps {
   text?: string;
   icon?: IconName;
   type?: PillType;
