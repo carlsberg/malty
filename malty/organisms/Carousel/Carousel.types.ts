@@ -1,3 +1,4 @@
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import { EventMap, Options } from '@splidejs/splide';
 
 export type CarouselProps = {
@@ -8,7 +9,8 @@ export type CarouselProps = {
   ariaLabels?: CarouselAriaLabels;
   breakpoints?: Record<string | number, Pick<Options, 'perPage' | 'gap'>>;
   onVisible?: EventMap['visible'];
-} & Pick<Options, 'gap' | 'perPage'>;
+} & Pick<Options, 'gap' | 'perPage'> &
+  SpaceProps;
 
 export interface CarouselItemProps {
   id?: string | number;
