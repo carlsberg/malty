@@ -1,7 +1,8 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { TextAlign, TextColor, TextStyle } from './Text.types';
 
-export const StyledParagraph = styled.p<{
+type StyledParagraphProps = {
   textStyle: TextStyle;
   color: TextColor;
   align: TextAlign;
@@ -9,8 +10,10 @@ export const StyledParagraph = styled.p<{
   ellipsis?: boolean;
   width?: string;
   className?: string;
-}>`
-  display: inline;
+} & SpaceProps;
+
+export const StyledParagraph = styled.p<StyledParagraphProps>`
+  display: block;
   margin: 0;
   padding: 0;
   word-break: break-word;
@@ -89,4 +92,6 @@ export const StyledParagraph = styled.p<{
       `}
     }
   `}
+
+  ${space}
 `;

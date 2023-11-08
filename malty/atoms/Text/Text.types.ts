@@ -1,6 +1,7 @@
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import { ReactNode } from 'react';
 
-export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement>, SpaceProps {
   textStyle: TextStyle;
   align?: TextAlign;
   color?: TextColor;
