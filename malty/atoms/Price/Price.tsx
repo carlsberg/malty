@@ -5,11 +5,11 @@ import { ThemeContext } from 'styled-components';
 import { StyledPrice, StyledPriceContainer } from './Price.styled';
 import { PriceProps } from './Price.types';
 
-export const Price = ({ base, discount, credit, dataTestId = 'default' }: PriceProps) => {
+export const Price = ({ base, discount, credit, dataTestId = 'default', ...props }: PriceProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledPriceContainer theme={theme}>
+    <StyledPriceContainer theme={theme} {...props}>
       {base && !credit ? (
         <StyledPrice
           theme={theme}
