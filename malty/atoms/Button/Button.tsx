@@ -89,6 +89,7 @@ export const Button = ({
       data-testid={dataTestId}
       type={type}
       disabled={disabled}
+      $selected={selected}
       isLoading={loading}
       hasText={!!text || !!children}
       hasIcon={!!icon}
@@ -99,7 +100,7 @@ export const Button = ({
       iconPos={iconPos}
       theme={theme}
       tabIndex={tabIndex}
-      className={selected ? `${className} active` : className}
+      className={className}
       size={size}
       {...props}
     >
