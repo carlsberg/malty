@@ -14,7 +14,7 @@ import {
 } from './Stepper.styled';
 import { StepperProps } from './Stepper.types';
 
-export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) => {
+export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId, ...props }: StepperProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [elHtml, setElHtml] = useState([<></>]);
 
@@ -97,7 +97,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId }: StepperPr
   }, [steps, currentStep]);
 
   return (
-    <StyledStepperContainer data-testid={dataQaId} theme={theme}>
+    <StyledStepperContainer data-testid={dataQaId} theme={theme} {...props}>
       {elHtml.map((el) => (
         <React.Fragment key={el.key}>{el}</React.Fragment>
       ))}
