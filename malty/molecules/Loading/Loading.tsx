@@ -15,7 +15,8 @@ export const Loading = ({
   status = LoadingStatus.Pending,
   dataQaId,
   negative = false,
-  color = ProgressSpinnerColor.DigitalBlack
+  color = ProgressSpinnerColor.DigitalBlack,
+  ...props
 }: LoadingProps) => {
   const theme = defaultTheme;
 
@@ -55,7 +56,7 @@ export const Loading = ({
   }, [status]);
 
   return status ? (
-    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme}>
+    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme} {...props}>
       <StyledLoading
         size={iconSize}
         className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}

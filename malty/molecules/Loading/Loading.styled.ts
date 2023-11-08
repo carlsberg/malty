@@ -1,3 +1,4 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { keyframes } from 'styled-components';
 import { LoadingSize } from './Loading.types';
 
@@ -21,9 +22,11 @@ const fadeIn = keyframes`
     }
 `;
 
-export const StyledLoadingContainer = styled.div<{
+type StyledLoadingContainerProps = {
   size: LoadingSize;
-}>`
+} & SpaceProps;
+
+export const StyledLoadingContainer = styled.div<StyledLoadingContainerProps>`
   display: flex;
   flex-direction: column;
   gap: ${({ theme, size }) => (size === LoadingSize.Small ? theme.sizes['4xs'].value : theme.sizes['2xs'].value)};
@@ -31,6 +34,8 @@ export const StyledLoadingContainer = styled.div<{
   justify-content: center;
   text-align: center;
   padding: ${({ theme }) => theme.sizes['3xs'].value};
+
+  ${space}
 `;
 
 export const StyledLoading = styled.div<{
