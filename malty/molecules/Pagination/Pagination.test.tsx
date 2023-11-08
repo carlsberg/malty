@@ -20,7 +20,7 @@ describe('Pagination', () => {
       expect(screen.getAllByRole('button')).toHaveLength(7);
     });
 
-    it('shoudl disable the previous button on the first page', () => {
+    it('should disable the previous button on the first page', () => {
       render(<Pagination count={5} currentPage={1} onChange={onChange} />);
 
       expect(screen.getByLabelText('Go to previous page')).toBeDisabled();
@@ -105,22 +105,36 @@ describe('Pagination', () => {
       expect(screen.queryByTestId(`pagination-${LEFT_DOTS}`)).not.toBeInTheDocument();
       expect(screen.queryByTestId(`pagination-${RIGHT_DOTS}`)).not.toBeInTheDocument();
     });
+
+    it('should render pagination component in disabled state', () => {
+      render(<Pagination count={5} currentPage={1} onChange={onChange} disabled dataTestId="pagination" />);
+
+      screen.getAllByRole('button').forEach((button) => {
+        expect(button).toBeDisabled();
+      });
+    });
   });
 
   describe(`Pagination type: ${PaginationType.Compact}`, () => {
-    it('should render elements and changes pages correctly', () => {
-      const CompactPagination = () => {
-        const [currentPage, setCurrentPage] = useState(1);
-        const handleOnChange = (page: string | number) => {
-          setCurrentPage(Number(page));
-          onChange(page);
-        };
-
-        return (
-          <Pagination count={5} currentPage={currentPage} onChange={handleOnChange} type={PaginationType.Compact} />
-        );
+    const CompactPagination = ({ ...props }) => {
+      const [currentPage, setCurrentPage] = useState(1);
+      const handleOnChange = (page: string | number) => {
+        setCurrentPage(Number(page));
+        onChange(page);
       };
 
+      return (
+        <Pagination
+          {...props}
+          count={5}
+          currentPage={currentPage}
+          onChange={handleOnChange}
+          type={PaginationType.Compact}
+        />
+      );
+    };
+
+    it('should render elements and changes pages correctly', () => {
       render(<CompactPagination />);
 
       expect(screen.getByText('1 of 5')).toBeVisible();
@@ -135,6 +149,13 @@ describe('Pagination', () => {
       expect(screen.getByText('5 of 5')).toBeVisible();
       expect(screen.getByLabelText('Go to next page')).toBeDisabled();
       expect(screen.getByLabelText('Go to previous page')).not.toBeDisabled();
+    });
+
+    it('should render pagination component in disabled state', () => {
+      render(<CompactPagination disabled />);
+
+      expect(screen.getByLabelText('Go to previous page')).toBeDisabled();
+      expect(screen.getByLabelText('Go to next page')).toBeDisabled();
     });
   });
 
@@ -261,6 +282,14 @@ describe('Pagination', () => {
       userEvent.click(screen.getByText(buttonText));
 
       expect(screen.getByDisplayValue(2)).toBeVisible();
+    });
+
+    it('should render pagination component in disabled state', () => {
+      render(<Pagination count={10} currentPage={5} onChange={onChange} type={PaginationType.Input} disabled />);
+
+      expect(screen.getByLabelText('Go to previous page')).toBeDisabled();
+      expect(screen.getByLabelText('Go to next page')).toBeDisabled();
+      expect(screen.getByDisplayValue(5)).toBeDisabled();
     });
   });
 });
