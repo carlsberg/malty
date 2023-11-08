@@ -1,3 +1,4 @@
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import {
   CellContext,
   ColumnDefTemplate,
@@ -9,7 +10,7 @@ import {
   Table
 } from '@tanstack/react-table';
 
-export interface TableProps {
+export interface TableProps extends SpaceProps {
   headers: TableHeaderProps[];
   rows: TableRowProps[];
   size?: TableSize;

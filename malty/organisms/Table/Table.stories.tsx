@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Table as TableComponent } from './Table';
@@ -294,11 +295,12 @@ export default {
     },
     rowSelection: {
       description: 'Use this prop to define which rows are selected by default'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
-const Template: Story<TableProps> = ({ ...args }) => <TableComponent {...args} />;
+const Template: Story<TableProps> = (args) => <TableComponent {...args} />;
 
 export const Table = Template.bind({});
 

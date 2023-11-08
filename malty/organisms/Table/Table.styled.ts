@@ -1,5 +1,10 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { TableHeaderAlignment } from './Table.types';
+
+export const StyledWrapper = styled.div<SpaceProps>`
+  ${space}
+`;
 
 export const StyledTable = styled.table`
   table-layout: auto;
