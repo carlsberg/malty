@@ -1,11 +1,14 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { BannerLayout } from './Banner.types';
 
-export const StyledBannerContainer = styled.div<{
+type StyledBannerContainerProps = {
   negative: boolean;
   reverse: boolean;
   layout: BannerLayout;
-}>`
+} & SpaceProps;
+
+export const StyledBannerContainer = styled.div<StyledBannerContainerProps>`
   display: flex;
   flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
   align-items: center;
@@ -27,6 +30,8 @@ export const StyledBannerContainer = styled.div<{
   @media (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     flex-direction: ${({ reverse }) => (reverse ? 'column-reverse' : 'column')};
   }
+
+  ${space}
 `;
 
 export const StyledBannerImage = styled.div<{
