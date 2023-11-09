@@ -79,7 +79,7 @@ export const StyledInputPagination = styled.div`
 export const StyledInput = styled.input`
   width: ${({ theme }) => theme.sizes['3xl'].value};
   height: ${({ theme }) => theme.sizes.xl.value};
-
+  background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   box-sizing: border-box;
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
