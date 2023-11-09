@@ -22,6 +22,7 @@ export interface TableProps {
   defaultSorting?: ColumnSort;
   manualPagination?: ManualPagination;
   rowSelection?: RowSelectionState;
+  rowSelectionDisabled?: RowSelectionState;
   onRowClick?: (row: TableRowProps) => void;
   onRowSelect?: (selectedRows: RowSelectionState) => void;
   onPaginationChange?: (page: number) => void;

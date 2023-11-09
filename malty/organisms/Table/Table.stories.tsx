@@ -331,7 +331,8 @@ switch (variant) {
       size: TableSize.Medium,
       dataTestId: 'table',
       allowSelection: true,
-      rowSelection: { '1': true, '7': true, '8': true, '15': true },
+      rowSelectionDisabled: { '1': true, '2': true, '3': true },
+      rowSelection: { '1': true, '2': true, '3': true, '7': true, '8': true, '15': true },
       onSortingChange: undefined
     };
     break;

@@ -60,6 +60,7 @@ export const Table = ({
   manualPagination,
   defaultSorting,
   rowSelection: rowSelectionProp = {},
+  rowSelectionDisabled = {},
   onRowClick,
   onSortingChange,
   onRowSelect = () => null,
@@ -200,6 +201,35 @@ export const Table = ({
     onRowClick?.(row);
   };
 
+  const handleChangeHeaderCheckboxValue = () => {
+    table.setRowSelection((prev) => {
+      const isAllRowsSelected = table.getIsAllRowsSelected();
+      const newRowSelection = { ...prev };
+
+      const flatRows = table.getCoreRowModel()?.flatRows;
+
+      const rowsAvailableToSelect = flatRows.length - table.getSelectedRowModel().flatRows.length;
+
+      if (!isAllRowsSelected && rowsAvailableToSelect > Object.keys(rowSelectionDisabled).length) {
+        flatRows.forEach((row) => {
+          if (!row.getCanSelect() || rowSelectionDisabled[row.id.toString()]) {
+            return;
+          }
+
+          newRowSelection[row.id] = true;
+        });
+      } else {
+        flatRows.forEach((row) => {
+          if (!rowSelectionDisabled[row.id.toString()]) {
+            delete newRowSelection[row.id];
+          }
+        });
+      }
+
+      return newRowSelection;
+    });
+  };
+
   return (
     <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
       <StyledTable data-testid={dataTestId} className={className} theme={theme}>
@@ -218,7 +248,7 @@ export const Table = ({
                   allowSelection={allowSelection}
                 >
                   <Checkbox
-                    onValueChange={table.getToggleAllRowsSelectedHandler()}
+                    onValueChange={handleChangeHeaderCheckboxValue}
                     checked={table.getIsAllRowsSelected()}
                     isIndeterminate={table.getIsSomeRowsSelected()}
                   />
@@ -324,7 +354,11 @@ export const Table = ({
                     >
                       {allowSelection && (
                         <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
-                          <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
+                          <Checkbox
+                            onValueChange={row.getToggleSelectedHandler()}
+                            checked={row.getIsSelected()}
+                            disabled={!!rowSelectionDisabled[row.id.toString()]}
+                          />
                         </StyledTd>
                       )}
                       {row.getVisibleCells().map((cell) => (
