@@ -113,8 +113,15 @@ export const Table = ({
   const handleOnRowSelectionChange: OnChangeFn<RowSelectionState> = (updaterFn) => {
     const value = typeof updaterFn === 'function' ? updaterFn(rowSelection) : {};
 
-    onRowSelect(value);
-    setRowSelection(value);
+    const filteredDisableRows: RowSelectionState = { ...rowSelectionDisabled };
+    for (const key of Object.keys(value)) {
+      if (!rowSelectionDisabled[key]) {
+        filteredDisableRows[key] = value[key];
+      }
+    }
+
+    onRowSelect(filteredDisableRows);
+    setRowSelection(filteredDisableRows);
   };
 
   const table = useReactTable({
@@ -201,35 +208,6 @@ export const Table = ({
     onRowClick?.(row);
   };
 
-  const handleChangeHeaderCheckboxValue = () => {
-    table.setRowSelection((prev) => {
-      const isAllRowsSelected = table.getIsAllRowsSelected();
-      const newRowSelection = { ...prev };
-
-      const flatRows = table.getCoreRowModel()?.flatRows;
-
-      const rowsAvailableToSelect = flatRows.length - table.getSelectedRowModel().flatRows.length;
-
-      if (!isAllRowsSelected && rowsAvailableToSelect > Object.keys(rowSelectionDisabled).length) {
-        flatRows.forEach((row) => {
-          if (!row.getCanSelect() || rowSelectionDisabled[row.id.toString()]) {
-            return;
-          }
-
-          newRowSelection[row.id] = true;
-        });
-      } else {
-        flatRows.forEach((row) => {
-          if (!rowSelectionDisabled[row.id.toString()]) {
-            delete newRowSelection[row.id];
-          }
-        });
-      }
-
-      return newRowSelection;
-    });
-  };
-
   return (
     <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
       <StyledTable data-testid={dataTestId} className={className} theme={theme}>
@@ -248,7 +226,7 @@ export const Table = ({
                   allowSelection={allowSelection}
                 >
                   <Checkbox
-                    onValueChange={handleChangeHeaderCheckboxValue}
+                    onValueChange={table.getToggleAllRowsSelectedHandler()}
                     checked={table.getIsAllRowsSelected()}
                     isIndeterminate={table.getIsSomeRowsSelected()}
                   />
