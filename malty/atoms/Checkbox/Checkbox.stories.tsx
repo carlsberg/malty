@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
@@ -63,8 +62,9 @@ export default {
   }
 };
 
-const Template: Story<CheckboxProps> = (args) => {
-  const [stateChecked, setStateChecked] = useState(args.checked);
+const Template: Story<CheckboxProps> = ({ checked, ...args }) => {
+  const [stateChecked, setStateChecked] = useState(checked);
+
   return <CheckboxComponent {...args} onValueChange={() => setStateChecked(!stateChecked)} checked={stateChecked} />;
 };
 

@@ -170,8 +170,7 @@ export default {
   }
 } as Meta;
 
-const Template: Story<InputProps> = (args) => {
-  const { value = '' } = args;
+const Template: Story<InputProps> = ({ value = '', ...args }) => {
   const [stateValue, setStateValue] = useState(value);
 
   return <InputComponent {...args} value={stateValue} onValueChange={setStateValue} />;
