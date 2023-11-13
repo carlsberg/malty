@@ -16,6 +16,12 @@ export const space = <T extends SpaceProps>({ m = '', mx, my, mt, mr, mb, ml }: 
     margin-left: ${ml ?? mx ?? ''};
 `;
 
+export function spreadSpaceProps<T extends SpaceProps>(props: T) {
+  const { m, mt, mr, mb, ml, mx, my, ...restProps } = props;
+
+  return { spaceProps: { m, mt, mr, mb, ml, mx, my }, restProps };
+}
+
 export function generateStorybookSpacing() {
   return {
     m: {

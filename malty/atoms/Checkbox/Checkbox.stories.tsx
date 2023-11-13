@@ -1,4 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Checkbox as CheckboxComponent } from './Checkbox';
@@ -57,7 +58,8 @@ export default {
     },
     onValueChange: {
       description: 'Function to be executed when checkbox state changes'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 
