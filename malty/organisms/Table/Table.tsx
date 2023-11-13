@@ -113,15 +113,22 @@ export const Table = ({
   const handleOnRowSelectionChange: OnChangeFn<RowSelectionState> = (updaterFn) => {
     const value = typeof updaterFn === 'function' ? updaterFn(rowSelection) : {};
 
-    const filteredDisableRows: RowSelectionState = { ...rowSelectionDisabled };
-    for (const key of Object.keys(value)) {
-      if (!rowSelectionDisabled[key]) {
-        filteredDisableRows[key] = value[key];
+    const filteredSelectedDisabledRows: RowSelectionState = {};
+    for (const key of Object.keys(rowSelectionDisabled)) {
+      if (rowSelection[key]) {
+        filteredSelectedDisabledRows[key] = rowSelection[key];
       }
     }
 
-    onRowSelect(filteredDisableRows);
-    setRowSelection(filteredDisableRows);
+    const filteredSelectedRows: RowSelectionState = { ...filteredSelectedDisabledRows };
+    for (const key of Object.keys(value)) {
+      if (!rowSelectionDisabled[key]) {
+        filteredSelectedRows[key] = value[key];
+      }
+    }
+
+    onRowSelect(filteredSelectedRows);
+    setRowSelection(filteredSelectedRows);
   };
 
   const table = useReactTable({
