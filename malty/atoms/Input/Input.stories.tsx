@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Input as InputComponent } from './Input';
@@ -164,60 +165,16 @@ export default {
     name: {
       control: 'text',
       description: `HTML name attribute for the input, useful if you're trying to enable browser native autocomplete`
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
-const Template: Story<InputProps> = ({
-  value = '',
-  size,
-  label,
-  type,
-  icon,
-  placeholder,
-  error,
-  disabled,
-  iconPosition,
-  clearable,
-  mask,
-  hint,
-  dataTestId,
-  readOnly,
-  disableLeftButton,
-  disableRightButton,
-  required,
-  disableQuantityInput,
-  max,
-  min,
-  name
-}: InputProps) => {
+const Template: Story<InputProps> = (args) => {
+  const { value = '' } = args;
   const [stateValue, setStateValue] = useState(value);
-  return (
-    <InputComponent
-      size={size}
-      label={label}
-      type={type}
-      icon={icon}
-      placeholder={placeholder}
-      error={error}
-      disabled={disabled}
-      value={stateValue}
-      iconPosition={iconPosition}
-      clearable={clearable}
-      mask={mask}
-      onValueChange={setStateValue}
-      hint={hint}
-      dataTestId={dataTestId}
-      readOnly={readOnly}
-      required={required}
-      disableLeftButton={disableLeftButton}
-      disableRightButton={disableRightButton}
-      disableQuantityInput={disableQuantityInput}
-      max={max}
-      min={min}
-      name={name}
-    />
-  );
+
+  return <InputComponent {...args} value={stateValue} onValueChange={setStateValue} />;
 };
 
 export const Input = Template.bind({});
