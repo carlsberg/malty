@@ -1,4 +1,5 @@
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { spreadSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { useContext, useRef } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -19,6 +20,7 @@ export const Radio = ({
 }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useRef<string>(uuid());
+  const { spaceProps, restProps } = spreadSpaceProps(props);
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
     onValueChange(e.target.value);
@@ -26,7 +28,7 @@ export const Radio = ({
 
   return (
     <>
-      <StyledRadioContainer theme={theme}>
+      <StyledRadioContainer theme={theme} {...spaceProps}>
         <StyledRadio
           data-testid={dataTestId}
           id={id.current}
@@ -38,7 +40,7 @@ export const Radio = ({
           onChange={handleValueChange}
           disabled={disabled}
           required={required}
-          {...props}
+          {...restProps}
         />
         <StyledLabel
           label={label}

@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { RadioProps } from '.';
@@ -42,7 +43,8 @@ const meta: Meta<RadioProps> = {
     },
     onValueChange: {
       description: 'Function to be executed when radio state changes'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

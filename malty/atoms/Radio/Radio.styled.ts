@@ -1,5 +1,13 @@
 import { Label } from '@carlsberggroup/malty.atoms.label';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
+
+export const StyledRadioContainer = styled.div<SpaceProps>`
+  display: flex;
+  align-items: center;
+
+  ${space}
+`;
 
 export const StyledRadio = styled.input`
   display: inline-block;
@@ -113,9 +121,4 @@ export const StyledError = styled.label`
   font-weight: bold;
   line-height: ${({ theme }) => theme.typography.desktop.text.tiny_default['line-height'].value};
   letter-spacing: 0;
-`;
-
-export const StyledRadioContainer = styled.div`
-  display: flex;
-  align-items: center;
 `;
