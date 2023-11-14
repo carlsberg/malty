@@ -4,7 +4,7 @@ import React, { useContext, useRef } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { RadioProps } from '.';
-import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
+import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer, StyledWrapper } from './Radio.styled';
 
 export const Radio = ({
   value,
@@ -27,7 +27,7 @@ export const Radio = ({
   };
 
   return (
-    <>
+    <StyledWrapper {...spaceProps}>
       <StyledRadioContainer theme={theme} {...spaceProps}>
         <StyledRadio
           data-testid={dataTestId}
@@ -52,6 +52,6 @@ export const Radio = ({
         />
       </StyledRadioContainer>
       {error && <StyledError theme={theme}>{error}</StyledError>}
-    </>
+    </StyledWrapper>
   );
 };

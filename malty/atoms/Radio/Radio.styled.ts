@@ -2,11 +2,13 @@ import { Label } from '@carlsberggroup/malty.atoms.label';
 import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 
-export const StyledRadioContainer = styled.div<SpaceProps>`
+export const StyledWrapper = styled.div<SpaceProps>`
+  ${space}
+`;
+
+export const StyledRadioContainer = styled.div`
   display: flex;
   align-items: center;
-
-  ${space}
 `;
 
 export const StyledRadio = styled.input`
