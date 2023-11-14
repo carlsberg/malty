@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Pagination as PaginationComponent } from './Pagination';
@@ -12,7 +13,7 @@ export default {
     variants: ['default', 'compact', 'input']
   },
   argTypes: {
-    onValueChange: {
+    onChange: {
       description: 'Function to be executed when page changes'
     },
     currentPage: {
@@ -59,12 +60,12 @@ export default {
     zeroBasedIndex: {
       description: 'if true the first page starts on 0',
       control: 'boolean'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
-const Template: Story<PaginationProps> = (args) => {
-  const { currentPage } = args;
+const Template: Story<PaginationProps> = ({ currentPage, ...args }) => {
   const [statePage, setStatePage] = useState(currentPage);
 
   return (
