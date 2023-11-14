@@ -1,13 +1,14 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ChangeEvent, forwardRef, useContext, useMemo, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { emojiFlag } from './emojiFlag';
 import { ensureQuantityRange, useInputSize } from './Input.helper';
 import {
   StyledButton,
+  StyledCharacterCounter,
   StyledClearableWrapper,
   StyledError,
   StyledHint,
@@ -30,7 +31,7 @@ import {
 export const Input = forwardRef(
   (
     {
-      value,
+      value: valueProp,
       onValueChange,
       onInputBlur,
       label,
@@ -56,6 +57,8 @@ export const Input = forwardRef(
       onClickRightInputButton,
       min,
       max,
+      maxLength,
+      showCharacterCounter = false,
       name: nameProp,
       ...props
     }: InputProps,
@@ -66,6 +69,13 @@ export const Input = forwardRef(
     const name = nameProp || id;
     const inputSize = useInputSize({ size });
     const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
+    const [value, setValue] = useState<string | undefined>(valueProp);
+    const valueCounter = value?.length ?? 0;
+    const textCounter = maxLength ? maxLength - valueCounter : valueCounter;
+
+    useEffect(() => {
+      setValue(valueProp);
+    }, [valueProp]);
 
     const transform = (text: string): string => {
       if (mask) {
@@ -115,7 +125,9 @@ export const Input = forwardRef(
     };
 
     const handleOnInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-      onValueChange?.(transform((event.target as HTMLInputElement).value));
+      const currentValue = transform((event.target as HTMLInputElement).value);
+      setValue(currentValue);
+      onValueChange?.(currentValue);
     };
 
     const renderClearable = () =>
@@ -139,15 +151,28 @@ export const Input = forwardRef(
             onClick={HandleTogglePassword}
             data-testid={`${dataTestId}-icon`}
             name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}
-            color={IconColor.DigitalBlack}
+            color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
             size={IconSize.Medium}
           />
         );
       }
       return (
         icon && (
-          <Icon data-testid={`${dataTestId}-icon`} name={icon} color={IconColor.DigitalBlack} size={IconSize.Medium} />
+          <Icon
+            data-testid={`${dataTestId}-icon`}
+            name={icon}
+            color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
+            size={IconSize.Medium}
+          />
         )
+      );
+    };
+
+    const renderCounter = () => {
+      return (
+        <StyledCharacterCounter $disabled={disabled} data-testid={`${dataTestId}-character-counter`}>
+          {textCounter}
+        </StyledCharacterCounter>
       );
     };
 
@@ -177,10 +202,12 @@ export const Input = forwardRef(
           required={required}
           max={max}
           min={min}
+          maxLength={maxLength}
           {...props}
         />
         {renderClearable()}
         {renderIcon()}
+        {showCharacterCounter && InputType.Text && renderCounter()}
       </StyledClearableWrapper>
     );
 
@@ -319,6 +346,7 @@ export const Input = forwardRef(
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
           clearable={clearable || type === InputType.Search}
           addLeft={type === InputType.Telephone}
+          $showCharacterCounter={showCharacterCounter}
           theme={theme}
         >
           {type !== InputType.Quantity && type !== InputType.Telephone && renderInput()}

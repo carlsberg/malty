@@ -40,11 +40,32 @@ export const StyledHint = styled.label<{
     `}
 `;
 
+export const StyledCharacterCounter = styled.div<{ $disabled?: boolean }>`
+  position: absolute;
+  right: 16px;
+  background-color: ${({ theme }) => theme.colors.colours.support[60].value};
+  color: ${({ theme }) => theme.colors.colours.default.white.value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
+  height: 14px;
+  font-weight: bold;
+  padding: 0 ${({ theme }) => theme.sizes['3xs'].value};
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
+`;
+
 export const StyledInputWrapper = styled.div<{
   isIconLeft?: boolean;
   clearable?: boolean;
   addRight?: boolean;
   addLeft?: boolean;
+  $showCharacterCounter: boolean;
 }>`
   position: relative;
   display: flex;
@@ -52,6 +73,11 @@ export const StyledInputWrapper = styled.div<{
   > span {
     width: 100% !important;
   }
+
+  > div:first-child {
+    align-items: center;
+  }
+
   svg {
     position: absolute;
     top: 50%;
@@ -59,11 +85,12 @@ export const StyledInputWrapper = styled.div<{
 
     &.clear-trigger {
       opacity: 0.7;
-      ${({ clearable, isIconLeft, addRight }) => {
+      ${({ clearable, isIconLeft, addRight, $showCharacterCounter }) => {
         let right = 16;
-        if (!isIconLeft) right += 24;
+        if (!isIconLeft) right += 28;
         if (addRight) right += 32;
         if (!isIconLeft && addRight) right += 8;
+        if ($showCharacterCounter) right += 34;
         return css`
           ${clearable || addRight ? `right: ${right}px` : ''}
         `;
@@ -71,15 +98,21 @@ export const StyledInputWrapper = styled.div<{
     }
 
     &:not(.clear-trigger) {
-      ${({ theme, isIconLeft, addLeft }) => {
+      ${({ theme, isIconLeft, addLeft, $showCharacterCounter }) => {
         const pos = isIconLeft ? 'left' : 'right';
-        const value =
-          addLeft && isIconLeft
-            ? `${
-                parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
-                parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
-              }px`
-            : `${theme.sizes.s.value}`;
+        let value = '';
+
+        if (addLeft && isIconLeft) {
+          value = `${
+            parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+            parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
+          }px`;
+        } else if (!isIconLeft && $showCharacterCounter) {
+          value = `${parseInt(`${theme.sizes['2xl'].value.replace('px', '')}`, 10)}px`;
+        } else {
+          value = `${theme.sizes.s.value}`;
+        }
+
         return css`
           ${pos}: ${value};
         `;
