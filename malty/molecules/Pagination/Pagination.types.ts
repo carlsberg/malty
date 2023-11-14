@@ -8,6 +8,7 @@ export interface PaginationProps extends SpaceProps {
   dataTestId?: string;
   type?: PaginationType;
   isWhite?: boolean;
+  disabled?: boolean;
 }
 
 export enum PaginationTrigger {

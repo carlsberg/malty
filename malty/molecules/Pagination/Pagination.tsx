@@ -18,6 +18,7 @@ export const Pagination = ({
   siblingCount,
   type = PaginationType.Default,
   dataTestId,
+  disabled = false,
   isWhite = false,
   ...props
 }: PaginationProps) => {
@@ -114,6 +115,18 @@ export const Pagination = ({
     }
   };
 
+  const getTextColor = () => {
+    if (isWhite) {
+      return TextColor.White;
+    }
+
+    if (disabled) {
+      return TextColor.DisableLightTheme;
+    }
+
+    return TextColor.DigitalBlack;
+  };
+
   const renderContent = () => {
     if (isInput) {
       return (
@@ -129,11 +142,12 @@ export const Pagination = ({
             min={MIN_ALLOWED_VALUE}
             type="number"
             aria-label={`Page ${inputValue}`}
+            disabled={disabled}
           />
           <Text
             dataQaId={`${dataTestId}-input-count`}
             textStyle={TextStyle.MediumSmallDefault}
-            color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+            color={getTextColor()}
             aria-label={`of ${count}`}
           >{` / ${count}`}</Text>
         </StyledInputPagination>
@@ -146,7 +160,7 @@ export const Pagination = ({
           <Text
             dataQaId={`${dataTestId}-pagination-compact`}
             textStyle={TextStyle.SmallDefault}
-            color={isWhite ? TextColor.White : TextColor.DigitalBlack}
+            color={getTextColor()}
             aria-label={`Page ${currentPage} of ${count}`}
           >{`${currentPage} of ${count}`}</Text>
         </li>
@@ -159,7 +173,7 @@ export const Pagination = ({
         if (pageNr === LEFT_DOTS || pageNr === RIGHT_DOTS) {
           return (
             <li data-testid={`${dataTestId}-${pageNr}`} key={pageNr} tabIndex={-1}>
-              <StyledDots theme={theme} isWhite={isWhite} aria-label="Ellipsis">
+              <StyledDots theme={theme} isWhite={isWhite} $disabled={disabled} aria-label="Ellipsis">
                 &#8230;
               </StyledDots>
             </li>
@@ -179,6 +193,7 @@ export const Pagination = ({
               text={pageNr}
               negative={isWhite}
               size={buttonSize}
+              disabled={disabled}
             />
           </li>
         );
@@ -193,7 +208,7 @@ export const Pagination = ({
           <Button
             dataTestId={`${dataTestId}-button-previous`}
             style={ButtonStyle.Transparent}
-            disabled={isFirstPage}
+            disabled={isFirstPage || disabled}
             tabIndex={isFirstPage ? -1 : 0}
             onClick={onPrevious}
             onKeyUp={onPreviousKeyUp}
@@ -208,7 +223,7 @@ export const Pagination = ({
           <Button
             dataTestId={`${dataTestId}-button-next`}
             style={ButtonStyle.Transparent}
-            disabled={isLastPage}
+            disabled={isLastPage || disabled}
             tabIndex={isLastPage ? -1 : 0}
             onClick={onNext}
             onKeyUp={onNextKeyUp}

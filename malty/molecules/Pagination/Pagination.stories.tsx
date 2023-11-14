@@ -1,17 +1,23 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Pagination as PaginationComponent } from './Pagination';
+import { Pagination } from './Pagination';
 import { PaginationProps, PaginationType } from './Pagination.types';
 
-export default {
-  title: 'Navigation/Pagination',
+const PaginationComponent = ({ currentPage, ...props }: PaginationProps) => {
+  const [statePage, setStatePage] = useState(currentPage);
+
+  return <Pagination {...props} onChange={(page) => setStatePage(Number(page))} currentPage={statePage} />;
+};
+
+const meta: Meta<PaginationProps> = {
   component: PaginationComponent,
+  title: 'Navigation/Pagination',
   parameters: {
     importObject: 'Pagination',
-    importPath: '@carlsberggroup/malty.molecules.pagination',
-    variants: ['default', 'compact', 'input']
+    importPath: '@carlsberggroup/malty.molecules.pagination'
   },
+  render: (args) => <PaginationComponent {...args} />,
   argTypes: {
     onChange: {
       description: 'Function to be executed when page changes'
@@ -26,83 +32,63 @@ export default {
     },
     siblingCount: {
       description: 'You can specify how many digits pages to display',
-      control: 'number',
-      defaultValue: 1
+      control: 'number'
     },
     dataTestId: {
       control: 'text',
-      description: 'Pagination data-testid',
-      table: { defaultValue: { summary: 'none' } }
+      description: 'Pagination data-testid'
     },
     type: {
-      description: 'type options for pagination',
+      description: 'Type options for pagination',
       options: Object.keys(PaginationType),
       mapping: PaginationType,
       control: {
         type: 'select',
         label: Object.keys(PaginationType)
-      },
-      table: {
-        defaultValue: {
-          summary: 'PaginationType.Default'
-        }
       }
     },
     isWhite: {
-      table: {
-        defaultValue: {
-          summary: 'false'
-        }
-      },
       description: 'Changes color of component to white',
       control: 'boolean'
     },
-    zeroBasedIndex: {
-      description: 'if true the first page starts on 0',
+    disabled: {
+      description: 'Property that allows to disable the component',
       control: 'boolean'
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<PaginationProps> = ({ currentPage, ...args }) => {
-  const [statePage, setStatePage] = useState(currentPage);
-
-  return (
-    <PaginationComponent
-      {...args}
-      onChange={(page) => {
-        setStatePage(page as number);
-      }}
-      currentPage={statePage}
-    />
-  );
 };
 
-export const Pagination = Template.bind({});
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+type Story = StoryObj<PaginationProps>;
 
-switch (variant) {
-  case 'compact':
-    Pagination.args = {
-      count: 10,
-      currentPage: 1,
-      type: PaginationType.Compact
-    };
-    break;
-  case 'input':
-    Pagination.args = {
-      count: 10,
-      currentPage: 1,
-      type: PaginationType.Input
-    };
-    break;
-  default:
-    Pagination.args = {
-      count: 10,
-      currentPage: 1,
-      type: PaginationType.Default
-    };
-    break;
-}
+export const Base: Story = {
+  args: {
+    count: 10,
+    currentPage: 1,
+    type: PaginationType.Default,
+    disabled: false
+  }
+};
+
+export const Compact: Story = {
+  args: {
+    ...Base.args,
+    type: PaginationType.Compact
+  }
+};
+
+export const Input: Story = {
+  args: {
+    ...Base.args,
+    type: PaginationType.Input
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export default meta;
