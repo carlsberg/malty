@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Toggle as ToggleComponent } from './Toggle';
@@ -34,23 +35,18 @@ export default {
     required: {
       control: 'boolean',
       description: 'Makes the toogle required to fill'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
-const Template: Story<ToggleProps> = ({ label, disabled, error, required }: ToggleProps) => {
+
+const Template: Story<ToggleProps> = (args) => {
   const [stateChecked, setStateChecked] = useState(true);
-  return (
-    <ToggleComponent
-      disabled={disabled}
-      checked={stateChecked}
-      label={label}
-      onValueChange={(value) => setStateChecked(value)}
-      error={error}
-      required={required}
-    />
-  );
+  return <ToggleComponent {...args} checked={stateChecked} onValueChange={(value) => setStateChecked(value)} />;
 };
+
 export const Toggle = Template.bind({});
+
 const params = new URLSearchParams(window.location.search);
 const variant = params.get('variant');
 
