@@ -40,15 +40,7 @@ export const Pill = ({
       isUppercase={hasText && isUppercase}
       {...props}
     >
-      {icon && (
-        <Icon
-          data-testid={`${dataTestId}-icon`}
-          name={icon}
-          size={IconSize.Small}
-          color={colorStyle}
-          className="pill__icon"
-        />
-      )}
+      {icon && <Icon name={icon} size={IconSize.Small} color={colorStyle} className="pill__icon" />}
       {text}
     </StyledPill>
   );

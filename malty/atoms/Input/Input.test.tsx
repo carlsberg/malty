@@ -49,6 +49,7 @@ describe('Input', () => {
         error="Error text"
       />
     );
+
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Placeholder text')).toBeInTheDocument();
     expect(screen.getByText('Error text')).toBeInTheDocument();
@@ -57,11 +58,18 @@ describe('Input', () => {
 
   it('should render cart icon', () => {
     render(
-      <Input value="Value text" icon={IconName.Cart} onValueChange={mockFn} type={InputType.Text} error="Error text" />
+      <Input
+        value="Value text"
+        icon={IconName.Cart}
+        onValueChange={mockFn}
+        type={InputType.Text}
+        error="Error text"
+        dataTestId="input-cart"
+      />
     );
 
     expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
-    expect(screen.getByTestId('icon-Cart')).toBeVisible();
+    expect(screen.getByTestId('input-cart-icon')).toBeVisible();
   });
 
   it('should call onValueChange when typing', () => {
@@ -149,11 +157,12 @@ describe('Input', () => {
         label="Search"
         onValueChange={onValueChange}
         type={InputType.Search}
+        dataTestId="input"
         onClearButtonClick={onClearButtonClick}
       />
     );
 
-    const clearButton = screen.getByTestId(`icon-ItemClose`);
+    const clearButton = screen.getByTestId(`input-clearable-icon`);
     fireEvent.click(clearButton);
     expect(onClearButtonClick).toHaveBeenCalledTimes(1);
   });

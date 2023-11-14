@@ -13,7 +13,7 @@ type StyledParagraphProps = {
 } & SpaceProps;
 
 export const StyledParagraph = styled.p<StyledParagraphProps>`
-  display: block;
+  display: inline-block;
   margin: 0;
   padding: 0;
   word-break: break-word;
