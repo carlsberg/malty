@@ -1,6 +1,6 @@
-/* eslint-disable react/destructuring-assignment */
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { ProductQuantityActions as ProductQuantityActionsComponent } from './ProductQuantityActions';
@@ -30,17 +30,18 @@ export default {
     dataTestId: {
       description: 'Product Quantity Actions data-testid',
       control: 'text'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
-const Template: Story<ProductQuantityActionsProps> = (args) => {
-  const [stateValue, setStateValue] = useState(args.actionQuantityInput?.value || '0');
+const Template: Story<ProductQuantityActionsProps> = ({ actionQuantityInput, ...args }) => {
+  const [stateValue, setStateValue] = useState(actionQuantityInput?.value || '0');
   return (
     <ProductQuantityActionsComponent
       {...args}
-      {...(args.actionQuantityInput && {
-        actionQuantityInput: { ...args.actionQuantityInput, value: stateValue, onValueChange: setStateValue }
+      {...(actionQuantityInput && {
+        actionQuantityInput: { ...actionQuantityInput, value: stateValue, onValueChange: setStateValue }
       })}
     />
   );

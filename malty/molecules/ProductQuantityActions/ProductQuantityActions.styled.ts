@@ -1,6 +1,14 @@
 import { Input } from '@carlsberggroup/malty.atoms.input';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
+
+export const StyledWrapper = styled.div<SpaceProps>`
+  display: flex;
+  flex-direction: column;
+
+  ${space}
+`;
 
 export const StyledStock = styled.div`
   display: flex;
