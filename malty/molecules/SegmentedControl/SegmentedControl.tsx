@@ -11,7 +11,8 @@ export const SegmentedControl = ({
   dataQaId,
   disabled = false,
   selected = options[0].value,
-  onChange
+  onChange,
+  ...props
 }: SegmentedControlProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [chipSize, setchipSize] = useState(ChipSize.Medium);
@@ -38,7 +39,7 @@ export const SegmentedControl = ({
   }, [size, theme]);
 
   return (
-    <StyledSegmentedControl data-testid={dataQaId} theme={theme}>
+    <StyledSegmentedControl data-testid={dataQaId} theme={theme} {...props}>
       {options.map((option, index) => (
         <React.Fragment key={option.value}>
           <Chip

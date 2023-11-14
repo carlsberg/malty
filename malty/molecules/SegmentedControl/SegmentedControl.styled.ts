@@ -1,9 +1,12 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
 
-export const StyledSegmentedControl = styled.div`
+export const StyledSegmentedControl = styled.div<SpaceProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${space}
 `;
 export const StyledDivider = styled.div<{
   disabled: boolean;

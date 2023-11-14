@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { SegmentedControl as SegmentedControlComponent } from './SegmentedControl';
@@ -37,7 +38,8 @@ export default {
     dataQaId: {
       control: 'text',
       description: 'Segmented Control data-testid'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 const segmentedControlOptions1: SegmentedControlOptions[] = [
