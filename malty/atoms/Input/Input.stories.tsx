@@ -42,12 +42,9 @@ const meta: Meta<InputProps> = {
       control: 'radio'
     },
     type: {
-      options: Object.keys(InputType),
+      options: Object.values(InputType),
       mapping: InputType,
-      control: {
-        type: 'select',
-        label: Object.values(InputType)
-      },
+      control: 'select',
       description: 'Input type options'
     },
     icon: {
@@ -70,10 +67,7 @@ const meta: Meta<InputProps> = {
     iconPosition: {
       options: Object.keys(InputIconPosition),
       mapping: InputIconPosition,
-      control: {
-        type: 'radio',
-        label: Object.values(InputIconPosition)
-      },
+      control: 'radio',
       description: 'Icon position within the input'
     },
     clearable: {
@@ -140,7 +134,7 @@ const meta: Meta<InputProps> = {
     },
     showCharacterCounter: {
       control: 'boolean',
-      description: 'Show/Hide character counter',
+      description: `Show/Hide character counter. This property is only available when the input type is ${InputType.Text} `,
       if: { arg: 'type', eq: InputType.Text }
     }
   }
