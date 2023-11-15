@@ -51,6 +51,18 @@ const socialMediaIcons: FooterSocialMedia[] = [
   {
     name: FooterSocialMediaIconName.AppLinkedin,
     url: 'linkedin'
+  },
+  {
+    name: FooterSocialMediaIconName.AppDropbox,
+    url: 'dropbox'
+  },
+  {
+    name: FooterSocialMediaIconName.AppGithub,
+    url: 'github'
+  },
+  {
+    name: FooterSocialMediaIconName.AppSkype,
+    url: 'skype'
   }
 ];
 describe('footer', () => {
@@ -73,16 +85,27 @@ describe('footer', () => {
   it('should render with socialmedia icon', () => {
     render(<Footer copyright="copyright" dataQaId="footer" content={footerSections} socialMedia={socialMediaIcons} />);
 
-    const socialIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppFacebook}`);
+    const fbIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppFacebook}`);
+    const instaIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppInstagram}`);
+    const linkedinIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppLinkedin}`);
+    const dropboxIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppDropbox}`);
+    const githubIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppGithub}`);
+    const skypeIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppSkype}`);
 
-    expect(socialIcon).toBeInTheDocument();
+    expect(fbIcon).toBeInTheDocument();
+    expect(instaIcon).toBeInTheDocument();
+    expect(linkedinIcon).toBeInTheDocument();
+
+    expect(dropboxIcon).toBeInTheDocument();
+    expect(githubIcon).toBeInTheDocument();
+    expect(skypeIcon).toBeInTheDocument();
   });
 
   it('should render with links', () => {
     render(<Footer dataQaId="footer" content={footerSections} socialMedia={socialMediaIcons} />);
 
-    const clusterTitle = screen.getByTestId(`footer-cluster-${footerSections[0].title}`);
-    const link = screen.getByTestId(`footer-link-${footerSections[0].link[0].label}`);
+    const clusterTitle = screen.getByTestId(`footer-cluster-title 1`);
+    const link = screen.getByTestId(`footer-link-link 1`);
 
     expect(clusterTitle).toBeInTheDocument();
     expect(link).toBeInTheDocument();
@@ -91,8 +114,8 @@ describe('footer', () => {
   it('should render with the correct data test id', () => {
     render(<Footer dataQaId="footer" content={footerSections} socialMedia={socialMediaIcons} />);
 
-    const dataTestId = screen.getByTestId('footer');
+    const wrapper = screen.getByTestId('footer');
 
-    expect(dataTestId).toBeInTheDocument();
+    expect(wrapper).toBeInTheDocument();
   });
 });
