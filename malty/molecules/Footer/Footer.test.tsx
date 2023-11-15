@@ -104,7 +104,7 @@ describe('footer', () => {
   it('should render with links', () => {
     render(<Footer dataQaId="footer" content={footerSections} socialMedia={socialMediaIcons} />);
 
-    const clusterTitle = screen.getByTestId(`footer-cluster-title 1`);
+    const clusterTitle = screen.getByText('title 1');
     const link = screen.getByText(`link 1`);
 
     expect(clusterTitle).toBeInTheDocument();
