@@ -15,13 +15,16 @@ export const Radio = ({
   disabled,
   required = false,
   dataTestId,
+  readOnly,
   ...props
 }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useRef<string>(uuid());
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
-    onValueChange(e.target.value);
+    if (!readOnly) {
+      onValueChange(e.target.value);
+    }
   };
 
   return (
@@ -38,6 +41,7 @@ export const Radio = ({
           onChange={handleValueChange}
           disabled={disabled}
           required={required}
+          readOnly={readOnly}
           {...props}
         />
         <StyledLabel
@@ -47,6 +51,7 @@ export const Radio = ({
           htmlFor={id.current}
           disabled={disabled}
           theme={theme}
+          $readOnly={readOnly}
         />
       </StyledRadioContainer>
       {error && <StyledError theme={theme}>{error}</StyledError>}

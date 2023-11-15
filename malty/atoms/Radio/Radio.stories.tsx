@@ -31,7 +31,11 @@ const meta: Meta<RadioProps> = {
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, when disabled it is read-only.'
+      description: 'Input state, when disabled'
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'Input state, when readOnly'
     },
     name: {
       description: 'Name attribute of the radio element.'
@@ -53,7 +57,7 @@ export const Base: Story = {
     label: 'Option 1',
     name: 'radioOptions',
     value: 'Option 1',
-    selected: true,
+    selected: false,
     disabled: false,
     required: false
   }
@@ -63,6 +67,13 @@ export const Disabled: Story = {
   args: {
     ...Base.args,
     disabled: true
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
   }
 };
 
