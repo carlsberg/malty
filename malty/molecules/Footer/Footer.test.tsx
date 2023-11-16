@@ -51,29 +51,71 @@ const socialMediaIcons: FooterSocialMedia[] = [
   {
     name: FooterSocialMediaIconName.AppLinkedin,
     url: 'linkedin'
+  },
+  {
+    name: FooterSocialMediaIconName.AppDropbox,
+    url: 'dropbox'
+  },
+  {
+    name: FooterSocialMediaIconName.AppGithub,
+    url: 'github'
+  },
+  {
+    name: FooterSocialMediaIconName.AppSkype,
+    url: 'skype'
   }
 ];
 describe('footer', () => {
-  it('renders with brand info', () => {
+  it('should render with brand info', () => {
     render(<Footer brandInfo="brand info" content={footerSections} socialMedia={socialMediaIcons} />);
+
     const brandInfo = screen.getByText('brand info');
-    expect(brandInfo).toBeDefined();
+
+    expect(brandInfo).toBeInTheDocument();
   });
-  it('renders with copyright', () => {
+
+  it('should render with copyright', () => {
     render(<Footer copyright="copyright" content={footerSections} socialMedia={socialMediaIcons} />);
+
     const copyright = screen.getByText('copyright');
-    expect(copyright).toBeDefined();
+
+    expect(copyright).toBeInTheDocument();
   });
-  it('renders with socialmedia icon', () => {
+
+  it('should render with socialmedia icon', () => {
     render(<Footer copyright="copyright" dataQaId="footer" content={footerSections} socialMedia={socialMediaIcons} />);
-    const socialIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppFacebook}`);
-    expect(socialIcon).toBeDefined();
+
+    const fbIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppFacebook}`);
+    const instaIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppInstagram}`);
+    const linkedinIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppLinkedin}`);
+    const dropboxIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppDropbox}`);
+    const githubIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppGithub}`);
+    const skypeIcon = screen.getByTestId(`footer-social-media-${FooterSocialMediaIconName.AppSkype}`);
+
+    expect(fbIcon).toBeInTheDocument();
+    expect(instaIcon).toBeInTheDocument();
+    expect(linkedinIcon).toBeInTheDocument();
+
+    expect(dropboxIcon).toBeInTheDocument();
+    expect(githubIcon).toBeInTheDocument();
+    expect(skypeIcon).toBeInTheDocument();
   });
-  it('renders with links', () => {
+
+  it('should render with links', () => {
     render(<Footer dataQaId="footer" content={footerSections} socialMedia={socialMediaIcons} />);
-    const clusterTitle = screen.getByTestId(`footer-cluster-${footerSections[0].title}`);
-    const link = screen.getByTestId(`footer-link-${footerSections[0].link[0].label}`);
-    expect(clusterTitle).toBeDefined();
-    expect(link).toBeDefined();
+
+    const clusterTitle = screen.getByText('title 1');
+    const link = screen.getByText(`link 1`);
+
+    expect(clusterTitle).toBeInTheDocument();
+    expect(link).toBeInTheDocument();
+  });
+
+  it('should render with the correct data test id', () => {
+    render(<Footer dataQaId="footer" content={footerSections} socialMedia={socialMediaIcons} />);
+
+    const wrapper = screen.getByTestId('footer');
+
+    expect(wrapper).toBeInTheDocument();
   });
 });
