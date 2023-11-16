@@ -134,7 +134,7 @@ const meta: Meta<InputProps> = {
     },
     showCharacterCounter: {
       control: 'boolean',
-      description: `Show/Hide character counter. This property is only available when the input type is ${InputType.Text} `,
+      description: `Toggle character counter. This property is only available when the input type is ${InputType.Text} `,
       if: { arg: 'type', eq: InputType.Text }
     }
   }
@@ -145,6 +145,7 @@ type Story = StoryObj<InputProps>;
 export const Base: Story = {
   args: {
     size: InputSize.Medium,
+    value: '',
     showCharacterCounter: false,
     label: 'Label',
     type: InputType.Text,

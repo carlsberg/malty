@@ -1,7 +1,7 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { ChangeEvent, forwardRef, useContext, useEffect, useMemo, useState } from 'react';
+import React, { ChangeEvent, forwardRef, useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { emojiFlag } from './emojiFlag';
@@ -31,7 +31,7 @@ import {
 export const Input = forwardRef(
   (
     {
-      value: valueProp,
+      value,
       onValueChange,
       onInputBlur,
       label,
@@ -69,13 +69,8 @@ export const Input = forwardRef(
     const name = nameProp || id;
     const inputSize = useInputSize({ size });
     const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
-    const [value, setValue] = useState<string | undefined>(valueProp);
     const valueCounter = value?.length ?? 0;
     const textCounter = maxLength ? maxLength - valueCounter : valueCounter;
-
-    useEffect(() => {
-      setValue(valueProp);
-    }, [valueProp]);
 
     const transform = (text: string): string => {
       if (mask) {
@@ -126,7 +121,6 @@ export const Input = forwardRef(
 
     const handleOnInputChange = (event: ChangeEvent<HTMLInputElement>) => {
       const currentValue = transform((event.target as HTMLInputElement).value);
-      setValue(currentValue);
       onValueChange?.(currentValue);
     };
 
@@ -203,6 +197,7 @@ export const Input = forwardRef(
           max={max}
           min={min}
           maxLength={maxLength}
+          $showCharacterCounter={showCharacterCounter}
           {...props}
         />
         {renderClearable()}
@@ -344,7 +339,7 @@ export const Input = forwardRef(
         <Label label={label} required={required} disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} />
         <StyledInputWrapper
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}
-          clearable={clearable || type === InputType.Search}
+          $isIconRight={!!icon && iconPosition === InputIconPosition.Right}
           addLeft={type === InputType.Telephone}
           $showCharacterCounter={showCharacterCounter}
           theme={theme}

@@ -62,8 +62,7 @@ export const StyledCharacterCounter = styled.div<{ $disabled?: boolean }>`
 
 export const StyledInputWrapper = styled.div<{
   isIconLeft?: boolean;
-  clearable?: boolean;
-  addRight?: boolean;
+  $isIconRight: boolean;
   addLeft?: boolean;
   $showCharacterCounter: boolean;
 }>`
@@ -85,14 +84,17 @@ export const StyledInputWrapper = styled.div<{
 
     &.clear-trigger {
       opacity: 0.7;
-      ${({ clearable, isIconLeft, addRight, $showCharacterCounter }) => {
-        let right = 16;
-        if (!isIconLeft) right += 28;
-        if (addRight) right += 32;
-        if (!isIconLeft && addRight) right += 8;
-        if ($showCharacterCounter) right += 34;
+      ${({ theme, $isIconRight, $showCharacterCounter }) => {
+        let clearableIconPositionRight = 16;
+
+        if ($isIconRight && $showCharacterCounter) {
+          clearableIconPositionRight += parseInt(`${theme.sizes['4xl'].value.replace('px', '')}`, 10);
+        } else if ($isIconRight || $showCharacterCounter) {
+          clearableIconPositionRight += parseInt(`${theme.sizes.xl.value.replace('px', '')}`, 10);
+        }
+
         return css`
-          ${clearable || addRight ? `right: ${right}px` : ''}
+          right: ${clearableIconPositionRight}px;
         `;
       }}
     }
@@ -136,6 +138,7 @@ export const StyledInput = styled.input<{
   addRight?: boolean;
   isError?: boolean;
   disableQuantityInput?: boolean;
+  $showCharacterCounter?: boolean;
 }>`
   border-radius: 0;
   width: 100%;
@@ -211,18 +214,40 @@ export const StyledInput = styled.input<{
     color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   }
 
-  ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
+  ${({ theme, hasIcon, isIconLeft, addRight, hasClearable, $showCharacterCounter }) => {
+    if (!hasIcon && !hasClearable && !$showCharacterCounter) {
+      return css`
+        padding: 0 ${theme.sizes.s.value};
+      `;
+    }
+
     const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
-    let rightPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
-    if (addRight) rightPadding = `${theme.sizes['4xl'].value}`;
-    if (hasClearable) rightPadding = `${theme.sizes['2xl'].value}`;
-    return hasIcon || hasClearable
-      ? css`
-          padding: 0 ${rightPadding} 0 ${leftPadding};
-        `
-      : css`
-          padding: 0 ${theme.sizes.s.value};
-        `;
+
+    let rightPadding = `${theme.sizes.s.value}`;
+    const hasRightIcon = hasIcon && addRight;
+    const hasAllRightElements = hasRightIcon && hasClearable && $showCharacterCounter;
+    const hasTwoRightElements =
+      (hasRightIcon && hasClearable) ||
+      (hasRightIcon && $showCharacterCounter) ||
+      (hasClearable && $showCharacterCounter);
+
+    if (hasAllRightElements) {
+      rightPadding = `${
+        parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+        parseInt(`${theme.sizes.l.value.replace('px', '')}`, 10)
+      }px`;
+    } else if (hasTwoRightElements) {
+      rightPadding = `${
+        parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+        parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
+      }px`;
+    } else {
+      rightPadding = `${theme.sizes['3xl'].value}`;
+    }
+
+    return css`
+      padding: 0 ${rightPadding} 0 ${leftPadding};
+    `;
   }}
   ${({ disabled }) =>
     disabled &&
