@@ -14,6 +14,7 @@ jobs:
     env:
       BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
       BIT_VERSION: ${{ secrets.BIT_VERSION }}
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v3
 
