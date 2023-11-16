@@ -30,7 +30,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs",
     "build": "bit build",
-    "test": "jest --coverage",
+    "test": "jest",
     "test:ci": "jest --silent --ci --coverage",
     "test:watch": "jest --watch",
     "format": "prettier --write . --loglevel error",
