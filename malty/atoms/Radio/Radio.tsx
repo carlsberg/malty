@@ -1,11 +1,11 @@
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { v4 as uuid } from 'uuid';
 import { RadioProps } from '.';
 import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
 
 export const Radio = ({
+  id,
   value,
   label,
   onValueChange,
@@ -19,12 +19,9 @@ export const Radio = ({
   ...props
 }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const id = useRef<string>(uuid());
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
-    if (!readOnly) {
-      onValueChange(e.target.value);
-    }
+    onValueChange?.(e.target.value);
   };
 
   return (
@@ -32,8 +29,8 @@ export const Radio = ({
       <StyledRadioContainer theme={theme}>
         <StyledRadio
           data-testid={dataTestId}
-          id={id.current}
-          checked={selected}
+          id={id}
+          defaultChecked={selected}
           value={value}
           theme={theme}
           type="radio"
@@ -48,7 +45,7 @@ export const Radio = ({
           label={label}
           data-testid={`${dataTestId}-label`}
           required={required}
-          htmlFor={id.current}
+          htmlFor={id}
           disabled={disabled}
           theme={theme}
           $readOnly={readOnly}

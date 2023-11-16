@@ -57,7 +57,8 @@ export const Base: Story = {
     label: 'Option 1',
     name: 'radioOptions',
     value: 'Option 1',
-    selected: false,
+    id: 'option1',
+    selected: true,
     disabled: false,
     required: false
   }
@@ -73,6 +74,7 @@ export const Disabled: Story = {
 export const ReadOnly: Story = {
   args: {
     ...Base.args,
+    selected: true,
     readOnly: true
   }
 };

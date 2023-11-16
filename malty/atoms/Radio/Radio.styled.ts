@@ -11,6 +11,7 @@ export const StyledRadio = styled.input`
   position: relative;
 
   cursor: pointer;
+
   &:hover {
     &::before {
       background: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
@@ -72,6 +73,7 @@ export const StyledRadio = styled.input`
     return (
       readOnly &&
       css`
+        pointer-events: none;
         cursor: default;
         &::before,
         &:hover::before {
@@ -88,7 +90,7 @@ export const StyledRadio = styled.input`
   ${({ disabled }) =>
     disabled &&
     css`
-      pointer-events: none;
+      cursor: default;
       &::before,
       &:hover::before {
         background: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
@@ -112,9 +114,11 @@ export const StyledLabel = styled(Label)<{
   margin-bottom: 0;
   cursor: pointer;
 
-  ${({ $readOnly }) =>
+  ${({ $readOnly, disabled }) =>
     $readOnly &&
+    !disabled &&
     css`
+      pointer-events: none;
       cursor: default;
       color: ${({ theme }) => theme.colors.colours.support['80'].value};
     `}
