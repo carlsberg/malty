@@ -12,7 +12,6 @@ const meta: Meta<PaddedContainerProps> = {
   },
   render: (args) => (
     <PaddedContainer {...args}>
-      {console.log(args)}
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua. Mi tempus imperdiet nulla malesuada pellentesque. Sodales ut etiam sit amet nisl purus. Rutrum
       quisque non tellus orci ac auctor augue mauris. A pellentesque sit amet porttitor eget dolor morbi non. Viverra
