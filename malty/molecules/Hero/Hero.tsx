@@ -45,6 +45,7 @@ export const Hero = ({
           headlineStyle={isDesktop ? HeadlineStyle.MediumLarge : HeadlineStyle.Medium}
           color={HeadlineColor.White}
           align={HeadlineAlign.Center}
+          as="h2"
         >
           {description}
         </Headline>
