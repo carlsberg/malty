@@ -1529,7 +1529,7 @@
     },
     "molecules/footer": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.19",
+        "version": "0.0.20",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Footer"
     },
