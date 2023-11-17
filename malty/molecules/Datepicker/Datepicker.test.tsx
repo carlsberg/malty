@@ -130,4 +130,70 @@ describe('datepicker', () => {
 
     expect(screen.getByDisplayValue('01/12/2022')).toBeInTheDocument();
   });
+
+  it('should call `onClose` when datepicker is closed', () => {
+    const onClose = jest.fn();
+
+    render(<Datepicker {...defaultProps} startDate={new Date(2023, 12, 15)} onClose={onClose} />);
+
+    userEvent.click(screen.getByLabelText(defaultProps.label));
+
+    expect(onClose).not.toHaveBeenCalled();
+
+    const dayToBeClicked = screen.getByText('16');
+
+    userEvent.click(dayToBeClicked);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call `onClose` when datepicker is closed using selectsRange', () => {
+    const onClose = jest.fn();
+
+    render(<Datepicker {...defaultProps} startDate={new Date(2023, 12, 15)} onClose={onClose} selectsRange />);
+
+    userEvent.click(screen.getByLabelText(defaultProps.label));
+
+    expect(onClose).not.toHaveBeenCalled();
+
+    const firstDay = screen.getByText('16');
+    const secondDay = screen.getByText('17');
+
+    userEvent.click(firstDay);
+    userEvent.click(secondDay);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call `onClose` when clicking on the primary action', () => {
+    const onClose = jest.fn();
+
+    render(<Datepicker {...defaultProps} onClose={onClose} primaryAction={{ label: 'Confirm', action: jest.fn() }} />);
+
+    userEvent.click(screen.getByLabelText(defaultProps.label));
+
+    expect(onClose).not.toHaveBeenCalled();
+
+    const confirmButton = screen.getByRole('button', { name: 'Confirm' });
+
+    userEvent.click(confirmButton);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call `onClose` when clicking on the secondary action', () => {
+    const onClose = jest.fn();
+
+    render(<Datepicker {...defaultProps} onClose={onClose} secondaryAction={{ label: 'Cancel', action: jest.fn() }} />);
+
+    userEvent.click(screen.getByLabelText(defaultProps.label));
+
+    expect(onClose).not.toHaveBeenCalled();
+
+    const cancelButton = screen.getByRole('button', { name: 'Cancel' });
+
+    userEvent.click(cancelButton);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
 });
