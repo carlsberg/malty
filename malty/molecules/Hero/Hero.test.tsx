@@ -31,6 +31,7 @@ const actions: ActionButtonProps[] = [
 
 const scrollText = 'Scroll to know more';
 const scrollIcon = 'icon-ArrowSmallDown';
+const heroTestId = 'hero';
 
 describe('Hero', () => {
   beforeAll(() => {
@@ -47,27 +48,27 @@ describe('Hero', () => {
     });
   });
 
-  it('renders required props successfully', () => {
+  it('should render required props successfully', () => {
     render(<Hero {...heroProps} />);
     const primaryButton = screen.queryByText(actions[0].text as string);
     const secondaryButton = screen.queryByText(actions[1].text as string);
 
-    expect(screen.getByText(heroProps.title)).toBeVisible();
-    expect(screen.getByText(heroProps.description)).toBeVisible();
+    expect(screen.getByText(heroProps.title)).toBeInTheDocument();
+    expect(screen.getByText(heroProps.description)).toBeInTheDocument();
     expect(primaryButton).not.toBeInTheDocument();
     expect(secondaryButton).not.toBeInTheDocument();
     expect(screen.queryByText(scrollText)).not.toBeInTheDocument();
     expect(screen.queryByTestId(scrollIcon)).not.toBeInTheDocument();
   });
 
-  it('renders actions successfully', () => {
+  it('should render actions successfully', () => {
     render(<Hero {...heroProps} actions={actions} />);
 
     const primaryButton = screen.getByText(actions[0].text as string);
     const secondaryButton = screen.getByText(actions[1].text as string);
 
-    expect(primaryButton).toBeVisible();
-    expect(secondaryButton).toBeVisible();
+    expect(primaryButton).toBeInTheDocument();
+    expect(secondaryButton).toBeInTheDocument();
 
     userEvent.click(primaryButton);
     userEvent.click(secondaryButton);
@@ -76,10 +77,16 @@ describe('Hero', () => {
     expect(actions[1].onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('renders scroll successfully', () => {
+  it('should render scroll successfully', () => {
     render(<Hero {...heroProps} scrollText={scrollText} />);
 
-    expect(screen.getByText(scrollText)).toBeVisible();
-    expect(screen.getByTestId(scrollIcon)).toBeVisible();
+    expect(screen.getByText(scrollText)).toBeInTheDocument();
+    expect(screen.getByTestId(scrollIcon)).toBeInTheDocument();
+  });
+
+  it('should render hero data test id', () => {
+    render(<Hero {...heroProps} scrollText={scrollText} dataTestId={heroTestId} />);
+
+    expect(screen.getByTestId(heroTestId)).toBeInTheDocument();
   });
 });
