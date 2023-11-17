@@ -33,7 +33,7 @@ const meta: Meta<InputProps> = {
       control: 'text'
     },
     hint: {
-      description: 'helper message to be displayed',
+      description: 'Helper message to be displayed',
       control: 'text'
     },
     size: {
