@@ -53,8 +53,8 @@ describe('Hero', () => {
     const primaryButton = screen.queryByText(actions[0].text as string);
     const secondaryButton = screen.queryByText(actions[1].text as string);
 
-    expect(screen.getByText(heroProps.title)).toBeInTheDocument();
-    expect(screen.getByText(heroProps.description)).toBeInTheDocument();
+    expect(screen.getByText(heroProps.title)).toBeVisible();
+    expect(screen.getByText(heroProps.description)).toBeVisible();
     expect(primaryButton).not.toBeInTheDocument();
     expect(secondaryButton).not.toBeInTheDocument();
     expect(screen.queryByText(scrollText)).not.toBeInTheDocument();
