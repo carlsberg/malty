@@ -95,7 +95,7 @@
     },
     "atoms/padded-container": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.49",
+        "version": "0.0.50",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/PaddedContainer"
     },
