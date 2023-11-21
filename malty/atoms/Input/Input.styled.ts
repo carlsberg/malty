@@ -43,6 +43,7 @@ export const StyledHint = styled.label<{
 export const StyledCharacterCounter = styled.div<{ $disabled?: boolean; $isError: boolean }>`
   position: absolute;
   right: 16px;
+  background-color: ${({ theme }) => theme.colors.colours.support[60].value};
   color: ${({ theme }) => theme.colors.colours.default.white.value};
   font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
   border-radius: 7px;
@@ -52,20 +53,16 @@ export const StyledCharacterCounter = styled.div<{ $disabled?: boolean; $isError
   height: 14px;
   font-weight: bold;
   padding: 0 ${({ theme }) => theme.sizes['3xs'].value};
-  ${({ theme, $disabled, $isError }) => {
-    let backgroundColor = '';
-    if ($disabled) {
-      backgroundColor = theme.colors.colours.system['disable-light-theme'].value;
-    } else if ($isError) {
-      backgroundColor = theme.colors.colours.system.fail.value;
-    } else {
-      backgroundColor = theme.colors.colours.support[60].value;
-    }
-
-    return css`
-      background-color: ${backgroundColor};
-    `;
-  }}
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
+  ${({ $isError }) =>
+    $isError &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system.fail.value};
+    `}
 `;
 
 export const StyledInputWrapper = styled.div<{
@@ -214,16 +211,22 @@ export const StyledInput = styled.input<{
   &:focus-visible {
     outline: none;
   }
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
-  }
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-    + ${StyledCharacterCounter} {
-      background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-    }
-  }
+
+  ${({ isError, readOnly }) =>
+    !isError &&
+    !readOnly &&
+    css`
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+      }
+      &:focus {
+        border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        + ${StyledCharacterCounter} {
+          background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        }
+      }
+    `}
 
   ${({ theme, hasIcon, isIconLeft, addRight, hasClearable, $showCharacterCounter }) => {
     if (!hasIcon && !hasClearable && !$showCharacterCounter) {
