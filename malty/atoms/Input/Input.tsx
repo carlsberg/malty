@@ -164,7 +164,7 @@ export const Input = forwardRef(
 
     const renderCounter = () => {
       return (
-        <StyledCharacterCounter $disabled={disabled} data-testid={`${dataTestId}-character-counter`}>
+        <StyledCharacterCounter $disabled={disabled} $isError={!!error} data-testid={`${dataTestId}-character-counter`}>
           {textCounter}
         </StyledCharacterCounter>
       );
