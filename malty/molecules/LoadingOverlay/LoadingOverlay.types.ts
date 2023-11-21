@@ -1,4 +1,4 @@
-import { LoadingColor } from '@carlsberggroup/malty.molecules.loading/Loading.types';
+import { LoadingColor } from '@carlsberggroup/malty.molecules.loading';
 
 export interface LoadingOverlayProps {
   dataTestId?: string;

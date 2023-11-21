@@ -1,6 +1,5 @@
 import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
-import { Loading, LoadingSize } from '@carlsberggroup/malty.molecules.loading';
-import { LoadingColor } from '@carlsberggroup/malty.molecules.loading/Loading.types';
+import { Loading, LoadingColor, LoadingSize } from '@carlsberggroup/malty.molecules.loading';
 import React from 'react';
 import { StyledLoadingOverlay } from './LoadingOverlay.styled';
 import { LoadingOverlayProps } from './LoadingOverlay.types';
