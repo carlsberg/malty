@@ -67,8 +67,8 @@ describe('Hero', () => {
     const primaryButton = screen.getByText(actions[0].text as string);
     const secondaryButton = screen.getByText(actions[1].text as string);
 
-    expect(primaryButton).toBeInTheDocument();
-    expect(secondaryButton).toBeInTheDocument();
+    expect(primaryButton).toBeVisible();
+    expect(secondaryButton).toBeVisible();
 
     userEvent.click(primaryButton);
     userEvent.click(secondaryButton);
@@ -80,13 +80,13 @@ describe('Hero', () => {
   it('should render scroll successfully', () => {
     render(<Hero {...heroProps} scrollText={scrollText} />);
 
-    expect(screen.getByText(scrollText)).toBeInTheDocument();
-    expect(screen.getByTestId(scrollIcon)).toBeInTheDocument();
+    expect(screen.getByText(scrollText)).toBeVisible();
+    expect(screen.getByTestId(scrollIcon)).toBeVisible();
   });
 
   it('should render hero data test id', () => {
     render(<Hero {...heroProps} scrollText={scrollText} dataTestId={heroTestId} />);
 
-    expect(screen.getByTestId(heroTestId)).toBeInTheDocument();
+    expect(screen.getByTestId(heroTestId)).toBeVisible();
   });
 });
