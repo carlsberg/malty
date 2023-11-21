@@ -1,63 +1,72 @@
-import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Loading as LoadingComponent } from './Loading';
-import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
+import { Loading } from './Loading';
+import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
-export default {
+const meta: Meta<LoadingProps> = {
+  component: Loading,
   title: 'Progress Indicators/Loading',
-  component: LoadingComponent,
   parameters: {
     importObject: 'Loading',
     importPath: '@carlsberggroup/malty.molecules.loading'
   },
+  render: (args) => <Loading {...args} />,
   argTypes: {
-    text: { control: 'text', description: 'label to be displayed ' },
+    text: {
+      control: 'text',
+      description: 'Label to be displayed'
+    },
     size: {
       options: Object.values(LoadingSize),
-      control: {
-        type: 'select'
-      },
+      control: 'select',
       description: 'Size of the icon'
     },
     status: {
       options: Object.values(LoadingStatus),
-      control: {
-        type: 'select'
-      },
+      control: 'select',
       description: 'Status of the icon'
     },
     dataQaId: {
       control: 'text',
-      description: 'Alert data-qi-id, can be'
+      description: 'Set data-testid'
     },
     color: {
-      description: 'Loading color. Options are',
-      options: Object.values(ProgressSpinnerColor),
-      table: {
-        defaultValue: {
-          summary: 'ProgressSpinnerColor.DigitalBlack'
-        }
-      },
-      control: {
-        type: 'select'
-      }
+      description: 'Choose the component color',
+      options: Object.values(LoadingColor),
+      control: 'select'
     },
     negative: {
       control: 'boolean',
-      description: 'inverts color'
+      description: 'Inverts the component color'
     }
   }
-} as Meta;
-
-const Template: Story<LoadingProps> = ({ text, size, status, dataQaId, color, negative }: LoadingProps) => (
-  <LoadingComponent text={text} size={size} status={status} dataQaId={dataQaId} color={color} negative={negative} />
-);
-
-export const Loading = Template.bind({});
-Loading.args = {
-  size: LoadingSize.Small,
-  text: 'Loading...',
-  status: LoadingStatus.Pending,
-  dataQaId: 'loading'
 };
+
+type Story = StoryObj<LoadingProps>;
+
+export const Base: Story = {
+  args: {
+    size: LoadingSize.Small,
+    text: 'Loading...',
+    status: LoadingStatus.Pending,
+    dataQaId: 'loading',
+    negative: false,
+    color: LoadingColor.DigitalBlack
+  }
+};
+
+export const Success: Story = {
+  args: {
+    ...Base.args,
+    status: LoadingStatus.Success
+  }
+};
+
+export const Failure: Story = {
+  args: {
+    ...Base.args,
+    status: LoadingStatus.Failure
+  }
+};
+
+export default meta;

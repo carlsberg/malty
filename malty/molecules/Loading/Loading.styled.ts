@@ -23,6 +23,7 @@ const fadeIn = keyframes`
 
 export const StyledLoadingContainer = styled.div<{
   size: LoadingSize;
+  $zIndex: number;
 }>`
   display: flex;
   flex-direction: column;
@@ -31,6 +32,8 @@ export const StyledLoadingContainer = styled.div<{
   justify-content: center;
   text-align: center;
   padding: ${({ theme }) => theme.sizes['3xs'].value};
+  position: relative;
+  z-index: ${({ $zIndex }) => $zIndex};
 `;
 
 export const StyledLoading = styled.div<{

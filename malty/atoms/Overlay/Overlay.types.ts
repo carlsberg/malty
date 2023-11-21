@@ -1,5 +1,6 @@
 export interface OverlayProps {
-  content?: JSX.Element;
+  content?: React.ReactNode;
   isWhite?: boolean;
   zIndex?: number;
+  fixed?: boolean;
 }
