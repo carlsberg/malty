@@ -53,15 +53,15 @@ export const StyledCharacterCounter = styled.div<{ $disabled?: boolean; $isError
   height: 14px;
   font-weight: bold;
   padding: 0 ${({ theme }) => theme.sizes['3xs'].value};
-  ${({ $disabled }) =>
-    $disabled &&
-    css`
-      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
-    `}
   ${({ $isError }) =>
     $isError &&
     css`
       background-color: ${({ theme }) => theme.colors.colours.system.fail.value};
+    `}
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
     `}
 `;
 
