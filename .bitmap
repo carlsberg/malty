@@ -123,12 +123,6 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/ProgressCircle"
     },
-    "atoms/progress-spinner": {
-        "scope": "carlsberggroup.malty",
-        "version": "0.0.27",
-        "mainFile": "index.ts",
-        "rootDir": "malty/atoms/ProgressSpinner"
-    },
     "atoms/radio": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.42",
