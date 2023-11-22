@@ -39,6 +39,7 @@ export const Datepicker = ({
   startDate,
   endDate,
   onChange,
+  onClose,
   label,
   locale,
   minDate,
@@ -70,7 +71,11 @@ export const Datepicker = ({
   const endDateRef = useRef<Date | null | undefined>(endDate);
   const datepickerRef = useRef<HTMLDivElement>(null);
 
-  const handleClose = useCallback(() => setOpen(false), []);
+  const handleClose = useCallback(() => {
+    setOpen(false);
+    onClose?.();
+  }, [onClose]);
+
   const handleOpen = useCallback(() => setOpen(true), []);
 
   const handlePrimaryAction = () => {
