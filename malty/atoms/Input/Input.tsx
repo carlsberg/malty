@@ -202,7 +202,7 @@ export const Input = forwardRef(
         />
         {renderClearable()}
         {renderIcon()}
-        {showCharacterCounter && InputType.Text && renderCounter()}
+        {showCharacterCounter && type === InputType.Text && renderCounter()}
       </StyledClearableWrapper>
     );
 
