@@ -73,7 +73,6 @@ export const StyledRadio = styled.input`
     return (
       readOnly &&
       css`
-        pointer-events: none;
         cursor: default;
         &::before,
         &:hover::before {
@@ -118,7 +117,6 @@ export const StyledLabel = styled(Label)<{
     $readOnly &&
     !disabled &&
     css`
-      pointer-events: none;
       cursor: default;
       color: ${({ theme }) => theme.colors.colours.support['80'].value};
     `}

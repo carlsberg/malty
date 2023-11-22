@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { RadioProps } from '.';
 import { Radio } from './Radio';
 
@@ -10,7 +9,6 @@ const meta: Meta<RadioProps> = {
     importObject: 'Radio',
     importPath: '@carlsberggroup/malty.atoms.radio'
   },
-  render: (args) => <Radio {...args} />,
   argTypes: {
     label: {
       description: 'label text radio',
@@ -24,7 +22,6 @@ const meta: Meta<RadioProps> = {
       description: 'Value of Radio component',
       control: 'text'
     },
-
     selected: {
       description: 'If Radio component is selected or not',
       control: 'boolean'
@@ -54,10 +51,10 @@ type Story = StoryObj<RadioProps>;
 
 export const Base: Story = {
   args: {
+    id: 'option1',
     label: 'Option 1',
     name: 'radioOptions',
     value: 'Option 1',
-    id: 'option1',
     selected: true,
     disabled: false,
     required: false
@@ -74,7 +71,6 @@ export const Disabled: Story = {
 export const ReadOnly: Story = {
   args: {
     ...Base.args,
-    selected: true,
     readOnly: true
   }
 };

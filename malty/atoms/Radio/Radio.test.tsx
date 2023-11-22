@@ -6,6 +6,7 @@ import { Radio } from './Radio';
 import { RadioProps } from './Radio.types';
 
 const props: RadioProps = {
+  id: 'radioId',
   label: 'Label text',
   value: 'Test value',
   onValueChange: jest.fn(),
@@ -40,9 +41,9 @@ describe('radio', () => {
     render(<Radio {...props} disabled />);
 
     const radio = screen.getByDisplayValue(props.value);
-    userEvent.click(radio, undefined, { skipPointerEventsCheck: true });
+    userEvent.click(radio);
 
-    expect(props.onValueChange).toHaveBeenCalledTimes(0);
+    expect(props.onValueChange).not.toHaveBeenCalled();
     expect(radio).toBeDisabled();
   });
 
@@ -50,9 +51,10 @@ describe('radio', () => {
     render(<Radio {...props} readOnly />);
 
     const radio = screen.getByDisplayValue(props.value);
+
     userEvent.click(radio);
 
-    expect(props.onValueChange).toHaveBeenCalledTimes(0);
+    expect(props.onValueChange).not.toHaveBeenCalled();
     expect(radio).toHaveAttribute('readonly');
   });
 

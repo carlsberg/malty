@@ -21,7 +21,9 @@ export const Radio = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
-    onValueChange?.(e.target.value);
+    if (!readOnly && onValueChange) {
+      onValueChange(e.target.value);
+    }
   };
 
   return (
