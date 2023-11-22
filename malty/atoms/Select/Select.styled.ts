@@ -284,9 +284,13 @@ export const StyledCheck = styled(Check)<{
 `;
 
 export const StyledWrapper = styled.div`
-  display: flex;
-  align-items: center;
   width: fit-content;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   svg {
     margin-right: ${({ theme }) => theme.sizes['4xs'].value};
   }
