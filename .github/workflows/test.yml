@@ -81,3 +81,8 @@ jobs:
         run: |
           yarn test:ci
         shell: bash
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v4-beta
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
