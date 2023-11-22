@@ -24,9 +24,17 @@ export default {
       control: 'text',
       description: 'Title of the hero'
     },
+    titleAs: {
+      control: 'text',
+      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags."
+    },
     description: {
       control: 'text',
       description: 'Description of the hero'
+    },
+    descriptionAs: {
+      control: 'text',
+      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags."
     },
     imageSrc: {
       control: 'text',
