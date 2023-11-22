@@ -141,3 +141,8 @@ export const StyledOverlay = styled.div<{
   max-width: calc(220px + 80px);
   background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
 `;
+
+export const StyledCollapseBtn = styled.div`
+  margin-top: ${({ theme }) => theme.sizes.m.value};
+  cursor: pointer;
+`;

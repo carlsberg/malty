@@ -8,6 +8,7 @@ import React, { RefObject, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
   StyledAvatar,
+  StyledCollapseBtn,
   StyledOptionIcon,
   StyledOverlay,
   StyledProductsBar,
@@ -105,6 +106,9 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
     <StyledProductsBar theme={theme}>
       <StyledOverlay open={profileMenuOpen} theme={theme} />
       <Icon color={IconColor.White} name={IconName.CarlsbergFilled} size={IconSize.Medium} />
+      <StyledCollapseBtn>
+        <Icon color={IconColor.White} name={IconName.Menu} size={IconSize.Medium} />
+      </StyledCollapseBtn>
       <StyledSystemWrapper theme={theme}>
         <StyledSystemMenu theme={theme} data-testid="system-options">
           {systemOptions?.map((option, index) => {
