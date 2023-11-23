@@ -1,6 +1,6 @@
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { spreadSpaceProps } from '@carlsberggroup/malty.utils.space';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -34,7 +34,7 @@ export const TextArea = ({
   const [value, setValue] = useState<string | undefined>(valueProp);
   const valueCounter = value?.length ?? 0;
   const textAreaCounter = maxLength ? maxLength - valueCounter : valueCounter;
-  const { spaceProps, restProps } = spreadSpaceProps(props);
+  const { spaceProps, restProps } = isolateSpaceProps(props);
 
   const handleOnValueChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
     const currentValue = event.currentTarget.value;

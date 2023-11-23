@@ -18,7 +18,7 @@ export const space = <Props extends SpaceProps>({ m = '', mx, my, mt, mr, mb, ml
     margin-left: ${ml ?? mx ?? ''};
 `;
 
-export function spreadSpaceProps<Props extends SpaceProps>(props: Props) {
+export function isolateSpaceProps<Props extends SpaceProps>(props: Props) {
   const { m, mt, mr, mb, ml, mx, my, ...restProps } = props;
 
   return { spaceProps: { m, mt, mr, mb, ml, mx, my }, restProps };

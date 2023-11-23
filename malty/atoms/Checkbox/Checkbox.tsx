@@ -1,7 +1,7 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { spreadSpaceProps } from '@carlsberggroup/malty.utils.space';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -30,7 +30,7 @@ export const Checkbox = ({
   ...props
 }: CheckboxProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-  const { spaceProps, restProps } = spreadSpaceProps(props);
+  const { spaceProps, restProps } = isolateSpaceProps(props);
 
   const getIconName = () => {
     if (checked) {

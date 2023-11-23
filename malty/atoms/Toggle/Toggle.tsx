@@ -1,5 +1,5 @@
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { spreadSpaceProps } from '@carlsberggroup/malty.utils.space';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {
@@ -26,7 +26,7 @@ export const Toggle = ({
   const theme = defaultTheme;
   const [stateChecked, setStateChecked] = useState(checked);
   const id = useMemo(() => uuid(), []);
-  const { spaceProps, restProps } = spreadSpaceProps(props);
+  const { spaceProps, restProps } = isolateSpaceProps(props);
 
   const handleToggle = () => {
     onValueChange(!stateChecked);

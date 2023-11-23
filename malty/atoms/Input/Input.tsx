@@ -1,7 +1,7 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { spreadSpaceProps } from '@carlsberggroup/malty.utils.space';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { ChangeEvent, forwardRef, useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -67,7 +67,7 @@ export const Input = forwardRef(
     const name = nameProp || id;
     const inputSize = useInputSize({ size });
     const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
-    const { spaceProps, restProps } = spreadSpaceProps(props);
+    const { spaceProps, restProps } = isolateSpaceProps(props);
 
     const transform = (text: string): string => {
       if (mask) {
