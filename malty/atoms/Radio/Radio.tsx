@@ -28,7 +28,7 @@ export const Radio = ({
 
   return (
     <StyledWrapper {...spaceProps}>
-      <StyledRadioContainer theme={theme} {...spaceProps}>
+      <StyledRadioContainer theme={theme}>
         <StyledRadio
           data-testid={dataTestId}
           id={id.current}
