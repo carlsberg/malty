@@ -19,6 +19,10 @@ export interface UseLoadingStylesProps {
   size: LoadingSize;
 }
 
+export interface UseLoadingStatusProps {
+  status: LoadingStatus;
+}
+
 export enum LoadingSize {
   Small = 'Small',
   Medium = 'Medium'

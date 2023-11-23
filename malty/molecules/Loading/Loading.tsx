@@ -1,6 +1,6 @@
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import React, { useEffect, useState } from 'react';
-import { useLoadingStyles } from './Loading.helper';
+import React from 'react';
+import { useLoadingStatus, useLoadingStyles } from './Loading.helper';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 import { LoadingIcon } from './LoadingIcon';
@@ -14,27 +14,10 @@ export const Loading = ({
   color = LoadingColor.DigitalBlack,
   zIndex = 0
 }: LoadingProps) => {
-  const [progressStatus, setProgressStatus] = useState<LoadingStatus>(status);
+  const progressStatus = useLoadingStatus({ status });
   const { iconSize } = useLoadingStyles({ size });
 
-  useEffect(() => {
-    switch (status) {
-      case LoadingStatus.Success: {
-        setProgressStatus(LoadingStatus.Success);
-        break;
-      }
-      case LoadingStatus.Failure: {
-        setProgressStatus(LoadingStatus.Failure);
-        break;
-      }
-      default: {
-        setProgressStatus(LoadingStatus.Pending);
-        break;
-      }
-    }
-  }, [status]);
-
-  return progressStatus ? (
+  return (
     <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} $zIndex={zIndex}>
       <StyledLoading
         size={iconSize}
@@ -49,5 +32,5 @@ export const Loading = ({
         </Text>
       )}
     </StyledLoadingContainer>
-  ) : null;
+  );
 };
