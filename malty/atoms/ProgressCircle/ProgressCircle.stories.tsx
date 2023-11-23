@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { ProgressCircle as ProgressCircleComponent } from './ProgressCircle';
@@ -82,7 +82,8 @@ export default {
         type: 'radio',
         labels: Object.assign({}, ...Object.entries(RoundMethod).map(([a, b]) => ({ [b]: a })))
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as ComponentMeta<typeof ProgressCircleComponent>;
 

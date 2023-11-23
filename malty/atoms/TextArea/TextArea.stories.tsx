@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { TextArea as TextAreaComponent } from './TextArea';
@@ -57,7 +58,8 @@ export default {
     required: {
       control: 'boolean',
       description: 'Makes the textarea input required to fill'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 

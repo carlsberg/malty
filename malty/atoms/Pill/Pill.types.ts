@@ -1,6 +1,7 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
-export interface PillProps extends React.HTMLAttributes<HTMLElement> {
+export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps {
   text?: string;
   icon?: IconName;
   type?: PillType;
@@ -37,3 +38,19 @@ export interface UsePillStylesProps {
 export interface IconTextColorProps {
   type: PillType;
 }
+
+export type StyledPillProps = {
+  size: string;
+  fontSize: string;
+  fontFamily: string;
+  iconSize: string;
+  padding: string;
+  type: PillType;
+  textColor: IconColor;
+  hasText: boolean;
+  hasIcon: boolean;
+  badgeMode: boolean;
+  pillSize: PillSize;
+  gap: string;
+  isUppercase: boolean;
+} & SpaceProps;

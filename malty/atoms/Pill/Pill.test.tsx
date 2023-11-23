@@ -10,6 +10,7 @@ describe('pill', () => {
 
   it('should render the component correctly', () => {
     render(<Pill text={text} icon={iconName} />);
+
     expect(screen.getByText(text)).toBeInTheDocument();
     expect(screen.getByTestId(`icon-${iconName}`)).toBeInTheDocument();
   });

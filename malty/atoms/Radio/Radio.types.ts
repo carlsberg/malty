@@ -1,4 +1,6 @@
-export interface RadioProps extends React.HTMLAttributes<HTMLInputElement> {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface RadioProps extends React.HTMLAttributes<HTMLInputElement>, SpaceProps {
   value: string | number;
   name: string;
   label: string;

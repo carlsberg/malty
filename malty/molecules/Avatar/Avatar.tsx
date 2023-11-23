@@ -31,7 +31,8 @@ export const Avatar = ({
   editable = false,
   onClick = () => null,
   loading = false,
-  dataQaId
+  dataQaId,
+  ...props
 }: AvatarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [iconSize, setIconSize] = useState(IconSize.MediumSmall);
@@ -74,6 +75,7 @@ export const Avatar = ({
       theme={theme}
       isLoading={loading}
       editable={editable}
+      {...props}
     >
       {loading && (
         <StyledLoadingContainer>

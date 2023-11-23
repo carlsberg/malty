@@ -1,3 +1,4 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { keyframes } from 'styled-components';
 import { ToastColor } from './Toast.types';
 
@@ -12,7 +13,7 @@ const fadeInBottomUpAnimation = keyframes`
     opacity: 1
   }
 `;
-export const StyledAlertToastWrapper = styled.div`
+export const StyledAlertToastWrapper = styled.div<SpaceProps>`
   width: 100%;
   position: absolute;
   margin: auto;
@@ -21,6 +22,8 @@ export const StyledAlertToastWrapper = styled.div`
   animation-name: ${fadeInBottomUpAnimation};
   animation-duration: 0.7s;
   animation-timing-function: ease-in-out;
+
+  ${space}
 `;
 
 export const StyledToast = styled.div<{

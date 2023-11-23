@@ -20,7 +20,8 @@ export const Accordion = ({
   variant = AccordionColor.Transparent,
   dataQaId,
   defaultActiveKey = [],
-  alwaysOpen = false
+  alwaysOpen = false,
+  ...props
 }: AccordionProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [activeEventKey, setActiveEnventKey] = useState([...defaultActiveKey]);
@@ -59,7 +60,12 @@ export const Accordion = ({
 
   return (
     <ContextAccordion.Provider value={providerValue}>
-      <StyledAccordionWrapper data-testid={`${dataQaId}-accordion-container`} variant={variant} theme={theme}>
+      <StyledAccordionWrapper
+        data-testid={`${dataQaId}-accordion-container`}
+        variant={variant}
+        theme={theme}
+        {...props}
+      >
         {children?.map((el, index) =>
           // eslint-disable-next-line react/no-array-index-key
           React.cloneElement(el, { key: `accordion-${index}`, size, onChange: handleAccordionItem })

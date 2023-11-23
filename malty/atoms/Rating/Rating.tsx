@@ -22,7 +22,8 @@ export const Rating = ({
   disabled = false,
   totalReview,
   onStarClick,
-  dataTestId
+  dataTestId,
+  ...props
 }: RatingProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [ratingValue, setRatingValue] = useState(value);
@@ -125,7 +126,7 @@ export const Rating = ({
   };
 
   return (
-    <StyledRatingContainer data-testid={dataTestId} theme={theme}>
+    <StyledRatingContainer data-testid={dataTestId} theme={theme} {...props}>
       <Text textStyle={TextStyle.MediumBold} color={TextColor.DigitalBlack} align={TextAlign.Center}>
         {label}
       </Text>

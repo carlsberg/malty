@@ -1,6 +1,7 @@
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { ChangeEvent, forwardRef, useContext, useMemo, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
@@ -71,6 +72,7 @@ export const Input = forwardRef(
     const [passwordToggleType, setPasswordToggleType] = useState(InputType.Password);
     const valueCounter = value?.length ?? 0;
     const textCounter = maxLength ? maxLength - valueCounter : valueCounter;
+    const { spaceProps, restProps } = isolateSpaceProps(props);
 
     const transform = (text: string): string => {
       if (mask) {
@@ -198,7 +200,7 @@ export const Input = forwardRef(
           min={min}
           maxLength={maxLength}
           $showCharacterCounter={showCharacterCounter}
-          {...props}
+          {...restProps}
         />
         {renderClearable()}
         {renderIcon()}
@@ -249,7 +251,7 @@ export const Input = forwardRef(
           theme={theme}
           ref={ref}
           required={required}
-          {...props}
+          {...restProps}
         />
         <StyledButton
           data-testid={`${dataTestId}-quantity-plus`}
@@ -326,7 +328,7 @@ export const Input = forwardRef(
             theme={theme}
             ref={ref}
             required={required}
-            {...props}
+            {...restProps}
           />
           {renderClearable()}
           {renderIcon()}
@@ -335,7 +337,7 @@ export const Input = forwardRef(
     };
 
     return (
-      <StyledInputContainer theme={theme}>
+      <StyledInputContainer theme={theme} {...spaceProps}>
         <Label label={label} required={required} disabled={disabled} data-testid={`${dataTestId}-label`} htmlFor={id} />
         <StyledInputWrapper
           isIconLeft={iconPosition === InputIconPosition.Left && type !== InputType.Password}

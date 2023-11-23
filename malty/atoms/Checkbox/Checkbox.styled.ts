@@ -1,12 +1,14 @@
 import { Text } from '@carlsberggroup/malty.atoms.text';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
+import { StyledCheckboxContainerProps } from './Checkbox.types';
 
-export const StyledCheckboxContainer = styled.div<{
-  fullWidth?: boolean;
-}>`
+export const StyledCheckboxContainer = styled.div<StyledCheckboxContainerProps>`
   display: flex;
   flex-direction: column;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'fit-content')};
+
+  ${space}
 `;
 
 export const StyledLabel = styled.label<{

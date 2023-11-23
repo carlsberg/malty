@@ -1,6 +1,7 @@
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import { ReactNode } from 'react';
 
-export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement>, SpaceProps {
   textStyle: TextStyle;
   align?: TextAlign;
   color?: TextColor;
@@ -55,3 +56,13 @@ export enum TextColor {
   Success = 'success',
   SuccessLight = 'success-light'
 }
+
+export type StyledParagraphProps = {
+  textStyle: TextStyle;
+  color: TextColor;
+  align: TextAlign;
+  italic: boolean;
+  ellipsis?: boolean;
+  width?: string;
+  className?: string;
+} & SpaceProps;

@@ -1659,6 +1659,12 @@
         "mainFile": "index.ts",
         "rootDir": "malty/utils/mixins"
     },
+    "utils/space": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/space"
+    },
     "utils/test": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.17",

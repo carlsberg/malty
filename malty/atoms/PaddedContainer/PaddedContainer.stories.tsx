@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { PaddedContainer } from './PaddedContainer';
@@ -35,7 +36,8 @@ const meta: Meta<PaddedContainerProps> = {
       control: {
         type: 'radio'
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

@@ -1,7 +1,8 @@
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import { MouseEventHandler } from 'react';
 
-export interface IconProps extends React.HTMLAttributes<SVGElement> {
+export interface IconProps extends React.HTMLAttributes<SVGElement>, SpaceProps {
   color: IconColor;
   size: IconSize;
   viewBox?: string;

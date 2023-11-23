@@ -1,9 +1,8 @@
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
+import { StyledLabelProps } from './Label.types';
 
-export const StyledLabel = styled.label<{
-  disabled?: boolean;
-  required?: boolean;
-}>`
+export const StyledLabel = styled.label<StyledLabelProps>`
   font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};
   color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text.small_bold['font-size'].value};
@@ -24,4 +23,6 @@ export const StyledLabel = styled.label<{
         color: ${({ theme }) => theme.colors.colours.system.fail.value};
       }
     `}
+
+  ${space}
 `;

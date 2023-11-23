@@ -1,5 +1,6 @@
 import { ButtonProps } from '@carlsberggroup/malty.atoms.button';
 import { PillProps } from '@carlsberggroup/malty.atoms.pill';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
 export enum BannerLayout {
   Full = 'full',
@@ -12,7 +13,7 @@ export type ActionButtonProps = { key: React.Key } & Pick<
   'color' | 'style' | 'text' | 'negative' | 'url' | 'onClick'
 >;
 
-export interface BannerProps {
+export interface BannerProps extends SpaceProps {
   layout?: BannerLayout;
   label?: PillProps | string;
   reverse?: boolean;
@@ -24,3 +25,9 @@ export interface BannerProps {
   dataTestId?: string;
   actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;
 }
+
+export type StyledBannerContainerProps = {
+  negative: boolean;
+  reverse: boolean;
+  layout: BannerLayout;
+} & SpaceProps;

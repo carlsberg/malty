@@ -1,7 +1,8 @@
 import { srOnly } from '@carlsberggroup/malty.utils.mixins';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 
-export const StyledSplide = styled.section<{ innerSpacingX: boolean }>`
+export const StyledSplide = styled.section<{ innerSpacingX: boolean } & SpaceProps>`
   position: relative;
   padding: 0 ${({ theme, innerSpacingX }) => (innerSpacingX ? theme.sizes['2xs'].value : '0')};
 
@@ -60,6 +61,8 @@ export const StyledSplide = styled.section<{ innerSpacingX: boolean }>`
   .splide__track--draggable {
     user-select: none;
   }
+
+  ${space}
 `;
 
 export const StyledSplideTrack = styled.div`

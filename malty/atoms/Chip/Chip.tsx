@@ -16,7 +16,8 @@ export const Chip = ({
   showAction = false,
   dataTestId,
   disabled = false,
-  readOnly = false
+  readOnly = false,
+  ...props
 }: ChipProps) => {
   const theme = defaultTheme;
   const [chipSize, setChipSize] = useState(theme.sizes.l.value);
@@ -61,6 +62,7 @@ export const Chip = ({
       height={chipSize}
       size={size}
       theme={theme}
+      {...props}
     >
       {!showAction && icon && (
         <StyledIcon data-testid={`${dataTestId}-icon`} theme={theme}>

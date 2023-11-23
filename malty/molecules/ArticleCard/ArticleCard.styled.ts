@@ -1,8 +1,14 @@
 import { CardOrientation } from '@carlsberggroup/malty.atoms.card';
 import { Image } from '@carlsberggroup/malty.atoms.image';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
 
+export const StyledArticle = styled.article<SpaceProps>`
+  ${space}
+`;
+
 export const StyledBody = styled.div``;
+
 export const StyledMargin = styled.div`
   margin-bottom: ${({ theme }) => theme.sizes['2xs'].value};
 `;

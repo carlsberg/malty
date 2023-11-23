@@ -16,11 +16,13 @@ export const Floater = ({
   tabIndex = -1,
   dataTestId,
   children,
-  color = FloaterColor.DigitalBlack
+  color = FloaterColor.DigitalBlack,
+  ...props
 }: FloaterProps) => {
   let iconColor;
   const theme = useContext(ThemeContext) || defaultTheme;
   const [showButton, setShowButton] = useState(true);
+
   switch (color) {
     case FloaterColor.ThemePrimary:
       iconColor = IconColor.White;
@@ -78,6 +80,7 @@ export const Floater = ({
       theme={theme}
       showButton={showButton}
       tabIndex={tabIndex}
+      {...props}
     >
       <div className="text-container">
         {icon && iconPos === FloaterIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Medium} />}

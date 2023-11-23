@@ -1,4 +1,6 @@
-export interface PaginationProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface PaginationProps extends SpaceProps {
   count: number;
   onChange: (page: number | string, trigger?: PaginationTrigger) => void;
   currentPage: number;

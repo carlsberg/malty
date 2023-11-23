@@ -1,6 +1,7 @@
 import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Card } from './Card';
@@ -39,7 +40,8 @@ const meta: Meta<CardProps> = {
     dataTestId: {
       control: 'text',
       description: 'Set the component data-testid'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

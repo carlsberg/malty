@@ -1,9 +1,10 @@
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { useContext, useRef } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import { RadioProps } from '.';
-import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer } from './Radio.styled';
+import { StyledError, StyledLabel, StyledRadio, StyledRadioContainer, StyledWrapper } from './Radio.styled';
 
 export const Radio = ({
   value,
@@ -20,6 +21,7 @@ export const Radio = ({
 }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useRef<string>(uuid());
+  const { spaceProps, restProps } = isolateSpaceProps(props);
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
     if (!readOnly && onValueChange) {
@@ -28,7 +30,7 @@ export const Radio = ({
   };
 
   return (
-    <>
+    <StyledWrapper {...spaceProps}>
       <StyledRadioContainer theme={theme}>
         <StyledRadio
           data-testid={dataTestId}
@@ -42,7 +44,7 @@ export const Radio = ({
           disabled={disabled}
           required={required}
           readOnly={readOnly}
-          {...props}
+          {...restProps}
         />
         <StyledLabel
           label={label}
@@ -55,6 +57,6 @@ export const Radio = ({
         />
       </StyledRadioContainer>
       {error && <StyledError theme={theme}>{error}</StyledError>}
-    </>
+    </StyledWrapper>
   );
 };

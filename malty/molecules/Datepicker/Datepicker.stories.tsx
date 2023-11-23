@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
 import { Datepicker, DATE_PICKER_DEFAULT_FORMAT } from './Datepicker';
@@ -147,7 +148,8 @@ const meta: Meta<DatepickerProps> = {
     withoutBorder: {
       control: 'boolean',
       description: 'Disables the border and padding from the calendar portal only if inline is true'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

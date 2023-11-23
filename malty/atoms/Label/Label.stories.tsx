@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Label as LabelComponent, LabelProps } from '.';
@@ -30,17 +31,15 @@ export default {
       },
       control: 'boolean'
     },
-
     htmlFor: {
       control: 'text',
       description: 'ID of the target input component'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
-const Template: Story<LabelProps> = ({ label, required, disabled, htmlFor, dataTestId }) => (
-  <LabelComponent label={label} required={required} disabled={disabled} htmlFor={htmlFor} dataTestId={dataTestId} />
-);
+const Template: Story<LabelProps> = (args) => <LabelComponent {...args} />;
 
 export const Label = Template.bind({});
 

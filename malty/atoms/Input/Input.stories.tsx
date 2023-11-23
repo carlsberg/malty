@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Input } from './Input';
@@ -136,7 +137,8 @@ const meta: Meta<InputProps> = {
       control: 'boolean',
       description: `Toggle character counter. This property is only available when the input type is ${InputType.Text} `,
       if: { arg: 'type', eq: InputType.Text }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

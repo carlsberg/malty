@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { AccordionColor, AccordionItem, AccordionProps, AccordionSize } from '.';
@@ -49,7 +50,8 @@ export default {
     dataQaId: {
       control: 'text',
       description: 'Accordion data-testid'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 const Template: Story<AccordionProps> = (args) => (

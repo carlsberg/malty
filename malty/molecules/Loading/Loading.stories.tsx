@@ -1,4 +1,5 @@
 import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Loading as LoadingComponent } from './Loading';
@@ -46,13 +47,12 @@ export default {
     negative: {
       control: 'boolean',
       description: 'inverts color'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
-const Template: Story<LoadingProps> = ({ text, size, status, dataQaId, color, negative }: LoadingProps) => (
-  <LoadingComponent text={text} size={size} status={status} dataQaId={dataQaId} color={color} negative={negative} />
-);
+const Template: Story<LoadingProps> = (args) => <LoadingComponent {...args} />;
 
 export const Loading = Template.bind({});
 Loading.args = {

@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
@@ -95,7 +96,8 @@ export default {
     optionsZIndex: {
       control: 'number',
       description: 'Controls the z-index of the options wrapper'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 

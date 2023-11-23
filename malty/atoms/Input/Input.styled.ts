@@ -1,3 +1,4 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 
 const animateShow = keyframes`
@@ -8,10 +9,13 @@ const animateShow = keyframes`
     opacity: 1;
   }
 `;
-export const StyledInputContainer = styled.div`
+
+export const StyledInputContainer = styled.div<SpaceProps>`
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+
+  ${space}
 `;
 
 export const StyledError = styled.label`
