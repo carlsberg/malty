@@ -6,7 +6,6 @@ import { Radio } from './Radio';
 import { RadioProps } from './Radio.types';
 
 const props: RadioProps = {
-  id: 'radioId',
   label: 'Label text',
   value: 'Test value',
   onValueChange: jest.fn(),
