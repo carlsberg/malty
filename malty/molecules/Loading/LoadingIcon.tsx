@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { LoadingColor, LoadingIconProps, LoadingStatus } from './Loading.types';
 
-export const LoadingIcon = ({ negative, color, dataQaId, progressStatus }: LoadingIconProps) => {
+export const LoadingIcon = ({ negative, color, dataTestId, progressStatus }: LoadingIconProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const getFillProp = () => {
@@ -20,7 +20,12 @@ export const LoadingIcon = ({ negative, color, dataQaId, progressStatus }: Loadi
 
   if (progressStatus === LoadingStatus.Success) {
     return (
-      <svg data-testid={`${dataQaId}-success-icon`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        data-testid={`${dataTestId}-success-icon`}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -39,7 +44,12 @@ export const LoadingIcon = ({ negative, color, dataQaId, progressStatus }: Loadi
 
   if (progressStatus === LoadingStatus.Failure) {
     return (
-      <svg data-testid={`${dataQaId}-failure-icon`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        data-testid={`${dataTestId}-failure-icon`}
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
@@ -55,7 +65,7 @@ export const LoadingIcon = ({ negative, color, dataQaId, progressStatus }: Loadi
   }
 
   return (
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" data-testid={`${dataQaId}-pending-icon`}>
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" data-testid={`${dataTestId}-pending-icon`}>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

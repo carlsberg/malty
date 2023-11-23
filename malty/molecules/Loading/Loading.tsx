@@ -1,7 +1,6 @@
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect, useState } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { useLoadingStyles } from './Loading.helper';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 import { LoadingIcon } from './LoadingIcon';
@@ -15,26 +14,8 @@ export const Loading = ({
   color = LoadingColor.DigitalBlack,
   zIndex = 0
 }: LoadingProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-
   const [progressStatus, setProgressStatus] = useState<LoadingStatus>(status);
-  const iconInitialSize = size === LoadingSize.Small ? theme.sizes.m.value : theme.sizes['2xl'].value;
-  const [iconSize, setIconSize] = useState(iconInitialSize);
-
-  useEffect(() => {
-    switch (size) {
-      case LoadingSize.Medium: {
-        setIconSize(theme.sizes['2xl'].value);
-
-        break;
-      }
-      default: {
-        setIconSize(theme.sizes.m.value);
-
-        break;
-      }
-    }
-  }, [size, theme]);
+  const { iconSize } = useLoadingStyles({ size });
 
   useEffect(() => {
     switch (status) {
@@ -54,12 +35,12 @@ export const Loading = ({
   }, [status]);
 
   return progressStatus ? (
-    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme} $zIndex={zIndex}>
+    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} $zIndex={zIndex}>
       <StyledLoading
         size={iconSize}
         className={`${progressStatus === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${progressStatus}`}
       >
-        <LoadingIcon negative={negative} color={color} progressStatus={progressStatus} dataQaId={dataQaId} />
+        <LoadingIcon negative={negative} color={color} progressStatus={progressStatus} dataTestId={dataQaId} />
       </StyledLoading>
 
       {text && (

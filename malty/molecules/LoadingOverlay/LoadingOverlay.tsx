@@ -1,8 +1,6 @@
 import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
 import { Loading, LoadingColor, LoadingSize } from '@carlsberggroup/malty.molecules.loading';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React from 'react';
 import { StyledLoadingOverlay } from './LoadingOverlay.styled';
 import { LoadingOverlayProps } from './LoadingOverlay.types';
 
@@ -13,9 +11,8 @@ export const LoadingOverlay = ({
   overlayPositionFixed = true,
   color = LoadingColor.DigitalBlack
 }: LoadingOverlayProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
   return (
-    <StyledLoadingOverlay $zIndex={zIndex} data-testid={dataTestId} theme={theme}>
+    <StyledLoadingOverlay $zIndex={zIndex} data-testid={dataTestId}>
       <Loading
         zIndex={zIndex + 1}
         size={LoadingSize.Medium}
