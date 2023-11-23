@@ -40,10 +40,21 @@ describe('radio', () => {
     render(<Radio {...props} disabled />);
 
     const radio = screen.getByDisplayValue(props.value);
-    userEvent.click(radio, undefined, { skipPointerEventsCheck: true });
+    userEvent.click(radio);
 
-    expect(props.onValueChange).toHaveBeenCalledTimes(0);
+    expect(props.onValueChange).not.toHaveBeenCalled();
     expect(radio).toBeDisabled();
+  });
+
+  it('should be readOnly', () => {
+    render(<Radio {...props} readOnly />);
+
+    const radio = screen.getByDisplayValue(props.value);
+
+    userEvent.click(radio);
+
+    expect(props.onValueChange).not.toHaveBeenCalled();
+    expect(radio).toHaveAttribute('readonly');
   });
 
   it('should have the correct data test id', () => {

@@ -16,6 +16,7 @@ export const Radio = ({
   disabled,
   required = false,
   dataTestId,
+  readOnly,
   ...props
 }: RadioProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -23,7 +24,9 @@ export const Radio = ({
   const { spaceProps, restProps } = isolateSpaceProps(props);
 
   const handleValueChange = (e: { target: { value: string | number } }) => {
-    onValueChange(e.target.value);
+    if (!readOnly && onValueChange) {
+      onValueChange(e.target.value);
+    }
   };
 
   return (
@@ -32,7 +35,7 @@ export const Radio = ({
         <StyledRadio
           data-testid={dataTestId}
           id={id.current}
-          checked={selected}
+          defaultChecked={selected}
           value={value}
           theme={theme}
           type="radio"
@@ -40,6 +43,7 @@ export const Radio = ({
           onChange={handleValueChange}
           disabled={disabled}
           required={required}
+          readOnly={readOnly}
           {...restProps}
         />
         <StyledLabel
@@ -49,6 +53,7 @@ export const Radio = ({
           htmlFor={id.current}
           disabled={disabled}
           theme={theme}
+          $readOnly={readOnly}
         />
       </StyledRadioContainer>
       {error && <StyledError theme={theme}>{error}</StyledError>}

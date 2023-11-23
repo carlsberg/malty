@@ -21,6 +21,7 @@ export const StyledRadio = styled.input`
   position: relative;
 
   cursor: pointer;
+
   &:hover {
     &::before {
       background: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
@@ -78,29 +79,41 @@ export const StyledRadio = styled.input`
     border-radius: 50%;
   }
 
+  ${({ readOnly }) => {
+    return (
+      readOnly &&
+      css`
+        cursor: default;
+        &::before,
+        &:hover::before {
+          background: ${({ theme }) => theme.colors.colours.support['80'].value};
+        }
+        &::after,
+        &:hover::after {
+          border-color: ${({ theme }) => theme.colors.colours.support['80'].value};
+        }
+      `
+    );
+  }}
+
   ${({ disabled }) =>
     disabled &&
     css`
-      pointer-events: none;
+      cursor: default;
       &::before,
       &:hover::before {
         background: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
       }
       &::after,
       &:hover::after {
-        ${({ theme }) =>
-          theme &&
-          css`
-            background: ${theme.colors.colours.default.white.value};
-            border: ${theme.borders['border-2px--solid']['border-width'].value}
-              ${theme.borders['border-2px--solid']['border-style'].value}
-              ${theme.colors.colours.system['disable-light-theme'].value};
-          `}
+        border-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
       }
     `}
 `;
 
-export const StyledLabel = styled(Label)`
+export const StyledLabel = styled(Label)<{
+  $readOnly?: boolean;
+}>`
   font-family: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-family'].value};
   font-size: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['font-size'].value};
   line-height: ${({ theme }) => theme.typography.desktop.text['medium-small_default']['line-height'].value};
@@ -110,12 +123,21 @@ export const StyledLabel = styled(Label)`
   margin-bottom: 0;
   cursor: pointer;
 
+  ${({ $readOnly, disabled }) =>
+    $readOnly &&
+    !disabled &&
+    css`
+      cursor: default;
+      color: ${({ theme }) => theme.colors.colours.support['80'].value};
+    `}
+
   ${({ disabled }) =>
     disabled &&
     css`
       cursor: default;
     `}
 `;
+
 export const StyledError = styled.label`
   color: ${({ theme }) => theme.colors.colours.system.fail.value};
   font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};

@@ -1,6 +1,5 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { RadioProps } from '.';
 import { Radio } from './Radio';
 
@@ -11,7 +10,6 @@ const meta: Meta<RadioProps> = {
     importObject: 'Radio',
     importPath: '@carlsberggroup/malty.atoms.radio'
   },
-  render: (args) => <Radio {...args} />,
   argTypes: {
     label: {
       description: 'label text radio',
@@ -25,14 +23,17 @@ const meta: Meta<RadioProps> = {
       description: 'Value of Radio component',
       control: 'text'
     },
-
     selected: {
       description: 'If Radio component is selected or not',
       control: 'boolean'
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, when disabled it is read-only.'
+      description: 'Input state, when disabled'
+    },
+    readOnly: {
+      control: 'boolean',
+      description: 'Input state, when readOnly'
     },
     name: {
       description: 'Name attribute of the radio element.'
@@ -52,6 +53,7 @@ type Story = StoryObj<RadioProps>;
 
 export const Base: Story = {
   args: {
+    id: 'option1',
     label: 'Option 1',
     name: 'radioOptions',
     value: 'Option 1',
@@ -65,6 +67,13 @@ export const Disabled: Story = {
   args: {
     ...Base.args,
     disabled: true
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
   }
 };
 
