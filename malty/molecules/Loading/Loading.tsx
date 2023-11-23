@@ -59,12 +59,7 @@ export const Loading = ({
         size={iconSize}
         className={`${progressStatus === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${progressStatus}`}
       >
-        <LoadingIcon
-          negative={negative}
-          color={color}
-          progressStatus={progressStatus}
-          dataQaId={`${dataQaId}-${progressStatus}`}
-        />
+        <LoadingIcon negative={negative} color={color} progressStatus={progressStatus} dataQaId={dataQaId} />
       </StyledLoading>
 
       {text && (
