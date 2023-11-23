@@ -32,6 +32,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement>, Spac
   min?: number;
   max?: number;
   name?: string;
+  showCharacterCounter?: boolean;
 }
 
 export interface UseInputSizeProps {

@@ -73,6 +73,9 @@ const meta: Meta<DatepickerProps> = {
     onChange: {
       description: 'Action to perform when clicking a calendar day'
     },
+    onClose: {
+      description: 'Action to perform when datepicker is closed'
+    },
     minDate: {
       description: 'Disable days before defined min. date',
       control: 'date'
