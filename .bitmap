@@ -1535,7 +1535,7 @@
     },
     "molecules/hero": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.17",
+        "version": "0.0.18",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Hero"
     },
