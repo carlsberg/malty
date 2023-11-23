@@ -9,4 +9,10 @@ describe('LoadingOverlay component', () => {
     expect(screen.getByText('Loading')).toBeInTheDocument();
     expect(screen.getByTestId('loading-overlay-icon')).toBeInTheDocument();
   });
+
+  it('should render the component without text', () => {
+    render(<LoadingOverlay dataTestId="loading-overlay" overlayPositionFixed={false} />);
+    expect(screen.getByTestId('loading-overlay-icon')).toBeInTheDocument();
+    expect(screen.queryByTestId('loading-overlay-icon-label')).not.toBeInTheDocument();
+  });
 });

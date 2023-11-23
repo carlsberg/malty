@@ -8,6 +8,13 @@ export interface LoadingProps {
   zIndex?: number;
 }
 
+export interface LoadingIconProps {
+  negative: LoadingProps['negative'];
+  color: LoadingProps['color'];
+  dataQaId?: LoadingProps['dataQaId'];
+  progressStatus: LoadingStatus;
+}
+
 export enum LoadingSize {
   Small = 'Small',
   Medium = 'Medium'

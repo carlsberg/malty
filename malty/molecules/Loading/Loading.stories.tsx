@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { Loading } from './Loading';
 import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
@@ -10,7 +9,6 @@ const meta: Meta<LoadingProps> = {
     importObject: 'Loading',
     importPath: '@carlsberggroup/malty.molecules.loading'
   },
-  render: (args) => <Loading {...args} />,
   argTypes: {
     text: {
       control: 'text',
