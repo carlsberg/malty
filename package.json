@@ -22,7 +22,7 @@
   "scripts": {
     "clean": "rm -rf ./dist && rm -rf ./build && rm -rf ./node_modules && rm -rf .git/bit",
     "wipe": "yarn cache clean --force && bit clear-cache",
-    "reset": "yarn clean && yarn wipe && yarn serve",
+    "reset": "yarn clean && yarn wipe && yarn install && bit install && yarn storybook",
     "watch": "tsc -b -w --preserveWatchOutput",
     "compile": "tsc -b",
     "start": "bit compile && yarn storybook",

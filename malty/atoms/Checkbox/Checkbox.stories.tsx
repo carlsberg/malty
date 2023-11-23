@@ -63,9 +63,9 @@ export default {
 };
 
 const Template: Story<CheckboxProps> = ({ checked, ...args }) => {
-  const [stateChecked, setStateChecked] = useState(checked);
+  const [isChecked, setIsChecked] = useState(checked);
 
-  return <CheckboxComponent {...args} onValueChange={() => setStateChecked(!stateChecked)} checked={stateChecked} />;
+  return <CheckboxComponent {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
 };
 
 export const Checkbox = Template.bind({});
