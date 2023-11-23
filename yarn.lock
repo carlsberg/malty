@@ -17887,6 +17887,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"space-3f63ee@workspace:malty/utils/space":
+  version: 0.0.0-use.local
+  resolution: "space-3f63ee@workspace:malty/utils/space"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "space-separated-tokens@npm:^1.0.0":
   version: 1.1.5
   resolution: "space-separated-tokens@npm:1.1.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fspace-separated-tokens%2F-%2Fspace-separated-tokens-1.1.5.tgz"

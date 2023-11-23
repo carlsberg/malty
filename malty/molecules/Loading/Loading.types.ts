@@ -1,4 +1,6 @@
-export interface LoadingProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface LoadingProps extends SpaceProps {
   text?: string;
   size?: LoadingSize;
   status?: LoadingStatus;
@@ -36,3 +38,8 @@ export enum LoadingColor {
   ThemeSecondary = 'themeSecondary',
   ThemeTertiary = 'themeTertiary'
 }
+
+export type StyledLoadingContainerProps = {
+  size: LoadingSize;
+  $zIndex: number;
+} & SpaceProps;

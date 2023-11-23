@@ -18,7 +18,9 @@ import { ActionButtonProps, HeroProps } from './Hero.types';
 
 export const Hero = ({
   title,
+  titleAs = 'h1',
   description,
+  descriptionAs = 'h2',
   imageSrc,
   actions,
   scrollText,
@@ -37,6 +39,7 @@ export const Hero = ({
             headlineStyle={isDesktop ? HeadlineStyle.Display : HeadlineStyle.Huge}
             color={HeadlineColor.White}
             align={HeadlineAlign.Center}
+            as={titleAs}
           >
             {title}
           </Headline>
@@ -45,6 +48,7 @@ export const Hero = ({
           headlineStyle={isDesktop ? HeadlineStyle.MediumLarge : HeadlineStyle.Medium}
           color={HeadlineColor.White}
           align={HeadlineAlign.Center}
+          as={descriptionAs}
         >
           {description}
         </Headline>

@@ -1,7 +1,8 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
-export interface ArticleCardProps {
+export interface ArticleCardProps extends SpaceProps {
   cardStyle?: CardStyle;
   orientation?: CardOrientation;
   onCardClick?: () => void;

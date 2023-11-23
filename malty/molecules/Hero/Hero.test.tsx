@@ -31,6 +31,7 @@ const actions: ActionButtonProps[] = [
 
 const scrollText = 'Scroll to know more';
 const scrollIcon = 'icon-ArrowSmallDown';
+const heroTestId = 'hero';
 
 describe('Hero', () => {
   beforeAll(() => {
@@ -47,7 +48,7 @@ describe('Hero', () => {
     });
   });
 
-  it('renders required props successfully', () => {
+  it('should render required props successfully', () => {
     render(<Hero {...heroProps} />);
     const primaryButton = screen.queryByText(actions[0].text as string);
     const secondaryButton = screen.queryByText(actions[1].text as string);
@@ -60,7 +61,7 @@ describe('Hero', () => {
     expect(screen.queryByTestId(scrollIcon)).not.toBeInTheDocument();
   });
 
-  it('renders actions successfully', () => {
+  it('should render actions successfully', () => {
     render(<Hero {...heroProps} actions={actions} />);
 
     const primaryButton = screen.getByText(actions[0].text as string);
@@ -76,10 +77,16 @@ describe('Hero', () => {
     expect(actions[1].onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('renders scroll successfully', () => {
+  it('should render scroll successfully', () => {
     render(<Hero {...heroProps} scrollText={scrollText} />);
 
     expect(screen.getByText(scrollText)).toBeVisible();
     expect(screen.getByTestId(scrollIcon)).toBeVisible();
+  });
+
+  it('should render hero data test id', () => {
+    render(<Hero {...heroProps} scrollText={scrollText} dataTestId={heroTestId} />);
+
+    expect(screen.getByTestId(heroTestId)).toBeVisible();
   });
 });

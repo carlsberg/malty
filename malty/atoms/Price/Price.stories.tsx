@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Price as PriceComponent } from './Price';
@@ -27,7 +28,8 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'dataTestId for testing'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 

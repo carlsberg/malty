@@ -1,10 +1,13 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
 
-export const StyledRatingContainer = styled.div`
+export const StyledRatingContainer = styled.div<SpaceProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: ${({ theme }) => theme.sizes.m.value};
+
+  ${space}
 `;
 
 export const StyledStarContainer = styled.div`

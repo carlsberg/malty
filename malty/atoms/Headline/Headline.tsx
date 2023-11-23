@@ -10,10 +10,10 @@ export const Headline = ({
   color = HeadlineColor.DigitalBlack,
   as,
   children,
-  dataTestId
+  dataTestId,
+  ...props
 }: HeadlineProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-
   let StyledTagHeadline = as;
   const allowedTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'span'];
 
@@ -44,6 +44,7 @@ export const Headline = ({
   if (as && allowedTags.includes(`${as}`)) {
     StyledTagHeadline = as;
   }
+
   return (
     <StyledHeadline
       data-testid={dataTestId}
@@ -52,6 +53,7 @@ export const Headline = ({
       align={align}
       color={color}
       theme={theme}
+      {...props}
     >
       {children}
     </StyledHeadline>

@@ -7,9 +7,11 @@ export const Icon = ({
   name = IconName.CarlsbergFilled,
   viewBox,
   className,
-  onClick
+  onClick,
+  ...props
 }: IconProps) => {
   const IconElement = IconsPaths[name];
+
   return (
     <IconElement
       viewBox={viewBox ?? '0 0 24 24'}
@@ -18,6 +20,7 @@ export const Icon = ({
       size={size}
       onClick={onClick}
       name={name}
+      {...props}
     />
   );
 };

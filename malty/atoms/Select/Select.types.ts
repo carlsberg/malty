@@ -1,4 +1,6 @@
-export interface SelectProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface SelectProps extends SpaceProps {
   label?: string;
   onValueChange: (value: SelectOptionsType[]) => void;
   defaultValue?: SelectOptionsType[];

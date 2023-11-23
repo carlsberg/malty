@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Rating as RatingComponent } from './Rating';
@@ -50,7 +51,8 @@ export default {
       table: {
         category: 'Events'
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 const Template: Story<RatingProps> = (args) => <RatingComponent {...args} />;

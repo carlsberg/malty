@@ -1,4 +1,5 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Banner } from './Banner';
@@ -56,7 +57,8 @@ const meta: Meta<BannerProps> = {
     imageHeight: {
       control: 'text',
       description: 'Banner Image Size override (in pixels)'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

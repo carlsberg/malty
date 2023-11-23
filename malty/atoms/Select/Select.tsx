@@ -49,7 +49,8 @@ export const Select = ({
   alignPosition = SelectPosition.Left,
   required = false,
   onBlur,
-  optionsZIndex = 2
+  optionsZIndex = 2,
+  ...props
 }: SelectProps) => {
   const theme = defaultTheme;
   const id = useMemo(() => uuid(), []);
@@ -254,7 +255,7 @@ export const Select = ({
   );
 
   return (
-    <StyledMainWrapper>
+    <StyledMainWrapper {...props}>
       {type !== SelectType.Inline && (
         <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} required={required} htmlFor={id} />
       )}

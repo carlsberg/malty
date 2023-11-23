@@ -1,3 +1,5 @@
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
 export enum ForegroundCircleColor {
   Close = 'close',
   DigitalBlack = 'digital-black',
@@ -28,7 +30,7 @@ export interface PiePercentageAndLabelProps {
   percentage: number;
 }
 
-export interface ProgressCircleProps {
+export interface ProgressCircleProps extends SpaceProps {
   displayPercentage?: boolean;
   errorLabel?: string;
   foregroundColor?: ForegroundCircleColor;
@@ -51,3 +53,7 @@ export interface RoundPercentageProps {
 export interface SegmentColorProps {
   foregroundColor: ForegroundCircleColor;
 }
+
+export type StyledWrapperProps = {
+  percentagePosition: PercentagePosition;
+} & SpaceProps;

@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -55,15 +56,18 @@ export default {
       control: 'text',
       description: 'Alert data-qi-id, can be',
       table: { defaultValue: { summary: 'none' } }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
+
 const StyledContainer = styled.div`
   height: 200px;
   width: 100%;
   position: relative;
 `;
-const Template: Story<ToastProps> = ({ ...args }) => (
+
+const Template: Story<ToastProps> = (args) => (
   <StyledContainer>
     <ToastComponent {...args} />
   </StyledContainer>

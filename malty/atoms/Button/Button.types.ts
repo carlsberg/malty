@@ -1,7 +1,8 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import React from 'react';
 
-export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'style'> {
+export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'style'>, SpaceProps {
   text?: string | number;
   icon?: IconName;
   iconPos?: ButtonIconPosition;
@@ -53,3 +54,15 @@ export enum ButtonIconPosition {
   Right = 'Right',
   Left = 'Left'
 }
+
+export type StyledButtonProps = {
+  hasText: boolean;
+  hasIcon: boolean;
+  isLoading?: boolean;
+  isNegative?: boolean;
+  fullWidth?: boolean;
+  iconPos: ButtonIconPosition;
+  color: ButtonColor;
+  size: ButtonSize;
+  $selected: boolean;
+} & SpaceProps;

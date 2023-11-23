@@ -1,4 +1,6 @@
-export interface AvatarProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface AvatarProps extends SpaceProps {
   profileImg?: string;
   userName?: string;
   size?: AvatarSize;
@@ -14,3 +16,10 @@ export enum AvatarSize {
   Large = 'Large',
   XLarge = 'XLarge'
 }
+
+export type StyledAvatarProps = {
+  profileImg?: string;
+  size?: string;
+  isLoading: boolean;
+  editable: boolean;
+} & SpaceProps;

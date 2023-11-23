@@ -1,7 +1,10 @@
-export interface DatepickerProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface DatepickerProps extends SpaceProps {
   label?: string;
   startDate: Date | null;
   onChange: (date: (Date | null) | [Date | null, Date | null]) => void;
+  onClose?: () => void;
   locale?: string;
   minDate?: Date;
   maxDate?: Date;

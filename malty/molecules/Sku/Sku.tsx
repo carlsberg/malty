@@ -6,11 +6,11 @@ import { getMROType } from './Sku.helper';
 import { StyledMRO, StyledWrapper } from './Sku.styled';
 import { SkuProps } from './Sku.types';
 
-export const Sku = ({ sku, mro, dataTestId = 'default' }: SkuProps) => {
+export const Sku = ({ sku, mro, dataTestId = 'default', ...props }: SkuProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledWrapper theme={theme}>
+    <StyledWrapper theme={theme} {...props}>
       {mro && (
         <StyledMRO theme={theme}>
           <Text dataQaId={`${dataTestId}-mro`} textStyle={TextStyle.TinyBold} color={TextColor.White}>

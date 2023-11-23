@@ -1,6 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
-export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.HTMLAttributes<HTMLInputElement>, SpaceProps {
   value: string;
   label?: string;
   onValueChange?: (value: string) => void;
@@ -31,6 +32,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   min?: number;
   max?: number;
   name?: string;
+  showCharacterCounter?: boolean;
 }
 
 export interface UseInputSizeProps {

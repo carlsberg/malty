@@ -1,9 +1,12 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 
-export const StyledTextareaContainer = styled.div`
+export const StyledTextareaContainer = styled.div<SpaceProps>`
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+
+  ${space}
 `;
 
 export const StyledError = styled.label`

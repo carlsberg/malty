@@ -12,12 +12,13 @@ export const Loading = ({
   dataQaId,
   negative = false,
   color = LoadingColor.DigitalBlack,
-  zIndex = 0
+  zIndex = 0,
+  ...props
 }: LoadingProps) => {
   const { iconSize } = useLoadingStyles({ size });
 
   return (
-    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} $zIndex={zIndex}>
+    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} $zIndex={zIndex} {...props}>
       <StyledLoading
         size={iconSize}
         className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}

@@ -1,11 +1,8 @@
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { LinkColor, LinkStyle } from './Link.types';
+import { LinkColor, StyledAnchorProps } from './Link.types';
 
-export const StyledAnchor = styled.a<{
-  $disabled: boolean;
-  $color: LinkColor;
-  $linkStyle: LinkStyle;
-}>`
+export const StyledAnchor = styled.a<StyledAnchorProps>`
   ${({ theme, $linkStyle }) =>
     css`
       font-family: ${theme.typography.desktop.text[$linkStyle]['font-family'].value};
@@ -46,4 +43,6 @@ export const StyledAnchor = styled.a<{
         opacity: 0.25;
       }
     `};
+
+  ${space}
 `;

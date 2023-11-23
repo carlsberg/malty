@@ -29,7 +29,8 @@ import {
   StyledTable,
   StyledTbody,
   StyledTd,
-  StyledThead
+  StyledThead,
+  StyledWrapper
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
@@ -63,7 +64,8 @@ export const Table = ({
   onRowClick,
   onSortingChange,
   onRowSelect = () => null,
-  onPaginationChange = () => null
+  onPaginationChange = () => null,
+  ...props
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -201,168 +203,170 @@ export const Table = ({
   };
 
   return (
-    <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
-      <StyledTable data-testid={dataTestId} className={className} theme={theme}>
-        <StyledThead data-testid={`${dataTestId}-thead`} theme={theme}>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr data-testid={`${dataTestId}-tr-${headerGroup.id}`} key={headerGroup.id}>
-              {isDraggable && data.length > 0 && (
-                <StyledHead className="draggable-header" isSortable={false} theme={theme} />
-              )}
+    <StyledWrapper {...props}>
+      <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
+        <StyledTable data-testid={dataTestId} className={className} theme={theme}>
+          <StyledThead data-testid={`${dataTestId}-thead`} theme={theme}>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr data-testid={`${dataTestId}-tr-${headerGroup.id}`} key={headerGroup.id}>
+                {isDraggable && data.length > 0 && (
+                  <StyledHead className="draggable-header" isSortable={false} theme={theme} />
+                )}
 
-              {allowSelection && data.length > 0 && (
-                <StyledHead
-                  className="checkbox-header"
-                  isSortable={false}
-                  theme={theme}
-                  allowSelection={allowSelection}
-                >
-                  <Checkbox
-                    onValueChange={table.getToggleAllRowsSelectedHandler()}
-                    checked={table.getIsAllRowsSelected()}
-                    isIndeterminate={table.getIsSomeRowsSelected()}
-                  />
-                </StyledHead>
-              )}
-              {headerGroup.headers.map((header, index) => (
-                <StyledHead
-                  alignPosition={columns[index].meta?.alignment as TableHeaderAlignment | undefined}
-                  ref={createHandleHeadRef(index)}
-                  isSortable={!!columns[index].meta?.sorting && header.column.getCanSort()}
-                  onClick={createHandleHeaderClick(header, index)}
-                  data-testid={`${dataTestId}-th-${header.id}`}
-                  theme={theme}
-                  key={header.id}
-                  width={header.getSize()}
-                >
-                  <div>
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                    {columns[index].meta?.sorting
-                      ? {
-                          asc: (
+                {allowSelection && data.length > 0 && (
+                  <StyledHead
+                    className="checkbox-header"
+                    isSortable={false}
+                    theme={theme}
+                    allowSelection={allowSelection}
+                  >
+                    <Checkbox
+                      onValueChange={table.getToggleAllRowsSelectedHandler()}
+                      checked={table.getIsAllRowsSelected()}
+                      isIndeterminate={table.getIsSomeRowsSelected()}
+                    />
+                  </StyledHead>
+                )}
+                {headerGroup.headers.map((header, index) => (
+                  <StyledHead
+                    alignPosition={columns[index].meta?.alignment as TableHeaderAlignment | undefined}
+                    ref={createHandleHeadRef(index)}
+                    isSortable={!!columns[index].meta?.sorting && header.column.getCanSort()}
+                    onClick={createHandleHeaderClick(header, index)}
+                    data-testid={`${dataTestId}-th-${header.id}`}
+                    theme={theme}
+                    key={header.id}
+                    width={header.getSize()}
+                  >
+                    <div>
+                      {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                      {columns[index].meta?.sorting
+                        ? {
+                            asc: (
+                              <Tooltip
+                                key="tooltip_asc"
+                                placement={TooltipPlacement.Bottom}
+                                isDark
+                                tooltipId="asc"
+                                triggerComponent={createSortIcon(IconName.ArrowSmallUp)}
+                              >
+                                <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
+                                  Sorted A→Z
+                                </Text>
+                              </Tooltip>
+                            ),
+                            desc: (
+                              <Tooltip
+                                key="tooltip_desc"
+                                placement={TooltipPlacement.Bottom}
+                                isDark
+                                tooltipId="desc"
+                                triggerComponent={createSortIcon(IconName.ArrowSmallDown)}
+                              >
+                                <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
+                                  Sorted Z→A
+                                </Text>
+                              </Tooltip>
+                            )
+                          }[header.column.getIsSorted() as string] ?? (
                             <Tooltip
-                              key="tooltip_asc"
+                              key="tooltip_normal"
                               placement={TooltipPlacement.Bottom}
                               isDark
-                              tooltipId="asc"
-                              triggerComponent={createSortIcon(IconName.ArrowSmallUp)}
+                              tooltipId="normal"
+                              triggerComponent={createSortIcon(IconName.Sort)}
                             >
                               <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
-                                Sorted A→Z
-                              </Text>
-                            </Tooltip>
-                          ),
-                          desc: (
-                            <Tooltip
-                              key="tooltip_desc"
-                              placement={TooltipPlacement.Bottom}
-                              isDark
-                              tooltipId="desc"
-                              triggerComponent={createSortIcon(IconName.ArrowSmallDown)}
-                            >
-                              <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
-                                Sorted Z→A
+                                Sort A→Z
                               </Text>
                             </Tooltip>
                           )
-                        }[header.column.getIsSorted() as string] ?? (
-                          <Tooltip
-                            key="tooltip_normal"
-                            placement={TooltipPlacement.Bottom}
-                            isDark
-                            tooltipId="normal"
-                            triggerComponent={createSortIcon(IconName.Sort)}
+                        : null}
+                    </div>
+                  </StyledHead>
+                ))}
+              </tr>
+            ))}
+          </StyledThead>
+
+          <Droppable droppableId="tbody">
+            {(provided) => (
+              <StyledTbody ref={provided.innerRef} theme={theme}>
+                {data.length <= 0 && (
+                  <tr>
+                    <td colSpan={table.getFlatHeaders().length}>
+                      <StyledNoRecordsWrapper theme={theme}>
+                        <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
+                          No records found
+                        </Text>
+                      </StyledNoRecordsWrapper>
+                    </td>
+                  </tr>
+                )}
+                {table.getRowModel().rows.map((row) => (
+                  <React.Fragment key={row.id}>
+                    {isDraggable && (
+                      <DraggableRow
+                        tableContext={table}
+                        elementRef={nodesRef}
+                        row={row}
+                        allowSelection={allowSelection}
+                        onRowClick={() => handleOnRowClick(row.original)}
+                        size={tableSize}
+                        dataTestId={dataTestId}
+                      />
+                    )}
+                    {!isDraggable && (
+                      <StyledRow
+                        theme={theme}
+                        key={row.id}
+                        onClick={() => handleOnRowClick(row.original)}
+                        isClickable={!!onRowClick}
+                        size={tableSize}
+                        data-testid={`${dataTestId}-row-${row.id}`}
+                      >
+                        {allowSelection && (
+                          <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
+                            <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
+                          </StyledTd>
+                        )}
+                        {row.getVisibleCells().map((cell) => (
+                          <StyledTd
+                            alignPosition={
+                              table.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)?.columnDef
+                                ?.meta as TableHeaderAlignment | undefined
+                            }
+                            data-testid={`${dataTestId}-cell-${cell.id}`}
+                            theme={theme}
+                            key={cell.id}
                           >
-                            <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
-                              Sort A→Z
-                            </Text>
-                          </Tooltip>
-                        )
-                      : null}
-                  </div>
-                </StyledHead>
-              ))}
-            </tr>
-          ))}
-        </StyledThead>
+                            {cell.column.columnDef.cell
+                              ? flexRender(cell.column.columnDef.cell, cell.getContext())
+                              : cell.renderValue()}
+                          </StyledTd>
+                        ))}
+                      </StyledRow>
+                    )}
+                  </React.Fragment>
+                ))}
 
-        <Droppable droppableId="tbody">
-          {(provided) => (
-            <StyledTbody ref={provided.innerRef} theme={theme}>
-              {data.length <= 0 && (
-                <tr>
-                  <td colSpan={table.getFlatHeaders().length}>
-                    <StyledNoRecordsWrapper theme={theme}>
-                      <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
-                        No records found
-                      </Text>
-                    </StyledNoRecordsWrapper>
-                  </td>
-                </tr>
-              )}
-              {table.getRowModel().rows.map((row) => (
-                <React.Fragment key={row.id}>
-                  {isDraggable && (
-                    <DraggableRow
-                      tableContext={table}
-                      elementRef={nodesRef}
-                      row={row}
-                      allowSelection={allowSelection}
-                      onRowClick={() => handleOnRowClick(row.original)}
-                      size={tableSize}
-                      dataTestId={dataTestId}
-                    />
-                  )}
-                  {!isDraggable && (
-                    <StyledRow
-                      theme={theme}
-                      key={row.id}
-                      onClick={() => handleOnRowClick(row.original)}
-                      isClickable={!!onRowClick}
-                      size={tableSize}
-                      data-testid={`${dataTestId}-row-${row.id}`}
-                    >
-                      {allowSelection && (
-                        <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
-                          <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
-                        </StyledTd>
-                      )}
-                      {row.getVisibleCells().map((cell) => (
-                        <StyledTd
-                          alignPosition={
-                            table.getAllColumns()?.find((col) => col.columnDef.id === cell.column.id)?.columnDef
-                              ?.meta as TableHeaderAlignment | undefined
-                          }
-                          data-testid={`${dataTestId}-cell-${cell.id}`}
-                          theme={theme}
-                          key={cell.id}
-                        >
-                          {cell.column.columnDef.cell
-                            ? flexRender(cell.column.columnDef.cell, cell.getContext())
-                            : cell.renderValue()}
-                        </StyledTd>
-                      ))}
-                    </StyledRow>
-                  )}
-                </React.Fragment>
-              ))}
-
-              {provided.placeholder}
-            </StyledTbody>
-          )}
-        </Droppable>
-      </StyledTable>
-      {data?.length > 0 ? (
-        <Footer
-          pageIndex={pageIndex}
-          pageSize={pageSize}
-          totalRecords={manualPagination?.totalRecords ?? data.length}
-          dataTestId={dataTestId}
-          pageCount={table.getPageCount()}
-          itemsSelected={table.getSelectedRowModel().flatRows.length}
-          onChange={handlePageChange}
-        />
-      ) : null}
-    </DragDropContext>
+                {provided.placeholder}
+              </StyledTbody>
+            )}
+          </Droppable>
+        </StyledTable>
+        {data?.length > 0 ? (
+          <Footer
+            pageIndex={pageIndex}
+            pageSize={pageSize}
+            totalRecords={manualPagination?.totalRecords ?? data.length}
+            dataTestId={dataTestId}
+            pageCount={table.getPageCount()}
+            itemsSelected={table.getSelectedRowModel().flatRows.length}
+            onChange={handlePageChange}
+          />
+        ) : null}
+      </DragDropContext>
+    </StyledWrapper>
   );
 };

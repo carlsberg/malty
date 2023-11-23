@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Pill } from './Pill';
@@ -45,7 +46,8 @@ const meta: Meta<PillProps> = {
     dataTestId: {
       control: 'text',
       description: 'Pill data-testid'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

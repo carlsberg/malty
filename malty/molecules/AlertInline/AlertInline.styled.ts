@@ -1,14 +1,14 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
 import { AlertInlineColor, AlertInlineSize } from './AlertInline.types';
 
-export const StyledWrapper = styled.div`
+export const StyledAlertInLineWrapper = styled.div<SpaceProps>`
   width: 100%;
   position: relative;
   box-sizing: border-box;
-`;
-
-export const StyledAlertInLineWrapper = styled(StyledWrapper)`
   margin-top: ${({ theme }) => theme.sizes['2xs'].value};
+
+  ${space}
 `;
 
 export const StyledContainer = styled.div<{

@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Text as TextComponent } from './Text';
@@ -77,23 +78,11 @@ export default {
     as: {
       description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
       control: { type: 'text' }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
-const Template: Story<TextProps> = ({ textStyle, align, color, children, italic, ellipsis, width, className, as }) => (
-  <TextComponent
-    align={align}
-    color={color}
-    italic={italic}
-    textStyle={textStyle}
-    ellipsis={ellipsis}
-    width={width}
-    className={className}
-    as={as}
-  >
-    {children}
-  </TextComponent>
-);
+const Template: Story<TextProps> = (args) => <TextComponent {...args} />;
 
 export const Text = Template.bind({});
 

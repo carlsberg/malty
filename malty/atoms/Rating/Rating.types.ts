@@ -1,4 +1,6 @@
-export interface RatingProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface RatingProps extends SpaceProps {
   name: string;
   label: string;
   value: number;

@@ -1,22 +1,8 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.icon';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { PillSize, PillType } from './Pill.types';
+import { PillSize, PillType, StyledPillProps } from './Pill.types';
 
-export const StyledPill = styled.div<{
-  size: string;
-  fontSize: string;
-  fontFamily: string;
-  iconSize: string;
-  padding: string;
-  type: PillType;
-  textColor: IconColor;
-  hasText: boolean;
-  hasIcon: boolean;
-  badgeMode: boolean;
-  pillSize: PillSize;
-  gap: string;
-  isUppercase: boolean;
-}>`
+export const StyledPill = styled.div<StyledPillProps>`
   font-family: ${({ fontFamily }) => `${fontFamily}`};
   font-size: ${({ fontSize }) => `${fontSize}`};
   font-weight: bold;
@@ -98,4 +84,6 @@ export const StyledPill = styled.div<{
       padding: 0 ${theme.sizes['4xs'].value};
     `;
   }}
+
+  ${space}
 `;

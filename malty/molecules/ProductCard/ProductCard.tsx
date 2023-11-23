@@ -49,7 +49,8 @@ export const ProductCard = ({
   discountPill,
   promoPill,
   cartPill,
-  favoriteIconColor = IconColor.DigitalBlack
+  favoriteIconColor = IconColor.DigitalBlack,
+  ...props
 }: ProductCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
@@ -175,6 +176,7 @@ export const ProductCard = ({
           ))}
         </>
       }
+      {...props}
     />
   );
 };

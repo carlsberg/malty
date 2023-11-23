@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Sku as SkuComponent } from './Sku';
@@ -26,7 +27,8 @@ export default {
           OPTIONAL: 'Optional'
         }
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 

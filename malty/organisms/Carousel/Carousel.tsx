@@ -16,7 +16,8 @@ export const Carousel: React.FC<CarouselProps> = ({
   innerSpacingX = false,
   ariaLabels,
   dataTestId,
-  onVisible
+  onVisible,
+  ...props
 }) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -60,6 +61,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       aria-label={ariaLabels?.carousel}
       theme={theme}
       innerSpacingX={innerSpacingX}
+      {...props}
     >
       <StyledSplideTrack className="splide__track" theme={theme}>
         <ul className="splide__list">

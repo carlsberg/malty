@@ -15,7 +15,8 @@ export const Toast = ({
   onCustomAction,
   customActionText,
   message,
-  autoHideDuration
+  autoHideDuration,
+  ...props
 }: ToastProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -99,7 +100,7 @@ export const Toast = ({
   }
 
   return (
-    <StyledAlertToastWrapper theme={theme}>
+    <StyledAlertToastWrapper theme={theme} {...props}>
       <StyledToast data-testid={`${dataQaId}-container`} color={color} theme={theme}>
         <Text dataQaId={`${dataQaId}-message`} color={TextColor.White} textStyle={TextStyle.MediumSmallDefault}>
           {message}

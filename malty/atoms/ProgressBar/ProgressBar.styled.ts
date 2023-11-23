@@ -1,5 +1,13 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { ProgressBarSize } from './ProgressBar.types';
+
+export const StyledWrapper = styled.div<SpaceProps>`
+  display: flex;
+  flex-direction: column;
+
+  ${space}
+`;
 
 export const StyledProgressBar = styled.div<{
   progress: number;
@@ -26,11 +34,6 @@ export const StyledProgressBar = styled.div<{
     width: ${({ progress }) => `${progress}%`};
     max-width: 100%;
   }
-`;
-
-export const StyledWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 export const StyledBarContainer = styled.div`

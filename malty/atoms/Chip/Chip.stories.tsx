@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Chip as ChipComponent } from './Chip';
@@ -61,7 +62,8 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'Chip data-testid'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

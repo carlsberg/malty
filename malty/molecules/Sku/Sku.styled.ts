@@ -1,9 +1,12 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div<SpaceProps>`
   display: flex;
   align-items: center;
   gap: ${({ theme }) => theme.sizes['4xs'].value};
+
+  ${space}
 `;
 
 export const StyledMRO = styled.div`

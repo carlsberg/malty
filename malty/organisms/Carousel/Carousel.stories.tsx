@@ -2,6 +2,7 @@ import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { ArticleCard } from '@carlsberggroup/malty.molecules.article-card';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import { getBreakpointNumber } from '@carlsberggroup/malty.utils.helpers';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Carousel as CarouselComponent } from './Carousel';
@@ -108,7 +109,8 @@ export default {
           summary: 'none'
         }
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
