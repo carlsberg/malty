@@ -1,6 +1,6 @@
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import React from 'react';
-import { useLoadingStatus, useLoadingStyles } from './Loading.helper';
+import { useLoadingStyles } from './Loading.helper';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
 import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 import { LoadingIcon } from './LoadingIcon';
@@ -14,16 +14,15 @@ export const Loading = ({
   color = LoadingColor.DigitalBlack,
   zIndex = 0
 }: LoadingProps) => {
-  const progressStatus = useLoadingStatus({ status });
   const { iconSize } = useLoadingStyles({ size });
 
   return (
     <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} $zIndex={zIndex}>
       <StyledLoading
         size={iconSize}
-        className={`${progressStatus === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${progressStatus}`}
+        className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
       >
-        <LoadingIcon negative={negative} color={color} progressStatus={progressStatus} dataTestId={dataQaId} />
+        <LoadingIcon negative={negative} color={color} status={status} dataTestId={dataQaId} />
       </StyledLoading>
 
       {text && (

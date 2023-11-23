@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { LoadingColor, LoadingIconProps, LoadingStatus } from './Loading.types';
 
-export const LoadingIcon = ({ negative, color, dataTestId, progressStatus }: LoadingIconProps) => {
+export const LoadingIcon = ({ negative, color, dataTestId, status }: LoadingIconProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const getFillProp = () => {
@@ -18,7 +18,7 @@ export const LoadingIcon = ({ negative, color, dataTestId, progressStatus }: Loa
     return theme.colors.theme[color].value;
   };
 
-  if (progressStatus === LoadingStatus.Success) {
+  if (status === LoadingStatus.Success) {
     return (
       <svg
         data-testid={`${dataTestId}-success-icon`}
@@ -42,7 +42,7 @@ export const LoadingIcon = ({ negative, color, dataTestId, progressStatus }: Loa
     );
   }
 
-  if (progressStatus === LoadingStatus.Failure) {
+  if (status === LoadingStatus.Failure) {
     return (
       <svg
         data-testid={`${dataTestId}-failure-icon`}

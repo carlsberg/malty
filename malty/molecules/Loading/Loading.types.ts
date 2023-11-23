@@ -12,15 +12,11 @@ export interface LoadingIconProps {
   negative: LoadingProps['negative'];
   color: LoadingProps['color'];
   dataTestId?: LoadingProps['dataQaId'];
-  progressStatus: LoadingStatus;
+  status: LoadingStatus;
 }
 
 export interface UseLoadingStylesProps {
   size: LoadingSize;
-}
-
-export interface UseLoadingStatusProps {
-  status: LoadingStatus;
 }
 
 export enum LoadingSize {
