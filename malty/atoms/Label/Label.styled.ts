@@ -1,10 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-
-type StyledLabelProps = {
-  disabled?: boolean;
-  required?: boolean;
-} & SpaceProps;
+import { StyledLabelProps } from './Label.types';
 
 export const StyledLabel = styled.label<StyledLabelProps>`
   font-family: ${({ theme }) => theme.typography.desktop.text.small_bold['font-family'].value};

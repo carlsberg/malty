@@ -48,3 +48,8 @@ export interface UseIconColorProps {
 export interface UseNumSizeProps {
   size: IconSize;
 }
+
+export type StyledIconProps = {
+  color: string;
+  size: string;
+} & SpaceProps;

@@ -53,3 +53,7 @@ export interface RoundPercentageProps {
 export interface SegmentColorProps {
   foregroundColor: ForegroundCircleColor;
 }
+
+export type StyledWrapperProps = {
+  percentagePosition: PercentagePosition;
+} & SpaceProps;

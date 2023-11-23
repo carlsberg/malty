@@ -1,11 +1,7 @@
 import { Text } from '@carlsberggroup/malty.atoms.text';
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
-import { PercentagePosition } from './ProgressCircle.types';
-
-type StyledWrapperProps = {
-  percentagePosition: PercentagePosition;
-} & SpaceProps;
+import { PercentagePosition, StyledWrapperProps } from './ProgressCircle.types';
 
 export const StyledWrapper = styled.div<StyledWrapperProps>`
   display: flex;

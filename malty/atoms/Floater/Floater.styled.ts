@@ -1,16 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { FloaterColor, FloaterIconPosition } from './Floater.types';
-
-type StyledFloaterButtonProps = {
-  hasText: boolean;
-  hasIcon: boolean;
-  isNegative?: boolean;
-  fullWidth?: boolean;
-  color: FloaterColor;
-  iconPos: FloaterIconPosition;
-  showButton: boolean;
-} & SpaceProps;
+import { FloaterColor, FloaterIconPosition, StyledFloaterButtonProps } from './Floater.types';
 
 export const StyledFloaterButton = styled.button<StyledFloaterButtonProps>`
   background-color: ${({ isNegative, theme, color }) => {

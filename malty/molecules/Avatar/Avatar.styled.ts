@@ -1,6 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { AvatarSize } from './Avatar.types';
+import { AvatarSize, StyledAvatarProps } from './Avatar.types';
 
 export const StyledCamera = styled.div<{
   size?: AvatarSize;
@@ -52,13 +52,6 @@ export const StyledCamera = styled.div<{
     height: 100%;
   }
 `;
-
-type StyledAvatarProps = {
-  profileImg?: string;
-  size?: string;
-  isLoading: boolean;
-  editable: boolean;
-} & SpaceProps;
 
 export const StyledAvatar = styled.div<StyledAvatarProps>`
   position: relative;

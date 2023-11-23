@@ -26,3 +26,13 @@ export enum FloaterColor {
   ThemeSecondary = 'themeSecondary',
   ThemeTertiary = 'themeTertiary'
 }
+
+export type StyledFloaterButtonProps = {
+  hasText: boolean;
+  hasIcon: boolean;
+  isNegative?: boolean;
+  fullWidth?: boolean;
+  color: FloaterColor;
+  iconPos: FloaterIconPosition;
+  showButton: boolean;
+} & SpaceProps;

@@ -18,3 +18,12 @@ export enum ChipSize {
   Small = 'Small',
   Medium = 'Medium'
 }
+
+export type StyledChipProps = {
+  height: string;
+  hasButton?: boolean;
+  selected: boolean;
+  disabled?: boolean;
+  readOnly?: boolean;
+  size?: ChipSize;
+} & SpaceProps;

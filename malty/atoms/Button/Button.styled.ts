@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
-import { ButtonColor, ButtonIconPosition, ButtonSize } from './Button.types';
+import { ButtonColor, ButtonIconPosition, ButtonSize, StyledButtonProps } from './Button.types';
 
 const animateShow = keyframes`
   from {
@@ -15,18 +15,6 @@ const animateShow = keyframes`
 export const StyledAnchor = styled.a`
   text-decoration: none;
 `;
-
-type StyledButtonProps = {
-  hasText: boolean;
-  hasIcon: boolean;
-  isLoading?: boolean;
-  isNegative?: boolean;
-  fullWidth?: boolean;
-  iconPos: ButtonIconPosition;
-  color: ButtonColor;
-  size: ButtonSize;
-  $selected: boolean;
-} & SpaceProps;
 
 const StyledButton = styled.button<StyledButtonProps>`
   display: inline-flex;

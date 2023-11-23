@@ -1,12 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { HeadlineAlign, HeadlineColor, HeadlineStyle } from './Headline.types';
-
-type StyledHeadlineProps = {
-  headlineStyle: HeadlineStyle;
-  color: HeadlineColor;
-  align: HeadlineAlign;
-} & SpaceProps;
+import { HeadlineAlign, HeadlineColor, StyledHeadlineProps } from './Headline.types';
 
 export const StyledHeadline = styled.h1<StyledHeadlineProps>`
   margin: 0;

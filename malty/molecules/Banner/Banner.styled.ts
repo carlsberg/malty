@@ -1,12 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { BannerLayout } from './Banner.types';
-
-type StyledBannerContainerProps = {
-  negative: boolean;
-  reverse: boolean;
-  layout: BannerLayout;
-} & SpaceProps;
+import { BannerLayout, StyledBannerContainerProps } from './Banner.types';
 
 export const StyledBannerContainer = styled.div<StyledBannerContainerProps>`
   display: flex;

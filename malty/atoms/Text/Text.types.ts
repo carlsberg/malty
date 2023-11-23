@@ -56,3 +56,13 @@ export enum TextColor {
   Success = 'success',
   SuccessLight = 'success-light'
 }
+
+export type StyledParagraphProps = {
+  textStyle: TextStyle;
+  color: TextColor;
+  align: TextAlign;
+  italic: boolean;
+  ellipsis?: boolean;
+  width?: string;
+  className?: string;
+} & SpaceProps;

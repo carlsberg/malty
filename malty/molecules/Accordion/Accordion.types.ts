@@ -34,3 +34,7 @@ export interface AccordionContext {
   activeEventKey: string[];
   alwaysOpen: boolean;
 }
+
+export type StyledAccordionWrapperProps = {
+  variant?: AccordionColor;
+} & SpaceProps;

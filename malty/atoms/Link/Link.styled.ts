@@ -1,12 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { LinkColor, LinkStyle } from './Link.types';
-
-type StyledAnchorProps = {
-  $disabled: boolean;
-  $color: LinkColor;
-  $linkStyle: LinkStyle;
-} & SpaceProps;
+import { LinkColor, StyledAnchorProps } from './Link.types';
 
 export const StyledAnchor = styled.a<StyledAnchorProps>`
   ${({ theme, $linkStyle }) =>

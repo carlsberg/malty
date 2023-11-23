@@ -25,3 +25,9 @@ export interface BannerProps extends SpaceProps {
   dataTestId?: string;
   actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;
 }
+
+export type StyledBannerContainerProps = {
+  negative: boolean;
+  reverse: boolean;
+  layout: BannerLayout;
+} & SpaceProps;

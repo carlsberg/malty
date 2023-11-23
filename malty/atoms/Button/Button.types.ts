@@ -54,3 +54,15 @@ export enum ButtonIconPosition {
   Right = 'Right',
   Left = 'Left'
 }
+
+export type StyledButtonProps = {
+  hasText: boolean;
+  hasIcon: boolean;
+  isLoading?: boolean;
+  isNegative?: boolean;
+  fullWidth?: boolean;
+  iconPos: ButtonIconPosition;
+  color: ButtonColor;
+  size: ButtonSize;
+  $selected: boolean;
+} & SpaceProps;

@@ -1,16 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { TextAlign, TextColor, TextStyle } from './Text.types';
-
-type StyledParagraphProps = {
-  textStyle: TextStyle;
-  color: TextColor;
-  align: TextAlign;
-  italic: boolean;
-  ellipsis?: boolean;
-  width?: string;
-  className?: string;
-} & SpaceProps;
+import { StyledParagraphProps, TextAlign } from './Text.types';
 
 export const StyledParagraph = styled.p<StyledParagraphProps>`
   display: inline-block;

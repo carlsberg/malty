@@ -29,3 +29,9 @@ export enum HeadlineColor {
   DigitalBlack = 'digital-black',
   White = 'white'
 }
+
+export type StyledHeadlineProps = {
+  headlineStyle: HeadlineStyle;
+  color: HeadlineColor;
+  align: HeadlineAlign;
+} & SpaceProps;

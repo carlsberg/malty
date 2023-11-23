@@ -16,3 +16,10 @@ export enum AvatarSize {
   Large = 'Large',
   XLarge = 'XLarge'
 }
+
+export type StyledAvatarProps = {
+  profileImg?: string;
+  size?: string;
+  isLoading: boolean;
+  editable: boolean;
+} & SpaceProps;

@@ -13,3 +13,7 @@ export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement>, S
   disabled?: boolean;
   fullWidth?: boolean;
 }
+
+export type StyledCheckboxContainerProps = {
+  fullWidth?: boolean;
+} & SpaceProps;

@@ -1,10 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-
-type StyledIconProps = {
-  color: string;
-  size: string;
-} & SpaceProps;
+import { StyledIconProps } from './IconWrapper.types';
 
 export const StyledIcon = styled.svg.attrs({
   version: '1.1',

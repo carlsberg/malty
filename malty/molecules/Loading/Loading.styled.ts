@@ -1,6 +1,6 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { keyframes } from 'styled-components';
-import { LoadingSize } from './Loading.types';
+import { LoadingSize, StyledLoadingContainerProps } from './Loading.types';
 
 const rotate = keyframes`
     from {
@@ -21,10 +21,6 @@ const fadeIn = keyframes`
       transform: rotate(360deg);
     }
 `;
-
-type StyledLoadingContainerProps = {
-  size: LoadingSize;
-} & SpaceProps;
 
 export const StyledLoadingContainer = styled.div<StyledLoadingContainerProps>`
   display: flex;

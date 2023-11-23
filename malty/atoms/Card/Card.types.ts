@@ -20,3 +20,11 @@ export enum CardOrientation {
   Landscape = 'landscape',
   Portrait = 'portrait'
 }
+
+export type StyledCardContainerProps = {
+  orientation: CardOrientation;
+  selected: boolean;
+  cardStyle: CardStyle;
+  hover: boolean;
+  disabled?: boolean;
+} & SpaceProps;

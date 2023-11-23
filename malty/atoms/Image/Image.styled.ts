@@ -1,11 +1,7 @@
 import { rgbToHex } from '@carlsberggroup/malty.utils.colors';
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { ImageEffectPosition, ImageOverlay } from './Image.types';
-
-type StyledContainerProps = {
-  isCover?: boolean;
-} & SpaceProps;
+import { ImageEffectPosition, ImageOverlay, StyledContainerProps } from './Image.types';
 
 export const StyledContainer = styled.div<StyledContainerProps>`
   position: relative;

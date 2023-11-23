@@ -7,3 +7,8 @@ export interface LabelProps extends React.HTMLAttributes<HTMLLabelElement>, Spac
   required?: boolean;
   dataTestId?: string;
 }
+
+export type StyledLabelProps = {
+  disabled?: boolean;
+  required?: boolean;
+} & SpaceProps;

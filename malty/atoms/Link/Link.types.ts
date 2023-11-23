@@ -43,3 +43,9 @@ export enum LinkStyle {
   MicroBold = 'micro_bold',
   MicroDefault = 'micro_default'
 }
+
+export type StyledAnchorProps = {
+  $disabled: boolean;
+  $color: LinkColor;
+  $linkStyle: LinkStyle;
+} & SpaceProps;

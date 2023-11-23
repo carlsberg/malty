@@ -20,3 +20,7 @@ export enum LoadingStatus {
   Success = 'Success',
   Failure = 'Failure'
 }
+
+export type StyledLoadingContainerProps = {
+  size: LoadingSize;
+} & SpaceProps;
