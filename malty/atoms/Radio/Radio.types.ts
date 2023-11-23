@@ -5,7 +5,8 @@ export interface RadioProps extends React.HTMLAttributes<HTMLInputElement> {
   error?: string;
   selected?: boolean;
   disabled?: boolean;
-  onValueChange: (value: string | number) => void;
+  onValueChange?: (value: string | number) => void;
   required?: boolean;
   dataTestId?: string;
+  readOnly?: boolean;
 }
