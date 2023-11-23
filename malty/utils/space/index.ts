@@ -1,3 +1,5 @@
+import type { ArgTypes } from '@storybook/react';
+
 export interface SpaceProps {
   m?: string;
   mt?: string;
@@ -8,7 +10,7 @@ export interface SpaceProps {
   my?: string;
 }
 
-export const space = <T extends SpaceProps>({ m = '', mx, my, mt, mr, mb, ml }: T) => `
+export const space = <Props extends SpaceProps>({ m = '', mx, my, mt, mr, mb, ml }: Props) => `
     margin: ${m};
     margin-top: ${mt ?? my ?? ''};
     margin-bottom: ${mb ?? my ?? ''};
@@ -16,13 +18,13 @@ export const space = <T extends SpaceProps>({ m = '', mx, my, mt, mr, mb, ml }: 
     margin-left: ${ml ?? mx ?? ''};
 `;
 
-export function spreadSpaceProps<T extends SpaceProps>(props: T) {
+export function spreadSpaceProps<Props extends SpaceProps>(props: Props) {
   const { m, mt, mr, mb, ml, mx, my, ...restProps } = props;
 
   return { spaceProps: { m, mt, mr, mb, ml, mx, my }, restProps };
 }
 
-export function generateStorybookSpacing() {
+export function generateStorybookSpacing(): ArgTypes {
   return {
     m: {
       description: 'margin',
