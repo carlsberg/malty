@@ -66,26 +66,30 @@ const profileMenuMock = {
   ]
 };
 
-const Element = () => <h1>ELEMENT</h1>;
+const Content = ({ route }: { route: string }) => (
+  <div style={{ display: 'flex', justifyContent: 'center', top: '50px', backgroundColor: '#eaeaea', flex: 1 }}>
+    {route}
+  </div>
+);
 
 const Template: Story<SideNavProps> = ({ productName, navItems, systemOptions, profileMenu }) => (
   <BrowserRouter>
-    <div style={{ height: '800px' }}>
+    <div style={{ height: '800px', display: 'flex', alignItems: 'stretch' }}>
       <SideNavComponent
         productName={productName}
         navItems={navItems}
         systemOptions={systemOptions}
         profileMenu={profileMenu}
       />
+      <Routes>
+        <Route path="/item2" element={<Content route="item 2" />} />
+        <Route path="/item3" element={<Content route="item 3" />} />
+        <Route path="/sub-item1" element={<Content route="sub item 1" />} />
+        <Route path="/sub-item2" element={<Content route="sub item 2" />} />
+        <Route path="/item4" element={<Content route="item 4" />} />
+        <Route path="/iframe.html" element={<Content route="iframe" />} />
+      </Routes>
     </div>
-    <Routes>
-      <Route path="/item2" element={<Element />} />
-      <Route path="/item3" element={<Element />} />
-      <Route path="/sub-item1" element={<Element />} />
-      <Route path="/sub-item2" element={<Element />} />
-      <Route path="/item4" element={<Element />} />
-      <Route path="/iframe.html" element={<Element />} />
-    </Routes>
   </BrowserRouter>
 );
 

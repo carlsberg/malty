@@ -2,7 +2,7 @@ import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsber
 import { NavList } from '@carlsberggroup/malty.molecules.nav-list';
 import { ProductsBar } from '@carlsberggroup/malty.molecules.products-bar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledListWrapper, StyledSideNav, StyledWrapper } from './SideNav.styled';
 import { SideNavProps } from './SideNav.types';
@@ -13,10 +13,34 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: S
   // Nav list active menu items
   const [activeNavItem, setActiveNavItem] = useState(-1);
   const [activeSubItem, setActiveSubItem] = useState(-1);
-  const [isNavOpen, setNavOpen] = useState(false);
-
+  const [isNavOpen, setNavOpen] = useState(true);
   // Nav list subnav active state
   const [subNavIsActive, toggleSubNav] = useState(false);
+
+  const mediaQuery = '(max-width: 1024px)';
+  const mediaQueryList = window.matchMedia(mediaQuery);
+
+  const [mediumDeviceMatch, updateMediumMatch] = useState(false);
+
+  useEffect(() => {
+    const handleChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setNavOpen(false);
+      }
+
+      if (!event.matches && isNavOpen === false) {
+        setNavOpen(true);
+      }
+    };
+    mediaQueryList.addEventListener('change', handleChange);
+    return () => {
+      mediaQueryList.removeEventListener('change', handleChange);
+    };
+  }, [mediaQueryList]);
+
+  const onToggleNav = () => {
+    setNavOpen(!isNavOpen);
+  };
 
   // reset nav list to initial state
   const resetNavState = () => {
@@ -27,7 +51,12 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: S
 
   return (
     <StyledWrapper>
-      <ProductsBar systemOptions={systemOptions} profileMenu={profileMenu} resetNavState={resetNavState} />
+      <ProductsBar
+        systemOptions={systemOptions}
+        profileMenu={profileMenu}
+        resetNavState={resetNavState}
+        onToggleNav={onToggleNav}
+      />
       {isNavOpen && (
         <StyledSideNav theme={theme} productName={productName}>
           {productName && (

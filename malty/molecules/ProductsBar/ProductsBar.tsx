@@ -89,7 +89,7 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
   );
 };
 
-export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: ProductsBarProps) => {
+export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggleNav }: ProductsBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const { username, userRole, profileActions } = profileMenu;
@@ -106,7 +106,7 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState }: Produ
     <StyledProductsBar theme={theme}>
       <StyledOverlay open={profileMenuOpen} theme={theme} />
       <Icon color={IconColor.White} name={IconName.CarlsbergFilled} size={IconSize.Medium} />
-      <StyledCollapseBtn>
+      <StyledCollapseBtn onClick={onToggleNav}>
         <Icon color={IconColor.White} name={IconName.Menu} size={IconSize.Medium} />
       </StyledCollapseBtn>
       <StyledSystemWrapper theme={theme}>
