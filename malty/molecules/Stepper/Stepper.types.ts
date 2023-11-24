@@ -1,4 +1,6 @@
-export interface StepperProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface StepperProps extends SpaceProps {
   steps: number | StepsType[];
   currentStep: number;
   isMultiStep?: boolean;

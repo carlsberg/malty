@@ -5,6 +5,7 @@ import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import Calendar from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { EventKeys } from '@carlsberggroup/malty.utils.consts';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { FC, KeyboardEvent, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';
@@ -39,6 +40,7 @@ export const Datepicker = ({
   startDate,
   endDate,
   onChange,
+  onClose,
   label,
   locale,
   minDate,
@@ -69,8 +71,13 @@ export const Datepicker = ({
   const startDateRef = useRef<Date | null>(startDate);
   const endDateRef = useRef<Date | null | undefined>(endDate);
   const datepickerRef = useRef<HTMLDivElement>(null);
+  const { spaceProps, restProps } = isolateSpaceProps(props);
 
-  const handleClose = useCallback(() => setOpen(false), []);
+  const handleClose = useCallback(() => {
+    setOpen(false);
+    onClose?.();
+  }, [onClose]);
+
   const handleOpen = useCallback(() => setOpen(true), []);
 
   const handlePrimaryAction = () => {
@@ -186,7 +193,7 @@ export const Datepicker = ({
   };
 
   return (
-    <StyledWrapper theme={theme}>
+    <StyledWrapper theme={theme} {...spaceProps}>
       {!inline && <Label label={label} htmlFor={id} required={required} disabled={disabled} />}
       <StyledDatepicker
         data-testid={dataTestId}
@@ -236,7 +243,7 @@ export const Datepicker = ({
           dateFormat={dateFormat}
           shouldCloseOnSelect={shouldCloseOnSelect}
           withPortal={withPortal}
-          {...props}
+          {...restProps}
         >
           {renderDatepickerCaptions()}
           {renderActions()}

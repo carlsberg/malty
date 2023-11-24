@@ -19,7 +19,8 @@ export const Pagination = ({
   type = PaginationType.Default,
   dataTestId,
   disabled = false,
-  isWhite = false
+  isWhite = false,
+  ...props
 }: PaginationProps) => {
   const isInput = type === PaginationType.Input;
   const isCompact = type === PaginationType.Compact;
@@ -201,7 +202,7 @@ export const Pagination = ({
   };
 
   return (
-    <StyledContainer data-testid={dataTestId} isWhite={isWhite} theme={theme}>
+    <StyledContainer data-testid={dataTestId} isWhite={isWhite} theme={theme} {...props}>
       <ul>
         <li>
           <Button

@@ -1,6 +1,7 @@
 import { ButtonProps } from '@carlsberggroup/malty.atoms.button';
 import { InputProps } from '@carlsberggroup/malty.atoms.input';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
 export interface Stock {
   label: string;
@@ -13,7 +14,7 @@ export type ActionButton = Pick<ButtonProps, 'text' | 'icon' | 'style' | 'disabl
 
 export type ActionQuantityInput = Pick<InputProps, 'value' | 'min' | 'max' | 'readOnly' | 'onValueChange'>;
 
-export interface ProductQuantityActionsProps {
+export interface ProductQuantityActionsProps extends SpaceProps {
   dataTestId?: string;
   stock?: Stock;
   actionQuantityInput?: ActionQuantityInput;

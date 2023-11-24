@@ -1,5 +1,6 @@
 import Check from '@carlsberggroup/malty.icons.check';
 import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 import { SelectPosition } from './Select.types';
 
@@ -12,6 +13,12 @@ const fadeIn = keyframes`
 const fadeOut = keyframes`
     0% {opacity: 1;}
     100% {opacity: 0;}
+`;
+
+export const StyledMainWrapper = styled.div<SpaceProps>`
+  width: 100%;
+
+  ${space}
 `;
 
 export const StyledButtonContainer = styled.div<{
@@ -330,8 +337,4 @@ export const StyledActionButton = styled.div`
   &:first-child {
     margin-right: ${({ theme }) => theme.sizes.xs.value};
   }
-`;
-
-export const StyledMainWrapper = styled.div`
-  width: 100%;
 `;

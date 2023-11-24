@@ -18,7 +18,8 @@ export const Banner = ({
   reverse = false,
   layout = BannerLayout.Full,
   actions,
-  dataTestId = 'banner-component'
+  dataTestId = 'banner-component',
+  ...props
 }: BannerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -35,7 +36,14 @@ export const Banner = ({
   }
 
   return (
-    <StyledBannerContainer negative={negative} reverse={reverse} layout={layout} theme={theme} data-testid={dataTestId}>
+    <StyledBannerContainer
+      negative={negative}
+      reverse={reverse}
+      layout={layout}
+      theme={theme}
+      data-testid={dataTestId}
+      {...props}
+    >
       <StyledBannerContent layout={layout} theme={theme} data-testid={`${dataTestId}-content`}>
         {label ? (
           <Pill text={labelProps.text} type={labelProps.type} size={labelProps.size} icon={labelProps.icon} />

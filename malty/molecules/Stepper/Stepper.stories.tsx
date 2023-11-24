@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Stepper as StepperComponent } from './Stepper';
@@ -26,13 +27,12 @@ export default {
     dataQaId: {
       control: 'text',
       description: 'Stepper dataQaId'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 
-const Template: Story<StepperProps> = ({ steps, currentStep, isMultiStep, dataQaId }: StepperProps) => (
-  <StepperComponent steps={steps} currentStep={currentStep} isMultiStep={isMultiStep} dataQaId={dataQaId} />
-);
+const Template: Story<StepperProps> = (args) => <StepperComponent {...args} />;
 
 export const Stepper = Template.bind({});
 const params = new URLSearchParams(window.location.search);

@@ -1,12 +1,15 @@
 import { srOnly } from '@carlsberggroup/malty.utils.mixins';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div<SpaceProps>`
   position: relative;
 
   & .react-datepicker__aria-live {
     ${srOnly};
   }
+
+  ${space}
 `;
 
 export const StyledDatepicker = styled.div<{

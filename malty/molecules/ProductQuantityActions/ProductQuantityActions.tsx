@@ -10,7 +10,8 @@ import {
   StyledInputWrapper,
   StyledReadOnlyInput,
   StyledStock,
-  StyledStockStatusColor
+  StyledStockStatusColor,
+  StyledWrapper
 } from './ProductQuantityActions.styled';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
@@ -18,7 +19,8 @@ export const ProductQuantityActions = ({
   stock,
   actionQuantityInput,
   actionButton,
-  dataTestId = 'default'
+  dataTestId = 'default',
+  ...props
 }: ProductQuantityActionsProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const isReadOnly = actionQuantityInput?.readOnly;
@@ -63,7 +65,7 @@ export const ProductQuantityActions = ({
   };
 
   return (
-    <>
+    <StyledWrapper {...props}>
       {stock ? (
         <StyledStock theme={theme} data-testid={`${dataTestId}-stock`}>
           {stock.stockColor && (
@@ -84,6 +86,6 @@ export const ProductQuantityActions = ({
         </StyledStock>
       ) : null}
       {renderContent()}
-    </>
+    </StyledWrapper>
   );
 };

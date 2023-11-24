@@ -1,4 +1,6 @@
-export interface ProgressBarProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface ProgressBarProps extends SpaceProps {
   progress: number;
   label?: string;
   displayAmount?: boolean;

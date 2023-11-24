@@ -1,4 +1,5 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { ButtonProps, ButtonSize } from '.';
@@ -154,7 +155,8 @@ export default {
     children: {
       control: 'text',
       description: 'Label your button with a child, as a string. This is an alternative to the `text` property'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

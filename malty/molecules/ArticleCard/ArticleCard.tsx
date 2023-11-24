@@ -5,7 +5,7 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
-import { StyledBody, StyledFooter, StyledImage, StyledMargin } from './ArticleCard.styled';
+import { StyledArticle, StyledBody, StyledFooter, StyledImage, StyledMargin } from './ArticleCard.styled';
 import { ArticleCardProps } from './ArticleCard.types';
 
 export const ArticleCard = ({
@@ -19,7 +19,8 @@ export const ArticleCard = ({
   action,
   dataTestId,
   imageHeight,
-  imageWidth
+  imageWidth,
+  ...props
 }: ArticleCardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [height] = useState(imageHeight || (orientation === CardOrientation.Portrait ? '180px' : undefined));
@@ -31,7 +32,7 @@ export const ArticleCard = ({
   };
 
   return (
-    <article>
+    <StyledArticle {...props}>
       <Card
         dataTestId={dataTestId}
         cardStyle={cardStyle}
@@ -71,6 +72,6 @@ export const ArticleCard = ({
           </StyledBody>
         }
       />
-    </article>
+    </StyledArticle>
   );
 };

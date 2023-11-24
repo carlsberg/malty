@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { IconColor, IconSize, IconWrapperProps } from './IconWrapper.types';
@@ -50,11 +51,12 @@ export const IconStories = (name: string, Icon: React.FC<IconWrapperProps>) => {
         table: {
           disable: true
         }
-      }
+      },
+      ...generateStorybookSpacing()
     }
   } as Meta;
 
-  const Template: Story<IconWrapperProps> = ({ color, size }) => <Icon color={color} size={size} />;
+  const Template: Story<IconWrapperProps> = (args) => <Icon {...args} />;
 
   const story = Template.bind({});
   story.parameters = {

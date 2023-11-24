@@ -6,6 +6,7 @@ import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { ProductCard } from './ProductCard';
@@ -213,7 +214,8 @@ const meta: Meta<ProductCardProps> = {
       table: {
         category: 'Card Body'
       }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

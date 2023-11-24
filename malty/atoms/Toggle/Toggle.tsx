@@ -1,4 +1,5 @@
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {
@@ -7,7 +8,8 @@ import {
   StyledLabel,
   StyledLabelWrapper,
   StyledSwitch,
-  StyledToggleSwitch
+  StyledToggleSwitch,
+  StyledWrapper
 } from './Toggle.styled';
 import { ToggleProps } from './Toggle.types';
 
@@ -24,6 +26,7 @@ export const Toggle = ({
   const theme = defaultTheme;
   const [stateChecked, setStateChecked] = useState(checked);
   const id = useMemo(() => uuid(), []);
+  const { spaceProps, restProps } = isolateSpaceProps(props);
 
   const handleToggle = () => {
     onValueChange(!stateChecked);
@@ -33,7 +36,7 @@ export const Toggle = ({
   }, [checked]);
 
   return (
-    <>
+    <StyledWrapper {...spaceProps}>
       <StyledLabelWrapper disabled={disabled} onClick={handleToggle} theme={theme}>
         <StyledToggleSwitch id={id} theme={theme}>
           <StyledInput
@@ -45,7 +48,7 @@ export const Toggle = ({
             checked={stateChecked}
             onChange={handleToggle}
             required={required}
-            {...props}
+            {...restProps}
           />
           <StyledSwitch id={id} theme={theme} disabled={disabled} />
         </StyledToggleSwitch>
@@ -60,6 +63,6 @@ export const Toggle = ({
         />
       </StyledLabelWrapper>
       {error && <StyledError theme={theme}>{error}</StyledError>}
-    </>
+    </StyledWrapper>
   );
 };

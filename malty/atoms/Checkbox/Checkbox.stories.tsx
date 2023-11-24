@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 import { Checkbox as CheckboxComponent } from './Checkbox';
@@ -57,13 +57,15 @@ export default {
     },
     onValueChange: {
       description: 'Function to be executed when checkbox state changes'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 
-const Template: Story<CheckboxProps> = (args) => {
-  const [stateChecked, setStateChecked] = useState(args.checked);
-  return <CheckboxComponent {...args} onValueChange={() => setStateChecked(!stateChecked)} checked={stateChecked} />;
+const Template: Story<CheckboxProps> = ({ checked, ...args }) => {
+  const [isChecked, setIsChecked] = useState(checked);
+
+  return <CheckboxComponent {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
 };
 
 export const Checkbox = Template.bind({});

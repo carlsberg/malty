@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Image as ImageComponent, ImageProps } from '.';
@@ -100,7 +101,8 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'Image data-testid'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 

@@ -1,36 +1,15 @@
 import { rgbToHex } from '@carlsberggroup/malty.utils.colors';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { ImageEffectPosition, ImageOverlay } from './Image.types';
+import { ImageEffectPosition, ImageOverlay, StyledContainerProps } from './Image.types';
 
-export const StyledImage = styled.img<{
-  isCover?: boolean;
-  borderPosition?: ImageEffectPosition;
-}>`
-  object-fit: ${({ isCover }) => (isCover ? `cover` : `contain`)};
-  ${({ borderPosition }) => {
-    if (borderPosition === ImageEffectPosition.Top) {
-      return css`
-        border-top: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
-      `;
-    }
-    if (borderPosition === ImageEffectPosition.Right) {
-      return css`
-        border-right: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
-      `;
-    }
-    if (borderPosition === ImageEffectPosition.Bottom) {
-      return css`
-        border-bottom: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
-      `;
-    }
-    if (borderPosition === ImageEffectPosition.Left) {
-      return css`
-        border-left: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
-      `;
-    }
-    return ``;
-  }}
+export const StyledContainer = styled.div<StyledContainerProps>`
+  position: relative;
+  display: inline-block;
+
+  ${space}
 `;
+
 export const StyledFigure = styled.figure<{
   height?: string;
   width?: string;
@@ -40,12 +19,6 @@ export const StyledFigure = styled.figure<{
   margin: 0;
 `;
 
-export const StyledContainer = styled.div<{
-  isCover?: boolean;
-}>`
-  position: relative;
-  display: inline-block;
-`;
 export const StyledWrapper = styled.div<{
   isCover?: boolean;
   removeBackground?: boolean;
@@ -126,4 +99,34 @@ export const StyledOverlay = styled.span<{
     }
     return ``;
   }};
+`;
+
+export const StyledImage = styled.img<{
+  isCover?: boolean;
+  borderPosition?: ImageEffectPosition;
+}>`
+  object-fit: ${({ isCover }) => (isCover ? `cover` : `contain`)};
+  ${({ borderPosition }) => {
+    if (borderPosition === ImageEffectPosition.Top) {
+      return css`
+        border-top: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+      `;
+    }
+    if (borderPosition === ImageEffectPosition.Right) {
+      return css`
+        border-right: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+      `;
+    }
+    if (borderPosition === ImageEffectPosition.Bottom) {
+      return css`
+        border-bottom: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+      `;
+    }
+    if (borderPosition === ImageEffectPosition.Left) {
+      return css`
+        border-left: ${({ theme }) => `${theme.sizes['2xs'].value} solid ${theme.colors.theme.themePrimary.value}`};
+      `;
+    }
+    return ``;
+  }}
 `;

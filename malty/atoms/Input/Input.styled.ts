@@ -1,3 +1,4 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 
 const animateShow = keyframes`
@@ -8,10 +9,13 @@ const animateShow = keyframes`
     opacity: 1;
   }
 `;
-export const StyledInputContainer = styled.div`
+
+export const StyledInputContainer = styled.div<SpaceProps>`
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+
+  ${space}
 `;
 
 export const StyledError = styled.label`
@@ -40,11 +44,36 @@ export const StyledHint = styled.label<{
     `}
 `;
 
+export const StyledCharacterCounter = styled.div<{ $disabled?: boolean; $isError: boolean }>`
+  position: absolute;
+  right: 16px;
+  background-color: ${({ theme }) => theme.colors.colours.support[60].value};
+  color: ${({ theme }) => theme.colors.colours.default.white.value};
+  font-family: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-family'].value};
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  font-size: ${({ theme }) => theme.typography.desktop.text.tiny_default['font-size'].value};
+  height: 14px;
+  font-weight: bold;
+  padding: 0 ${({ theme }) => theme.sizes['3xs'].value};
+  ${({ $isError }) =>
+    $isError &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system.fail.value};
+    `}
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system['disable-light-theme'].value};
+    `}
+`;
+
 export const StyledInputWrapper = styled.div<{
   isIconLeft?: boolean;
-  clearable?: boolean;
-  addRight?: boolean;
+  $isIconRight: boolean;
   addLeft?: boolean;
+  $showCharacterCounter: boolean;
 }>`
   position: relative;
   display: flex;
@@ -52,6 +81,11 @@ export const StyledInputWrapper = styled.div<{
   > span {
     width: 100% !important;
   }
+
+  > div:first-child {
+    align-items: center;
+  }
+
   svg {
     position: absolute;
     top: 50%;
@@ -59,27 +93,37 @@ export const StyledInputWrapper = styled.div<{
 
     &.clear-trigger {
       opacity: 0.7;
-      ${({ clearable, isIconLeft, addRight }) => {
-        let right = 16;
-        if (!isIconLeft) right += 24;
-        if (addRight) right += 32;
-        if (!isIconLeft && addRight) right += 8;
+      ${({ theme, $isIconRight, $showCharacterCounter }) => {
+        let clearableIconPositionRight = 16;
+
+        if ($isIconRight && $showCharacterCounter) {
+          clearableIconPositionRight += parseInt(`${theme.sizes['4xl'].value.replace('px', '')}`, 10);
+        } else if ($isIconRight || $showCharacterCounter) {
+          clearableIconPositionRight += parseInt(`${theme.sizes.xl.value.replace('px', '')}`, 10);
+        }
+
         return css`
-          ${clearable || addRight ? `right: ${right}px` : ''}
+          right: ${clearableIconPositionRight}px;
         `;
       }}
     }
 
     &:not(.clear-trigger) {
-      ${({ theme, isIconLeft, addLeft }) => {
+      ${({ theme, isIconLeft, addLeft, $showCharacterCounter }) => {
         const pos = isIconLeft ? 'left' : 'right';
-        const value =
-          addLeft && isIconLeft
-            ? `${
-                parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
-                parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
-              }px`
-            : `${theme.sizes.s.value}`;
+        let value = '';
+
+        if (addLeft && isIconLeft) {
+          value = `${
+            parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+            parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
+          }px`;
+        } else if (!isIconLeft && $showCharacterCounter) {
+          value = `${parseInt(`${theme.sizes['2xl'].value.replace('px', '')}`, 10)}px`;
+        } else {
+          value = `${theme.sizes.s.value}`;
+        }
+
         return css`
           ${pos}: ${value};
         `;
@@ -103,6 +147,7 @@ export const StyledInput = styled.input<{
   addRight?: boolean;
   isError?: boolean;
   disableQuantityInput?: boolean;
+  $showCharacterCounter?: boolean;
 }>`
   border-radius: 0;
   width: 100%;
@@ -170,26 +215,57 @@ export const StyledInput = styled.input<{
   &:focus-visible {
     outline: none;
   }
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
-  }
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  }
 
-  ${({ theme, hasIcon, isIconLeft, addRight, hasClearable }) => {
+  ${({ isError, readOnly }) =>
+    !isError &&
+    !readOnly &&
+    css`
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+      }
+      &:focus {
+        border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        + ${StyledCharacterCounter} {
+          background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        }
+      }
+    `}
+
+  ${({ theme, hasIcon, isIconLeft, addRight, hasClearable, $showCharacterCounter }) => {
+    if (!hasIcon && !hasClearable && !$showCharacterCounter) {
+      return css`
+        padding: 0 ${theme.sizes.s.value};
+      `;
+    }
+
     const leftPadding = isIconLeft && hasIcon ? `${theme.sizes['2xl'].value}` : `${theme.sizes.s.value}`;
-    let rightPadding = isIconLeft ? `${theme.sizes.s.value}` : `${theme.sizes['2xl'].value}`;
-    if (addRight) rightPadding = `${theme.sizes['4xl'].value}`;
-    if (hasClearable) rightPadding = `${theme.sizes['2xl'].value}`;
-    return hasIcon || hasClearable
-      ? css`
-          padding: 0 ${rightPadding} 0 ${leftPadding};
-        `
-      : css`
-          padding: 0 ${theme.sizes.s.value};
-        `;
+
+    let rightPadding = `${theme.sizes.s.value}`;
+    const hasRightIcon = hasIcon && addRight;
+    const hasAllRightElements = hasRightIcon && hasClearable && $showCharacterCounter;
+    const hasTwoRightElements =
+      (hasRightIcon && hasClearable) ||
+      (hasRightIcon && $showCharacterCounter) ||
+      (hasClearable && $showCharacterCounter);
+
+    if (hasAllRightElements) {
+      rightPadding = `${
+        parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+        parseInt(`${theme.sizes.l.value.replace('px', '')}`, 10)
+      }px`;
+    } else if (hasTwoRightElements) {
+      rightPadding = `${
+        parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+        parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
+      }px`;
+    } else {
+      rightPadding = `${theme.sizes['3xl'].value}`;
+    }
+
+    return css`
+      padding: 0 ${rightPadding} 0 ${leftPadding};
+    `;
   }}
   ${({ disabled }) =>
     disabled &&

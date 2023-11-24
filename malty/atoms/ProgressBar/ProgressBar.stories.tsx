@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { ProgressBar as ProgressBarContainer } from './ProgressBar';
@@ -59,7 +60,8 @@ export default {
     dataTestId: {
       control: 'text',
       description: 'Progress bar data-testid'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 

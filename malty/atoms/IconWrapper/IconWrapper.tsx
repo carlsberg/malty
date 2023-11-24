@@ -6,12 +6,21 @@ import { StyledIcon } from './IconWrapper.styled';
 import { IconColor, IconSize, IconWrapperProps } from './IconWrapper.types';
 
 const IconWrapper = (
-  { size = IconSize.Medium, color = IconColor.DigitalBlack, viewBox, className, onClick, name }: IconWrapperProps,
+  {
+    size = IconSize.Medium,
+    color = IconColor.DigitalBlack,
+    viewBox,
+    className,
+    onClick,
+    name,
+    ...props
+  }: IconWrapperProps,
   icon: JSX.Element
 ) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const iconSize = useNumSize({ size });
   const iconColor = useIconColor({ color });
+
   return (
     <StyledIcon
       viewBox={viewBox ?? '0 0 24 24'}
@@ -21,6 +30,7 @@ const IconWrapper = (
       onClick={onClick}
       theme={theme}
       data-testid={`icon-${name || 'component'}`}
+      {...props}
     >
       {icon}
     </StyledIcon>

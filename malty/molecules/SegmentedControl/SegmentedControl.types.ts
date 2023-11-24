@@ -1,4 +1,6 @@
-export interface SegmentedControlProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface SegmentedControlProps extends SpaceProps {
   size?: SegmentedControlSize;
   onChange?: (value: string) => void;
   dataQaId?: string;

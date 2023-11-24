@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
 import { Headline as HeadlineComponent } from './Headline';
@@ -56,32 +57,19 @@ export default {
     as: {
       description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
       control: { type: 'text' }
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
-const Template: Story<HeadlineProps> = ({ align, color, children, as }) => (
+const Template: Story<HeadlineProps> = (args) => (
   <>
-    <HeadlineComponent headlineStyle={HeadlineStyle.Display} align={align} color={color} as={as}>
-      {children}
-    </HeadlineComponent>
-    <HeadlineComponent headlineStyle={HeadlineStyle.Banner} align={align} color={color} as={as}>
-      {children}
-    </HeadlineComponent>
-    <HeadlineComponent headlineStyle={HeadlineStyle.Huge} align={align} color={color} as={as}>
-      {children}
-    </HeadlineComponent>
-    <HeadlineComponent headlineStyle={HeadlineStyle.Big} align={align} color={color} as={as}>
-      {children}
-    </HeadlineComponent>
-    <HeadlineComponent headlineStyle={HeadlineStyle.Large} align={align} color={color} as={as}>
-      {children}
-    </HeadlineComponent>
-    <HeadlineComponent headlineStyle={HeadlineStyle.MediumLarge} align={align} color={color} as={as}>
-      {children}
-    </HeadlineComponent>
-    <HeadlineComponent headlineStyle={HeadlineStyle.Medium} align={align} color={color} as={as}>
-      {children}
-    </HeadlineComponent>
+    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Display} />
+    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Banner} />
+    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Huge} />
+    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Big} />
+    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Large} />
+    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.MediumLarge} />
+    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Medium} />
   </>
 );
 export const Headline = Template.bind({});

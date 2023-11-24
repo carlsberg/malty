@@ -1,6 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
-export interface AlertInlineProps {
+export interface AlertInlineProps extends SpaceProps {
   icon?: IconName;
   size?: AlertInlineSize;
   color: AlertInlineColor;

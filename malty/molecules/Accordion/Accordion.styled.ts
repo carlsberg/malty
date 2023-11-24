@@ -1,10 +1,9 @@
 import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { AccordionColor } from '.';
+import { AccordionColor, StyledAccordionWrapperProps } from './Accordion.types';
 
-export const StyledAccordionWrapper = styled.ul<{
-  variant?: AccordionColor;
-}>`
+export const StyledAccordionWrapper = styled.ul<StyledAccordionWrapperProps>`
   padding-inline-start: 0;
 
   li {
@@ -15,6 +14,8 @@ export const StyledAccordionWrapper = styled.ul<{
           : 'transparent'};
       `}
   }
+
+  ${space}
 `;
 
 // Accordion item styles

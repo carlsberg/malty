@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
-import { ButtonColor, ButtonIconPosition, ButtonSize } from './Button.types';
+import { ButtonColor, ButtonIconPosition, ButtonSize, StyledButtonProps } from './Button.types';
 
 const animateShow = keyframes`
   from {
@@ -15,17 +16,7 @@ export const StyledAnchor = styled.a`
   text-decoration: none;
 `;
 
-const StyledButton = styled.button<{
-  hasText: boolean;
-  hasIcon: boolean;
-  isLoading?: boolean;
-  isNegative?: boolean;
-  fullWidth?: boolean;
-  iconPos: ButtonIconPosition;
-  color: ButtonColor;
-  size: ButtonSize;
-  $selected: boolean;
-}>`
+const StyledButton = styled.button<StyledButtonProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -157,6 +148,8 @@ const StyledButton = styled.button<{
         position: absolute;
       }
     `};
+
+  ${space}
 `;
 
 export const StyledPrimaryButton = styled(StyledButton)`

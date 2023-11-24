@@ -1,5 +1,6 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { ArticleCard as ArticleCardComponent } from './ArticleCard';
@@ -77,7 +78,8 @@ export default {
         label: string;
         onClick: () => void;
       }`
-    }
+    },
+    ...generateStorybookSpacing()
   }
 } as Meta;
 

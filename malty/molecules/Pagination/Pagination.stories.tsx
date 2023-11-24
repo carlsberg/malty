@@ -1,10 +1,10 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Pagination } from './Pagination';
 import { PaginationProps, PaginationType } from './Pagination.types';
 
-const PaginationComponent = (props: PaginationProps) => {
-  const { currentPage } = props;
+const PaginationComponent = ({ currentPage, ...props }: PaginationProps) => {
   const [statePage, setStatePage] = useState(currentPage);
 
   return <Pagination {...props} onChange={(page) => setStatePage(Number(page))} currentPage={statePage} />;
@@ -54,7 +54,8 @@ const meta: Meta<PaginationProps> = {
     disabled: {
       description: 'Property that allows to disable the component',
       control: 'boolean'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

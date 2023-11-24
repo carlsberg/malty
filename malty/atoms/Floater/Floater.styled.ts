@@ -1,15 +1,8 @@
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { FloaterColor, FloaterIconPosition } from './Floater.types';
+import { FloaterColor, FloaterIconPosition, StyledFloaterButtonProps } from './Floater.types';
 
-export const StyledFloaterButton = styled.button<{
-  hasText: boolean;
-  hasIcon: boolean;
-  isNegative?: boolean;
-  fullWidth?: boolean;
-  color: FloaterColor;
-  iconPos: FloaterIconPosition;
-  showButton: boolean;
-}>`
+export const StyledFloaterButton = styled.button<StyledFloaterButtonProps>`
   background-color: ${({ isNegative, theme, color }) => {
     if (isNegative) {
       return theme.colors.colours.default.white.value;
@@ -70,4 +63,6 @@ export const StyledFloaterButton = styled.button<{
 
       width: ${({ theme }) => `${theme.sizes['2xl'].value}`};
     `};
+
+  ${space}
 `;

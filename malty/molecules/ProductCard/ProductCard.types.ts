@@ -6,8 +6,9 @@ import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { AlertInlineProps } from '@carlsberggroup/malty.molecules.alert-inline';
 import { ActionButton, ActionQuantityInput, Stock } from '@carlsberggroup/malty.molecules.product-quantity-actions';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
-export interface ProductCardProps {
+export interface ProductCardProps extends SpaceProps {
   productCardStyle?: CardStyle;
   orientation?: CardOrientation;
   onProductClick?: () => void;

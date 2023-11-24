@@ -1,4 +1,6 @@
-export interface ImageProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface ImageProps extends SpaceProps {
   src: string;
   fallbackSrc?: string;
   cover?: boolean;
@@ -30,3 +32,7 @@ export enum ImageOverlay {
   Overlay75 = '75',
   Overlay90 = '90'
 }
+
+export type StyledContainerProps = {
+  isCover?: boolean;
+} & SpaceProps;

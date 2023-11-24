@@ -1,5 +1,6 @@
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { AvatarSize } from './Avatar.types';
+import { AvatarSize, StyledAvatarProps } from './Avatar.types';
 
 export const StyledCamera = styled.div<{
   size?: AvatarSize;
@@ -52,12 +53,7 @@ export const StyledCamera = styled.div<{
   }
 `;
 
-export const StyledAvatar = styled.div<{
-  profileImg?: string;
-  size?: string;
-  isLoading: boolean;
-  editable: boolean;
-}>`
+export const StyledAvatar = styled.div<StyledAvatarProps>`
   position: relative;
   display: flex;
   align-items: center;
@@ -149,6 +145,8 @@ export const StyledAvatar = styled.div<{
       }
     }
   }}
+
+  ${space}
 `;
 export const StyledLoadingContainer = styled.div`
   position: absolute;

@@ -12,7 +12,8 @@ export const Card = ({
   cardBody,
   onClick,
   dataTestId = 'card-element',
-  disabled
+  disabled,
+  ...props
 }: CardProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
@@ -26,6 +27,7 @@ export const Card = ({
       theme={theme}
       data-testid={dataTestId}
       disabled={disabled}
+      {...props}
     >
       {cardHero && (
         <StyledCardHero orientation={orientation} theme={theme} data-testid={`${dataTestId}-hero`} disabled={disabled}>
@@ -33,7 +35,12 @@ export const Card = ({
         </StyledCardHero>
       )}
       {cardBody && (
-        <StyledCardBody orientation={orientation} theme={theme} data-testid={`${dataTestId}-body`}>
+        <StyledCardBody
+          orientation={orientation}
+          theme={theme}
+          data-testid={`${dataTestId}-body`}
+          $hasCardHero={!!cardHero}
+        >
           {cardBody}
         </StyledCardBody>
       )}

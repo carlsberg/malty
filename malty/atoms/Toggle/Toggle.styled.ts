@@ -1,5 +1,13 @@
 import { Label } from '@carlsberggroup/malty.atoms.label';
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
+
+export const StyledWrapper = styled.div<SpaceProps>`
+  display: flex;
+  flex-direction: column;
+
+  ${space}
+`;
 
 export const StyledError = styled.label`
   color: ${({ theme }) => theme.colors.colours.system.fail.value};

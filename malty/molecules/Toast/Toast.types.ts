@@ -1,4 +1,6 @@
-export interface ToastProps {
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+
+export interface ToastProps extends SpaceProps {
   message: string;
   color: ToastColor;
   showCloseIcon?: boolean;

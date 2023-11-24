@@ -1,9 +1,12 @@
 /* eslint-disable no-nested-ternary */
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled from 'styled-components';
 
-export const StyledStepperContainer = styled.div`
+export const StyledStepperContainer = styled.div<SpaceProps>`
   display: flex;
   align-items: baseline;
+
+  ${space}
 `;
 export const StyledText = styled.div`
   margin-top: ${({ theme }) => theme.sizes['4xs'].value} !important;

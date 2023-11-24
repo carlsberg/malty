@@ -1,11 +1,8 @@
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { HeadlineAlign, HeadlineColor, HeadlineStyle } from './Headline.types';
+import { HeadlineAlign, HeadlineColor, StyledHeadlineProps } from './Headline.types';
 
-export const StyledHeadline = styled.h1<{
-  headlineStyle: HeadlineStyle;
-  color: HeadlineColor;
-  align: HeadlineAlign;
-}>`
+export const StyledHeadline = styled.h1<StyledHeadlineProps>`
   margin: 0;
   padding: 0;
   color: ${({ color, theme }) => {
@@ -74,4 +71,6 @@ export const StyledHeadline = styled.h1<{
   `}
   word-break: normal;
   overflow-wrap: anywhere;
+
+  ${space}
 `;

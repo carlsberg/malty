@@ -25,7 +25,8 @@ export const AlertInline = ({
   secondAction,
   secondActionText,
   message,
-  title
+  title,
+  ...props
 }: AlertInlineProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const labelFontColor =
@@ -97,7 +98,7 @@ export const AlertInline = ({
   );
 
   return (
-    <StyledAlertInLineWrapper theme={theme}>
+    <StyledAlertInLineWrapper theme={theme} {...props}>
       <StyledAlertInLine
         hasTitle={!!title}
         hasActions={!!firstActionText || !!secondActionText}

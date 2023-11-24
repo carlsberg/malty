@@ -1,6 +1,7 @@
+import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
 
-export const StyledContainer = styled.div<{ isWhite?: boolean }>`
+export const StyledContainer = styled.div<{ isWhite?: boolean } & SpaceProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,6 +48,8 @@ export const StyledContainer = styled.div<{ isWhite?: boolean }>`
       }
     }
   }
+
+  ${space}
 `;
 
 export const StyledDots = styled.div<{ isWhite?: boolean; $disabled: boolean }>`

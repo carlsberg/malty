@@ -12,26 +12,15 @@ const mockFn = jest.fn();
 
 describe('Input', () => {
   const onValueChange = jest.fn();
-  const ControlledInput = ({ readOnly, disabled, disableQuantityInput, type }: InputProps) => {
-    const [value, setValue] = useState('Initial value');
+  const ControlledInput = ({ value: initialValue, ...props }: InputProps) => {
+    const [value, setValue] = useState(initialValue);
 
     const handleValueChange = (newValue: string) => {
       setValue(newValue);
       onValueChange(newValue);
     };
 
-    return (
-      <Input
-        dataTestId="input"
-        value={value}
-        label="Input label"
-        onValueChange={handleValueChange}
-        type={type}
-        readOnly={readOnly}
-        disabled={disabled}
-        disableQuantityInput={disableQuantityInput}
-      />
-    );
+    return <Input {...props} dataTestId="input" value={value} label="Input label" onValueChange={handleValueChange} />;
   };
 
   afterEach(() => {
@@ -49,6 +38,7 @@ describe('Input', () => {
         error="Error text"
       />
     );
+
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Placeholder text')).toBeInTheDocument();
     expect(screen.getByText('Error text')).toBeInTheDocument();
@@ -57,11 +47,18 @@ describe('Input', () => {
 
   it('should render cart icon', () => {
     render(
-      <Input value="Value text" icon={IconName.Cart} onValueChange={mockFn} type={InputType.Text} error="Error text" />
+      <Input
+        value="Value text"
+        icon={IconName.Cart}
+        onValueChange={mockFn}
+        type={InputType.Text}
+        error="Error text"
+        dataTestId="input-cart"
+      />
     );
 
     expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
-    expect(screen.getByTestId('icon-Cart')).toBeVisible();
+    expect(screen.getByTestId('input-cart-icon')).toBeVisible();
   });
 
   it('should call onValueChange when typing', () => {
@@ -77,7 +74,7 @@ describe('Input', () => {
   });
 
   it('should not change display value after a given input with readOnly option on', () => {
-    render(<ControlledInput readOnly type={InputType.Text} value="" onValueChange={onValueChange} />);
+    render(<ControlledInput readOnly type={InputType.Text} value="Initial value" onValueChange={onValueChange} />);
 
     const input = screen.getByDisplayValue('Initial value');
     userEvent.type(input, 'Test Input');
@@ -89,7 +86,7 @@ describe('Input', () => {
   });
 
   it('should not allow to input value with disabled option active', () => {
-    render(<ControlledInput disabled type={InputType.Text} value="" onValueChange={onValueChange} />);
+    render(<ControlledInput value="Initial value" disabled type={InputType.Text} onValueChange={onValueChange} />);
 
     const input = screen.getByDisplayValue('Initial value');
     userEvent.type(input, 'Test Input');
@@ -149,11 +146,12 @@ describe('Input', () => {
         label="Search"
         onValueChange={onValueChange}
         type={InputType.Search}
+        dataTestId="input"
         onClearButtonClick={onClearButtonClick}
       />
     );
 
-    const clearButton = screen.getByTestId(`icon-ItemClose`);
+    const clearButton = screen.getByTestId(`input-clearable-icon`);
     fireEvent.click(clearButton);
     expect(onClearButtonClick).toHaveBeenCalledTimes(1);
   });
@@ -326,6 +324,53 @@ describe('Input', () => {
       userEvent.type(input, '16');
 
       expect(onValueChange).not.toHaveBeenCalled();
+    });
+  });
+
+  describe(`Input type: ${InputType.Text}`, () => {
+    const handleValueChange = jest.fn();
+
+    it('should update character counter when typing', () => {
+      render(<ControlledInput value="" type={InputType.Text} showCharacterCounter />);
+
+      expect(screen.getByTestId('input-character-counter')).toHaveTextContent('0');
+
+      const input = screen.getByLabelText('Input label');
+      const text = 'long text';
+
+      userEvent.type(input, text);
+
+      expect(screen.getByTestId('input-character-counter')).toHaveTextContent(text.length.toString());
+    });
+
+    it('should update counter if component receives initial value', () => {
+      const initialValue = 'some long text';
+      render(<ControlledInput value={initialValue} type={InputType.Text} showCharacterCounter />);
+
+      expect(screen.getByTestId('input-character-counter')).toHaveTextContent(initialValue.length.toString());
+
+      const input = screen.getByLabelText('Input label');
+      const text = 'more text';
+      const totalCount = initialValue.length + text.length;
+
+      userEvent.type(input, text);
+
+      expect(screen.getByTestId('input-character-counter')).toHaveTextContent(totalCount.toString());
+    });
+
+    it('should not allow typing more than the maxLength when provided', () => {
+      const maxLength = 10;
+
+      render(<ControlledInput value="" type={InputType.Text} maxLength={maxLength} showCharacterCounter />);
+
+      const input = screen.getByLabelText('Input label');
+      const expectedText = 'A'.repeat(maxLength);
+      const largerText = expectedText + expectedText;
+
+      userEvent.type(input, largerText);
+
+      expect(input).toHaveValue(expectedText);
+      expect(screen.getByTestId('input-character-counter')).toHaveTextContent('0');
     });
   });
 });

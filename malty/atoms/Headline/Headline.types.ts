@@ -1,6 +1,7 @@
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { ReactNode } from 'react';
 
-export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement>, SpaceProps {
   headlineStyle?: HeadlineStyle;
   align?: HeadlineAlign;
   color?: HeadlineColor;
@@ -28,3 +29,9 @@ export enum HeadlineColor {
   DigitalBlack = 'digital-black',
   White = 'white'
 }
+
+export type StyledHeadlineProps = {
+  headlineStyle: HeadlineStyle;
+  color: HeadlineColor;
+  align: HeadlineAlign;
+} & SpaceProps;

@@ -16,12 +16,13 @@ export const ProgressBar = ({
   displayAmount,
   disabled = false,
   size = ProgressBarSize.Medium,
-  dataTestId
+  dataTestId,
+  ...props
 }: ProgressBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledWrapper theme={theme} data-testid={dataTestId}>
+    <StyledWrapper theme={theme} data-testid={dataTestId} {...props}>
       <StyledBarContainer theme={theme}>
         <StyledProgressBar theme={theme} progress={progress} size={size} disabled={disabled} />
         {displayAmount ? (

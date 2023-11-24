@@ -1,6 +1,7 @@
 import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
+import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
-export interface LoadingProps {
+export interface LoadingProps extends SpaceProps {
   text?: string;
   size?: LoadingSize;
   status?: LoadingStatus;
@@ -19,3 +20,7 @@ export enum LoadingStatus {
   Success = 'Success',
   Failure = 'Failure'
 }
+
+export type StyledLoadingContainerProps = {
+  size: LoadingSize;
+} & SpaceProps;

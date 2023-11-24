@@ -1,13 +1,8 @@
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { CardOrientation, CardStyle } from './Card.types';
+import { CardOrientation, CardStyle, StyledCardContainerProps } from './Card.types';
 
-export const StyledCardContainer = styled.div<{
-  orientation: CardOrientation;
-  selected: boolean;
-  cardStyle: CardStyle;
-  hover: boolean;
-  disabled?: boolean;
-}>`
+export const StyledCardContainer = styled.div<StyledCardContainerProps>`
   display: flex;
   align-items: stretch;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
@@ -81,6 +76,8 @@ export const StyledCardContainer = styled.div<{
     css`
       border-color: ${theme.colors.colours.system['disable-light-theme'].value};
     `}
+
+  ${space}
 `;
 
 export const StyledCardHero = styled.div<{
@@ -111,19 +108,12 @@ export const StyledCardHero = styled.div<{
 
 export const StyledCardBody = styled.div<{
   orientation: CardOrientation;
+  $hasCardHero: boolean;
 }>`
   padding: ${({ theme }) => theme.sizes.xs.value};
   @media screen and (max-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     padding: ${({ theme }) => theme.sizes['2xs'].value};
   }
-  ${({ orientation }) => {
-    if (orientation === CardOrientation.Landscape) {
-      return css`
-        width: 66.7%;
-      `;
-    }
-    return css`
-      width: inherit;
-    `;
-  }};
+  width: ${({ orientation, $hasCardHero }) =>
+    orientation === CardOrientation.Landscape && $hasCardHero ? '66.7%' : 'inherit'};
 `;

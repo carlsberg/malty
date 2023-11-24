@@ -1,6 +1,7 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Icon } from './Icon';
+import { Icon } from '.';
 import { IconColor, IconName, IconProps, IconSize } from './Icon.types';
 
 const meta: Meta<IconProps> = {
@@ -65,7 +66,8 @@ const meta: Meta<IconProps> = {
     },
     onClick: {
       description: 'Function to run when icon is clicked.'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 
