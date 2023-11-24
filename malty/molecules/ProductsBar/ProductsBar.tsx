@@ -106,7 +106,7 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggl
     <StyledProductsBar theme={theme}>
       <StyledOverlay open={profileMenuOpen} theme={theme} />
       <Icon color={IconColor.White} name={IconName.CarlsbergFilled} size={IconSize.Medium} />
-      <StyledCollapseBtn onClick={onToggleNav}>
+      <StyledCollapseBtn onClick={onToggleNav} data-testid="collapse-button">
         <Icon color={IconColor.White} name={IconName.Menu} size={IconSize.Medium} />
       </StyledCollapseBtn>
       <StyledSystemWrapper theme={theme}>

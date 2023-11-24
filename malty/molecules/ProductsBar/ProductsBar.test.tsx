@@ -28,10 +28,16 @@ const singleOptionConfig = {
 const resetNavState = jest.fn();
 
 describe('Products bar component', () => {
+  const onToggleNav = () => false;
   it('renders with correct number of system options', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={profileMenuMock}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
       </BrowserRouter>
     );
     const options = screen.getByTestId('system-options');
@@ -43,7 +49,12 @@ describe('Products bar component', () => {
   it('opens profile menu when there is more than on action configured', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={profileMenuMock}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');
@@ -56,7 +67,12 @@ describe('Products bar component', () => {
   it("doesn't render profile menu when there is only one action configured", () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={singleOptionConfig} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={singleOptionConfig}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');

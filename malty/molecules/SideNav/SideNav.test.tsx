@@ -5,6 +5,60 @@ import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { SideNav } from './SideNav';
 
+interface ExtendedMediaQueryList extends MediaQueryList, MediaQueryListEvent {}
+
+const mockMatchMedia = (matches: boolean): ExtendedMediaQueryList => {
+  const mediaQueryList: ExtendedMediaQueryList = {
+    matches,
+    media: '',
+    onchange: null,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+    bubbles: false,
+    cancelBubble: false,
+    cancelable: false,
+    composed: false,
+    currentTarget: null,
+    defaultPrevented: false,
+    eventPhase: 0,
+    isTrusted: false,
+    target: null,
+    timeStamp: 0,
+    type: '',
+    // Additional properties
+    returnValue: true,
+    srcElement: null,
+    composedPath: jest.fn(),
+    initEvent: jest.fn(),
+    // More missing properties
+    preventDefault: jest.fn(),
+    stopImmediatePropagation: jest.fn(),
+    stopPropagation: jest.fn(),
+    NONE: 0,
+    CAPTURING_PHASE: 1,
+    AT_TARGET: 2,
+    BUBBLING_PHASE: 3
+  };
+
+  return mediaQueryList;
+};
+
+const mediaQuery = '(max-width: 1024px)';
+const mediaQueryList = mockMatchMedia(true);
+
+beforeEach(() => {
+  // Mock the matchMedia function
+  window.matchMedia = jest.fn().mockImplementation(() => mediaQueryList);
+});
+
+afterEach(() => {
+  // Clear the mock after each test
+  jest.clearAllMocks();
+});
+
 const productName = 'Ottilia';
 
 const simpleNavigation = [
@@ -40,6 +94,19 @@ const profileMenu = {
 };
 
 describe('molecule sideNav', () => {
+  it('sideNav handleChange updates match correctly', () => {
+    const updateMatch = jest.fn();
+    const handleChange = (event: MediaQueryListEvent) => {
+      updateMatch(event.matches);
+    };
+
+    // Call handleChange
+    handleChange(mediaQueryList);
+
+    // Add your assertions here, for example:
+    expect(updateMatch).toHaveBeenCalledWith(true);
+  });
+
   it('renders with correct product name', () => {
     render(
       <SideNav
@@ -49,8 +116,42 @@ describe('molecule sideNav', () => {
         profileMenu={profileMenu}
       />
     );
+
     expect(screen.getByText(productName)).not.toBeNull();
   });
+});
+
+it('toggles navigation when clicking menu button', () => {
+  render(
+    <SideNav
+      productName={productName}
+      navItems={simpleNavigation}
+      systemOptions={systemOptions}
+      profileMenu={profileMenu}
+    />
+  );
+
+  const collapseBtn = screen.getByTestId('collapse-button');
+
+  fireEvent(
+    collapseBtn,
+    new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true
+    })
+  );
+
+  expect(screen.queryByText(productName)).not.toBeInTheDocument();
+
+  fireEvent(
+    collapseBtn,
+    new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true
+    })
+  );
+
+  expect(screen.getByText(productName)).toBeInTheDocument();
 });
 
 describe('sideNav sub navigation', () => {
