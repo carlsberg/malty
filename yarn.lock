@@ -6646,6 +6646,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"LoadingOverlay-da94d3@workspace:malty/molecules/LoadingOverlay":
+  version: 0.0.0-use.local
+  resolution: "LoadingOverlay-da94d3@workspace:malty/molecules/LoadingOverlay"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0
+  languageName: unknown
+  linkType: soft
+
 "LocationIp-726774@workspace:malty/icons/LocationIp":
   version: 0.0.0-use.local
   resolution: "LocationIp-726774@workspace:malty/icons/LocationIp"
@@ -7126,15 +7135,6 @@ __metadata:
 "ProgressCircle-dd2cbc@workspace:malty/atoms/ProgressCircle":
   version: 0.0.0-use.local
   resolution: "ProgressCircle-dd2cbc@workspace:malty/atoms/ProgressCircle"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0
-    react-dom: ^16.8.0 || ^17.0.0
-  languageName: unknown
-  linkType: soft
-
-"ProgressSpinner-a269f9@workspace:malty/atoms/ProgressSpinner":
-  version: 0.0.0-use.local
-  resolution: "ProgressSpinner-a269f9@workspace:malty/atoms/ProgressSpinner"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
