@@ -26,10 +26,10 @@ const singleOptionConfig = {
 };
 
 const resetNavState = jest.fn();
+const onToggleNav = jest.fn();
 
 describe('Products bar component', () => {
-  const onToggleNav = () => false;
-  it('renders with correct number of system options', () => {
+  it('should render with correct number of system options', () => {
     render(
       <BrowserRouter>
         <ProductsBar
@@ -46,7 +46,7 @@ describe('Products bar component', () => {
     expect(items).toHaveLength(2);
   });
 
-  it('opens profile menu when there is more than on action configured', () => {
+  it('should open profile menu when there is more than on action configured', () => {
     render(
       <BrowserRouter>
         <ProductsBar
@@ -64,7 +64,7 @@ describe('Products bar component', () => {
     expect(profileMenu).toBeDefined();
   });
 
-  it("doesn't render profile menu when there is only one action configured", () => {
+  it('should not render profile menu when there is only one action configured', () => {
     render(
       <BrowserRouter>
         <ProductsBar
@@ -80,5 +80,30 @@ describe('Products bar component', () => {
     fireEvent.click(avatarContainer);
     const profileMenu = screen.queryByTestId('profile-options');
     expect(profileMenu).toBeNull();
+  });
+
+  it('should call onToggleNav when clicking menu button', () => {
+    render(
+      <BrowserRouter>
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={singleOptionConfig}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
+      </BrowserRouter>
+    );
+
+    const collapseBtn = screen.getByTestId('collapse-button');
+
+    fireEvent(
+      collapseBtn,
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true
+      })
+    );
+
+    expect(onToggleNav).toHaveBeenCalledTimes(1);
   });
 });
