@@ -11,6 +11,7 @@ import { SideNavProps } from './SideNav.types';
 
 export const SideNav = ({ navItems, systemOptions, profileMenu, productName, overlayZIndex = 100 }: SideNavProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+  const sideNavZIndex = overlayZIndex + 1;
 
   // Nav list active menu items
   const [activeNavItem, setActiveNavItem] = useState(-1);
@@ -34,8 +35,6 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
     setActiveSubItem(-1);
     toggleSubNav(false);
   };
-
-  const sideNavZIndex = overlayZIndex + 1;
 
   return (
     <>
