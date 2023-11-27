@@ -38,7 +38,7 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
 
   return (
     <>
-      {isNavOpen && !isDesktop && <Overlay isWhite={false} zIndex={overlayZIndex} />}
+      {isNavOpen && !isDesktop && <Overlay zIndex={overlayZIndex} />}
       <StyledWrapper zIndex={sideNavZIndex}>
         <ProductsBar
           systemOptions={systemOptions}
