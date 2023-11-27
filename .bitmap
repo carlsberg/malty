@@ -123,12 +123,6 @@
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/ProgressCircle"
     },
-    "atoms/progress-spinner": {
-        "scope": "carlsberggroup.malty",
-        "version": "0.0.27",
-        "mainFile": "index.ts",
-        "rootDir": "malty/atoms/ProgressSpinner"
-    },
     "atoms/radio": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.44",
@@ -1544,6 +1538,12 @@
         "version": "0.0.77",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Loading"
+    },
+    "molecules/loading-overlay": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/molecules/LoadingOverlay"
     },
     "molecules/modal": {
         "scope": "carlsberggroup.malty",
