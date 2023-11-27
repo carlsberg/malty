@@ -41,6 +41,20 @@ const profileMenu = {
 };
 
 describe('molecule sideNav', () => {
+  beforeAll(() => {
+    // TODO: find a way to include this on the jest-setup.ts and make it work when using "bit test"
+    window.matchMedia = jest.fn().mockImplementation(() => {
+      return {
+        matches: true,
+        media: '',
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn()
+      };
+    });
+  });
+
   it('should render with the correct product name', () => {
     render(
       <SideNav
