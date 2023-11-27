@@ -1,63 +1,10 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { SideNav } from './SideNav';
-
-interface ExtendedMediaQueryList extends MediaQueryList, MediaQueryListEvent {}
-
-const mockMatchMedia = (matches: boolean): ExtendedMediaQueryList => {
-  const mediaQueryList: ExtendedMediaQueryList = {
-    matches,
-    media: '',
-    onchange: null,
-    addListener: jest.fn(),
-    removeListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
-    bubbles: false,
-    cancelBubble: false,
-    cancelable: false,
-    composed: false,
-    currentTarget: null,
-    defaultPrevented: false,
-    eventPhase: 0,
-    isTrusted: false,
-    target: null,
-    timeStamp: 0,
-    type: '',
-    // Additional properties
-    returnValue: true,
-    srcElement: null,
-    composedPath: jest.fn(),
-    initEvent: jest.fn(),
-    // More missing properties
-    preventDefault: jest.fn(),
-    stopImmediatePropagation: jest.fn(),
-    stopPropagation: jest.fn(),
-    NONE: 0,
-    CAPTURING_PHASE: 1,
-    AT_TARGET: 2,
-    BUBBLING_PHASE: 3
-  };
-
-  return mediaQueryList;
-};
-
-const mediaQuery = '(max-width: 1024px)';
-const mediaQueryList = mockMatchMedia(true);
-
-beforeEach(() => {
-  // Mock the matchMedia function
-  window.matchMedia = jest.fn().mockImplementation(() => mediaQueryList);
-});
-
-afterEach(() => {
-  // Clear the mock after each test
-  jest.clearAllMocks();
-});
 
 const productName = 'Ottilia';
 
@@ -94,19 +41,6 @@ const profileMenu = {
 };
 
 describe('molecule sideNav', () => {
-  it('should update query match correctly', () => {
-    const updateMatch = jest.fn();
-    const handleChange = (event: MediaQueryListEvent) => {
-      updateMatch(event.matches);
-    };
-
-    // Call handleChange
-    handleChange(mediaQueryList);
-
-    // Add your assertions here, for example:
-    expect(updateMatch).toHaveBeenCalledWith(true);
-  });
-
   it('should render with the correct product name', () => {
     render(
       <SideNav
@@ -133,13 +67,7 @@ it('should toggle the navigation when clicking the menu button', () => {
 
   const collapseBtn = screen.getByTestId('collapse-button');
 
-  fireEvent(
-    collapseBtn,
-    new MouseEvent('click', {
-      bubbles: true,
-      cancelable: true
-    })
-  );
+  userEvent.click(collapseBtn);
 
   expect(screen.queryByText(productName)).not.toBeInTheDocument();
 
