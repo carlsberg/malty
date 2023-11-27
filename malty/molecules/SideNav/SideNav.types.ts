@@ -6,4 +6,5 @@ export interface SideNavProps {
   systemOptions: SystemItemProps[];
   profileMenu: ProfileMenuType;
   productName?: string;
+  overlayZIndex?: number;
 }

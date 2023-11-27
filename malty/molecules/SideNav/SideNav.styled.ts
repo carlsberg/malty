@@ -7,7 +7,9 @@ const slideAnimation = keyframes`
     }
 `;
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.div<{
+  zIndex: number;
+}>`
   width: auto;
   height: 100%;
   position: relative;
@@ -20,6 +22,7 @@ export const StyledWrapper = styled.div`
   max-width: 300px;
   transition: 0.3s ease-in-out;
   position: absolute;
+  z-index: ${({ zIndex }) => zIndex};
   @media screen and (min-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
     position: relative;
   }

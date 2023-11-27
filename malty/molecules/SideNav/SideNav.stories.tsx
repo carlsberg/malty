@@ -80,6 +80,7 @@ const Template: Story<SideNavProps> = ({ productName, navItems, systemOptions, p
         navItems={navItems}
         systemOptions={systemOptions}
         profileMenu={profileMenu}
+        overlayZIndex={100}
       />
       <Routes>
         <Route path="/item2" element={<Content route="item 2" />} />
