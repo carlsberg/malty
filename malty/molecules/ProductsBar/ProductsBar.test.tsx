@@ -1,6 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { ProductsBar } from './ProductsBar';
@@ -96,13 +97,7 @@ describe('Products bar component', () => {
 
     const collapseBtn = screen.getByTestId('collapse-button');
 
-    fireEvent(
-      collapseBtn,
-      new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true
-      })
-    );
+    userEvent.click(collapseBtn);
 
     expect(onToggleNav).toHaveBeenCalledTimes(1);
   });
