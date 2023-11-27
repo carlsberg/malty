@@ -94,7 +94,7 @@ const profileMenu = {
 };
 
 describe('molecule sideNav', () => {
-  it('sideNav handleChange updates match correctly', () => {
+  it('should update query match correctly', () => {
     const updateMatch = jest.fn();
     const handleChange = (event: MediaQueryListEvent) => {
       updateMatch(event.matches);
@@ -107,7 +107,7 @@ describe('molecule sideNav', () => {
     expect(updateMatch).toHaveBeenCalledWith(true);
   });
 
-  it('renders with correct product name', () => {
+  it('should render with the correct product name', () => {
     render(
       <SideNav
         productName={productName}
@@ -121,7 +121,7 @@ describe('molecule sideNav', () => {
   });
 });
 
-it('toggles navigation when clicking menu button', () => {
+it('should toggle the navigation when clicking the menu button', () => {
   render(
     <SideNav
       productName={productName}
@@ -155,7 +155,7 @@ it('toggles navigation when clicking menu button', () => {
 });
 
 describe('sideNav sub navigation', () => {
-  it('opens when clicking a nav item with sub items', () => {
+  it('should open when clicking a nav item with sub items', () => {
     render(
       <BrowserRouter>
         <SideNav
