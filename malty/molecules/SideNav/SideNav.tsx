@@ -22,11 +22,7 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    if (isDesktop) {
-      setNavOpen(true);
-    } else {
-      setNavOpen(false);
-    }
+      setNavOpen(isDesktop);
   }, [isDesktop]);
 
   const onToggleNav = () => {
