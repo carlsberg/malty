@@ -2,6 +2,7 @@ import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsber
 import { NavList } from '@carlsberggroup/malty.molecules.nav-list';
 import { ProductsBar } from '@carlsberggroup/malty.molecules.products-bar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Device, useMatchMedia } from '@carlsberggroup/malty.utils.hooks';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledListWrapper, StyledSideNav, StyledWrapper } from './SideNav.styled';
@@ -13,30 +14,27 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName }: S
   // Nav list active menu items
   const [activeNavItem, setActiveNavItem] = useState(-1);
   const [activeSubItem, setActiveSubItem] = useState(-1);
-  const [isNavOpen, setNavOpen] = useState(true);
+  const isDesktop = useMatchMedia(Device.Desktop);
+  const [isNavOpen, setNavOpen] = useState(isDesktop);
   // Nav list subnav active state
   const [subNavIsActive, toggleSubNav] = useState(false);
-
-  const mediaQuery = '(max-width: 1024px)';
-  const mediaQueryList = window.matchMedia(mediaQuery);
-
-  const [mediumDeviceMatch, updateMediumMatch] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleChange = (event: MediaQueryListEvent) => {
-      if (event.matches) {
+    const handleWindowResize = () => {
+      if (isDesktop) {
+        setNavOpen(true);
+      } else {
         setNavOpen(false);
       }
+    };
 
-      if (!event.matches && isNavOpen === false) {
-        setNavOpen(true);
-      }
-    };
-    mediaQueryList.addEventListener('change', handleChange);
+    window.addEventListener('resize', handleWindowResize);
+
     return () => {
-      mediaQueryList.removeEventListener('change', handleChange);
+      window.removeEventListener('resize', handleWindowResize);
     };
-  }, [mediaQueryList]);
+  });
 
   const onToggleNav = () => {
     setNavOpen(!isNavOpen);
