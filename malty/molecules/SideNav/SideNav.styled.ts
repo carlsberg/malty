@@ -19,8 +19,9 @@ export const StyledWrapper = styled.div`
   overflow-y: hidden;
   max-width: 300px;
   transition: 0.3s ease-in-out;
-  @media (max-width: 768px) {
-    position: absolute;
+  position: absolute;
+  @media screen and (min-width: ${({ theme }) => theme.layout.small['device-max-width']?.value}) {
+    position: relative;
   }
 `;
 
