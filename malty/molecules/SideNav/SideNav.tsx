@@ -19,10 +19,9 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
   const [isNavOpen, setNavOpen] = useState(isDesktop);
   // Nav list subnav active state
   const [subNavIsActive, toggleSubNav] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-      setNavOpen(isDesktop);
+    setNavOpen(isDesktop);
   }, [isDesktop]);
 
   const onToggleNav = () => {
@@ -36,7 +35,7 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
     toggleSubNav(false);
   };
 
-  const sideNavZIndex = overlayZIndex + 1 || 100;
+  const sideNavZIndex = overlayZIndex + 1;
 
   return (
     <>
