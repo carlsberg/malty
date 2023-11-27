@@ -1,6 +1,5 @@
 import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
-import { Loading, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
+import { Loading, LoadingColor, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -83,6 +82,20 @@ export const Button = ({
 
   const getIsLoadingNegative = (): boolean => (style === ButtonStyle.Primary ? !negative : negative);
 
+  const getLoadingColor = () => {
+    if (color === ButtonColor.ThemePrimary) {
+      return LoadingColor.ThemePrimary;
+    }
+    if (color === ButtonColor.ThemeSecondary) {
+      return LoadingColor.ThemeSecondary;
+    }
+    if (color === ButtonColor.ThemeTertiary) {
+      return LoadingColor.ThemeTertiary;
+    }
+
+    return LoadingColor.DigitalBlack;
+  };
+
   const renderComponent = () => (
     <Component
       color={color}
@@ -111,11 +124,7 @@ export const Button = ({
       </div>
       {loading && (
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">
-          <Loading
-            color={color as unknown as ProgressSpinnerColor}
-            negative={getIsLoadingNegative()}
-            status={LoadingStatus.Pending}
-          />
+          <Loading color={getLoadingColor()} negative={getIsLoadingNegative()} status={LoadingStatus.Pending} />
         </div>
       )}
     </Component>

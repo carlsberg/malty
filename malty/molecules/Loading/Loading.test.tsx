@@ -5,17 +5,17 @@ import { Loading } from './Loading';
 import { LoadingSize, LoadingStatus } from './Loading.types';
 
 describe('molecule loading', () => {
-  it('renders element with text', () => {
+  it('should render element with text', () => {
     render(<Loading text="Loading..." size={LoadingSize.Medium} status={LoadingStatus.Pending} />);
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  it('renders success icon', () => {
+  it('should render success icon', () => {
     render(<Loading size={LoadingSize.Medium} status={LoadingStatus.Success} dataQaId="loading" />);
     expect(screen.getByTestId('loading-success-icon')).toBeInTheDocument();
   });
 
-  it('renders failure icon', () => {
+  it('should render failure icon', () => {
     render(<Loading size={LoadingSize.Medium} status={LoadingStatus.Failure} dataQaId="loading" />);
     expect(screen.getByTestId('loading-failure-icon')).toBeInTheDocument();
   });

@@ -1,13 +1,9 @@
-import {
-  ProgressSpinner,
-  ProgressSpinnerColor,
-  ProgressSpinnerStatus
-} from '@carlsberggroup/malty.atoms.progress-spinner';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useLoadingStyles } from './Loading.helper';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';
-import { LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
+import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
+import { LoadingIcon } from './LoadingIcon';
 
 export const Loading = ({
   text,
@@ -15,53 +11,19 @@ export const Loading = ({
   status = LoadingStatus.Pending,
   dataQaId,
   negative = false,
-  color = ProgressSpinnerColor.DigitalBlack,
+  color = LoadingColor.DigitalBlack,
+  zIndex = 0,
   ...props
 }: LoadingProps) => {
-  const theme = defaultTheme;
+  const { iconSize } = useLoadingStyles({ size });
 
-  const [progressStatus, setProgressStatus] = useState<ProgressSpinnerStatus>(ProgressSpinnerStatus.Pending);
-  const [iconSize, setIconSize] = useState(theme.sizes.m.value);
-
-  useEffect(() => {
-    switch (size) {
-      case LoadingSize.Medium: {
-        setIconSize(theme.sizes['2xl'].value);
-
-        break;
-      }
-      default: {
-        setIconSize(theme.sizes.m.value);
-
-        break;
-      }
-    }
-  }, [size, theme]);
-
-  useEffect(() => {
-    switch (status) {
-      case LoadingStatus.Success: {
-        setProgressStatus(ProgressSpinnerStatus.Success);
-        break;
-      }
-      case LoadingStatus.Failure: {
-        setProgressStatus(ProgressSpinnerStatus.Failure);
-        break;
-      }
-      default: {
-        setProgressStatus(ProgressSpinnerStatus.Pending);
-        break;
-      }
-    }
-  }, [status]);
-
-  return status ? (
-    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} theme={theme} {...props}>
+  return (
+    <StyledLoadingContainer data-testid={`${dataQaId}`} size={size} $zIndex={zIndex} {...props}>
       <StyledLoading
         size={iconSize}
         className={`${status === LoadingStatus.Pending ? 'spinning' : 'fade-in'} ${status}`}
       >
-        <ProgressSpinner color={color} negative={negative} dataQaId={`${dataQaId}`} status={progressStatus} />
+        <LoadingIcon negative={negative} color={color} status={status} dataTestId={dataQaId} />
       </StyledLoading>
 
       {text && (
@@ -70,5 +32,5 @@ export const Loading = ({
         </Text>
       )}
     </StyledLoadingContainer>
-  ) : null;
+  );
 };

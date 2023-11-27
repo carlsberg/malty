@@ -4,7 +4,7 @@ import React from 'react';
 import { Overlay } from '.';
 
 describe('overlay', () => {
-  it('renders the component', () => {
+  it('should render the component', () => {
     render(<Overlay content={<p>overlay</p>} />);
     expect(screen.getByText('overlay')).toBeDefined();
   });

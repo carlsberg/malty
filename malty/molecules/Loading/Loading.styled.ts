@@ -30,7 +30,8 @@ export const StyledLoadingContainer = styled.div<StyledLoadingContainerProps>`
   justify-content: center;
   text-align: center;
   padding: ${({ theme }) => theme.sizes['3xs'].value};
-
+  position: relative;
+  z-index: ${({ $zIndex }) => $zIndex};
   ${space}
 `;
 

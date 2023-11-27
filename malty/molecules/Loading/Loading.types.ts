@@ -1,4 +1,3 @@
-import { ProgressSpinnerColor } from '@carlsberggroup/malty.atoms.progress-spinner';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 
 export interface LoadingProps extends SpaceProps {
@@ -7,7 +6,19 @@ export interface LoadingProps extends SpaceProps {
   status?: LoadingStatus;
   dataQaId?: string;
   negative?: boolean;
-  color?: ProgressSpinnerColor;
+  color?: LoadingColor;
+  zIndex?: number;
+}
+
+export interface LoadingIconProps {
+  negative: LoadingProps['negative'];
+  color: LoadingProps['color'];
+  dataTestId?: LoadingProps['dataQaId'];
+  status: LoadingStatus;
+}
+
+export interface UseLoadingStylesProps {
+  size: LoadingSize;
 }
 
 export enum LoadingSize {
@@ -21,6 +32,14 @@ export enum LoadingStatus {
   Failure = 'Failure'
 }
 
+export enum LoadingColor {
+  DigitalBlack = 'digital-black',
+  ThemePrimary = 'themePrimary',
+  ThemeSecondary = 'themeSecondary',
+  ThemeTertiary = 'themeTertiary'
+}
+
 export type StyledLoadingContainerProps = {
   size: LoadingSize;
+  $zIndex: number;
 } & SpaceProps;
