@@ -43,8 +43,6 @@ export const StyledSideNav = styled.div<{
   position: relative;
   animation: ${slideAnimation} 0.5s forwards;
   left: 0;
-  translateX(-100%);
-  z-index: 0;
   transition: 0.3s ease-in-out;
 `;
 
