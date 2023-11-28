@@ -1,6 +1,6 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
@@ -105,13 +105,7 @@ describe('sideNav sub navigation', () => {
 
     const itemWithSubNav = screen.getByText('item with subnav');
 
-    fireEvent(
-      itemWithSubNav,
-      new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true
-      })
-    );
+    userEvent.click(itemWithSubNav);
 
     expect(screen.getByText('sub item 1')).toBeInTheDocument();
   });
