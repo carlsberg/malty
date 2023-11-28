@@ -85,13 +85,7 @@ it('should toggle the navigation when clicking the menu button', () => {
 
   expect(screen.queryByText(productName)).not.toBeInTheDocument();
 
-  fireEvent(
-    collapseBtn,
-    new MouseEvent('click', {
-      bubbles: true,
-      cancelable: true
-    })
-  );
+  userEvent.click(collapseBtn);
 
   expect(screen.getByText(productName)).toBeInTheDocument();
 });
