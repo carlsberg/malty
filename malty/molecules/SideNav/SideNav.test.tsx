@@ -1,6 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { SideNav } from './SideNav';
@@ -40,7 +41,21 @@ const profileMenu = {
 };
 
 describe('molecule sideNav', () => {
-  it('renders with correct product name', () => {
+  beforeAll(() => {
+    // TODO: find a way to include this on the jest-setup.ts and make it work when using "bit test"
+    window.matchMedia = jest.fn().mockImplementation(() => {
+      return {
+        matches: true,
+        media: '',
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn()
+      };
+    });
+  });
+
+  it('should render with the correct product name', () => {
     render(
       <SideNav
         productName={productName}
@@ -49,12 +64,34 @@ describe('molecule sideNav', () => {
         profileMenu={profileMenu}
       />
     );
+
     expect(screen.getByText(productName)).not.toBeNull();
   });
 });
 
+it('should toggle the navigation when clicking the menu button', () => {
+  render(
+    <SideNav
+      productName={productName}
+      navItems={simpleNavigation}
+      systemOptions={systemOptions}
+      profileMenu={profileMenu}
+    />
+  );
+
+  const collapseBtn = screen.getByTestId('collapse-button');
+
+  userEvent.click(collapseBtn);
+
+  expect(screen.queryByText(productName)).not.toBeInTheDocument();
+
+  userEvent.click(collapseBtn);
+
+  expect(screen.getByText(productName)).toBeInTheDocument();
+});
+
 describe('sideNav sub navigation', () => {
-  it('opens when clicking a nav item with sub items', () => {
+  it('should open when clicking a nav item with sub items', () => {
     render(
       <BrowserRouter>
         <SideNav
@@ -68,13 +105,7 @@ describe('sideNav sub navigation', () => {
 
     const itemWithSubNav = screen.getByText('item with subnav');
 
-    fireEvent(
-      itemWithSubNav,
-      new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true
-      })
-    );
+    userEvent.click(itemWithSubNav);
 
     expect(screen.getByText('sub item 1')).toBeInTheDocument();
   });

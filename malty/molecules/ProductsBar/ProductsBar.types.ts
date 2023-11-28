@@ -33,4 +33,5 @@ export interface ProductsBarProps {
   systemOptions: SystemItemProps[];
   profileMenu: ProfileMenuType;
   resetNavState: () => void;
+  onToggleNav: () => void;
 }

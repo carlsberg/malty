@@ -1,6 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { ProductsBar } from './ProductsBar';
@@ -26,12 +27,18 @@ const singleOptionConfig = {
 };
 
 const resetNavState = jest.fn();
+const onToggleNav = jest.fn();
 
 describe('Products bar component', () => {
-  it('renders with correct number of system options', () => {
+  it('should render with correct number of system options', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={profileMenuMock}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
       </BrowserRouter>
     );
     const options = screen.getByTestId('system-options');
@@ -40,10 +47,15 @@ describe('Products bar component', () => {
     expect(items).toHaveLength(2);
   });
 
-  it('opens profile menu when there is more than on action configured', () => {
+  it('should open profile menu when there is more than on action configured', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={profileMenuMock} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={profileMenuMock}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');
@@ -53,10 +65,15 @@ describe('Products bar component', () => {
     expect(profileMenu).toBeDefined();
   });
 
-  it("doesn't render profile menu when there is only one action configured", () => {
+  it('should not render profile menu when there is only one action configured', () => {
     render(
       <BrowserRouter>
-        <ProductsBar systemOptions={systemOptionsMock} profileMenu={singleOptionConfig} resetNavState={resetNavState} />
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={singleOptionConfig}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');
@@ -64,5 +81,24 @@ describe('Products bar component', () => {
     fireEvent.click(avatarContainer);
     const profileMenu = screen.queryByTestId('profile-options');
     expect(profileMenu).toBeNull();
+  });
+
+  it('should call onToggleNav when clicking menu button', () => {
+    render(
+      <BrowserRouter>
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={singleOptionConfig}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+        />
+      </BrowserRouter>
+    );
+
+    const collapseBtn = screen.getByTestId('collapse-button');
+
+    userEvent.click(collapseBtn);
+
+    expect(onToggleNav).toHaveBeenCalledTimes(1);
   });
 });
