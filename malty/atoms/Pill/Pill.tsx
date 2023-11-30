@@ -30,7 +30,7 @@ export const Pill = ({
       iconSize={iconSize}
       padding={padding}
       hasText={hasText}
-      hasIcon={icon !== undefined}
+      hasIcon={!!icon}
       theme={theme}
       textColor={colorStyle}
       pillSize={size}

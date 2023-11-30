@@ -47,22 +47,18 @@ export const StyledPill = styled.div<StyledPillProps>`
       `;
     }
 
-    switch (pillSize) {
-      case PillSize.ExtraSmall:
-        if (hasIcon && hasText) {
+    if (hasIcon && hasText) {
+      switch (pillSize) {
+        case PillSize.ExtraSmall:
           paddingLeft = theme.sizes['4xs'].value;
-        }
-        break;
-      case PillSize.Small:
-        if (hasIcon && hasText) {
+          break;
+        case PillSize.Small:
           paddingLeft = theme.sizes['3xs'].value;
-        }
-        break;
-      default:
-        if (hasIcon && hasText) {
+          break;
+        default:
           paddingLeft = theme.sizes['2xs'].value;
-        }
-        break;
+          break;
+      }
     }
 
     return css`
