@@ -75,14 +75,4 @@ export const Text: Story = {
   }
 };
 
-export const Badge: Story = {
-  args: {
-    ...Base.args,
-    type: PillType.Success,
-    size: PillSize.ExtraSmall,
-    icon: undefined,
-    text: '9'
-  }
-};
-
 export default meta;
