@@ -1,3 +1,4 @@
+import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Loading } from './Loading';
 import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
@@ -36,7 +37,8 @@ const meta: Meta<LoadingProps> = {
     negative: {
       control: 'boolean',
       description: 'Inverts the component color'
-    }
+    },
+    ...generateStorybookSpacing()
   }
 };
 

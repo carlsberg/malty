@@ -3,6 +3,13 @@ import styled, { css } from 'styled-components';
 import { TableHeaderAlignment } from './Table.types';
 
 export const StyledWrapper = styled.div<SpaceProps>`
+  position: relative;
+  min-height: ${({ theme }) =>
+    `${
+      2 * parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+      parseInt(`${theme.sizes['3xl'].value.replace('px', '')}`, 10) +
+      parseInt(`${theme.sizes['3xs'].value.replace('px', '')}`, 10)
+    }px`};
   ${space}
 `;
 
@@ -116,7 +123,7 @@ export const StyledDraggableCell = styled(StyledTd)`
 `;
 
 export const StyledNoRecordsWrapper = styled.div`
-  padding: ${({ theme }) => theme.sizes['3xl'].value} 0;
+  padding: ${({ theme }) => theme.sizes['5xl'].value} 0;
   display: flex;
   align-items: center;
   justify-content: center;

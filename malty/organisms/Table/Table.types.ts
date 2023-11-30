@@ -1,3 +1,4 @@
+import { LoadingOverlayProps } from '@carlsberggroup/malty.molecules.loading-overlay';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import {
   CellContext,
@@ -23,6 +24,8 @@ export interface TableProps extends SpaceProps {
   defaultSorting?: ColumnSort;
   manualPagination?: ManualPagination;
   rowSelection?: RowSelectionState;
+  isLoading?: boolean;
+  loadingOverlayProps?: Pick<LoadingOverlayProps, 'text' | 'color' | 'zIndex'>;
   onRowClick?: (row: TableRowProps) => void;
   onRowSelect?: (selectedRows: RowSelectionState) => void;
   onPaginationChange?: (page: number) => void;
@@ -72,4 +75,8 @@ declare module '@tanstack/table-core' {
 export interface ManualPagination {
   totalPagesCount: number;
   totalRecords: number;
+}
+
+export interface UseTableStylesProps {
+  size: TableSize;
 }
