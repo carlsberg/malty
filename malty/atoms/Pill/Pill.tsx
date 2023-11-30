@@ -11,7 +11,6 @@ export const Pill = ({
   icon,
   type = PillType.Primary,
   size = PillSize.Medium,
-  badgeMode = false,
   isUppercase = false,
   dataTestId,
   ...props
@@ -31,8 +30,7 @@ export const Pill = ({
       iconSize={iconSize}
       padding={padding}
       hasText={hasText}
-      hasIcon={!!icon}
-      badgeMode={badgeMode}
+      hasIcon={icon !== undefined}
       theme={theme}
       textColor={colorStyle}
       pillSize={size}
