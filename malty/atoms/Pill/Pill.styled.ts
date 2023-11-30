@@ -39,7 +39,7 @@ export const StyledPill = styled.div<StyledPillProps>`
   }
 
   ${({ hasIcon, hasText, pillSize, theme }) => {
-    let paddingLeft = '';
+    let paddingLeft;
 
     if (hasIcon && !hasText) {
       return css`
