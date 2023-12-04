@@ -12,15 +12,9 @@ export const useTableStyles = ({ size }: UseTableStylesProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const tableStyles = {
-    [TableSize.Medium]: {
-      tableSize: theme.sizes.xl.value
-    },
-    [TableSize.Large]: {
-      tableSize: theme.sizes['2xl'].value
-    },
-    [TableSize.XLarge]: {
-      tableSize: theme.sizes['3xl'].value
-    }
+    [TableSize.Medium]: theme.sizes.xl.value,
+    [TableSize.Large]: theme.sizes['2xl'].value,
+    [TableSize.XLarge]: theme.sizes['3xl'].value
   };
 
   return tableStyles[size];

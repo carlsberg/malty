@@ -71,7 +71,7 @@ export const Table = ({
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const [data, setData] = useState(rows);
-  const { tableSize } = useTableStyles({ size });
+  const tableSize = useTableStyles({ size });
   const [rowSelection, setRowSelection] = useState(rowSelectionProp);
   const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
@@ -274,7 +274,7 @@ export const Table = ({
           <Droppable droppableId="tbody">
             {(provided) => (
               <StyledTbody ref={provided.innerRef}>
-                {data.length <= 0 && !isLoading && (
+                {data.length <= 0 && !isLoading ? (
                   <tr>
                     <td colSpan={table.getFlatHeaders().length}>
                       <StyledNoRecordsWrapper>
@@ -284,7 +284,7 @@ export const Table = ({
                       </StyledNoRecordsWrapper>
                     </td>
                   </tr>
-                )}
+                ) : null}
                 {table.getRowModel().rows.map((row) => (
                   <React.Fragment key={row.id}>
                     {isDraggable && (
