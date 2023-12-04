@@ -9,7 +9,7 @@ const credit = '200';
 const testId = 'price';
 
 describe('Price', () => {
-  it('should renders default only correctly', () => {
+  it('should render default only correctly', () => {
     render(<Price base={base} />);
 
     expect(screen.getByText(base)).toBeInTheDocument();
@@ -57,7 +57,7 @@ describe('Price', () => {
     expect(screen.getByText(credit)).toBeInTheDocument();
   });
 
-  it('should render with the correct test id', () => {
+  it('should render with the correct data test id', () => {
     render(<Price discount={discount} credit={credit} dataTestId={testId} />);
 
     expect(screen.getByTestId(`${testId}-credit-price`)).toBeInTheDocument();
