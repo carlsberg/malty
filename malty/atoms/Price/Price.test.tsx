@@ -12,7 +12,7 @@ describe('Price', () => {
   it('should render default only correctly', () => {
     render(<Price base={base} />);
 
-    expect(screen.getByText(base)).toBeInTheDocument();
+    expect(screen.getByText(base)).toBeVisible();
     expect(screen.queryByText(discount)).not.toBeInTheDocument();
     expect(screen.queryByText(credit)).not.toBeInTheDocument();
   });
@@ -21,7 +21,7 @@ describe('Price', () => {
     render(<Price discount={discount} />);
 
     expect(screen.queryByText(base)).not.toBeInTheDocument();
-    expect(screen.getByText(discount)).toBeInTheDocument();
+    expect(screen.getByText(discount)).toBeVisible();
     expect(screen.queryByText(credit)).not.toBeInTheDocument();
   });
 
@@ -30,14 +30,14 @@ describe('Price', () => {
 
     expect(screen.queryByText(base)).not.toBeInTheDocument();
     expect(screen.queryByText(discount)).not.toBeInTheDocument();
-    expect(screen.getByText(credit)).toBeInTheDocument();
+    expect(screen.getByText(credit)).toBeVisible();
   });
 
   it('should render default and discount correctly', () => {
     render(<Price base={base} discount={discount} />);
 
-    expect(screen.getByText(base)).toBeInTheDocument();
-    expect(screen.getByText(discount)).toBeInTheDocument();
+    expect(screen.getByText(base)).toBeVisible();
+    expect(screen.getByText(discount)).toBeVisible();
     expect(screen.queryByText(credit)).not.toBeInTheDocument();
   });
 
@@ -46,7 +46,7 @@ describe('Price', () => {
 
     expect(screen.queryByText(base)).not.toBeInTheDocument();
     expect(screen.queryByText(discount)).not.toBeInTheDocument();
-    expect(screen.getByText(credit)).toBeInTheDocument();
+    expect(screen.getByText(credit)).toBeVisible();
   });
 
   it('should render discount and credit correctly', () => {
@@ -54,12 +54,12 @@ describe('Price', () => {
 
     expect(screen.queryByText(base)).not.toBeInTheDocument();
     expect(screen.queryByText(discount)).not.toBeInTheDocument();
-    expect(screen.getByText(credit)).toBeInTheDocument();
+    expect(screen.getByText(credit)).toBeVisible();
   });
 
   it('should render with the correct data test id', () => {
     render(<Price discount={discount} credit={credit} dataTestId={testId} />);
 
-    expect(screen.getByTestId(`${testId}-credit-price`)).toBeInTheDocument();
+    expect(screen.getByTestId(`${testId}-credit-price`)).toBeVisible();
   });
 });
