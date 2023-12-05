@@ -77,6 +77,10 @@ export interface ManualPagination {
   totalRecords: number;
 }
 
-export interface UseTableStylesProps {
+export interface UseTableSizesProps {
   size: TableSize;
 }
+
+export type StyledTableWrapperProps = {
+  $isLoading: boolean;
+} & SpaceProps;

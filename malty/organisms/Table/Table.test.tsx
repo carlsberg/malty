@@ -266,6 +266,13 @@ describe('table', () => {
     expect(screen.getByText('Loading')).toBeVisible();
   });
 
+  it('should not display the LoadingOverlay component when the property isLoading is not set to true', () => {
+    render(<Table headers={headers} rows={rows} dataTestId="table" />);
+
+    expect(screen.queryByTestId('table-loading-overlay')).not.toBeInTheDocument();
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
+  });
+
   describe('Table Pagination', () => {
     const firstPageItems = rows.slice(0, 10);
     const secondPageItems = rows.slice(10);

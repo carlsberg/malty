@@ -1,15 +1,10 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { TableHeaderAlignment } from './Table.types';
+import { StyledTableWrapperProps, TableHeaderAlignment } from './Table.types';
 
-export const StyledWrapper = styled.div<SpaceProps>`
+export const StyledWrapper = styled.div<StyledTableWrapperProps>`
   position: relative;
-  min-height: ${({ theme }) =>
-    `${
-      2 * parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
-      parseInt(`${theme.sizes['3xl'].value.replace('px', '')}`, 10) +
-      parseInt(`${theme.sizes['3xs'].value.replace('px', '')}`, 10)
-    }px`};
+  min-height: ${({ $isLoading }) => ($isLoading ? '222px' : 'auto')};
   ${space}
 `;
 

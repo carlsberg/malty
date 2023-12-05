@@ -21,7 +21,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { DraggableRow } from './DraggableRow';
 import { Footer } from './Footer';
-import { useTableStyles } from './Table.helper';
+import { useTableSizes } from './Table.helper';
 import {
   StyledHead,
   StyledNoRecordsWrapper,
@@ -71,7 +71,7 @@ export const Table = ({
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
   const [data, setData] = useState(rows);
-  const tableSize = useTableStyles({ size });
+  const tableSize = useTableSizes({ size });
   const [rowSelection, setRowSelection] = useState(rowSelectionProp);
   const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
@@ -186,7 +186,7 @@ export const Table = ({
   };
 
   return (
-    <StyledWrapper {...props}>
+    <StyledWrapper {...props} $isLoading={isLoading}>
       {isLoading ? (
         <LoadingOverlay
           {...loadingOverlayProps}
