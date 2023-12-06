@@ -1,8 +1,10 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { TableHeaderAlignment } from './Table.types';
+import { StyledTableWrapperProps, TableHeaderAlignment } from './Table.types';
 
-export const StyledWrapper = styled.div<SpaceProps>`
+export const StyledWrapper = styled.div<StyledTableWrapperProps>`
+  position: relative;
+  min-height: ${({ $isLoading }) => ($isLoading ? '222px' : 'auto')};
   ${space}
 `;
 
@@ -116,7 +118,7 @@ export const StyledDraggableCell = styled(StyledTd)`
 `;
 
 export const StyledNoRecordsWrapper = styled.div`
-  padding: ${({ theme }) => theme.sizes['3xl'].value} 0;
+  padding: ${({ theme }) => theme.sizes['5xl'].value} 0;
   display: flex;
   align-items: center;
   justify-content: center;

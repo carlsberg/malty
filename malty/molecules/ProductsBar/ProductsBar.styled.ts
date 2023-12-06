@@ -10,6 +10,7 @@ export const StyledProductsBar = styled.div`
   box-sizing: border-box;
   padding: ${({ theme }) => `${theme.sizes.m.value} ${theme.sizes.l.value}`};
   overflow: hidden;
+  z-index: 1;
 `;
 export const StyledSystemWrapper = styled.div`
   position: absolute;
@@ -140,4 +141,9 @@ export const StyledOverlay = styled.div<{
   display: ${({ open }) => (open ? 'block' : 'none')};
   max-width: calc(220px + 80px);
   background-color: ${({ theme }) => theme.colors.colours.overlay['digital-black'][75].value};
+`;
+
+export const StyledCollapseBtn = styled.div`
+  margin-top: ${({ theme }) => theme.sizes.m.value};
+  cursor: pointer;
 `;

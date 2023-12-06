@@ -1,6 +1,7 @@
 import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { render } from '@carlsberggroup/malty.utils.test';
 import { RowSelectionState } from '@tanstack/react-table';
-import { render, screen, within } from '@testing-library/react';
+import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { Table } from './Table';
@@ -254,6 +255,22 @@ describe('table', () => {
 
     expect(screen.getByText('1 - 12 of 13')).toBeVisible();
     expect(screen.getByRole('spinbutton', { name: 'Page 1' })).toBeVisible();
+  });
+
+  it('should display the LoadingOverlay component when the property isLoading is set to true', () => {
+    render(
+      <Table headers={headers} rows={rows} isLoading dataTestId="table" loadingOverlayProps={{ text: 'Loading' }} />
+    );
+
+    expect(screen.getByTestId('table-loading-overlay')).toBeVisible();
+    expect(screen.getByText('Loading')).toBeVisible();
+  });
+
+  it('should not display the LoadingOverlay component when the property isLoading is not set to true', () => {
+    render(<Table headers={headers} rows={rows} dataTestId="table" />);
+
+    expect(screen.queryByTestId('table-loading-overlay')).not.toBeInTheDocument();
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
   });
 
   describe('Table Pagination', () => {
