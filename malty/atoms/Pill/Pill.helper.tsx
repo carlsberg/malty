@@ -21,7 +21,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       fontSize: theme.typography.desktop.text.tiny_bold['font-size'].value,
       fontFamily: theme.typography.desktop.text.tiny_bold['font-family'].value,
       iconSize: theme.sizes.s.value,
-      padding: theme.sizes.xs.value,
+      padding: theme.sizes['2xs'].value,
       gap: theme.sizes['3xs'].value
     },
     [PillSize.Medium]: {
@@ -29,7 +29,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       fontSize: theme.typography.desktop.text['medium-small_bold']['font-size'].value,
       fontFamily: theme.typography.desktop.text['medium-small_bold']['font-family'].value,
       iconSize: theme.sizes.m.value,
-      padding: theme.sizes.s.value,
+      padding: theme.sizes.xs.value,
       gap: theme.sizes['2xs'].value
     }
   };

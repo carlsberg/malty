@@ -6,7 +6,6 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps
   icon?: IconName;
   type?: PillType;
   size?: PillSize;
-  badgeMode?: boolean;
   dataTestId?: string;
   isUppercase?: boolean;
 }
@@ -49,7 +48,6 @@ export type StyledPillProps = {
   textColor: IconColor;
   hasText: boolean;
   hasIcon: boolean;
-  badgeMode: boolean;
   pillSize: PillSize;
   gap: string;
   isUppercase: boolean;
