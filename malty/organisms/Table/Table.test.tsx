@@ -42,91 +42,104 @@ const rows: TableRowProps[] = [
     name: 'Aguila Restaurant',
     age: 70,
     birthdate: new Date(1953, 3, 20),
-    selected: true
+    selected: true,
+    disabled: true
   },
   {
     id: '2',
     name: 'Fitzgerald Moody',
     age: 35,
     birthdate: new Date(1988, 5, 12),
-    selected: true
+    selected: true,
+    disabled: false
   },
   {
     id: '3',
     name: 'Liberty Bell',
     age: 66,
     birthdate: new Date(1957, 6, 22),
-    selected: false
+    selected: false,
+    disabled: true
   },
   {
     id: '4',
     name: 'Halla Pugh',
     age: 31,
     birthdate: new Date(1992, 2, 12),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '5',
     name: 'Jaquelyn Valenzuela',
     age: 52,
     birthdate: new Date(1971, 4, 23),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '6',
     name: 'Kyra Mcknight',
     age: 23,
     birthdate: new Date(2000, 3, 30),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '7',
     name: 'Naida Barlow',
     age: 52,
     birthdate: new Date(1971, 1, 25),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '8',
     name: 'Amir Joyce',
     age: 26,
     birthdate: new Date(1997, 7, 10),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '9',
     name: 'Lenore Dixon',
     age: 40,
     birthdate: new Date(1983, 2, 22),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '10',
     name: 'Carla Velazquez',
     age: 29,
     birthdate: new Date(1994, 5, 15),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '11',
     name: 'Quamar Petersen',
     age: 58,
     birthdate: new Date(1965, 4, 27),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '12',
     name: 'Frank Lemar',
     age: 46,
     birthdate: new Date(1922, 10, 4),
-    selected: false
+    selected: false,
+    disabled: false
   },
   {
     id: '13',
     name: 'Patrick Stout',
     age: 61,
     birthdate: new Date(1923, 6, 7),
-    selected: true
+    selected: true,
+    disabled: true
   }
 ];
 

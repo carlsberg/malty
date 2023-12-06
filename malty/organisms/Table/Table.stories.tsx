@@ -325,7 +325,8 @@ export const Selection: Story = {
   args: {
     ...Base.args,
     allowSelection: true,
-    rowSelection: { '1': true, '7': true, '8': true, '15': true }
+    rowSelection: { '1': true, '7': true, '8': true, '15': true },
+    rowSelectionDisabled: { '1': true, '2': true }
   }
 };
 
