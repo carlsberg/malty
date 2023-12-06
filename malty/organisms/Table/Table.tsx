@@ -2,7 +2,7 @@ import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Tooltip, TooltipPlacement } from '@carlsberggroup/malty.atoms.tooltip';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { LoadingOverlay } from '@carlsberggroup/malty.molecules.loading-overlay';
 import {
   createColumnHelper,
   flexRender,
@@ -17,11 +17,11 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
-import { ThemeContext } from 'styled-components';
 import { DraggableRow } from './DraggableRow';
 import { Footer } from './Footer';
+import { useTableSizes } from './Table.helper';
 import {
   StyledHead,
   StyledNoRecordsWrapper,
@@ -51,7 +51,7 @@ const createSortIcon = (iconName: IconName) => {
 export const Table = ({
   headers,
   rows,
-  size,
+  size = TableSize.Medium,
   paginationIndex = 0,
   paginationSize = 12,
   className,
@@ -63,14 +63,15 @@ export const Table = ({
   rowSelection: rowSelectionProp = {},
   onRowClick,
   onSortingChange,
+  isLoading = false,
+  loadingOverlayProps,
   onRowSelect = () => null,
   onPaginationChange = () => null,
   ...props
 }: TableProps) => {
   const columnHelper = createColumnHelper<TableRowProps>();
-  const theme = useContext(ThemeContext) || defaultTheme;
   const [data, setData] = useState(rows);
-  const [tableSize, setTableSize] = useState(theme.sizes.xl.value);
+  const tableSize = useTableSizes({ size });
   const [rowSelection, setRowSelection] = useState(rowSelectionProp);
   const [sorting, setSorting] = useState<SortingState>(defaultSorting ? [defaultSorting] : []);
   const nodesRef = useRef<HTMLTableCellElement[]>([]);
@@ -168,24 +169,6 @@ export const Table = ({
     setData(rows);
   }, [rows]);
 
-  useEffect(() => {
-    switch (size) {
-      case TableSize.Large: {
-        setTableSize(theme.sizes['2xl'].value);
-        break;
-      }
-      case TableSize.XLarge: {
-        setTableSize(theme.sizes['3xl'].value);
-        break;
-      }
-
-      default: {
-        setTableSize(theme.sizes.xl.value);
-        break;
-      }
-    }
-  }, [size, theme]);
-
   const createHandleHeaderClick = (header: Header<TableRowProps, unknown>, index: number) => {
     if (columns[index].meta?.sorting) {
       return header.column.getToggleSortingHandler();
@@ -203,23 +186,23 @@ export const Table = ({
   };
 
   return (
-    <StyledWrapper {...props}>
+    <StyledWrapper {...props} $isLoading={isLoading}>
+      {isLoading ? (
+        <LoadingOverlay
+          {...loadingOverlayProps}
+          overlayPositionFixed={false}
+          dataTestId={`${dataTestId}-loading-overlay`}
+        />
+      ) : null}
       <DragDropContext onDragEnd={(results) => handleDragEnd(results)}>
-        <StyledTable data-testid={dataTestId} className={className} theme={theme}>
-          <StyledThead data-testid={`${dataTestId}-thead`} theme={theme}>
+        <StyledTable data-testid={dataTestId} className={className}>
+          <StyledThead data-testid={`${dataTestId}-thead`}>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr data-testid={`${dataTestId}-tr-${headerGroup.id}`} key={headerGroup.id}>
-                {isDraggable && data.length > 0 && (
-                  <StyledHead className="draggable-header" isSortable={false} theme={theme} />
-                )}
+                {isDraggable && data.length > 0 && <StyledHead className="draggable-header" isSortable={false} />}
 
                 {allowSelection && data.length > 0 && (
-                  <StyledHead
-                    className="checkbox-header"
-                    isSortable={false}
-                    theme={theme}
-                    allowSelection={allowSelection}
-                  >
+                  <StyledHead className="checkbox-header" isSortable={false} allowSelection={allowSelection}>
                     <Checkbox
                       onValueChange={table.getToggleAllRowsSelectedHandler()}
                       checked={table.getIsAllRowsSelected()}
@@ -234,7 +217,6 @@ export const Table = ({
                     isSortable={!!columns[index].meta?.sorting && header.column.getCanSort()}
                     onClick={createHandleHeaderClick(header, index)}
                     data-testid={`${dataTestId}-th-${header.id}`}
-                    theme={theme}
                     key={header.id}
                     width={header.getSize()}
                   >
@@ -291,18 +273,18 @@ export const Table = ({
 
           <Droppable droppableId="tbody">
             {(provided) => (
-              <StyledTbody ref={provided.innerRef} theme={theme}>
-                {data.length <= 0 && (
+              <StyledTbody ref={provided.innerRef}>
+                {data.length <= 0 && !isLoading ? (
                   <tr>
                     <td colSpan={table.getFlatHeaders().length}>
-                      <StyledNoRecordsWrapper theme={theme}>
+                      <StyledNoRecordsWrapper>
                         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.DigitalBlack}>
                           No records found
                         </Text>
                       </StyledNoRecordsWrapper>
                     </td>
                   </tr>
-                )}
+                ) : null}
                 {table.getRowModel().rows.map((row) => (
                   <React.Fragment key={row.id}>
                     {isDraggable && (
@@ -318,7 +300,6 @@ export const Table = ({
                     )}
                     {!isDraggable && (
                       <StyledRow
-                        theme={theme}
                         key={row.id}
                         onClick={() => handleOnRowClick(row.original)}
                         isClickable={!!onRowClick}
@@ -326,7 +307,7 @@ export const Table = ({
                         data-testid={`${dataTestId}-row-${row.id}`}
                       >
                         {allowSelection && (
-                          <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
+                          <StyledTd data-testid={`${dataTestId}-cell-checkbox`}>
                             <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
                           </StyledTd>
                         )}
@@ -337,7 +318,6 @@ export const Table = ({
                                 ?.meta as TableHeaderAlignment | undefined
                             }
                             data-testid={`${dataTestId}-cell-${cell.id}`}
-                            theme={theme}
                             key={cell.id}
                           >
                             {cell.column.columnDef.cell

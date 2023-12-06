@@ -1,10 +1,8 @@
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { flexRender } from '@tanstack/react-table';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { ThemeContext } from 'styled-components';
 import { StyledDraggableCell, StyledRow, StyledTd } from './Table.styled';
 import { DraggableRowProps, TableHeaderAlignment } from './Table.types';
 
@@ -17,8 +15,6 @@ export const DraggableRow = ({
   elementRef,
   tableContext
 }: DraggableRowProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-
   return (
     <Draggable key={row.id} draggableId={row.id} index={row.index}>
       {(provided) => (
@@ -29,16 +25,15 @@ export const DraggableRow = ({
           onClick={onRowClick}
           isClickable={!!onRowClick}
           size={size}
-          theme={theme}
           data-testid={`${dataTestId}-row-${row.id}`}
         >
-          <StyledDraggableCell {...provided?.dragHandleProps} theme={theme}>
+          <StyledDraggableCell {...provided?.dragHandleProps}>
             <div>
               <Icon color={IconColor.Support60} name={IconName.Arrange} size={IconSize.Small} />
             </div>
           </StyledDraggableCell>
           {allowSelection && (
-            <StyledTd data-testid={`${dataTestId}-cell-checkbox`} theme={theme}>
+            <StyledTd data-testid={`${dataTestId}-cell-checkbox`}>
               <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
             </StyledTd>
           )}
@@ -51,7 +46,6 @@ export const DraggableRow = ({
               }
               width={elementRef?.current[cellIndex]?.offsetWidth}
               data-testid={`${dataTestId}-cell-${cell.id}`}
-              theme={theme}
               key={cell.id}
             >
               {cell.column.columnDef.cell
