@@ -1,7 +1,7 @@
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';
 import {
@@ -19,7 +19,7 @@ export const TextArea = ({
   placeholder,
   resize = false,
   disabled = false,
-  value: valueProp,
+  value,
   onValueChange,
   error,
   maxLength,
@@ -31,21 +31,14 @@ export const TextArea = ({
 }: TextAreaProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const id = useMemo(() => uuid(), []);
-  const [value, setValue] = useState<string | undefined>(valueProp);
   const valueCounter = value?.length ?? 0;
   const textAreaCounter = maxLength ? maxLength - valueCounter : valueCounter;
   const { spaceProps, restProps } = isolateSpaceProps(props);
 
   const handleOnValueChange = (event: React.FormEvent<HTMLTextAreaElement>) => {
     const currentValue = event.currentTarget.value;
-
-    setValue(currentValue);
     onValueChange(currentValue);
   };
-
-  useEffect(() => {
-    setValue(valueProp);
-  }, [valueProp]);
 
   return (
     <StyledTextareaContainer theme={theme} {...spaceProps}>
@@ -54,7 +47,7 @@ export const TextArea = ({
         data-testid={`${dataTestId}-container`}
         readOnly={readOnly}
         disabled={disabled}
-        isError={!!error}
+        $isError={!!error}
         resize={resize}
         theme={theme}
       >
@@ -70,9 +63,15 @@ export const TextArea = ({
           readOnly={readOnly}
           maxLength={maxLength}
           required={required}
+          $isError={!!error}
           {...restProps}
         />
-        <StyledTextAreaCharacterCounter disabled={disabled} theme={theme} data-testid={`${dataTestId}-counter`}>
+        <StyledTextAreaCharacterCounter
+          disabled={disabled}
+          $isError={!!error}
+          theme={theme}
+          data-testid={`${dataTestId}-counter`}
+        >
           {textAreaCounter}
         </StyledTextAreaCharacterCounter>
       </StyledTextAreaWrapper>
