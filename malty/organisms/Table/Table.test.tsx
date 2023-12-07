@@ -143,9 +143,9 @@ const rows: TableRowProps[] = [
   }
 ];
 
-const getSelectedRows = (arr: TableRowProps[]): RowSelectionState => {
+const getRows = (arr: TableRowProps[], state: string): RowSelectionState => {
   return arr.reduce((acc: RowSelectionState, curr) => {
-    if (curr.selected) acc[`${curr.id}`] = true;
+    if (curr[state]) acc[`${curr.id}`] = true;
     return acc;
   }, {});
 };
@@ -291,6 +291,8 @@ describe('table', () => {
     const secondPageItems = rows.slice(10);
     const firstPageRowsSelectedArray = firstPageItems.filter((item) => item.selected);
     const secondPageRowsSelectedArray = secondPageItems.filter((item) => item.selected);
+    const firstPageRowsDisabledArray = firstPageItems.filter((item) => item.disabled);
+    const secondPageRowsDisabledArray = secondPageItems.filter((item) => item.disabled);
 
     describe('Automatic pagination', () => {
       it('should render first 10 elements correctly and ignore the rest', () => {
@@ -319,7 +321,7 @@ describe('table', () => {
       });
 
       it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
-        const defaultSelectedRows: RowSelectionState = getSelectedRows(rows);
+        const defaultSelectedRows: RowSelectionState = getRows(rows, 'selected');
 
         render(
           <Table headers={headers} rows={rows} allowSelection rowSelection={defaultSelectedRows} dataTestId="table" />
@@ -337,6 +339,83 @@ describe('table', () => {
           expect(
             within(screen.getByTestId(`table-row-${selectedRow.id}`)).getByRole('checkbox', { hidden: true })
           ).toBeChecked();
+        });
+      });
+
+      it('should render the first page with the first and third rows disabled by default, and after clicking on next page arrow, should render the second page with the first row disabled by default', () => {
+        const defaultDisabledRows: RowSelectionState = getRows(rows, 'disabled');
+
+        render(
+          <Table
+            headers={headers}
+            rows={rows}
+            allowSelection
+            rowSelectionDisabled={defaultDisabledRows}
+            dataTestId="table"
+          />
+        );
+
+        firstPageRowsDisabledArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeDisabled();
+        });
+
+        userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+        secondPageRowsDisabledArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeDisabled();
+        });
+      });
+
+      it('should keep the default checked/unchecked state of the disabled rows after clicking on the check/uncheck all checkbox', () => {
+        const defaultDisabledRows: RowSelectionState = getRows(rows, 'disabled');
+        const defaultSelectedRows: RowSelectionState = getRows(rows, 'selected');
+        const firstPageRowsDisabledAndSelectedArray = firstPageItems.filter((item) => item.disabled && item.selected);
+        const firstPageRowsDisabledAndNotSelectedArray = firstPageItems.filter(
+          (item) => item.disabled && !item.selected
+        );
+
+        render(
+          <Table
+            headers={headers}
+            rows={rows}
+            allowSelection
+            rowSelection={defaultSelectedRows}
+            rowSelectionDisabled={defaultDisabledRows}
+            dataTestId="table"
+          />
+        );
+
+        firstPageRowsDisabledAndSelectedArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeChecked();
+        });
+
+        firstPageRowsDisabledAndNotSelectedArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).not.toBeChecked();
+        });
+
+        const checkAllCheckbox = within(screen.getByTestId('table-tr-0')).getByRole('checkbox', { hidden: true });
+
+        userEvent.click(checkAllCheckbox);
+        userEvent.click(checkAllCheckbox);
+
+        firstPageRowsDisabledAndSelectedArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeChecked();
+        });
+
+        firstPageRowsDisabledAndNotSelectedArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).not.toBeChecked();
         });
       });
     });
@@ -422,8 +501,8 @@ describe('table', () => {
       });
 
       it('should render the first page with the first two rows selected by default, and after clicking on next page arrow, should render the second page with the first row selected by default', () => {
-        const firstPageRowsSelected: RowSelectionState = getSelectedRows(firstPageRowsSelectedArray);
-        const secondPageRowsSelected: RowSelectionState = getSelectedRows(secondPageRowsSelectedArray);
+        const firstPageRowsSelected: RowSelectionState = getRows(firstPageRowsSelectedArray, 'selected');
+        const secondPageRowsSelected: RowSelectionState = getRows(secondPageRowsSelectedArray, 'selected');
 
         const TableComponent = () => {
           const [tableRows, setTableRows] = useState(firstPageItems);
@@ -465,6 +544,53 @@ describe('table', () => {
           expect(
             within(screen.getByTestId(`table-row-${selectedRow.id}`)).getByRole('checkbox', { hidden: true })
           ).toBeChecked();
+        });
+      });
+
+      it('should render the first page with the first and third rows disabled by default, and after clicking on next page arrow, should render the second page with the first row disabled by default', () => {
+        const firstPageRowsDisabled: RowSelectionState = getRows(firstPageRowsDisabledArray, 'disabled');
+        const secondPageRowsDisabled: RowSelectionState = getRows(secondPageRowsDisabledArray, 'disabled');
+
+        const TableComponent = () => {
+          const [tableRows, setTableRows] = useState(firstPageItems);
+          const [pageIndex, setPageIndex] = useState(0);
+          const [rowSelectionDisabled, setRowSelectionDisabled] = useState<RowSelectionState>(firstPageRowsDisabled);
+
+          const handleOnPaginationChange = (page: number) => {
+            setPageIndex(page - 1);
+            setTableRows([...tableRows, ...secondPageItems]);
+            setRowSelectionDisabled(secondPageRowsDisabled);
+          };
+
+          return (
+            <Table
+              headers={headers}
+              rows={tableRows}
+              allowSelection
+              rowSelectionDisabled={rowSelectionDisabled}
+              paginationIndex={pageIndex}
+              paginationSize={10}
+              dataTestId="table"
+              manualPagination={{ totalPagesCount: 2, totalRecords: 13 }}
+              onPaginationChange={handleOnPaginationChange}
+            />
+          );
+        };
+
+        render(<TableComponent />);
+
+        firstPageRowsDisabledArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeDisabled();
+        });
+
+        userEvent.click(screen.getByRole('button', { name: 'Go to next page' }));
+
+        secondPageRowsDisabledArray.forEach((disabledRow) => {
+          expect(
+            within(screen.getByTestId(`table-row-${disabledRow.id}`)).getByRole('checkbox', { hidden: true })
+          ).toBeDisabled();
         });
       });
     });
