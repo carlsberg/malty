@@ -11,7 +11,21 @@ describe('pill', () => {
   it('should render the component correctly', () => {
     render(<Pill text={text} icon={iconName} />);
 
-    expect(screen.getByText(text)).toBeInTheDocument();
-    expect(screen.getByTestId(`icon-${iconName}`)).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeVisible();
+    expect(screen.getByTestId(`icon-${iconName}`)).toBeVisible();
+  });
+
+  it('should render only text', () => {
+    render(<Pill text={text} />);
+
+    expect(screen.getByText(text)).toBeVisible();
+    expect(screen.queryByTestId(`icon-${iconName}`)).not.toBeInTheDocument();
+  });
+
+  it('should render only Icon', () => {
+    render(<Pill icon={iconName} />);
+
+    expect(screen.queryByText(text)).not.toBeInTheDocument();
+    expect(screen.getByTestId(`icon-${iconName}`)).toBeVisible();
   });
 });
