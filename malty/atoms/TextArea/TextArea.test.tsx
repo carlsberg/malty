@@ -7,17 +7,28 @@ import { TextAreaProps } from './TextArea.types';
 
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
-const mockFn = jest.fn();
+const onValueChange = jest.fn();
 
 const ControlledTextArea = ({ value: initialValue, ...props }: Omit<TextAreaProps, 'onValueChange'>) => {
   const [value, setValue] = useState(initialValue);
 
-  return <TextArea {...props} label="Label" value={value} onValueChange={setValue} dataTestId="textarea" />;
+  const handleValueChange = (newValue: string) => {
+    setValue(newValue);
+    onValueChange(newValue);
+  };
+
+  return <TextArea {...props} label="Label" value={value} onValueChange={handleValueChange} dataTestId="textarea" />;
 };
+
+afterEach(() => {
+  jest.clearAllMocks();
+});
 
 describe('textarea', () => {
   it('should render elements', () => {
-    render(<TextArea value="Value text" label="Label text" placeholder="Placeholder text" onValueChange={mockFn} />);
+    render(
+      <TextArea value="Value text" label="Label text" placeholder="Placeholder text" onValueChange={onValueChange} />
+    );
 
     expect(screen.getByLabelText('Label text')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Placeholder text')).toBeInTheDocument();
@@ -30,7 +41,7 @@ describe('textarea', () => {
         value="Value text"
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         dataTestId="Textarea"
         error="Error text"
       />
@@ -45,7 +56,7 @@ describe('textarea', () => {
         value="Value text"
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         dataTestId="Textarea"
         hint="Hint text"
       />
@@ -60,7 +71,7 @@ describe('textarea', () => {
         value="Value text"
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         dataTestId="Textarea"
         disabled
       />
@@ -77,7 +88,7 @@ describe('textarea', () => {
         value="Value text"
         label="Label text"
         placeholder="Placeholder text"
-        onValueChange={mockFn}
+        onValueChange={onValueChange}
         dataTestId="Textarea"
         readOnly
       />
@@ -88,25 +99,27 @@ describe('textarea', () => {
 
     userEvent.type(textarea, text);
 
-    expect(mockFn).not.toHaveBeenCalled();
+    expect(onValueChange).not.toHaveBeenCalled();
   });
 
   it('should call onValueChange when typing', () => {
-    const { rerender } = render(<TextArea value="Initial value" label="textarea label" onValueChange={mockFn} />);
+    const { rerender } = render(
+      <TextArea value="Initial value" label="textarea label" onValueChange={onValueChange} />
+    );
     const textarea = screen.getByDisplayValue('Initial value');
     const text = 'Test';
 
     userEvent.type(textarea, text);
 
-    expect(mockFn).toHaveBeenCalledTimes(text.length);
+    expect(onValueChange).toHaveBeenCalledTimes(text.length);
 
-    rerender(<TextArea value="Test" label="textarea label" onValueChange={mockFn} />);
+    rerender(<TextArea value="Test" label="textarea label" onValueChange={onValueChange} />);
 
     expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
   });
 
   it('should update counter when typing', () => {
-    render(<TextArea label="Label" onValueChange={mockFn} dataTestId="textarea" />);
+    render(<ControlledTextArea value="" />);
 
     expect(screen.getByTestId('textarea-counter')).toHaveTextContent('0');
 
@@ -137,7 +150,7 @@ describe('textarea', () => {
   it('should not allow typing more than the maxLength', async () => {
     const maxLength = 10;
 
-    render(<ControlledTextArea maxLength={maxLength} />);
+    render(<ControlledTextArea maxLength={maxLength} value="" />);
 
     const textarea = screen.getByLabelText('Label');
     const expectedText = 'A'.repeat(maxLength);

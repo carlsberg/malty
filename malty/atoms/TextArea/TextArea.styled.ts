@@ -38,6 +38,7 @@ export const StyledHint = styled.label<{
 export const StyledtextArea = styled.textarea<{
   disabled?: boolean;
   readOnly?: boolean;
+  $isError: boolean;
 }>`
   width: 100%;
   height: calc(100% - 22px);
@@ -58,6 +59,17 @@ export const StyledtextArea = styled.textarea<{
   &:focus {
     outline: none;
   }
+
+  ${({ $isError, readOnly }) =>
+    !$isError &&
+    !readOnly &&
+    css`
+      &:focus {
+        + ${StyledTextAreaCharacterCounter} {
+          background-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+        }
+      }
+    `}
 
   ::placeholder {
     opacity: 0.8;
@@ -86,7 +98,7 @@ export const StyledTextAreaWrapper = styled.div<{
   resize?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
-  isError?: boolean;
+  $isError?: boolean;
 }>`
   min-height: 96px;
   height: 100px;
@@ -95,21 +107,27 @@ export const StyledTextAreaWrapper = styled.div<{
   flex: 1 1 auto;
   flex-direction: column;
   border: 1px solid
-    ${({ theme, isError }) =>
-      isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
+    ${({ theme, $isError }) =>
+      $isError ? theme.colors.colours.system.fail.value : theme.colors.colours.support[40].value};
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.colours.default.white.value};
   &:hover,
   &:focus {
     outline: none;
   }
-  &:hover {
-    border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
-  }
-  &:focus {
-    border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-    color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
-  }
+
+  ${({ $isError, readOnly }) =>
+    !$isError &&
+    !readOnly &&
+    css`
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.colours.information.indirect.value};
+      }
+      &:has(${StyledtextArea}:focus) {
+        border-color: ${({ theme }) => theme.colors.colours.default['digital-black'].value};
+      }
+    `}
+
   ${({ resize }) =>
     resize
       ? css`
@@ -147,8 +165,10 @@ export const StyledTextAreaCharacterCounterContainer = styled.div`
   display: flex;
   flex: 1 1 auto;
 `;
+
 export const StyledTextAreaCharacterCounter = styled.div<{
   disabled?: boolean;
+  $isError: boolean;
 }>`
   margin-top: 5px;
   position: relative;
@@ -165,6 +185,11 @@ export const StyledTextAreaCharacterCounter = styled.div<{
   align-items: center;
   height: 14px;
   font-weight: bold;
+  ${({ $isError }) =>
+    $isError &&
+    css`
+      background-color: ${({ theme }) => theme.colors.colours.system.fail.value};
+    `}
   ${({ disabled }) =>
     disabled &&
     css`
