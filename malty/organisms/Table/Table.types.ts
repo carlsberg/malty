@@ -26,6 +26,7 @@ export interface TableProps extends SpaceProps {
   rowSelection?: RowSelectionState;
   isLoading?: boolean;
   loadingOverlayProps?: Pick<LoadingOverlayProps, 'text' | 'color' | 'zIndex'>;
+  rowSelectionDisabled?: RowSelectionState;
   onRowClick?: (row: TableRowProps) => void;
   onRowSelect?: (selectedRows: RowSelectionState) => void;
   onPaginationChange?: (page: number) => void;

@@ -281,7 +281,16 @@ const meta: Meta<TableProps> = {
       }
     },
     rowSelection: {
-      description: 'Use this prop to define which rows are selected by default'
+      description: 'Use this prop to define which rows are selected by default',
+      if: { arg: 'allowSelection' }
+    },
+    rowSelectionDisabled: {
+      description: 'Use this prop to define which rows are disabled by default',
+      if: { arg: 'allowSelection' }
+    },
+    onRowSelect: {
+      description: 'Use this prop to handle the selected rows if needed',
+      if: { arg: 'allowSelection' }
     },
     isLoading: {
       description: 'Use this prop to control the loading status',
@@ -325,7 +334,8 @@ export const Selection: Story = {
   args: {
     ...Base.args,
     allowSelection: true,
-    rowSelection: { '1': true, '7': true, '8': true, '15': true }
+    rowSelection: { '1': true, '7': true, '8': true, '15': true },
+    rowSelectionDisabled: { '1': true, '2': true }
   }
 };
 

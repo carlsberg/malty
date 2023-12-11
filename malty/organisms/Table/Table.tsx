@@ -61,6 +61,7 @@ export const Table = ({
   manualPagination,
   defaultSorting,
   rowSelection: rowSelectionProp = {},
+  rowSelectionDisabled = {},
   onRowClick,
   onSortingChange,
   isLoading = false,
@@ -139,6 +140,43 @@ export const Table = ({
     getRowId: handleGetRowId
   });
 
+  const flatRows = table.getCoreRowModel()?.flatRows;
+
+  const rowsAvailableToSelect = flatRows.filter(
+    (row) =>
+      !Object.keys(rowSelectionDisabled).includes(row.id.toString()) &&
+      !Object.keys(rowSelection).includes(row.id.toString())
+  ).length;
+
+  const rowsSelectedNotDisabled = Object.keys(rowSelection).filter(
+    (id) => !Object.keys(rowSelectionDisabled).includes(id.toString())
+  )?.length;
+
+  const handleChangeHeaderCheckboxValue = () => {
+    table.setRowSelection((prev) => {
+      const isAllRowsSelected = table.getIsAllRowsSelected();
+      const newRowSelection = { ...prev };
+
+      if (!isAllRowsSelected && rowsAvailableToSelect > 0) {
+        flatRows.forEach((row) => {
+          if (!row.getCanSelect() || rowSelectionDisabled[row.id.toString()]) {
+            return;
+          }
+
+          newRowSelection[row.id] = true;
+        });
+      } else {
+        flatRows.forEach((row) => {
+          if (!rowSelectionDisabled[row.id.toString()]) {
+            delete newRowSelection[row.id];
+          }
+        });
+      }
+
+      return newRowSelection;
+    });
+  };
+
   const handlePageChange = (page: number | string) => {
     if (typeof page !== 'string') {
       table.setPageIndex(page - 1);
@@ -204,9 +242,9 @@ export const Table = ({
                 {allowSelection && data.length > 0 && (
                   <StyledHead className="checkbox-header" isSortable={false} allowSelection={allowSelection}>
                     <Checkbox
-                      onValueChange={table.getToggleAllRowsSelectedHandler()}
-                      checked={table.getIsAllRowsSelected()}
-                      isIndeterminate={table.getIsSomeRowsSelected()}
+                      onValueChange={handleChangeHeaderCheckboxValue}
+                      checked={rowsAvailableToSelect === 0}
+                      isIndeterminate={rowsSelectedNotDisabled > 0}
                     />
                   </StyledHead>
                 )}
@@ -308,7 +346,11 @@ export const Table = ({
                       >
                         {allowSelection && (
                           <StyledTd data-testid={`${dataTestId}-cell-checkbox`}>
-                            <Checkbox onValueChange={row.getToggleSelectedHandler()} checked={row.getIsSelected()} />
+                            <Checkbox
+                              onValueChange={row.getToggleSelectedHandler()}
+                              checked={row.getIsSelected()}
+                              disabled={!!rowSelectionDisabled[row.id.toString()]}
+                            />
                           </StyledTd>
                         )}
                         {row.getVisibleCells().map((cell) => (
