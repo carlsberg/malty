@@ -14,4 +14,11 @@ describe('pill', () => {
     expect(screen.getByText(text)).toBeInTheDocument();
     expect(screen.getByTestId(`icon-${iconName}`)).toBeInTheDocument();
   });
+
+  it('should not render the component with the text and icon', () => {
+    render(<Pill />);
+
+    expect(screen.queryByText(text)).not.toBeInTheDocument();
+    expect(screen.queryByTestId(`icon-${iconName}`)).not.toBeInTheDocument();
+  });
 });
