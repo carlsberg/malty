@@ -11,8 +11,8 @@ describe('pill', () => {
   it('should render the component correctly', () => {
     render(<Pill text={text} icon={iconName} />);
 
-    expect(screen.getByText(text)).toBeInTheDocument();
-    expect(screen.getByTestId(`icon-${iconName}`)).toBeInTheDocument();
+    expect(screen.getByText(text)).toBeVisible();
+    expect(screen.getByTestId(`icon-${iconName}`)).toBeVisible();
   });
 
   it('should not render the component with the text and icon', () => {
