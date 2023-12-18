@@ -108,6 +108,7 @@ export const Base: Story = {
   render: (args) => <CarlsbergFilled {...args} />
 };
 
+// TODO: check what to do with these Styles, should we use a different file?
 const StyledIconList = styled.div`
   display: grid;
   gap: 14px;
