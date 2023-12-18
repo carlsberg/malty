@@ -21,4 +21,18 @@ describe('pill', () => {
     expect(screen.queryByText(text)).not.toBeInTheDocument();
     expect(screen.queryByTestId(`icon-${iconName}`)).not.toBeInTheDocument();
   });
+
+  it('should render only text', () => {
+    render(<Pill text={text} />);
+
+    expect(screen.getByText(text)).toBeVisible();
+    expect(screen.queryByTestId(`icon-${iconName}`)).not.toBeInTheDocument();
+  });
+
+  it('should render only Icon', () => {
+    render(<Pill icon={iconName} />);
+
+    expect(screen.queryByText(text)).not.toBeInTheDocument();
+    expect(screen.getByTestId(`icon-${iconName}`)).toBeVisible();
+  });
 });
