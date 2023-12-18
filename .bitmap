@@ -9,6 +9,12 @@
  */
 
 {
+    "atoms/base-icon": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/atoms/BaseIcon"
+    },
     "atoms/button": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.105",
