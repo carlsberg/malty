@@ -1,14 +1,56 @@
 // No need to be worried about these dependencies here, they have been added as dev dependencies
 import AddContent from '@carlsberggroup/malty.icons.add-content';
-import AlertIcon from '@carlsberggroup/malty.icons.alert';
+import AddEvent from '@carlsberggroup/malty.icons.add-event';
+import AddProject from '@carlsberggroup/malty.icons.add-project';
+import AddedDocument from '@carlsberggroup/malty.icons.added-document';
+import Alert from '@carlsberggroup/malty.icons.alert';
+import AlertConnection from '@carlsberggroup/malty.icons.alert-connection';
+import AppDropBox from '@carlsberggroup/malty.icons.app-dropbox';
+import AppFacebook from '@carlsberggroup/malty.icons.app-facebook';
+import AppGithub from '@carlsberggroup/malty.icons.app-github';
+import AppInstagram from '@carlsberggroup/malty.icons.app-instagram';
+import AppLinkedin from '@carlsberggroup/malty.icons.app-linkedin';
+import AppPowerbi from '@carlsberggroup/malty.icons.app-powerbi';
+import AppSkype from '@carlsberggroup/malty.icons.app-skype';
+import Arrange from '@carlsberggroup/malty.icons.arrange';
+import ArrowSmallDown from '@carlsberggroup/malty.icons.arrow-small-down';
+import ArrowSmallLeft from '@carlsberggroup/malty.icons.arrow-small-left';
+import ArrowSmallRight from '@carlsberggroup/malty.icons.arrow-small-right';
+import ArrowSmallUp from '@carlsberggroup/malty.icons.arrow-small-up';
+import At from '@carlsberggroup/malty.icons.at';
+import Attachment from '@carlsberggroup/malty.icons.attachment';
+
 import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
+
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
-const allIcons = [AddContent, AlertIcon, CarlsbergFilled];
+const allIcons = [
+  AddContent,
+  AddEvent,
+  AddProject,
+  AddedDocument,
+  Alert,
+  AlertConnection,
+  AppDropBox,
+  AppFacebook,
+  AppGithub,
+  AppInstagram,
+  AppLinkedin,
+  AppPowerbi,
+  AppSkype,
+  Arrange,
+  ArrowSmallDown,
+  ArrowSmallLeft,
+  ArrowSmallRight,
+  ArrowSmallUp,
+  At,
+  Attachment,
+  CarlsbergFilled
+];
 
 const meta: Meta<BaseIconProps> = {
   // TODO: remove "2" once the deprecetion is over
@@ -17,7 +59,6 @@ const meta: Meta<BaseIconProps> = {
     importObject: 'Icon',
     importPath: '@carlsberggroup/malty.icon.[icon-name]'
   },
-  render: (args) => <AlertIcon {...args} />,
   argTypes: {
     color: {
       description: 'Icon color, options are',
@@ -70,15 +111,15 @@ export const Base: Story = {
 const StyledIconList = styled.div`
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 `;
 
 const StyledIconWrapper = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid #b0afaf80;
-  border-radius: 2px;
-  padding: 5px;
+  border-radius: 4px;
+  padding: 10px 5px;
 `;
 
 const StyledSearch = styled.input`
