@@ -1,7 +1,7 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import { IconColor } from './BaseIcon.types';
 
 export const useIconColor = (color: IconColor): string => {
   const theme = useContext(ThemeContext) || defaultTheme;

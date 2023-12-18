@@ -1,3 +1,4 @@
+// No need to be worried about these dependencies here, they have been added as dev dependencies
 import AddContent from '@carlsberggroup/malty.icons.add-content';
 import AlertIcon from '@carlsberggroup/malty.icons.alert';
 import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
