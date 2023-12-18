@@ -35,10 +35,6 @@ const meta: Meta<PillProps> = {
       mapping: { undefined, ...IconName },
       control: 'select'
     },
-    badgeMode: {
-      description: 'Decreases paddings and allows for a circled look as much as possible',
-      control: 'boolean'
-    },
     isUppercase: {
       description: 'Use this property to uppercase the text content',
       control: 'boolean'
@@ -59,7 +55,6 @@ export const Base: Story = {
     icon: IconName.CarlsbergFilled,
     type: PillType.Primary,
     size: PillSize.Medium,
-    badgeMode: false,
     isUppercase: false
   }
 };
@@ -77,17 +72,6 @@ export const Text: Story = {
     ...Base.args,
     type: PillType.Fail,
     icon: undefined
-  }
-};
-
-export const Badge: Story = {
-  args: {
-    ...Base.args,
-    type: PillType.Success,
-    size: PillSize.ExtraSmall,
-    icon: undefined,
-    text: '9',
-    badgeMode: true
   }
 };
 

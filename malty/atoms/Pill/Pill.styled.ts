@@ -23,6 +23,8 @@ export const StyledPill = styled.div<StyledPillProps>`
   align-items: center;
   justify-content: center;
   height: ${({ size }) => `${size}`};
+  min-width: ${({ size }) => `${size}`};
+  box-sizing: border-box;
   transition: background-color 0.25s ease-in-out;
   border-radius: ${({ size }) => `${size}`};
   padding: 0 ${({ padding }) => padding};
@@ -36,52 +38,31 @@ export const StyledPill = styled.div<StyledPillProps>`
     }
   }
 
-  ${({ hasIcon, hasText, pillSize, size, theme }) => {
-    if (!hasIcon) return null;
-    if (!hasText) {
-      if (pillSize === PillSize.ExtraSmall) {
-        return css`
-          padding: ${theme.sizes['5xs'].value};
-          width: ${size};
-        `;
-      }
-      return css`
-        padding: ${theme.sizes['4xs'].value};
-        width: ${size};
-      `;
-    }
-    if (pillSize === PillSize.ExtraSmall) {
-      return css`
-        padding: 0 ${theme.sizes['3xs'].value} 0 ${theme.sizes['4xs'].value};
-      `;
-    }
-    if (pillSize === PillSize.Small) {
-      return css`
-        padding: 0 ${theme.sizes.xs.value} 0 ${theme.sizes['2xs'].value};
-      `;
-    }
-    return css`
-      padding: 0 ${theme.sizes.s.value} 0 ${theme.sizes.xs.value};
-    `;
-  }}
+  ${({ hasIcon, hasText, pillSize, theme }) => {
+    let paddingLeft;
 
-  ${({ badgeMode, pillSize, theme }) => {
-    if (!badgeMode) return null;
-    if (pillSize === PillSize.ExtraSmall) {
+    if (hasIcon && !hasText) {
       return css`
-        min-width: ${theme.sizes['2xs'].value};
-        padding: 0 ${theme.sizes['4xs'].value};
+        padding: 0;
       `;
     }
-    if (pillSize === PillSize.Small) {
-      return css`
-        min-width: ${theme.sizes.s.value};
-        padding: 0 ${theme.sizes['4xs'].value};
-      `;
+
+    if (hasIcon && hasText) {
+      switch (pillSize) {
+        case PillSize.ExtraSmall:
+          paddingLeft = theme.sizes['4xs'].value;
+          break;
+        case PillSize.Small:
+          paddingLeft = theme.sizes['3xs'].value;
+          break;
+        default:
+          paddingLeft = theme.sizes['2xs'].value;
+          break;
+      }
     }
+
     return css`
-      min-width: ${theme.sizes.m.value};
-      padding: 0 ${theme.sizes['4xs'].value};
+      padding-left: ${paddingLeft};
     `;
   }}
 

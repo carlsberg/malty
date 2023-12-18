@@ -1,3 +1,4 @@
+import { LoadingOverlayProps } from '@carlsberggroup/malty.molecules.loading-overlay';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import {
   CellContext,
@@ -23,6 +24,9 @@ export interface TableProps extends SpaceProps {
   defaultSorting?: ColumnSort;
   manualPagination?: ManualPagination;
   rowSelection?: RowSelectionState;
+  isLoading?: boolean;
+  loadingOverlayProps?: Pick<LoadingOverlayProps, 'text' | 'color' | 'zIndex'>;
+  rowSelectionDisabled?: RowSelectionState;
   onRowClick?: (row: TableRowProps) => void;
   onRowSelect?: (selectedRows: RowSelectionState) => void;
   onPaginationChange?: (page: number) => void;
@@ -73,3 +77,11 @@ export interface ManualPagination {
   totalPagesCount: number;
   totalRecords: number;
 }
+
+export interface UseTableSizesProps {
+  size: TableSize;
+}
+
+export type StyledTableWrapperProps = {
+  $isLoading: boolean;
+} & SpaceProps;

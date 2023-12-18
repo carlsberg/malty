@@ -1,16 +1,24 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { TextArea as TextAreaComponent } from './TextArea';
+import { TextArea } from './TextArea';
 import { TextAreaProps } from './TextArea.types';
 
-export default {
+const TextAreaComponent = (props: TextAreaProps) => {
+  const { value } = props;
+  const [stateValue, setStateValue] = useState(value);
+
+  return <TextArea {...props} value={stateValue} onValueChange={setStateValue} />;
+};
+
+const meta: Meta<TextAreaProps> = {
+  component: TextArea,
   title: 'Forms/Text Area',
-  component: TextAreaComponent,
   parameters: {
     importObject: 'TextArea',
     importPath: '@carlsberggroup/malty.atoms.text-area'
   },
+  render: (args) => <TextAreaComponent {...args} />,
   argTypes: {
     label: {
       description: 'Label for the input, goes above.',
@@ -61,30 +69,24 @@ export default {
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<TextAreaProps> = ({ value, onValueChange, ...args }) => {
-  const [stateValue, setStateValue] = useState(value);
-
-  return <TextAreaComponent value={stateValue} onValueChange={setStateValue} {...args} />;
 };
 
-export const TextArea = Template.bind({});
+type Story = StoryObj<TextAreaProps>;
 
-const params = new URLSearchParams(window.location.search);
-const error = params.get('error');
-const resizable = params.get('resizable');
-
-TextArea.args = {
-  label: 'Label',
-  maxLength: 20,
-  resize: !!resizable,
-  placeholder: 'Placeholder',
-  disabled: false,
-  error: error ? 'Error text' : '',
-  value: '',
-  hint: 'hint text',
-  readOnly: false,
-  dataTestId: 'Textarea',
-  required: false
+export const Base: Story = {
+  args: {
+    label: 'Label',
+    maxLength: 20,
+    resize: false,
+    placeholder: 'Placeholder',
+    disabled: false,
+    error: '',
+    value: '',
+    hint: 'hint text',
+    readOnly: false,
+    dataTestId: 'Textarea',
+    required: false
+  }
 };
+
+export default meta;

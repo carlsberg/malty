@@ -1,16 +1,9 @@
+import { LoadingColor } from '@carlsberggroup/malty.molecules.loading';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Table as TableComponent } from './Table';
+import { Table } from './Table';
 import { TableHeaderAlignment, TableHeaderProps, TableProps, TableRowProps, TableSize } from './Table.types';
-
-enum TableVariants {
-  Dnd = 'dnd',
-  Selection = 'selection',
-  Empty = 'empty',
-  HeadersCenter = 'headersCenter',
-  Sorted = 'sorted'
-}
 
 const headers: TableHeaderProps[] = [
   {
@@ -212,13 +205,12 @@ const rows: TableRowProps[] = [
   }
 ];
 
-export default {
+const meta: Meta<TableProps> = {
+  component: Table,
   title: 'Data and Tables/Table',
-  component: TableComponent,
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
-    variants: Object.values(TableVariants),
     docs: {
       description: {
         component:
@@ -286,113 +278,98 @@ export default {
       control: {
         type: 'select',
         label: Object.keys(TableSize)
-      },
-      table: {
-        defaultValue: {
-          summary: 'TableSize.Medium'
-        }
       }
     },
     rowSelection: {
-      description: 'Use this prop to define which rows are selected by default'
+      description: 'Use this prop to define which rows are selected by default',
+      if: { arg: 'allowSelection' }
+    },
+    rowSelectionDisabled: {
+      description: 'Use this prop to define which rows are disabled by default',
+      if: { arg: 'allowSelection' }
+    },
+    onRowSelect: {
+      description: 'Use this prop to handle the selected rows if needed',
+      if: { arg: 'allowSelection' }
+    },
+    isLoading: {
+      description: 'Use this prop to control the loading status',
+      control: 'boolean'
+    },
+    loadingOverlayProps: {
+      description: 'Set the Loading Overlay props',
+      control: 'object',
+      if: { arg: 'isLoading' }
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
+};
 
-const Template: Story<TableProps> = (args) => <TableComponent {...args} />;
+type Story = StoryObj<TableProps>;
 
-export const Table = Template.bind({});
+export const Base: Story = {
+  args: {
+    headers,
+    rows,
+    onRowClick: () => null,
+    paginationSize: 10,
+    className: '',
+    isDraggable: false,
+    size: TableSize.Medium,
+    dataTestId: 'table',
+    allowSelection: false,
+    isLoading: false,
+    onSortingChange: undefined
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Dnd: Story = {
+  args: {
+    ...Base.args,
+    isDraggable: true
+  }
+};
 
-switch (variant) {
-  case TableVariants.Dnd:
-    Table.args = {
-      headers,
-      rows,
-      onRowClick: () => null,
-      paginationSize: 12,
-      className: '',
-      isDraggable: true,
-      size: TableSize.Medium,
-      dataTestId: 'table',
-      allowSelection: false,
-      onSortingChange: undefined
-    };
-    break;
-  case TableVariants.Selection:
-    Table.args = {
-      headers,
-      rows,
-      onRowClick: () => null,
-      paginationSize: 12,
-      className: '',
-      isDraggable: false,
-      size: TableSize.Medium,
-      dataTestId: 'table',
-      allowSelection: true,
-      rowSelection: { '1': true, '7': true, '8': true, '15': true },
-      onSortingChange: undefined
-    };
-    break;
-  case TableVariants.Empty:
-    Table.args = {
-      headers,
-      rows: [],
-      onRowClick: () => null,
-      paginationSize: 12,
-      className: '',
-      isDraggable: false,
-      size: TableSize.Medium,
-      dataTestId: 'table',
-      allowSelection: true,
-      onSortingChange: undefined
-    };
-    break;
-  case TableVariants.HeadersCenter:
-    Table.args = {
-      headers: headersCenter,
-      rows,
-      onRowClick: () => null,
-      paginationSize: 12,
-      className: '',
-      isDraggable: false,
-      size: TableSize.Large,
-      dataTestId: 'table',
-      allowSelection: false,
-      onSortingChange: undefined
-    };
-    break;
-  case TableVariants.Sorted:
-    Table.args = {
-      headers,
-      rows,
-      onRowClick: () => null,
-      paginationSize: 10,
-      className: '',
-      isDraggable: false,
-      size: TableSize.Medium,
-      dataTestId: 'table',
-      allowSelection: false,
-      defaultSorting: { id: 'name', desc: true },
-      onSortingChange: undefined
-    };
-    break;
+export const Selection: Story = {
+  args: {
+    ...Base.args,
+    allowSelection: true,
+    rowSelection: { '1': true, '7': true, '8': true, '15': true },
+    rowSelectionDisabled: { '1': true, '2': true }
+  }
+};
 
-  default:
-    Table.args = {
-      headers,
-      rows,
-      onRowClick: () => null,
-      paginationSize: 10,
-      className: '',
-      isDraggable: false,
-      size: TableSize.Medium,
-      dataTestId: 'table',
-      allowSelection: false,
-      onSortingChange: undefined
-    };
-    break;
-}
+export const NoResultsFound: Story = {
+  args: {
+    ...Base.args,
+    rows: []
+  }
+};
+
+export const HeadersCenter: Story = {
+  args: {
+    ...Base.args,
+    headers: headersCenter
+  }
+};
+
+export const Sorted: Story = {
+  args: {
+    ...Base.args,
+    defaultSorting: { id: 'name', desc: true }
+  }
+};
+
+export const Loading: Story = {
+  args: {
+    ...Base.args,
+    rows: [],
+    isLoading: true,
+    loadingOverlayProps: {
+      text: 'Loading',
+      color: LoadingColor.DigitalBlack
+    }
+  }
+};
+
+export default meta;
