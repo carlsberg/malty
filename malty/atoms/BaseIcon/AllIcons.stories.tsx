@@ -21,11 +21,19 @@ import At from '@carlsberggroup/malty.icons.at';
 import Attachment from '@carlsberggroup/malty.icons.attachment';
 
 import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
+import CheckboxCheckOutline from '@carlsberggroup/malty.icons.checkbox-check-outline';
+import Clone from '@carlsberggroup/malty.icons.clone';
 
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
-import React, { ChangeEvent, useState } from 'react';
-import styled from 'styled-components';
+import React, { ChangeEvent, FC, useState } from 'react';
+import {
+  StyledCopiedText,
+  StyledIconList,
+  StyledIconWrapper,
+  StyledName,
+  StyledSearch
+} from './AllIconsStories.styled';
 import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 const allIcons = [
@@ -49,15 +57,17 @@ const allIcons = [
   ArrowSmallUp,
   At,
   Attachment,
-  CarlsbergFilled
+  CarlsbergFilled,
+  CheckboxCheckOutline,
+  Clone
 ];
 
 const meta: Meta<BaseIconProps> = {
   // TODO: remove "2" once the deprecetion is over
   title: 'Icons/All Icons 2',
   parameters: {
-    importObject: 'Icon',
-    importPath: '@carlsberggroup/malty.icon.[icon-name]'
+    importObject: 'IconName',
+    importPath: '@carlsberggroup/malty.icons.[icon-name]'
   },
   argTypes: {
     color: {
@@ -108,48 +118,28 @@ export const Base: Story = {
   render: (args) => <CarlsbergFilled {...args} />
 };
 
-// TODO: check what to do with these Styles, should we use a different file?
-const StyledIconList = styled.div`
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-`;
-
-const StyledIconWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #b0afaf80;
-  border-radius: 4px;
-  padding: 10px 5px;
-`;
-
-const StyledSearch = styled.input`
-  margin-bottom: 20px;
-  font-size: 14px;
-  padding: 5px;
-  border: 1px solid grey;
-  border-radius: 4px;
-  min-width: 250px;
-`;
-
-const StyledName = styled.span`
-  margin-top: 6px;
-  color: #64646480;
-  font-size: 10px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-`;
-
 const SearchIcons = (args: BaseIconProps) => {
   const [icons, setIcons] = useState(allIcons);
+  const [tooltipVisible, setTooltipVisible] = useState<string>();
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     const filteredIcons = allIcons.filter((icon) => icon.name.toLowerCase().includes(value));
 
     setIcons(filteredIcons);
+  };
+
+  const handleClipboard = (iconName: string) => {
+    const kebabCase = iconName.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+    const importPath = `import { ${iconName} } from '@carlsberggroup/malty.icons.${kebabCase}';`;
+
+    navigator.clipboard.writeText(importPath);
+
+    setTooltipVisible(iconName);
+
+    setTimeout(() => {
+      setTooltipVisible(undefined);
+    }, 500);
   };
 
   return (
@@ -162,12 +152,22 @@ const SearchIcons = (args: BaseIconProps) => {
         onChange={handleSearch}
       />
       <StyledIconList>
-        {icons.map((icon) => (
-          <StyledIconWrapper>
-            <div style={{ alignSelf: 'center' }}>{icon(args)}</div>
-            <StyledName>{icon.name}</StyledName>
-          </StyledIconWrapper>
-        ))}
+        {icons.map((icon) => {
+          const Icon = icon as FC<BaseIconProps>;
+
+          return (
+            <StyledIconWrapper key={icon.name} onClick={() => handleClipboard(icon.name)}>
+              {tooltipVisible === icon.name ? (
+                <StyledCopiedText>Copied!</StyledCopiedText>
+              ) : (
+                <>
+                  <Icon {...args} />
+                  <StyledName>{icon.name}</StyledName>
+                </>
+              )}
+            </StyledIconWrapper>
+          );
+        })}
       </StyledIconList>
     </>
   );
