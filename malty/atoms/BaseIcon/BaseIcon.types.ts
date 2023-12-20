@@ -9,6 +9,7 @@ export interface BaseIconProps extends React.HTMLAttributes<SVGElement>, SpacePr
   children?: ReactElement;
 }
 
+// TODO: check if colors and sizes should be exported also on each Icon since if I want to use it I will have to import from baseIcon and is not ideal
 export enum IconColor {
   Primary = 'themePrimary',
   Secondary = 'themeSecondary',

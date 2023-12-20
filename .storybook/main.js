@@ -5,7 +5,7 @@ function getAbsolutePath(value) {
 }
 
 export default {
-  stories: ['../malty/!(icons)/!(IconWrapper)/*.stories.@(mdx|js|jsx|ts|tsx)'],
+  stories: ['../malty/!(icons)/!(IconWrapper)/*.stories.@(mdx|js|jsx|ts|tsx)', './AllIcons/AllIcons.stories.tsx'],
   addons: [
     {
       name: '@storybook/addon-links',
