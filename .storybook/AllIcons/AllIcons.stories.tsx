@@ -1,3 +1,10 @@
+/**
+ * IMPORTANT
+ * This file has been added to the .storybook folder because the intention is to
+ * be outside of all components, with this way we are avoiding the creation of
+ * devDependencies on other components, such as BaseIcon
+ */
+
 import { BaseIconProps, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
