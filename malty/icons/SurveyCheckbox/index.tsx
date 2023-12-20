@@ -1,9 +1,8 @@
-import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const SurveyCheckbox = (props: IconWrapperProps) =>
-  IconWrapper(
-    props,
+const SurveyCheckbox = (props: BaseIconProps) => (
+  <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path
         fillRule="evenodd"
@@ -16,6 +15,7 @@ const SurveyCheckbox = (props: IconWrapperProps) =>
         d="M19.0489 1C20.6787 1 22 2.32092 22 3.95019V20.0628C22 21.6928 20.6789 23.014 19.0489 23.014H4.95113C3.32113 23.014 2 21.6928 2 20.0628V3.95019C2 2.32092 3.32135 1 4.95113 1H19.0489ZM19.0489 2.87433H4.95113C4.35637 2.87433 3.87433 3.35622 3.87433 3.95019V20.0628C3.87433 20.6577 4.35629 21.1396 4.95113 21.1396H19.0489C19.6437 21.1396 20.1257 20.6577 20.1257 20.0628V3.95019C20.1257 3.35622 19.6436 2.87433 19.0489 2.87433Z"
       />
     </g>
-  );
+  </BaseIcon>
+);
 
 export default SurveyCheckbox;

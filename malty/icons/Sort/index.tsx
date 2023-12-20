@@ -1,9 +1,8 @@
-import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const Sort = (props: IconWrapperProps) =>
-  IconWrapper(
-    props,
+const Sort = (props: BaseIconProps) => (
+  <BaseIcon {...props}>
     <g>
       <path
         fillRule="evenodd"
@@ -16,6 +15,7 @@ const Sort = (props: IconWrapperProps) =>
         d="M16.8701 17.67C16.8701 18.2223 17.3178 18.67 17.8701 18.67C18.4224 18.67 18.8701 18.2223 18.8701 17.67V9.41421L21.163 11.7071C21.5535 12.0976 22.1867 12.0976 22.5772 11.7071C22.9677 11.3166 22.9677 10.6834 22.5772 10.2929L18.5772 6.29289C18.4676 6.18326 18.3388 6.1044 18.2017 6.05632C18.1277 6.03034 18.0498 6.0128 17.969 6.00487C17.9033 5.99838 17.837 5.99838 17.7712 6.00487C17.6905 6.0128 17.6125 6.03034 17.5386 6.05632C17.4014 6.1044 17.2726 6.18326 17.163 6.29289L13.163 10.2929C12.7725 10.6834 12.7725 11.3166 13.163 11.7071C13.5535 12.0976 14.1867 12.0976 14.5772 11.7071L16.8701 9.41421V17.67Z"
       />
     </g>
-  );
+  </BaseIcon>
+);
 
 export default Sort;

@@ -1,9 +1,8 @@
-import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const ExternalLink = (props: IconWrapperProps) =>
-  IconWrapper(
-    props,
+const ExternalLink = (props: BaseIconProps) => (
+  <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path
         fillRule="evenodd"
@@ -12,6 +11,7 @@ const ExternalLink = (props: IconWrapperProps) =>
       />
       <path d="M22.213 3.03319C22.1454 2.45151 21.6511 2 21.0513 2L12.781 2L12.6446 2.00787C12.0629 2.07543 11.6114 2.56978 11.6114 3.16959L11.6205 3.3163C11.6927 3.893 12.1848 4.33918 12.781 4.33918L18.2179 4.339L11.3426 11.2145L11.2453 11.3247C10.8885 11.7835 10.9209 12.447 11.3426 12.8686L11.4446 12.9595C11.9037 13.323 12.5725 13.2927 12.9966 12.8686L19.8819 5.98313L19.8817 11.4398L19.8896 11.5762C19.9571 12.1579 20.4515 12.6094 21.0513 12.6094C21.6972 12.6094 22.2209 12.0858 22.2209 11.4398V3.16959L22.213 3.03319Z" />
     </g>
-  );
+  </BaseIcon>
+);
 
 export default ExternalLink;

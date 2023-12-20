@@ -1,9 +1,8 @@
-import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const SurveyDefault = (props: IconWrapperProps) =>
-  IconWrapper(
-    props,
+const SurveyDefault = (props: BaseIconProps) => (
+  <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path
         fillRule="evenodd"
@@ -14,6 +13,7 @@ const SurveyDefault = (props: IconWrapperProps) =>
       <path d="M17.596 12C17.596 11.4477 17.1483 11 16.596 11H8L7.88338 11.0067C7.38604 11.0645 7 11.4872 7 12C7 12.5523 7.44772 13 8 13H16.596L16.7126 12.9933C17.21 12.9355 17.596 12.5128 17.596 12Z" />
       <path d="M17.596 16C17.596 15.4477 17.1483 15 16.596 15H8L7.88338 15.0067C7.38604 15.0645 7 15.4872 7 16C7 16.5523 7.44772 17 8 17H16.596L16.7126 16.9933C17.21 16.9355 17.596 16.5128 17.596 16Z" />
     </g>
-  );
+  </BaseIcon>
+);
 
 export default SurveyDefault;

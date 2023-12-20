@@ -1,9 +1,8 @@
-import { IconWrapper, IconWrapperProps } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const SpeachBalloonLivechat = (props: IconWrapperProps) =>
-  IconWrapper(
-    props,
+const SpeachBalloonLivechat = (props: BaseIconProps) => (
+  <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
       <path
@@ -20,6 +19,7 @@ const SpeachBalloonLivechat = (props: IconWrapperProps) =>
         <path d="M9.81 8.568a.905.905 0 11-1.81 0 .905.905 0 011.81 0M12.81 8.568a.905.905 0 11-1.81 0 .905.905 0 011.81 0M15.81 8.568a.905.905 0 11-1.81 0 .905.905 0 011.81 0" />
       </g>
     </g>
-  );
+  </BaseIcon>
+);
 
 export default SpeachBalloonLivechat;
