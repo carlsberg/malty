@@ -78,6 +78,15 @@ import Customer from '@carlsberggroup/malty.icons.customer';
 import CustomerAdd from '@carlsberggroup/malty.icons.customer-add';
 import CustomerQuestion from '@carlsberggroup/malty.icons.customer-question';
 import Customers from '@carlsberggroup/malty.icons.customers';
+import DataTransfer from '@carlsberggroup/malty.icons.data-transfer';
+import DiagonalDownLeft from '@carlsberggroup/malty.icons.diagonal-down-left';
+import DiagonalDownRight from '@carlsberggroup/malty.icons.diagonal-down-right';
+import DiagonalUpLeft from '@carlsberggroup/malty.icons.diagonal-up-left';
+import DiagonalUpRight from '@carlsberggroup/malty.icons.diagonal-up-right';
+import Diploma from '@carlsberggroup/malty.icons.diploma';
+import Diploma2 from '@carlsberggroup/malty.icons.diploma2';
+import Download from '@carlsberggroup/malty.icons.download';
+import Draughtmaster from '@carlsberggroup/malty.icons.draughtmaster';
 
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
@@ -170,7 +179,16 @@ const allIcons = [
   Customer,
   CustomerAdd,
   CustomerQuestion,
-  Customers
+  Customers,
+  DataTransfer,
+  DiagonalDownLeft,
+  DiagonalDownRight,
+  DiagonalUpLeft,
+  DiagonalUpRight,
+  Diploma,
+  Diploma2,
+  Download,
+  Draughtmaster
 ];
 
 const meta: Meta<BaseIconProps> = {
