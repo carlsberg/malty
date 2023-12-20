@@ -13,6 +13,8 @@ export interface ProfileMenuProps {
   setProfileMenuOpen: (open: boolean) => void;
   children: React.ReactNode;
   userRole?: string;
+  onOpenNav?: () => void;
+  isNavOpen?: boolean;
 }
 
 type ProfileItemProps = {
@@ -34,4 +36,6 @@ export interface ProductsBarProps {
   profileMenu: ProfileMenuType;
   resetNavState: () => void;
   onToggleNav: () => void;
+  onOpenNav: () => void;
+  isNavOpen: boolean;
 }

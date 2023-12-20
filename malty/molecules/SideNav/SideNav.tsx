@@ -29,6 +29,10 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
     setNavOpen(!isNavOpen);
   };
 
+  const onOpenNav = () => {
+    setNavOpen(true);
+  };
+
   // reset nav list to initial state
   const resetNavState = () => {
     setActiveNavItem(-1);
@@ -45,6 +49,8 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
           profileMenu={profileMenu}
           resetNavState={resetNavState}
           onToggleNav={onToggleNav}
+          onOpenNav={onOpenNav}
+          isNavOpen={isNavOpen}
         />
         {isNavOpen && (
           <StyledSideNav theme={theme} productName={productName}>

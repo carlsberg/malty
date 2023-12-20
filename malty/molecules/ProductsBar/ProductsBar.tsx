@@ -57,13 +57,24 @@ const useClickOutside = (
   }, [open]);
 };
 
-const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }: ProfileMenuProps) => {
+const ProfileMenu = ({
+  open,
+  setProfileMenuOpen,
+  username,
+  userRole,
+  children,
+  onOpenNav,
+  isNavOpen = false
+}: ProfileMenuProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const profileMenuRef = React.useRef<HTMLDivElement>(null);
 
   useClickOutside(profileMenuRef, open, setProfileMenuOpen);
 
   const toggleProfileMenu = () => {
+    if (onOpenNav) {
+      onOpenNav();
+    }
     setProfileMenuOpen(!open);
   };
 
@@ -89,7 +100,14 @@ const ProfileMenu = ({ open, setProfileMenuOpen, username, userRole, children }:
   );
 };
 
-export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggleNav }: ProductsBarProps) => {
+export const ProductsBar = ({
+  systemOptions,
+  profileMenu,
+  resetNavState,
+  onToggleNav,
+  onOpenNav,
+  isNavOpen
+}: ProductsBarProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const { username, userRole, profileActions } = profileMenu;
@@ -144,6 +162,8 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggl
             username={username}
             userRole={userRole}
             setProfileMenuOpen={setProfileMenuOpen}
+            onOpenNav={onOpenNav}
+            isNavOpen={isNavOpen}
           >
             <ul data-testid="profile-options">
               {profileActions.map((action, index) => {
