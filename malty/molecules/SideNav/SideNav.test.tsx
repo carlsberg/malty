@@ -67,6 +67,24 @@ describe('molecule sideNav', () => {
 
     expect(screen.getByText(productName)).not.toBeNull();
   });
+
+  it('should open the side nav when clicking the avatar if the menu is collapsed', () => {
+    render(
+      <SideNav
+        productName={productName}
+        navItems={simpleNavigation}
+        systemOptions={systemOptions}
+        profileMenu={profileMenu}
+      />
+    );
+
+    const avatarContainer = screen.getByTestId('avatar');
+
+    userEvent.click(avatarContainer);
+
+    const profileOptions = screen.queryByTestId('profile-options');
+    expect(profileOptions).not.toBeNull();
+  });
 });
 
 it('should toggle the navigation when clicking the menu button', () => {
