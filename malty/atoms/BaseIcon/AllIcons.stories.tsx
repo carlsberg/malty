@@ -19,6 +19,15 @@ import ArrowSmallRight from '@carlsberggroup/malty.icons.arrow-small-right';
 import ArrowSmallUp from '@carlsberggroup/malty.icons.arrow-small-up';
 import At from '@carlsberggroup/malty.icons.at';
 import Attachment from '@carlsberggroup/malty.icons.attachment';
+import Balance from '@carlsberggroup/malty.icons.balance';
+import Bell from '@carlsberggroup/malty.icons.bell';
+import BellNotification from '@carlsberggroup/malty.icons.bell-notification';
+import Bold from '@carlsberggroup/malty.icons.bold';
+import Book from '@carlsberggroup/malty.icons.book';
+import Bookmark from '@carlsberggroup/malty.icons.bookmark';
+import BookmarkFilled from '@carlsberggroup/malty.icons.bookmark-filled';
+import Bottle from '@carlsberggroup/malty.icons.bottle';
+import BottleCraft from '@carlsberggroup/malty.icons.bottle-craft';
 
 import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
 import CheckboxCheckOutline from '@carlsberggroup/malty.icons.checkbox-check-outline';
@@ -57,6 +66,15 @@ const allIcons = [
   ArrowSmallUp,
   At,
   Attachment,
+  Balance,
+  Bell,
+  BellNotification,
+  Bold,
+  Book,
+  Bookmark,
+  BookmarkFilled,
+  Bottle,
+  BottleCraft,
   CarlsbergFilled,
   CheckboxCheckOutline,
   Clone
