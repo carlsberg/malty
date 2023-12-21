@@ -29,7 +29,7 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
     setNavOpen(!isNavOpen);
   };
 
-  const onOpenNav = () => {
+  const handleOnOpenNav = () => {
     setNavOpen(true);
   };
 
