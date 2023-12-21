@@ -49,7 +49,7 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
           profileMenu={profileMenu}
           resetNavState={resetNavState}
           onToggleNav={onToggleNav}
-          onOpenNav={onOpenNav}
+          onOpenNav={handleOnOpenNav}
           isNavOpen={isNavOpen}
         />
         {isNavOpen && (

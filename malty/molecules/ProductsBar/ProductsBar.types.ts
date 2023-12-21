@@ -13,8 +13,8 @@ export interface ProfileMenuProps {
   setProfileMenuOpen: (open: boolean) => void;
   children: React.ReactNode;
   userRole?: string;
-  onOpenNav?: () => void;
-  isNavOpen?: boolean;
+  onOpenNav: () => void;
+  isNavOpen: boolean;
 }
 
 type ProfileItemProps = {

@@ -72,9 +72,7 @@ const ProfileMenu = ({
   useClickOutside(profileMenuRef, open, setProfileMenuOpen);
 
   const toggleProfileMenu = () => {
-    if (onOpenNav) {
-      onOpenNav();
-    }
+    onOpenNav();
     setProfileMenuOpen(!open);
   };
 
