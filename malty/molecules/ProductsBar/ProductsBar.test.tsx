@@ -28,6 +28,7 @@ const singleOptionConfig = {
 
 const resetNavState = jest.fn();
 const onToggleNav = jest.fn();
+const onOpenNav = jest.fn();
 
 describe('Products bar component', () => {
   it('should render with correct number of system options', () => {
@@ -38,6 +39,8 @@ describe('Products bar component', () => {
           profileMenu={profileMenuMock}
           resetNavState={resetNavState}
           onToggleNav={onToggleNav}
+          isNavOpen={false}
+          onOpenNav={onOpenNav}
         />
       </BrowserRouter>
     );
@@ -55,12 +58,15 @@ describe('Products bar component', () => {
           profileMenu={profileMenuMock}
           resetNavState={resetNavState}
           onToggleNav={onToggleNav}
+          isNavOpen={false}
+          onOpenNav={onOpenNav}
         />
       </BrowserRouter>
     );
     const avatarContainer = screen.getByTestId('avatar');
 
-    fireEvent.click(avatarContainer);
+    userEvent.click(avatarContainer);
+
     const profileMenu = screen.getByTestId('profile-options');
     expect(profileMenu).toBeDefined();
   });
@@ -73,6 +79,8 @@ describe('Products bar component', () => {
           profileMenu={singleOptionConfig}
           resetNavState={resetNavState}
           onToggleNav={onToggleNav}
+          isNavOpen={false}
+          onOpenNav={onOpenNav}
         />
       </BrowserRouter>
     );
@@ -91,6 +99,8 @@ describe('Products bar component', () => {
           profileMenu={singleOptionConfig}
           resetNavState={resetNavState}
           onToggleNav={onToggleNav}
+          isNavOpen={false}
+          onOpenNav={onOpenNav}
         />
       </BrowserRouter>
     );
@@ -98,6 +108,26 @@ describe('Products bar component', () => {
     const collapseBtn = screen.getByTestId('collapse-button');
 
     userEvent.click(collapseBtn);
+
+    expect(onToggleNav).toHaveBeenCalledTimes(1);
+  });
+
+  it('should open nav when clicking avatar, if there are multiple profile actions available', () => {
+    render(
+      <BrowserRouter>
+        <ProductsBar
+          systemOptions={systemOptionsMock}
+          profileMenu={profileMenuMock}
+          resetNavState={resetNavState}
+          onToggleNav={onToggleNav}
+          isNavOpen={false}
+          onOpenNav={onOpenNav}
+        />
+      </BrowserRouter>
+    );
+    const avatarContainer = screen.getByTestId('avatar');
+
+    userEvent.click(avatarContainer);
 
     expect(onToggleNav).toHaveBeenCalledTimes(1);
   });
