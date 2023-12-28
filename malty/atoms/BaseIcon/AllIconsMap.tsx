@@ -1,3 +1,13 @@
+/**
+ * IMPORTANT
+ * - Even though we have these imports here there is no reason to be worried about,
+ *   all these imports are being added as devDependencies since are only be used inside
+ *   the story files
+ *
+ * - This file has been added on the workspace of bit to be able to treat it as dev file in
+ *   order to make all these inmports as devDependencies
+ */
+
 import AddContent from '@carlsberggroup/malty.icons.add-content';
 import AddEvent from '@carlsberggroup/malty.icons.add-event';
 import AddProject from '@carlsberggroup/malty.icons.add-project';
@@ -215,6 +225,7 @@ import ViewList from '@carlsberggroup/malty.icons.view-list';
 import Volume from '@carlsberggroup/malty.icons.volume';
 import Wheat from '@carlsberggroup/malty.icons.wheat';
 import World from '@carlsberggroup/malty.icons.world';
+import React, { ReactElement } from 'react';
 
 export const allIcons = [
   AddContent,
@@ -435,3 +446,8 @@ export const allIcons = [
   Wheat,
   World
 ];
+
+export const allIconsStoryOptions = allIcons.reduce(
+  (options: Record<string, ReactElement>, Icon) => ({ ...options, [Icon.name]: <Icon /> }),
+  {}
+);

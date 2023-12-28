@@ -74,7 +74,7 @@
      **/
     "*": {
       "teambit.component/dev-files": {
-        "devFilePatterns": ["**/*.stories.+(js|ts|jsx|tsx)", "**/*.story.+(js|ts|jsx|tsx)"]
+        "devFilePatterns": ["**/*.stories.+(js|ts|jsx|tsx)", "**/*.story.+(js|ts|jsx|tsx)", "**/AllIconsMap.ts"]
       },
       "teambit.react/react": {}
     },

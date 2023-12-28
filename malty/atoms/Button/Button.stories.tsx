@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';
@@ -93,16 +93,13 @@ export default {
         type: 'select'
       }
     },
-
     icon: {
-      description: 'When selected, button label will contain the selected icon',
-      options: Object.values({ undefined, ...IconName }),
+      description: 'The icon component to be displayed',
       table: {
         category: 'Icon'
       },
-      control: {
-        type: 'select'
-      }
+      options: allIconsStoryOptions,
+      control: 'select'
     },
     iconPos: {
       description: 'When icon present, position will be',

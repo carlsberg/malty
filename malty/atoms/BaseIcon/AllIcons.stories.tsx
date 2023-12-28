@@ -1,16 +1,10 @@
-/**
- * IMPORTANT
- * This file has been added to the .storybook folder because the intention is to
- * be outside of all components, with this way we are avoiding the creation of
- * devDependencies on other components, such as BaseIcon
- */
-
 import { BaseIconProps, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import AddContent from '@carlsberggroup/malty.icons.add-content';
+import AddEvent from '@carlsberggroup/malty.icons.add-event';
 import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { ChangeEvent, FC, useState } from 'react';
-import { allIcons } from './AllIconsMap';
 import {
   StyledCopiedText,
   StyledIconList,
@@ -19,8 +13,10 @@ import {
   StyledSearch
 } from './AllIconsStories.styled';
 
+const allIcons = [AddContent, AddEvent, CarlsbergFilled];
+
 const meta: Meta<BaseIconProps> = {
-  // TODO: remove "3" once the deprecetion is over
+  // TODO: remove "3" once the deprecation is over
   title: 'Icons/All Icons 3',
   parameters: {
     importObject: 'IconName',
@@ -71,10 +67,6 @@ const meta: Meta<BaseIconProps> = {
 
 type Story = StoryObj<BaseIconProps>;
 
-export const Base: Story = {
-  render: (args) => <CarlsbergFilled {...args} />
-};
-
 const SearchIcons = (args: BaseIconProps) => {
   const [icons, setIcons] = useState(allIcons);
   const [tooltipVisible, setTooltipVisible] = useState<string>();
@@ -109,17 +101,17 @@ const SearchIcons = (args: BaseIconProps) => {
         onChange={handleSearch}
       />
       <StyledIconList>
-        {icons.map((icon) => {
-          const Icon = icon as FC<BaseIconProps>;
+        {icons.map((Icon: FC<BaseIconProps>) => {
+          const { name } = Icon;
 
           return (
-            <StyledIconWrapper key={icon.name} onClick={() => handleClipboard(icon.name)}>
-              {tooltipVisible === icon.name ? (
+            <StyledIconWrapper key={name} onClick={() => handleClipboard(name)}>
+              {tooltipVisible === name ? (
                 <StyledCopiedText>Copied!</StyledCopiedText>
               ) : (
                 <>
                   <Icon {...args} />
-                  <StyledName>{icon.name}</StyledName>
+                  <StyledName>{name}</StyledName>
                 </>
               )}
             </StyledIconWrapper>
@@ -128,6 +120,10 @@ const SearchIcons = (args: BaseIconProps) => {
       </StyledIconList>
     </>
   );
+};
+
+export const Base: Story = {
+  render: (args) => <CarlsbergFilled {...args} />
 };
 
 export const AllIcons: Story = {
