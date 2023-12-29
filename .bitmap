@@ -61,13 +61,31 @@
         "scope": "carlsberggroup.malty",
         "version": "0.0.79",
         "mainFile": "index.ts",
-        "rootDir": "malty/atoms/Icon"
+        "rootDir": "malty/atoms/Icon",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true,
+                "newId": {
+                    "name": "atoms/base-icon",
+                    "scope": "carlsberggroup.malty"
+                }
+            }
+        }
     },
     "atoms/icon-wrapper": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.53",
         "mainFile": "index.ts",
-        "rootDir": "malty/atoms/IconWrapper"
+        "rootDir": "malty/atoms/IconWrapper",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true,
+                "newId": {
+                    "name": "atoms/base-icon",
+                    "scope": "carlsberggroup.malty"
+                }
+            }
+        }
     },
     "atoms/image": {
         "scope": "carlsberggroup.malty",
