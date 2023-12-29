@@ -2,7 +2,7 @@ import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import Calendar from '@carlsberggroup/malty.icons.calendar';
+import { Calendar } from '@carlsberggroup/malty.icons.calendar';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { EventKeys } from '@carlsberggroup/malty.utils.consts';
 import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
