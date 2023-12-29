@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const EyeShow = (props: BaseIconProps) => (
+export const EyeShow = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <path
       fillRule="evenodd"
@@ -10,5 +10,3 @@ const EyeShow = (props: BaseIconProps) => (
     />
   </BaseIcon>
 );
-
-export default EyeShow;

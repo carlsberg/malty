@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const CartLabel = (props: BaseIconProps) => (
+export const CartLabel = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path
@@ -17,5 +17,3 @@ const CartLabel = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default CartLabel;

@@ -1,9 +1,10 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { BaseIcon, BaseIconProps, IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
-const Loading = (props: BaseIconProps) => {
+export const Loading = (props: BaseIconProps) => {
+  const { color } = props;
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
@@ -13,7 +14,7 @@ const Loading = (props: BaseIconProps) => {
         <path
           d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 2a8 8 0 110 16 8 8 0 010-16z"
           fill={
-            props.color === IconColor.DigitalBlack
+            color === IconColor.DigitalBlack
               ? theme.colors.colours.default.white.value
               : theme.colors.colours.default['digital-black'].value
           }
@@ -23,5 +24,3 @@ const Loading = (props: BaseIconProps) => {
     </BaseIcon>
   );
 };
-
-export default Loading;

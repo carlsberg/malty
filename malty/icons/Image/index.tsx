@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const Image = (props: BaseIconProps) => (
+export const Image = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <rect width="24" height="24" fill="none" />
@@ -13,5 +13,3 @@ const Image = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default Image;

@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const CarretUp = (props: BaseIconProps) => (
+export const CarretUp = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
@@ -9,5 +9,3 @@ const CarretUp = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default CarretUp;

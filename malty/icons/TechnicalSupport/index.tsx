@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const TechnicalSupport = (props: BaseIconProps) => (
+export const TechnicalSupport = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
@@ -9,5 +9,3 @@ const TechnicalSupport = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default TechnicalSupport;

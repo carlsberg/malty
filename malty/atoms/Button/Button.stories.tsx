@@ -1,4 +1,4 @@
-import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon/AllIconsMap';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React from 'react';

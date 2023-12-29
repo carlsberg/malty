@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const ExternalLink = (props: BaseIconProps) => (
+export const ExternalLink = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path
@@ -13,5 +13,3 @@ const ExternalLink = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default ExternalLink;

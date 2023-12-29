@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const FilesJson = (props: BaseIconProps) => (
+export const FilesJson = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path
@@ -16,5 +16,3 @@ const FilesJson = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default FilesJson;

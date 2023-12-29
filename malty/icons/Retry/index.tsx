@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const Retry = (props: BaseIconProps) => (
+export const Retry = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
@@ -9,5 +9,3 @@ const Retry = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default Retry;

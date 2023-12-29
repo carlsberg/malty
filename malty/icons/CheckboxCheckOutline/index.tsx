@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const CheckboxCheckOutline = (props: BaseIconProps) => (
+export const CheckboxCheckOutline = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path d="M16.6 7.99999C17.0418 8.33136 17.1314 8.95816 16.8 9.39999L12 15.8C11.8261 16.0319 11.5601 16.1769 11.2709 16.1975C10.9817 16.218 10.6979 16.1121 10.4929 15.9071L7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929C7.68342 10.9024 8.31658 10.9024 8.70711 11.2929L11.0918 13.6776L15.2 8.19999C15.5314 7.75816 16.1582 7.66861 16.6 7.99999Z" />
@@ -9,5 +9,3 @@ const CheckboxCheckOutline = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default CheckboxCheckOutline;

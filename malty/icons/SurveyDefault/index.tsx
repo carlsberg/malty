@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const SurveyDefault = (props: BaseIconProps) => (
+export const SurveyDefault = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g fillRule="evenodd">
       <path
@@ -15,5 +15,3 @@ const SurveyDefault = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default SurveyDefault;

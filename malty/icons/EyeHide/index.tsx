@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const EyeHide = (props: BaseIconProps) => (
+export const EyeHide = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <path
       fillRule="evenodd"
@@ -10,5 +10,3 @@ const EyeHide = (props: BaseIconProps) => (
     />
   </BaseIcon>
 );
-
-export default EyeHide;

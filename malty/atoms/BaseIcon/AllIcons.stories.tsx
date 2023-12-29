@@ -1,10 +1,8 @@
-import { BaseIconProps, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
-import AddContent from '@carlsberggroup/malty.icons.add-content';
-import AddEvent from '@carlsberggroup/malty.icons.add-event';
-import CarlsbergFilled from '@carlsberggroup/malty.icons.carlsberg-filled';
+import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { ChangeEvent, FC, useState } from 'react';
+import { allIcons } from './AllIconsMap';
 import {
   StyledCopiedText,
   StyledIconList,
@@ -12,8 +10,7 @@ import {
   StyledName,
   StyledSearch
 } from './AllIconsStories.styled';
-
-const allIcons = [AddContent, AddEvent, CarlsbergFilled];
+import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 const meta: Meta<BaseIconProps> = {
   // TODO: remove "3" once the deprecation is over

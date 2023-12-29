@@ -1,7 +1,7 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-const Sort = (props: BaseIconProps) => (
+export const Sort = (props: BaseIconProps) => (
   <BaseIcon {...props}>
     <g>
       <path
@@ -17,5 +17,3 @@ const Sort = (props: BaseIconProps) => (
     </g>
   </BaseIcon>
 );
-
-export default Sort;
