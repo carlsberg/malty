@@ -1,5 +1,4 @@
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Calendar } from '@carlsberggroup/malty.icons.calendar';
@@ -206,7 +205,7 @@ export const Datepicker = ({
       >
         {!inline && (
           <StyledInputIcon disabled={disabled} readOnly={readOnly} theme={theme} datePickerSize={numSize}>
-            <Calendar size={IconSize.Medium} color={IconColor.DigitalBlack} />
+            <Calendar />
           </StyledInputIcon>
         )}
 
