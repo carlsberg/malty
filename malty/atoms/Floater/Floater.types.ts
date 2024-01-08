@@ -1,10 +1,9 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 export interface FloaterProps extends SpaceProps {
   text?: string | number;
-  icon?: IconName;
+  icon?: ReactElement;
   iconPos?: FloaterIconPosition;
   negative?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
