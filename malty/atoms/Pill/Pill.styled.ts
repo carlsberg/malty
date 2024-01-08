@@ -31,13 +31,6 @@ export const StyledPill = styled.div<StyledPillProps>`
   gap: ${({ gap }) => gap};
   text-transform: ${({ isUppercase }) => (isUppercase ? 'uppercase' : 'initial')};
 
-  .pill {
-    &__icon {
-      height: ${({ iconSize }) => iconSize};
-      width: ${({ iconSize }) => iconSize};
-    }
-  }
-
   ${({ hasIcon, hasText, pillSize, theme }) => {
     let paddingLeft;
 

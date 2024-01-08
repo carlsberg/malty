@@ -1,31 +1,31 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import React from 'react';
 import { Pill } from './Pill';
 
 describe('pill', () => {
-  const iconName = IconName.CarlsbergFilled;
   const text = 'Pill text';
+  const iconDataTestId = 'carlsberg-icon';
 
   it('should render the component correctly', () => {
-    render(<Pill text={text} icon={iconName} />);
+    render(<Pill text={text} icon={<CarlsbergFilled dataTestId={iconDataTestId} />} />);
 
     expect(screen.getByText(text)).toBeVisible();
-    expect(screen.getByTestId(`icon-${iconName}`)).toBeVisible();
+    expect(screen.getByTestId(iconDataTestId)).toBeVisible();
   });
 
   it('should render only text', () => {
     render(<Pill text={text} />);
 
     expect(screen.getByText(text)).toBeVisible();
-    expect(screen.queryByTestId(`icon-${iconName}`)).not.toBeInTheDocument();
+    expect(screen.queryByTestId(iconDataTestId)).not.toBeInTheDocument();
   });
 
   it('should render only Icon', () => {
-    render(<Pill icon={iconName} />);
+    render(<Pill icon={<CarlsbergFilled dataTestId={iconDataTestId} />} />);
 
     expect(screen.queryByText(text)).not.toBeInTheDocument();
-    expect(screen.getByTestId(`icon-${iconName}`)).toBeVisible();
+    expect(screen.getByTestId(iconDataTestId)).toBeVisible();
   });
 });
