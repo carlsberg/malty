@@ -1,5 +1,6 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { IconColor, Star } from '@carlsberggroup/malty.icons.star';
+import { StarFilled } from '@carlsberggroup/malty.icons.star-filled';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -109,11 +110,7 @@ export const Rating = ({
           onMouseOver={(e: React.MouseEvent<HTMLLabelElement, MouseEvent>) => handleStarHover(i, e)}
         >
           <StyledIconStarContainer key={`icon_${id}`}>
-            {isDisplayFilledStar ? (
-              <Icon name={IconName.StarFilled} color={starIconColor} size={IconSize.Medium} />
-            ) : (
-              <Icon name={IconName.Star} color={starIconColor} size={IconSize.Medium} />
-            )}
+            {isDisplayFilledStar ? <StarFilled color={starIconColor} /> : <Star color={starIconColor} />}
           </StyledIconStarContainer>
         </StyledLabel>
       );
