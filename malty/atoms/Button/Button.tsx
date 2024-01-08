@@ -121,9 +121,9 @@ export const Button = ({
       {...props}
     >
       <div className="text-container">
-        {clonedIcon && iconPos === ButtonIconPosition.Left && clonedIcon}
+        {iconPos === ButtonIconPosition.Left && clonedIcon}
         {text || children}
-        {clonedIcon && iconPos === ButtonIconPosition.Right && clonedIcon}
+        {iconPos === ButtonIconPosition.Right && clonedIcon}
       </div>
       {loading && (
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">

@@ -1,10 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { IconColor, IconSize, Plus } from '@carlsberggroup/malty.icons.plus';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useEffect, useState } from 'react';
-import { StyledChip, StyledIcon, StyledTextContainer } from './Chip.styled';
+import { StyledChip, StyledTextContainer } from './Chip.styled';
 import { ChipProps, ChipSize } from './Chip.types';
 
 export const Chip = ({
@@ -51,6 +51,25 @@ export const Chip = ({
       }
     }
   }, [size, theme]);
+
+  const getIconColor = () => {
+    if (disabled) {
+      return IconColor.DisableLight;
+    }
+    if (readOnly) {
+      return selected ? IconColor.White : IconColor.Support80;
+    }
+    return IconColor.DigitalBlack;
+  };
+
+  const clonedIcon =
+    icon &&
+    React.cloneElement(icon, {
+      dataTestId: `${dataTestId}-icon`,
+      color: getIconColor(),
+      size: size === ChipSize.XSmall ? IconSize.Small : IconSize.MediumSmall
+    });
+
   return (
     <StyledChip
       hasButton={showAction}
@@ -64,29 +83,10 @@ export const Chip = ({
       theme={theme}
       {...props}
     >
-      {!showAction && icon && (
-        <StyledIcon data-testid={`${dataTestId}-icon`} theme={theme}>
-          <Icon
-            name={icon}
-            color={
-              readOnly && selected
-                ? IconColor.White
-                : readOnly && !selected
-                ? IconColor.Support80
-                : disabled
-                ? IconColor.DisableLight
-                : selected
-                ? IconColor.White
-                : IconColor.DigitalBlack
-            }
-            size={size === ChipSize.XSmall ? IconSize.Small : IconSize.MediumSmall}
-          />
-        </StyledIcon>
-      )}
-
+      {!showAction && clonedIcon}
       <StyledTextContainer
         hasButton={showAction}
-        hasIcon={!!icon}
+        hasIcon={!!clonedIcon}
         size={size}
         data-testid={`${dataTestId}-label`}
         theme={theme}
@@ -115,7 +115,7 @@ export const Chip = ({
           dataTestId={`${dataTestId}-button`}
           size={buttonSize}
           style={ButtonStyle.Transparent}
-          icon={IconName.Plus}
+          icon={<Plus dataTestId="plus-icon" />}
         />
       )}
     </StyledChip>

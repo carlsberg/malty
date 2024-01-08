@@ -85,9 +85,9 @@ export const Floater = ({
       {...props}
     >
       <div className="text-container">
-        {icon && iconPos === FloaterIconPosition.Left && clonedIcon}
+        {iconPos === FloaterIconPosition.Left && clonedIcon}
         {text || children}
-        {icon && iconPos === FloaterIconPosition.Right && clonedIcon}
+        {iconPos === FloaterIconPosition.Right && clonedIcon}
       </div>
     </StyledFloaterButton>
   );
