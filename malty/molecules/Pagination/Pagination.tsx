@@ -1,6 +1,7 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { ChevronLeft } from '@carlsberggroup/malty.icons.chevron-left';
+import { ChevronRight } from '@carlsberggroup/malty.icons.chevron-right';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { EventKeys } from '@carlsberggroup/malty.utils.consts';
 import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useEffect, useState } from 'react';
@@ -212,7 +213,7 @@ export const Pagination = ({
             tabIndex={isFirstPage ? -1 : 0}
             onClick={onPrevious}
             onKeyUp={onPreviousKeyUp}
-            icon={IconName.ChevronLeft}
+            icon={<ChevronLeft />}
             size={buttonSize}
             negative={isWhite}
             aria-label="Go to previous page"
@@ -227,7 +228,7 @@ export const Pagination = ({
             tabIndex={isLastPage ? -1 : 0}
             onClick={onNext}
             onKeyUp={onNextKeyUp}
-            icon={IconName.ChevronRight}
+            icon={<ChevronRight />}
             size={buttonSize}
             negative={isWhite}
             aria-label="Go to next page"
