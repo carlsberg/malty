@@ -62,26 +62,26 @@ describe('Avatar component', () => {
   });
 
   it('should render a customer icon when no username or image is passed', () => {
-    render(<Avatar />);
+    render(<Avatar dataQaId={dataTestId} />);
 
-    expect(screen.getByTestId('icon-Customer')).toBeInTheDocument();
+    expect(screen.getByTestId(`${dataTestId}-customer-icon`)).toBeInTheDocument();
   });
 
   it('should show a camera icon when avatar is large and editable', () => {
     render(<Avatar dataQaId={dataTestId} editable size={AvatarSize.Large} />);
 
-    expect(screen.getByTestId('avatar-camera-icon')).toBeInTheDocument();
+    expect(screen.getByTestId(`${dataTestId}-camera-icon`)).toBeInTheDocument();
   });
 
   it('should show a camera icon when avatar is extra large and editable', () => {
     render(<Avatar dataQaId={dataTestId} editable size={AvatarSize.XLarge} />);
 
-    expect(screen.getByTestId('avatar-camera-icon')).toBeInTheDocument();
+    expect(screen.getByTestId(`${dataTestId}-camera-icon`)).toBeInTheDocument();
   });
 
   it('should not display camera icon', () => {
     render(<Avatar dataQaId={dataTestId} />);
 
-    expect(screen.queryByTestId('avatar-camera-icon')).not.toBeInTheDocument();
+    expect(screen.queryByTestId(`${dataTestId}-camera-icon`)).not.toBeInTheDocument();
   });
 });

@@ -1,4 +1,5 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Camera, IconColor, IconSize } from '@carlsberggroup/malty.icons.camera';
+import { Customer } from '@carlsberggroup/malty.icons.customer';
 import { Loading, LoadingSize, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
@@ -84,11 +85,13 @@ export const Avatar = ({
       )}
       {editable && (
         <StyledCamera data-testid={`${dataQaId}-camera-icon`} theme={theme} size={size}>
-          <Icon color={IconColor.Support60} size={iconSize} name={IconName.Camera} />
+          <Camera dataTestId="camera-icon" color={IconColor.Support60} size={iconSize} />
         </StyledCamera>
       )}
       {!profileImg && userName && <span data-testid={`${dataQaId}-name`}> {displayInitials(userName)} </span>}
-      {!profileImg && !userName && <Icon color={IconColor.Support40} size={iconSize} name={IconName.Customer} />}
+      {!profileImg && !userName && (
+        <Customer dataTestId={`${dataQaId}-customer-icon`} color={IconColor.Support40} size={iconSize} />
+      )}
     </StyledAvatar>
   );
 };
