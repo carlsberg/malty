@@ -1,7 +1,7 @@
 import { Button, ButtonSize } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { ArrowSmallDown, IconColor } from '@carlsberggroup/malty.icons.arrow-small-down';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { Device, useMatchMedia } from '@carlsberggroup/malty.utils.hooks';
 import React, { useContext } from 'react';
@@ -67,7 +67,7 @@ export const Hero = ({
           <StyledText textStyle={TextStyle.MediumBold} color={TextColor.White} theme={theme}>
             {scrollText}
           </StyledText>
-          <Icon name={IconName.ArrowSmallDown} color={IconColor.White} size={IconSize.Medium} />
+          <ArrowSmallDown dataTestId={`${dataTestId}-scroll-icon`} color={IconColor.White} />
         </StyledScroll>
       ) : null}
     </StyledHero>
