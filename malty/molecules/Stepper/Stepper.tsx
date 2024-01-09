@@ -1,6 +1,6 @@
 /* eslint-disable no-loop-func, react/jsx-no-useless-fragment */
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { IconSize, ItemCheckFilled } from '@carlsberggroup/malty.icons.item-check-filled';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -33,9 +33,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId, ...props }:
                 theme={theme}
               >
                 <>
-                  {currentStep > index + 1 && (
-                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.DigitalBlack} />
-                  )}
+                  {currentStep > index + 1 && <ItemCheckFilled size={IconSize.Small} />}
                   {currentStep <= index + 1 && !isMultiStep && (
                     <StyledStepperNumber theme={theme} active={currentStep >= index + 1}>
                       {index + 1}
@@ -72,9 +70,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId, ...props }:
                 theme={theme}
               >
                 <>
-                  {currentStep > step && (
-                    <Icon name={IconName.ItemCheckFilled} size={IconSize.Small} color={IconColor.DigitalBlack} />
-                  )}
+                  {currentStep > step && <ItemCheckFilled size={IconSize.Small} />}
                   {currentStep <= step && !isMultiStep && (
                     <StyledStepperNumber theme={theme} active={currentStep >= step}>
                       {step}
