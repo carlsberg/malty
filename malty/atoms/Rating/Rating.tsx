@@ -99,6 +99,7 @@ export const Rating = ({
           onChange={() => onChange(i)}
         />
       );
+
       const starNodeLabel = (
         <StyledLabel
           theme={theme}

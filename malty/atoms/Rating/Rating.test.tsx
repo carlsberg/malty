@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@carlsberggroup/malty.utils.test';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Rating } from './Rating';
