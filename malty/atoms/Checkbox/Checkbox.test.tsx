@@ -70,12 +70,12 @@ describe('Checkbox', () => {
     render(<CheckBoxComponent />);
     const checkboxInput = screen.getByRole('checkbox', { hidden: true });
 
-    expect(screen.getByTestId('icon-CheckboxEmpty')).toBeVisible();
+    expect(screen.getByTestId('checkbox-empty-icon')).toBeVisible();
     expect(checkboxInput).not.toBeChecked();
 
     userEvent.click(checkboxInput);
 
     expect(checkboxInput).toBeChecked();
-    expect(screen.getByTestId('icon-CheckboxCheck')).toBeVisible();
+    expect(screen.getByTestId('checkbox-check-icon')).toBeVisible();
   });
 });

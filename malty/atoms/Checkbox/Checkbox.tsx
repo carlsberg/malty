@@ -1,5 +1,7 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { CheckboxCheck, IconColor } from '@carlsberggroup/malty.icons.checkbox-check';
+import { CheckboxCheckAlternate } from '@carlsberggroup/malty.icons.checkbox-check-alternate';
+import { CheckboxEmpty } from '@carlsberggroup/malty.icons.checkbox-empty';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { useContext } from 'react';
@@ -32,18 +34,6 @@ export const Checkbox = ({
   const theme = useContext(ThemeContext) || defaultTheme;
   const { spaceProps, restProps } = isolateSpaceProps(props);
 
-  const getIconName = () => {
-    if (checked) {
-      return IconName.CheckboxCheck;
-    }
-
-    if (isIndeterminate) {
-      return IconName.CheckboxCheckAlternate;
-    }
-
-    return IconName.CheckboxEmpty;
-  };
-
   const getTextColor = () => {
     if (disabled) {
       return TextColor.DisableLightTheme;
@@ -68,6 +58,20 @@ export const Checkbox = ({
     return IconColor.DigitalBlack;
   };
 
+  const renderIcon = () => {
+    const iconColor = getIconColor();
+
+    if (checked) {
+      return <CheckboxCheck dataTestId="checkbox-check-icon" color={iconColor} />;
+    }
+
+    if (isIndeterminate) {
+      return <CheckboxCheckAlternate dataTestId="checkbox-check-alternate-icon" color={iconColor} />;
+    }
+
+    return <CheckboxEmpty dataTestId="checkbox-empty-icon" color={iconColor} />;
+  };
+
   return (
     <StyledCheckboxContainer fullWidth={fullWidth} {...spaceProps}>
       <StyledLabel htmlFor={id} disabled={readOnly || disabled} required={required} theme={theme}>
@@ -82,7 +86,7 @@ export const Checkbox = ({
             onChange={onValueChange}
             {...restProps}
           />
-          <Icon name={getIconName()} color={getIconColor()} size={IconSize.Medium} />
+          {renderIcon()}
         </StyledSpan>
         {labelText ? (
           <StyledText
