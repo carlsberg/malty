@@ -236,11 +236,12 @@ export const AlertBanner = ({
   const renderIcon = () => {
     if (!currentAlert.icon) return null;
 
+    const iconProps = { color: iconColorsMap[currentAlert.type] };
     const iconMap = {
-      [AlertBannerType.Information]: <Information color={iconColorsMap[currentAlert.type]} />,
-      [AlertBannerType.Warning]: <Alert color={iconColorsMap[currentAlert.type]} />,
-      [AlertBannerType.Error]: <Alert color={iconColorsMap[currentAlert.type]} />,
-      [AlertBannerType.Success]: <ItemCheck color={iconColorsMap[currentAlert.type]} />
+      [AlertBannerType.Information]: <Information {...iconProps} />,
+      [AlertBannerType.Warning]: <Alert {...iconProps} />,
+      [AlertBannerType.Error]: <Alert {...iconProps} />,
+      [AlertBannerType.Success]: <ItemCheck {...iconProps} />
     };
 
     return iconMap[currentAlert.type];
