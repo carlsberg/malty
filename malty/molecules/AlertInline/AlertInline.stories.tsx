@@ -1,4 +1,5 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon/AllIconsMap';
+import { Information } from '@carlsberggroup/malty.icons.information';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
@@ -24,13 +25,10 @@ export default {
       control: 'text',
       description: 'message'
     },
-
     icon: {
-      description: 'When selected, Alert label will contain the selected icon',
-      options: Object.values({ undefined, ...IconName }),
-      control: {
-        type: 'select'
-      }
+      description: 'The icon component to be displayed',
+      options: allIconsStoryOptions,
+      control: 'select'
     },
     size: {
       description: 'Alert Height size - Only for In Line Alert type without actions. Options are',
@@ -101,7 +99,7 @@ switch (variant) {
   case 'icon':
     AlertInline.args = {
       message: 'Hello, Im the In Line Alert! Play with me.',
-      icon: IconName.Information,
+      icon: <Information />,
       size: AlertInlineSize.Default,
       color: AlertInlineColor.Notification,
       dataQaId: 'inline-alert'

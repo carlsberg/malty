@@ -1,8 +1,8 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { ReactElement } from 'react';
 
 export interface AlertInlineProps extends SpaceProps {
-  icon?: IconName;
+  icon?: ReactElement;
   size?: AlertInlineSize;
   color: AlertInlineColor;
   dataQaId?: string;
