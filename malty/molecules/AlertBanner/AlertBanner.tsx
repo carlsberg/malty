@@ -1,6 +1,9 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Alert, IconColor } from '@carlsberggroup/malty.icons.alert';
+import { Close } from '@carlsberggroup/malty.icons.close';
+import { Information } from '@carlsberggroup/malty.icons.information';
+import { ItemCheck } from '@carlsberggroup/malty.icons.item-check';
 import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
@@ -32,13 +35,6 @@ const textColorsMap = {
   [AlertBannerType.Warning]: TextColor.DigitalBlack,
   [AlertBannerType.Error]: TextColor.White,
   [AlertBannerType.Success]: TextColor.DigitalBlack
-};
-
-const iconNameMap = {
-  [AlertBannerType.Information]: IconName.Information,
-  [AlertBannerType.Warning]: IconName.Alert,
-  [AlertBannerType.Error]: IconName.Alert,
-  [AlertBannerType.Success]: IconName.ItemCheck
 };
 
 export const AlertBanner = ({
@@ -187,14 +183,7 @@ export const AlertBanner = ({
       aria-label="Close button"
       theme={theme}
     >
-      {currentAlert.dismissible && (
-        <Icon
-          className="inline-AlertBanner-icon"
-          name={IconName.Close}
-          size={IconSize.Medium}
-          color={iconColorsMap[currentAlert.type]}
-        />
-      )}
+      {currentAlert.dismissible && <Close color={iconColorsMap[currentAlert.type]} />}
     </CloseButtonContainer>
   );
 
@@ -244,6 +233,19 @@ export const AlertBanner = ({
     return null;
   };
 
+  const renderIcon = () => {
+    if (!currentAlert.icon) return null;
+
+    const iconMap = {
+      [AlertBannerType.Information]: <Information color={iconColorsMap[currentAlert.type]} />,
+      [AlertBannerType.Warning]: <Alert color={iconColorsMap[currentAlert.type]} />,
+      [AlertBannerType.Error]: <Alert color={iconColorsMap[currentAlert.type]} />,
+      [AlertBannerType.Success]: <ItemCheck color={iconColorsMap[currentAlert.type]} />
+    };
+
+    return iconMap[currentAlert.type];
+  };
+
   return (
     <Container type={currentAlert.type} theme={theme}>
       <ContentRow
@@ -267,13 +269,7 @@ export const AlertBanner = ({
           breakpoint={breakpoint}
           data-testid={`${currentAlert.dataQaId}-AlertBanner-message-content`}
         >
-          {currentAlert.icon ? (
-            <Icon
-              name={iconNameMap[currentAlert.type]}
-              color={iconColorsMap[currentAlert.type]}
-              size={IconSize.Medium}
-            />
-          ) : null}
+          {renderIcon()}
           {renderMessage()}
           {!isMobile && currentAlert.action && renderAction()}
         </MessageContainer>
