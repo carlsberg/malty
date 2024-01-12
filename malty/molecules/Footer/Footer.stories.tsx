@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon/AllIconsMap';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Footer as FooterComponent } from './Footer';
@@ -27,12 +27,9 @@ export default {
       description: 'object to display social media icons'
     },
     brandIcon: {
-      description: 'When selected, footer will display the selected  brand icon',
-      options: Object.values({ undefined, ...IconName }),
-
-      control: {
-        type: 'select'
-      }
+      description: 'The icon component to be displayed',
+      options: allIconsStoryOptions,
+      control: 'select'
     }
   }
 } as Meta;
@@ -91,7 +88,6 @@ const Template: Story<FooterProps> = (args) => <FooterComponent {...args} />;
 
 export const Footer = Template.bind({});
 Footer.args = {
-  brandIcon: IconName.CarlsbergFilled,
   brandInfo: 'Carlsberg Breweries A/S J.C. Jacobsens Gade 1, 1799 Copenhagen V Denmark',
   content: footerSections,
   socialMedia: socialMediaIcons,
