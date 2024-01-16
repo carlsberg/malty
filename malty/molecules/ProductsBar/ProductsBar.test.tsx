@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { DataTransfer } from '@carlsberggroup/malty.icons.data-transfer';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -7,23 +7,23 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { ProductsBar } from './ProductsBar';
 
 const systemOptionsMock = [
-  { icon: IconName.DataTransfer, href: '/iframe.html' },
-  { icon: IconName.DataTransfer, component: Link, to: '/item2' }
+  { icon: <DataTransfer />, href: '/iframe.html' },
+  { icon: <DataTransfer />, component: Link, to: '/item2' }
 ];
 
 const profileMenuMock = {
   username: 'Maria Snow',
   userRole: 'Market director',
   profileActions: [
-    { name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' },
-    { name: 'Sign out', icon: IconName.DataTransfer, component: Link, to: '/sign-out' }
+    { name: 'User profile', icon: <DataTransfer />, component: Link, to: '/profile' },
+    { name: 'Sign out', icon: <DataTransfer />, component: Link, to: '/sign-out' }
   ]
 };
 
 const singleOptionConfig = {
   username: 'Maria Snow',
   userRole: 'Market director',
-  profileActions: [{ name: 'User profile', icon: IconName.DataTransfer, component: Link, to: '/profile' }]
+  profileActions: [{ name: 'User profile', icon: <DataTransfer />, component: Link, to: '/profile' }]
 };
 
 const resetNavState = jest.fn();

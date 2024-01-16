@@ -1,6 +1,7 @@
-// import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
+import { Menu } from '@carlsberggroup/malty.icons.menu';
 import { Avatar, AvatarSize } from '@carlsberggroup/malty.molecules.avatar';
 import { LinkComponentProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -105,20 +106,22 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggl
   return (
     <StyledProductsBar theme={theme}>
       <StyledOverlay open={profileMenuOpen} theme={theme} />
-      <Icon color={IconColor.White} name={IconName.CarlsbergFilled} size={IconSize.Medium} />
+      <CarlsbergFilled color={IconColor.White} size={IconSize.Medium} />
       <StyledCollapseBtn onClick={onToggleNav} data-testid="collapse-button">
-        <Icon color={IconColor.White} name={IconName.Menu} size={IconSize.Medium} />
+        <Menu color={IconColor.White} size={IconSize.Medium} />
       </StyledCollapseBtn>
       <StyledSystemWrapper theme={theme}>
         <StyledSystemMenu theme={theme} data-testid="system-options">
           {systemOptions?.map((option, index) => {
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
+            const clonedIcon = React.cloneElement(icon, { color: IconColor.White, size: IconSize.Medium });
+
             return (
               <StyledSystemOption theme={theme} onClick={resetNavState} key={option.key || `systemOption${index}`}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
-                    <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Medium} />
+                    {clonedIcon}
                   </LinkComponent>
                 </StyledOptionIcon>
               </StyledSystemOption>
@@ -149,11 +152,12 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggl
               {profileActions.map((action, index) => {
                 const { name = 'item', icon, component, href, ...customProps } = action;
                 const componentProps = { ...customProps };
+                const clonedIcon = React.cloneElement(icon, { color: IconColor.White, size: IconSize.Medium });
 
                 return (
                   <StyledProfileItem theme={theme} onClick={resetNavState} key={action.key || `profileOption${index}`}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
-                      <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Small} />
+                      {clonedIcon}
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
                         {name}
                       </Text>

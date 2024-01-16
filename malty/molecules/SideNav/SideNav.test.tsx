@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { DataTransfer } from '@carlsberggroup/malty.icons.data-transfer';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -9,16 +9,16 @@ import { SideNav } from './SideNav';
 const productName = 'Ottilia';
 
 const simpleNavigation = [
-  { icon: IconName.DataTransfer, name: 'item 1', href: '/item1' },
-  { icon: IconName.DataTransfer, name: 'item 2', href: '/item2' },
-  { icon: IconName.DataTransfer, name: 'item 3', href: '/item3' }
+  { icon: <DataTransfer />, name: 'item 1', href: '/item1' },
+  { icon: <DataTransfer />, name: 'item 2', href: '/item2' },
+  { icon: <DataTransfer />, name: 'item 3', href: '/item3' }
 ];
 
 const navWithRouterItems = [
-  { icon: IconName.DataTransfer, name: 'item 1', href: '/item1' },
-  { icon: IconName.DataTransfer, name: 'item 2', href: '/item2' },
+  { icon: <DataTransfer />, name: 'item 1', href: '/item1' },
+  { icon: <DataTransfer />, name: 'item 2', href: '/item2' },
   {
-    icon: IconName.DataTransfer,
+    icon: <DataTransfer />,
     name: 'item with subnav',
     component: Link,
     to: '/',
@@ -27,16 +27,16 @@ const navWithRouterItems = [
 ];
 
 const systemOptions = [
-  { icon: IconName.DataTransfer, href: '/iframe.html' },
-  { icon: IconName.DataTransfer, href: '/iframe.html' }
+  { icon: <DataTransfer />, href: '/iframe.html' },
+  { icon: <DataTransfer />, href: '/iframe.html' }
 ];
 
 const profileMenu = {
   username: 'Maria Snow',
   userRole: 'Market director',
   profileActions: [
-    { name: 'User profile', icon: IconName.DataTransfer, href: '/iframe.html' },
-    { name: 'Sign out', icon: IconName.DataTransfer, href: '/item2' }
+    { name: 'User profile', icon: <DataTransfer />, href: '/iframe.html' },
+    { name: 'Sign out', icon: <DataTransfer />, href: '/item2' }
   ]
 };
 

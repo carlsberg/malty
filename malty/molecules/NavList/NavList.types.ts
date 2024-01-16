@@ -1,5 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 export interface SubItemProps {
   name: string;
@@ -11,7 +10,7 @@ export interface SubItemProps {
 
 export type ItemProps = {
   name: string;
-  icon: IconName;
+  icon: ReactElement;
   key?: string;
   href?: string;
   component?: React.ReactNode | JSX.Element;
