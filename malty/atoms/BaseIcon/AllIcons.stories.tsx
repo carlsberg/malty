@@ -13,8 +13,7 @@ import {
 import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 const meta: Meta<BaseIconProps> = {
-  // TODO: remove "3" once the deprecation is over
-  title: 'Icons/All Icons 3',
+  title: 'Icons/All Icons',
   parameters: {
     importObject: 'IconName',
     importPath: '@carlsberggroup/malty.icons.[icon-name]'

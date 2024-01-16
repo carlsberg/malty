@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { Cart } from '@carlsberggroup/malty.icons.cart';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -49,7 +49,7 @@ describe('Input', () => {
     render(
       <Input
         value="Value text"
-        icon={IconName.Cart}
+        icon={<Cart />}
         onValueChange={mockFn}
         type={InputType.Text}
         error="Error text"

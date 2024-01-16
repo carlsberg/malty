@@ -86,54 +86,59 @@ export const StyledInputWrapper = styled.div<{
     align-items: center;
   }
 
-  svg {
+  svg,
+  .clear-trigger,
+  .password-icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+  }
 
-    &.clear-trigger {
-      opacity: 0.7;
-      ${({ theme, $isIconRight, $showCharacterCounter }) => {
-        let clearableIconPositionRight = 16;
-
-        if ($isIconRight && $showCharacterCounter) {
-          clearableIconPositionRight += parseInt(`${theme.sizes['4xl'].value.replace('px', '')}`, 10);
-        } else if ($isIconRight || $showCharacterCounter) {
-          clearableIconPositionRight += parseInt(`${theme.sizes.xl.value.replace('px', '')}`, 10);
-        }
-
-        return css`
-          right: ${clearableIconPositionRight}px;
-        `;
-      }}
+  .clear-trigger,
+  .password-icon {
+    & > svg {
+      position: initial;
+      transform: none;
     }
 
-    &:not(.clear-trigger) {
-      ${({ theme, isIconLeft, addLeft, $showCharacterCounter }) => {
-        const pos = isIconLeft ? 'left' : 'right';
-        let value = '';
+    opacity: 0.7;
+    background-color: initial;
 
-        if (addLeft && isIconLeft) {
-          value = `${
-            parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
-            parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
-          }px`;
-        } else if (!isIconLeft && $showCharacterCounter) {
-          value = `${parseInt(`${theme.sizes['2xl'].value.replace('px', '')}`, 10)}px`;
-        } else {
-          value = `${theme.sizes.s.value}`;
-        }
+    ${({ theme, $isIconRight, $showCharacterCounter }) => {
+      let clearableIconPositionRight = 16;
 
-        return css`
-          ${pos}: ${value};
-        `;
-      }}
-    }
+      if ($isIconRight && $showCharacterCounter) {
+        clearableIconPositionRight += parseInt(`${theme.sizes['4xl'].value.replace('px', '')}`, 10);
+      } else if ($isIconRight || $showCharacterCounter) {
+        clearableIconPositionRight += parseInt(`${theme.sizes.xl.value.replace('px', '')}`, 10);
+      }
 
-    &.quantity-control {
-      top: calc(50% - 1px);
-      left: unset;
-    }
+      return css`
+        right: ${clearableIconPositionRight}px;
+      `;
+    }}
+  }
+
+  & > :not(.clear-trigger, .quantity-control) > svg {
+    ${({ theme, isIconLeft, addLeft, $showCharacterCounter }) => {
+      const pos = isIconLeft ? 'left' : 'right';
+      let value = '';
+
+      if (addLeft && isIconLeft) {
+        value = `${
+          parseInt(`${theme.sizes['5xl'].value.replace('px', '')}`, 10) +
+          parseInt(`${theme.sizes.s.value.replace('px', '')}`, 10)
+        }px`;
+      } else if (!isIconLeft && $showCharacterCounter) {
+        value = `${parseInt(`${theme.sizes['2xl'].value.replace('px', '')}`, 10)}px`;
+      } else {
+        value = `${theme.sizes.s.value}`;
+      }
+
+      return css`
+        ${pos}: ${value};
+      `;
+    }}
   }
 `;
 
@@ -328,6 +333,7 @@ export const StyledButton = styled.button<{
   &:last-child {
     border-left: 0;
   }
+
   ${({ disabled }) =>
     disabled &&
     css`
@@ -391,14 +397,22 @@ export const StyledOption = styled.option<{
 }>`
   height: ${({ height }) => height};
 `;
+
 export const StyledClearableWrapper = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-  .password-icon-show,
-  .password-icon-hide {
-    /* transition: all 0.3s ease-in-out !important; */
+`;
+
+export const StyledIconButton = styled.button`
+  display: flex;
+  appearance: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+  &.password-icon > svg {
     animation: ${animateShow} 0.3s ease-in-out;
-    cursor: pointer;
   }
 `;

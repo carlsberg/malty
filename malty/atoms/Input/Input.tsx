@@ -1,5 +1,9 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
+import { EyeHide } from '@carlsberggroup/malty.icons.eye-hide';
+import { EyeShow, IconColor } from '@carlsberggroup/malty.icons.eye-show';
+import { ItemClose } from '@carlsberggroup/malty.icons.item-close';
+import { Minus } from '@carlsberggroup/malty.icons.minus';
+import { Plus } from '@carlsberggroup/malty.icons.plus';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { ChangeEvent, forwardRef, useContext, useMemo, useState } from 'react';
@@ -13,6 +17,7 @@ import {
   StyledClearableWrapper,
   StyledError,
   StyledHint,
+  StyledIconButton,
   StyledInput,
   StyledInputContainer,
   StyledInputWrapper,
@@ -87,7 +92,8 @@ export const Input = forwardRef(
       }
       return text;
     };
-    const HandleTogglePassword = () => {
+
+    const handleTogglePassword = () => {
       if (value) {
         if (passwordToggleType === InputType.Password) {
           setPasswordToggleType(InputType.Text);
@@ -129,39 +135,35 @@ export const Input = forwardRef(
     const renderClearable = () =>
       (clearable || type === InputType.Search) &&
       !!value && (
-        <Icon
-          data-testid={`${dataTestId}-clearable-icon`}
-          name={IconName.ItemClose}
-          color={IconColor.DigitalBlack}
-          size={IconSize.Medium}
-          className="clear-trigger"
-          onClick={handleClear}
-        />
+        <StyledIconButton className="clear-trigger" type="button" onClick={handleClear}>
+          <ItemClose dataTestId={`${dataTestId}-clearable-icon`} />
+        </StyledIconButton>
       );
 
     const renderIcon = () => {
-      if (type === InputType.Password && value) {
+      if (type === InputType.Password) {
+        const iconProps = {
+          dataTestId: `${dataTestId}-icon`,
+          color: disabled ? IconColor.DisableLight : IconColor.DigitalBlack
+        };
+
+        if (!value) return null;
+
         return (
-          <Icon
-            className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}
-            onClick={HandleTogglePassword}
-            data-testid={`${dataTestId}-icon`}
-            name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}
-            color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
-            size={IconSize.Medium}
-          />
+          <StyledIconButton className="password-icon" type="button" onClick={handleTogglePassword}>
+            {passwordToggleType === InputType.Password ? <EyeShow {...iconProps} /> : <EyeHide {...iconProps} />}
+          </StyledIconButton>
         );
       }
-      return (
-        icon && (
-          <Icon
-            data-testid={`${dataTestId}-icon`}
-            name={icon}
-            color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
-            size={IconSize.Medium}
-          />
-        )
-      );
+
+      const clonedIcon =
+        icon &&
+        React.cloneElement(icon, {
+          dataTestId: `${dataTestId}-icon`,
+          color: disabled ? IconColor.DisableLight : IconColor.DigitalBlack
+        });
+
+      return clonedIcon;
     };
 
     const renderCounter = () => {
@@ -208,7 +210,7 @@ export const Input = forwardRef(
       </StyledClearableWrapper>
     );
 
-    const renderInputNumber = () => (
+    const renderQuantityInput = () => (
       <>
         <StyledButton
           data-testid={`${dataTestId}-quantity-minus`}
@@ -219,13 +221,9 @@ export const Input = forwardRef(
           readOnly={readOnly}
           onClick={handleLeftButtonClick}
           aria-label="Quantity Minus"
+          className="quantity-control"
         >
-          <Icon
-            name={IconName.Minus}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
-            className="quantity-control"
-          />
+          <Minus />
         </StyledButton>
         <StyledInput
           max={max}
@@ -262,13 +260,9 @@ export const Input = forwardRef(
           readOnly={readOnly}
           onClick={handleRightButtonClick}
           aria-label="Quantity Plus"
+          className="quantity-control"
         >
-          <Icon
-            name={IconName.Plus}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
-            className="quantity-control"
-          />
+          <Plus />
         </StyledButton>
       </>
     );
@@ -348,7 +342,7 @@ export const Input = forwardRef(
         >
           {type !== InputType.Quantity && type !== InputType.Telephone && renderInput()}
           {type === InputType.Telephone && renderTelNumber()}
-          {type === InputType.Quantity && renderInputNumber()}
+          {type === InputType.Quantity && renderQuantityInput()}
           {children}
         </StyledInputWrapper>
         {error && (
