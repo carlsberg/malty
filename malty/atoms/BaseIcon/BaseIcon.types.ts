@@ -1,12 +1,14 @@
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import { ReactElement } from 'react';
 
-export interface BaseIconProps extends React.HTMLAttributes<SVGElement>, SpaceProps {
+export interface BaseIconProps extends SpaceProps {
   color?: IconColor;
   size?: IconSize;
   viewBox?: string;
   dataTestId?: string;
   children?: ReactElement;
+  className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export enum IconColor {

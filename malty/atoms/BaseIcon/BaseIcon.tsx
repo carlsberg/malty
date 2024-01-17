@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIconColor } from './BaseIcon.helper';
-import { StyledBaseIcon } from './BaseIcon.styled';
+import { StyledBaseIcon, StyledButtonIcon } from './BaseIcon.styled';
 import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 export const BaseIcon = ({
@@ -9,11 +9,13 @@ export const BaseIcon = ({
   dataTestId = 'icon',
   viewBox,
   children,
+  className,
+  onClick,
   ...props
 }: BaseIconProps) => {
   const iconColor = useIconColor(color);
 
-  return (
+  const renderedIcon = (
     <StyledBaseIcon
       viewBox={viewBox ?? '0 0 24 24'}
       $color={iconColor}
@@ -26,4 +28,12 @@ export const BaseIcon = ({
       {children}
     </StyledBaseIcon>
   );
+
+  const renderedButtonIcon = (
+    <StyledButtonIcon type="button" className={className} onClick={onClick}>
+      {renderedIcon}
+    </StyledButtonIcon>
+  );
+
+  return onClick ? renderedButtonIcon : renderedIcon;
 };

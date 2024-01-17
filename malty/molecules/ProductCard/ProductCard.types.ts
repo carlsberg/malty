@@ -1,5 +1,5 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { IconColor } from '@carlsberggroup/malty.atoms.icon';
 import { PillProps } from '@carlsberggroup/malty.atoms.pill';
 import { PriceProps } from '@carlsberggroup/malty.atoms.price';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';

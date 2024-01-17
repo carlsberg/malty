@@ -1,10 +1,12 @@
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Image } from '@carlsberggroup/malty.atoms.image';
 import { Pill, PillSize } from '@carlsberggroup/malty.atoms.pill';
 import { Price } from '@carlsberggroup/malty.atoms.price';
 import { Select, SelectType } from '@carlsberggroup/malty.atoms.select';
 import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Heart } from '@carlsberggroup/malty.icons.heart';
+import { HeartFilled } from '@carlsberggroup/malty.icons.heart-filled';
 import { AlertInline, AlertInlineSize } from '@carlsberggroup/malty.molecules.alert-inline';
 import { ProductQuantityActions } from '@carlsberggroup/malty.molecules.product-quantity-actions';
 import { Sku } from '@carlsberggroup/malty.molecules.sku';
@@ -74,6 +76,16 @@ export const ProductCard = ({
     };
   }, []);
 
+  const renderFavouriteIcon = () => {
+    const iconProps = {
+      onClick: handleFavoriteClick,
+      color: favoriteIconColor,
+      size: IconSize.MediumSmall
+    };
+
+    return favorite ? <HeartFilled {...iconProps} /> : <Heart {...iconProps} />;
+  };
+
   return (
     <Card
       dataTestId={dataTestId}
@@ -122,14 +134,7 @@ export const ProductCard = ({
                 />
               ) : null}
             </StyledPillWrapper>
-            <StyledFavoriteWrapper theme={theme}>
-              <Icon
-                onClick={handleFavoriteClick}
-                name={favorite ? IconName.HeartFilled : IconName.Heart}
-                color={favoriteIconColor}
-                size={IconSize.MediumSmall}
-              />
-            </StyledFavoriteWrapper>
+            <StyledFavoriteWrapper theme={theme}>{renderFavouriteIcon()}</StyledFavoriteWrapper>
           </>
         </StyledImage>
       }

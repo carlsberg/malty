@@ -18,3 +18,9 @@ export const StyledBaseIcon = styled.svg<StyledBaseIconProps>`
 
   ${space}
 `;
+
+export const StyledButtonIcon = styled.button`
+  all: unset;
+  display: flex;
+  cursor: pointer;
+`;
