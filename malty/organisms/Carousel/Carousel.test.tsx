@@ -1,6 +1,7 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
-import { render, screen } from '@testing-library/react';
+import { render } from '@carlsberggroup/malty.utils.test';
+import { screen } from '@testing-library/react';
 import React from 'react';
 import { Carousel } from './Carousel';
 import { CarouselItemProps } from './Carousel.types';

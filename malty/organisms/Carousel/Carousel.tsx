@@ -1,5 +1,6 @@
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { ArrowSmallLeft } from '@carlsberggroup/malty.icons.arrow-small-left';
+import { ArrowSmallRight } from '@carlsberggroup/malty.icons.arrow-small-right';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import Splide, { Options } from '@splidejs/splide';
 import React, { useContext, useLayoutEffect, useMemo } from 'react';
@@ -82,7 +83,7 @@ export const Carousel: React.FC<CarouselProps> = ({
               tabIndex={0}
               negative={negative}
               size={ButtonSize.Medium}
-              icon={IconName.ArrowSmallLeft}
+              icon={<ArrowSmallLeft />}
             />
           </div>
           <div className="splide__arrow splide__arrow--next">
@@ -93,7 +94,7 @@ export const Carousel: React.FC<CarouselProps> = ({
               tabIndex={0}
               negative={negative}
               size={ButtonSize.Medium}
-              icon={IconName.ArrowSmallRight}
+              icon={<ArrowSmallRight />}
             />
           </div>
         </div>
