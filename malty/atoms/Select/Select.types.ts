@@ -1,4 +1,5 @@
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { ReactElement } from 'react';
 
 export interface SelectProps extends SpaceProps {
   label?: string;
@@ -34,7 +35,7 @@ export enum SelectPosition {
 export interface SelectOptionsType {
   name: string;
   value: string | number;
-  icon?: JSX.Element;
+  icon?: ReactElement;
 }
 
 export enum SelectType {

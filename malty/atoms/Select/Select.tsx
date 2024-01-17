@@ -1,9 +1,8 @@
 import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon-wrapper';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Label } from '@carlsberggroup/malty.atoms.label';
+import { IconSize, Search } from '@carlsberggroup/malty.icons.search';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
@@ -190,7 +189,7 @@ export const Select = ({
                 onValueChange={handleSearch}
                 type={InputType.Search}
                 value={queryText}
-                icon={IconName.Search}
+                icon={<Search />}
               />
             </StyledSearchWrapper>
           )}
@@ -239,12 +238,7 @@ export const Select = ({
                     {option.name}
                   </StyledWrapper>
                   {selectedValueState.find((el: SelectOptionsType) => el.value === option.value) && (
-                    <StyledCheck
-                      theme={theme}
-                      selectStyle={type}
-                      color={IconColor.DigitalBlack}
-                      size={IconSize.Small}
-                    />
+                    <StyledCheck theme={theme} $selectStyle={type} size={IconSize.Small} />
                   )}
                 </>
               )}
@@ -285,8 +279,6 @@ export const Select = ({
             disabled={disabled}
             readOnly={readOnly}
             open={showOptionList}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
           />
         </StyledButton>
 

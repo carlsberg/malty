@@ -281,10 +281,10 @@ export const StyledChevronDown = styled(ChevronDown)<{
 `;
 
 export const StyledCheck = styled(Check)<{
-  selectStyle?: string;
+  $selectStyle?: string;
 }>`
-  ${({ selectStyle }) =>
-    selectStyle === 'inline' &&
+  ${({ $selectStyle }) =>
+    $selectStyle === 'inline' &&
     css`
       margin-left: ${({ theme }) => theme.sizes.s.value};
     `}
@@ -297,6 +297,8 @@ export const StyledWrapper = styled.div`
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
 
   svg {
     margin-right: ${({ theme }) => theme.sizes['4xs'].value};
