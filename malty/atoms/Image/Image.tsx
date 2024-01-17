@@ -47,7 +47,7 @@ export const Image = ({
             {children}
           </StyledOverlay>
           {hasImageError ? (
-            <ImageIcon size={IconSize.ExtraLarge} color={IconColor.Support40} />
+            <ImageIcon size={IconSize.ExtraLarge} color={IconColor.Support40} dataTestId="image-icon" />
           ) : (
             <StyledImage
               data-testid={`${dataTestId}`}
