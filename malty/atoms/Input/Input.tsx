@@ -17,7 +17,6 @@ import {
   StyledClearableWrapper,
   StyledError,
   StyledHint,
-  StyledIconButton,
   StyledInput,
   StyledInputContainer,
   StyledInputWrapper,
@@ -135,25 +134,21 @@ export const Input = forwardRef(
     const renderClearable = () =>
       (clearable || type === InputType.Search) &&
       !!value && (
-        <StyledIconButton className="clear-trigger" type="button" onClick={handleClear}>
-          <ItemClose dataTestId={`${dataTestId}-clearable-icon`} />
-        </StyledIconButton>
+        <ItemClose className="clear-trigger" dataTestId={`${dataTestId}-clearable-icon`} onClick={handleClear} />
       );
 
     const renderIcon = () => {
       if (type === InputType.Password) {
         const iconProps = {
           dataTestId: `${dataTestId}-icon`,
-          color: disabled ? IconColor.DisableLight : IconColor.DigitalBlack
+          color: disabled ? IconColor.DisableLight : IconColor.DigitalBlack,
+          onClick: handleTogglePassword,
+          className: 'password-icon'
         };
 
         if (!value) return null;
 
-        return (
-          <StyledIconButton className="password-icon" type="button" onClick={handleTogglePassword}>
-            {passwordToggleType === InputType.Password ? <EyeShow {...iconProps} /> : <EyeHide {...iconProps} />}
-          </StyledIconButton>
-        );
+        return passwordToggleType === InputType.Password ? <EyeShow {...iconProps} /> : <EyeHide {...iconProps} />;
       }
 
       const clonedIcon =

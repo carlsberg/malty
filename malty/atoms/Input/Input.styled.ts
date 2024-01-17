@@ -140,6 +140,10 @@ export const StyledInputWrapper = styled.div<{
       `;
     }}
   }
+
+  & .password-icon > svg {
+    animation: ${animateShow} 0.3s ease-in-out;
+  }
 `;
 
 export const StyledInput = styled.input<{
@@ -402,17 +406,4 @@ export const StyledClearableWrapper = styled.div`
   position: relative;
   display: flex;
   width: 100%;
-`;
-
-export const StyledIconButton = styled.button`
-  display: flex;
-  appearance: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-
-  &.password-icon > svg {
-    animation: ${animateShow} 0.3s ease-in-out;
-  }
 `;
