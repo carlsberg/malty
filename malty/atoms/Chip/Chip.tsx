@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Plus } from '@carlsberggroup/malty.icons.plus';
@@ -63,14 +63,6 @@ export const Chip = ({
     return IconColor.DigitalBlack;
   };
 
-  const clonedIcon =
-    icon &&
-    React.cloneElement(icon, {
-      dataTestId: `${dataTestId}-icon`,
-      color: getIconColor(),
-      size: size === ChipSize.XSmall ? IconSize.Small : IconSize.MediumSmall
-    });
-
   return (
     <StyledChip
       hasButton={showAction}
@@ -84,10 +76,17 @@ export const Chip = ({
       theme={theme}
       {...props}
     >
-      {!showAction && clonedIcon}
+      {!showAction && (
+        <CloneIcon
+          icon={icon}
+          dataTestId={`${dataTestId}-icon`}
+          color={getIconColor()}
+          size={size === ChipSize.XSmall ? IconSize.Small : IconSize.MediumSmall}
+        />
+      )}
       <StyledTextContainer
         hasButton={showAction}
-        hasIcon={!!clonedIcon}
+        hasIcon={!!icon}
         size={size}
         data-testid={`${dataTestId}-label`}
         theme={theme}
