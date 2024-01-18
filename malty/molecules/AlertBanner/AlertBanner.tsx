@@ -1,6 +1,7 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { Alert, IconColor } from '@carlsberggroup/malty.icons.alert';
+import { Alert } from '@carlsberggroup/malty.icons.alert';
 import { Close } from '@carlsberggroup/malty.icons.close';
 import { Information } from '@carlsberggroup/malty.icons.information';
 import { ItemCheck } from '@carlsberggroup/malty.icons.item-check';

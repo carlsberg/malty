@@ -1,3 +1,4 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
@@ -8,7 +9,7 @@ import { AppGithub } from '@carlsberggroup/malty.icons.app-github';
 import { AppInstagram } from '@carlsberggroup/malty.icons.app-instagram';
 import { AppLinkedin } from '@carlsberggroup/malty.icons.app-linkedin';
 import { AppSkype } from '@carlsberggroup/malty.icons.app-skype';
-import { CarlsbergFilled, IconColor } from '@carlsberggroup/malty.icons.carlsberg-filled';
+import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { Twitter } from '@carlsberggroup/malty.icons.twitter';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';

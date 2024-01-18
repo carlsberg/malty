@@ -1,7 +1,8 @@
 /* eslint-disable no-nested-ternary */
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { IconColor, IconSize, Plus } from '@carlsberggroup/malty.icons.plus';
+import { Plus } from '@carlsberggroup/malty.icons.plus';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useEffect, useState } from 'react';
 import { StyledChip, StyledTextContainer } from './Chip.styled';

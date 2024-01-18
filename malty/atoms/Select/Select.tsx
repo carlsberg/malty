@@ -1,8 +1,9 @@
+import { IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { ButtonType } from '@carlsberggroup/malty.atoms.button';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
 import { Label } from '@carlsberggroup/malty.atoms.label';
-import { IconSize, Search } from '@carlsberggroup/malty.icons.search';
+import { Search } from '@carlsberggroup/malty.icons.search';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { createRef, useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';

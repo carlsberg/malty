@@ -1,6 +1,7 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { EyeHide } from '@carlsberggroup/malty.icons.eye-hide';
-import { EyeShow, IconColor } from '@carlsberggroup/malty.icons.eye-show';
+import { EyeShow } from '@carlsberggroup/malty.icons.eye-show';
 import { ItemClose } from '@carlsberggroup/malty.icons.item-close';
 import { Minus } from '@carlsberggroup/malty.icons.minus';
 import { Plus } from '@carlsberggroup/malty.icons.plus';

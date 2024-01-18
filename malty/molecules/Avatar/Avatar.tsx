@@ -1,4 +1,5 @@
-import { Camera, IconColor, IconSize } from '@carlsberggroup/malty.icons.camera';
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { Camera } from '@carlsberggroup/malty.icons.camera';
 import { Customer } from '@carlsberggroup/malty.icons.customer';
 import { Loading, LoadingSize, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';

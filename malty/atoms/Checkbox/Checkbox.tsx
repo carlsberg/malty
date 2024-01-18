@@ -1,5 +1,6 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { CheckboxCheck, IconColor } from '@carlsberggroup/malty.icons.checkbox-check';
+import { CheckboxCheck } from '@carlsberggroup/malty.icons.checkbox-check';
 import { CheckboxCheckAlternate } from '@carlsberggroup/malty.icons.checkbox-check-alternate';
 import { CheckboxEmpty } from '@carlsberggroup/malty.icons.checkbox-empty';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';

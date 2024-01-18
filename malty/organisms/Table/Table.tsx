@@ -1,8 +1,9 @@
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Tooltip, TooltipPlacement } from '@carlsberggroup/malty.atoms.tooltip';
 import { ArrowSmallDown } from '@carlsberggroup/malty.icons.arrow-small-down';
-import { ArrowSmallUp, IconColor, IconSize } from '@carlsberggroup/malty.icons.arrow-small-up';
+import { ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
 import { Sort } from '@carlsberggroup/malty.icons.sort';
 import { LoadingOverlay } from '@carlsberggroup/malty.molecules.loading-overlay';
 import {
