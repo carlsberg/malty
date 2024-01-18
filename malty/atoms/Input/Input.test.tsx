@@ -320,16 +320,14 @@ describe('Input', () => {
 
       const input = screen.getByTestId('input');
 
-      userEvent.clear(input);
-      userEvent.type(input, '16');
+      userEvent.type(input, '16', { skipClick: true });
 
       expect(onValueChange).not.toHaveBeenCalled();
+      expect(input).toHaveValue(null);
     });
   });
 
   describe(`Input type: ${InputType.Text}`, () => {
-    const handleValueChange = jest.fn();
-
     it('should update character counter when typing', () => {
       render(<ControlledInput value="" type={InputType.Text} showCharacterCounter />);
 
