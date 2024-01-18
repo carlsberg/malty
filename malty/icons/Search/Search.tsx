@@ -1,8 +1,8 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-export const Search = (props: BaseIconProps) => (
-  <BaseIcon {...props}>
+export const Search = ({ dataTestId = 'icon-Search', ...restProps }: BaseIconProps) => (
+  <BaseIcon {...restProps} dataTestId={dataTestId}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"

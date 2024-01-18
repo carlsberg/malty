@@ -1,8 +1,8 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-export const Sort = (props: BaseIconProps) => (
-  <BaseIcon {...props}>
+export const Sort = ({ dataTestId = 'icon-Sort', ...restProps }: BaseIconProps) => (
+  <BaseIcon {...restProps} dataTestId={dataTestId}>
     <g>
       <path
         fillRule="evenodd"

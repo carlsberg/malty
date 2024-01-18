@@ -1,8 +1,8 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-export const BellNotification = (props: BaseIconProps) => (
-  <BaseIcon {...props}>
+export const BellNotification = ({ dataTestId = 'icon-BellNotification', ...restProps }: BaseIconProps) => (
+  <BaseIcon {...restProps} dataTestId={dataTestId}>
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
       <g transform="translate(2)">

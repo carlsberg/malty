@@ -1,8 +1,8 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-export const Image = (props: BaseIconProps) => (
-  <BaseIcon {...props}>
+export const Image = ({ dataTestId = 'icon-Image', ...restProps }: BaseIconProps) => (
+  <BaseIcon {...restProps} dataTestId={dataTestId}>
     <g fillRule="evenodd">
       <rect width="24" height="24" fill="none" />
       <path

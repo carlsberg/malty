@@ -1,8 +1,8 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-export const SpeachBalloonComplaint = (props: BaseIconProps) => (
-  <BaseIcon {...props}>
+export const SpeachBalloonComplaint = ({ dataTestId = 'icon-SpeachBalloonComplaint', ...restProps }: BaseIconProps) => (
+  <BaseIcon {...restProps} dataTestId={dataTestId}>
     <g fillRule="evenodd">
       <path d="M0 0h24v24H0z" fill="none" />
       <path

@@ -1,8 +1,8 @@
 import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
 import React from 'react';
 
-export const EllipsisVertical = (props: BaseIconProps) => (
-  <BaseIcon {...props}>
+export const EllipsisVertical = ({ dataTestId = 'icon-EllipsisVertical', ...restProps }: BaseIconProps) => (
+  <BaseIcon {...restProps} dataTestId={dataTestId}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"

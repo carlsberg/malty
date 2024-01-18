@@ -3,12 +3,12 @@ import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-t
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
-export const Loading = (props: BaseIconProps) => {
-  const { color } = props;
+export const Loading = ({ dataTestId = 'icon-Loading', ...restProps }: BaseIconProps) => {
+  const { color } = restProps;
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <BaseIcon {...props}>
+    <BaseIcon {...restProps} dataTestId={dataTestId}>
       <g fillRule="evenodd">
         <path d="M0 0h24v24H0z" fill="none" />
         <path

@@ -13,7 +13,7 @@ import {
 import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 const meta: Meta<BaseIconProps> = {
-  title: 'Icons/All Icons',
+  title: 'Icons/Icons',
   parameters: {
     importObject: 'IconName',
     importPath: '@carlsberggroup/malty.icons.[icon-name]'
