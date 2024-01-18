@@ -10,6 +10,7 @@ export const BaseIcon = ({
   viewBox,
   children,
   className,
+  ariaLabel,
   onClick,
   ...props
 }: BaseIconProps) => {
@@ -30,7 +31,7 @@ export const BaseIcon = ({
   );
 
   const renderedButtonIcon = (
-    <StyledButtonIcon type="button" className={className} onClick={onClick}>
+    <StyledButtonIcon type="button" className={className} onClick={onClick} aria-label={ariaLabel}>
       {renderedIcon}
     </StyledButtonIcon>
   );

@@ -135,7 +135,12 @@ export const Input = forwardRef(
     const renderClearable = () =>
       (clearable || type === InputType.Search) &&
       !!value && (
-        <ItemClose className="clear-trigger" dataTestId={`${dataTestId}-clearable-icon`} onClick={handleClear} />
+        <ItemClose
+          className="clear-trigger"
+          dataTestId={`${dataTestId}-clearable-icon`}
+          onClick={handleClear}
+          ariaLabel="Clear input"
+        />
       );
 
     const renderIcon = () => {
@@ -149,7 +154,11 @@ export const Input = forwardRef(
 
         if (!value) return null;
 
-        return passwordToggleType === InputType.Password ? <EyeShow {...iconProps} /> : <EyeHide {...iconProps} />;
+        return passwordToggleType === InputType.Password ? (
+          <EyeShow {...iconProps} ariaLabel="Show password" />
+        ) : (
+          <EyeHide {...iconProps} ariaLabel="Hide password" />
+        );
       }
 
       const clonedIcon =

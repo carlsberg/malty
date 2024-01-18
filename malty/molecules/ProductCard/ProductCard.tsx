@@ -83,7 +83,11 @@ export const ProductCard = ({
       size: IconSize.MediumSmall
     };
 
-    return favorite ? <HeartFilled {...iconProps} /> : <Heart {...iconProps} />;
+    return favorite ? (
+      <HeartFilled {...iconProps} ariaLabel="Mark as not favourite" />
+    ) : (
+      <Heart {...iconProps} ariaLabel="Mark as favourite" />
+    );
   };
 
   return (

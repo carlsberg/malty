@@ -1,15 +1,25 @@
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 import { ReactElement } from 'react';
 
-export interface BaseIconProps extends SpaceProps {
-  color?: IconColor;
-  size?: IconSize;
-  viewBox?: string;
-  dataTestId?: string;
-  children?: ReactElement;
-  className?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+interface BaseIconSVGProps {
+  ariaLabel?: never;
+  onClick?: never;
 }
+
+interface BaseIconButtonProps {
+  ariaLabel: string;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export type BaseIconProps = (BaseIconSVGProps | BaseIconButtonProps) &
+  SpaceProps & {
+    color?: IconColor;
+    size?: IconSize;
+    viewBox?: string;
+    dataTestId?: string;
+    children?: ReactElement;
+    className?: string;
+  };
 
 export enum IconColor {
   Primary = 'themePrimary',

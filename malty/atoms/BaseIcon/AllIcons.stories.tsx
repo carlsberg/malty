@@ -54,6 +54,13 @@ const meta: Meta<BaseIconProps> = {
         disable: true
       }
     },
+    ariaLabel: {
+      description: 'The ariaLabel attribute defines a string value that labels the svg Icon',
+      control: 'text'
+    },
+    onClick: {
+      description: 'This will render a button on top of the icon executing the function'
+    },
     dataTestId: {
       control: 'text'
     },
@@ -119,11 +126,11 @@ const SearchIcons = (args: BaseIconProps) => {
 };
 
 export const Base: Story = {
-  render: (args) => <CarlsbergFilled {...args} />
+  render: (args: BaseIconProps) => <CarlsbergFilled {...args} {...(!args.ariaLabel && { onClick: undefined })} />
 };
 
 export const AllIcons: Story = {
-  render: (args) => <SearchIcons {...args} />
+  render: (args: BaseIconProps) => <SearchIcons {...args} {...(!args.ariaLabel && { onClick: undefined })} />
 };
 
 export default meta;
