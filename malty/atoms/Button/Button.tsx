@@ -1,4 +1,4 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Loading, LoadingColor, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
@@ -97,7 +97,7 @@ export const Button = ({
     return LoadingColor.DigitalBlack;
   };
 
-  const clonedIcon = icon && React.cloneElement(icon, { color: iconColor, size: IconSize.Small });
+  const renderedIcon = <CloneIcon icon={icon} color={iconColor} size={IconSize.Small} />;
 
   const renderComponent = () => (
     <Component
@@ -108,7 +108,7 @@ export const Button = ({
       $selected={selected}
       isLoading={loading}
       hasText={!!text || !!children}
-      hasIcon={!!clonedIcon}
+      hasIcon={!!icon}
       onClick={onClick}
       onKeyUp={onKeyUp}
       isNegative={negative}
@@ -121,9 +121,9 @@ export const Button = ({
       {...props}
     >
       <div className="text-container">
-        {iconPos === ButtonIconPosition.Left && clonedIcon}
+        {iconPos === ButtonIconPosition.Left && renderedIcon}
         {text || children}
-        {iconPos === ButtonIconPosition.Right && clonedIcon}
+        {iconPos === ButtonIconPosition.Right && renderedIcon}
       </div>
       {loading && (
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">

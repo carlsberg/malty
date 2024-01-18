@@ -1,4 +1,4 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { ArrowSmallLeft } from '@carlsberggroup/malty.icons.arrow-small-left';
 import { ArrowSmallRight } from '@carlsberggroup/malty.icons.arrow-small-right';
@@ -43,8 +43,6 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
     }
   };
 
-  const clonedIcon = icon && React.cloneElement(icon, { color: IconColor.White, size: IconSize.Small });
-
   return (
     <StyledNavItem
       onClick={handleOnClick}
@@ -54,7 +52,7 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
       className={className}
     >
       <LinkComponent component={component} href={href} componentProps={componentProps}>
-        {clonedIcon}
+        <CloneIcon icon={icon} color={IconColor.White} size={IconSize.Small} />
 
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
           {name}

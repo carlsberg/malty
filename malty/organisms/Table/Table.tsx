@@ -1,4 +1,4 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Tooltip, TooltipPlacement } from '@carlsberggroup/malty.atoms.tooltip';
@@ -38,14 +38,15 @@ import {
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
 const createSortIcon = (icon: ReactElement, dataTestId: string, isSort?: boolean) => {
-  const clonedIcon = React.cloneElement(icon, {
-    dataTestId,
-    size: IconSize.MediumSmall,
-    color: isSort ? IconColor.Support40 : IconColor.Support80
-  });
-
   const renderSortIcon = (ref: React.Dispatch<React.SetStateAction<HTMLElement | null>>) => (
-    <div ref={ref}>{clonedIcon}</div>
+    <div ref={ref}>
+      <CloneIcon
+        dataTestId={dataTestId}
+        icon={icon}
+        color={isSort ? IconColor.Support40 : IconColor.Support80}
+        size={IconSize.MediumSmall}
+      />
+    </div>
   );
 
   return renderSortIcon;

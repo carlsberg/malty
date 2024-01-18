@@ -1,4 +1,4 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -67,7 +67,7 @@ export const Floater = ({
     };
   }, [scroll]);
 
-  const clonedIcon = icon && React.cloneElement(icon, { color: iconColor });
+  const renderedIcon = <CloneIcon icon={icon} color={iconColor} />;
 
   return (
     <StyledFloaterButton
@@ -85,9 +85,9 @@ export const Floater = ({
       {...props}
     >
       <div className="text-container">
-        {iconPos === FloaterIconPosition.Left && clonedIcon}
+        {iconPos === FloaterIconPosition.Left && renderedIcon}
         {text || children}
-        {iconPos === FloaterIconPosition.Right && clonedIcon}
+        {iconPos === FloaterIconPosition.Right && renderedIcon}
       </div>
     </StyledFloaterButton>
   );

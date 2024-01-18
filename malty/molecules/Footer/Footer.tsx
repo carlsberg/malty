@@ -1,4 +1,4 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
@@ -44,11 +44,9 @@ export const Footer = ({
     return icons[socialMediaIconName];
   };
 
-  const clonedIcon = React.cloneElement(brandIcon, { color: IconColor.Support60 });
-
   return (
     <StyledFooter data-testid={dataQaId} theme={theme}>
-      {clonedIcon}
+      <CloneIcon icon={brandIcon} color={IconColor.Support60} />
       <StyledAdress data-testid={`${dataQaId}-brand-info`} theme={theme}>
         <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support60} align={TextAlign.Center}>
           {brandInfo}

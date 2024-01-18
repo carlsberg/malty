@@ -1,4 +1,4 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -38,9 +38,6 @@ export const AlertInline = ({
       ? IconColor.White
       : IconColor.DigitalBlack;
   const actionButtonColor = color === AlertInlineColor.Notification || color === AlertInlineColor.Fail;
-
-  const clonedIcon =
-    icon && React.cloneElement(icon, { dataTestId: `${dataQaId}-icon`, color: alertIconColor, size: IconSize.Small });
 
   const onFirstAction = () => {
     if (firstAction) {
@@ -95,7 +92,7 @@ export const AlertInline = ({
       <StyledAlertInLine
         hasTitle={!!title}
         hasActions={!!firstActionText || !!secondActionText}
-        hasIcon={!!clonedIcon}
+        hasIcon={!!icon}
         size={size}
         data-testid={`${dataQaId}-alert-container`}
         color={color}
@@ -109,7 +106,9 @@ export const AlertInline = ({
           </StyledTitle>
         )}
         <StyledContent theme={theme} data-testid={`${dataQaId}-alert-content`}>
-          {!title && !firstActionText && !secondActionText && clonedIcon}
+          {!title && !firstActionText && !secondActionText && (
+            <CloneIcon icon={icon} dataTestId={`${dataQaId}-icon`} color={alertIconColor} size={IconSize.Small} />
+          )}
           {renderLabel()}
         </StyledContent>
 

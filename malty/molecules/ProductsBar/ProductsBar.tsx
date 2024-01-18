@@ -1,4 +1,4 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { Menu } from '@carlsberggroup/malty.icons.menu';
@@ -115,13 +115,12 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggl
           {systemOptions?.map((option, index) => {
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
-            const clonedIcon = React.cloneElement(icon, { color: IconColor.White, size: IconSize.Medium });
 
             return (
               <StyledSystemOption theme={theme} onClick={resetNavState} key={option.key || `systemOption${index}`}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
-                    {clonedIcon}
+                    <CloneIcon icon={icon} color={IconColor.White} />
                   </LinkComponent>
                 </StyledOptionIcon>
               </StyledSystemOption>
@@ -152,12 +151,11 @@ export const ProductsBar = ({ systemOptions, profileMenu, resetNavState, onToggl
               {profileActions.map((action, index) => {
                 const { name = 'item', icon, component, href, ...customProps } = action;
                 const componentProps = { ...customProps };
-                const clonedIcon = React.cloneElement(icon, { color: IconColor.White, size: IconSize.Medium });
 
                 return (
                   <StyledProfileItem theme={theme} onClick={resetNavState} key={action.key || `profileOption${index}`}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
-                      {clonedIcon}
+                      <CloneIcon icon={icon} color={IconColor.White} />
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
                         {name}
                       </Text>

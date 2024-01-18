@@ -1,4 +1,4 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { EyeHide } from '@carlsberggroup/malty.icons.eye-hide';
 import { EyeShow } from '@carlsberggroup/malty.icons.eye-show';
@@ -161,14 +161,13 @@ export const Input = forwardRef(
         );
       }
 
-      const clonedIcon =
-        icon &&
-        React.cloneElement(icon, {
-          dataTestId: `${dataTestId}-icon`,
-          color: disabled ? IconColor.DisableLight : IconColor.DigitalBlack
-        });
-
-      return clonedIcon;
+      return (
+        <CloneIcon
+          icon={icon}
+          dataTestId={`${dataTestId}-icon`}
+          color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
+        />
+      );
     };
 
     const renderCounter = () => {

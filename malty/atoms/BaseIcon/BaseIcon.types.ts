@@ -57,3 +57,7 @@ export type StyledBaseIconProps = {
   $color: string;
   $size: IconSize;
 } & SpaceProps;
+
+export type CloneIconProps = {
+  icon?: ReactElement;
+} & BaseIconProps;

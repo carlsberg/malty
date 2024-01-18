@@ -1,3 +1,4 @@
+import { CloneIcon } from '@carlsberggroup/malty.atoms.base-icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -18,7 +19,6 @@ export const Pill = ({
   const { fontSize, fontFamily, iconSize, gap, numSize, padding } = usePillStyles({ size });
   const colorStyle = useIconTextColor({ type });
   const hasText = !!text;
-  const clonedIcon = icon && React.cloneElement(icon, { color: colorStyle, size: iconSize });
 
   return (
     <StyledPill
@@ -29,7 +29,7 @@ export const Pill = ({
       fontFamily={fontFamily}
       padding={padding}
       hasText={hasText}
-      hasIcon={!!clonedIcon}
+      hasIcon={!!icon}
       theme={theme}
       textColor={colorStyle}
       pillSize={size}
@@ -37,7 +37,7 @@ export const Pill = ({
       isUppercase={hasText && isUppercase}
       {...props}
     >
-      {clonedIcon}
+      <CloneIcon icon={icon} color={colorStyle} size={iconSize} />
       {text}
     </StyledPill>
   );

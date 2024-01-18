@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { useIconColor } from './BaseIcon.helper';
 import { StyledBaseIcon, StyledButtonIcon } from './BaseIcon.styled';
-import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
+import { BaseIconProps, CloneIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 export const BaseIcon = ({
   color = IconColor.DigitalBlack,
@@ -40,5 +40,5 @@ export const BaseIcon = ({
   return onClick ? renderedButtonIcon : renderedIcon;
 };
 
-export const CloneIcon = ({ icon, ...restProps }: BaseIconProps & { icon?: ReactElement }) =>
+export const CloneIcon = ({ icon, ...restProps }: CloneIconProps) =>
   icon ? React.cloneElement(icon, restProps) : null;
