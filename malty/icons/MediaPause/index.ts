@@ -1,1 +1,0 @@
-export { MediaPause } from './MediaPause';

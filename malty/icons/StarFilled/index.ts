@@ -1,1 +1,0 @@
-export { StarFilled } from './StarFilled';

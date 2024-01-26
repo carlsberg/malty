@@ -1,1 +1,0 @@
-export { Eye } from './Eye';

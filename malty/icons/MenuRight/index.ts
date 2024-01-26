@@ -1,1 +1,0 @@
-export { MenuRight } from './MenuRight';

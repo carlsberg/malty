@@ -1,1 +1,0 @@
-export { CalendarAutumn } from './CalendarAutumn';

@@ -1,1 +1,0 @@
-export { SurveyCheck } from './SurveyCheck';

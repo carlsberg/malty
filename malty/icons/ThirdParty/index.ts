@@ -1,1 +1,0 @@
-export { ThirdParty } from './ThirdParty';

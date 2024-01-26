@@ -1,1 +1,0 @@
-export { Pallet } from './Pallet';

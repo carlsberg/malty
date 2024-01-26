@@ -1,1 +1,0 @@
-export { SurveyDefault } from './SurveyDefault';

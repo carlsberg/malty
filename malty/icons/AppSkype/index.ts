@@ -1,1 +1,0 @@
-export { AppSkype } from './AppSkype';

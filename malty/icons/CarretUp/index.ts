@@ -1,1 +1,0 @@
-export { CarretUp } from './CarretUp';

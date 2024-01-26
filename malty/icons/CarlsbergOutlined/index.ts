@@ -1,1 +1,0 @@
-export { CarlsbergOutlined } from './CarlsbergOutlined';

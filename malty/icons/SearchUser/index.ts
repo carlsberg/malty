@@ -1,1 +1,0 @@
-export { SearchUser } from './SearchUser';

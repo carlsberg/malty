@@ -1,1 +1,0 @@
-export { HeartFilled } from './HeartFilled';

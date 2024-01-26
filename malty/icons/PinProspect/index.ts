@@ -1,1 +1,0 @@
-export { PinProspect } from './PinProspect';

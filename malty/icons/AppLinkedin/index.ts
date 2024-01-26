@@ -1,1 +1,0 @@
-export { AppLinkedin } from './AppLinkedin';

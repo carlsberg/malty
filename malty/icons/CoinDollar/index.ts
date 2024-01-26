@@ -1,1 +1,0 @@
-export { CoinDollar } from './CoinDollar';

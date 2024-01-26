@@ -1,1 +1,0 @@
-export { FilesPdf } from './FilesPdf';

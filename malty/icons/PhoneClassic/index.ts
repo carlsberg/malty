@@ -1,1 +1,0 @@
-export { PhoneClassic } from './PhoneClassic';

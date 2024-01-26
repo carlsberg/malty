@@ -1,1 +1,0 @@
-export { AppPowerbi } from './AppPowerbi';

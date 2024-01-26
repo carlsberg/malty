@@ -1,1 +1,0 @@
-export { AppGithub } from './AppGithub';

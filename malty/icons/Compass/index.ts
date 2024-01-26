@@ -1,1 +1,0 @@
-export { Compass } from './Compass';

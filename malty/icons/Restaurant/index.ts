@@ -1,1 +1,0 @@
-export { Restaurant } from './Restaurant';

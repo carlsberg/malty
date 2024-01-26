@@ -1,1 +1,0 @@
-export { Wheat } from './Wheat';

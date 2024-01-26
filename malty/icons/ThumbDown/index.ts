@@ -1,1 +1,0 @@
-export { ThumbDown } from './ThumbDown';

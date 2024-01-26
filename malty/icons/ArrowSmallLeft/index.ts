@@ -1,1 +1,0 @@
-export { ArrowSmallLeft } from './ArrowSmallLeft';

@@ -1,1 +1,0 @@
-export { CartLabel } from './CartLabel';

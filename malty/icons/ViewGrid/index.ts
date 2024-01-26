@@ -1,1 +1,0 @@
-export { ViewGrid } from './ViewGrid';

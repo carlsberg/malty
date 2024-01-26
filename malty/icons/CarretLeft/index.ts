@@ -1,1 +1,0 @@
-export { CarretLeft } from './CarretLeft';

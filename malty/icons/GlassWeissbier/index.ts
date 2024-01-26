@@ -1,1 +1,0 @@
-export { GlassWeissbier } from './GlassWeissbier';

@@ -1,1 +1,0 @@
-export { CalendarConfirm } from './CalendarConfirm';

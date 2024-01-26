@@ -1,1 +1,0 @@
-export { CarlsbergFilled } from './CarlsbergFilled';

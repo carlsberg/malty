@@ -1,1 +1,0 @@
-export { AppInstagram } from './AppInstagram';
