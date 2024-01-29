@@ -11,6 +11,12 @@
       "rules": {
         "no-alert": "off"
       }
+    },
+    {
+      "files": ["./scripts/**/*.mjs"],
+      "rules": {
+        "no-console": "off"
+      }
     }
   ]
 }

@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import { execSync } from 'child_process';
 
 const args = process.argv.slice(2);
