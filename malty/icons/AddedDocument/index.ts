@@ -1,0 +1,1 @@
+export { AddedDocument } from './AddedDocument';

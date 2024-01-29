@@ -1,0 +1,1 @@
+export { CartLabel } from './CartLabel';

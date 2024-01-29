@@ -1,0 +1,1 @@
+export { MediaPause } from './MediaPause';

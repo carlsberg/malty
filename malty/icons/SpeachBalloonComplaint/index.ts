@@ -1,0 +1,1 @@
+export { SpeachBalloonComplaint } from './SpeachBalloonComplaint';

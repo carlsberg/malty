@@ -1,0 +1,1 @@
+export { Tulipe } from './Tulipe';

@@ -1,0 +1,1 @@
+export { DiagonalDownRight } from './DiagonalDownRight';

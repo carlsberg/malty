@@ -1,0 +1,1 @@
+export { SpeachBalloon } from './SpeachBalloon';

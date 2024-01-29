@@ -1,0 +1,1 @@
+export { LocationIp } from './LocationIp';
