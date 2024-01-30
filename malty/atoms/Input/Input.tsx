@@ -80,16 +80,22 @@ export const Input = forwardRef(
     const { spaceProps, restProps } = isolateSpaceProps(props);
 
     const transform = (text: string): string => {
-      if (mask) {
-        if (type === InputType.Telephone && mask === InputMaskTypes.Telephone) {
-          const tel = text.match(/(\d{3,})(\d{4,})/);
-          if (tel) return `${tel[1]}  ${tel[2]}`;
-        } else if (type === InputType.Text && mask === InputMaskTypes.CreditCard) {
-          // eslint-disable-next-line no-useless-escape
-          const card = text.match(/((\d{4}[-|" "|\.])|(\d{4})){3}\d{4}/g);
-          if (card) return `${card[1]}-${card[2]}-${card[3]}-${card[4]}`;
+      if (type === InputType.Telephone && mask === InputMaskTypes.Telephone) {
+        const telMatch = text.match(/(\d{3,})(\d{4,})/);
+
+        if (telMatch) {
+          return `${telMatch[1]}  ${telMatch[2]}`;
         }
       }
+
+      if (type === InputType.Text && mask === InputMaskTypes.CreditCard) {
+        const cardMatch = text.match(/((\d{4}[-|" "|.])|(\d{4})){3}\d{4}/g);
+
+        if (cardMatch) {
+          return `${cardMatch[1]}-${cardMatch[2]}-${cardMatch[3]}-${cardMatch[4]}`;
+        }
+      }
+
       return text;
     };
 
