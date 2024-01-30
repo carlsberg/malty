@@ -76,10 +76,7 @@
       "teambit.component/dev-files": {
         "devFilePatterns": ["**/*.stories.+(js|ts|jsx|tsx)", "**/*.story.+(js|ts|jsx|tsx)", "**/AllIconsMap.tsx"]
       },
-      "teambit.react/react": {},
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {}
-      }
+      "teambit.react/react": {}
     }
   }
 }
