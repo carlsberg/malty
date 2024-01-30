@@ -27,6 +27,34 @@ describe('Input', () => {
     jest.clearAllMocks();
   });
 
+  describe(`Input type: ${InputType.Password}`, () => {
+    it('should render password input', () => {
+      render(<Input value="1" label="Password" onValueChange={onValueChange} type={InputType.Password} />);
+
+      expect(screen.getByLabelText('Password')).toBeVisible();
+      expect(screen.getByLabelText('Show password')).toBeVisible();
+      expect(screen.queryByLabelText('Hide password')).not.toBeInTheDocument();
+    });
+
+    it('should toggle password visibility', () => {
+      render(<Input value="1" label="Password" onValueChange={onValueChange} type={InputType.Password} />);
+
+      const showPasswordButton = screen.getByLabelText('Show password');
+
+      userEvent.click(showPasswordButton);
+
+      expect(screen.getByLabelText('Hide password')).toBeVisible();
+      expect(screen.queryByLabelText('Show password')).not.toBeInTheDocument();
+
+      const hidePasswordButton = screen.getByLabelText('Hide password');
+
+      userEvent.click(hidePasswordButton);
+
+      expect(screen.getByLabelText('Show password')).toBeVisible();
+      expect(screen.queryByLabelText('Hide password')).not.toBeInTheDocument();
+    });
+  });
+
   describe(`Input type: ${InputType.Number}`, () => {
     it('should render input number', () => {
       render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
@@ -233,6 +261,19 @@ describe('Input', () => {
       expect(onValueChange).not.toHaveBeenCalled();
       expect(input).toHaveValue(null);
     });
+
+    it('should call `onInputBlur` when lose focus', () => {
+      const onInputBlur = jest.fn();
+
+      render(<ControlledInput type={InputType.Quantity} value="" onInputBlur={onInputBlur} />);
+
+      const input = screen.getByLabelText('Input label');
+
+      input.focus();
+      userEvent.tab();
+
+      expect(onInputBlur).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe(`Input type: ${InputType.Text}`, () => {
@@ -270,7 +311,7 @@ describe('Input', () => {
       expect(screen.getByTestId('input-cart-icon')).toBeVisible();
     });
 
-    it('should call onValueChange when typing', () => {
+    it('should call `onValueChange` when typing', () => {
       const { rerender } = render(
         <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
       );
@@ -325,7 +366,7 @@ describe('Input', () => {
       expect(screen.getByTestId('Input-hint')).toHaveTextContent('Type here!');
     });
 
-    it('should call onInputBlur when lose focus', () => {
+    it('should call `onInputBlur` when lose focus', () => {
       const onInputBlur = jest.fn();
       render(
         <Input
@@ -393,6 +434,31 @@ describe('Input', () => {
       render(<ControlledInput value="" type={InputType.Telephone} />);
 
       expect(screen.getByTestId('input-phone-select')).toBeVisible();
+    });
+
+    it('should call `onValueChange` when the input value changes', () => {
+      render(<ControlledInput value="" type={InputType.Telephone} />);
+
+      const input = screen.getByLabelText('Input label');
+      const telephone = '123456789';
+
+      userEvent.type(input, telephone);
+
+      expect(onValueChange).toHaveBeenCalledTimes(telephone.length);
+      expect(screen.getByDisplayValue(telephone)).toBeVisible();
+    });
+
+    it('should call `onInputBlur` when lose focus', () => {
+      const onInputBlur = jest.fn();
+
+      render(<ControlledInput value="" type={InputType.Telephone} onInputBlur={onInputBlur} />);
+
+      const input = screen.getByLabelText('Input label');
+
+      input.focus();
+      userEvent.tab();
+
+      expect(onInputBlur).toHaveBeenCalledTimes(1);
     });
   });
 });
