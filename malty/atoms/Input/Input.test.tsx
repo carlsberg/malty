@@ -1,6 +1,6 @@
 import { Cart } from '@carlsberggroup/malty.icons.cart';
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { Input } from './Input';
@@ -9,151 +9,59 @@ import { InputProps, InputType } from './Input.types';
 jest.mock('uuid', () => ({ v4: () => '00000000-0000-0000-0000-000000000000' }));
 
 const mockFn = jest.fn();
+const onValueChange = jest.fn();
 
-describe('Input', () => {
-  const onValueChange = jest.fn();
-  const ControlledInput = ({ value: initialValue, ...props }: InputProps) => {
-    const [value, setValue] = useState(initialValue);
+const ControlledInput = ({ value: initialValue, ...props }: InputProps) => {
+  const [value, setValue] = useState(initialValue);
 
-    const handleValueChange = (newValue: string) => {
-      setValue(newValue);
-      onValueChange(newValue);
-    };
-
-    return <Input {...props} dataTestId="input" value={value} label="Input label" onValueChange={handleValueChange} />;
+  const handleValueChange = (newValue: string) => {
+    setValue(newValue);
+    onValueChange(newValue);
   };
 
+  return <Input {...props} dataTestId="input" value={value} label="Input label" onValueChange={handleValueChange} />;
+};
+
+describe('Input', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should render elements', () => {
-    render(
-      <Input
-        value="Value text"
-        label="Label text"
-        placeholder="Placeholder text"
-        onValueChange={mockFn}
-        type={InputType.Text}
-        error="Error text"
-      />
-    );
+  describe(`Input type: ${InputType.Number}`, () => {
+    it('should render input number', () => {
+      render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
 
-    expect(screen.getByLabelText('Label text')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Placeholder text')).toBeInTheDocument();
-    expect(screen.getByText('Error text')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
+      expect(screen.getByDisplayValue('1')).toBeInTheDocument();
+    });
   });
 
-  it('should render cart icon', () => {
-    render(
-      <Input
-        value="Value text"
-        icon={<Cart />}
-        onValueChange={mockFn}
-        type={InputType.Text}
-        error="Error text"
-        dataTestId="input-cart"
-      />
-    );
+  describe(`Input type: ${InputType.Search}`, () => {
+    it('should render input search', () => {
+      render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
 
-    expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
-    expect(screen.getByTestId('input-cart-icon')).toBeVisible();
-  });
+      expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
+    });
 
-  it('should call onValueChange when typing', () => {
-    const { rerender } = render(
-      <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
-    );
-    const input = screen.getByDisplayValue('Initial value');
-    fireEvent.input(input, { target: { value: 'Test Input' } });
-    expect(onValueChange).toHaveBeenCalledTimes(1);
+    it('should call clear function when clear icon is clicked', () => {
+      const onClearButtonClick = jest.fn();
 
-    rerender(<Input value="Test" label="Input label" onValueChange={onValueChange} type={InputType.Text} />);
-    expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
-  });
+      render(
+        <Input
+          value="test search"
+          label="Search"
+          onValueChange={onValueChange}
+          type={InputType.Search}
+          dataTestId="input"
+          onClearButtonClick={onClearButtonClick}
+        />
+      );
 
-  it('should not change display value after a given input with readOnly option on', () => {
-    render(<ControlledInput readOnly type={InputType.Text} value="Initial value" onValueChange={onValueChange} />);
+      const clearButton = screen.getByTestId(`input-clearable-icon`);
 
-    const input = screen.getByDisplayValue('Initial value');
-    userEvent.type(input, 'Test Input');
+      userEvent.click(clearButton);
 
-    expect(onValueChange).not.toHaveBeenCalled();
-
-    expect(screen.queryByDisplayValue('Test Input')).not.toBeInTheDocument();
-    expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
-  });
-
-  it('should not allow to input value with disabled option active', () => {
-    render(<ControlledInput value="Initial value" disabled type={InputType.Text} onValueChange={onValueChange} />);
-
-    const input = screen.getByDisplayValue('Initial value');
-    userEvent.type(input, 'Test Input');
-
-    expect(onValueChange).not.toHaveBeenCalled();
-
-    expect(screen.queryByDisplayValue('Test Input')).not.toBeInTheDocument();
-    expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
-  });
-
-  it('should have an hint message showing', () => {
-    render(
-      <Input
-        value="Initial value"
-        label="Input label"
-        dataTestId="Input"
-        onValueChange={onValueChange}
-        type={InputType.Text}
-        hint="Type here!"
-      />
-    );
-
-    expect(screen.getByTestId('Input-hint')).toHaveTextContent('Type here!');
-  });
-
-  it('should call onInputBlur when lose focus', () => {
-    const onInputBlur = jest.fn();
-    render(
-      <Input
-        value="Initial value"
-        label="Input label"
-        onValueChange={onValueChange}
-        onInputBlur={onInputBlur}
-        type={InputType.Text}
-      />
-    );
-    const input = screen.getByDisplayValue('Initial value');
-    fireEvent.blur(input, { target: { value: 'Test Input' } });
-    expect(onInputBlur).toHaveBeenCalledTimes(1);
-  });
-
-  it('should render input number', () => {
-    render(<Input value="1" label="Quantity" onValueChange={onValueChange} type={InputType.Number} />);
-    expect(screen.getByDisplayValue('1')).toBeInTheDocument();
-  });
-
-  it('should render input search', () => {
-    render(<Input value="test search" label="Search" onValueChange={onValueChange} type={InputType.Search} />);
-    expect(screen.getByDisplayValue('test search')).toBeInTheDocument();
-  });
-
-  it('should call clear function when clear icon is clicked', () => {
-    const onClearButtonClick = jest.fn();
-    render(
-      <Input
-        value="test search"
-        label="Search"
-        onValueChange={onValueChange}
-        type={InputType.Search}
-        dataTestId="input"
-        onClearButtonClick={onClearButtonClick}
-      />
-    );
-
-    const clearButton = screen.getByTestId(`input-clearable-icon`);
-    fireEvent.click(clearButton);
-    expect(onClearButtonClick).toHaveBeenCalledTimes(1);
+      expect(onClearButtonClick).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe(`Input type: ${InputType.Quantity}`, () => {
@@ -328,6 +236,114 @@ describe('Input', () => {
   });
 
   describe(`Input type: ${InputType.Text}`, () => {
+    it('should render elements', () => {
+      render(
+        <Input
+          value="Value text"
+          label="Label text"
+          placeholder="Placeholder text"
+          onValueChange={mockFn}
+          type={InputType.Text}
+          error="Error text"
+        />
+      );
+
+      expect(screen.getByLabelText('Label text')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('Placeholder text')).toBeInTheDocument();
+      expect(screen.getByText('Error text')).toBeInTheDocument();
+      expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
+    });
+
+    it('should render cart icon', () => {
+      render(
+        <Input
+          value="Value text"
+          icon={<Cart />}
+          onValueChange={mockFn}
+          type={InputType.Text}
+          error="Error text"
+          dataTestId="input-cart"
+        />
+      );
+
+      expect(screen.getByDisplayValue('Value text')).toBeInTheDocument();
+      expect(screen.getByTestId('input-cart-icon')).toBeVisible();
+    });
+
+    it('should call onValueChange when typing', () => {
+      const { rerender } = render(
+        <Input value="Initial value" label="Input label" onValueChange={onValueChange} type={InputType.Text} />
+      );
+      const input = screen.getByDisplayValue('Initial value');
+      const value = 'Test Input';
+
+      userEvent.type(input, value);
+
+      expect(onValueChange).toHaveBeenCalledTimes(value.length);
+
+      rerender(<Input value="Test" label="Input label" onValueChange={onValueChange} type={InputType.Text} />);
+
+      expect(screen.getByDisplayValue('Test')).toBeInTheDocument();
+    });
+
+    it('should not change display value after a given input with readOnly option on', () => {
+      render(<ControlledInput readOnly type={InputType.Text} value="Initial value" onValueChange={onValueChange} />);
+
+      const input = screen.getByDisplayValue('Initial value');
+      userEvent.type(input, 'Test Input');
+
+      expect(onValueChange).not.toHaveBeenCalled();
+
+      expect(screen.queryByDisplayValue('Test Input')).not.toBeInTheDocument();
+      expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
+    });
+
+    it('should not allow to input value with disabled option active', () => {
+      render(<ControlledInput value="Initial value" disabled type={InputType.Text} onValueChange={onValueChange} />);
+
+      const input = screen.getByDisplayValue('Initial value');
+      userEvent.type(input, 'Test Input');
+
+      expect(onValueChange).not.toHaveBeenCalled();
+
+      expect(screen.queryByDisplayValue('Test Input')).not.toBeInTheDocument();
+      expect(screen.getByDisplayValue('Initial value')).toBeInTheDocument();
+    });
+
+    it('should have an hint message showing', () => {
+      render(
+        <Input
+          value="Initial value"
+          label="Input label"
+          dataTestId="Input"
+          onValueChange={onValueChange}
+          type={InputType.Text}
+          hint="Type here!"
+        />
+      );
+
+      expect(screen.getByTestId('Input-hint')).toHaveTextContent('Type here!');
+    });
+
+    it('should call onInputBlur when lose focus', () => {
+      const onInputBlur = jest.fn();
+      render(
+        <Input
+          value="Initial value"
+          label="Input label"
+          onValueChange={onValueChange}
+          onInputBlur={onInputBlur}
+          type={InputType.Text}
+        />
+      );
+      const input = screen.getByDisplayValue('Initial value');
+
+      input.focus();
+      userEvent.tab();
+
+      expect(onInputBlur).toHaveBeenCalledTimes(1);
+    });
+
     it('should update character counter when typing', () => {
       render(<ControlledInput value="" type={InputType.Text} showCharacterCounter />);
 
@@ -369,6 +385,14 @@ describe('Input', () => {
 
       expect(input).toHaveValue(expectedText);
       expect(screen.getByTestId('input-character-counter')).toHaveTextContent('0');
+    });
+  });
+
+  describe(`Input type: ${InputType.Telephone}`, () => {
+    it('should display a flag icon with the country code', () => {
+      render(<ControlledInput value="" type={InputType.Telephone} />);
+
+      expect(screen.getByTestId('input-phone-select')).toBeVisible();
     });
   });
 });
