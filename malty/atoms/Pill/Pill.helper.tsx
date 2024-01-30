@@ -38,7 +38,14 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
 };
 
 export const useIconTextColor = ({ type }: IconTextColorProps) => {
-  if (type === PillType.Archive || type === PillType.Success || type === PillType.AlertStrong) {
+  if (
+    type === PillType.Archive ||
+    type === PillType.Success ||
+    type === PillType.SuccessLight ||
+    type === PillType.AlertStrong ||
+    type === PillType.AlertLight ||
+    type === PillType.NotificationLight
+  ) {
     return IconColor.DigitalBlack;
   }
 

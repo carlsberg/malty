@@ -183,7 +183,7 @@
     },
     "atoms/pill": {
         "scope": "carlsberggroup.malty",
-        "version": "0.2.1",
+        "version": "0.2.3",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Pill"
     },
@@ -1667,7 +1667,7 @@
     },
     "molecules/banner": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.26",
+        "version": "0.0.28",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Banner"
     },
@@ -1811,7 +1811,7 @@
     },
     "molecules/product-card": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.54",
+        "version": "0.0.56",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard",
         "config": {
@@ -1837,7 +1837,7 @@
     },
     "molecules/products-bar": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.66",
+        "version": "0.0.67",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/ProductsBar",
         "config": {
@@ -1863,7 +1863,7 @@
     },
     "molecules/side-nav": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.72",
+        "version": "0.0.73",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/SideNav"
     },
@@ -1911,7 +1911,7 @@
     },
     "organisms/carousel": {
         "scope": "carlsberggroup.malty",
-        "version": "0.0.37",
+        "version": "0.0.39",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Carousel",
         "config": {

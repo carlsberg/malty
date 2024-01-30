@@ -15,6 +15,13 @@ describe('pill', () => {
     expect(screen.getByTestId(iconDataTestId)).toBeVisible();
   });
 
+  it('should not render the component with the text and icon', () => {
+    render(<Pill />);
+
+    expect(screen.queryByText(text)).not.toBeInTheDocument();
+    expect(screen.queryByTestId(`icon-${iconName}`)).not.toBeInTheDocument();
+  });
+
   it('should render only text', () => {
     render(<Pill text={text} />);
 
