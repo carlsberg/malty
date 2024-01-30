@@ -149,67 +149,29 @@ describe('Input', () => {
 
     it('should modify the value to the min value passed if value is lower than min', () => {
       const minValue = 6;
-      const handleOnChange = jest.fn();
 
-      const InputComponent = () => {
-        const [value, setValue] = useState('8');
-        const handleValueChange = (newValue: string) => {
-          setValue(newValue);
-          handleOnChange(newValue);
-        };
-
-        return (
-          <Input
-            dataTestId="input"
-            value={value}
-            type={InputType.Quantity}
-            onValueChange={handleValueChange}
-            min={minValue}
-          />
-        );
-      };
-
-      render(<InputComponent />);
+      render(<ControlledInput type={InputType.Quantity} value="8" min={minValue} />);
 
       const input = screen.getByTestId('input');
 
       userEvent.clear(input);
       userEvent.type(input, '4');
 
-      expect(handleOnChange).toHaveBeenCalledTimes(2);
+      expect(onValueChange).toHaveBeenCalledTimes(2);
       expect(input).toHaveValue(minValue);
     });
 
     it('should modify the value to the max value passed if value is higher than max', () => {
       const maxValue = 12;
-      const handleOnChange = jest.fn();
 
-      const InputComponent = () => {
-        const [value, setValue] = useState('10');
-        const handleValueChange = (newValue: string) => {
-          setValue(newValue);
-          handleOnChange(newValue);
-        };
-
-        return (
-          <Input
-            dataTestId="input"
-            value={value}
-            type={InputType.Quantity}
-            onValueChange={handleValueChange}
-            max={maxValue}
-          />
-        );
-      };
-
-      render(<InputComponent />);
+      render(<ControlledInput type={InputType.Quantity} value="10" max={maxValue} />);
 
       const input = screen.getByTestId('input');
 
       userEvent.clear(input);
       userEvent.type(input, '16');
 
-      expect(handleOnChange).toHaveBeenCalledTimes(3);
+      expect(onValueChange).toHaveBeenCalledTimes(3);
       expect(input).toHaveValue(maxValue);
     });
 
