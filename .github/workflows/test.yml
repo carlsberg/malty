@@ -67,10 +67,10 @@ jobs:
           yarn check-lint
         shell: bash
 
-      # - name: Run Check Types
-      #   run: |
-      #     yarn check-types
-      #   shell: bash
+      - name: Run Check Types
+        run: |
+          yarn check-types
+        shell: bash
 
       - name: Run Check Format
         run: |
