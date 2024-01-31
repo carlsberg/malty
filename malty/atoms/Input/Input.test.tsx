@@ -236,6 +236,54 @@ describe('Input', () => {
 
       expect(onInputBlur).toHaveBeenCalledTimes(1);
     });
+
+    it('should increase the value when clicking on plus', () => {
+      render(<ControlledInput value="2" type={InputType.Quantity} />);
+
+      const input = screen.getByTestId('input');
+
+      expect(input).toHaveValue(2);
+
+      userEvent.click(screen.getByTestId('input-quantity-plus'));
+
+      expect(input).toHaveValue(3);
+    });
+
+    it('should decrease the value when clicking on minus', () => {
+      render(<ControlledInput value="2" type={InputType.Quantity} />);
+
+      const input = screen.getByTestId('input');
+
+      expect(input).toHaveValue(2);
+
+      userEvent.click(screen.getByTestId('input-quantity-minus'));
+
+      expect(input).toHaveValue(1);
+    });
+
+    it('should have "-1" value when clicking on minus and value is empty', () => {
+      render(<ControlledInput value="" type={InputType.Quantity} />);
+
+      const input = screen.getByTestId('input');
+
+      expect(input).toHaveValue(null);
+
+      userEvent.click(screen.getByTestId('input-quantity-minus'));
+
+      expect(input).toHaveValue(-1);
+    });
+
+    it('should have "1" value when clicking on plus and value is empty', () => {
+      render(<ControlledInput value="" type={InputType.Quantity} />);
+
+      const input = screen.getByTestId('input');
+
+      expect(input).toHaveValue(null);
+
+      userEvent.click(screen.getByTestId('input-quantity-plus'));
+
+      expect(input).toHaveValue(1);
+    });
   });
 
   describe(`Input type: ${InputType.Text}`, () => {
