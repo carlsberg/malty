@@ -1,7 +1,7 @@
 import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
-import React, { ChangeEvent, FC, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { allIcons } from './AllIconsMap';
 import {
   StyledCopiedText,
@@ -76,6 +76,7 @@ const SearchIcons = (args: BaseIconProps) => {
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
+
     const filteredIcons = allIcons.filter((icon) => icon.name.toLowerCase().includes(value));
 
     setIcons(filteredIcons);
@@ -104,22 +105,18 @@ const SearchIcons = (args: BaseIconProps) => {
         onChange={handleSearch}
       />
       <StyledIconList>
-        {icons.map((Icon: FC<BaseIconProps>) => {
-          const { name } = Icon;
-
-          return (
-            <StyledIconWrapper key={name} onClick={() => handleClipboard(name)}>
-              {tooltipVisible === name ? (
-                <StyledCopiedText>Copied!</StyledCopiedText>
-              ) : (
-                <>
-                  <Icon {...args} />
-                  <StyledName>{name}</StyledName>
-                </>
-              )}
-            </StyledIconWrapper>
-          );
-        })}
+        {icons.map(({ component: Icon, name }) => (
+          <StyledIconWrapper key={name} onClick={() => handleClipboard(name)}>
+            {tooltipVisible === name ? (
+              <StyledCopiedText>Copied!</StyledCopiedText>
+            ) : (
+              <>
+                <Icon {...args} />
+                <StyledName>{name}</StyledName>
+              </>
+            )}
+          </StyledIconWrapper>
+        ))}
       </StyledIconList>
     </>
   );
