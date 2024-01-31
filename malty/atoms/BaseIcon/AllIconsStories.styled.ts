@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
+export const StyledWrapper = styled.div`
+  width: 80vw;
+`;
+
 export const StyledIconList = styled.div`
   display: grid;
   gap: 14px;
   grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-auto-rows: 63px;
+  min-height: 100dvh;
 `;
 
 export const StyledIconWrapper = styled.button`

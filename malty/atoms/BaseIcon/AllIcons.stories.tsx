@@ -8,7 +8,8 @@ import {
   StyledIconList,
   StyledIconWrapper,
   StyledName,
-  StyledSearch
+  StyledSearch,
+  StyledWrapper
 } from './AllIconsStories.styled';
 import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
@@ -96,7 +97,7 @@ const SearchIcons = (args: BaseIconProps) => {
   };
 
   return (
-    <>
+    <StyledWrapper>
       <StyledSearch
         type="search"
         name="search"
@@ -118,7 +119,7 @@ const SearchIcons = (args: BaseIconProps) => {
           </StyledIconWrapper>
         ))}
       </StyledIconList>
-    </>
+    </StyledWrapper>
   );
 };
 
