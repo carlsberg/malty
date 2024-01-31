@@ -77,7 +77,7 @@ const SearchIcons = (args: BaseIconProps) => {
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
-    const filteredIcons = allIcons.filter((icon) => icon.name.toLowerCase().includes(value));
+    const filteredIcons = allIcons.filter((icon) => icon.name.toLowerCase().includes(value.toLowerCase()));
 
     setIcons(filteredIcons);
   };
