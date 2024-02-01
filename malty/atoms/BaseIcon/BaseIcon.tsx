@@ -32,7 +32,13 @@ export const BaseIcon = ({
   );
 
   const renderedButtonIcon = (
-    <StyledButtonIcon type="button" className={className} onClick={onClick} aria-label={ariaLabel}>
+    <StyledButtonIcon
+      type="button"
+      className={className}
+      onClick={onClick}
+      aria-label={ariaLabel}
+      data-testid={`${dataTestId}-button`}
+    >
       {renderedIcon}
     </StyledButtonIcon>
   );
