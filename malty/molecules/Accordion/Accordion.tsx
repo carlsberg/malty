@@ -1,3 +1,4 @@
+import { IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
@@ -153,7 +154,12 @@ export const AccordionItem = ({
         >
           {title}
         </Text>
-        <StyledChevronDown data-testid={`${dataQaId}-item-icon`} open={openAccordion} theme={theme} />
+        <StyledChevronDown
+          data-testid={`${dataQaId}-item-icon`}
+          open={openAccordion}
+          theme={theme}
+          size={IconSize.Medium}
+        />
       </StyledAccordionHeader>
       <StyledAccordionBody
         data-testid={`${dataQaId}-content-container`}
