@@ -128,6 +128,9 @@ export const Base: Story = {
 };
 
 export const AllIcons: Story = {
+  parameters: {
+    layout: 'fullscreen'
+  },
   render: (args: BaseIconProps) => <SearchIcons {...args} {...(!args.ariaLabel && { onClick: undefined })} />
 };
 

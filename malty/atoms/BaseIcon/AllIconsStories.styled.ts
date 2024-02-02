@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  width: 80vw;
+  margin: 30px;
 `;
 
 export const StyledIconList = styled.div`
