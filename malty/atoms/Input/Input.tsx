@@ -1,4 +1,4 @@
-import { CloneIcon, IconColor } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
 import { EyeHide } from '@carlsberggroup/malty.icons.eye-hide';
 import { EyeShow } from '@carlsberggroup/malty.icons.eye-show';
@@ -172,6 +172,7 @@ export const Input = forwardRef(
           icon={icon}
           dataTestId={`${dataTestId}-icon`}
           color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
+          size={IconSize.Medium}
         />
       );
     };

@@ -1,4 +1,4 @@
-import { CloneIcon, IconColor } from '@carlsberggroup/malty.atoms.base-icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
@@ -46,7 +46,7 @@ export const Footer = ({
 
   return (
     <StyledFooter data-testid={dataQaId} theme={theme}>
-      <CloneIcon icon={brandIcon} color={IconColor.Support60} />
+      <CloneIcon icon={brandIcon} color={IconColor.Support60} size={IconSize.Medium} />
       <StyledAdress data-testid={`${dataQaId}-brand-info`} theme={theme}>
         <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support60} align={TextAlign.Center}>
           {brandInfo}

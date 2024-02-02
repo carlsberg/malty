@@ -136,7 +136,7 @@ export const ProductsBar = ({
               <StyledSystemOption theme={theme} onClick={resetNavState} key={option.key || `systemOption${index}`}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
-                    <CloneIcon icon={icon} color={IconColor.White} />
+                    <CloneIcon icon={icon} color={IconColor.White} size={IconSize.Medium} />
                   </LinkComponent>
                 </StyledOptionIcon>
               </StyledSystemOption>
@@ -173,7 +173,7 @@ export const ProductsBar = ({
                 return (
                   <StyledProfileItem theme={theme} onClick={resetNavState} key={action.key || `profileOption${index}`}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
-                      <CloneIcon icon={icon} color={IconColor.White} />
+                      <CloneIcon icon={icon} color={IconColor.White} size={IconSize.Medium} />
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
                         {name}
                       </Text>
