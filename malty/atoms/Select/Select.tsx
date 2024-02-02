@@ -280,6 +280,7 @@ export const Select = ({
             disabled={disabled}
             readOnly={readOnly}
             open={showOptionList}
+            size={IconSize.Medium}
           />
         </StyledButton>
 
