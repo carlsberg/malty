@@ -224,8 +224,8 @@
                         "@carlsberggroup/malty.icons.star-filled": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.star": "0.0.55",
-                        "@carlsberggroup/malty.icons.star-filled": "0.0.55"
+                        "@carlsberggroup/malty.icons.star": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.star-filled": ">= 0.0.55"
                     }
                 }
             }
@@ -245,9 +245,9 @@
                         "@carlsberggroup/malty.icons.search": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.check": "0.0.55",
-                        "@carlsberggroup/malty.icons.chevron-down": "0.0.55",
-                        "@carlsberggroup/malty.icons.search": "0.0.56"
+                        "@carlsberggroup/malty.icons.check": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.chevron-down": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.search": ">= 0.0.56"
                     }
                 }
             }
@@ -1624,10 +1624,10 @@
                         "@carlsberggroup/malty.icons.item-check": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.alert": "0.0.55",
-                        "@carlsberggroup/malty.icons.close": "0.0.55",
-                        "@carlsberggroup/malty.icons.information": "0.0.55",
-                        "@carlsberggroup/malty.icons.item-check": "0.0.55"
+                        "@carlsberggroup/malty.icons.alert": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.close": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.information": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.item-check": ">= 0.0.55"
                     }
                 }
             }
@@ -1658,8 +1658,8 @@
                         "@carlsberggroup/malty.icons.customer": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.camera": "0.0.55",
-                        "@carlsberggroup/malty.icons.customer": "0.0.56"
+                        "@carlsberggroup/malty.icons.camera": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.customer": ">= 0.0.56"
                     }
                 }
             }
@@ -1683,7 +1683,7 @@
                         "@carlsberggroup/malty.icons.calendar": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.calendar": "0.0.55"
+                        "@carlsberggroup/malty.icons.calendar": ">= 0.0.55"
                     }
                 }
             }
@@ -1708,14 +1708,14 @@
                         "@carlsberggroup/malty.icons.twitter": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.app-dropbox": "0.0.55",
-                        "@carlsberggroup/malty.icons.app-facebook": "0.0.55",
-                        "@carlsberggroup/malty.icons.app-github": "0.0.55",
-                        "@carlsberggroup/malty.icons.app-instagram": "0.0.55",
-                        "@carlsberggroup/malty.icons.app-linkedin": "0.0.55",
-                        "@carlsberggroup/malty.icons.app-skype": "0.0.55",
-                        "@carlsberggroup/malty.icons.carlsberg-filled": "0.0.55",
-                        "@carlsberggroup/malty.icons.twitter": "0.0.55"
+                        "@carlsberggroup/malty.icons.app-dropbox": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.app-facebook": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.app-github": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.app-instagram": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.app-linkedin": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.app-skype": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.carlsberg-filled": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.twitter": ">= 0.0.55"
                     }
                 }
             }
@@ -1733,7 +1733,7 @@
                         "@carlsberggroup/malty.icons.arrow-small-down": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.arrow-small-down": "0.0.55"
+                        "@carlsberggroup/malty.icons.arrow-small-down": ">= 0.0.55"
                     }
                 }
             }
@@ -1763,7 +1763,7 @@
                         "@carlsberggroup/malty.icons.close": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.close": "0.0.55"
+                        "@carlsberggroup/malty.icons.close": ">= 0.0.55"
                     }
                 }
             }
@@ -1782,8 +1782,8 @@
                         "@carlsberggroup/malty.icons.arrow-small-right": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.arrow-small-left": "0.0.55",
-                        "@carlsberggroup/malty.icons.arrow-small-right": "0.0.55"
+                        "@carlsberggroup/malty.icons.arrow-small-left": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.arrow-small-right": ">= 0.0.55"
                     }
                 }
             }
@@ -1802,8 +1802,8 @@
                         "@carlsberggroup/malty.icons.chevron-right": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.chevron-left": "0.0.55",
-                        "@carlsberggroup/malty.icons.chevron-right": "0.0.56"
+                        "@carlsberggroup/malty.icons.chevron-left": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.chevron-right": ">= 0.0.56"
                     }
                 }
             }
@@ -1822,8 +1822,8 @@
                         "@carlsberggroup/malty.icons.heart-filled": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.heart": "0.0.55",
-                        "@carlsberggroup/malty.icons.heart-filled": "0.0.55"
+                        "@carlsberggroup/malty.icons.heart": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.heart-filled": ">= 0.0.55"
                     }
                 }
             }
@@ -1848,8 +1848,8 @@
                         "@carlsberggroup/malty.icons.menu": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.carlsberg-filled": "0.0.55",
-                        "@carlsberggroup/malty.icons.menu": "0.0.56"
+                        "@carlsberggroup/malty.icons.carlsberg-filled": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.menu": ">= 0.0.56"
                     }
                 }
             }
@@ -1885,7 +1885,7 @@
                         "@carlsberggroup/malty.icons.item-check-filled": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.item-check-filled": "0.0.55"
+                        "@carlsberggroup/malty.icons.item-check-filled": ">= 0.0.55"
                     }
                 }
             }
@@ -1903,7 +1903,7 @@
                         "@carlsberggroup/malty.icons.close": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.close": "0.0.55"
+                        "@carlsberggroup/malty.icons.close": ">= 0.0.55"
                     }
                 }
             }
@@ -1922,8 +1922,8 @@
                         "@carlsberggroup/malty.icons.arrow-small-right": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.arrow-small-left": "0.0.55",
-                        "@carlsberggroup/malty.icons.arrow-small-right": "0.0.55"
+                        "@carlsberggroup/malty.icons.arrow-small-left": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.arrow-small-right": ">= 0.0.55"
                     }
                 }
             }
@@ -1944,10 +1944,10 @@
                         "@carlsberggroup/malty.icons.sort": "-"
                     },
                     "peerDependencies": {
-                        "@carlsberggroup/malty.icons.arrange": "0.0.55",
-                        "@carlsberggroup/malty.icons.arrow-small-down": "0.0.55",
-                        "@carlsberggroup/malty.icons.arrow-small-up": "0.0.55",
-                        "@carlsberggroup/malty.icons.sort": "0.0.16"
+                        "@carlsberggroup/malty.icons.arrange": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.arrow-small-down": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.arrow-small-up": ">= 0.0.55",
+                        "@carlsberggroup/malty.icons.sort": ">= 0.0.16"
                     }
                 }
             }
