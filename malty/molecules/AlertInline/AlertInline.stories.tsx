@@ -1,5 +1,5 @@
-import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon/AllIconsMap';
 import { Information } from '@carlsberggroup/malty.icons.information';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';

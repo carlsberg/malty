@@ -1,8 +1,9 @@
+import { BaseIconProps, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { ChangeEvent, useState } from 'react';
-import { allIcons } from './AllIconsMap';
+import { allIcons } from '.';
 import {
   StyledCopiedText,
   StyledIconList,
@@ -11,7 +12,6 @@ import {
   StyledSearch,
   StyledWrapper
 } from './AllIconsStories.styled';
-import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 const meta: Meta<BaseIconProps> = {
   title: 'Icons/Icons',
@@ -124,14 +124,14 @@ const SearchIcons = (args: BaseIconProps) => {
 };
 
 export const Base: Story = {
-  render: (args: BaseIconProps) => <CarlsbergFilled {...args} {...(!args.ariaLabel && { onClick: undefined })} />
+  render: (args: BaseIconProps) => <CarlsbergFilled {...args} />
 };
 
 export const AllIcons: Story = {
   parameters: {
     layout: 'fullscreen'
   },
-  render: (args: BaseIconProps) => <SearchIcons {...args} {...(!args.ariaLabel && { onClick: undefined })} />
+  render: (args: BaseIconProps) => <SearchIcons {...args} />
 };
 
 export default meta;

@@ -1,4 +1,4 @@
-import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon/AllIconsMap';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Footer as FooterComponent } from './Footer';

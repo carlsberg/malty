@@ -1,4 +1,3 @@
-import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import React from 'react';
@@ -29,7 +28,7 @@ describe('BaseIcon', () => {
   });
 
   it('should clone an icon correctly', () => {
-    render(<CloneIcon icon={<CarlsbergFilled dataTestId={dataTestId} />} />);
+    render(<CloneIcon icon={<span data-testid={dataTestId}>Span text</span>} />);
 
     expect(screen.getByTestId(dataTestId)).toBeVisible();
   });

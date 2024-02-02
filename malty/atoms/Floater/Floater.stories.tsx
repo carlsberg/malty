@@ -1,5 +1,5 @@
-import { allIconsStoryOptions } from '@carlsberggroup/malty.atoms.base-icon/AllIconsMap';
 import { ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
