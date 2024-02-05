@@ -281,1315 +281,3943 @@
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AddContent"
+        "rootDir": "malty/icons/AddContent",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/add-event": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AddEvent"
+        "rootDir": "malty/icons/AddEvent",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/add-project": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AddProject"
+        "rootDir": "malty/icons/AddProject",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/added-document": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AddedDocument"
+        "rootDir": "malty/icons/AddedDocument",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/alert": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Alert"
+        "rootDir": "malty/icons/Alert",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/alert-connection": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AlertConnection"
+        "rootDir": "malty/icons/AlertConnection",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/app-dropbox": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AppDropbox"
+        "rootDir": "malty/icons/AppDropbox",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/app-facebook": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AppFacebook"
+        "rootDir": "malty/icons/AppFacebook",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/app-github": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AppGithub"
+        "rootDir": "malty/icons/AppGithub",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/app-instagram": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AppInstagram"
+        "rootDir": "malty/icons/AppInstagram",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/app-linkedin": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AppLinkedin"
+        "rootDir": "malty/icons/AppLinkedin",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/app-powerbi": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AppPowerbi"
+        "rootDir": "malty/icons/AppPowerbi",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/app-skype": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/AppSkype"
+        "rootDir": "malty/icons/AppSkype",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/arrange": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Arrange"
+        "rootDir": "malty/icons/Arrange",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/arrow-small-down": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ArrowSmallDown"
+        "rootDir": "malty/icons/ArrowSmallDown",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/arrow-small-left": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ArrowSmallLeft"
+        "rootDir": "malty/icons/ArrowSmallLeft",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/arrow-small-right": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ArrowSmallRight"
+        "rootDir": "malty/icons/ArrowSmallRight",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/arrow-small-up": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ArrowSmallUp"
+        "rootDir": "malty/icons/ArrowSmallUp",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/at": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/At"
+        "rootDir": "malty/icons/At",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/attachment": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Attachment"
+        "rootDir": "malty/icons/Attachment",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/balance": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Balance"
+        "rootDir": "malty/icons/Balance",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/bell": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Bell"
+        "rootDir": "malty/icons/Bell",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/bell-notification": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/BellNotification"
+        "rootDir": "malty/icons/BellNotification",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/bold": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Bold"
+        "rootDir": "malty/icons/Bold",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/book": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Book"
+        "rootDir": "malty/icons/Book",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/bookmark": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Bookmark"
+        "rootDir": "malty/icons/Bookmark",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/bookmark-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/BookmarkFilled"
+        "rootDir": "malty/icons/BookmarkFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/bottle": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Bottle"
+        "rootDir": "malty/icons/Bottle",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/bottle-craft": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/BottleCraft"
+        "rootDir": "malty/icons/BottleCraft",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Calendar"
+        "rootDir": "malty/icons/Calendar",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar-autumn": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CalendarAutumn"
+        "rootDir": "malty/icons/CalendarAutumn",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar-confirm": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CalendarConfirm"
+        "rootDir": "malty/icons/CalendarConfirm",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar-events": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CalendarEvents"
+        "rootDir": "malty/icons/CalendarEvents",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar-spring": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CalendarSpring"
+        "rootDir": "malty/icons/CalendarSpring",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar-summer": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CalendarSummer"
+        "rootDir": "malty/icons/CalendarSummer",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar-whole-year": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CalendarWholeYear"
+        "rootDir": "malty/icons/CalendarWholeYear",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/calendar-winter": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CalendarWinter"
+        "rootDir": "malty/icons/CalendarWinter",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/camera": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Camera"
+        "rootDir": "malty/icons/Camera",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/can": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Can"
+        "rootDir": "malty/icons/Can",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/card": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Card"
+        "rootDir": "malty/icons/Card",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/card-plus": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CardPlus"
+        "rootDir": "malty/icons/CardPlus",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/carlsberg-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CarlsbergFilled"
+        "rootDir": "malty/icons/CarlsbergFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/carlsberg-outlined": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CarlsbergOutlined"
+        "rootDir": "malty/icons/CarlsbergOutlined",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/carret-down": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CarretDown"
+        "rootDir": "malty/icons/CarretDown",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/carret-left": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CarretLeft"
+        "rootDir": "malty/icons/CarretLeft",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/carret-move": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CarretMove"
+        "rootDir": "malty/icons/CarretMove",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/carret-right": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CarretRight"
+        "rootDir": "malty/icons/CarretRight",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/carret-up": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CarretUp"
+        "rootDir": "malty/icons/CarretUp",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/cart": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Cart"
+        "rootDir": "malty/icons/Cart",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/cart-added": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CartAdded"
+        "rootDir": "malty/icons/CartAdded",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/cart-label": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CartLabel"
+        "rootDir": "malty/icons/CartLabel",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/cart-notification": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CartNotification"
+        "rootDir": "malty/icons/CartNotification",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/change": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Change"
+        "rootDir": "malty/icons/Change",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/check": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Check"
+        "rootDir": "malty/icons/Check",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/checkbox-check": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CheckboxCheck"
+        "rootDir": "malty/icons/CheckboxCheck",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/checkbox-check-alternate": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CheckboxCheckAlternate"
+        "rootDir": "malty/icons/CheckboxCheckAlternate",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/checkbox-check-outline": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.7",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CheckboxCheckOutline"
+        "rootDir": "malty/icons/CheckboxCheckOutline",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/checkbox-check-square": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CheckboxCheckSquare"
+        "rootDir": "malty/icons/CheckboxCheckSquare",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/checkbox-empty": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CheckboxEmpty"
+        "rootDir": "malty/icons/CheckboxEmpty",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/chevron-down": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ChevronDown"
+        "rootDir": "malty/icons/ChevronDown",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/chevron-left": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ChevronLeft"
+        "rootDir": "malty/icons/ChevronLeft",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/chevron-right": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ChevronRight"
+        "rootDir": "malty/icons/ChevronRight",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/chevron-up": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ChevronUp"
+        "rootDir": "malty/icons/ChevronUp",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/clock": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Clock"
+        "rootDir": "malty/icons/Clock",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/clock-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ClockFilled"
+        "rootDir": "malty/icons/ClockFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/clone": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Clone"
+        "rootDir": "malty/icons/Clone",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/close": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Close"
+        "rootDir": "malty/icons/Close",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/coin-dollar": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CoinDollar"
+        "rootDir": "malty/icons/CoinDollar",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/coin-euro": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CoinEuro"
+        "rootDir": "malty/icons/CoinEuro",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/compass": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Compass"
+        "rootDir": "malty/icons/Compass",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/compass-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CompassFilled"
+        "rootDir": "malty/icons/CompassFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/connected": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Connected"
+        "rootDir": "malty/icons/Connected",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/contract": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Contract"
+        "rootDir": "malty/icons/Contract",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/cookies": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Cookies"
+        "rootDir": "malty/icons/Cookies",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/coupon": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Coupon"
+        "rootDir": "malty/icons/Coupon",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/customer": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Customer"
+        "rootDir": "malty/icons/Customer",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/customer-add": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CustomerAdd"
+        "rootDir": "malty/icons/CustomerAdd",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/customer-question": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/CustomerQuestion"
+        "rootDir": "malty/icons/CustomerQuestion",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/customers": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Customers"
+        "rootDir": "malty/icons/Customers",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/data-transfer": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/DataTransfer"
+        "rootDir": "malty/icons/DataTransfer",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/diagonal-down-left": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/DiagonalDownLeft"
+        "rootDir": "malty/icons/DiagonalDownLeft",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/diagonal-down-right": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/DiagonalDownRight"
+        "rootDir": "malty/icons/DiagonalDownRight",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/diagonal-up-left": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/DiagonalUpLeft"
+        "rootDir": "malty/icons/DiagonalUpLeft",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/diagonal-up-right": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/DiagonalUpRight"
+        "rootDir": "malty/icons/DiagonalUpRight",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/diploma": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Diploma"
+        "rootDir": "malty/icons/Diploma",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/diploma2": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Diploma2"
+        "rootDir": "malty/icons/Diploma2",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/download": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Download"
+        "rootDir": "malty/icons/Download",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/draughtmaster": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Draughtmaster"
+        "rootDir": "malty/icons/Draughtmaster",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/edit": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Edit"
+        "rootDir": "malty/icons/Edit",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/ellipsis-vertical": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/EllipsisVertical"
+        "rootDir": "malty/icons/EllipsisVertical",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/email": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Email"
+        "rootDir": "malty/icons/Email",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/expand": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Expand"
+        "rootDir": "malty/icons/Expand",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/external-link": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ExternalLink"
+        "rootDir": "malty/icons/ExternalLink",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/eye": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Eye"
+        "rootDir": "malty/icons/Eye",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/eye-fill": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/EyeFill"
+        "rootDir": "malty/icons/EyeFill",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/eye-hide": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.27",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/EyeHide"
+        "rootDir": "malty/icons/EyeHide",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/eye-show": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.27",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/EyeShow"
+        "rootDir": "malty/icons/EyeShow",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/file": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/File"
+        "rootDir": "malty/icons/File",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/files-csv": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/FilesCsv"
+        "rootDir": "malty/icons/FilesCsv",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/files-json": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/FilesJson"
+        "rootDir": "malty/icons/FilesJson",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/files-pdf": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/FilesPdf"
+        "rootDir": "malty/icons/FilesPdf",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/files-xls": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/FilesXls"
+        "rootDir": "malty/icons/FilesXls",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/filters": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Filters"
+        "rootDir": "malty/icons/Filters",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/flash": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Flash"
+        "rootDir": "malty/icons/Flash",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/glass-goblet": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/GlassGoblet"
+        "rootDir": "malty/icons/GlassGoblet",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/glass-mug": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/GlassMug"
+        "rootDir": "malty/icons/GlassMug",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/glass-mug-empty": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/GlassMugEmpty"
+        "rootDir": "malty/icons/GlassMugEmpty",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/glass-weissbier": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/GlassWeissbier"
+        "rootDir": "malty/icons/GlassWeissbier",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/globe": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.58",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Globe"
+        "rootDir": "malty/icons/Globe",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/headline": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Headline"
+        "rootDir": "malty/icons/Headline",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/heart": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Heart"
+        "rootDir": "malty/icons/Heart",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/heart-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/HeartFilled"
+        "rootDir": "malty/icons/HeartFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/help": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Help"
+        "rootDir": "malty/icons/Help",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/hide-menu": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/HideMenu"
+        "rootDir": "malty/icons/HideMenu",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/history": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/History"
+        "rootDir": "malty/icons/History",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/home": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Home"
+        "rootDir": "malty/icons/Home",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/hop": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Hop"
+        "rootDir": "malty/icons/Hop",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/image": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Image"
+        "rootDir": "malty/icons/Image",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/information": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Information"
+        "rootDir": "malty/icons/Information",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/italic": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Italic"
+        "rootDir": "malty/icons/Italic",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/item-add": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ItemAdd"
+        "rootDir": "malty/icons/ItemAdd",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/item-block": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ItemBlock"
+        "rootDir": "malty/icons/ItemBlock",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/item-check": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ItemCheck"
+        "rootDir": "malty/icons/ItemCheck",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/item-check-default": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ItemCheckDefault"
+        "rootDir": "malty/icons/ItemCheckDefault",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/item-check-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ItemCheckFilled"
+        "rootDir": "malty/icons/ItemCheckFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/item-close": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ItemClose"
+        "rootDir": "malty/icons/ItemClose",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/item-close-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ItemCloseFilled"
+        "rootDir": "malty/icons/ItemCloseFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/library": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Library"
+        "rootDir": "malty/icons/Library",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/loading": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Loading"
+        "rootDir": "malty/icons/Loading",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/location-ip": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/LocationIp"
+        "rootDir": "malty/icons/LocationIp",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/lock": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Lock"
+        "rootDir": "malty/icons/Lock",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/lock-open": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/LockOpen"
+        "rootDir": "malty/icons/LockOpen",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/map": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Map"
+        "rootDir": "malty/icons/Map",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/market": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Market"
+        "rootDir": "malty/icons/Market",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/media-pause": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/MediaPause"
+        "rootDir": "malty/icons/MediaPause",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/media-play": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/MediaPlay"
+        "rootDir": "malty/icons/MediaPlay",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/media-sound": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/MediaSound"
+        "rootDir": "malty/icons/MediaSound",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/media-sound-off": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/MediaSoundOff"
+        "rootDir": "malty/icons/MediaSoundOff",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/media-stop": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/MediaStop"
+        "rootDir": "malty/icons/MediaStop",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/menu": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Menu"
+        "rootDir": "malty/icons/Menu",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/menu-left": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/MenuLeft"
+        "rootDir": "malty/icons/MenuLeft",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/menu-right": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/MenuRight"
+        "rootDir": "malty/icons/MenuRight",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/minus": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Minus"
+        "rootDir": "malty/icons/Minus",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/mobile": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Mobile"
+        "rootDir": "malty/icons/Mobile",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/more": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/More"
+        "rootDir": "malty/icons/More",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/mouse": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Mouse"
+        "rootDir": "malty/icons/Mouse",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/notepad": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Notepad"
+        "rootDir": "malty/icons/Notepad",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/outlet": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Outlet"
+        "rootDir": "malty/icons/Outlet",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/outlet-plus": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/OutletPlus"
+        "rootDir": "malty/icons/OutletPlus",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pack": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Pack"
+        "rootDir": "malty/icons/Pack",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/package-keg": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PackageKeg"
+        "rootDir": "malty/icons/PackageKeg",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/package-wholesaler": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PackageWholesaler"
+        "rootDir": "malty/icons/PackageWholesaler",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/paint": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Paint"
+        "rootDir": "malty/icons/Paint",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pallet": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Pallet"
+        "rootDir": "malty/icons/Pallet",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pencil": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Pencil"
+        "rootDir": "malty/icons/Pencil",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/phone-classic": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PhoneClassic"
+        "rootDir": "malty/icons/PhoneClassic",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pilsner": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Pilsner"
+        "rootDir": "malty/icons/Pilsner",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Pin"
+        "rootDir": "malty/icons/Pin",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-active": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinActive"
+        "rootDir": "malty/icons/PinActive",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-churn": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinChurn"
+        "rootDir": "malty/icons/PinChurn",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-closed": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinClosed"
+        "rootDir": "malty/icons/PinClosed",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-inactive": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinInactive"
+        "rootDir": "malty/icons/PinInactive",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-indirect": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinIndirect"
+        "rootDir": "malty/icons/PinIndirect",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-labeling": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinLabeling"
+        "rootDir": "malty/icons/PinLabeling",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-parked": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinParked"
+        "rootDir": "malty/icons/PinParked",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-prospect": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinProspect"
+        "rootDir": "malty/icons/PinProspect",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pin-several": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/PinSeveral"
+        "rootDir": "malty/icons/PinSeveral",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/pint": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Pint"
+        "rootDir": "malty/icons/Pint",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/plus": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Plus"
+        "rootDir": "malty/icons/Plus",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/power": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Power"
+        "rootDir": "malty/icons/Power",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/radiobutton-off": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/RadiobuttonOff"
+        "rootDir": "malty/icons/RadiobuttonOff",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/radiobutton-on": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/RadiobuttonOn"
+        "rootDir": "malty/icons/RadiobuttonOn",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/refresh": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Refresh"
+        "rootDir": "malty/icons/Refresh",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/restaurant": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Restaurant"
+        "rootDir": "malty/icons/Restaurant",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/retry": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Retry"
+        "rootDir": "malty/icons/Retry",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/salesrep": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Salesrep"
+        "rootDir": "malty/icons/Salesrep",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/save": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Save"
+        "rootDir": "malty/icons/Save",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/search": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Search"
+        "rootDir": "malty/icons/Search",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/search-user": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SearchUser"
+        "rootDir": "malty/icons/SearchUser",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/sent": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Sent"
+        "rootDir": "malty/icons/Sent",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/settings": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Settings"
+        "rootDir": "malty/icons/Settings",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/share": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Share"
+        "rootDir": "malty/icons/Share",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/shield-exclamation": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ShieldExclamation"
+        "rootDir": "malty/icons/ShieldExclamation",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/shield-security": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ShieldSecurity"
+        "rootDir": "malty/icons/ShieldSecurity",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/shop": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Shop"
+        "rootDir": "malty/icons/Shop",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/sign-out": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SignOut"
+        "rootDir": "malty/icons/SignOut",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/sort": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Sort"
+        "rootDir": "malty/icons/Sort",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/speach-balloon": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SpeachBalloon"
+        "rootDir": "malty/icons/SpeachBalloon",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/speach-balloon-complaint": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SpeachBalloonComplaint"
+        "rootDir": "malty/icons/SpeachBalloonComplaint",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/speach-balloon-livechat": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SpeachBalloonLivechat"
+        "rootDir": "malty/icons/SpeachBalloonLivechat",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/star": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Star"
+        "rootDir": "malty/icons/Star",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/star-filled": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/StarFilled"
+        "rootDir": "malty/icons/StarFilled",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/survey": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Survey"
+        "rootDir": "malty/icons/Survey",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/survey-check": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SurveyCheck"
+        "rootDir": "malty/icons/SurveyCheck",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/survey-checkbox": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SurveyCheckbox"
+        "rootDir": "malty/icons/SurveyCheckbox",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/survey-default": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SurveyDefault"
+        "rootDir": "malty/icons/SurveyDefault",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/survey-trophy": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.16",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/SurveyTrophy"
+        "rootDir": "malty/icons/SurveyTrophy",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/sync": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Sync"
+        "rootDir": "malty/icons/Sync",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/tap": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Tap"
+        "rootDir": "malty/icons/Tap",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/tap-glass": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/TapGlass"
+        "rootDir": "malty/icons/TapGlass",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/technical-support": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/TechnicalSupport"
+        "rootDir": "malty/icons/TechnicalSupport",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/text": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Text"
+        "rootDir": "malty/icons/Text",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/third-party": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ThirdParty"
+        "rootDir": "malty/icons/ThirdParty",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/thumb-down": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ThumbDown"
+        "rootDir": "malty/icons/ThumbDown",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/thumb-up": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ThumbUp"
+        "rootDir": "malty/icons/ThumbUp",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/toggle-off": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ToggleOff"
+        "rootDir": "malty/icons/ToggleOff",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/toggle-on": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ToggleOn"
+        "rootDir": "malty/icons/ToggleOn",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/trash": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Trash"
+        "rootDir": "malty/icons/Trash",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/trophy": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.56",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Trophy"
+        "rootDir": "malty/icons/Trophy",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/truck": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Truck"
+        "rootDir": "malty/icons/Truck",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/tulipe": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Tulipe"
+        "rootDir": "malty/icons/Tulipe",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/twitter": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Twitter"
+        "rootDir": "malty/icons/Twitter",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/underline": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Underline"
+        "rootDir": "malty/icons/Underline",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/upload": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Upload"
+        "rootDir": "malty/icons/Upload",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/view-grid": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ViewGrid"
+        "rootDir": "malty/icons/ViewGrid",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/view-list": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/ViewList"
+        "rootDir": "malty/icons/ViewList",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/volume": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.55",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Volume"
+        "rootDir": "malty/icons/Volume",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/wheat": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/Wheat"
+        "rootDir": "malty/icons/Wheat",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "icons/world": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
-        "rootDir": "malty/icons/World"
+        "rootDir": "malty/icons/World",
+        "config": {
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "-"
+                    },
+                    "peerDependencies": {
+                        "@carlsberggroup/malty.atoms.base-icon": "*"
+                    }
+                }
+            }
+        }
     },
     "molecules/accordion": {
         "scope": "carlsberggroup.malty",
