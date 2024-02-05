@@ -124,14 +124,14 @@ const SearchIcons = (args: BaseIconProps) => {
 };
 
 export const Base: Story = {
-  render: (args: BaseIconProps) => <CarlsbergFilled {...args} {...(!args.ariaLabel && { onClick: undefined })} />
+  render: (args: BaseIconProps) => <CarlsbergFilled {...args} />
 };
 
 export const AllIcons: Story = {
   parameters: {
     layout: 'fullscreen'
   },
-  render: (args: BaseIconProps) => <SearchIcons {...args} {...(!args.ariaLabel && { onClick: undefined })} />
+  render: (args: BaseIconProps) => <SearchIcons {...args} />
 };
 
 export default meta;
