@@ -24,7 +24,7 @@ export const Checkbox = ({
   labelText,
   error,
   required = false,
-  dataTestId,
+  dataTestId = 'checkbox',
   isIndeterminate,
   readOnly,
   disabled,
@@ -74,7 +74,7 @@ export const Checkbox = ({
   };
 
   return (
-    <StyledCheckboxContainer fullWidth={fullWidth} {...spaceProps}>
+    <StyledCheckboxContainer fullWidth={fullWidth} data-testid={`${dataTestId}-wrapper`} {...spaceProps}>
       <StyledLabel htmlFor={id} disabled={readOnly || disabled} required={required} theme={theme}>
         <StyledSpan theme={theme}>
           <StyledInput
