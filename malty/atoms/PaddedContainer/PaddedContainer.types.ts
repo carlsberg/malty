@@ -3,6 +3,7 @@ import { SpaceProps } from '@carlsberggroup/malty.utils.space';
 export interface PaddedContainerProps extends SpaceProps {
   padding?: PaddedContainerSize;
   children?: string | JSX.Element;
+  dataTestId?: string;
 }
 
 export enum PaddedContainerSize {
