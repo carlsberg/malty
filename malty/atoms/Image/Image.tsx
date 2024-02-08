@@ -1,4 +1,5 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
+import { Image as ImageIcon } from '@carlsberggroup/malty.icons.image';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -47,7 +48,7 @@ export const Image = ({
             {children}
           </StyledOverlay>
           {hasImageError ? (
-            <Icon size={IconSize.ExtraLarge} name={IconName.Image} color={IconColor.Support40} />
+            <ImageIcon size={IconSize.ExtraLarge} color={IconColor.Support40} dataTestId="image-icon" />
           ) : (
             <StyledImage
               data-testid={`${dataTestId}`}

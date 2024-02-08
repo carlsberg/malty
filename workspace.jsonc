@@ -74,67 +74,9 @@
      **/
     "*": {
       "teambit.component/dev-files": {
-        "devFilePatterns": ["**/*.stories.+(js|ts|jsx|tsx)", "**/*.story.+(js|ts|jsx|tsx)"]
+        "devFilePatterns": ["**/*.stories.+(js|ts|jsx|tsx)", "**/*.story.+(js|ts|jsx|tsx)", "**/AllIconsMap.tsx"]
       },
       "teambit.react/react": {}
-    },
-    "{atoms/tooltip}": {
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "dependencies": {
-            "react-popper": "2.3.0",
-            "@popperjs/core": "^2.11.5"
-          }
-        }
-      }
-    },
-    "{molecules/datepicker}": {
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "dependencies": {
-            "react-datepicker": "^4.7.0"
-          }
-        }
-      }
-    },
-    "{organisms/carousel}": {
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "dependencies": {
-            "@splidejs/splide": "^4.1.4"
-          }
-        }
-      }
-    },
-    "{organisms/table}": {
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "dependencies": {
-            "@tanstack/react-table": "^8.5.13",
-            "@types/react-table": "^7.7.12",
-            "@types/react-beautiful-dnd": "^13.1.2",
-            "react-beautiful-dnd": "^13.1.1"
-          }
-        }
-      }
-    },
-    "{atoms/icon}": {
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "dependencies": {
-            "@carlsberggroup/malty.atoms.icon-wrapper": "*"
-          }
-        }
-      }
-    },
-    "{icons/*}": {
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "dependencies": {
-            "@carlsberggroup/malty.atoms.icon-wrapper": "*"
-          }
-        }
-      }
     }
   }
 }

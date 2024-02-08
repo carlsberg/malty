@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { DataTransfer } from '@carlsberggroup/malty.icons.data-transfer';
 import { ItemProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { Meta, Story } from '@storybook/react';
 import React from 'react';
@@ -32,16 +32,16 @@ export default {
 } as Meta;
 
 const navItemsMock: ItemProps[] = [
-  { icon: IconName.DataTransfer, name: 'item 1', href: '/' },
+  { icon: <DataTransfer />, name: 'item 1', href: '/' },
   {
-    icon: IconName.DataTransfer,
+    icon: <DataTransfer />,
     name: 'item 2',
     component: NavLink,
     to: '/item2',
     category: 'favourites'
   },
   {
-    icon: IconName.DataTransfer,
+    icon: <DataTransfer />,
     name: 'item 3',
     category: 'favourites',
     subItems: [
@@ -49,20 +49,20 @@ const navItemsMock: ItemProps[] = [
       { name: 'sub item 2', component: NavLink, to: '/sub-item2' }
     ]
   },
-  { icon: IconName.DataTransfer, name: 'item 4', component: NavLink, to: '/item4' }
+  { icon: <DataTransfer />, name: 'item 4', component: NavLink, to: '/item4' }
 ];
 
 const systemOptionsMock = [
-  { icon: IconName.DataTransfer, href: '/item3' },
-  { icon: IconName.DataTransfer, component: NavLink, to: '/item4' }
+  { icon: <DataTransfer />, href: '/item3' },
+  { icon: <DataTransfer />, component: NavLink, to: '/item4' }
 ];
 
 const profileMenuMock = {
   username: 'Maria Snow',
   userRole: 'Market director',
   profileActions: [
-    { name: 'User profile', icon: IconName.DataTransfer, component: NavLink, to: '/profile' },
-    { name: 'Sign out', icon: IconName.DataTransfer, component: NavLink, to: '/sign-out' }
+    { name: 'User profile', icon: <DataTransfer />, component: NavLink, to: '/profile' },
+    { name: 'Sign out', icon: <DataTransfer />, component: NavLink, to: '/sign-out' }
   ]
 };
 

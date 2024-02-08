@@ -1,5 +1,5 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { ReactElement } from 'react';
 
 export interface ChipProps extends SpaceProps {
   selected: boolean;
@@ -7,7 +7,7 @@ export interface ChipProps extends SpaceProps {
   label: string;
   size?: ChipSize;
   onChange?: (selected: boolean) => void;
-  icon?: IconName;
+  icon?: ReactElement;
   dataTestId?: string;
   disabled?: boolean;
   readOnly?: boolean;

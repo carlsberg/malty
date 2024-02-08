@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { Alert } from '@carlsberggroup/malty.icons.alert';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -44,13 +44,13 @@ describe('Chip', () => {
 
     expect(screen.getByText(defaultLabel)).toBeInTheDocument();
     expect(screen.getByRole('button')).toBeInTheDocument();
-    expect(screen.getByTestId('icon-Plus')).toBeVisible();
+    expect(screen.getByTestId('plus-icon')).toBeVisible();
   });
 
   it('should check if its displaying the Alert Icon', () => {
-    render(<Chip selected={false} label={defaultLabel} icon={IconName.Alert} dataTestId="chip" />);
+    render(<Chip selected={false} label={defaultLabel} icon={<Alert />} dataTestId="chip" />);
 
-    expect(screen.getByTestId('icon-Alert')).toBeVisible();
+    expect(screen.getByTestId('chip-icon')).toBeVisible();
   });
 
   it('should check if chip is disabled', () => {

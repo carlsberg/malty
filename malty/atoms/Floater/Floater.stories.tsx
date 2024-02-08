@@ -1,4 +1,5 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
@@ -45,10 +46,9 @@ const meta: Meta<FloaterProps> = {
       description: 'Should this be a white button?'
     },
     icon: {
-      description: 'When selected, button label will contain the selected icon',
-      control: 'select',
-      mapping: IconName,
-      options: Object.values({ undefined, ...IconName })
+      description: 'The icon component to be displayed',
+      options: allIconsStoryOptions,
+      control: 'select'
     },
     iconPos: {
       description: 'When icon present, position will be',
@@ -75,7 +75,7 @@ export const Base: Story = {
   args: {
     text: '',
     negative: false,
-    icon: IconName.ArrowSmallUp,
+    icon: <ArrowSmallUp />,
     iconPos: FloaterIconPosition.Right
   }
 };

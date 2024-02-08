@@ -1,4 +1,4 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -36,10 +36,12 @@ describe('floater', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 
-  it('should have Camera Icon visible', () => {
-    render(<Floater text={defaultText} icon={IconName.Camera} />);
+  it('should have ArrowSmallUp Icon visible', () => {
+    const iconDataTestId = 'arrow-small-up';
 
-    expect(screen.getByTestId('icon-Camera')).toBeVisible();
+    render(<Floater text={defaultText} icon={<ArrowSmallUp dataTestId={iconDataTestId} />} />);
+
+    expect(screen.getByTestId(iconDataTestId)).toBeVisible();
   });
 
   it('should have tabIndex with the correct assigned value', () => {

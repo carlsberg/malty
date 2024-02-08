@@ -38,7 +38,7 @@ describe('Image component', () => {
 
     fireEvent.error(screen.getByTestId(dataTestId));
 
-    expect(screen.getByTestId('icon-Image')).toBeInTheDocument();
+    expect(screen.getByTestId('image-icon')).toBeInTheDocument();
   });
 
   it('should render correctly using the fallbackSrc', () => {
@@ -46,7 +46,7 @@ describe('Image component', () => {
 
     fireEvent.error(screen.getByTestId(dataTestId));
 
-    expect(screen.queryByTestId('icon-Image')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('image-icon')).not.toBeInTheDocument();
     expect(screen.getByTestId(dataTestId)).toBeInTheDocument();
     expect(screen.getByAltText(altText)).toBeInTheDocument();
   });

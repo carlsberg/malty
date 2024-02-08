@@ -1,7 +1,10 @@
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { Tooltip, TooltipPlacement } from '@carlsberggroup/malty.atoms.tooltip';
+import { ArrowSmallDown } from '@carlsberggroup/malty.icons.arrow-small-down';
+import { ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
+import { Sort } from '@carlsberggroup/malty.icons.sort';
 import { LoadingOverlay } from '@carlsberggroup/malty.molecules.loading-overlay';
 import {
   createColumnHelper,
@@ -17,7 +20,7 @@ import {
   SortingState,
   useReactTable
 } from '@tanstack/react-table';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { ReactElement, useEffect, useMemo, useRef, useState } from 'react';
 import { DragDropContext, Droppable, DropResult } from 'react-beautiful-dnd';
 import { DraggableRow } from './DraggableRow';
 import { Footer } from './Footer';
@@ -34,13 +37,14 @@ import {
 } from './Table.styled';
 import { TableHeaderAlignment, TableProps, TableRowProps, TableSize } from './Table.types';
 
-const createSortIcon = (iconName: IconName) => {
+const createSortIcon = (icon: ReactElement, dataTestId: string, isSort?: boolean) => {
   const renderSortIcon = (ref: React.Dispatch<React.SetStateAction<HTMLElement | null>>) => (
     <div ref={ref}>
-      <Icon
-        name={iconName}
+      <CloneIcon
+        dataTestId={dataTestId}
+        icon={icon}
+        color={isSort ? IconColor.Support40 : IconColor.Support80}
         size={IconSize.MediumSmall}
-        color={iconName === IconName.Sort ? IconColor.Support40 : IconColor.Support80}
       />
     </div>
   );
@@ -268,7 +272,7 @@ export const Table = ({
                                 placement={TooltipPlacement.Bottom}
                                 isDark
                                 tooltipId="asc"
-                                triggerComponent={createSortIcon(IconName.ArrowSmallUp)}
+                                triggerComponent={createSortIcon(<ArrowSmallUp />, 'asc-icon')}
                               >
                                 <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                                   Sorted A→Z
@@ -281,7 +285,7 @@ export const Table = ({
                                 placement={TooltipPlacement.Bottom}
                                 isDark
                                 tooltipId="desc"
-                                triggerComponent={createSortIcon(IconName.ArrowSmallDown)}
+                                triggerComponent={createSortIcon(<ArrowSmallDown />, 'desc-icon')}
                               >
                                 <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                                   Sorted Z→A
@@ -294,7 +298,7 @@ export const Table = ({
                               placement={TooltipPlacement.Bottom}
                               isDark
                               tooltipId="normal"
-                              triggerComponent={createSortIcon(IconName.Sort)}
+                              triggerComponent={createSortIcon(<Sort />, 'sort-icon', true)}
                             >
                               <Text textStyle={TextStyle.TinyBold} color={TextColor.White}>
                                 Sort A→Z

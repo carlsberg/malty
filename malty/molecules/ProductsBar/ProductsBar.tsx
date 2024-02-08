@@ -1,6 +1,7 @@
-// import { Avatar } from '@carlsberggroup/malty.atoms.avatar';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
+import { Menu } from '@carlsberggroup/malty.icons.menu';
 import { Avatar, AvatarSize } from '@carlsberggroup/malty.molecules.avatar';
 import { LinkComponentProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
@@ -121,20 +122,21 @@ export const ProductsBar = ({
   return (
     <StyledProductsBar theme={theme}>
       <StyledOverlay open={profileMenuOpen} theme={theme} />
-      <Icon color={IconColor.White} name={IconName.CarlsbergFilled} size={IconSize.Medium} />
+      <CarlsbergFilled color={IconColor.White} size={IconSize.Medium} />
       <StyledCollapseBtn onClick={onToggleNav} data-testid="collapse-button">
-        <Icon color={IconColor.White} name={IconName.Menu} size={IconSize.Medium} />
+        <Menu color={IconColor.White} size={IconSize.Medium} />
       </StyledCollapseBtn>
       <StyledSystemWrapper theme={theme}>
         <StyledSystemMenu theme={theme} data-testid="system-options">
           {systemOptions?.map((option, index) => {
             const { icon, href, component, ...customProps } = option;
             const componentProps = { ...customProps };
+
             return (
               <StyledSystemOption theme={theme} onClick={resetNavState} key={option.key || `systemOption${index}`}>
                 <StyledOptionIcon theme={theme}>
                   <LinkComponent component={component} href={href} componentProps={componentProps}>
-                    <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Medium} />
+                    <CloneIcon icon={icon} color={IconColor.White} size={IconSize.Medium} />
                   </LinkComponent>
                 </StyledOptionIcon>
               </StyledSystemOption>
@@ -171,7 +173,7 @@ export const ProductsBar = ({
                 return (
                   <StyledProfileItem theme={theme} onClick={resetNavState} key={action.key || `profileOption${index}`}>
                     <LinkComponent component={component} href={href} componentProps={componentProps}>
-                      <Icon color={IconColor.White} name={IconName[icon]} size={IconSize.Small} />
+                      <CloneIcon icon={icon} color={IconColor.White} size={IconSize.Medium} />
                       <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
                         {name}
                       </Text>

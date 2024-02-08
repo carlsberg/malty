@@ -1,9 +1,11 @@
+import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { IconColor, IconName } from '@carlsberggroup/malty.atoms.icon';
 import { PillType } from '@carlsberggroup/malty.atoms.pill';
 import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
+import { Cart } from '@carlsberggroup/malty.icons.cart';
+import { Coupon } from '@carlsberggroup/malty.icons.coupon';
 import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
 import { MRO } from '@carlsberggroup/malty.molecules.sku';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
@@ -242,7 +244,7 @@ export const Base: Story = {
       text: 'Add to cart',
       onClick: () => null,
       style: ButtonStyle.Primary,
-      icon: IconName.Cart,
+      icon: <Cart />,
       loading: undefined,
       disabled: undefined
     },
@@ -260,8 +262,8 @@ export const Base: Story = {
     stock: { label: 'In Stock', stockColor: TextColor.Success },
     quantitySelectOptions: selectQuanityOptions,
     discountPill: { text: '20%', type: PillType.AlertStrong },
-    promoPill: { text: 'Promo', type: PillType.AlertStrong, icon: IconName.Coupon },
-    cartPill: { text: '2', type: PillType.Success, icon: IconName.Cart },
+    promoPill: { text: 'Promo', type: PillType.AlertStrong, icon: <Coupon /> },
+    cartPill: { text: '2', type: PillType.Success, icon: <Cart /> },
     favoriteIconColor: IconColor.Primary
   }
 };

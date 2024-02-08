@@ -96,4 +96,3 @@ export const StyledTextContainer = styled.div<{
     animation-name: ${fadeIn};
   }
 `;
-export const StyledIcon = styled.div``;

@@ -1,4 +1,4 @@
-import { Icon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Loading, LoadingColor, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
@@ -31,6 +31,7 @@ export const Button = ({
 }: ButtonProps) => {
   let Component = StyledPrimaryButton;
   let iconColor = negative ? IconColor.DigitalBlack : IconColor.White;
+
   switch (style) {
     case ButtonStyle.Secondary:
       Component = StyledSecondaryButton;
@@ -96,6 +97,8 @@ export const Button = ({
     return LoadingColor.DigitalBlack;
   };
 
+  const renderedIcon = <CloneIcon icon={icon} color={iconColor} size={IconSize.Small} />;
+
   const renderComponent = () => (
     <Component
       color={color}
@@ -118,9 +121,9 @@ export const Button = ({
       {...props}
     >
       <div className="text-container">
-        {icon && iconPos === ButtonIconPosition.Left && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+        {iconPos === ButtonIconPosition.Left && renderedIcon}
         {text || children}
-        {icon && iconPos === ButtonIconPosition.Right && <Icon name={icon} color={iconColor} size={IconSize.Small} />}
+        {iconPos === ButtonIconPosition.Right && renderedIcon}
       </div>
       {loading && (
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">

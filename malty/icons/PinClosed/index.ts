@@ -1,0 +1,1 @@
+export { PinClosed } from './PinClosed';

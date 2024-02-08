@@ -1,4 +1,4 @@
-import { Icon, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { CloneIcon } from '@carlsberggroup/malty.atoms.base-icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -27,7 +27,6 @@ export const Pill = ({
       size={numSize}
       fontSize={fontSize}
       fontFamily={fontFamily}
-      iconSize={iconSize}
       padding={padding}
       hasText={hasText}
       hasIcon={!!icon}
@@ -38,7 +37,7 @@ export const Pill = ({
       isUppercase={hasText && isUppercase}
       {...props}
     >
-      {icon && <Icon name={icon} size={IconSize.Small} color={colorStyle} className="pill__icon" />}
+      <CloneIcon icon={icon} color={colorStyle} size={iconSize} />
       {text}
     </StyledPill>
   );

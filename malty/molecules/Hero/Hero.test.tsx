@@ -1,15 +1,20 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { render, screen } from '@testing-library/react';
+import { render } from '@carlsberggroup/malty.utils.test';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { Hero } from './Hero';
 import { ActionButtonProps, HeroProps } from './Hero.types';
 
+const scrollText = 'Scroll to know more';
+const heroTestId = 'hero';
+const scrollIcon = `${heroTestId}-scroll-icon`;
 const heroProps: HeroProps = {
   title: 'This is the title of the banner',
   description: 'This is the description of the banner',
   imageSrc:
-    'https://s3-alpha-sig.figma.com/img/1a8e/2a97/368bfc9d97adcbd3d02f0159e7692a8e?Expires=1686528000&Signature=d4mISd9mfZCDWUkCfS57I9ft4qibCOQvC1iadlvHcs~QKPdybMicFZ7C~dqgrsDErGneBIf5~XNsPLqZRRHsxCRZqDXY6SpdbjNu9FtM-ak3uD7ZCSFB6my4Bx1wSJVv5arsbGil7PuqkrIVOSoK83d~9JOmAEP--OPFqQo8KF77P0kHVRZyOTTVIUSiszBe7b9GmzGBq1ebkXfKOwM20DIAc6dKQi1qIoqrPBep02PstrzbWHKr1LVsnNiY9~00mllHePEwUXmWKZz4UMLHnR~M7X6CwpDq1~JOB0E~xC80pJna8rrcV5Jl9gGkgu~y5w6W9zc6ad-W5GtIV9YOHg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+    'https://s3-alpha-sig.figma.com/img/1a8e/2a97/368bfc9d97adcbd3d02f0159e7692a8e?Expires=1686528000&Signature=d4mISd9mfZCDWUkCfS57I9ft4qibCOQvC1iadlvHcs~QKPdybMicFZ7C~dqgrsDErGneBIf5~XNsPLqZRRHsxCRZqDXY6SpdbjNu9FtM-ak3uD7ZCSFB6my4Bx1wSJVv5arsbGil7PuqkrIVOSoK83d~9JOmAEP--OPFqQo8KF77P0kHVRZyOTTVIUSiszBe7b9GmzGBq1ebkXfKOwM20DIAc6dKQi1qIoqrPBep02PstrzbWHKr1LVsnNiY9~00mllHePEwUXmWKZz4UMLHnR~M7X6CwpDq1~JOB0E~xC80pJna8rrcV5Jl9gGkgu~y5w6W9zc6ad-W5GtIV9YOHg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4',
+  dataTestId: heroTestId
 };
 
 const actions: ActionButtonProps[] = [
@@ -28,10 +33,6 @@ const actions: ActionButtonProps[] = [
     onClick: jest.fn()
   }
 ];
-
-const scrollText = 'Scroll to know more';
-const scrollIcon = 'icon-ArrowSmallDown';
-const heroTestId = 'hero';
 
 describe('Hero', () => {
   beforeAll(() => {
@@ -85,7 +86,7 @@ describe('Hero', () => {
   });
 
   it('should render hero data test id', () => {
-    render(<Hero {...heroProps} scrollText={scrollText} dataTestId={heroTestId} />);
+    render(<Hero {...heroProps} scrollText={scrollText} />);
 
     expect(screen.getByTestId(heroTestId)).toBeVisible();
   });

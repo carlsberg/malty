@@ -1,0 +1,1 @@
+export { MenuRight } from './MenuRight';

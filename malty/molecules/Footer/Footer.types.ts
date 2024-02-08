@@ -1,7 +1,7 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { ReactElement } from 'react';
 
 export interface FooterProps {
-  brandIcon?: IconName;
+  brandIcon?: ReactElement;
   brandInfo?: string;
   content?: FooterSections[];
   socialMedia?: FooterSocialMedia[];

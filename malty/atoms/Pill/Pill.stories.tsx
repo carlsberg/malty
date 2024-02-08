@@ -1,4 +1,5 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
@@ -30,9 +31,8 @@ const meta: Meta<PillProps> = {
       control: 'select'
     },
     icon: {
-      description: 'Icon to be displayed',
-      options: Object.keys({ undefined, ...IconName }),
-      mapping: { undefined, ...IconName },
+      description: 'The icon component to be displayed',
+      options: allIconsStoryOptions,
       control: 'select'
     },
     isUppercase: {
@@ -52,7 +52,7 @@ type Story = StoryObj<PillProps>;
 export const Base: Story = {
   args: {
     text: 'Text',
-    icon: IconName.CarlsbergFilled,
+    icon: <CarlsbergFilled />,
     type: PillType.Primary,
     size: PillSize.Medium,
     isUppercase: false

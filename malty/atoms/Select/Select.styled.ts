@@ -1,5 +1,5 @@
-import Check from '@carlsberggroup/malty.icons.check';
-import ChevronDown from '@carlsberggroup/malty.icons.chevron-down';
+import { Check } from '@carlsberggroup/malty.icons.check';
+import { ChevronDown } from '@carlsberggroup/malty.icons.chevron-down';
 import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 import { SelectPosition } from './Select.types';
@@ -281,10 +281,10 @@ export const StyledChevronDown = styled(ChevronDown)<{
 `;
 
 export const StyledCheck = styled(Check)<{
-  selectStyle?: string;
+  $selectStyle?: string;
 }>`
-  ${({ selectStyle }) =>
-    selectStyle === 'inline' &&
+  ${({ $selectStyle }) =>
+    $selectStyle === 'inline' &&
     css`
       margin-left: ${({ theme }) => theme.sizes.s.value};
     `}
@@ -297,6 +297,8 @@ export const StyledWrapper = styled.div`
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
 
   svg {
     margin-right: ${({ theme }) => theme.sizes['4xs'].value};

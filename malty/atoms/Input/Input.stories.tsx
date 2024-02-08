@@ -1,4 +1,5 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { Search as SearchIcon } from '@carlsberggroup/malty.icons.search';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
@@ -49,9 +50,9 @@ const meta: Meta<InputProps> = {
       description: 'Input type options'
     },
     icon: {
-      options: Object.values({ undefined, ...IconName }),
-      control: 'select',
-      description: 'Icon to be displayed inside input.'
+      description: 'The icon component to be displayed',
+      options: allIconsStoryOptions,
+      control: 'select'
     },
     disabled: {
       control: 'boolean',
@@ -197,7 +198,7 @@ export const Search: Story = {
   args: {
     ...Base.args,
     type: InputType.Search,
-    icon: IconName.Search
+    icon: <SearchIcon />
   }
 };
 

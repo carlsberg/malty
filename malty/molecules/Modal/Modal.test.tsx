@@ -1,6 +1,7 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { render } from '@carlsberggroup/malty.utils.test';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import { Modal } from './Modal';
 import { ActionButtonProps } from './Modal.types';
@@ -34,13 +35,7 @@ describe('modal', () => {
 
     const primaryButton = screen.getByText('Confirm');
 
-    fireEvent(
-      primaryButton,
-      new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true
-      })
-    );
+    userEvent.click(primaryButton);
 
     expect(screen.getByText('Clicked primary')).toBeInTheDocument();
   });
@@ -59,15 +54,9 @@ describe('modal', () => {
 
     render(<ModalTest />);
 
-    const closeIcon = screen.getAllByTestId('icon-component') && screen.getAllByTestId('icon-component')[0];
+    const closeIcon = screen.getByTestId('close-icon');
 
-    fireEvent(
-      closeIcon,
-      new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true
-      })
-    );
+    userEvent.click(closeIcon);
 
     expect(onClose).toHaveBeenCalledTimes(1);
     expect(screen.queryByText('Headline')).not.toBeInTheDocument();
@@ -87,7 +76,7 @@ describe('modal', () => {
   it('should not display close icon when dismissible is set as false', () => {
     render(<Modal open onClose={() => false} title={title} content={text} actions={buttons} dismissible={false} />);
 
-    const closeIcon = screen.queryByTestId('icon-component');
+    const closeIcon = screen.queryByTestId('close-icon');
 
     expect(closeIcon).not.toBeInTheDocument();
   });

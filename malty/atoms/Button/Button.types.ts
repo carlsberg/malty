@@ -1,10 +1,9 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'style'>, SpaceProps {
   text?: string | number;
-  icon?: IconName;
+  icon?: ReactElement;
   iconPos?: ButtonIconPosition;
   url?: string;
   type?: ButtonType;

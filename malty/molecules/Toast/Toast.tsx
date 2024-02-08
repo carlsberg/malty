@@ -1,6 +1,6 @@
 import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Close } from '@carlsberggroup/malty.icons.close';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -70,7 +70,7 @@ export const Toast = ({
     <StyledDismissContainer theme={theme}>
       <Button
         negative
-        icon={IconName.Close}
+        icon={<Close />}
         size={ButtonSize.Medium}
         type={ButtonType.Default}
         style={ButtonStyle.Transparent}

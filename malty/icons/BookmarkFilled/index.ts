@@ -1,0 +1,1 @@
+export { BookmarkFilled } from './BookmarkFilled';

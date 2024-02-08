@@ -1,0 +1,1 @@
+export { Truck } from './Truck';

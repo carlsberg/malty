@@ -1,4 +1,3 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { RowSelectionState } from '@tanstack/react-table';
 import { screen, within } from '@testing-library/react';
@@ -175,7 +174,7 @@ describe('table', () => {
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[0]);
 
-    expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
+    expect(getByTestId('sort-icon')).toBeVisible();
   });
 
   it('should not display sorting option for the second column', () => {
@@ -183,7 +182,7 @@ describe('table', () => {
 
     const { queryByTestId } = within(screen.getAllByRole('columnheader')[1]);
 
-    expect(queryByTestId(`icon-${IconName.Sort}`)).not.toBeInTheDocument();
+    expect(queryByTestId('sort-icon')).not.toBeInTheDocument();
   });
 
   it('should display sorting option for the third column', () => {
@@ -191,7 +190,7 @@ describe('table', () => {
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
 
-    expect(getByTestId(`icon-${IconName.Sort}`)).toBeVisible();
+    expect(getByTestId('sort-icon')).toBeVisible();
   });
 
   it('should call the onSortingChange prop when column title is clicked', () => {
@@ -230,7 +229,7 @@ describe('table', () => {
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
 
-    const sortingButton = getByTestId(`icon-${IconName.Sort}`);
+    const sortingButton = getByTestId('sort-icon');
 
     userEvent.click(sortingButton);
 
@@ -247,11 +246,11 @@ describe('table', () => {
 
     const { getByTestId } = within(screen.getAllByRole('columnheader')[2]);
 
-    const defaultSortingButton = getByTestId(`icon-${IconName.Sort}`);
+    const defaultSortingButton = getByTestId('sort-icon');
 
     userEvent.click(defaultSortingButton);
 
-    const descSortingButton = getByTestId(`icon-${IconName.ArrowSmallDown}`);
+    const descSortingButton = getByTestId('desc-icon');
 
     userEvent.click(descSortingButton);
 

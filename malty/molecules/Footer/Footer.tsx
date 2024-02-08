@@ -1,19 +1,27 @@
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
 import { Link, LinkColor, LinkStyle } from '@carlsberggroup/malty.atoms.link';
 import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { AppDropbox } from '@carlsberggroup/malty.icons.app-dropbox';
+import { AppFacebook } from '@carlsberggroup/malty.icons.app-facebook';
+import { AppGithub } from '@carlsberggroup/malty.icons.app-github';
+import { AppInstagram } from '@carlsberggroup/malty.icons.app-instagram';
+import { AppLinkedin } from '@carlsberggroup/malty.icons.app-linkedin';
+import { AppSkype } from '@carlsberggroup/malty.icons.app-skype';
+import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
+import { Twitter } from '@carlsberggroup/malty.icons.twitter';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledAdress, StyledCluster, StyledFooter, StyledRow, StyledSocialMedia } from './Footer.styled';
-import { FooterProps } from './Footer.types';
+import { FooterProps, FooterSocialMediaIconName } from './Footer.types';
 
 const defaultAdress = 'Carlsberg Breweries A/S J.C. Jacobsens Gade 1, 1799 Copenhagen V Denmark';
 const defaultCopyright = '© Powered by Carlsberg Group';
 
 export const Footer = ({
-  brandIcon = IconName.CarlsbergFilled,
+  brandIcon = <CarlsbergFilled />,
   brandInfo = defaultAdress,
   content,
   socialMedia,
@@ -22,9 +30,23 @@ export const Footer = ({
 }: FooterProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
+  const renderSocialMediaIcon = (socialMediaIconName: FooterSocialMediaIconName) => {
+    const icons = {
+      [FooterSocialMediaIconName.AppDropbox]: <AppDropbox />,
+      [FooterSocialMediaIconName.AppFacebook]: <AppFacebook />,
+      [FooterSocialMediaIconName.AppGithub]: <AppGithub />,
+      [FooterSocialMediaIconName.AppInstagram]: <AppInstagram />,
+      [FooterSocialMediaIconName.AppLinkedin]: <AppLinkedin />,
+      [FooterSocialMediaIconName.Twitter]: <Twitter />,
+      [FooterSocialMediaIconName.AppSkype]: <AppSkype />
+    };
+
+    return icons[socialMediaIconName];
+  };
+
   return (
     <StyledFooter data-testid={dataQaId} theme={theme}>
-      <Icon name={brandIcon} color={IconColor.Support60} size={IconSize.Medium} />
+      <CloneIcon icon={brandIcon} color={IconColor.Support60} size={IconSize.Medium} />
       <StyledAdress data-testid={`${dataQaId}-brand-info`} theme={theme}>
         <Text textStyle={TextStyle.SmallDefault} color={TextColor.Support60} align={TextAlign.Center}>
           {brandInfo}
@@ -56,7 +78,7 @@ export const Footer = ({
             dataTestId={`${dataQaId}-social-media-${social.name}`}
             negative
             key={social.name}
-            icon={social.name as unknown as IconName}
+            icon={renderSocialMediaIcon(social.name)}
             style={ButtonStyle.Transparent}
             url={social.url}
           />

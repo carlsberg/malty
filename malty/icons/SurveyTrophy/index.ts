@@ -1,0 +1,1 @@
+export { SurveyTrophy } from './SurveyTrophy';

@@ -1,5 +1,7 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { ArrowSmallLeft } from '@carlsberggroup/malty.icons.arrow-small-left';
+import { ArrowSmallRight } from '@carlsberggroup/malty.icons.arrow-small-right';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -50,7 +52,7 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
       className={className}
     >
       <LinkComponent component={component} href={href} componentProps={componentProps}>
-        {icon && <Icon name={IconName[icon]} size={IconSize.Small} color={IconColor.White} />}
+        <CloneIcon icon={icon} color={IconColor.White} size={IconSize.Small} />
 
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
           {name}
@@ -58,7 +60,7 @@ const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = fal
 
         {subItems && (
           <StyledRightArrow theme={theme}>
-            <Icon name={IconName.ArrowSmallRight} size={IconSize.Small} color={IconColor.White} />
+            <ArrowSmallRight size={IconSize.Small} color={IconColor.White} />
           </StyledRightArrow>
         )}
       </LinkComponent>
@@ -154,7 +156,7 @@ export const NavList = ({
         <>
           <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
             <LinkComponent component={component} href={href} componentProps={componentProps}>
-              <Icon name={IconName.ArrowSmallLeft} size={IconSize.Small} color={IconColor.White} />
+              <ArrowSmallLeft size={IconSize.Small} color={IconColor.White} />
               <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.White}>
                 {name}
               </Text>

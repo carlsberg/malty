@@ -1,0 +1,1 @@
+export { ThumbDown } from './ThumbDown';

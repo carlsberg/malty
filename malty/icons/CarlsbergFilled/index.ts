@@ -1,0 +1,1 @@
+export { CarlsbergFilled } from './CarlsbergFilled';

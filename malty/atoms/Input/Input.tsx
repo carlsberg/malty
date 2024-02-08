@@ -1,5 +1,10 @@
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Label } from '@carlsberggroup/malty.atoms.label';
+import { EyeHide } from '@carlsberggroup/malty.icons.eye-hide';
+import { EyeShow } from '@carlsberggroup/malty.icons.eye-show';
+import { ItemClose } from '@carlsberggroup/malty.icons.item-close';
+import { Minus } from '@carlsberggroup/malty.icons.minus';
+import { Plus } from '@carlsberggroup/malty.icons.plus';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
 import React, { ChangeEvent, forwardRef, useContext, useMemo, useState } from 'react';
@@ -75,19 +80,26 @@ export const Input = forwardRef(
     const { spaceProps, restProps } = isolateSpaceProps(props);
 
     const transform = (text: string): string => {
-      if (mask) {
-        if (type === InputType.Telephone && mask === InputMaskTypes.Telephone) {
-          const tel = text.match(/(\d{3,})(\d{4,})/);
-          if (tel) return `${tel[1]}  ${tel[2]}`;
-        } else if (type === InputType.Text && mask === InputMaskTypes.CreditCard) {
-          // eslint-disable-next-line no-useless-escape
-          const card = text.match(/((\d{4}[-|" "|\.])|(\d{4})){3}\d{4}/g);
-          if (card) return `${card[1]}-${card[2]}-${card[3]}-${card[4]}`;
+      if (type === InputType.Telephone && mask === InputMaskTypes.Telephone) {
+        const telMatch = text.match(/(\d{3,})(\d{4,})/);
+
+        if (telMatch) {
+          return `${telMatch[1]}  ${telMatch[2]}`;
         }
       }
+
+      if (type === InputType.Text && mask === InputMaskTypes.CreditCard) {
+        const cardMatch = text.match(/((\d{4}[-|" "|.])|(\d{4})){3}\d{4}/g);
+
+        if (cardMatch) {
+          return `${cardMatch[1]}-${cardMatch[2]}-${cardMatch[3]}-${cardMatch[4]}`;
+        }
+      }
+
       return text;
     };
-    const HandleTogglePassword = () => {
+
+    const handleTogglePassword = () => {
       if (value) {
         if (passwordToggleType === InputType.Password) {
           setPasswordToggleType(InputType.Text);
@@ -129,38 +141,39 @@ export const Input = forwardRef(
     const renderClearable = () =>
       (clearable || type === InputType.Search) &&
       !!value && (
-        <Icon
-          data-testid={`${dataTestId}-clearable-icon`}
-          name={IconName.ItemClose}
-          color={IconColor.DigitalBlack}
-          size={IconSize.Medium}
+        <ItemClose
           className="clear-trigger"
+          dataTestId={`${dataTestId}-clearable-icon`}
           onClick={handleClear}
+          ariaLabel="Clear input"
         />
       );
 
     const renderIcon = () => {
-      if (type === InputType.Password && value) {
-        return (
-          <Icon
-            className={`${passwordToggleType}` === InputType.Password ? 'password-icon-show' : 'password-icon-hide'}
-            onClick={HandleTogglePassword}
-            data-testid={`${dataTestId}-icon`}
-            name={passwordToggleType === InputType.Password ? IconName.EyeShow : IconName.EyeHide}
-            color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
-            size={IconSize.Medium}
-          />
+      if (type === InputType.Password) {
+        const iconProps = {
+          dataTestId: `${dataTestId}-icon`,
+          color: disabled ? IconColor.DisableLight : IconColor.DigitalBlack,
+          onClick: handleTogglePassword,
+          className: 'password-icon'
+        };
+
+        if (!value) return null;
+
+        return passwordToggleType === InputType.Password ? (
+          <EyeShow {...iconProps} ariaLabel="Show password" />
+        ) : (
+          <EyeHide {...iconProps} ariaLabel="Hide password" />
         );
       }
+
       return (
-        icon && (
-          <Icon
-            data-testid={`${dataTestId}-icon`}
-            name={icon}
-            color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
-            size={IconSize.Medium}
-          />
-        )
+        <CloneIcon
+          icon={icon}
+          dataTestId={`${dataTestId}-icon`}
+          color={disabled ? IconColor.DisableLight : IconColor.DigitalBlack}
+          size={IconSize.Medium}
+        />
       );
     };
 
@@ -208,7 +221,7 @@ export const Input = forwardRef(
       </StyledClearableWrapper>
     );
 
-    const renderInputNumber = () => (
+    const renderQuantityInput = () => (
       <>
         <StyledButton
           data-testid={`${dataTestId}-quantity-minus`}
@@ -219,13 +232,9 @@ export const Input = forwardRef(
           readOnly={readOnly}
           onClick={handleLeftButtonClick}
           aria-label="Quantity Minus"
+          className="quantity-control"
         >
-          <Icon
-            name={IconName.Minus}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
-            className="quantity-control"
-          />
+          <Minus />
         </StyledButton>
         <StyledInput
           max={max}
@@ -262,13 +271,9 @@ export const Input = forwardRef(
           readOnly={readOnly}
           onClick={handleRightButtonClick}
           aria-label="Quantity Plus"
+          className="quantity-control"
         >
-          <Icon
-            name={IconName.Plus}
-            color={IconColor.DigitalBlack}
-            size={IconSize.Medium}
-            className="quantity-control"
-          />
+          <Plus />
         </StyledButton>
       </>
     );
@@ -348,7 +353,7 @@ export const Input = forwardRef(
         >
           {type !== InputType.Quantity && type !== InputType.Telephone && renderInput()}
           {type === InputType.Telephone && renderTelNumber()}
-          {type === InputType.Quantity && renderInputNumber()}
+          {type === InputType.Quantity && renderQuantityInput()}
           {children}
         </StyledInputWrapper>
         {error && (

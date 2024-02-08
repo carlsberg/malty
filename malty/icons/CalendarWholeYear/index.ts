@@ -1,0 +1,1 @@
+export { CalendarWholeYear } from './CalendarWholeYear';

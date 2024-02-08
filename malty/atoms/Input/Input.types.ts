@@ -1,5 +1,5 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
 import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { ReactElement } from 'react';
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement>, SpaceProps {
   value: string;
@@ -9,7 +9,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement>, Spac
   type: InputType;
   placeholder?: string;
   error?: string;
-  icon?: IconName;
+  icon?: ReactElement;
   iconPosition?: InputIconPosition;
   size?: InputSize;
   clearable?: boolean;

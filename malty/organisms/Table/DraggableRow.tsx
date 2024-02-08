@@ -1,5 +1,6 @@
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
-import { Icon, IconColor, IconName, IconSize } from '@carlsberggroup/malty.atoms.icon';
+import { Arrange } from '@carlsberggroup/malty.icons.arrange';
 import { flexRender } from '@tanstack/react-table';
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
@@ -28,9 +29,7 @@ export const DraggableRow = ({
           data-testid={`${dataTestId}-row-${row.id}`}
         >
           <StyledDraggableCell {...provided?.dragHandleProps}>
-            <div>
-              <Icon color={IconColor.Support60} name={IconName.Arrange} size={IconSize.Small} />
-            </div>
+            <Arrange color={IconColor.Support60} size={IconSize.Small} />
           </StyledDraggableCell>
           {allowSelection && (
             <StyledTd data-testid={`${dataTestId}-cell-checkbox`}>

@@ -1,4 +1,4 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.icon-wrapper';
+import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -12,7 +12,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       numSize: theme.sizes.ms.value,
       fontSize: theme.typography.desktop.text.tiny_bold['font-size'].value,
       fontFamily: theme.typography.desktop.text.tiny_bold['font-family'].value,
-      iconSize: theme.sizes.xs.value,
+      iconSize: IconSize.ExtraSmall,
       padding: theme.sizes['3xs'].value,
       gap: theme.sizes['4xs'].value
     },
@@ -20,7 +20,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       numSize: theme.sizes.m.value,
       fontSize: theme.typography.desktop.text.tiny_bold['font-size'].value,
       fontFamily: theme.typography.desktop.text.tiny_bold['font-family'].value,
-      iconSize: theme.sizes.s.value,
+      iconSize: IconSize.Small,
       padding: theme.sizes['2xs'].value,
       gap: theme.sizes['3xs'].value
     },
@@ -28,7 +28,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       numSize: theme.sizes.l.value,
       fontSize: theme.typography.desktop.text['medium-small_bold']['font-size'].value,
       fontFamily: theme.typography.desktop.text['medium-small_bold']['font-family'].value,
-      iconSize: theme.sizes.m.value,
+      iconSize: IconSize.Medium,
       padding: theme.sizes.xs.value,
       gap: theme.sizes['2xs'].value
     }

@@ -37,7 +37,8 @@
     "check-lint": "eslint \"malty/**/*.{js,ts,tsx}\" --max-warnings=9",
     "lint": "yarn check-lint --fix",
     "check-types": "tsc --noemit",
-    "check-format": "prettier --check ."
+    "check-format": "prettier --check .",
+    "set-peer-dep": "node ./scripts/set-peer-dependency.mjs"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
@@ -88,7 +89,6 @@
     "eslint-plugin-functional": "*",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.1",
-    "eslint-plugin-jsdoc": "*",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",

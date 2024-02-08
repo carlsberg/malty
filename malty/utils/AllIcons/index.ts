@@ -1,0 +1,1 @@
+export { allIconsStoryOptions } from './AllIconsMap';

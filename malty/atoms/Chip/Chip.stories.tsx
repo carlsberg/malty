@@ -1,4 +1,5 @@
-import { IconName } from '@carlsberggroup/malty.atoms.icon';
+import { Alert } from '@carlsberggroup/malty.icons.alert';
+import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
@@ -44,12 +45,9 @@ export default {
       description: 'Function to be executed when Chip state changes'
     },
     icon: {
-      description: 'When selected, Chip will show selected icon',
-      options: Object.values({ undefined, ...IconName }),
-
-      control: {
-        type: 'select'
-      }
+      description: 'The icon component to be displayed',
+      options: allIconsStoryOptions,
+      control: 'select'
     },
     disabled: {
       control: 'boolean',
@@ -90,7 +88,7 @@ switch (variant) {
     Chip.args = {
       label: 'Label',
       selected: false,
-      icon: IconName.Information
+      icon: <Alert />
     };
     break;
   case 'selected':
