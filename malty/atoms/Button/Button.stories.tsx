@@ -1,14 +1,15 @@
 import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ButtonProps, ButtonSize } from '.';
 import { Button as ButtonComponent } from './Button';
 import { ButtonColor, ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
-export default {
+const meta: Meta<ButtonProps> = {
   title: 'Forms/Button',
   component: ButtonComponent,
+  render: (args) => <ButtonComponent {...args} />,
   parameters: {
     importObject: 'Button',
     importPath: '@carlsberggroup/malty.atoms.button',
@@ -153,66 +154,65 @@ export default {
       control: 'text',
       description: 'Label your button with a child, as a string. This is an alternative to the `text` property'
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Button data-testid'
+    },
     ...generateStorybookSpacing()
   }
 };
 
-const Template: Story<ButtonProps> = (args) => <ButtonComponent {...args} />;
+type Story = StoryObj<ButtonProps>;
 
-export const Button = Template.bind({});
+export const Base: Story = {
+  args: {
+    color: ButtonColor.DigitalBlack,
+    style: ButtonStyle.Primary,
+    text: 'Primary',
+    type: ButtonType.Submit,
+    size: ButtonSize.Medium,
+    iconPos: ButtonIconPosition.Right,
+    loading: false,
+    negative: false,
+    disabled: false,
+    fullWidth: false,
+    url: '',
+    selected: false
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Secondary: Story = {
+  args: {
+    color: ButtonColor.DigitalBlack,
+    style: ButtonStyle.Secondary,
+    text: 'Secondary',
+    type: ButtonType.Submit,
+    size: ButtonSize.Medium,
+    iconPos: ButtonIconPosition.Right,
+    loading: false,
+    negative: false,
+    disabled: false,
+    fullWidth: false,
+    url: '',
+    selected: false
+  }
+};
 
-switch (variant) {
-  case 'secondary':
-    Button.args = {
-      color: ButtonColor.DigitalBlack,
-      style: ButtonStyle.Secondary,
-      text: 'Secondary',
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false
-    };
-    break;
+export const Transparent: Story = {
+  args: {
+    color: ButtonColor.DigitalBlack,
+    style: ButtonStyle.Transparent,
+    text: 'Transparent',
+    type: ButtonType.Submit,
+    size: ButtonSize.Medium,
+    iconPos: ButtonIconPosition.Right,
+    loading: false,
+    negative: false,
+    disabled: false,
+    fullWidth: false,
+    url: '',
+    selected: false
+  }
+};
 
-  case 'transparent':
-    Button.args = {
-      color: ButtonColor.DigitalBlack,
-      style: ButtonStyle.Transparent,
-      text: 'Transparent',
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false
-    };
-    break;
-
-  default:
-    Button.args = {
-      color: ButtonColor.DigitalBlack,
-      style: ButtonStyle.Primary,
-      text: 'Primary',
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false
-    };
-    break;
-}
+export default meta;
