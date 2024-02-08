@@ -4587,6 +4587,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/theme/MaltyThemeProvider"
     },
+    "utils/all-icons": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/utils/AllIcons"
+    },
     "utils/colors": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.5",

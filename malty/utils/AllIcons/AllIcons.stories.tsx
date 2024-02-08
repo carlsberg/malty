@@ -1,3 +1,4 @@
+import { BaseIconProps, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon/BaseIcon.types';
 import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
@@ -11,7 +12,6 @@ import {
   StyledSearch,
   StyledWrapper
 } from './AllIconsStories.styled';
-import { BaseIconProps, IconColor, IconSize } from './BaseIcon.types';
 
 const meta: Meta<BaseIconProps> = {
   title: 'Icons/Icons',
