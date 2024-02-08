@@ -5471,7 +5471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/styled-components@npm:>=5.1.26 <6.0.0":
+"@types/styled-components@npm:^5.1.26":
   version: 5.1.34
   resolution: "@types/styled-components@npm:5.1.34::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fstyled-components%2F-%2Fstyled-components-5.1.34.tgz"
   dependencies:
@@ -5514,7 +5514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:>=9.0.0 <10.0.0":
+"@types/uuid@npm:^9.0.0":
   version: 9.0.8
   resolution: "@types/uuid@npm:9.0.8::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40types%2Fuuid%2F-%2Fuuid-9.0.8.tgz"
   checksum: b8c60b7ba8250356b5088302583d1704a4e1a13558d143c549c408bf8920535602ffc12394ede77f8a8083511b023704bc66d1345792714002bfa261b17c5275
@@ -10445,9 +10445,9 @@ __metadata:
     "@types/react-dom": ">=17.0.5 <18.0.0"
     "@types/react-table": ^7.7.14
     "@types/react-test-renderer": ^17.0.2
-    "@types/styled-components": ">=5.1.26 <6.0.0"
+    "@types/styled-components": ^5.1.26
     "@types/testing-library__jest-dom": 5.9.5
-    "@types/uuid": ">=9.0.0 <10.0.0"
+    "@types/uuid": ^9.0.0
     "@typescript-eslint/eslint-plugin": ^5.54.0
     "@typescript-eslint/parser": ^5.53.0
     babel-jest: ^29.4.1
@@ -19277,8 +19277,6 @@ __metadata:
 "test-fd7b7f@workspace:malty/utils/test":
   version: 0.0.0-use.local
   resolution: "test-fd7b7f@workspace:malty/utils/test"
-  dependencies:
-    "@types/react": ^18.0.28
   peerDependencies:
     react: ^17.0.2
   languageName: unknown
