@@ -3,4 +3,5 @@ export interface OverlayProps {
   isWhite?: boolean;
   zIndex?: number;
   fixed?: boolean;
+  dataTestId?: string;
 }
