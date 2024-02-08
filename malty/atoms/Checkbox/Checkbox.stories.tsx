@@ -1,16 +1,27 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
-import React, { useState } from 'react';
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useEffect, useState } from 'react';
 import { Checkbox as CheckboxComponent } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
-export default {
+const ControlledCheckbox = ({ checked, ...args }: CheckboxProps) => {
+  const [isChecked, setIsChecked] = useState(checked);
+
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
+
+  return <CheckboxComponent {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
+};
+
+const meta: Meta<CheckboxProps> = {
   title: 'Forms/Checkbox',
   component: CheckboxComponent,
+  render: (args) => <ControlledCheckbox {...args} />,
   parameters: {
     importObject: 'Checkbox',
     importPath: '@carlsberggroup/malty.atoms.checkbox',
-    variants: ['undetermined', 'checked', 'unchecked']
+    variants: []
   },
   argTypes: {
     value: {
@@ -58,69 +69,92 @@ export default {
     onValueChange: {
       description: 'Function to be executed when checkbox state changes'
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Checkbox data-testid'
+    },
     ...generateStorybookSpacing()
   }
 };
 
-const Template: Story<CheckboxProps> = ({ checked, ...args }) => {
-  const [isChecked, setIsChecked] = useState(checked);
+type Story = StoryObj<CheckboxProps>;
 
-  return <CheckboxComponent {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
+export const Base: Story = {
+  args: {
+    value: 'Base',
+    labelText: 'Base label',
+    error: '',
+    checked: true,
+    required: false
+  }
 };
 
-export const Checkbox = Template.bind({});
+export const Checked: Story = {
+  args: {
+    value: 'Checked',
+    labelText: 'Checked label',
+    error: '',
+    checked: true,
+    required: false
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Undetermined: Story = {
+  args: {
+    value: 'Undetermined',
+    labelText: 'Undetermined label',
+    error: '',
+    required: false,
+    isIndeterminate: true
+  }
+};
 
-switch (variant) {
-  case 'undetermined':
-    Checkbox.args = {
-      value: 'Undetermined',
-      labelText: 'Undetermined label',
-      error: '',
-      required: false,
-      isIndeterminate: true
-    };
-    break;
+export const Unchecked: Story = {
+  args: {
+    value: 'Unchecked',
+    labelText: 'Unchecked label',
+    error: '',
+    checked: false,
+    required: false
+  }
+};
 
-  case 'unchecked':
-    Checkbox.args = {
-      value: 'Unchecked',
-      labelText: 'Unchecked label',
-      error: '',
-      checked: false,
-      required: false
-    };
-    break;
+export const Disabled: Story = {
+  args: {
+    labelText: 'Disabled label',
+    error: '',
+    checked: true,
+    required: false,
+    disabled: true
+  }
+};
 
-  case 'disabled':
-    Checkbox.args = {
-      labelText: 'Disabled label',
-      error: '',
-      checked: true,
-      required: false,
-      disabled: true
-    };
-    break;
+export const ReadOnly: Story = {
+  args: {
+    labelText: 'Readonly label',
+    error: '',
+    checked: true,
+    required: false,
+    readOnly: true
+  }
+};
 
-  case 'readOnly':
-    Checkbox.args = {
-      labelText: 'Readonly label',
-      error: '',
-      checked: true,
-      required: false,
-      readOnly: true
-    };
-    break;
+export const Required: Story = {
+  args: {
+    labelText: 'Required label',
+    error: '',
+    checked: false,
+    required: true
+  }
+};
 
-  default:
-    Checkbox.args = {
-      value: 'Checked',
-      labelText: 'Checked label',
-      error: '',
-      checked: true,
-      required: false
-    };
-    break;
-}
+export const Errored: Story = {
+  args: {
+    labelText: 'With error label',
+    checked: true,
+    required: true,
+    error: 'This input is required'
+  }
+};
+
+export default meta;
