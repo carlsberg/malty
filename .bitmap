@@ -10,7 +10,7 @@
 
 {
     "atoms/base-icon": {
-        "scope": "",
+        "scope": "carlsberggroup.malty",
         "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/BaseIcon"
@@ -1666,7 +1666,7 @@
         "rootDir": "malty/theme/MaltyThemeProvider"
     },
     "utils/all-icons": {
-        "scope": "",
+        "scope": "carlsberggroup.malty",
         "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/AllIcons"
