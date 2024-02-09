@@ -9,7 +9,7 @@ export const Price = ({ base, discount, credit, dataTestId = 'default', ...props
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledPriceContainer theme={theme} {...props}>
+    <StyledPriceContainer theme={theme} data-testId={dataTestId} {...props}>
       {base && !credit ? (
         <StyledPrice
           theme={theme}
