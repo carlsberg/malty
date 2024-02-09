@@ -72,7 +72,7 @@ const variant = params.get('variant');
 const requiredProps: HeroProps = {
   title: 'Welcome to Carlsberg Online',
   description: 'Now you can order all your favourite products on your smartphone or computer within minutes.',
-  imageSrc: 'https://picsum.photos/1400/800'
+  imageSrc: 'https://placehold.co/1400x800'
 };
 
 switch (variant) {
