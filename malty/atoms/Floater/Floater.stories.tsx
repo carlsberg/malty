@@ -28,7 +28,6 @@ const meta: Meta<FloaterProps> = {
       control: 'text',
       description: 'Button label, can be'
     },
-
     onClick: {
       description: 'This is a function that will run on click. It is not a required property'
     },
