@@ -14,7 +14,7 @@ export const Text = ({
   children,
   width,
   className,
-  dataQaId,
+  dataTestId = 'text',
   ...props
 }: TextProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -27,7 +27,7 @@ export const Text = ({
 
   return (
     <StyledParagraph
-      data-testid={dataQaId}
+      data-testid={dataTestId}
       textStyle={textStyle}
       color={color}
       align={align}

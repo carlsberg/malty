@@ -11,7 +11,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLParagraphElement>, S
   width?: string;
   children: ReactNode;
   className?: string;
-  dataQaId?: string;
+  dataTestId?: string;
 }
 
 export enum TextStyle {

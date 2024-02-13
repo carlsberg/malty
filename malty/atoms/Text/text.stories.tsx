@@ -79,6 +79,10 @@ export default {
       description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
       control: { type: 'text' }
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Text data-testid'
+    },
     ...generateStorybookSpacing()
   }
 };
