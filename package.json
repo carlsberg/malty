@@ -12,8 +12,8 @@
   ],
   "description": "Malty, probably the best Design System in the world",
   "engines": {
-    "node": "16.x",
-    "npm": "8.x"
+    "node": "18.x",
+    "npm": "10.x"
   },
   "repository": {
     "type": "git",
