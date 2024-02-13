@@ -20,7 +20,7 @@ export const Toggle = ({
   checked = false,
   error,
   required = false,
-  dataTestId,
+  dataTestId = 'toggle',
   ...props
 }: ToggleProps) => {
   const theme = defaultTheme;
@@ -36,11 +36,11 @@ export const Toggle = ({
   }, [checked]);
 
   return (
-    <StyledWrapper {...spaceProps}>
+    <StyledWrapper data-testid={dataTestId} {...spaceProps}>
       <StyledLabelWrapper disabled={disabled} onClick={handleToggle} theme={theme}>
         <StyledToggleSwitch id={id} theme={theme}>
           <StyledInput
-            data-testid={dataTestId}
+            data-testid={`${dataTestId}-input`}
             id={id}
             theme={theme}
             disabled={disabled}
