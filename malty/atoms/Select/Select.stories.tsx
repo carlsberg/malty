@@ -1,5 +1,6 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 import { Select as SelectComponent, SelectOptionsType, SelectProps, SelectSize, SelectType } from '.';
@@ -9,9 +10,17 @@ const StyledContainer = styled.div`
   justify-content: center;
   height: 300px;
 `;
-export default {
+
+const meta: Meta<SelectProps> = {
   title: 'Forms/Select',
   component: SelectComponent,
+  render: (args) => {
+    return (
+      <StyledContainer>
+        <SelectComponent {...args} />
+      </StyledContainer>
+    );
+  },
   parameters: {
     importObject: 'Select',
     importPath: '@carlsberggroup/malty.atoms.select'
@@ -99,7 +108,7 @@ export default {
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
+};
 
 const testOptions: SelectOptionsType[] = [
   {
@@ -124,57 +133,42 @@ const testOptions: SelectOptionsType[] = [
   }
 ];
 
-const Template: Story<SelectProps> = (args) => (
-  <StyledContainer>
-    <SelectComponent {...args} />
-  </StyledContainer>
-);
+type Story = StoryObj<SelectProps>;
 
-export const Select = Template.bind({});
+export const Base: Story = {
+  args: {
+    options: testOptions,
+    size: SelectSize.Medium,
+    label: 'Label',
+    type: SelectType.Default,
+    hint: 'hint text',
+    disabled: false,
+    placeholder: 'Placeholder',
+    defaultValue: [testOptions[0]],
+    selectionText: 'options selected',
+    readOnly: false,
+    required: false,
+    optionsZIndex: 2,
+    onValueChange: action('onValueChange')
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const type = params.get('type');
-const multiple = params.get('multiple');
-const error = params.get('error');
-const search = params.get('search');
+export const Inline: Story = {
+  args: {
+    options: testOptions,
+    size: SelectSize.Medium,
+    label: 'Label',
+    type: SelectType.Inline,
+    hint: 'hint text',
+    disabled: false,
+    placeholder: 'Placeholder',
+    defaultValue: [testOptions[0]],
+    selectionText: 'options selected',
+    readOnly: false,
+    required: false,
+    optionsZIndex: 2,
+    onValueChange: action('onValueChange')
+  }
+};
 
-switch (type) {
-  case 'inline':
-    Select.args = {
-      options: testOptions,
-      size: SelectSize.Medium,
-      label: 'Label',
-      type: SelectType.Inline,
-      hint: 'hint text',
-      disabled: false,
-      placeholder: 'Placeholder',
-      multiple: !!multiple,
-      defaultValue: [testOptions[0]],
-      selectionText: 'options selected',
-      search: !!search,
-      readOnly: false,
-      required: false,
-      optionsZIndex: 2
-    };
-    break;
-
-  default:
-    Select.args = {
-      options: testOptions,
-      size: SelectSize.Medium,
-      label: 'Label',
-      type: SelectType.Default,
-      hint: 'hint text',
-      disabled: false,
-      placeholder: 'Placeholder',
-      multiple: !!multiple,
-      defaultValue: [testOptions[0]],
-      selectionText: 'options selected',
-      error: error ? 'error text' : '',
-      search: !!search,
-      readOnly: false,
-      required: false,
-      optionsZIndex: 2
-    };
-    break;
-}
+export default meta;
