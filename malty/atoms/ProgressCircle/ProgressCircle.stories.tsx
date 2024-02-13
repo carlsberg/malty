@@ -37,7 +37,8 @@ const meta: Meta<ProgressCircleProps> = {
     },
     foregroundColor: {
       description: 'The color of the foreground circle.<br />Options are:',
-      options: Object.values(ForegroundCircleColor),
+      mapping: ForegroundCircleColor,
+      options: Object.keys(ForegroundCircleColor),
       table: {
         category: 'Styling',
         defaultValue: {
