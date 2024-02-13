@@ -77,7 +77,7 @@ describe('textarea', () => {
       />
     );
 
-    const textarea = screen.getByTestId('Textarea');
+    const textarea = screen.getByTestId('Textarea-input');
 
     expect(textarea).toBeDisabled();
   });

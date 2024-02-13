@@ -44,7 +44,7 @@ export const Stepper = ({ steps, currentStep, isMultiStep, dataQaId, ...props }:
               </StyledStepperCircle>
               <StyledText theme={theme}>
                 <Text
-                  dataQaId={`${dataQaId}-${index}-text`}
+                  dataTestId={`${dataQaId}-${index}-text`}
                   textStyle={TextStyle.MicroBold}
                   color={currentStep >= index + 1 ? TextColor.DigitalBlack : TextColor.Support60}
                 >
