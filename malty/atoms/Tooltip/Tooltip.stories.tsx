@@ -141,7 +141,11 @@ const Template: Story<TooltipProps> = ({
   };
 
   const renderTriggerComponent = useCallback(
-    (setTriggerElement) => <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>,
+    (setTriggerElement) => (
+      <p data-testid="tooltip-trigger-element" ref={setTriggerElement}>
+        Choose your toggle control and play with me!!!
+      </p>
+    ),
     []
   );
 
@@ -194,10 +198,7 @@ switch (variant) {
         </div>
       ),
       isDark: true,
-      tooltipId: 'tooltip',
-      triggerComponent: (setTriggerElement) => (
-        <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
-      )
+      tooltipId: 'tooltip'
     };
     break;
 
@@ -208,10 +209,7 @@ switch (variant) {
       dataTestId: 'tooltip',
       children: 'A simple Tooltip content with some text. Thanks for open me!',
       isDark: false,
-      tooltipId: 'tooltip',
-      triggerComponent: (setTriggerElement) => (
-        <p ref={setTriggerElement}>Choose your toggle control and play with me!!!</p>
-      )
+      tooltipId: 'tooltip'
     };
     break;
 }
