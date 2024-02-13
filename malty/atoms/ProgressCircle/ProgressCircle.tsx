@@ -19,6 +19,7 @@ export const ProgressCircle = ({
   percentage,
   percentagePosition = PercentagePosition.Left,
   roundMethod = RoundMethod.Up,
+  dataTestId = 'progress-circle',
   ...props
 }: ProgressCircleProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -35,7 +36,7 @@ export const ProgressCircle = ({
   const segmentColor = useSegmentColor({ foregroundColor });
 
   return (
-    <StyledWrapper theme={theme} percentagePosition={percentagePosition} {...props}>
+    <StyledWrapper theme={theme} percentagePosition={percentagePosition} data-testid={dataTestId} {...props}>
       {displayPercentage && (
         <StyledLabel
           theme={theme}
