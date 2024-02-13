@@ -41,7 +41,7 @@ export const Select = ({
   selectionText = 'selected',
   value,
   search = false,
-  dataTestId,
+  dataTestId = 'select',
   readOnly,
   selectAllLabel = 'Select all',
   clearAllLabel = 'Clear all',
@@ -250,11 +250,11 @@ export const Select = ({
   );
 
   return (
-    <StyledMainWrapper {...props}>
+    <StyledMainWrapper data-testid={dataTestId} {...props}>
       {type !== SelectType.Inline && (
         <Label label={label} data-testid={`${dataTestId}-label`} disabled={disabled} required={required} htmlFor={id} />
       )}
-      <StyledButtonContainer data-testid={dataTestId} ref={ref} selectStyle={type} theme={theme}>
+      <StyledButtonContainer data-testid={`${dataTestId}-button-wrapper`} ref={ref} selectStyle={type} theme={theme}>
         <StyledButton
           name={id}
           id={id}
