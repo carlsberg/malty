@@ -1,0 +1,17 @@
+name: Visual testing
+
+on:
+  workflow_run:
+    workflows: [AWS Amplify Console Web Preview]
+    types:
+      - completed
+
+jobs:
+  visual-testing-run:
+    name: 'Run Visual Tests'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Log
+        run: echo "Running visual testing"
