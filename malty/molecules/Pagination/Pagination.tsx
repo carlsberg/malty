@@ -146,7 +146,7 @@ export const Pagination = ({
             disabled={disabled}
           />
           <Text
-            dataQaId={`${dataTestId}-input-count`}
+            dataTestId={`${dataTestId}-input-count`}
             textStyle={TextStyle.MediumSmallDefault}
             color={getTextColor()}
             aria-label={`of ${count}`}
@@ -159,7 +159,7 @@ export const Pagination = ({
       return (
         <li>
           <Text
-            dataQaId={`${dataTestId}-pagination-compact`}
+            dataTestId={`${dataTestId}-pagination-compact`}
             textStyle={TextStyle.SmallDefault}
             color={getTextColor()}
             aria-label={`Page ${currentPage} of ${count}`}

@@ -85,7 +85,7 @@ export const Footer = ({
         ))}
       </StyledSocialMedia>
       <Text
-        dataQaId={`${dataQaId}-copyright`}
+        dataTestId={`${dataQaId}-copyright`}
         align={TextAlign.Center}
         textStyle={TextStyle.SmallBold}
         color={TextColor.Support60}

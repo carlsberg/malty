@@ -51,7 +51,7 @@ export const PaddedContainer = ({
   }, [padding, theme]);
 
   return (
-    <StyledPaddedContainer padding={paddingSize} theme={theme} data-testId={dataTestId} {...props}>
+    <StyledPaddedContainer padding={paddingSize} theme={theme} data-testid={dataTestId} {...props}>
       {children}
     </StyledPaddedContainer>
   );

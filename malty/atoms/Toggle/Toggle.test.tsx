@@ -17,7 +17,7 @@ describe('toggle', () => {
     render(<Toggle label="Label text" error="Error text" dataTestId="toggle" checked onValueChange={mockFn} />);
     expect(screen.getByText('Label text')).toBeInTheDocument();
     expect(screen.getByText('Error text')).toBeInTheDocument();
-    expect(screen.getByTestId('toggle')).toBeInTheDocument();
+    expect(screen.getByTestId('toggle-input')).toBeInTheDocument();
   });
 
   it('should call function on click', () => {
@@ -35,21 +35,21 @@ describe('toggle', () => {
     );
 
     // TODO: transform this into "getByText(labelText)" on the following ticket https://carlsberggbs.atlassian.net/browse/DSM-822
-    const toggle = screen.getByTestId('toggle');
+    const toggle = screen.getByTestId('toggle-input');
 
     expect(toggle).toBeDisabled();
   });
 
   it('should be checked', () => {
     render(<Toggle label="Label text" error="Error text" dataTestId="toggle" checked onValueChange={mockFn} />);
-    const toggle = screen.getByTestId('toggle');
+    const toggle = screen.getByTestId('toggle-input');
 
     expect(toggle).toBeChecked();
   });
 
   it('should be unchecked', () => {
     render(<Toggle label="Label text" error="Error text" dataTestId="toggle" disabled onValueChange={mockFn} />);
-    const toggle = screen.getByTestId('toggle');
+    const toggle = screen.getByTestId('toggle-input');
 
     expect(toggle).not.toBeChecked();
   });
