@@ -38,7 +38,9 @@
     "lint": "yarn check-lint --fix",
     "check-types": "tsc --noemit",
     "check-format": "prettier --check .",
-    "set-peer-dep": "node ./scripts/set-peer-dependency.mjs"
+    "set-peer-dep": "node ./scripts/set-peer-dependency.mjs",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
@@ -83,6 +85,10 @@
     "babel-jest": "^29.4.1",
     "babel-loader": "^9.1.2",
     "babel-plugin-transform-hoist-jsx-style": "^1.0.0",
+    "cypress": "^12.17.4",
+    "cypress-each": "^1.13.3",
+    "cypress-visual-regression": "^5.0.0",
+    "dotenv": "^16.4.4",
     "eslint": "^8.35.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
