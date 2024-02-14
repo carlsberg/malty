@@ -2,9 +2,10 @@ name: Visual testing
 
 on:
   workflow_run:
-    workflows: [AWS Amplify Console Web Preview]
+    workflows: ['AWS Amplify Console Web Preview']
     types:
       - completed
+  workflow_dispatch:
 
 jobs:
   visual-testing-run:
