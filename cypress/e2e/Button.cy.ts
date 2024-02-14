@@ -1,4 +1,4 @@
-import { buildSnapshotName, visit } from 'cypress/support/utils';
+import { buildSnapshotName, visit } from '@/cypress/support/utils';
 
 const dataTestId = 'button';
 const viewportPresets: Cypress.ViewportPreset[] = ['iphone-6+', 'macbook-11'];

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "cypress-visual-regression", "node"],
+    "paths": {
+      "@/*": ["../*"]
+    }
+  },
+  "include": ["../node_modules/cypress", "**/*.ts", "./support/index.d.ts"]
+}

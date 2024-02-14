@@ -17,6 +17,21 @@
       "rules": {
         "no-console": "off"
       }
+    },
+    {
+      "files": ["./cypress/**/*.ts"],
+      "rules": {
+        "jest/expect-expect": "off",
+        "import/extensions": "off"
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": "./cypress/tsconfig.json",
+          "node": {
+            "extensions": [".ts", ".tsx", ".js", ".jsx"]
+          }
+        }
+      }
     }
   ]
 }
