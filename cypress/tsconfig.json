@@ -8,5 +8,5 @@
       "@/*": ["../*"]
     }
   },
-  "include": ["../node_modules/cypress", "**/*.ts", "./support/index.d.ts"]
+  "include": ["../node_modules/cypress", "../node_modules/cypress-visual-regression", "**/*.ts", "./support/index.d.ts"]
 }

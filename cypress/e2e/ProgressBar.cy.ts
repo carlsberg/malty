@@ -1,12 +1,7 @@
-import { buildSnapshotName, visit } from 'cypress/support/utils';
+import { buildSnapshotName, visit } from '@/cypress/support/utils';
+import { ProgressBarSize } from '@carlsberggroup/malty.atoms.progress-bar';
 
 const dataTestId = 'progress-bar';
-
-// TODO: this should come from malty
-export enum ProgressBarSize {
-  Small = 'Small',
-  Medium = 'Medium'
-}
 
 describe('<ProgressBar />', () => {
   it('Base', () => {

@@ -1,14 +1,7 @@
-import { buildSnapshotName, visit } from 'cypress/support/utils';
+import { buildSnapshotName, visit } from '@/cypress/support/utils';
+import { FloaterColor } from '@carlsberggroup/malty.atoms.floater';
 
 const dataTestId = 'floater';
-
-// TODO: this should come from malty
-export enum FloaterColor {
-  DigitalBlack = 'digital-black',
-  ThemePrimary = 'themePrimary',
-  ThemeSecondary = 'themeSecondary',
-  ThemeTertiary = 'themeTertiary'
-}
 
 describe('<Floater />', () => {
   it('Base', () => {

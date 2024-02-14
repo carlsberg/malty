@@ -1,22 +1,7 @@
-import { buildSnapshotName, visit } from 'cypress/support/utils';
+import { buildSnapshotName, visit } from '@/cypress/support/utils';
+import { ForegroundCircleColor } from '@carlsberggroup/malty.atoms.progress-circle';
 
 const dataTestId = 'progress-circle';
-
-// TODO: this should come from malty
-export enum ForegroundCircleColor {
-  Close = 'close',
-  DigitalBlack = 'digital-black',
-  Hold = 'hold',
-  Live = 'live',
-  Multiple = 'multiple',
-  Notification = 'notification',
-  Parked = 'parked',
-  Support80 = 'support80',
-  Support100 = 'support100',
-  ThemePrimary = 'themePrimary',
-  ThemeSecondary = 'themeSecondary',
-  Update = 'update'
-}
 
 describe('<ProgressCircle />', () => {
   it('Base', () => {

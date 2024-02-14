@@ -1,19 +1,7 @@
-import { buildSnapshotName, visit } from 'cypress/support/utils';
+import { buildSnapshotName, visit } from '@/cypress/support/utils';
+import { HeadlineAlign, HeadlineColor } from '@carlsberggroup/malty.atoms.headline';
 
 const dataTestId = 'headline';
-
-// TODO: this should come from malty
-export enum HeadlineAlign {
-  Left = 'left',
-  Center = 'center',
-  Right = 'right'
-}
-
-export enum HeadlineColor {
-  ThemePrimary = 'theme-primary',
-  DigitalBlack = 'digital-black',
-  White = 'white'
-}
 
 describe('<Headline />', () => {
   it('Base', () => {

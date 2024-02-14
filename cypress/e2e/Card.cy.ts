@@ -1,4 +1,4 @@
-import { buildSnapshotName, expectImageIsVisible, visit } from 'cypress/support/utils';
+import { buildSnapshotName, expectImageIsVisible, visit } from '@/cypress/support/utils';
 
 const dataTestId = 'card';
 const imageDataTestId = 'image';

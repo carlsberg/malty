@@ -20,17 +20,17 @@
     },
     {
       "files": ["./cypress/**/*.ts"],
+      "globals": {
+        "Cypress": "readonly",
+        "cy": "readonly"
+      },
       "rules": {
         "jest/expect-expect": "off",
-        "import/extensions": "off"
-      },
-      "settings": {
-        "import/resolver": {
-          "typescript": "./cypress/tsconfig.json",
-          "node": {
-            "extensions": [".ts", ".tsx", ".js", ".jsx"]
-          }
-        }
+        "import/extensions": "off",
+        "testing-library/prefer-screen-queries": "off",
+        "testing-library/await-async-utils": "off",
+        "import/no-unresolved": ["error", { "ignore": ["@/cypress"] }],
+        "import/order": "off"
       }
     }
   ]

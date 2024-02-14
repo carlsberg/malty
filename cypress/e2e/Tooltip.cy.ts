@@ -1,4 +1,4 @@
-import { buildSnapshotName, visit } from 'cypress/support/utils';
+import { buildSnapshotName, visit } from '@/cypress/support/utils';
 
 const dataTestId = 'tooltip';
 const dataTestIdTriggerElement = 'tooltip-trigger-element';
