@@ -7,6 +7,6 @@ declare namespace Cypress {
      * @example
      * cy.getByTestId('new-item')
      */
-    getByTestId(dataTestId: string): Chainable<any>;
+    getByTestId(dataTestId: string): Chainable<Subject>;
   }
 }
