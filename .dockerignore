@@ -1,5 +1,0 @@
-*
-!node_modules/*
-!cypress/*
-!package.json
-!cypress.config.ts
