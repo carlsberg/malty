@@ -8,13 +8,16 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [run_visual_testing]
+  pull_request:
+    branches: [main]
 
 jobs:
-  visual-testing-run:
-    name: 'Run Visual Tests'
+  visual-testing:
     runs-on: ubuntu-latest
+
+    container: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
     steps:
       - uses: actions/checkout@v3
 
-      - name: Log
-        run: echo "Running visual testing"
+      - name: Run visual testing
+        run: cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
