@@ -4,6 +4,7 @@
   "url": "https://malty.carlsberggroup.com",
   "version": "1.0.33",
   "private": true,
+  "type": "module",
   "keywords": [
     "carlsberg",
     "malty",
