@@ -1,22 +1,15 @@
 name: Visual testing
 
 on:
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ['AWS Amplify Console Web Preview']
+    types:
+      - completed
+  workflow_dispatch:
+  repository_dispatch:
+    types: [run_visual_testing]
   pull_request:
     branches: [main]
-  workflow_dispatch:
-
-# on:
-#   workflow_run:
-#     workflows: ['AWS Amplify Console Web Preview']
-#     types:
-#       - completed
-#   workflow_dispatch:
-#   repository_dispatch:
-#     types: [run_visual_testing]
-#   pull_request:
-#     branches: [main]
 
 jobs:
   visual-testing:
@@ -33,8 +26,5 @@ jobs:
       #- name: Run visual testing
       #  run: cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
 
-      - name: Check PR number
-        run: echo "AMPLIFY_LINK=${{ env.AMPLIFY_LINK }}"
-      # Instead of running PRcontainer, let's run the whole command here
-      #- name: Run Visual Testing
-      #  run: docker run -it -v $PWD:/e2e -w /e2e -e BASE_URL=${{ env.AMPLIFY_LINK }} ${{ env.CYPRESS_IMAGE }} --config viewportWidth=1024,viewportHeight=768
+      - name: Run Visual Testing
+        run: docker run -it -v $PWD:/e2e -w /e2e -e BASE_URL=${{ env.AMPLIFY_LINK }} ${{ env.CYPRESS_IMAGE }} --browser chrome --config viewportWidth=1024,viewportHeight=768
