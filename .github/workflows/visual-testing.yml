@@ -23,44 +23,47 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Bit CLI
-        run: |
-          npm i -g @teambit/bvm
-          bvm install ${BIT_VERSION}
-        env:
-          BIT_VERSION: ${{ secrets.BIT_VERSION }}
+      - name: Install Deps
+        run: npm i -g cypress cypress-visual-regression dotenv
 
-      - name: Add bvm bin folder to path
-        run: |
-          echo "$HOME/bin" >> $GITHUB_PATH
-          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+      # - name: Install Bit CLI
+      #   run: |
+      #     npm i -g @teambit/bvm
+      #     bvm install ${BIT_VERSION}
+      #   env:
+      #     BIT_VERSION: ${{ secrets.BIT_VERSION }}
 
-      - name: Set up bit config
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          echo "Adding bit.dev to npm registry"
-          export PATH=${{ env.PATH }}
-          npm config set @bit:registry https://node.bit.dev
-          npm config set @carlsberggroup:registry=https://node.bit.dev
-          npm config set @teambit:registry=https://node.bit.dev
-          bit config set analytics_reporting false
-          bit config set anonymous_reporting false
-          bit config set user.token ${BIT_TOKEN}
-          echo "Completed adding bit.dev to npm registry"
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+      # - name: Add bvm bin folder to path
+      #   run: |
+      #     echo "$HOME/bin" >> $GITHUB_PATH
+      #     echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
 
-      - name: Bit Deps Install & Compile
-        run: |
-          export PATH=${{ env.PATH }}
-          bit install
-        shell: bash
+      # - name: Set up bit config
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      #   run: |
+      #     echo "Adding bit.dev to npm registry"
+      #     export PATH=${{ env.PATH }}
+      #     npm config set @bit:registry https://node.bit.dev
+      #     npm config set @carlsberggroup:registry=https://node.bit.dev
+      #     npm config set @teambit:registry=https://node.bit.dev
+      #     bit config set analytics_reporting false
+      #     bit config set anonymous_reporting false
+      #     bit config set user.token ${BIT_TOKEN}
+      #     echo "Completed adding bit.dev to npm registry"
+      #   env:
+      #     BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
+      # - name: Bit Deps Install & Compile
+      #   run: |
+      #     export PATH=${{ env.PATH }}
+      #     bit install
+      #   shell: bash
 
       # - name: Create .env
       #   run: echo "BASE_URL=${{ env.AMPLIFY_LINK }}" >> .env
 
       - name: Run visual testing
-        run: cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
+        run: $(npm bin -g)/cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
 
       # - name: Run Visual Testing
       #   run: docker run -v $PWD:/e2e -w /e2e -e BASE_URL=${{ env.AMPLIFY_LINK }} ${{ env.CYPRESS_IMAGE }} --browser chrome --config viewportWidth=1024,viewportHeight=768
