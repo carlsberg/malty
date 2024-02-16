@@ -23,8 +23,38 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install cypress and its dependencies
-        run: npm i -g cypress cypress-visual-regression dotenv
+      - name: Install Bit CLI
+        run: |
+          npm i -g @teambit/bvm
+          bvm install ${BIT_VERSION}
+        env:
+          BIT_VERSION: ${{ secrets.BIT_VERSION }}
+
+      - name: Add bvm bin folder to path
+        run: |
+          echo "$HOME/bin" >> $GITHUB_PATH
+          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
+
+      - name: Set up bit config
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          echo "Adding bit.dev to npm registry"
+          export PATH=${{ env.PATH }}
+          npm config set @bit:registry https://node.bit.dev
+          npm config set @carlsberggroup:registry=https://node.bit.dev
+          npm config set @teambit:registry=https://node.bit.dev
+          bit config set analytics_reporting false
+          bit config set anonymous_reporting false
+          bit config set user.token ${BIT_TOKEN}
+          echo "Completed adding bit.dev to npm registry"
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
+      - name: Bit Deps Install & Compile
+        run: |
+          export PATH=${{ env.PATH }}
+          bit install
+        shell: bash
 
       # - name: Create .env
       #   run: echo "BASE_URL=${{ env.AMPLIFY_LINK }}" >> .env
