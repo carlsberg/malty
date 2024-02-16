@@ -10,10 +10,11 @@ on:
 jobs:
   visual-testing:
     runs-on: ubuntu-latest
-
     container: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
     steps:
       - uses: actions/checkout@v3
+
+      - run: ls -la
 
       - name: Run visual testing
         run: cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
