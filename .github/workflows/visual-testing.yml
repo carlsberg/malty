@@ -26,12 +26,18 @@ jobs:
       AMPLIFY_LINK: https://pr-${{ github.event.number }}.d3acoh2jwy8aw9.amplifyapp.com
       CYPRESS_IMAGE: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
 
-    # container: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
+    container: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
     steps:
       - uses: actions/checkout@v3
 
-      #- name: Run visual testing
-      #  run: cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
+      - name: Install cypress and its dependencies
+        run: npm i -g cypress cypress-visual-regression dotenv
 
-      - name: Run Visual Testing
-        run: docker run -v $PWD:/e2e -w /e2e -e BASE_URL=${{ env.AMPLIFY_LINK }} ${{ env.CYPRESS_IMAGE }} --browser chrome --config viewportWidth=1024,viewportHeight=768
+      - name: Create .env
+        run: echo "BASE_URL=${{ env.AMPLIFY_LINK }}" >> .env
+
+      - name: Run visual testing
+        run: cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
+
+      # - name: Run Visual Testing
+      #   run: docker run -v $PWD:/e2e -w /e2e -e BASE_URL=${{ env.AMPLIFY_LINK }} ${{ env.CYPRESS_IMAGE }} --browser chrome --config viewportWidth=1024,viewportHeight=768
