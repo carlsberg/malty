@@ -49,12 +49,15 @@ jobs:
           bit compile
         shell: bash
 
+      - name: 'Tar files'
+        run: tar -cvf malty.tar .
+
       - name: Save packages folder
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: build
+          name: malty-artifact
           if-no-files-found: error
-          path: .
+          path: malty.tar
 
   visual-testing:
     runs-on: ubuntu-latest
@@ -73,14 +76,10 @@ jobs:
       - name: Download the build folder
         uses: actions/download-artifact@v3
         with:
-          name: build
+          name: malty-artifact
 
-      - name: Bit Deps Install & Compile
-        run: |
-          export PATH=${{ env.PATH }}
-          bit install
-          bit compile
-        shell: bash
+      - name: 'Untar files'
+        run: tar -xvf malty.tar
 
       - name: Run visual testing
         run: yarn cypress:run
