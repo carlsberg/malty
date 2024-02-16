@@ -10,16 +10,8 @@ on:
     types: [run_visual_testing]
 
 jobs:
-  visual-testing:
+  prepare-visual-testing:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
-    container:
-      image: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
-      env:
-        BASE_URL: https://pr-${{ github.event.number }}.d3acoh2jwy8aw9.amplifyapp.com
     steps:
       - uses: actions/checkout@v3
 
@@ -49,6 +41,39 @@ jobs:
           echo "Completed adding bit.dev to npm registry"
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
+      - name: Bit Deps Install & Compile
+        run: |
+          export PATH=${{ env.PATH }}
+          bit install
+          bit compile
+        shell: bash
+
+      - name: Save packages folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          if-no-files-found: error
+          path: .
+
+  visual-testing:
+    runs-on: ubuntu-latest
+    needs: prepare-visual-testing
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+    container:
+      image: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
+      env:
+        BASE_URL: https://pr-${{ github.event.number }}.d3acoh2jwy8aw9.amplifyapp.com
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download the build folder
+        uses: actions/download-artifact@v4
+        with:
+          name: build
 
       - name: Bit Deps Install & Compile
         run: |
