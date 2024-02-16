@@ -36,7 +36,7 @@ jobs:
       #  run: cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768
 
       - name: Check PR number
-        run: echo "PR_NUMBER=${{ env.PR_NAME }}"
+        run: echo "PR_NUMBER_2=${{ env.PR_NAME }}"
       # Instead of running PRcontainer, let's run the whole command here
       #- name: Run Visual Testing
       #  run: docker run -it -v $PWD:/e2e -w /e2e -e BASE_URL=${{ env.BASE_URL }} ${{ env.CYPRESS_IMAGE }} --config viewportWidth=1024,viewportHeight=768
