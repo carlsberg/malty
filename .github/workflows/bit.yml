@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
-          node-version: '18.19.0'
+          node-version: '20.11.0'
 
       - name: Install Bit CLI
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
