@@ -18,3 +18,5 @@ import { addCompareSnapshotCommand } from 'cypress-visual-regression/dist/comman
 import './commands';
 
 addCompareSnapshotCommand();
+
+beforeEach(() => cy.document().its('fonts.status').should('equal', 'loaded'));
