@@ -82,4 +82,4 @@ jobs:
         run: tar -xvf malty.tar
 
       - name: Run visual testing
-        run: yarn cypress:run
+        run: yarn cypress:ci:desktop
