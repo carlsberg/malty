@@ -13,7 +13,7 @@ describe('<Hero />', () => {
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Required', () => {
@@ -25,7 +25,7 @@ describe('<Hero />', () => {
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Actions', () => {
@@ -37,7 +37,7 @@ describe('<Hero />', () => {
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Scroll', () => {
@@ -49,6 +49,6 @@ describe('<Hero />', () => {
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

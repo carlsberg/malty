@@ -6,6 +6,6 @@ describe('<Link />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'forms-link--link' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

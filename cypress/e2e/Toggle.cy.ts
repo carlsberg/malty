@@ -6,7 +6,7 @@ describe('<Toggle />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'forms-toggle--toggle' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Disabled', () => {
@@ -16,7 +16,7 @@ describe('<Toggle />', () => {
       args: { disabled: 'true' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Required', () => {
@@ -26,7 +26,7 @@ describe('<Toggle />', () => {
       args: { required: 'true' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('With error', () => {
@@ -36,6 +36,6 @@ describe('<Toggle />', () => {
       args: { error: 'Error' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

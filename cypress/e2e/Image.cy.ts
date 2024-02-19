@@ -21,7 +21,7 @@ describe('<Image />', () => {
 
     expectImageIsVisible(dataTestId);
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it.each(variants)('Variant - %s', (variant) => {
@@ -33,6 +33,6 @@ describe('<Image />', () => {
 
     expectImageIsVisible(dataTestId);
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 });

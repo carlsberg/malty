@@ -6,7 +6,7 @@ describe('<Rating />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'forms-rating--rating' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Total review', () => {
@@ -16,7 +16,7 @@ describe('<Rating />', () => {
       args: { totalReview: '10' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Readonly', () => {
@@ -26,7 +26,7 @@ describe('<Rating />', () => {
       args: { readOnly: 'true' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Disabled', () => {
@@ -36,6 +36,6 @@ describe('<Rating />', () => {
       args: { disabled: 'true' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

@@ -10,7 +10,7 @@ describe('<ProgressCircle />', () => {
       storyId: 'progress-indicators-progress-circle--base'
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Base - 100%', () => {
@@ -20,7 +20,7 @@ describe('<ProgressCircle />', () => {
       args: { percentage: '100' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it.each(Object.keys(ForegroundCircleColor))('Base - Color - %s', (foregroundColor) => {
@@ -30,7 +30,7 @@ describe('<ProgressCircle />', () => {
       args: { foregroundColor }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Base - Without percentage', () => {
@@ -40,6 +40,6 @@ describe('<ProgressCircle />', () => {
       args: { displayPercentage: 'false' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

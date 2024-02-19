@@ -10,8 +10,7 @@ describe('<Headline />', () => {
       storyId: 'typography-headline--headline'
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('#storybook-root').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it.each(Object.keys(HeadlineAlign))('Align - %s', (align) => {
@@ -21,8 +20,7 @@ describe('<Headline />', () => {
       args: { align }
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('#storybook-root').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it.each(Object.keys(HeadlineColor))('Color - %s', (color) => {
@@ -32,7 +30,6 @@ describe('<Headline />', () => {
       args: { color }
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('#storybook-root').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

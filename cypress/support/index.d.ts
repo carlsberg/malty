@@ -8,5 +8,11 @@ declare namespace Cypress {
      * cy.getByTestId('new-item')
      */
     getByTestId(dataTestId: string): Chainable<Subject>;
+    /**
+     * Get full page using body tag and wait for target element to be visible
+     * @example
+     * cy.getPage()
+     */
+    getFullPageWithVisibleTarget(targetDataTestId: string): Chainable<Subject>;
   }
 }

@@ -6,7 +6,7 @@ describe('<Select />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'forms-select--base' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Inline', () => {
@@ -15,7 +15,7 @@ describe('<Select />', () => {
       storyId: 'forms-select--inline'
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Readonly', () => {
@@ -27,7 +27,7 @@ describe('<Select />', () => {
       }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Required', () => {
@@ -39,7 +39,7 @@ describe('<Select />', () => {
       }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('With error', () => {
@@ -51,6 +51,6 @@ describe('<Select />', () => {
       }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

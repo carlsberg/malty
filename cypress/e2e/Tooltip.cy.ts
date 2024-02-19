@@ -7,8 +7,7 @@ describe('<Tooltip />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'information-tooltip--tooltip' });
 
-    page.getByTestId(dataTestIdTriggerElement).should('be.visible');
-    page.get('body').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestIdTriggerElement).compareSnapshot(buildSnapshotName());
   });
 
   it('Dark mode', () => {
@@ -18,8 +17,7 @@ describe('<Tooltip />', () => {
       args: { isOpen: 'true', isDark: 'true' }
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('body').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Open on top', () => {
@@ -29,8 +27,7 @@ describe('<Tooltip />', () => {
       args: { isOpen: 'true' }
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('body').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Open on bottom', () => {
@@ -40,8 +37,7 @@ describe('<Tooltip />', () => {
       args: { isOpen: 'true', placement: 'bottom' }
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('body').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Open on left', () => {
@@ -51,8 +47,7 @@ describe('<Tooltip />', () => {
       args: { isOpen: 'true', placement: 'left' }
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('body').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Open on right', () => {
@@ -62,7 +57,6 @@ describe('<Tooltip />', () => {
       args: { isOpen: 'true', placement: 'right' }
     });
 
-    page.getByTestId(dataTestId).should('be.visible');
-    page.get('body').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

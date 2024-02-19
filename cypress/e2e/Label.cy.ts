@@ -6,6 +6,6 @@ describe('<Label />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'forms-label--label' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

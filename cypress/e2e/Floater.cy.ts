@@ -7,7 +7,7 @@ describe('<Floater />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'forms-floater--base' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Base - Negative', () => {
@@ -17,13 +17,13 @@ describe('<Floater />', () => {
       args: { negative: 'true' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Text - Icon Right', () => {
     const page = visit({ dataTestId, storyId: 'forms-floater--text' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Text - Icon left', () => {
@@ -33,7 +33,7 @@ describe('<Floater />', () => {
       args: { iconPos: 'Left' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it.each(Object.keys(FloaterColor))('Color - %s', (color) => {
@@ -43,6 +43,6 @@ describe('<Floater />', () => {
       args: { color }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

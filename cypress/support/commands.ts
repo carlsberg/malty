@@ -25,3 +25,9 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('getByTestId', (dataTestId) => cy.get(`[data-testid="${dataTestId}"]`));
+
+Cypress.Commands.add('getFullPageWithVisibleTarget', (dataTestId) => {
+  cy.getByTestId(dataTestId).should('be.visible');
+
+  return cy.get('body');
+});

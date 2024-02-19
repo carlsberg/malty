@@ -7,7 +7,7 @@ describe('<Checkbox />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'forms-checkbox--base' });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Checked', () => {
@@ -16,7 +16,7 @@ describe('<Checkbox />', () => {
       storyId: 'forms-checkbox--checked'
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Not Checked', () => {
@@ -25,7 +25,7 @@ describe('<Checkbox />', () => {
       storyId: 'forms-checkbox--unchecked'
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Required', () => {
@@ -34,7 +34,7 @@ describe('<Checkbox />', () => {
       storyId: 'forms-checkbox--required'
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Disabled', () => {
@@ -43,7 +43,7 @@ describe('<Checkbox />', () => {
       storyId: 'forms-checkbox--disabled'
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Disabled - Not checked', () => {
@@ -53,7 +53,7 @@ describe('<Checkbox />', () => {
       args: { checked: '!false' }
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Readonly', () => {
@@ -62,7 +62,7 @@ describe('<Checkbox />', () => {
       storyId: 'forms-checkbox--read-only'
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Readonly - Not checked', () => {
@@ -72,7 +72,7 @@ describe('<Checkbox />', () => {
       args: { checked: '!false' }
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Indeterminate', () => {
@@ -81,7 +81,7 @@ describe('<Checkbox />', () => {
       storyId: 'forms-checkbox--undetermined'
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('With Error Message', () => {
@@ -90,6 +90,6 @@ describe('<Checkbox />', () => {
       storyId: 'forms-checkbox--errored'
     });
 
-    page.getByTestId(wrapperDataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 });

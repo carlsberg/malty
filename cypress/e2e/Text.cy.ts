@@ -6,7 +6,7 @@ describe('<Text />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'typography-text--text' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Ellipsis', () => {
@@ -16,6 +16,6 @@ describe('<Text />', () => {
       args: { ellipsis: 'true', width: '100px' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

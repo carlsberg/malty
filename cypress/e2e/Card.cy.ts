@@ -9,7 +9,7 @@ describe('<Card />', () => {
 
     expectImageIsVisible(imageDataTestId);
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Shadowed', () => {
@@ -17,8 +17,7 @@ describe('<Card />', () => {
 
     expectImageIsVisible(imageDataTestId);
 
-    // TODO: discuss with team if we should use #storybook-root everywhere or only where there's shadow
-    page.get('#storybook-root').compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Landscape', () => {
@@ -26,7 +25,7 @@ describe('<Card />', () => {
 
     expectImageIsVisible(imageDataTestId);
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Selected', () => {
@@ -34,7 +33,7 @@ describe('<Card />', () => {
 
     expectImageIsVisible(imageDataTestId);
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('On click', () => {
@@ -42,6 +41,6 @@ describe('<Card />', () => {
 
     expectImageIsVisible(imageDataTestId);
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

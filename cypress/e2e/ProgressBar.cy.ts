@@ -10,7 +10,7 @@ describe('<ProgressBar />', () => {
       storyId: 'progress-indicators-progress-bar--progress-ba'
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Base - Without amount', () => {
@@ -20,7 +20,7 @@ describe('<ProgressBar />', () => {
       args: { displayAmount: '!false' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Base - Disabled', () => {
@@ -30,7 +30,7 @@ describe('<ProgressBar />', () => {
       args: { disabled: 'true' }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it.each(Object.keys(ProgressBarSize))('Size - %s', (size) => {
@@ -40,6 +40,6 @@ describe('<ProgressBar />', () => {
       args: { size }
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

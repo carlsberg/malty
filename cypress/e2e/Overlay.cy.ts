@@ -6,12 +6,12 @@ describe('<Overlay />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'overlays-overlay--base' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Content', () => {
     const page = visit({ dataTestId, storyId: 'overlays-overlay--content' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });

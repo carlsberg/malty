@@ -7,7 +7,7 @@ describe('<Price />', () => {
   it('Base', () => {
     const page = visit({ dataTestId, storyId: 'information-price--price' });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it.each(variants)('Variant - %s', (variant) => {
@@ -17,6 +17,6 @@ describe('<Price />', () => {
       variant
     });
 
-    page.getByTestId(dataTestId).compareSnapshot(buildSnapshotName());
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 });
