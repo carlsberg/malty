@@ -396,12 +396,6 @@ export const StyledSelect = styled.select<{
     `}
 `;
 
-export const StyledOption = styled.option<{
-  height?: string;
-}>`
-  height: ${({ height }) => height};
-`;
-
 export const StyledClearableWrapper = styled.div`
   position: relative;
   display: flex;
