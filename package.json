@@ -41,7 +41,7 @@
     "check-format": "prettier --check .",
     "set-peer-dep": "node ./scripts/set-peer-dependency.mjs",
     "cypress:open": "cypress open",
-    "cypress:run:desktop": "docker run --platform linux/amd64 -it -v $PWD:/e2e -w /e2e -e BASE_URL=http://host.docker.internal:6006 cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1 --browser chrome --config viewportWidth=1024,viewportHeight=768",
+    "cypress:run:desktop": "docker run --platform linux/amd64 -v $PWD:/e2e -w /e2e -e BASE_URL=http://host.docker.internal:6006 cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1 --browser chrome --config viewportWidth=1024,viewportHeight=768",
     "cypress:ci:desktop": "cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768",
     "cypress:move-snapshots": "node ./scripts/move-snapshots.mjs"
   },
