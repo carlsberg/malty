@@ -7,9 +7,11 @@ describe('<ProgressCircle />', () => {
   it('Base', () => {
     const page = visit({
       dataTestId,
-      storyId: 'progress-indicators-progress-circle--base'
+      storyId: 'progress-indicators-progress-circle--base',
+      args: { percentage: '27' }
     });
 
+    cy.getByTestId('text').should('be.visible').contains('27%');
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
@@ -20,6 +22,7 @@ describe('<ProgressCircle />', () => {
       args: { percentage: '100' }
     });
 
+    cy.getByTestId('text').should('be.visible').contains('100%');
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
@@ -27,10 +30,16 @@ describe('<ProgressCircle />', () => {
     const page = visit({
       dataTestId,
       storyId: 'progress-indicators-progress-circle--base',
-      args: { foregroundColor }
+      args: { foregroundColor, percentage: '27' }
     });
 
-    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+    cy.getByTestId('text')
+      .should('be.visible')
+      .contains('27%')
+      .wait(200)
+      .then(() => {
+        page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+      });
   });
 
   it('Base - Without percentage', () => {
