@@ -13,6 +13,7 @@ export default defineConfig({
     screenshotsFolder: './cypress/snapshots/actual',
     setupNodeEvents(on) {
       on('before:browser:launch', (_browser, launchOptions) => {
+        launchOptions.args.push('--start-fullscreen');
         launchOptions.args.push('--force-device-scale-factor=1');
 
         return launchOptions;
