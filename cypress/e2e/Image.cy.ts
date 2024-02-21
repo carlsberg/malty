@@ -24,15 +24,17 @@ describe('<Image />', () => {
     page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it.each(variants)('Variant - %s', (variant) => {
-    const page = visit({
-      dataTestId,
-      storyId: 'media-image--image',
-      variant
+  variants.forEach((variant) => {
+    it(`Variant - ${variant}`, () => {
+      const page = visit({
+        dataTestId,
+        storyId: 'media-image--image',
+        variant
+      });
+
+      expectImageIsVisible(dataTestId);
+
+      page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
     });
-
-    expectImageIsVisible(dataTestId);
-
-    page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 });

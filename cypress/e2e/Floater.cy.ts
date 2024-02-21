@@ -36,13 +36,15 @@ describe('<Floater />', () => {
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it.each(Object.keys(FloaterColor))('Color - %s', (color) => {
-    const page = visit({
-      dataTestId,
-      storyId: 'forms-floater--base',
-      args: { color }
-    });
+  Object.keys(FloaterColor).forEach((color) => {
+    it(`Color - ${color}`, () => {
+      const page = visit({
+        dataTestId,
+        storyId: 'forms-floater--base',
+        args: { color }
+      });
 
-    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+      page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+    });
   });
 });

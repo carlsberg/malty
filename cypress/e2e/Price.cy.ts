@@ -10,13 +10,15 @@ describe('<Price />', () => {
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it.each(variants)('Variant - %s', (variant) => {
-    const page = visit({
-      dataTestId,
-      storyId: 'information-price--price',
-      variant
-    });
+  variants.forEach((variant) => {
+    it(`Variant - ${variant}`, () => {
+      const page = visit({
+        dataTestId,
+        storyId: 'information-price--price',
+        variant
+      });
 
-    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+      page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+    });
   });
 });

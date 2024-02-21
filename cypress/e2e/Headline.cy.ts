@@ -13,23 +13,27 @@ describe('<Headline />', () => {
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it.each(Object.keys(HeadlineAlign))('Align - %s', (align) => {
-    const page = visit({
-      dataTestId,
-      storyId: 'typography-headline--headline',
-      args: { align }
-    });
+  Object.keys(HeadlineAlign).forEach((align) => {
+    it(`Align - ${align}`, () => {
+      const page = visit({
+        dataTestId,
+        storyId: 'typography-headline--headline',
+        args: { align }
+      });
 
-    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+      page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+    });
   });
 
-  it.each(Object.keys(HeadlineColor))('Color - %s', (color) => {
-    const page = visit({
-      dataTestId,
-      storyId: 'typography-headline--headline',
-      args: { color }
-    });
+  Object.keys(HeadlineColor).forEach((color) => {
+    it(`Color - ${color}`, () => {
+      const page = visit({
+        dataTestId,
+        storyId: 'typography-headline--headline',
+        args: { color }
+      });
 
-    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+      page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+    });
   });
 });

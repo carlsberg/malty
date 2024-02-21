@@ -33,13 +33,15 @@ describe('<ProgressBar />', () => {
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it.each(Object.keys(ProgressBarSize))('Size - %s', (size) => {
-    const page = visit({
-      dataTestId,
-      storyId: 'progress-indicators-progress-bar--progress-ba',
-      args: { size }
-    });
+  Object.keys(ProgressBarSize).forEach((size) => {
+    it(`Size - ${size}`, () => {
+      const page = visit({
+        dataTestId,
+        storyId: 'progress-indicators-progress-bar--progress-ba',
+        args: { size }
+      });
 
-    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+      page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+    });
   });
 });

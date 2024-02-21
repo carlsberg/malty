@@ -13,7 +13,6 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import 'cypress-each';
 import { addCompareSnapshotCommand } from 'cypress-visual-regression/dist/command';
 import './commands';
 

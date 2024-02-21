@@ -26,20 +26,22 @@ describe('<ProgressCircle />', () => {
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it.each(Object.keys(ForegroundCircleColor))('Base - Color - %s', (foregroundColor) => {
-    const page = visit({
-      dataTestId,
-      storyId: 'progress-indicators-progress-circle--base',
-      args: { foregroundColor, percentage: '27' }
-    });
-
-    cy.getByTestId('text')
-      .should('be.visible')
-      .contains('27%')
-      .wait(200)
-      .then(() => {
-        page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+  Object.keys(ForegroundCircleColor).forEach((foregroundColor) => {
+    it(`Base - Color - ${foregroundColor}`, () => {
+      const page = visit({
+        dataTestId,
+        storyId: 'progress-indicators-progress-circle--base',
+        args: { foregroundColor, percentage: '27' }
       });
+
+      cy.getByTestId('text')
+        .should('be.visible')
+        .contains('27%')
+        .wait(200)
+        .then(() => {
+          page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+        });
+    });
   });
 
   it('Base - Without percentage', () => {

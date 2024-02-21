@@ -89,7 +89,6 @@
     "babel-loader": "^9.1.2",
     "babel-plugin-transform-hoist-jsx-style": "^1.0.0",
     "cypress": "13.6.4",
-    "cypress-each": "^1.13.3",
     "cypress-visual-regression": "^5.0.0",
     "dotenv": "^16.4.4",
     "eslint": "^8.35.0",
