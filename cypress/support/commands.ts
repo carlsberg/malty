@@ -27,7 +27,11 @@
 Cypress.Commands.add('getByTestId', (dataTestId) => cy.get(`[data-testid="${dataTestId}"]`));
 
 Cypress.Commands.add('getFullPageWithVisibleTarget', (dataTestId) => {
-  cy.getByTestId(dataTestId).should('be.visible');
-
-  return cy.get('body');
+  return cy
+    .getByTestId(dataTestId)
+    .should('be.visible')
+    .wait(200)
+    .then({ timeout: Cypress.config('responseTimeout') }, () => {
+      return cy.get('body');
+    });
 });
