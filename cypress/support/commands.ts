@@ -30,7 +30,7 @@ Cypress.Commands.add('getFullPageWithVisibleTarget', (dataTestId) => {
   return cy
     .getByTestId(dataTestId)
     .should('be.visible')
-    .wait(1)
+    .wait(100)
     .then({ timeout: Cypress.config('responseTimeout') }, () => {
       return cy.get('body');
     });
