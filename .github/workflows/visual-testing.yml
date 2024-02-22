@@ -87,7 +87,7 @@ jobs:
       - name: Run visual testing in desktop
         if: matrix.containers == 1
         # TODO: As soon as the ticket https://carlsberggbs.atlassian.net/browse/DEVOPS-3179 is finished we can remove the npx wait-on utility.
-        run: npx wait-on ${{ env.BASE_URL }} --interval 300000 && yarn cypress:ci:desktop
+        run: npx wait-on ${{ env.BASE_URL }} --interval 300000 --timeout 15m && yarn cypress:ci:desktop
 
       - name: Run visual testing in mobile
         if: matrix.containers == 2
