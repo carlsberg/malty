@@ -98,11 +98,3 @@ jobs:
           name: cypress-snapshots-${{ matrix.containers }}
           path: cypress/snapshots
           retention-days: 1
-
-      - name: Upload Cypress Logs
-        uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: cypress-logs-${{ matrix.containers }}
-          path: cypress/logs
-          retention-days: 1
