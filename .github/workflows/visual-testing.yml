@@ -89,3 +89,17 @@ jobs:
         if: matrix.containers == 2
         run: echo 'Not implemented yet, moving on...'.
         shell: bash
+
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-snapshots-${{ matrix.containers }}
+          path: cypress/snapshots
+
+      - name: Upload Cypress Logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-logs-${{ matrix.containers }}
+          path: cypress/logs
