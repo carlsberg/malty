@@ -4,31 +4,31 @@ const dataTestId = 'chip';
 
 describe('<Chip />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'forms-chip--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-chip--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Button', () => {
-    const page = visit({ dataTestId, storyId: 'forms-chip--button' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-chip--button' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Icon', () => {
-    const page = visit({ dataTestId, storyId: 'forms-chip--icon' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-chip--icon' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Selected', () => {
-    const page = visit({ dataTestId, storyId: 'forms-chip--selected' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-chip--selected' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Disabled', () => {
-    const page = visit({ dataTestId, storyId: 'forms-chip--disabled' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-chip--disabled' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });

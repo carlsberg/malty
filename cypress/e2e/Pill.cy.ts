@@ -4,19 +4,19 @@ const dataTestId = 'pill';
 
 describe('<Pill />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'information-pill--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'information-pill--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Icon', () => {
-    const page = visit({ dataTestId, storyId: 'information-pill--icon' });
+    const page = visit({ args: { dataTestId }, storyId: 'information-pill--icon' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Text', () => {
-    const page = visit({ dataTestId, storyId: 'information-pill--text' });
+    const page = visit({ args: { dataTestId }, storyId: 'information-pill--text' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });

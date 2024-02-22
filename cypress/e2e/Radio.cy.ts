@@ -4,19 +4,19 @@ const dataTestId = 'radio';
 
 describe('<Radio />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'forms-radio--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-radio--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Disabled', () => {
-    const page = visit({ dataTestId, storyId: 'forms-radio--disabled' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-radio--disabled' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('ReadOnly', () => {
-    const page = visit({ dataTestId, storyId: 'forms-radio--read-only' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-radio--read-only' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });

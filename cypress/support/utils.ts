@@ -1,7 +1,6 @@
 type VisitUrlArgs = {
-  dataTestId: string;
   storyId: string;
-  args?: Record<string, string>;
+  args: Record<string, string> & { dataTestId: string };
   variant?: string;
 };
 
@@ -16,14 +15,12 @@ export const buildSnapshotName = (): string =>
     .toLowerCase()
     .replace(/<|>|\/|\s/g, '');
 
-const buildUrl = ({ dataTestId, storyId, args = {}, variant }: VisitUrlArgs): string => {
+const buildUrl = ({ storyId, args, variant }: VisitUrlArgs): string => {
   const finalArgs = Object.entries(args).reduce((combinedArgs, [key, value]) => {
     return `${combinedArgs};${key}:${value}`;
   }, '');
 
-  return `/iframe.html?args=dataTestId:${dataTestId}${finalArgs}&viewMode=story&id=${storyId}`.concat(
-    variant ? `&variant=${variant}` : ''
-  );
+  return `/iframe.html?args=${finalArgs}&viewMode=story&id=${storyId}`.concat(variant ? `&variant=${variant}` : '');
 };
 
 export const visit = (args: VisitUrlArgs): Cypress.Chainable<Cypress.AUTWindow> => {

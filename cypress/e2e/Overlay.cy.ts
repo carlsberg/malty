@@ -4,13 +4,13 @@ const dataTestId = 'overlay';
 
 describe('<Overlay />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'overlays-overlay--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'overlays-overlay--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Content', () => {
-    const page = visit({ dataTestId, storyId: 'overlays-overlay--content' });
+    const page = visit({ args: { dataTestId }, storyId: 'overlays-overlay--content' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });

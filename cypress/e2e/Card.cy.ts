@@ -5,7 +5,7 @@ const imageDataTestId = 'image';
 
 describe('<Card />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'cards-card--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'cards-card--base' });
 
     expectImageIsVisible(imageDataTestId);
 
@@ -13,7 +13,7 @@ describe('<Card />', () => {
   });
 
   it('Shadowed', () => {
-    const page = visit({ dataTestId, storyId: 'cards-card--shadowed' });
+    const page = visit({ args: { dataTestId }, storyId: 'cards-card--shadowed' });
 
     expectImageIsVisible(imageDataTestId);
 
@@ -21,7 +21,7 @@ describe('<Card />', () => {
   });
 
   it('Landscape', () => {
-    const page = visit({ dataTestId, storyId: 'cards-card--landscape' });
+    const page = visit({ args: { dataTestId }, storyId: 'cards-card--landscape' });
 
     expectImageIsVisible(imageDataTestId);
 
@@ -29,7 +29,7 @@ describe('<Card />', () => {
   });
 
   it('Selected', () => {
-    const page = visit({ dataTestId, storyId: 'cards-card--selected' });
+    const page = visit({ args: { dataTestId }, storyId: 'cards-card--selected' });
 
     expectImageIsVisible(imageDataTestId);
 
@@ -37,7 +37,7 @@ describe('<Card />', () => {
   });
 
   it('On click', () => {
-    const page = visit({ dataTestId, storyId: 'cards-card--on-click' });
+    const page = visit({ args: { dataTestId }, storyId: 'cards-card--on-click' });
 
     expectImageIsVisible(imageDataTestId);
 

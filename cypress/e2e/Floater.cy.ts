@@ -5,32 +5,30 @@ const dataTestId = 'floater';
 
 describe('<Floater />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'forms-floater--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-floater--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Base - Negative', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-floater--base',
-      args: { negative: 'true' }
+      args: { negative: 'true', dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Text - Icon Right', () => {
-    const page = visit({ dataTestId, storyId: 'forms-floater--text' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-floater--text' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Text - Icon left', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-floater--text',
-      args: { iconPos: 'Left' }
+      args: { iconPos: 'Left', dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -39,9 +37,8 @@ describe('<Floater />', () => {
   Object.keys(FloaterColor).forEach((color) => {
     it(`Color - ${color}`, () => {
       const page = visit({
-        dataTestId,
         storyId: 'forms-floater--base',
-        args: { color }
+        args: { color, dataTestId }
       });
 
       page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());

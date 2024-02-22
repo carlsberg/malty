@@ -7,7 +7,7 @@ const backgroundImageUrl = 'https://placehold.co/1400x800';
 describe('<Hero />', () => {
   it('Base', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'layout-hero--hero'
     });
 
@@ -18,7 +18,7 @@ describe('<Hero />', () => {
 
   it('Required', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'layout-hero--hero',
       variant: 'required'
     });
@@ -30,7 +30,7 @@ describe('<Hero />', () => {
 
   it('Actions', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'layout-hero--hero',
       variant: 'actions'
     });
@@ -42,7 +42,7 @@ describe('<Hero />', () => {
 
   it('Scroll', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'layout-hero--hero',
       variant: 'scroll'
     });

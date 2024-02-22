@@ -5,7 +5,7 @@ const variants = ['default', 'discount', 'credit', 'free', 'reward'];
 
 describe('<Price />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'information-price--price' });
+    const page = visit({ args: { dataTestId }, storyId: 'information-price--price' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
@@ -13,7 +13,7 @@ describe('<Price />', () => {
   variants.forEach((variant) => {
     it(`Variant - ${variant}`, () => {
       const page = visit({
-        dataTestId,
+        args: { dataTestId },
         storyId: 'information-price--price',
         variant
       });

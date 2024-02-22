@@ -4,16 +4,15 @@ const dataTestId = 'toggle';
 
 describe('<Toggle />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'forms-toggle--toggle' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-toggle--toggle' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Disabled', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-toggle--toggle',
-      args: { disabled: 'true' }
+      args: { dataTestId, disabled: 'true' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -21,9 +20,8 @@ describe('<Toggle />', () => {
 
   it('Required', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-toggle--toggle',
-      args: { required: 'true' }
+      args: { dataTestId, required: 'true' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -31,9 +29,8 @@ describe('<Toggle />', () => {
 
   it('With error', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-toggle--toggle',
-      args: { error: 'Error' }
+      args: { dataTestId, error: 'Error' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());

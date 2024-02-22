@@ -17,7 +17,7 @@ const variants = [
 
 describe('<Image />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'media-image--image' });
+    const page = visit({ args: { dataTestId }, storyId: 'media-image--image' });
 
     expectImageIsVisible(dataTestId);
 
@@ -27,7 +27,7 @@ describe('<Image />', () => {
   variants.forEach((variant) => {
     it(`Variant - ${variant}`, () => {
       const page = visit({
-        dataTestId,
+        args: { dataTestId },
         storyId: 'media-image--image',
         variant
       });

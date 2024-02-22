@@ -11,7 +11,7 @@ declare namespace Cypress {
     /**
      * Get full page using body tag and wait for target element to be visible
      * @example
-     * cy.getPage()
+     * cy.getFullPageWithVisibleTarget()
      */
     getFullPageWithVisibleTarget(targetDataTestId: string): Chainable<Subject>;
   }

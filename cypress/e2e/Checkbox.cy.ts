@@ -5,14 +5,14 @@ const wrapperDataTestId = `${dataTestId}-wrapper`;
 
 describe('<Checkbox />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'forms-checkbox--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-checkbox--base' });
 
     page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Checked', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-checkbox--checked'
     });
 
@@ -21,7 +21,7 @@ describe('<Checkbox />', () => {
 
   it('Not Checked', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-checkbox--unchecked'
     });
 
@@ -30,7 +30,7 @@ describe('<Checkbox />', () => {
 
   it('Required', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-checkbox--required'
     });
 
@@ -39,7 +39,7 @@ describe('<Checkbox />', () => {
 
   it('Disabled', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-checkbox--disabled'
     });
 
@@ -48,9 +48,8 @@ describe('<Checkbox />', () => {
 
   it('Disabled - Not checked', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-checkbox--disabled',
-      args: { checked: '!false' }
+      args: { checked: '!false', dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
@@ -58,7 +57,7 @@ describe('<Checkbox />', () => {
 
   it('Readonly', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-checkbox--read-only'
     });
 
@@ -67,9 +66,8 @@ describe('<Checkbox />', () => {
 
   it('Readonly - Not checked', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-checkbox--read-only',
-      args: { checked: '!false' }
+      args: { checked: '!false', dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(wrapperDataTestId).compareSnapshot(buildSnapshotName());
@@ -77,7 +75,7 @@ describe('<Checkbox />', () => {
 
   it('Indeterminate', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-checkbox--undetermined'
     });
 
@@ -86,7 +84,7 @@ describe('<Checkbox />', () => {
 
   it('With Error Message', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-checkbox--errored'
     });
 

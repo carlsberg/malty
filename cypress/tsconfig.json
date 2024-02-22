@@ -4,9 +4,12 @@
     "target": "es5",
     "lib": ["es5", "dom"],
     "types": ["cypress", "cypress-visual-regression", "node"],
+    "strict": true,
+    "jsx": "react",
+    "esModuleInterop": true,
     "paths": {
       "@/*": ["../*"]
     }
   },
-  "include": ["../node_modules/cypress", "../node_modules/cypress-visual-regression", "**/*.ts", "./support/index.d.ts"]
+  "include": ["./support/index.d.ts", "./**/*.ts"]
 }

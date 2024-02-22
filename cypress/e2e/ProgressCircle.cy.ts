@@ -6,9 +6,8 @@ const dataTestId = 'progress-circle';
 describe('<ProgressCircle />', () => {
   it('Base', () => {
     const page = visit({
-      dataTestId,
       storyId: 'progress-indicators-progress-circle--base',
-      args: { percentage: '27' }
+      args: { percentage: '27', dataTestId }
     });
 
     cy.getByTestId('text').should('be.visible').contains('27%');
@@ -17,9 +16,8 @@ describe('<ProgressCircle />', () => {
 
   it('Base - 100%', () => {
     const page = visit({
-      dataTestId,
       storyId: 'progress-indicators-progress-circle--base',
-      args: { percentage: '100' }
+      args: { percentage: '100', dataTestId }
     });
 
     cy.getByTestId('text').should('be.visible').contains('100%');
@@ -29,9 +27,8 @@ describe('<ProgressCircle />', () => {
   Object.keys(ForegroundCircleColor).forEach((foregroundColor) => {
     it(`Base - Color - ${foregroundColor}`, () => {
       const page = visit({
-        dataTestId,
         storyId: 'progress-indicators-progress-circle--base',
-        args: { foregroundColor, percentage: '27' }
+        args: { foregroundColor, percentage: '27', dataTestId }
       });
 
       cy.getByTestId('text')
@@ -46,9 +43,8 @@ describe('<ProgressCircle />', () => {
 
   it('Base - Without percentage', () => {
     const page = visit({
-      dataTestId,
       storyId: 'progress-indicators-progress-circle--base',
-      args: { displayPercentage: 'false' }
+      args: { displayPercentage: 'false', dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());

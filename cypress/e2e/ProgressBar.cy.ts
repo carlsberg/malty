@@ -6,7 +6,7 @@ const dataTestId = 'progress-bar';
 describe('<ProgressBar />', () => {
   it('Base', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'progress-indicators-progress-bar--progress-ba'
     });
 
@@ -15,9 +15,8 @@ describe('<ProgressBar />', () => {
 
   it('Base - Without amount', () => {
     const page = visit({
-      dataTestId,
       storyId: 'progress-indicators-progress-bar--progress-ba',
-      args: { displayAmount: '!false' }
+      args: { displayAmount: '!false', dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -25,9 +24,8 @@ describe('<ProgressBar />', () => {
 
   it('Base - Disabled', () => {
     const page = visit({
-      dataTestId,
       storyId: 'progress-indicators-progress-bar--progress-ba',
-      args: { disabled: 'true' }
+      args: { disabled: 'true', dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -36,9 +34,8 @@ describe('<ProgressBar />', () => {
   Object.keys(ProgressBarSize).forEach((size) => {
     it(`Size - ${size}`, () => {
       const page = visit({
-        dataTestId,
         storyId: 'progress-indicators-progress-bar--progress-ba',
-        args: { size }
+        args: { size, dataTestId }
       });
 
       page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());

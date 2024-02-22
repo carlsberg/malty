@@ -4,16 +4,15 @@ const dataTestId = 'text-area';
 
 describe('<TextArea />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'forms-text-area--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-text-area--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('With error message', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-text-area--base',
-      args: { error: 'Error' }
+      args: { dataTestId, error: 'Error' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -21,9 +20,8 @@ describe('<TextArea />', () => {
 
   it('Disabled', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-text-area--base',
-      args: { disabled: 'true' }
+      args: { dataTestId, disabled: 'true' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -31,9 +29,8 @@ describe('<TextArea />', () => {
 
   it('Required', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-text-area--base',
-      args: { required: 'true' }
+      args: { dataTestId, required: 'true' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -41,9 +38,8 @@ describe('<TextArea />', () => {
 
   it('Disabled With Error', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-text-area--base',
-      args: { disabled: 'true', error: 'Error' }
+      args: { dataTestId, disabled: 'true', error: 'Error' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());

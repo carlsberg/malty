@@ -4,7 +4,7 @@ const dataTestId = 'padded-container';
 
 describe('<PaddedContainer />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'layout-padded-container--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'layout-padded-container--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });

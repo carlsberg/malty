@@ -4,14 +4,14 @@ const dataTestId = 'select';
 
 describe('<Select />', () => {
   it('Base', () => {
-    const page = visit({ dataTestId, storyId: 'forms-select--base' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-select--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Inline', () => {
     const page = visit({
-      dataTestId,
+      args: { dataTestId },
       storyId: 'forms-select--inline'
     });
 
@@ -20,11 +20,8 @@ describe('<Select />', () => {
 
   it('Readonly', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-select--base',
-      args: {
-        readOnly: 'true'
-      }
+      args: { dataTestId, readOnly: 'true' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -32,11 +29,8 @@ describe('<Select />', () => {
 
   it('Required', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-select--base',
-      args: {
-        required: 'true'
-      }
+      args: { dataTestId, required: 'true' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -44,11 +38,8 @@ describe('<Select />', () => {
 
   it('With error', () => {
     const page = visit({
-      dataTestId,
       storyId: 'forms-select--base',
-      args: {
-        error: 'Fill the value'
-      }
+      args: { dataTestId, error: 'Fill the value' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
