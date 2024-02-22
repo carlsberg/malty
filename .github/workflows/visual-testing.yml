@@ -65,7 +65,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2, 3]
+        containers: [1, 2]
     container:
       image: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
       env:
@@ -81,5 +81,11 @@ jobs:
       - name: 'Untar files'
         run: tar -xvf malty.tar
 
-      - name: Run visual testing
+      - name: Run visual testing in desktop
+        if: matrix.containers == 1
         run: yarn cypress:ci:desktop
+
+      - name: Run visual testing in mobile
+        if: matrix.containers == 2
+        run: echo 'Not implemented yet, moving on...'.
+        shell: bash
