@@ -63,6 +63,8 @@ jobs:
   visual-testing:
     runs-on: ubuntu-latest
     needs: prepare-visual-testing
+    env:
+      BASE_URL: https://pr-${{ github.event.number }}.d3acoh2jwy8aw9.amplifyapp.com
     strategy:
       fail-fast: false
       matrix:
@@ -70,7 +72,7 @@ jobs:
     container:
       image: cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1
       env:
-        BASE_URL: https://pr-${{ github.event.number }}.d3acoh2jwy8aw9.amplifyapp.com
+        BASE_URL: ${{ env.BASE_URL }}
     steps:
       - uses: actions/checkout@v3
 
@@ -84,7 +86,8 @@ jobs:
 
       - name: Run visual testing in desktop
         if: matrix.containers == 1
-        run: yarn cypress:ci:desktop
+        # TODO: As soon as the ticket https://carlsberggbs.atlassian.net/browse/DEVOPS-3179 is finished we can remove the npx wait-on utility.
+        run: npx wait-on ${{ env.BASE_URL }} --interval 300000 && yarn cypress:ci:desktop
 
       - name: Run visual testing in mobile
         if: matrix.containers == 2
