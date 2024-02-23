@@ -20,4 +20,10 @@ describe(`<Button />`, () => {
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
+
+  it('Negative', () => {
+    const page = visit({ args: { dataTestId, negative: 'true' }, storyId: 'forms-button--base' });
+
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+  });
 });
