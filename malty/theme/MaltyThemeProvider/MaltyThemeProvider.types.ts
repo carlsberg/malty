@@ -6,3 +6,15 @@ export interface MaltyThemeProviderProps {
 }
 
 export type ThemeName = 'cadi' | 'carlsberg' | 'global' | 'lbc';
+
+// export interface Theme {
+
+// }
+
+// export interface GlobalTokens {
+
+// }
+
+// export interface SemanticTokens {
+
+// }

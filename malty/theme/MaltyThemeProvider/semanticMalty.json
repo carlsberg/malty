@@ -1,0 +1,44 @@
+{
+  "primary": {
+    "100": {
+      "value": "{neutral.100}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    },
+    "500": {
+      "value": "{neutral.500}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    }
+  },
+  "background": {
+    "primary": {
+      "value": "{neutral.500}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    },
+    "primary--hover": {
+      "value": "{neutral.500}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    }
+  },
+  "foreground": {
+    "primary": {
+      "value": "{neutral.500}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    },
+    "primary--hover": {
+      "value": "{neutral.500}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    }
+  }
+}
