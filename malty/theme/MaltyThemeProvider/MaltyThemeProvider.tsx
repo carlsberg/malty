@@ -119,7 +119,7 @@ export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemePro
         if (colors[colorGroup] && colors[colorGroup][colorKey]) {
           return colors[colorGroup][colorKey].value;
         }
-      } else {
+      } else if (typeof token === 'object') {
         const resolvedToken: any = {};
 
         Object.keys(token).forEach((key) => {
@@ -144,7 +144,110 @@ export const MaltyThemeProvider = ({ theme = 'global', children }: MaltyThemePro
     return resolvedTokens;
   }
 
-  console.log('FINAL TOKENS', resolveTokens(tokensData, colorsData));
+  const regex = /\{(.*)\.([0-9]*)\}/;
+
+  function extractSemanticToken(value: string): { color: string; colorLevel: string } | null {
+    if (!value) {
+      return null;
+    }
+
+    const tokens = regex.exec(value);
+
+    if (!tokens || tokens.length < 3) {
+      return null;
+    }
+
+    return {
+      color: tokens[1],
+      colorLevel: tokens[2]
+    };
+  }
+
+  function isValidSemanticToken(value: string): boolean {
+    if (!value) {
+      return false;
+    }
+
+    return regex.test(value);
+  }
+
+  function resolveColorTokens(semanticColors: any, primitiveColors: any) {
+    if (!semanticColors || !primitiveColors) {
+      return null;
+    }
+
+    function resolveRecursive(objBeingAnalyzed: any, objBeingConstructed: any = {}) {
+      Object.keys(objBeingAnalyzed).forEach((key) => {
+        const child = objBeingAnalyzed[key];
+        if (!child || ((child.value === null || child.value === '') && !isValidSemanticToken(child.value))) {
+          objBeingConstructed[key] = child === '' ? '' : null;
+        } else if (isValidSemanticToken(child.value)) {
+          const { color, colorLevel } = extractSemanticToken(child.value);
+          const hexaColor = primitiveColors[color][colorLevel].value;
+          objBeingConstructed[key] = hexaColor;
+        } else {
+          objBeingConstructed[key] = {};
+          resolveRecursive(child, objBeingConstructed[key]);
+        }
+      });
+      return objBeingConstructed;
+    }
+
+    return resolveRecursive(semanticColors);
+  }
+
+  const tests = [
+    tokensData,
+    {
+      neutral500: {
+        value: '{neutral.500}',
+        type: 'color',
+        parent: 'semantic/Malty',
+        description: ''
+      },
+      lightorange: {
+        value: '{orange.200}',
+        type: 'color',
+        parent: 'semantic/Malty',
+        description: ''
+      }
+    },
+    {
+      nullObject: {
+        value: null,
+        type: 'color',
+        parent: 'semantic/Malty',
+        description: ''
+      }
+    },
+    {
+      emptyObject: {
+        value: '',
+        type: 'color',
+        parent: 'semantic/Malty',
+        description: ''
+      }
+    },
+    {
+      null: null,
+      empty: ''
+    }
+  ];
+
+  tests.forEach((valueBeingTested, index) => {
+    console.log('Test ' + (index + 1));
+    try {
+      console.log('FINAL TOKENS', resolveTokens(valueBeingTested, colorsData));
+    } catch (error) {
+      console.warn('FINAL TOKENS ERROR', error);
+    }
+
+    try {
+      console.log('FINAL TOKENS NEW VERSION', resolveColorTokens(valueBeingTested, colorsData));
+    } catch (error) {
+      console.warn('FINAL TOKENS NEW VERSION ERROR', error);
+    }
+  });
 
   return (
     <ThemeProvider theme={selectedTheme}>
