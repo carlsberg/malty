@@ -70,7 +70,7 @@ export const Icon: Story = {
 export const Text: Story = {
   args: {
     ...Base.args,
-    type: PillType.Fail,
+    // type: PillType.Fail,
     icon: undefined
   }
 };

@@ -38,7 +38,10 @@
     "lint": "yarn check-lint --fix",
     "check-types": "tsc --noemit",
     "check-format": "prettier --check .",
-    "set-peer-dep": "node ./scripts/set-peer-dependency.mjs"
+    "set-peer-dep": "node ./scripts/set-peer-dependency.mjs",
+    "transfom-primitive-malty-colors": "node ./scripts/transform-primitive-colors.mjs --colors-route=./malty/theme/MaltyThemeProvider/themes2/primitiveColors2.json",
+    "transform-primitive-colors": "node ./scripts/transform-primitive-colors.mjs --colors-route=./malty/theme/MaltyThemeProvider/themes2/primitiveColors2.json --add-more-primitives=./malty/theme/MaltyThemeProvider/themes2/primitiveColorsCadi.json",
+    "transform-semantic-colors": "node ./scripts/transform-semantic-colors.mjs --colors-route=./malty/theme/MaltyThemeProvider/themes2/primitiveColors2.json --semantic-route=./malty/theme/MaltyThemeProvider/themes2/cadi2.json"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",

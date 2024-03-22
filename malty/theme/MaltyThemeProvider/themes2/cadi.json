@@ -1,0 +1,60 @@
+{
+  "blue": {
+    "100": {
+      "value": "{green.600}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    }
+  },
+  "primary": {
+    "100": {
+      "value": "{green.600}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    },
+    "500": {
+      "value": "{green.600}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    }
+  },
+  "background": {
+    "primary": {
+      "value": "{green.600}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    },
+    "primary--hover": {
+      "value": "{green.600}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    }
+  },
+  "foreground": {
+    "primary": {
+      "value": "{green.600}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    },
+    "primary--hover": {
+      "value": "{green.600}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    }
+  },
+  "my-personal-key": {
+    "200": {
+      "value": "{green.400}",
+      "type": "color",
+      "parent": "semantic/Cadi",
+      "description": ""
+    }
+  }
+}

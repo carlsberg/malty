@@ -1,0 +1,48 @@
+{
+  "cocacola": {
+    "50": {
+      "value": "#fef5fc",
+      "type": "color",
+      "parent": "global/color",
+      "description": ""
+    },
+    "100": {
+      "value": "#fef1fa",
+      "type": "color",
+      "parent": "global/color",
+      "description": ""
+    },
+    "200": {
+      "value": "#fddff3",
+      "type": "color",
+      "parent": "global/color",
+      "description": ""
+    }
+  },
+  "pepsi": {
+    "50": {
+      "value": "#fffcf5",
+      "type": "color",
+      "parent": "global/color",
+      "description": ""
+    },
+    "100": {
+      "value": "#fff9eb",
+      "type": "color",
+      "parent": "global/color",
+      "description": ""
+    },
+    "200": {
+      "value": "#fef2d3",
+      "type": "color",
+      "parent": "global/color",
+      "description": ""
+    },
+    "300": {
+      "value": "#fde6a7",
+      "type": "color",
+      "parent": "global/color",
+      "description": ""
+    }
+  }
+}

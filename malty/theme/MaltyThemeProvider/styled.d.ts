@@ -14,6 +14,10 @@ declare module 'styled-components' {
     shadows: ShadowsType;
   }
 
+  interface ColorsType<T extends Record<string, Record<string, string>>> {
+    [key: string]: T;
+  }
+
   interface SizesType {
     '5xs': PropValue;
     '4xs': PropValue;
@@ -88,94 +92,94 @@ declare module 'styled-components' {
     };
   }
 
-  interface ColorsType {
-    theme: {
-      themePrimary: PropValue;
-      themeSecondary: PropValue;
-      themeTertiary: PropValue;
-    };
-    colours: {
-      default: {
-        'digital-black': PropValue;
-        transparent: PropValue;
-        white: PropValue;
-      };
-      information: {
-        archive: PropValue;
-        close: PropValue;
-        disable: PropValue;
-        hold: PropValue;
-        indirect: PropValue;
-        live: PropValue;
-        multiple: PropValue;
-        new: PropValue;
-        parked: PropValue;
-        prospect: PropValue;
-        update: PropValue;
-        wholesaler: PropValue;
-      };
-      overlay: {
-        'digital-black': {
-          '5': PropValue;
-          '10': PropValue;
-          '25': PropValue;
-          '50': PropValue;
-          '75': PropValue;
-          '90': PropValue;
-        };
-        white: {
-          '5': PropValue;
-          '10': PropValue;
-          '25': PropValue;
-          '50': PropValue;
-          '75': PropValue;
-          '90': PropValue;
-        };
-      };
-      support: {
-        '20': PropValue;
-        '40': PropValue;
-        '60': PropValue;
-        '80': PropValue;
-        '100': PropValue;
-      };
-      system: {
-        'alert-light': PropValue;
-        'alert-strong': PropValue;
-        'disable-light-theme': PropValue;
-        'disable-dark-theme': PropValue;
-        fail: PropValue;
-        'fail-light': PropValue;
-        'notification-light': PropValue;
-        'notification-strong': PropValue;
-        success: PropValue;
-        'success-light': PropValue;
-      };
-    };
-    'headline-colours': {
-      'digital-black': PropValue;
-      white: PropValue;
-    };
-    'text-colours': {
-      'digital-black': PropValue;
-      white: PropValue;
-      '20': PropValue;
-      '40': PropValue;
-      '60': PropValue;
-      '80': PropValue;
-      '100': PropValue;
-      'alert-light': PropValue;
-      'alert-strong': PropValue;
-      'disable-light-theme': PropValue;
-      'disable-dark-theme': PropValue;
-      fail: PropValue;
-      'fail-light': PropValue;
-      'notification-light': PropValue;
-      'notification-strong': PropValue;
-      success: PropValue;
-      'success-light': PropValue;
-    };
-  }
+  // interface ColorsType {
+  //   theme: {
+  //     themePrimary: PropValue;
+  //     themeSecondary: PropValue;
+  //     themeTertiary: PropValue;
+  //   };
+  //   colours: {
+  //     default: {
+  //       'digital-black': PropValue;
+  //       transparent: PropValue;
+  //       white: PropValue;
+  //     };
+  //     information: {
+  //       archive: PropValue;
+  //       close: PropValue;
+  //       disable: PropValue;
+  //       hold: PropValue;
+  //       indirect: PropValue;
+  //       live: PropValue;
+  //       multiple: PropValue;
+  //       new: PropValue;
+  //       parked: PropValue;
+  //       prospect: PropValue;
+  //       update: PropValue;
+  //       wholesaler: PropValue;
+  //     };
+  //     overlay: {
+  //       'digital-black': {
+  //         '5': PropValue;
+  //         '10': PropValue;
+  //         '25': PropValue;
+  //         '50': PropValue;
+  //         '75': PropValue;
+  //         '90': PropValue;
+  //       };
+  //       white: {
+  //         '5': PropValue;
+  //         '10': PropValue;
+  //         '25': PropValue;
+  //         '50': PropValue;
+  //         '75': PropValue;
+  //         '90': PropValue;
+  //       };
+  //     };
+  //     support: {
+  //       '20': PropValue;
+  //       '40': PropValue;
+  //       '60': PropValue;
+  //       '80': PropValue;
+  //       '100': PropValue;
+  //     };
+  //     system: {
+  //       'alert-light': PropValue;
+  //       'alert-strong': PropValue;
+  //       'disable-light-theme': PropValue;
+  //       'disable-dark-theme': PropValue;
+  //       fail: PropValue;
+  //       'fail-light': PropValue;
+  //       'notification-light': PropValue;
+  //       'notification-strong': PropValue;
+  //       success: PropValue;
+  //       'success-light': PropValue;
+  //     };
+  //   };
+  //   'headline-colours': {
+  //     'digital-black': PropValue;
+  //     white: PropValue;
+  //   };
+  //   'text-colours': {
+  //     'digital-black': PropValue;
+  //     white: PropValue;
+  //     '20': PropValue;
+  //     '40': PropValue;
+  //     '60': PropValue;
+  //     '80': PropValue;
+  //     '100': PropValue;
+  //     'alert-light': PropValue;
+  //     'alert-strong': PropValue;
+  //     'disable-light-theme': PropValue;
+  //     'disable-dark-theme': PropValue;
+  //     fail: PropValue;
+  //     'fail-light': PropValue;
+  //     'notification-light': PropValue;
+  //     'notification-strong': PropValue;
+  //     success: PropValue;
+  //     'success-light': PropValue;
+  //   };
+  // }
 
   interface ShadowsType {
     hovered: PropValue;

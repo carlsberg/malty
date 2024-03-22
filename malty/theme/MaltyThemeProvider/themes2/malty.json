@@ -1,7 +1,25 @@
 {
   "primary": {
     "100": {
-      "value": "{neutral.100}",
+      "value": "{primitiveColors.neutral.100}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    },
+    "200": {
+      "value": "{neutral.200}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    },
+    "300": {
+      "value": "{neutral.300}",
+      "type": "color",
+      "parent": "semantic/Malty",
+      "description": ""
+    },
+    "400": {
+      "value": "{neutral.400}",
       "type": "color",
       "parent": "semantic/Malty",
       "description": ""
@@ -15,7 +33,7 @@
   },
   "background": {
     "primary": {
-      "value": "{neutral.500}",
+      "value": "{green.500}",
       "type": "color",
       "parent": "semantic/Malty",
       "description": ""

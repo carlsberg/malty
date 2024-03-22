@@ -1,23 +1,27 @@
 import { space } from '@carlsberggroup/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { PillSize, PillType, StyledPillProps } from './Pill.types';
+import { PillSize, StyledPillProps } from './Pill.types';
 
 export const StyledPill = styled.div<StyledPillProps>`
   font-family: ${({ fontFamily }) => `${fontFamily}`};
   font-size: ${({ fontSize }) => `${fontSize}`};
   font-weight: bold;
   background-color: ${({ type, theme }) => {
-    if (type === PillType.Primary) {
-      return theme.colors.theme.themePrimary.value;
-    }
-    if (type === PillType.Secondary) {
-      return theme.colors.theme.themeSecondary.value;
-    }
-    if (type === PillType.Archive) {
-      return theme.colors.colours.support[40].value;
-    }
-    return theme.colors.colours.system[type].value;
+    console.log('THEME', theme.colors.blue[100]);
+    // if (type === PillType.Primary) {
+    //   return theme.colors.theme.themePrimary.value;
+    // }
+    // if (type === PillType.Secondary) {
+    //   return theme.colors.theme.themeSecondary.value;
+    // }
+    // if (type === PillType.Archive) {
+    //   return theme.colors.colours.support[40].value;
+    // }
+    // return theme.colors.colours.system[type].value;
+
+    return theme.colors.background.primary;
   }};
+  background-color: theme.personal.primary
   color: ${({ textColor }) => textColor};
   display: inline-flex;
   align-items: center;

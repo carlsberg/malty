@@ -1,0 +1,20 @@
+{
+  "blue": {
+    "100": "#52a73b"
+  },
+  "primary": {
+    "100": "#52a73b",
+    "500": "#52a73b"
+  },
+  "background": {
+    "primary": "#52a73b",
+    "primary--hover": "#52a73b"
+  },
+  "foreground": {
+    "primary": "#52a73b",
+    "primary--hover": "#52a73b"
+  },
+  "my-personal-key": {
+    "200": "#92d282"
+  }
+}

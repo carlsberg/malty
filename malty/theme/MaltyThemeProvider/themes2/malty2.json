@@ -1,0 +1,17 @@
+{
+  "primary": {
+    "100": "#eff1f1",
+    "200": "#dde1e0",
+    "300": "#bbc3c2",
+    "400": "#9aa6a5",
+    "500": "#7b8a88"
+  },
+  "background": {
+    "primary": "#7b8a88",
+    "primary--hover": "#7b8a88"
+  },
+  "foreground": {
+    "primary": "#7b8a88",
+    "primary--hover": "#7b8a88"
+  }
+}

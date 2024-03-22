@@ -1,20 +1,10 @@
 import { ReactNode } from 'react';
 
 export interface MaltyThemeProviderProps {
-  theme: ThemeName;
+  colors?: unknown;
+  sizes?: unknown;
+  typography?: unknown;
   children: ReactNode;
 }
 
 export type ThemeName = 'cadi' | 'carlsberg' | 'global' | 'lbc';
-
-// export interface Theme {
-
-// }
-
-// export interface GlobalTokens {
-
-// }
-
-// export interface SemanticTokens {
-
-// }
