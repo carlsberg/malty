@@ -35,7 +35,7 @@ export const Radio = ({
         <StyledRadio
           data-testid={dataTestId}
           id={id.current}
-          defaultChecked={selected}
+          checked={selected}
           value={value}
           theme={theme}
           type="radio"
