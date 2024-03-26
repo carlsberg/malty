@@ -1,0 +1,23 @@
+name: cx-component-library
+id: ari:cloud:compass:ee99c4be-06be-4b96-b37d-e23edc9d0900:component/bea05f36-c940-400e-9f04-119e9fb40dc2/24e175cb-f5b2-4f19-909f-b9bd082a1f7a
+description: Malty, probably the best code in the world.
+configVersion: 1
+typeId: UI_ELEMENT
+ownerId: ari:cloud:identity::team/1cb61466-8173-4056-805c-2df108b8e706
+fields:
+  tier: 4
+links:
+  - name: null
+    type: REPOSITORY
+    url: https://github.com/CarlsbergGBS/cx-component-library
+relationships:
+  DEPENDS_ON: []
+labels:
+  - cx
+  - design
+  - dsm
+  - innersource
+  - language:typescript
+  - malty
+  - source:github
+customFields: null
