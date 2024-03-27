@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "@tanstack/react-table": "^8.7.6",
+    "@tanstack/react-table": "^8.15.0",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.1",
     "react-datepicker": "^4.8.0",
