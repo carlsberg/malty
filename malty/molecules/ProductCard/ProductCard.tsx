@@ -149,7 +149,7 @@ export const ProductCard = ({
             <StyledTitle
               showCursor={!!onProductClick}
               onClick={onProductClick}
-              dataQaId={`${dataTestId}-title`}
+              dataTestId={`${dataTestId}-title`}
               textStyle={TextStyle.MediumSmallBold}
             >
               {title}

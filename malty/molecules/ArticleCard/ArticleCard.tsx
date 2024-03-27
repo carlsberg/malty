@@ -47,13 +47,13 @@ export const ArticleCard = ({
               </Headline>
             </StyledMargin>
             {description && (
-              <Text dataQaId={`${dataTestId}-subTitle`} textStyle={TextStyle.MediumSmallDefault}>
+              <Text dataTestId={`${dataTestId}-subTitle`} textStyle={TextStyle.MediumSmallDefault}>
                 {description}
               </Text>
             )}
             <StyledFooter theme={theme}>
               {date && (
-                <Text dataQaId={`${dataTestId}-date`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
+                <Text dataTestId={`${dataTestId}-date`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
                   {date}
                 </Text>
               )}

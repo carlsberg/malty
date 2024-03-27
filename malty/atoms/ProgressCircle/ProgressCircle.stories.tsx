@@ -1,12 +1,15 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ProgressCircle as ProgressCircleComponent } from './ProgressCircle';
 import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps, RoundMethod } from './ProgressCircle.types';
 
-export default {
+const meta: Meta<ProgressCircleProps> = {
   title: 'Progress Indicators/Progress Circle',
   component: ProgressCircleComponent,
+  render: (args) => {
+    return <ProgressCircleComponent {...args} />;
+  },
   parameters: {
     importObject: 'ProgressCircle',
     importPath: '@carlsberggroup/malty.atoms.progress-circle'
@@ -34,7 +37,8 @@ export default {
     },
     foregroundColor: {
       description: 'The color of the foreground circle.<br />Options are:',
-      options: Object.values(ForegroundCircleColor),
+      mapping: ForegroundCircleColor,
+      options: Object.keys(ForegroundCircleColor),
       table: {
         category: 'Styling',
         defaultValue: {
@@ -83,21 +87,25 @@ export default {
         labels: Object.assign({}, ...Object.entries(RoundMethod).map(([a, b]) => ({ [b]: a })))
       }
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Progress data-testid'
+    },
     ...generateStorybookSpacing()
   }
-} as ComponentMeta<typeof ProgressCircleComponent>;
-
-const Template: ComponentStory<typeof ProgressCircleComponent> = (args: ProgressCircleProps) => {
-  return <ProgressCircleComponent {...args} />;
 };
 
-export const ProgressCircle = Template.bind({});
+type Story = StoryObj<ProgressCircleProps>;
 
-ProgressCircle.args = {
-  displayPercentage: true,
-  errorLabel: 'Error',
-  foregroundColor: ForegroundCircleColor.DigitalBlack,
-  percentage: 27,
-  percentagePosition: PercentagePosition.Left,
-  roundMethod: RoundMethod.Up
+export const Base: Story = {
+  args: {
+    displayPercentage: true,
+    errorLabel: 'Error',
+    foregroundColor: ForegroundCircleColor.DigitalBlack,
+    percentage: 27,
+    percentagePosition: PercentagePosition.Left,
+    roundMethod: RoundMethod.Up
+  }
 };
+
+export default meta;

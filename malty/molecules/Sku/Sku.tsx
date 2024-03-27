@@ -13,12 +13,12 @@ export const Sku = ({ sku, mro, dataTestId = 'default', ...props }: SkuProps) =>
     <StyledWrapper theme={theme} {...props}>
       {mro && (
         <StyledMRO theme={theme}>
-          <Text dataQaId={`${dataTestId}-mro`} textStyle={TextStyle.TinyBold} color={TextColor.White}>
+          <Text dataTestId={`${dataTestId}-mro`} textStyle={TextStyle.TinyBold} color={TextColor.White}>
             {getMROType(mro)}
           </Text>
         </StyledMRO>
       )}
-      <Text dataQaId={`${dataTestId}-sku`} textStyle={TextStyle.SmallDefault} color={TextColor.Support80}>
+      <Text dataTestId={`${dataTestId}-sku`} textStyle={TextStyle.SmallDefault} color={TextColor.Support80}>
         {sku}
       </Text>
     </StyledWrapper>

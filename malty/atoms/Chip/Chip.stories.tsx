@@ -1,14 +1,21 @@
 import { Alert } from '@carlsberggroup/malty.icons.alert';
 import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Chip as ChipComponent } from './Chip';
 import { ChipProps, ChipSize } from './Chip.types';
 
-export default {
+const ControlledChip = (props: ChipProps) => {
+  const [stateChecked, setStateChecked] = useState(false);
+
+  return <ChipComponent {...props} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
+};
+
+const meta: Meta<ChipProps> = {
   title: 'Forms/Chip',
   component: ChipComponent,
+  render: (args) => <ControlledChip {...args} />,
   parameters: {
     importObject: 'Checkbox',
     importPath: '@carlsberggroup/malty.atoms.chip',
@@ -65,52 +72,43 @@ export default {
   }
 };
 
-const Template: Story<ChipProps> = (args) => {
-  const [stateChecked, setStateChecked] = useState(false);
+type Story = StoryObj<ChipProps>;
 
-  return <ChipComponent {...args} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
+export const Base: Story = {
+  args: {
+    label: 'Label',
+    selected: false,
+    showAction: false
+  }
 };
 
-export const Chip = Template.bind({});
+export const Button: Story = {
+  args: {
+    ...Base.args,
+    showAction: true
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Icon: Story = {
+  args: {
+    ...Base.args,
+    icon: <Alert />
+  }
+};
 
-switch (variant) {
-  case 'button':
-    Chip.args = {
-      label: 'Label',
-      selected: false,
-      showAction: true
-    };
-    break;
-  case 'icon':
-    Chip.args = {
-      label: 'Label',
-      selected: false,
-      icon: <Alert />
-    };
-    break;
-  case 'selected':
-    Chip.args = {
-      label: 'Label',
-      selected: true,
-      showAction: false
-    };
-    break;
-  case 'disabled':
-    Chip.args = {
-      label: 'Label',
-      selected: true,
-      showAction: false,
-      disabled: true
-    };
-    break;
-  default:
-    Chip.args = {
-      label: 'Label',
-      selected: false,
-      showAction: false
-    };
-    break;
-}
+export const Selected: Story = {
+  args: {
+    ...Base.args,
+    selected: true
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    selected: true,
+    disabled: true
+  }
+};
+
+export default meta;

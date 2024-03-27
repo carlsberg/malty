@@ -1,13 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-
     "strict": true,
-
     "skipLibCheck": true,
     "jsx": "react",
     "esModuleInterop": true,
@@ -17,5 +14,6 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2015",
     "composite": true
-  }
+  },
+  "exclude": ["cypress.config.ts", "cypress", "cypress-visual-regression"]
 }

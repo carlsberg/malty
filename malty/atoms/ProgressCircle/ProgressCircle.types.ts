@@ -37,6 +37,7 @@ export interface ProgressCircleProps extends SpaceProps {
   percentage: number;
   percentagePosition?: PercentagePosition;
   roundMethod?: RoundMethod;
+  dataTestId?: string;
 }
 
 export enum RoundMethod {

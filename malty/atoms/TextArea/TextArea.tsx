@@ -25,7 +25,7 @@ export const TextArea = ({
   maxLength,
   hint,
   readOnly = false,
-  dataTestId,
+  dataTestId = 'text-area',
   required = false,
   ...props
 }: TextAreaProps) => {
@@ -41,7 +41,7 @@ export const TextArea = ({
   };
 
   return (
-    <StyledTextareaContainer theme={theme} {...spaceProps}>
+    <StyledTextareaContainer theme={theme} data-testid={dataTestId} {...spaceProps}>
       <Label label={label} required={required} data-testid={`${dataTestId}-label`} disabled={disabled} htmlFor={id} />
       <StyledTextAreaWrapper
         data-testid={`${dataTestId}-container`}
@@ -52,7 +52,7 @@ export const TextArea = ({
         theme={theme}
       >
         <StyledtextArea
-          data-testid={`${dataTestId}`}
+          data-testid={`${dataTestId}-input`}
           name={id}
           id={id}
           value={value}
