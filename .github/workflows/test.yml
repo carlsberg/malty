@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Bit CLI
         run: |
-          npm i -g @teambit/bvm
+          npm i -g @teambit/bvm@0.4.1
           bvm install ${BIT_VERSION}
         env:
           BIT_VERSION: ${{ secrets.BIT_VERSION }}
@@ -47,11 +47,6 @@ jobs:
         env:
           BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_TOKEN }}
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-
-      - name: Check BIT version
-        run: |
-          bvm -v
-          bit -v
 
       - name: Bit Deps Install & Compile
         run: |
