@@ -28,6 +28,11 @@ jobs:
         env:
           BIT_VERSION: ${{ secrets.BIT_VERSION }}
 
+      - name: Check BIT version
+        run: |
+          bvm -v
+          bit -v
+
       - name: Add bvm bin folder to path
         run: |
           echo "$HOME/bin" >> $GITHUB_PATH
