@@ -28,11 +28,6 @@ jobs:
         env:
           BIT_VERSION: ${{ secrets.BIT_VERSION }}
 
-      - name: Check BIT version
-        run: |
-          bvm -v
-          bit -v
-
       - name: Add bvm bin folder to path
         run: |
           echo "$HOME/bin" >> $GITHUB_PATH
@@ -52,6 +47,11 @@ jobs:
         env:
           BIT_CONFIG_USER_TOKEN: ${{ secrets.BIT_TOKEN }}
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
+      - name: Check BIT version
+        run: |
+          bvm -v
+          bit -v
 
       - name: Bit Deps Install & Compile
         run: |
