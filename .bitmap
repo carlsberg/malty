@@ -3,1687 +3,1967 @@
 /**
  * The Bitmap file is an auto generated file used by Bit to track all your Bit components. It maps the component to a folder in your file system.
  * This file should be committed to VCS(version control).
- * Components are listed using their component ID (https://bit.dev/docs/components/component-id).
+ * Components are listed using their component ID (https://bit.dev/reference/components/component-id).
  * If you want to delete components you can use the "bit remove <component-id>" command.
- * See the docs (https://bit.dev/docs/components/removing-components) for more information, or use "bit remove --help".
+ * See the docs (https://bit.dev/reference/components/removing-components) for more information, or use "bit remove --help".
  */
 
 {
     "atoms/base-icon": {
+        "name": "atoms/base-icon",
         "scope": "carlsberggroup.malty",
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/BaseIcon"
     },
     "atoms/button": {
+        "name": "atoms/button",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Button"
     },
     "atoms/card": {
+        "name": "atoms/card",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Card"
     },
     "atoms/checkbox": {
+        "name": "atoms/checkbox",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Checkbox"
     },
     "atoms/chip": {
+        "name": "atoms/chip",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Chip"
     },
     "atoms/floater": {
+        "name": "atoms/floater",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Floater"
     },
     "atoms/headline": {
+        "name": "atoms/headline",
         "scope": "carlsberggroup.malty",
         "version": "0.0.58",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Headline"
     },
     "atoms/hero": {
+        "name": "atoms/hero",
         "scope": "carlsberggroup.malty",
         "version": "0.0.12",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Hero"
     },
     "atoms/icon": {
+        "name": "atoms/icon",
         "scope": "carlsberggroup.malty",
         "version": "0.0.80",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Icon"
     },
     "atoms/icon-wrapper": {
+        "name": "atoms/icon-wrapper",
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/IconWrapper"
     },
     "atoms/image": {
+        "name": "atoms/image",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Image"
     },
     "atoms/input": {
+        "name": "atoms/input",
         "scope": "carlsberggroup.malty",
         "version": "0.2.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Input"
     },
     "atoms/label": {
+        "name": "atoms/label",
         "scope": "carlsberggroup.malty",
         "version": "0.0.59",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Label"
     },
     "atoms/link": {
+        "name": "atoms/link",
         "scope": "carlsberggroup.malty",
         "version": "0.1.5",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Link"
     },
     "atoms/overlay": {
+        "name": "atoms/overlay",
         "scope": "carlsberggroup.malty",
         "version": "0.0.60",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Overlay"
     },
     "atoms/padded-container": {
+        "name": "atoms/padded-container",
         "scope": "carlsberggroup.malty",
         "version": "0.0.53",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/PaddedContainer"
     },
     "atoms/pill": {
+        "name": "atoms/pill",
         "scope": "carlsberggroup.malty",
         "version": "0.3.1",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Pill"
     },
     "atoms/price": {
+        "name": "atoms/price",
         "scope": "carlsberggroup.malty",
         "version": "0.0.12",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Price"
     },
     "atoms/progress-bar": {
+        "name": "atoms/progress-bar",
         "scope": "carlsberggroup.malty",
         "version": "0.0.62",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/ProgressBar"
     },
     "atoms/progress-circle": {
+        "name": "atoms/progress-circle",
         "scope": "carlsberggroup.malty",
         "version": "0.0.12",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/ProgressCircle"
     },
     "atoms/radio": {
+        "name": "atoms/radio",
         "scope": "carlsberggroup.malty",
         "version": "0.0.46",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Radio"
     },
     "atoms/rating": {
+        "name": "atoms/rating",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Rating"
     },
     "atoms/select": {
+        "name": "atoms/select",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Select"
     },
     "atoms/text": {
+        "name": "atoms/text",
         "scope": "carlsberggroup.malty",
         "version": "0.0.68",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Text"
     },
     "atoms/text-area": {
+        "name": "atoms/text-area",
         "scope": "carlsberggroup.malty",
         "version": "0.0.54",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/TextArea"
     },
     "atoms/toggle": {
+        "name": "atoms/toggle",
         "scope": "carlsberggroup.malty",
         "version": "0.0.46",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Toggle"
     },
     "atoms/tooltip": {
+        "name": "atoms/tooltip",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/atoms/Tooltip"
     },
     "icons/add-content": {
+        "name": "icons/add-content",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AddContent"
     },
     "icons/add-event": {
+        "name": "icons/add-event",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AddEvent"
     },
     "icons/add-project": {
+        "name": "icons/add-project",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AddProject"
     },
     "icons/added-document": {
+        "name": "icons/added-document",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AddedDocument"
     },
     "icons/alert": {
+        "name": "icons/alert",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Alert"
     },
     "icons/alert-connection": {
+        "name": "icons/alert-connection",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AlertConnection"
     },
     "icons/app-dropbox": {
+        "name": "icons/app-dropbox",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AppDropbox"
     },
     "icons/app-facebook": {
+        "name": "icons/app-facebook",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AppFacebook"
     },
     "icons/app-github": {
+        "name": "icons/app-github",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AppGithub"
     },
     "icons/app-instagram": {
+        "name": "icons/app-instagram",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AppInstagram"
     },
     "icons/app-linkedin": {
+        "name": "icons/app-linkedin",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AppLinkedin"
     },
     "icons/app-powerbi": {
+        "name": "icons/app-powerbi",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AppPowerbi"
     },
     "icons/app-skype": {
+        "name": "icons/app-skype",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/AppSkype"
     },
     "icons/arrange": {
+        "name": "icons/arrange",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Arrange"
     },
     "icons/arrow-small-down": {
+        "name": "icons/arrow-small-down",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ArrowSmallDown"
     },
     "icons/arrow-small-left": {
+        "name": "icons/arrow-small-left",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ArrowSmallLeft"
     },
     "icons/arrow-small-right": {
+        "name": "icons/arrow-small-right",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ArrowSmallRight"
     },
     "icons/arrow-small-up": {
+        "name": "icons/arrow-small-up",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ArrowSmallUp"
     },
     "icons/at": {
+        "name": "icons/at",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/At"
     },
     "icons/attachment": {
+        "name": "icons/attachment",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Attachment"
     },
     "icons/balance": {
+        "name": "icons/balance",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Balance"
     },
     "icons/bell": {
+        "name": "icons/bell",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Bell"
     },
     "icons/bell-notification": {
+        "name": "icons/bell-notification",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/BellNotification"
     },
     "icons/bold": {
+        "name": "icons/bold",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Bold"
     },
     "icons/book": {
+        "name": "icons/book",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Book"
     },
     "icons/bookmark": {
+        "name": "icons/bookmark",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Bookmark"
     },
     "icons/bookmark-filled": {
+        "name": "icons/bookmark-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/BookmarkFilled"
     },
     "icons/bottle": {
+        "name": "icons/bottle",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Bottle"
     },
     "icons/bottle-craft": {
+        "name": "icons/bottle-craft",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/BottleCraft"
     },
     "icons/calendar": {
+        "name": "icons/calendar",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Calendar"
     },
     "icons/calendar-autumn": {
+        "name": "icons/calendar-autumn",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CalendarAutumn"
     },
     "icons/calendar-confirm": {
+        "name": "icons/calendar-confirm",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CalendarConfirm"
     },
     "icons/calendar-events": {
+        "name": "icons/calendar-events",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CalendarEvents"
     },
     "icons/calendar-spring": {
+        "name": "icons/calendar-spring",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CalendarSpring"
     },
     "icons/calendar-summer": {
+        "name": "icons/calendar-summer",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CalendarSummer"
     },
     "icons/calendar-whole-year": {
+        "name": "icons/calendar-whole-year",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CalendarWholeYear"
     },
     "icons/calendar-winter": {
+        "name": "icons/calendar-winter",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CalendarWinter"
     },
     "icons/camera": {
+        "name": "icons/camera",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Camera"
     },
     "icons/can": {
+        "name": "icons/can",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Can"
     },
     "icons/card": {
+        "name": "icons/card",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Card"
     },
     "icons/card-plus": {
+        "name": "icons/card-plus",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CardPlus"
     },
     "icons/carlsberg-filled": {
+        "name": "icons/carlsberg-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CarlsbergFilled"
     },
     "icons/carlsberg-outlined": {
+        "name": "icons/carlsberg-outlined",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CarlsbergOutlined"
     },
     "icons/carret-down": {
+        "name": "icons/carret-down",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CarretDown"
     },
     "icons/carret-left": {
+        "name": "icons/carret-left",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CarretLeft"
     },
     "icons/carret-move": {
+        "name": "icons/carret-move",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CarretMove"
     },
     "icons/carret-right": {
+        "name": "icons/carret-right",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CarretRight"
     },
     "icons/carret-up": {
+        "name": "icons/carret-up",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CarretUp"
     },
     "icons/cart": {
+        "name": "icons/cart",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Cart"
     },
     "icons/cart-added": {
+        "name": "icons/cart-added",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CartAdded"
     },
     "icons/cart-label": {
+        "name": "icons/cart-label",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CartLabel"
     },
     "icons/cart-notification": {
+        "name": "icons/cart-notification",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CartNotification"
     },
     "icons/change": {
+        "name": "icons/change",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Change"
     },
     "icons/check": {
+        "name": "icons/check",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Check"
     },
     "icons/checkbox-check": {
+        "name": "icons/checkbox-check",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CheckboxCheck"
     },
     "icons/checkbox-check-alternate": {
+        "name": "icons/checkbox-check-alternate",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CheckboxCheckAlternate"
     },
     "icons/checkbox-check-outline": {
+        "name": "icons/checkbox-check-outline",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CheckboxCheckOutline"
     },
     "icons/checkbox-check-square": {
+        "name": "icons/checkbox-check-square",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CheckboxCheckSquare"
     },
     "icons/checkbox-empty": {
+        "name": "icons/checkbox-empty",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CheckboxEmpty"
     },
     "icons/chevron-down": {
+        "name": "icons/chevron-down",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ChevronDown"
     },
     "icons/chevron-left": {
+        "name": "icons/chevron-left",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ChevronLeft"
     },
     "icons/chevron-right": {
+        "name": "icons/chevron-right",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ChevronRight"
     },
     "icons/chevron-up": {
+        "name": "icons/chevron-up",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ChevronUp"
     },
     "icons/clock": {
+        "name": "icons/clock",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Clock"
     },
     "icons/clock-filled": {
+        "name": "icons/clock-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ClockFilled"
     },
     "icons/clone": {
+        "name": "icons/clone",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Clone"
     },
     "icons/close": {
+        "name": "icons/close",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Close"
     },
     "icons/coin-dollar": {
+        "name": "icons/coin-dollar",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CoinDollar"
     },
     "icons/coin-euro": {
+        "name": "icons/coin-euro",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CoinEuro"
     },
     "icons/compass": {
+        "name": "icons/compass",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Compass"
     },
     "icons/compass-filled": {
+        "name": "icons/compass-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CompassFilled"
     },
     "icons/connected": {
+        "name": "icons/connected",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Connected"
     },
     "icons/contract": {
+        "name": "icons/contract",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Contract"
     },
     "icons/cookies": {
+        "name": "icons/cookies",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Cookies"
     },
     "icons/coupon": {
+        "name": "icons/coupon",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Coupon"
     },
     "icons/customer": {
+        "name": "icons/customer",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Customer"
     },
     "icons/customer-add": {
+        "name": "icons/customer-add",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CustomerAdd"
     },
     "icons/customer-question": {
+        "name": "icons/customer-question",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/CustomerQuestion"
     },
     "icons/customers": {
+        "name": "icons/customers",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Customers"
     },
     "icons/data-transfer": {
+        "name": "icons/data-transfer",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/DataTransfer"
     },
     "icons/diagonal-down-left": {
+        "name": "icons/diagonal-down-left",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/DiagonalDownLeft"
     },
     "icons/diagonal-down-right": {
+        "name": "icons/diagonal-down-right",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/DiagonalDownRight"
     },
     "icons/diagonal-up-left": {
+        "name": "icons/diagonal-up-left",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/DiagonalUpLeft"
     },
     "icons/diagonal-up-right": {
+        "name": "icons/diagonal-up-right",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/DiagonalUpRight"
     },
     "icons/diploma": {
+        "name": "icons/diploma",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Diploma"
     },
     "icons/diploma2": {
+        "name": "icons/diploma2",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Diploma2"
     },
     "icons/download": {
+        "name": "icons/download",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Download"
     },
     "icons/draughtmaster": {
+        "name": "icons/draughtmaster",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Draughtmaster"
     },
     "icons/edit": {
+        "name": "icons/edit",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Edit"
     },
     "icons/ellipsis-vertical": {
+        "name": "icons/ellipsis-vertical",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/EllipsisVertical"
     },
     "icons/email": {
+        "name": "icons/email",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Email"
     },
     "icons/expand": {
+        "name": "icons/expand",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Expand"
     },
     "icons/external-link": {
+        "name": "icons/external-link",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ExternalLink"
     },
     "icons/eye": {
+        "name": "icons/eye",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Eye"
     },
     "icons/eye-fill": {
+        "name": "icons/eye-fill",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/EyeFill"
     },
     "icons/eye-hide": {
+        "name": "icons/eye-hide",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/EyeHide"
     },
     "icons/eye-show": {
+        "name": "icons/eye-show",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/EyeShow"
     },
     "icons/file": {
+        "name": "icons/file",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/File"
     },
     "icons/files-csv": {
+        "name": "icons/files-csv",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/FilesCsv"
     },
     "icons/files-json": {
+        "name": "icons/files-json",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/FilesJson"
     },
     "icons/files-pdf": {
+        "name": "icons/files-pdf",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/FilesPdf"
     },
     "icons/files-xls": {
+        "name": "icons/files-xls",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/FilesXls"
     },
     "icons/filters": {
+        "name": "icons/filters",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Filters"
     },
     "icons/flash": {
+        "name": "icons/flash",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Flash"
     },
     "icons/glass-goblet": {
+        "name": "icons/glass-goblet",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/GlassGoblet"
     },
     "icons/glass-mug": {
+        "name": "icons/glass-mug",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/GlassMug"
     },
     "icons/glass-mug-empty": {
+        "name": "icons/glass-mug-empty",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/GlassMugEmpty"
     },
     "icons/glass-weissbier": {
+        "name": "icons/glass-weissbier",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/GlassWeissbier"
     },
     "icons/globe": {
+        "name": "icons/globe",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Globe"
     },
     "icons/headline": {
+        "name": "icons/headline",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Headline"
     },
     "icons/heart": {
+        "name": "icons/heart",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Heart"
     },
     "icons/heart-filled": {
+        "name": "icons/heart-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/HeartFilled"
     },
     "icons/help": {
+        "name": "icons/help",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Help"
     },
     "icons/hide-menu": {
+        "name": "icons/hide-menu",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/HideMenu"
     },
     "icons/history": {
+        "name": "icons/history",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/History"
     },
     "icons/home": {
+        "name": "icons/home",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Home"
     },
     "icons/hop": {
+        "name": "icons/hop",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Hop"
     },
     "icons/image": {
+        "name": "icons/image",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Image"
     },
     "icons/information": {
+        "name": "icons/information",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Information"
     },
     "icons/italic": {
+        "name": "icons/italic",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Italic"
     },
     "icons/item-add": {
+        "name": "icons/item-add",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ItemAdd"
     },
     "icons/item-block": {
+        "name": "icons/item-block",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ItemBlock"
     },
     "icons/item-check": {
+        "name": "icons/item-check",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ItemCheck"
     },
     "icons/item-check-default": {
+        "name": "icons/item-check-default",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ItemCheckDefault"
     },
     "icons/item-check-filled": {
+        "name": "icons/item-check-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ItemCheckFilled"
     },
     "icons/item-close": {
+        "name": "icons/item-close",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ItemClose"
     },
     "icons/item-close-filled": {
+        "name": "icons/item-close-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ItemCloseFilled"
     },
     "icons/library": {
+        "name": "icons/library",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Library"
     },
     "icons/loading": {
+        "name": "icons/loading",
         "scope": "carlsberggroup.malty",
         "version": "0.1.1",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Loading"
     },
     "icons/location-ip": {
+        "name": "icons/location-ip",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/LocationIp"
     },
     "icons/lock": {
+        "name": "icons/lock",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Lock"
     },
     "icons/lock-open": {
+        "name": "icons/lock-open",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/LockOpen"
     },
     "icons/map": {
+        "name": "icons/map",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Map"
     },
     "icons/market": {
+        "name": "icons/market",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Market"
     },
     "icons/media-pause": {
+        "name": "icons/media-pause",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/MediaPause"
     },
     "icons/media-play": {
+        "name": "icons/media-play",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/MediaPlay"
     },
     "icons/media-sound": {
+        "name": "icons/media-sound",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/MediaSound"
     },
     "icons/media-sound-off": {
+        "name": "icons/media-sound-off",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/MediaSoundOff"
     },
     "icons/media-stop": {
+        "name": "icons/media-stop",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/MediaStop"
     },
     "icons/menu": {
+        "name": "icons/menu",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Menu"
     },
     "icons/menu-left": {
+        "name": "icons/menu-left",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/MenuLeft"
     },
     "icons/menu-right": {
+        "name": "icons/menu-right",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/MenuRight"
     },
     "icons/minus": {
+        "name": "icons/minus",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Minus"
     },
     "icons/mobile": {
+        "name": "icons/mobile",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Mobile"
     },
     "icons/more": {
+        "name": "icons/more",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/More"
     },
     "icons/mouse": {
+        "name": "icons/mouse",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Mouse"
     },
     "icons/notepad": {
+        "name": "icons/notepad",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Notepad"
     },
     "icons/outlet": {
+        "name": "icons/outlet",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Outlet"
     },
     "icons/outlet-plus": {
+        "name": "icons/outlet-plus",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/OutletPlus"
     },
     "icons/pack": {
+        "name": "icons/pack",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Pack"
     },
     "icons/package-keg": {
+        "name": "icons/package-keg",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PackageKeg"
     },
     "icons/package-wholesaler": {
+        "name": "icons/package-wholesaler",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PackageWholesaler"
     },
     "icons/paint": {
+        "name": "icons/paint",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Paint"
     },
     "icons/pallet": {
+        "name": "icons/pallet",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Pallet"
     },
     "icons/pencil": {
+        "name": "icons/pencil",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Pencil"
     },
     "icons/phone-classic": {
+        "name": "icons/phone-classic",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PhoneClassic"
     },
     "icons/pilsner": {
+        "name": "icons/pilsner",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Pilsner"
     },
     "icons/pin": {
+        "name": "icons/pin",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Pin"
     },
     "icons/pin-active": {
+        "name": "icons/pin-active",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinActive"
     },
     "icons/pin-churn": {
+        "name": "icons/pin-churn",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinChurn"
     },
     "icons/pin-closed": {
+        "name": "icons/pin-closed",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinClosed"
     },
     "icons/pin-inactive": {
+        "name": "icons/pin-inactive",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinInactive"
     },
     "icons/pin-indirect": {
+        "name": "icons/pin-indirect",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinIndirect"
     },
     "icons/pin-labeling": {
+        "name": "icons/pin-labeling",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinLabeling"
     },
     "icons/pin-parked": {
+        "name": "icons/pin-parked",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinParked"
     },
     "icons/pin-prospect": {
+        "name": "icons/pin-prospect",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinProspect"
     },
     "icons/pin-several": {
+        "name": "icons/pin-several",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/PinSeveral"
     },
     "icons/pint": {
+        "name": "icons/pint",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Pint"
     },
     "icons/plus": {
+        "name": "icons/plus",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Plus"
     },
     "icons/power": {
+        "name": "icons/power",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Power"
     },
     "icons/radiobutton-off": {
+        "name": "icons/radiobutton-off",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/RadiobuttonOff"
     },
     "icons/radiobutton-on": {
+        "name": "icons/radiobutton-on",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/RadiobuttonOn"
     },
     "icons/refresh": {
+        "name": "icons/refresh",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Refresh"
     },
     "icons/restaurant": {
+        "name": "icons/restaurant",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Restaurant"
     },
     "icons/retry": {
+        "name": "icons/retry",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Retry"
     },
     "icons/salesrep": {
+        "name": "icons/salesrep",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Salesrep"
     },
     "icons/save": {
+        "name": "icons/save",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Save"
     },
     "icons/search": {
+        "name": "icons/search",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Search"
     },
     "icons/search-user": {
+        "name": "icons/search-user",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SearchUser"
     },
     "icons/sent": {
+        "name": "icons/sent",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Sent"
     },
     "icons/settings": {
+        "name": "icons/settings",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Settings"
     },
     "icons/share": {
+        "name": "icons/share",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Share"
     },
     "icons/shield-exclamation": {
+        "name": "icons/shield-exclamation",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ShieldExclamation"
     },
     "icons/shield-security": {
+        "name": "icons/shield-security",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ShieldSecurity"
     },
     "icons/shop": {
+        "name": "icons/shop",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Shop"
     },
     "icons/sign-out": {
+        "name": "icons/sign-out",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SignOut"
     },
     "icons/sort": {
+        "name": "icons/sort",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Sort"
     },
     "icons/speach-balloon": {
+        "name": "icons/speach-balloon",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SpeachBalloon"
     },
     "icons/speach-balloon-complaint": {
+        "name": "icons/speach-balloon-complaint",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SpeachBalloonComplaint"
     },
     "icons/speach-balloon-livechat": {
+        "name": "icons/speach-balloon-livechat",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SpeachBalloonLivechat"
     },
     "icons/star": {
+        "name": "icons/star",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Star"
     },
     "icons/star-filled": {
+        "name": "icons/star-filled",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/StarFilled"
     },
     "icons/survey": {
+        "name": "icons/survey",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Survey"
     },
     "icons/survey-check": {
+        "name": "icons/survey-check",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SurveyCheck"
     },
     "icons/survey-checkbox": {
+        "name": "icons/survey-checkbox",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SurveyCheckbox"
     },
     "icons/survey-default": {
+        "name": "icons/survey-default",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SurveyDefault"
     },
     "icons/survey-trophy": {
+        "name": "icons/survey-trophy",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/SurveyTrophy"
     },
     "icons/sync": {
+        "name": "icons/sync",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Sync"
     },
     "icons/tap": {
+        "name": "icons/tap",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Tap"
     },
     "icons/tap-glass": {
+        "name": "icons/tap-glass",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/TapGlass"
     },
     "icons/technical-support": {
+        "name": "icons/technical-support",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/TechnicalSupport"
     },
     "icons/text": {
+        "name": "icons/text",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Text"
     },
     "icons/third-party": {
+        "name": "icons/third-party",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ThirdParty"
     },
     "icons/thumb-down": {
+        "name": "icons/thumb-down",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ThumbDown"
     },
     "icons/thumb-up": {
+        "name": "icons/thumb-up",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ThumbUp"
     },
     "icons/toggle-off": {
+        "name": "icons/toggle-off",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ToggleOff"
     },
     "icons/toggle-on": {
+        "name": "icons/toggle-on",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ToggleOn"
     },
     "icons/trash": {
+        "name": "icons/trash",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Trash"
     },
     "icons/trophy": {
+        "name": "icons/trophy",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Trophy"
     },
     "icons/truck": {
+        "name": "icons/truck",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Truck"
     },
     "icons/tulipe": {
+        "name": "icons/tulipe",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Tulipe"
     },
     "icons/twitter": {
+        "name": "icons/twitter",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Twitter"
     },
     "icons/underline": {
+        "name": "icons/underline",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Underline"
     },
     "icons/upload": {
+        "name": "icons/upload",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Upload"
     },
     "icons/view-grid": {
+        "name": "icons/view-grid",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ViewGrid"
     },
     "icons/view-list": {
+        "name": "icons/view-list",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/ViewList"
     },
     "icons/volume": {
+        "name": "icons/volume",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Volume"
     },
     "icons/wheat": {
+        "name": "icons/wheat",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/Wheat"
     },
     "icons/world": {
+        "name": "icons/world",
         "scope": "carlsberggroup.malty",
         "version": "0.1.0",
         "mainFile": "index.ts",
         "rootDir": "malty/icons/World"
     },
     "molecules/accordion": {
+        "name": "molecules/accordion",
         "scope": "carlsberggroup.malty",
         "version": "0.0.43",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Accordion"
     },
     "molecules/alert-banner": {
+        "name": "molecules/alert-banner",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertBanner"
     },
     "molecules/alert-inline": {
+        "name": "molecules/alert-inline",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/AlertInline"
     },
     "molecules/article-card": {
+        "name": "molecules/article-card",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ArticleCard"
     },
     "molecules/avatar": {
+        "name": "molecules/avatar",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/Avatar"
     },
     "molecules/banner": {
+        "name": "molecules/banner",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Banner"
     },
     "molecules/datepicker": {
+        "name": "molecules/datepicker",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Datepicker"
     },
     "molecules/footer": {
+        "name": "molecules/footer",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Footer"
     },
     "molecules/hero": {
+        "name": "molecules/hero",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Hero"
     },
     "molecules/loading": {
+        "name": "molecules/loading",
         "scope": "carlsberggroup.malty",
         "version": "0.0.82",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Loading"
     },
     "molecules/loading-overlay": {
+        "name": "molecules/loading-overlay",
         "scope": "carlsberggroup.malty",
         "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/LoadingOverlay"
     },
     "molecules/modal": {
+        "name": "molecules/modal",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Modal"
     },
     "molecules/nav-list": {
+        "name": "molecules/nav-list",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/NavList"
     },
     "molecules/pagination": {
+        "name": "molecules/pagination",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Pagination"
     },
     "molecules/product-card": {
+        "name": "molecules/product-card",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductCard"
     },
     "molecules/product-quantity-actions": {
+        "name": "molecules/product-quantity-actions",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/ProductQuantityActions"
     },
     "molecules/products-bar": {
+        "name": "molecules/products-bar",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/ProductsBar"
     },
     "molecules/segmented-control": {
+        "name": "molecules/segmented-control",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/SegmentedControl"
     },
     "molecules/side-nav": {
+        "name": "molecules/side-nav",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.tsx",
         "rootDir": "malty/molecules/SideNav"
     },
     "molecules/sku": {
+        "name": "molecules/sku",
         "scope": "carlsberggroup.malty",
         "version": "0.0.13",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Sku"
     },
     "molecules/stepper": {
+        "name": "molecules/stepper",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Stepper"
     },
     "molecules/toast": {
+        "name": "molecules/toast",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/molecules/Toast"
     },
     "organisms/carousel": {
+        "name": "organisms/carousel",
         "scope": "carlsberggroup.malty",
         "version": "0.1.2",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Carousel"
     },
     "organisms/table": {
+        "name": "organisms/table",
         "scope": "carlsberggroup.malty",
         "version": "0.2.2",
         "mainFile": "index.ts",
         "rootDir": "malty/organisms/Table"
     },
     "theme/malty-theme-provider": {
+        "name": "theme/malty-theme-provider",
         "scope": "carlsberggroup.malty",
         "version": "0.0.43",
         "mainFile": "index.tsx",
         "rootDir": "malty/theme/MaltyThemeProvider"
     },
     "utils/all-icons": {
+        "name": "utils/all-icons",
         "scope": "carlsberggroup.malty",
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/AllIcons"
     },
     "utils/colors": {
+        "name": "utils/colors",
         "scope": "carlsberggroup.malty",
         "version": "0.0.6",
         "mainFile": "index.tsx",
         "rootDir": "malty/utils/colors"
     },
     "utils/consts": {
+        "name": "utils/consts",
         "scope": "carlsberggroup.malty",
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/consts"
     },
     "utils/helpers": {
+        "name": "utils/helpers",
         "scope": "carlsberggroup.malty",
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/helpers"
     },
     "utils/hooks": {
+        "name": "utils/hooks",
         "scope": "carlsberggroup.malty",
         "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/hooks"
     },
     "utils/mixins": {
+        "name": "utils/mixins",
         "scope": "carlsberggroup.malty",
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/mixins"
     },
     "utils/space": {
+        "name": "utils/space",
         "scope": "carlsberggroup.malty",
         "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "malty/utils/space"
     },
     "utils/test": {
+        "name": "utils/test",
         "scope": "carlsberggroup.malty",
         "version": "0.0.18",
         "mainFile": "index.tsx",
         "rootDir": "malty/utils/test"
     },
     "utils/types": {
+        "name": "utils/types",
         "scope": "carlsberggroup.malty",
         "version": "0.0.3",
         "mainFile": "index.ts",
