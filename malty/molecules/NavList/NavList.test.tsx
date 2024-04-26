@@ -5,9 +5,9 @@ import React from 'react';
 import { NavList } from './NavList';
 
 const simpleNavigation = [
-  { icon: <DataTransfer />, name: 'item 1', href: '/item1' },
-  { icon: <DataTransfer />, name: 'item 2', href: '/item2' },
-  { icon: <DataTransfer />, name: 'item 3', href: '/item3' }
+  { id: 'item1', icon: <DataTransfer />, name: 'item 1', href: '/item1' },
+  { id: 'item2', icon: <DataTransfer />, name: 'item 2', href: '/item2' },
+  { id: 'item3', icon: <DataTransfer />, name: 'item 3', href: '/item3' }
 ];
 
 const testHandler = jest.fn();
@@ -17,11 +17,11 @@ describe('navList molecule', () => {
     render(
       <NavList
         navItems={simpleNavigation}
-        activeNavItem={-1}
-        activeSubItem={-1}
+        activeNavItem={'item1'}
+        activeSubItem={'subItem1'}
         subNavIsActive={false}
-        setActiveNavItem={testHandler}
-        setActiveSubItem={testHandler}
+        onNavItemClick={testHandler}
+        onSubItemClick={testHandler}
         toggleSubNav={testHandler}
       />
     );
