@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 
 export interface SubItemProps {
+  id: string;
   name: string;
   key?: string;
   href?: string;
@@ -9,6 +10,7 @@ export interface SubItemProps {
 }
 
 export type ItemProps = {
+  id: string;
   name: string;
   icon: ReactElement;
   key?: string;
@@ -21,9 +23,8 @@ export type ItemProps = {
 
 export interface NavItemProps {
   item: ItemProps;
-  itemIndex: number;
-  setActiveNavItem: (item: number) => void;
-  openSubNav: (item: number) => void;
+  onNavItemClick: (item: string | null) => void;
+  openSubNav: (itemId: string, firstSubItemId: string) => void;
   selected?: boolean;
   className?: string;
 }
@@ -31,7 +32,7 @@ export interface NavItemProps {
 export interface SubNavItemProps {
   item: SubItemProps;
   itemIndex: number;
-  setActiveNavItem: (item: number) => void;
+  onSubItemClick: (itemId: string) => void;
   selected: boolean;
 }
 
@@ -53,10 +54,10 @@ export type LinkComponentProps = {
 
 export interface NavListProps {
   navItems: ItemProps[];
-  activeNavItem: number;
-  activeSubItem: number;
+  activeNavItem: string | null;
+  activeSubItem: string | null;
   subNavIsActive: boolean;
-  setActiveNavItem: (item: number) => void;
-  setActiveSubItem: (item: number) => void;
+  onNavItemClick: (id: string | null) => void;
+  onSubItemClick: (id: string | null) => void;
   toggleSubNav: (active: boolean) => void;
 }
