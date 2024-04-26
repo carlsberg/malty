@@ -17,8 +17,8 @@ describe('navList molecule', () => {
     render(
       <NavList
         navItems={simpleNavigation}
-        activeNavItem={'item1'}
-        activeSubItem={'subItem1'}
+        activeNavItem="item1"
+        activeSubItem="subItem1"
         subNavIsActive={false}
         onNavItemClick={testHandler}
         onSubItemClick={testHandler}

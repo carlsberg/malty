@@ -81,7 +81,7 @@ export const NavList = ({
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const getCurrentPath = () => {
-    //check which nav item route matches the current window location
+    // check which nav item route matches the current window location
     let currentPath;
     for (let i = 0; i < navItems.length; i++) {
       const currentItem = navItems[i];
@@ -117,11 +117,13 @@ export const NavList = ({
     toggleSubNav(false);
   };
 
-  const getActiveItem = (navItems: ItemProps[], activeNavItem: string | null) => {
+  type EmptyObj = Record<PropertyKey, never>;
+
+  const getActiveItem = (items: ItemProps[], activeItem: string | null): ItemProps | EmptyObj => {
     if (!activeNavItem) {
-      return;
+      return {} as ItemProps;
     }
-    return navItems.find((item) => item.id === activeNavItem);
+    return items.find((item) => item.id === activeNavItem) || {};
   };
 
   const activeItem = getActiveItem(navItems, activeNavItem) || ({} as ItemProps);

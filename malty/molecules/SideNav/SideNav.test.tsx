@@ -69,8 +69,8 @@ describe('molecule sideNav', () => {
         navItems={simpleNavigation}
         systemOptions={systemOptions}
         profileMenu={profileMenu}
-        activeNavItem={'item1'}
-        activeSubItem={'subItem1'}
+        activeNavItem="item1"
+        activeSubItem="subItem1"
         onNavItemClick={handleNavItemClick}
         onSubItemClick={handleSubItemClick}
       />
@@ -86,8 +86,8 @@ describe('molecule sideNav', () => {
         navItems={simpleNavigation}
         systemOptions={systemOptions}
         profileMenu={profileMenu}
-        activeNavItem={'item1'}
-        activeSubItem={'subItem1'}
+        activeNavItem="item1"
+        activeSubItem="subItem1"
         onNavItemClick={handleNavItemClick}
         onSubItemClick={handleSubItemClick}
       />
@@ -109,8 +109,8 @@ it('should toggle the navigation when clicking the menu button', () => {
       navItems={simpleNavigation}
       systemOptions={systemOptions}
       profileMenu={profileMenu}
-      activeNavItem={'item1'}
-      activeSubItem={'subItem1'}
+      activeNavItem="item1"
+      activeSubItem="subItem1"
       onNavItemClick={handleNavItemClick}
       onSubItemClick={handleSubItemClick}
     />
@@ -139,7 +139,7 @@ describe('sideNav sub navigation', () => {
         <BrowserRouter>
           <SideNav
             activeNavItem={activeNavItem}
-            activeSubItem={'subItem1'}
+            activeSubItem="subItem1"
             onNavItemClick={handleClick}
             onSubItemClick={handleSubItemClick}
             productName={productName}
