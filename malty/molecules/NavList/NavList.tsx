@@ -20,7 +20,7 @@ const SubNavItem = ({ item, onSubItemClick, selected }: SubNavItemProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledSubNavItem onClick={() => onSubItemClick(id)} selected={selected} theme={theme}>
+    <StyledSubNavItem onClick={() => onSubItemClick(id)} selected={selected} theme={theme} data-testid="subnav-item">
       <LinkComponent component={component} href={href} componentProps={componentProps}>
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
           {name}
@@ -46,6 +46,7 @@ const NavItem = ({ item, onNavItemClick, openSubNav, selected = false, className
 
   return (
     <StyledNavItem
+      data-testid="nav-item"
       onClick={handleOnClick}
       selected={selected}
       theme={theme}
@@ -145,7 +146,7 @@ export const NavList = ({
   };
 
   return (
-    <StyledNavList theme={theme}>
+    <StyledNavList theme={theme} data-testid="nav-list">
       {!subNavIsActive &&
         navItems?.map((item) => {
           const selected = activeNavItem === item.id;
