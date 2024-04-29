@@ -1,8 +1,8 @@
 import { DataTransfer } from '@carlsberggroup/malty.icons.data-transfer';
 import { ItemProps } from '@carlsberggroup/malty.molecules.nav-list';
 import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { SideNav as SideNavComponent } from './SideNav';
 import { SideNavProps } from './SideNav.types';
 
@@ -32,37 +32,39 @@ export default {
 } as Meta;
 
 const navItemsMock: ItemProps[] = [
-  { icon: <DataTransfer />, name: 'item 1', href: '/' },
+  { id: 'item1', icon: <DataTransfer />, name: 'item 1', href: '/iframe.html' },
   {
+    id: 'item2',
     icon: <DataTransfer />,
     name: 'item 2',
-    component: NavLink,
+    component: Link,
     to: '/item2',
     category: 'favourites'
   },
   {
+    id: 'item3',
     icon: <DataTransfer />,
     name: 'item 3',
     category: 'favourites',
     subItems: [
-      { name: 'sub item 1', component: NavLink, to: '/sub-item1' },
-      { name: 'sub item 2', component: NavLink, to: '/sub-item2' }
+      { id: 'subItem1', name: 'sub item 1', component: Link, to: '/sub-item1' },
+      { id: 'subItem2', name: 'sub item 2', component: Link, to: '/sub-item2' }
     ]
   },
-  { icon: <DataTransfer />, name: 'item 4', component: NavLink, to: '/item4' }
+  { id: 'item4', icon: <DataTransfer />, name: 'item 4', component: Link, to: '/item4' }
 ];
 
 const systemOptionsMock = [
   { icon: <DataTransfer />, href: '/item3' },
-  { icon: <DataTransfer />, component: NavLink, to: '/item4' }
+  { icon: <DataTransfer />, component: Link, to: '/item4' }
 ];
 
 const profileMenuMock = {
   username: 'Maria Snow',
   userRole: 'Market director',
   profileActions: [
-    { name: 'User profile', icon: <DataTransfer />, component: NavLink, to: '/profile' },
-    { name: 'Sign out', icon: <DataTransfer />, component: NavLink, to: '/sign-out' }
+    { name: 'User profile', icon: <DataTransfer />, component: Link, to: '/profile' },
+    { name: 'Sign out', icon: <DataTransfer />, component: Link, to: '/sign-out' }
   ]
 };
 
@@ -72,27 +74,44 @@ const Content = ({ route }: { route: string }) => (
   </div>
 );
 
-const Template: Story<SideNavProps> = ({ productName, navItems, systemOptions, profileMenu }) => (
-  <BrowserRouter>
-    <div style={{ height: '800px', display: 'flex', alignItems: 'stretch' }}>
-      <SideNavComponent
-        productName={productName}
-        navItems={navItems}
-        systemOptions={systemOptions}
-        profileMenu={profileMenu}
-        overlayZIndex={100}
-      />
-      <Routes>
-        <Route path="/item2" element={<Content route="item 2" />} />
-        <Route path="/item3" element={<Content route="item 3" />} />
-        <Route path="/sub-item1" element={<Content route="sub item 1" />} />
-        <Route path="/sub-item2" element={<Content route="sub item 2" />} />
-        <Route path="/item4" element={<Content route="item 4" />} />
-        <Route path="/iframe.html" element={<Content route="iframe" />} />
-      </Routes>
-    </div>
-  </BrowserRouter>
-);
+const Template: Story<SideNavProps> = ({ productName, navItems, systemOptions, profileMenu }) => {
+  const [activeNavItem, setActiveNavItem] = useState<string | null>('item1');
+  const [activeSubItem, setActiveSubItem] = useState<string | null>('subItem1');
+
+  const handleNavItemClick = (id: string | null) => {
+    setActiveNavItem(id);
+  };
+
+  const handleSubItemClick = (id: string | null) => {
+    setActiveSubItem(id);
+  };
+
+  return (
+    <BrowserRouter>
+      <div style={{ height: '800px', display: 'flex', alignItems: 'stretch' }}>
+        <SideNavComponent
+          productName={productName}
+          navItems={navItems}
+          systemOptions={systemOptions}
+          profileMenu={profileMenu}
+          overlayZIndex={100}
+          activeNavItem={activeNavItem}
+          activeSubItem={activeSubItem}
+          onNavItemClick={handleNavItemClick}
+          onSubItemClick={handleSubItemClick}
+        />
+        <Routes>
+          <Route path="/item2" element={<Content route="item 2" />} />
+          <Route path="/item3" element={<Content route="item 3" />} />
+          <Route path="/sub-item1" element={<Content route="sub item 1" />} />
+          <Route path="/sub-item2" element={<Content route="sub item 2" />} />
+          <Route path="/item4" element={<Content route="item 4" />} />
+          <Route path="/iframe.html" element={<Content route="iframe" />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export const SideNav = Template.bind({});
 SideNav.args = {

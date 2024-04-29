@@ -5,6 +5,10 @@ export interface SideNavProps {
   navItems: ItemProps[];
   systemOptions: SystemItemProps[];
   profileMenu: ProfileMenuType;
+  onNavItemClick: (id: string | null) => void;
+  onSubItemClick: (id: string | null) => void;
+  activeNavItem: string | null;
+  activeSubItem: string | null;
   productName?: string;
   overlayZIndex?: number;
 }

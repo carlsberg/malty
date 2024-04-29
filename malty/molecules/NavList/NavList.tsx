@@ -14,13 +14,13 @@ const LinkComponent = ({ component, href, children, componentProps }: LinkCompon
   return component ? <CustomComponent {...componentProps}>{children}</CustomComponent> : <a href={href}>{children}</a>;
 };
 
-const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemProps) => {
-  const { component, name, href, ...customProps } = item;
+const SubNavItem = ({ item, onSubItemClick, selected }: SubNavItemProps) => {
+  const { id, component, name, href, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledSubNavItem onClick={() => setActiveNavItem(itemIndex)} selected={selected} theme={theme}>
+    <StyledSubNavItem onClick={() => onSubItemClick(id)} selected={selected} theme={theme} data-testid="subnav-item">
       <LinkComponent component={component} href={href} componentProps={componentProps}>
         <Text textStyle={TextStyle.MediumSmallDefault} color={TextColor.White}>
           {name}
@@ -30,21 +30,23 @@ const SubNavItem = ({ item, itemIndex, setActiveNavItem, selected }: SubNavItemP
   );
 };
 
-const NavItem = ({ item, itemIndex, setActiveNavItem, openSubNav, selected = false, className }: NavItemProps) => {
-  const { component, name, href, icon, subItems, category, ...customProps } = item;
+const NavItem = ({ item, onNavItemClick, openSubNav, selected = false, className }: NavItemProps) => {
+  const { id, component, name, href, icon, subItems, category, ...customProps } = item;
   const componentProps = { ...customProps };
   const theme = useContext(ThemeContext) || defaultTheme;
+  const firstSubItemId = subItems && subItems[0]?.id;
 
   const handleOnClick = () => {
     if (subItems) {
-      openSubNav(itemIndex);
+      openSubNav(id, firstSubItemId as string);
     } else {
-      setActiveNavItem(itemIndex);
+      onNavItemClick(id);
     }
   };
 
   return (
     <StyledNavItem
+      data-testid="nav-item"
       onClick={handleOnClick}
       selected={selected}
       theme={theme}
@@ -73,42 +75,59 @@ export const NavList = ({
   activeNavItem,
   activeSubItem,
   subNavIsActive,
-  setActiveNavItem,
-  setActiveSubItem,
+  onNavItemClick,
+  onSubItemClick,
   toggleSubNav
 }: NavListProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
+
+  const getCurrentPath = () => {
+    // check which nav item route matches the current window location
+    let currentPath;
+    for (let i = 0; i < navItems.length; i++) {
+      const currentItem = navItems[i];
+      const itemId = currentItem.id;
+      const currentLocation = window.location.pathname;
+      const itemPath = currentItem.to || currentItem.href;
+      const selected = itemPath === currentLocation;
+      if (selected) {
+        currentPath = itemId;
+
+        break;
+      }
+    }
+    return currentPath;
+  };
+
+  const setInitialActiveItem = () => {
+    // set initial selected active item for the one that matches the current window location
+    const navItemMatch = getCurrentPath();
+    onNavItemClick(navItemMatch as string);
+  };
 
   useEffect(() => {
     setInitialActiveItem();
   }, [navItems]);
 
-  const setInitialActiveItem = () => {
-    // set initial selected active item for the one that matches the current window location
-
-    for (let i = 0; i < navItems.length; i++) {
-      const currentItem = navItems[i];
-      const currentLocation = window.location.pathname;
-      const itemPath = currentItem.to || currentItem.href;
-      const selected = itemPath === currentLocation;
-      if (selected) {
-        setActiveNavItem(i);
-        break;
-      }
-    }
-  };
-
-  const openSubNav = (item: number) => {
-    setActiveNavItem(item);
+  const handleOpenSubNav = (itemId: string, firstSubItemId: string) => {
+    onNavItemClick(itemId);
     toggleSubNav(!subNavIsActive);
   };
 
-  const closeSubNav = () => {
-    setActiveSubItem(-1);
+  const handleCloseSubNav = () => {
     toggleSubNav(false);
   };
 
-  const activeItem = navItems[activeNavItem] || ({} as ItemProps);
+  type EmptyObj = Record<PropertyKey, never>;
+
+  const getActiveItem = (items: ItemProps[], activeItem: string | null): ItemProps | EmptyObj => {
+    if (!activeNavItem) {
+      return {} as ItemProps;
+    }
+    return items.find((item) => item.id === activeNavItem) || {};
+  };
+
+  const activeItem = getActiveItem(navItems, activeNavItem) || ({} as ItemProps);
   const { component, name, href, subItems, icon, category, ...customProps } = activeItem;
   const componentProps = { ...customProps };
 
@@ -127,26 +146,25 @@ export const NavList = ({
   };
 
   return (
-    <StyledNavList theme={theme}>
+    <StyledNavList theme={theme} data-testid="nav-list">
       {!subNavIsActive &&
-        navItems?.map((item, index) => {
-          const selected = activeNavItem === index;
+        navItems?.map((item) => {
+          const selected = activeNavItem === item.id;
           let className;
 
           if (item.category) {
             const itemsInCategory = navItems.filter((navItem) => navItem.category === item.category);
-            // add a class to the first and the list nav items that belong to the current category
+            // add a class to the first and the last nav items that belong to the current category
             className = resolveItemClass(itemsInCategory, item);
           }
 
           return (
             <NavItem
               item={item}
-              itemIndex={index}
-              setActiveNavItem={setActiveNavItem}
-              openSubNav={openSubNav}
+              onNavItemClick={onNavItemClick}
+              openSubNav={handleOpenSubNav}
               selected={selected}
-              key={item.key || `navItem${index}`}
+              key={item.key || `navItem${item.id}`}
               className={className}
             />
           );
@@ -154,7 +172,7 @@ export const NavList = ({
 
       {subNavIsActive && (
         <>
-          <StyledNavItem selected={false} onClick={closeSubNav} theme={theme}>
+          <StyledNavItem selected={false} onClick={handleCloseSubNav} theme={theme}>
             <LinkComponent component={component} href={href} componentProps={componentProps}>
               <ArrowSmallLeft size={IconSize.Small} color={IconColor.White} />
               <Text textStyle={TextStyle.MediumSmallBold} color={TextColor.White}>
@@ -162,14 +180,13 @@ export const NavList = ({
               </Text>
             </LinkComponent>
           </StyledNavItem>
-
           {subItems?.map((item, index) => {
-            const selected = activeSubItem === index;
+            const selected = activeSubItem === item.id;
             return (
               <SubNavItem
                 item={item}
                 itemIndex={index}
-                setActiveNavItem={setActiveSubItem}
+                onSubItemClick={onSubItemClick}
                 selected={selected}
                 key={item.key || `subNavItem${index}`}
               />
