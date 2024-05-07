@@ -3,7 +3,7 @@ import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
 import { ArrowSmallLeft } from '@carlsberggroup/malty.icons.arrow-small-left';
 import { ArrowSmallRight } from '@carlsberggroup/malty.icons.arrow-small-right';
 import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';
 import { ItemProps, LinkComponentProps, NavItemProps, NavListProps, SubNavItemProps } from './NavList.types';
@@ -80,34 +80,6 @@ export const NavList = ({
   toggleSubNav
 }: NavListProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
-
-  const getCurrentPath = () => {
-    // check which nav item route matches the current window location
-    let currentPath;
-    for (let i = 0; i < navItems.length; i++) {
-      const currentItem = navItems[i];
-      const itemId = currentItem.id;
-      const currentLocation = window.location.pathname;
-      const itemPath = currentItem.to || currentItem.href;
-      const selected = itemPath === currentLocation;
-      if (selected) {
-        currentPath = itemId;
-
-        break;
-      }
-    }
-    return currentPath;
-  };
-
-  const setInitialActiveItem = () => {
-    // set initial selected active item for the one that matches the current window location
-    const navItemMatch = getCurrentPath();
-    onNavItemClick(navItemMatch as string);
-  };
-
-  useEffect(() => {
-    setInitialActiveItem();
-  }, [navItems]);
 
   const handleOpenSubNav = (itemId: string, firstSubItemId: string) => {
     onNavItemClick(itemId);

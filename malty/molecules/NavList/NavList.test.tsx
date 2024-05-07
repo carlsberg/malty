@@ -31,6 +31,7 @@ const navWithRouterItems = [
 const testHandler = jest.fn();
 const toggleSubNav = jest.fn();
 const handleItemClick = jest.fn();
+const handleSubItemClick = jest.fn();
 
 describe('navList molecule', () => {
   afterEach(() => {
@@ -98,7 +99,30 @@ describe('navList molecule', () => {
     userEvent.click(itemWithSubNav);
 
     expect(toggleSubNav).toHaveBeenCalledTimes(1);
-    expect(handleItemClick).toHaveBeenCalledTimes(2);
+    expect(handleItemClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call on sub item click when clicking on sub-item', () => {
+    render(
+      <BrowserRouter>
+        <NavList
+          navItems={navWithRouterItems}
+          activeNavItem="item3"
+          activeSubItem="subItem1"
+          subNavIsActive={true}
+          onNavItemClick={handleItemClick}
+          onSubItemClick={handleSubItemClick}
+          toggleSubNav={toggleSubNav}
+        />
+      </BrowserRouter>
+    );
+
+    const subNavItem = screen.getByText('sub item 2');
+
+    userEvent.click(subNavItem);
+
+    expect(handleItemClick).not.toHaveBeenCalled();
+    expect(handleSubItemClick).toHaveBeenCalledTimes(1);
   });
 
   it('should list as many navigation items as configured', () => {
