@@ -2,27 +2,31 @@ import { DataTransfer } from '@carlsberggroup/malty.icons.data-transfer';
 import { render } from '@carlsberggroup/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { SideNav } from './SideNav';
 
 const productName = 'Ottilia';
 
 const simpleNavigation = [
-  { icon: <DataTransfer />, name: 'item 1', href: '/item1' },
-  { icon: <DataTransfer />, name: 'item 2', href: '/item2' },
-  { icon: <DataTransfer />, name: 'item 3', href: '/item3' }
+  { id: 'item1', icon: <DataTransfer />, name: 'item 1', href: '/item1' },
+  { id: 'item2', icon: <DataTransfer />, name: 'item 2', href: '/item2' },
+  { id: 'item3', icon: <DataTransfer />, name: 'item 3', href: '/item3' }
 ];
 
 const navWithRouterItems = [
-  { icon: <DataTransfer />, name: 'item 1', href: '/item1' },
-  { icon: <DataTransfer />, name: 'item 2', href: '/item2' },
+  { id: 'item1', icon: <DataTransfer />, name: 'item 1', href: '/item1' },
+  { id: 'item2', icon: <DataTransfer />, name: 'item 2', href: '/item2' },
   {
+    id: 'item3',
     icon: <DataTransfer />,
     name: 'item with subnav',
     component: Link,
     to: '/',
-    subItems: [{ name: 'sub item 1', href: '/' }]
+    subItems: [
+      { id: 'subItem1', name: 'sub item 1', href: '/' },
+      { id: 'subItem2', name: 'sub item 2', href: '/' }
+    ]
   }
 ];
 
@@ -39,6 +43,9 @@ const profileMenu = {
     { name: 'Sign out', icon: <DataTransfer />, href: '/item2' }
   ]
 };
+
+const handleNavItemClick = jest.fn();
+const handleSubItemClick = jest.fn();
 
 describe('molecule sideNav', () => {
   beforeAll(() => {
@@ -62,6 +69,10 @@ describe('molecule sideNav', () => {
         navItems={simpleNavigation}
         systemOptions={systemOptions}
         profileMenu={profileMenu}
+        activeNavItem="item1"
+        activeSubItem="subItem1"
+        onNavItemClick={handleNavItemClick}
+        onSubItemClick={handleSubItemClick}
       />
     );
 
@@ -75,6 +86,10 @@ describe('molecule sideNav', () => {
         navItems={simpleNavigation}
         systemOptions={systemOptions}
         profileMenu={profileMenu}
+        activeNavItem="item1"
+        activeSubItem="subItem1"
+        onNavItemClick={handleNavItemClick}
+        onSubItemClick={handleSubItemClick}
       />
     );
 
@@ -94,6 +109,10 @@ it('should toggle the navigation when clicking the menu button', () => {
       navItems={simpleNavigation}
       systemOptions={systemOptions}
       profileMenu={profileMenu}
+      activeNavItem="item1"
+      activeSubItem="subItem1"
+      onNavItemClick={handleNavItemClick}
+      onSubItemClick={handleSubItemClick}
     />
   );
 
@@ -110,16 +129,29 @@ it('should toggle the navigation when clicking the menu button', () => {
 
 describe('sideNav sub navigation', () => {
   it('should open when clicking a nav item with sub items', () => {
-    render(
-      <BrowserRouter>
-        <SideNav
-          productName={productName}
-          navItems={navWithRouterItems}
-          systemOptions={systemOptions}
-          profileMenu={profileMenu}
-        />
-      </BrowserRouter>
-    );
+    const SideNavTest = () => {
+      const [activeNavItem, setActiveNavItem] = useState<string | null>('item 1');
+      const handleClick = (id: string | null) => {
+        setActiveNavItem(id);
+      };
+
+      return (
+        <BrowserRouter>
+          <SideNav
+            activeNavItem={activeNavItem}
+            activeSubItem="subItem1"
+            onNavItemClick={handleClick}
+            onSubItemClick={handleSubItemClick}
+            productName={productName}
+            navItems={navWithRouterItems}
+            systemOptions={systemOptions}
+            profileMenu={profileMenu}
+          />
+        </BrowserRouter>
+      );
+    };
+
+    render(<SideNavTest />);
 
     const itemWithSubNav = screen.getByText('item with subnav');
 

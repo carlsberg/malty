@@ -9,13 +9,20 @@ import { ThemeContext } from 'styled-components';
 import { StyledListWrapper, StyledSideNav, StyledWrapper } from './SideNav.styled';
 import { SideNavProps } from './SideNav.types';
 
-export const SideNav = ({ navItems, systemOptions, profileMenu, productName, overlayZIndex = 100 }: SideNavProps) => {
+export const SideNav = ({
+  navItems,
+  systemOptions,
+  profileMenu,
+  activeNavItem,
+  activeSubItem,
+  onNavItemClick,
+  onSubItemClick,
+  productName,
+  overlayZIndex = 100
+}: SideNavProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
   const sideNavZIndex = overlayZIndex + 1;
 
-  // Nav list active menu items
-  const [activeNavItem, setActiveNavItem] = useState(-1);
-  const [activeSubItem, setActiveSubItem] = useState(-1);
   const isDesktop = useMatchMedia(Device.Desktop);
   const [isNavOpen, setNavOpen] = useState(isDesktop);
   // Nav list subnav active state
@@ -35,8 +42,8 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
 
   // reset nav list to initial state
   const resetNavState = () => {
-    setActiveNavItem(-1);
-    setActiveSubItem(-1);
+    onNavItemClick(null);
+    onSubItemClick(null);
     toggleSubNav(false);
   };
 
@@ -69,8 +76,8 @@ export const SideNav = ({ navItems, systemOptions, profileMenu, productName, ove
                 activeNavItem={activeNavItem}
                 activeSubItem={activeSubItem}
                 subNavIsActive={subNavIsActive}
-                setActiveNavItem={setActiveNavItem}
-                setActiveSubItem={setActiveSubItem}
+                onNavItemClick={onNavItemClick}
+                onSubItemClick={onSubItemClick}
                 toggleSubNav={toggleSubNav}
               />
             </StyledListWrapper>

@@ -21,7 +21,7 @@ export const StyledNavItem = styled.li<{
   box-sizing: border-box;
   background-color: ${({ selected, theme }) =>
     `${selected ? theme.colors.colours.support[80].value : theme.colors.colours.default['digital-black'].value}}`};
-  cursor: ${({ selected }) => `${selected ? 'default' : 'pointer'}`};
+  cursor: pointer;
   user-select: none;
 
   & svg {
