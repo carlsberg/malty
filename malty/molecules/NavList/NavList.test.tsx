@@ -109,7 +109,7 @@ describe('navList molecule', () => {
           navItems={navWithRouterItems}
           activeNavItem="item3"
           activeSubItem="subItem1"
-          subNavIsActive={true}
+          subNavIsActive
           onNavItemClick={handleItemClick}
           onSubItemClick={handleSubItemClick}
           toggleSubNav={toggleSubNav}
