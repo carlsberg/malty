@@ -7,13 +7,12 @@ import { Pill } from './Pill';
 import { PillProps, PillSize, PillType } from './Pill.types';
 
 const meta: Meta<PillProps> = {
-  component: Pill,
   title: 'Information/Pill',
+  component: Pill,
   parameters: {
     importObject: 'Pill',
     importPath: '@carlsberggroup/malty.atoms.pill'
   },
-  render: (args) => <Pill {...args} />,
   argTypes: {
     text: {
       control: 'text',
@@ -22,22 +21,42 @@ const meta: Meta<PillProps> = {
     size: {
       description: 'Pill size, options below',
       options: Object.values(PillSize),
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: PillSize.Medium
+        }
+      }
     },
     type: {
       description: 'Pill type',
       options: Object.keys(PillType),
       mapping: PillType,
-      control: 'select'
+      control: 'select',
+      table: {
+        defaultValue: {
+          summary: PillType.Primary
+        }
+      }
     },
     icon: {
       description: 'The icon component to be displayed',
       options: allIconsStoryOptions,
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Icon',
+        type: {
+          summary: 'ReactElement | undefined'
+        }
+      }
     },
     isUppercase: {
       description: 'Use this property to uppercase the text content',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'Styling'
+      }
     },
     dataTestId: {
       control: 'text',

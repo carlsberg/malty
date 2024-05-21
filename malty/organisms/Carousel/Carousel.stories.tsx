@@ -3,18 +3,17 @@ import { ArticleCard } from '@carlsberggroup/malty.molecules.article-card';
 import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
 import { getBreakpointNumber } from '@carlsberggroup/malty.utils.helpers';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Carousel as CarouselComponent } from './Carousel';
+import { Carousel } from './Carousel';
 import { CarouselProps } from './Carousel.types';
 
-export default {
+const meta: Meta<CarouselProps> = {
   title: 'Layout/Carousel',
-  component: CarouselComponent,
+  component: Carousel,
   parameters: {
     importObject: 'Carousel',
     importPath: '@carlsberggroup/malty.organisms.carousel',
-    variants: ['default', 'image'],
     controls: {
       sort: 'requiredFirst'
     }
@@ -112,221 +111,213 @@ export default {
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<CarouselProps> = (props) => {
-  return <CarouselComponent {...props} />;
 };
 
-export const Carousel = Template.bind({});
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+type Story = StoryObj<CarouselProps>;
 
-switch (variant) {
-  case 'image':
-    Carousel.args = {
-      carouselSlide: [
-        {
-          id: 1,
-          slideComponent: <img src="https://picsum.photos/id/45/1920/800" width="100%" />,
-          slideDataTestId: 'carousel'
-        },
-        {
-          id: 2,
-          slideComponent: <img src="https://picsum.photos/id/15/1920/800" width="100%" />,
-          slideDataTestId: 'carousel2'
-        },
-        {
-          id: 3,
-          slideComponent: <img src="https://picsum.photos/id/25/1920/800" width="100%" />,
-          slideDataTestId: 'carousel3'
-        },
-        {
-          id: 4,
-          slideComponent: <img src="https://picsum.photos/id/75/1920/800" width="100%" />,
-          slideDataTestId: 'carousel'
-        },
-        {
-          id: 5,
-          slideComponent: <img src="https://picsum.photos/id/65/1920/800" width="100%" />,
-          slideDataTestId: 'carousel2'
-        },
-        {
-          id: 6,
-          slideComponent: <img src="https://picsum.photos/id/85/1920/800" width="100%" />,
-          slideDataTestId: 'carousel3'
-        }
-      ],
-      breakpoints: {},
-      negative: false,
-      ariaLabels: {
-        carousel: 'images-carousel',
-        next: 'next-image',
-        prev: 'previous-image'
+export const Base: Story = {
+  args: {
+    carouselSlide: [
+      {
+        id: 1,
+        slideComponent: (
+          <ArticleCard
+            title="This is card 01 "
+            description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Shadowed}
+          />
+        ),
+        slideDataTestId: 'carousel-1'
       },
-      gap: '1rem',
-      perPage: 1,
-      innerSpacingX: false,
-      dataTestId: 'malty'
-    };
-
-    break;
-
-  default:
-    Carousel.args = {
-      carouselSlide: [
-        {
-          id: 1,
-          slideComponent: (
-            <ArticleCard
-              title="This is card 01 "
-              description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Shadowed}
-            />
-          ),
-          slideDataTestId: 'carousel-1'
-        },
-        {
-          id: 2,
-          slideComponent: (
-            <ArticleCard
-              title="This is an article card 02"
-              description="Nunc vitae feugiat ante, uspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Outlined}
-            />
-          ),
-          slideDataTestId: 'carousel-2'
-        },
-        {
-          id: 3,
-          slideComponent: (
-            <ArticleCard
-              title="This is an article card 03"
-              description="Nunc vitae feugitor porttitor ex. Suspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Plain}
-            />
-          ),
-          slideDataTestId: 'carousel-3'
-        },
-        {
-          id: 4,
-          slideComponent: (
-            <ArticleCard
-              title="Card 04"
-              description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Shadowed}
-            />
-          ),
-          slideDataTestId: 'carousel-4'
-        },
-        {
-          id: 5,
-          slideComponent: (
-            <ArticleCard
-              title="This is an article card Title 05"
-              description="Nunc vitae feugiat ante, in suscipit sapien. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Vivamus auctor porttitor ex. Suspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Shadowed}
-            />
-          ),
-          slideDataTestId: 'carousel-5'
-        },
-        {
-          id: 6,
-          slideComponent: (
-            <ArticleCard
-              title="This is an article card 06"
-              description="Nunc vitae feugiat ante, uspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Outlined}
-            />
-          ),
-          slideDataTestId: 'carousel-6'
-        },
-        {
-          id: 7,
-          slideComponent: (
-            <ArticleCard
-              title="This is an 07"
-              description="Nunc vitae feugiat ante, uspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Outlined}
-            />
-          ),
-          slideDataTestId: 'carousel-7'
-        },
-        {
-          id: 8,
-          slideComponent: (
-            <ArticleCard
-              title="This is an article card Title 08"
-              description="Nunc vitae feugiat ante, uspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Outlined}
-            />
-          ),
-          slideDataTestId: 'carousel-8'
-        },
-        {
-          id: 9,
-          slideComponent: (
-            <ArticleCard
-              title="This is an article card 09"
-              description="Nunc vitae feugiat ante, uspendisse lorem odio."
-              date="12/06/2022"
-              imageSrc="https://picsum.photos/320/180"
-              dataTestId="article-card"
-              orientation={CardOrientation.Portrait}
-              cardStyle={CardStyle.Outlined}
-            />
-          ),
-          slideDataTestId: 'carousel-9'
-        }
-      ],
-      breakpoints: {
-        [getBreakpointNumber(layoutProps.medium['device-max-width'].value)]: { perPage: 6 },
-        [getBreakpointNumber(layoutProps.small['device-max-width'].value)]: { perPage: 4 },
-        [getBreakpointNumber(layoutProps.xsmall['device-max-width'].value)]: { perPage: 2 }
+      {
+        id: 2,
+        slideComponent: (
+          <ArticleCard
+            title="This is an article card 02"
+            description="Nunc vitae feugiat ante, uspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Outlined}
+          />
+        ),
+        slideDataTestId: 'carousel-2'
       },
-      negative: false,
-      ariaLabels: {
-        carousel: 'products-carousel',
-        next: 'next-product',
-        prev: 'previous-product'
+      {
+        id: 3,
+        slideComponent: (
+          <ArticleCard
+            title="This is an article card 03"
+            description="Nunc vitae feugitor porttitor ex. Suspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Plain}
+          />
+        ),
+        slideDataTestId: 'carousel-3'
       },
-      gap: '1rem',
-      perPage: 7,
-      innerSpacingX: true,
-      dataTestId: 'malty'
-    };
+      {
+        id: 4,
+        slideComponent: (
+          <ArticleCard
+            title="Card 04"
+            description="Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Shadowed}
+          />
+        ),
+        slideDataTestId: 'carousel-4'
+      },
+      {
+        id: 5,
+        slideComponent: (
+          <ArticleCard
+            title="This is an article card Title 05"
+            description="Nunc vitae feugiat ante, in suscipit sapien. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio. Vivamus auctor porttitor ex. Suspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Shadowed}
+          />
+        ),
+        slideDataTestId: 'carousel-5'
+      },
+      {
+        id: 6,
+        slideComponent: (
+          <ArticleCard
+            title="This is an article card 06"
+            description="Nunc vitae feugiat ante, uspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Outlined}
+          />
+        ),
+        slideDataTestId: 'carousel-6'
+      },
+      {
+        id: 7,
+        slideComponent: (
+          <ArticleCard
+            title="This is an 07"
+            description="Nunc vitae feugiat ante, uspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Outlined}
+          />
+        ),
+        slideDataTestId: 'carousel-7'
+      },
+      {
+        id: 8,
+        slideComponent: (
+          <ArticleCard
+            title="This is an article card Title 08"
+            description="Nunc vitae feugiat ante, uspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Outlined}
+          />
+        ),
+        slideDataTestId: 'carousel-8'
+      },
+      {
+        id: 9,
+        slideComponent: (
+          <ArticleCard
+            title="This is an article card 09"
+            description="Nunc vitae feugiat ante, uspendisse lorem odio."
+            date="12/06/2022"
+            imageSrc="https://picsum.photos/320/180"
+            dataTestId="article-card"
+            orientation={CardOrientation.Portrait}
+            cardStyle={CardStyle.Outlined}
+          />
+        ),
+        slideDataTestId: 'carousel-9'
+      }
+    ],
+    breakpoints: {
+      [getBreakpointNumber(layoutProps.medium['device-max-width'].value)]: { perPage: 6 },
+      [getBreakpointNumber(layoutProps.small['device-max-width'].value)]: { perPage: 4 },
+      [getBreakpointNumber(layoutProps.xsmall['device-max-width'].value)]: { perPage: 2 }
+    },
+    negative: false,
+    ariaLabels: {
+      carousel: 'products-carousel',
+      next: 'next-product',
+      prev: 'previous-product'
+    },
+    gap: '1rem',
+    perPage: 7,
+    innerSpacingX: true,
+    dataTestId: 'carousel-container-malty',
+    onVisible: () => null
+  }
+};
 
-    break;
-}
+export const Image: Story = {
+  args: {
+    ...Base.args,
+    carouselSlide: [
+      {
+        id: 1,
+        slideComponent: <img src="https://picsum.photos/id/45/1920/800" width="100%" />,
+        slideDataTestId: 'carousel'
+      },
+      {
+        id: 2,
+        slideComponent: <img src="https://picsum.photos/id/15/1920/800" width="100%" />,
+        slideDataTestId: 'carousel2'
+      },
+      {
+        id: 3,
+        slideComponent: <img src="https://picsum.photos/id/25/1920/800" width="100%" />,
+        slideDataTestId: 'carousel3'
+      },
+      {
+        id: 4,
+        slideComponent: <img src="https://picsum.photos/id/75/1920/800" width="100%" />,
+        slideDataTestId: 'carousel'
+      },
+      {
+        id: 5,
+        slideComponent: <img src="https://picsum.photos/id/65/1920/800" width="100%" />,
+        slideDataTestId: 'carousel2'
+      },
+      {
+        id: 6,
+        slideComponent: <img src="https://picsum.photos/id/85/1920/800" width="100%" />,
+        slideDataTestId: 'carousel3'
+      }
+    ],
+    breakpoints: {},
+    negative: false,
+    ariaLabels: {
+      carousel: 'images-carousel',
+      next: 'next-image',
+      prev: 'previous-image'
+    },
+    gap: '1rem',
+    innerSpacingX: false
+  }
+};
+
+export default meta;

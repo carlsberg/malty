@@ -7,7 +7,7 @@ describe('<Headline />', () => {
   it('Base', () => {
     const page = visit({
       args: { dataTestId },
-      storyId: 'typography-headline--headline'
+      storyId: 'typography-headline--base'
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -16,7 +16,7 @@ describe('<Headline />', () => {
   Object.keys(HeadlineAlign).forEach((align) => {
     it(`Align - ${align}`, () => {
       const page = visit({
-        storyId: 'typography-headline--headline',
+        storyId: 'typography-headline--base',
         args: { align, dataTestId }
       });
 
@@ -27,7 +27,7 @@ describe('<Headline />', () => {
   Object.keys(HeadlineColor).forEach((color) => {
     it(`Color - ${color}`, () => {
       const page = visit({
-        storyId: 'typography-headline--headline',
+        storyId: 'typography-headline--base',
         args: { color, dataTestId }
       });
 

@@ -1,43 +1,62 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { SegmentedControl as SegmentedControlComponent } from './SegmentedControl';
+import { SegmentedControl } from './SegmentedControl';
 import { SegmentedControlOptions, SegmentedControlProps, SegmentedControlSize } from './SegmentedControl.types';
 
-export default {
+const SegmentedControlComponent = ({ selected, ...props }: SegmentedControlProps) => {
+  const [newSelected, setNewSelected] = useState(selected);
+
+  return <SegmentedControl {...props} selected={newSelected} onChange={(value) => setNewSelected(value)} />;
+};
+
+const meta: Meta<SegmentedControlProps> = {
   title: 'Forms/Segmented Control',
-  component: SegmentedControlComponent,
+  component: SegmentedControl,
   parameters: {
     importObject: 'SegmentedControl',
     importPath: '@carlsberggroup/malty.molecules.segmented-control'
   },
+  render: (args) => <SegmentedControlComponent {...args} />,
   argTypes: {
     options: {
       description: 'Segmented Control options'
     },
     selected: {
-      description: 'Segmented Control that is selected. Needs to match the value property inside options'
+      description: 'Segmented Control that is selected. Needs to match the value property inside options',
+      table: {
+        category: 'State'
+      }
     },
     size: {
       description: 'Segmented Control size. Options are',
       options: Object.values(SegmentedControlSize),
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'SegmentedControlSize.Medium'
+          summary: SegmentedControlSize.Medium
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
 
     disabled: {
       control: 'boolean',
-      description: 'Disable Segmented Control'
+      description: 'Disable Segmented Control',
+      table: {
+        category: 'State'
+      }
     },
     dataQaId: {
       control: 'text',
       description: 'Segmented Control data-testid'
+    },
+    onChange: {
+      description: 'Function that will run when the `Chip`component state changes',
+      control: 'none',
+      table: {
+        category: 'Events'
+      }
     },
     ...generateStorybookSpacing()
   }
@@ -66,37 +85,33 @@ const segmentedControlOptions2: SegmentedControlOptions[] = [
     label: 'name 3'
   }
 ];
-const Template: Story<SegmentedControlProps> = (args) => {
-  const [selected, setselected] = useState(segmentedControlOptions1[1].value);
-  return <SegmentedControlComponent {...args} selected={selected} onChange={(value) => setselected(value)} />;
+
+type Story = StoryObj<SegmentedControlProps>;
+
+export const Base: Story = {
+  args: {
+    options: segmentedControlOptions1,
+    size: SegmentedControlSize.Medium,
+    selected: segmentedControlOptions1[0].value,
+    dataQaId: 'segmentedControl',
+    disabled: false
+  }
 };
 
-export const SegmentedControl = Template.bind({});
+export const Three: Story = {
+  args: {
+    ...Base.args,
+    options: segmentedControlOptions2,
+    selected: segmentedControlOptions2[1].value
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    size: SegmentedControlSize.XSmall,
+    disabled: true
+  }
+};
 
-switch (variant) {
-  case 'three':
-    SegmentedControl.args = {
-      options: segmentedControlOptions2,
-      selected: 'value 2'
-    };
-    break;
-  case 'disabled':
-    SegmentedControl.args = {
-      options: segmentedControlOptions1,
-      size: SegmentedControlSize.XSmall,
-      selected: 'value 1',
-      disabled: true
-    };
-    break;
-
-  default:
-    SegmentedControl.args = {
-      options: segmentedControlOptions1,
-      size: SegmentedControlSize.Small,
-      selected: 'value 1'
-    };
-    break;
-}
+export default meta;

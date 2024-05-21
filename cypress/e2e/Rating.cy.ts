@@ -4,14 +4,14 @@ const dataTestId = 'rating';
 
 describe('<Rating />', () => {
   it('Base', () => {
-    const page = visit({ args: { dataTestId }, storyId: 'forms-rating--rating' });
+    const page = visit({ args: { dataTestId }, storyId: 'forms-rating--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Total review', () => {
     const page = visit({
-      storyId: 'forms-rating--rating',
+      storyId: 'forms-rating--base',
       args: { dataTestId, totalReview: '10' }
     });
 
@@ -20,8 +20,8 @@ describe('<Rating />', () => {
 
   it('Readonly', () => {
     const page = visit({
-      storyId: 'forms-rating--rating',
-      args: { dataTestId, readOnly: 'true' }
+      storyId: 'forms-rating--read-only',
+      args: { dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -29,8 +29,8 @@ describe('<Rating />', () => {
 
   it('Disabled', () => {
     const page = visit({
-      storyId: 'forms-rating--rating',
-      args: { dataTestId, disabled: 'true' }
+      storyId: 'forms-rating--disabled',
+      args: { dataTestId }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());

@@ -1,23 +1,42 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Modal as ModalComponent } from './Modal';
+import { Modal } from './Modal';
 import { ActionButtonProps, ModalProps, ModalSize } from './Modal.types';
 
-export default {
+const ModalComponent = ({ open, ...props }: ModalProps) => {
+  const [openModal, setOpenModal] = useState(open);
+  const toggleModal = () => setOpenModal(!openModal);
+
+  return (
+    <div style={{ height: '600px', width: '1200px' }}>
+      <button type="button" onClick={toggleModal}>
+        Toggle Modal
+      </button>
+      <Modal {...props} open={openModal} onClose={toggleModal} />
+    </div>
+  );
+};
+
+const meta: Meta<ModalProps> = {
   title: 'Overlays/Modal',
-  component: ModalComponent,
+  component: Modal,
   parameters: {
     importObject: 'Modal',
     importPath: '@carlsberggroup/malty.molecules.modal'
   },
+  render: (args) => <ModalComponent {...args} />,
   argTypes: {
     open: {
-      description: 'The bolean state that controlls whether the Modal is open or not',
-      control: ''
+      description: 'The boolean state that controls whether the Modal is open or not',
+      control: 'none'
     },
-    setOpen: {
-      description: `The useState function that controlls the "open" state`
+    onClose: {
+      description: 'Function that will run when the user closes the modal',
+      control: 'none',
+      table: {
+        category: 'Events'
+      }
     },
     title: {
       control: 'text',
@@ -30,58 +49,43 @@ export default {
     actions: {
       control: '',
       description:
-        'An array of maximum 2 actions structured as such "ActionButtonProps[] | React.ReactNode | JSX.Element"'
+        'An array of maximum 2 actions structured as such "ActionButtonProps[] | React.ReactNode | JSX.Element"',
+      table: {
+        category: 'Events'
+      }
     },
     whiteBackground: {
       control: 'boolean',
-      description: 'If true background overlay turns white instead of grayish'
+      description: 'If true background overlay turns white instead of grayish',
+      table: {
+        category: 'Styling'
+      }
     },
     overlayZindex: {
       control: 'number',
-      description: 'Controls the z-index of the modal overlay'
+      description: 'Controls the z-index of the modal overlay',
+      table: {
+        category: 'Styling'
+      }
     },
     size: {
       control: {
         type: 'select'
       },
       options: Object.values(ModalSize),
-      description: 'Picks the size of the modal'
+      description: 'Picks the size of the modal',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: ModalSize.Medium
+        }
+      }
+    },
+    content: {
+      description: 'Body content of the modal'
     }
   }
-} as Meta;
-
-const Template: Story<ModalProps> = ({
-  title,
-  content,
-  actions,
-  dismissible,
-  whiteBackground,
-  size,
-  overlayZindex
-}: ModalProps) => {
-  const [open, setOpen] = useState(true);
-  const toggleModal = () => setOpen(!open);
-  return (
-    <div style={{ height: '600px', width: '1200px' }}>
-      <button type="button" onClick={toggleModal}>
-        Toggle Modal
-      </button>
-      <ModalComponent
-        open={open}
-        content={content}
-        dismissible={dismissible}
-        onClose={toggleModal}
-        title={title}
-        actions={actions}
-        whiteBackground={whiteBackground}
-        size={size}
-        overlayZindex={overlayZindex}
-      />
-    </div>
-  );
 };
-
-export const Modal = Template.bind({});
 
 const actions: ActionButtonProps[] = [
   {
@@ -100,12 +104,19 @@ const actions: ActionButtonProps[] = [
   }
 ];
 
-Modal.args = {
-  title: 'Headline',
-  content: <p>Anything you want</p>,
-  dismissible: true,
-  whiteBackground: false,
-  size: ModalSize.Medium,
-  overlayZindex: 999,
-  actions
+type Story = StoryObj<ModalProps>;
+
+export const Base: Story = {
+  args: {
+    title: 'Headline',
+    content: <p>Anything you want</p>,
+    open: true,
+    dismissible: true,
+    whiteBackground: false,
+    size: ModalSize.Medium,
+    overlayZindex: 999,
+    actions
+  }
 };
+
+export default meta;

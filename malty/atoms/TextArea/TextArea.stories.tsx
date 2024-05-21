@@ -12,8 +12,8 @@ const TextAreaComponent = (props: TextAreaProps) => {
 };
 
 const meta: Meta<TextAreaProps> = {
-  component: TextArea,
   title: 'Forms/Text Area',
+  component: TextArea,
   parameters: {
     importObject: 'TextArea',
     importPath: '@carlsberggroup/malty.atoms.text-area'
@@ -34,11 +34,17 @@ const meta: Meta<TextAreaProps> = {
     },
     disabled: {
       control: 'boolean',
-      description: 'Textarea state, disabled'
+      description: 'Textarea state, disabled',
+      table: {
+        category: 'State'
+      }
     },
     readOnly: {
       control: 'boolean',
-      description: 'Textarea state, readOnly'
+      description: 'Textarea state, readOnly',
+      table: {
+        category: 'State'
+      }
     },
     error: {
       description: 'Error message to be displayed when error is present.',
@@ -57,7 +63,10 @@ const meta: Meta<TextAreaProps> = {
       control: 'text'
     },
     onValueChange: {
-      description: 'Function to be executed when textarea state changes'
+      description: 'Function to be executed when textarea state changes',
+      table: {
+        category: 'Events'
+      }
     },
     dataTestId: {
       control: 'text',
@@ -84,8 +93,29 @@ export const Base: Story = {
     value: '',
     hint: 'hint text',
     readOnly: false,
-    dataTestId: 'Textarea',
+    dataTestId: 'text-area',
     required: false
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
+  }
+};
+
+export const WithError: Story = {
+  args: {
+    ...Base.args,
+    error: 'This is an error!'
   }
 };
 

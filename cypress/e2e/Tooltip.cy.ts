@@ -5,15 +5,15 @@ const dataTestIdTriggerElement = 'tooltip-trigger-element';
 
 describe('<Tooltip />', () => {
   it('Base', () => {
-    const page = visit({ args: { dataTestId }, storyId: 'information-tooltip--tooltip' });
+    const page = visit({ args: { dataTestId }, storyId: 'information-tooltip--base' });
 
     page.getFullPageWithVisibleTarget(dataTestIdTriggerElement).compareSnapshot(buildSnapshotName());
   });
 
-  it('Dark mode', () => {
+  it('Light mode', () => {
     const page = visit({
-      storyId: 'information-tooltip--tooltip',
-      args: { dataTestId, isOpen: 'true', isDark: 'true' }
+      storyId: 'information-tooltip--light',
+      args: { dataTestId, isOpen: 'true' }
     });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
@@ -21,7 +21,7 @@ describe('<Tooltip />', () => {
 
   it('Open on top', () => {
     const page = visit({
-      storyId: 'information-tooltip--tooltip',
+      storyId: 'information-tooltip--base',
       args: { dataTestId, isOpen: 'true' }
     });
 
@@ -30,7 +30,7 @@ describe('<Tooltip />', () => {
 
   it('Open on bottom', () => {
     const page = visit({
-      storyId: 'information-tooltip--tooltip',
+      storyId: 'information-tooltip--base',
       args: { dataTestId, isOpen: 'true', placement: 'bottom' }
     });
 
@@ -39,7 +39,7 @@ describe('<Tooltip />', () => {
 
   it('Open on left', () => {
     const page = visit({
-      storyId: 'information-tooltip--tooltip',
+      storyId: 'information-tooltip--base',
       args: { dataTestId, isOpen: 'true', placement: 'left' }
     });
 
@@ -48,7 +48,7 @@ describe('<Tooltip />', () => {
 
   it('Open on right', () => {
     const page = visit({
-      storyId: 'information-tooltip--tooltip',
+      storyId: 'information-tooltip--base',
       args: { dataTestId, isOpen: 'true', placement: 'right' }
     });
 
