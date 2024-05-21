@@ -1,12 +1,11 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { ProgressBar as ProgressBarContainer } from './ProgressBar';
+import { Meta, StoryObj } from '@storybook/react';
+import { ProgressBar } from './ProgressBar';
 import { ProgressBarProps, ProgressBarSize } from './ProgressBar.types';
 
-export default {
+const meta: Meta<ProgressBarProps> = {
   title: 'Progress Indicators/Progress Bar',
-  component: ProgressBarContainer,
+  component: ProgressBar,
   parameters: {
     importObject: 'ProgressBar',
     importPath: '@carlsberggroup/malty.atoms.progress-bar'
@@ -46,15 +45,21 @@ export default {
     },
     disabled: {
       control: 'boolean',
-      description: 'Changes the progress bar visuals to simulate a disabled state'
+      description: 'Changes the progress bar visuals to simulate a disabled state',
+      table: {
+        category: 'State'
+      }
     },
     size: {
       description: 'Size of the progress bar',
       options: Object.keys(ProgressBarSize),
       mapping: ProgressBarSize,
-      control: {
-        type: 'select',
-        label: Object.values(ProgressBarSize)
+      control: 'select',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: ProgressBarSize.Medium
+        }
       }
     },
     dataTestId: {
@@ -63,15 +68,25 @@ export default {
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<ProgressBarProps> = (props: ProgressBarProps) => <ProgressBarContainer {...props} />;
-
-export const ProgressBar = Template.bind({});
-
-ProgressBar.args = {
-  progress: 20,
-  displayAmount: true,
-  label: 'Loading items...',
-  size: ProgressBarSize.Medium
 };
+
+type Story = StoryObj<ProgressBarProps>;
+
+export const Base: Story = {
+  args: {
+    progress: 20,
+    displayAmount: true,
+    label: 'Loading items...',
+    size: ProgressBarSize.Medium,
+    dataTestId: 'progress-bar'
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export default meta;

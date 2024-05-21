@@ -1,23 +1,14 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { Story } from '@storybook/react';
-import React from 'react';
-import { Hero as HeroComponent } from './Hero';
+import { Meta, StoryObj } from '@storybook/react';
+import { Hero } from './Hero';
 import { ActionButtonProps, HeroProps } from './Hero.types';
 
-enum HeroVariants {
-  Required = 'required',
-  Actions = 'actions',
-  Scroll = 'scroll',
-  Default = 'default'
-}
-
-export default {
+const meta: Meta<HeroProps> = {
   title: 'Layout/Hero',
-  component: HeroComponent,
+  component: Hero,
   parameters: {
     importObject: 'Hero',
-    importPath: '@carlsberggroup/malty.molecules.hero',
-    variants: Object.values(HeroVariants)
+    importPath: '@carlsberggroup/malty.molecules.hero'
   },
   argTypes: {
     title: {
@@ -26,7 +17,7 @@ export default {
     },
     titleAs: {
       control: 'text',
-      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags."
+      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags"
     },
     description: {
       control: 'text',
@@ -34,7 +25,7 @@ export default {
     },
     descriptionAs: {
       control: 'text',
-      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags."
+      description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags"
     },
     imageSrc: {
       control: 'text',
@@ -47,7 +38,10 @@ export default {
     actions: {
       control: 'object',
       desciption:
-        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
+        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"',
+      table: {
+        category: 'Events'
+      }
     },
     scrollText: {
       control: 'text',
@@ -55,85 +49,56 @@ export default {
     },
     height: {
       control: 'text',
-      description: 'This sets the height value dynamically, the min-height will always be 80vh as default'
+      description: 'This sets the height value dynamically, the min-height will always be 80vh as default',
+      table: {
+        category: 'Styling'
+      }
     }
   }
 };
 
-const Template: Story<HeroProps> = (args) => {
-  return <HeroComponent {...args} />;
+type Story = StoryObj<HeroProps>;
+
+const actions: ActionButtonProps[] = [
+  {
+    key: 'primary',
+    negative: false,
+    color: ButtonColor.DigitalBlack,
+    style: ButtonStyle.Primary,
+    text: 'I want to know more',
+    onClick: () => alert('First button pressed!')
+  },
+  {
+    key: 'secondary',
+    negative: false,
+    color: ButtonColor.DigitalBlack,
+    style: ButtonStyle.Secondary,
+    text: 'I am ok',
+    onClick: () => alert('Second button pressed!')
+  }
+];
+
+export const Base: Story = {
+  args: {
+    title: 'Welcome to Carlsberg Online',
+    description: 'Now you can order all your favourite products on your smartphone or computer within minutes.',
+    imageSrc: 'https://placehold.co/1400x800',
+    dataTestId: 'hero'
+  }
 };
 
-export const Hero = Template.bind({});
-
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
-
-const requiredProps: HeroProps = {
-  title: 'Welcome to Carlsberg Online',
-  description: 'Now you can order all your favourite products on your smartphone or computer within minutes.',
-  imageSrc: 'https://placehold.co/1400x800'
+export const Scroll: Story = {
+  args: {
+    ...Base.args,
+    scrollText: 'Scroll to know more'
+  }
 };
 
-switch (variant) {
-  case HeroVariants.Required:
-    Hero.args = {
-      ...requiredProps
-    };
-    break;
-  case HeroVariants.Actions: {
-    const actions: ActionButtonProps[] = [
-      {
-        key: 'primary',
-        style: ButtonStyle.Primary,
-        text: 'I want to know more',
-        onClick: () => alert('First button pressed!')
-      },
-      {
-        key: 'secondary',
-        style: ButtonStyle.Secondary,
-        text: 'I am ok',
-        onClick: () => alert('Second button pressed!')
-      }
-    ];
-
-    Hero.args = {
-      ...requiredProps,
-      actions
-    };
-    break;
+export const Actions: Story = {
+  args: {
+    ...Base.args,
+    actions
   }
-  case HeroVariants.Scroll:
-    Hero.args = {
-      ...requiredProps,
-      scrollText: 'Scroll to know more'
-    };
-    break;
-  default: {
-    const actions: ActionButtonProps[] = [
-      {
-        key: 'primary',
-        negative: true,
-        color: ButtonColor.DigitalBlack,
-        style: ButtonStyle.Primary,
-        text: 'I want to know more',
-        onClick: () => alert('First button pressed!')
-      },
-      {
-        key: 'secondary',
-        negative: true,
-        color: ButtonColor.DigitalBlack,
-        style: ButtonStyle.Secondary,
-        text: 'I am ok',
-        onClick: () => alert('Second button pressed!')
-      }
-    ];
+};
 
-    Hero.args = {
-      ...requiredProps,
-      actions,
-      scrollText: 'Scroll to know more'
-    };
-    break;
-  }
-}
+export default meta;

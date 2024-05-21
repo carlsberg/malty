@@ -1,7 +1,7 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
-import { Checkbox as CheckboxComponent } from './Checkbox';
+import { Checkbox } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
 const ControlledCheckbox = ({ checked, ...args }: CheckboxProps) => {
@@ -11,29 +11,24 @@ const ControlledCheckbox = ({ checked, ...args }: CheckboxProps) => {
     setIsChecked(checked);
   }, [checked]);
 
-  return <CheckboxComponent {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
+  return <Checkbox {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
 };
 
 const meta: Meta<CheckboxProps> = {
   title: 'Forms/Checkbox',
-  component: CheckboxComponent,
+  component: Checkbox,
   render: (args) => <ControlledCheckbox {...args} />,
   parameters: {
     importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.checkbox',
-    variants: []
+    importPath: '@carlsberggroup/malty.atoms.checkbox'
   },
   argTypes: {
     value: {
-      control: {
-        type: 'text'
-      },
+      control: 'text',
       description: 'This is the value to be passed'
     },
     labelText: {
-      control: {
-        type: 'text'
-      },
+      control: 'text',
       description: 'This is the label for the checkbox'
     },
     required: {
@@ -42,32 +37,48 @@ const meta: Meta<CheckboxProps> = {
     },
     readOnly: {
       control: 'boolean',
-      description: 'Makes the checkbox readonly'
+      description: 'Makes the checkbox readonly',
+      table: {
+        category: 'State'
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Makes the checkbox disabled'
+      description: 'Makes the checkbox disabled',
+      table: {
+        category: 'State'
+      }
     },
     fullWidth: {
       control: 'boolean',
-      description: 'Makes the checkbox width 100%'
+      description: 'Makes the checkbox width 100%',
+      table: {
+        category: 'Styling'
+      }
     },
     isIndeterminate: {
       control: 'boolean',
-      description: 'Makes the checkbox Indeterminate'
+      description: 'Makes the checkbox Indeterminate',
+      table: {
+        category: 'State'
+      }
     },
     error: {
-      control: {
-        type: 'text'
-      },
+      control: 'text',
       description: 'Error message below'
     },
     checked: {
       control: 'boolean',
-      description: 'Checked `true` or `false`.'
+      description: 'Checked `true` or `false`.',
+      table: {
+        category: 'State'
+      }
     },
     onValueChange: {
-      description: 'Function to be executed when checkbox state changes'
+      description: 'Function to be executed when checkbox state changes',
+      table: {
+        category: 'Events'
+      }
     },
     dataTestId: {
       control: 'text',
@@ -85,7 +96,8 @@ export const Base: Story = {
     labelText: 'Base label',
     error: '',
     checked: true,
-    required: false
+    required: false,
+    dataTestId: 'checkbox'
   }
 };
 

@@ -1,51 +1,92 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { AccordionColor, AccordionItem, AccordionProps, AccordionSize } from '.';
-import { Accordion as AccordionComponent } from './Accordion';
+import { Accordion } from './Accordion';
 
-export default {
+const AccordionComponent = (props: AccordionProps) => {
+  return (
+    <Accordion {...props}>
+      <AccordionItem eventKey="1" title="Accordion title 1">
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </div>
+      </AccordionItem>
+      <AccordionItem eventKey="2" title="Accordion title 2">
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </div>
+      </AccordionItem>
+      <AccordionItem eventKey="3" title="Accordion title 3">
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </div>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+const meta: Meta<AccordionProps> = {
   title: 'Layout/Accordion',
-  component: AccordionComponent,
+  component: Accordion,
   parameters: {
     importObject: 'Accordion',
-    importPath: '@carlsberggroup/malty.molecules.accordion',
-    variants: ['support', 'transparent']
+    importPath: '@carlsberggroup/malty.molecules.accordion'
   },
+  render: (args) => <AccordionComponent {...args} />,
   argTypes: {
     alwaysOpen: {
       description: 'Allow accordion items to stay open when another item is opened',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        defaultValue: {
+          summary: false
+        }
+      }
     },
     defaultActiveKey: {
-      description: 'The default active key that is expanded on start'
+      description: 'The default active key that is expanded on start',
+      table: {
+        defaultValue: {
+          summary: '[]'
+        }
+      }
     },
     size: {
       description: 'Accordion size. Options are',
       options: Object.values(AccordionSize),
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'AccordionSize.Medium'
+          summary: AccordionSize.Medium
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     variant: {
       description: 'Accordion variant, changes background color',
       options: Object.values(AccordionColor),
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'AccordionColor.Transparent'
+          summary: AccordionColor.Transparent
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     children: {
-      description: 'Pass in the children that will be rendered within the Accordion'
+      description: 'Pass in the children that will be rendered within the Accordion',
+      table: {
+        type: {
+          summary: 'React.ReactElement<AccordionItemProps>[]'
+        }
+      }
     },
     dataQaId: {
       control: 'text',
@@ -54,54 +95,24 @@ export default {
     ...generateStorybookSpacing()
   }
 };
-const Template: Story<AccordionProps> = (args) => (
-  <AccordionComponent {...args}>
-    <AccordionItem eventKey="1" title="Accordion title 1">
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </div>
-    </AccordionItem>
-    <AccordionItem eventKey="2" title="Accordion title 2">
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </div>
-    </AccordionItem>
-    <AccordionItem eventKey="3" title="Accordion title 3">
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat.
-      </div>
-    </AccordionItem>
-  </AccordionComponent>
-);
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
-const alwaysOpen = params.get('alwaysOpen');
+type Story = StoryObj<AccordionProps>;
 
-export const Accordion = Template.bind({});
+export const Base: Story = {
+  args: {
+    size: AccordionSize.Large,
+    variant: AccordionColor.Transparent,
+    alwaysOpen: false,
+    defaultActiveKey: ['1'],
+    dataQaId: 'accordion'
+  }
+};
 
-switch (variant) {
-  case 'support':
-    Accordion.args = {
-      size: AccordionSize.Large,
-      variant: AccordionColor.Support,
-      alwaysOpen: !!alwaysOpen,
-      defaultActiveKey: ['1']
-    };
-    break;
+export const Support: Story = {
+  args: {
+    ...Base.args,
+    variant: AccordionColor.Support
+  }
+};
 
-  default:
-    Accordion.args = {
-      size: AccordionSize.Large,
-      variant: AccordionColor.Transparent,
-      alwaysOpen: !!alwaysOpen,
-      defaultActiveKey: ['1']
-    };
-    break;
-}
+export default meta;

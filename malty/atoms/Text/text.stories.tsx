@@ -1,12 +1,11 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
-import React from 'react';
-import { Text as TextComponent } from './Text';
+import { Meta, StoryObj } from '@storybook/react';
+import { Text } from './Text';
 import { TextAlign, TextColor, TextProps, TextStyle } from './Text.types';
 
-export default {
+const meta: Meta<TextProps> = {
   title: 'Typography/Text',
-  component: TextComponent,
+  component: Text,
   parameters: {
     importObject: 'Text',
     importPath: '@carlsberggroup/malty.atoms.text'
@@ -14,20 +13,17 @@ export default {
   argTypes: {
     children: {
       description: 'This is the content of a text component',
-      control: { type: 'text' }
+      control: 'text'
     },
     textStyle: {
       description: 'Style of the text, from the following options',
       options: Object.keys(TextStyle),
       mapping: TextStyle,
-      control: {
-        type: 'select',
-        label: Object.values(TextStyle)
-      },
-      defaultValue: 'MediumBold',
+      control: 'select',
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'TextStyle.MediumDefault'
+          summary: TextStyle.MediumDefault
         }
       }
     },
@@ -35,14 +31,11 @@ export default {
       description: 'Text alignment, from the following options',
       options: Object.keys(TextAlign),
       mapping: TextAlign,
-      control: {
-        type: 'select',
-        label: Object.values(TextAlign)
-      },
-      defaultValue: 'Left',
+      control: 'select',
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'TextAlign.Left'
+          summary: TextAlign.Left
         }
       }
     },
@@ -50,30 +43,40 @@ export default {
       description: 'Color of the text, from the following options',
       options: Object.keys(TextColor),
       mapping: TextColor,
-      control: {
-        type: 'select',
-        label: Object.values(TextColor)
-      },
-      defaultValue: 'DigitalBlack',
+      control: 'select',
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'TextColor.DigitalBlack'
+          summary: TextColor.DigitalBlack
         }
       }
     },
     italic: {
       description: 'Should text be italic?',
-      table: { defaultValue: { summary: false } },
-      control: { type: 'boolean' }
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: false
+        }
+      },
+      control: 'boolean'
     },
     ellipsis: {
       description: 'Should text be truncated?',
-      table: { defaultValue: { summary: false } },
-      control: { type: 'boolean' }
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: false
+        }
+      },
+      control: 'boolean'
     },
     width: {
       description: 'Width of text component',
-      control: { type: 'text' }
+      control: 'text',
+      table: {
+        category: 'Styling'
+      }
     },
     as: {
       description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
@@ -83,14 +86,22 @@ export default {
       control: 'text',
       description: 'Text data-testid'
     },
+    className: {
+      description: 'Add a classname to the component',
+      control: 'text'
+    },
     ...generateStorybookSpacing()
   }
 };
-const Template: Story<TextProps> = (args) => <TextComponent {...args} />;
 
-export const Text = Template.bind({});
+type Story = StoryObj<TextProps>;
 
-Text.args = {
-  children:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia ut nunc.'
+export const Base: Story = {
+  args: {
+    dataTestId: 'text',
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque lorem augue, cursus ac sem in, fringilla sagittis ligula. Curabitur viverra laoreet convallis. Nam mi tortor, pellentesque sollicitudin pretium in, lacinia ut nunc.'
+  }
 };
+
+export default meta;

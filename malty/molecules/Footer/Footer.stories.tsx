@@ -1,12 +1,11 @@
 import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Footer as FooterComponent } from './Footer';
+import { Meta, StoryObj } from '@storybook/react';
+import { Footer } from './Footer';
 import { FooterProps, FooterSections, FooterSocialMedia, FooterSocialMediaIconName } from './Footer.types';
 
-export default {
+const meta: Meta<FooterProps> = {
   title: 'Layout/Footer',
-  component: FooterComponent,
+  component: Footer,
   parameters: {
     importObject: 'Footer',
     importPath: '@carlsberggroup/malty.molecules.footer'
@@ -14,25 +13,29 @@ export default {
   argTypes: {
     brandInfo: {
       control: 'text',
-      description: 'adress'
+      description: 'Adress'
     },
     copyright: {
       control: 'text',
-      description: 'copyright text'
+      description: 'Copyright text'
     },
     content: {
-      description: 'footer content'
+      description: 'Footer content'
     },
     socialMedia: {
-      description: 'object to display social media icons'
+      description: 'Object to display social media icons'
     },
     brandIcon: {
       description: 'The icon component to be displayed',
       options: allIconsStoryOptions,
       control: 'select'
+    },
+    dataQaId: {
+      control: 'text',
+      description: 'Footer data-testid'
     }
   }
-} as Meta;
+};
 
 const footerSections: FooterSections[] = [
   {
@@ -84,12 +87,16 @@ const socialMediaIcons: FooterSocialMedia[] = [
   }
 ];
 
-const Template: Story<FooterProps> = (args) => <FooterComponent {...args} />;
+type Story = StoryObj<FooterProps>;
 
-export const Footer = Template.bind({});
-Footer.args = {
-  brandInfo: 'Carlsberg Breweries A/S J.C. Jacobsens Gade 1, 1799 Copenhagen V Denmark',
-  content: footerSections,
-  socialMedia: socialMediaIcons,
-  copyright: '© Powered by Carlsberg Group'
+export const Base: Story = {
+  args: {
+    brandInfo: 'Carlsberg Breweries A/S J.C. Jacobsens Gade 1, 1799 Copenhagen V Denmark',
+    content: footerSections,
+    socialMedia: socialMediaIcons,
+    copyright: '© Powered by Carlsberg Group',
+    dataQaId: 'footer'
+  }
 };
+
+export default meta;

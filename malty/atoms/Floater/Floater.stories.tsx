@@ -12,8 +12,8 @@ const StyledWrapper = styled.div`
 `;
 
 const meta: Meta<FloaterProps> = {
-  component: Floater,
   title: 'Forms/Floater',
+  component: Floater,
   parameters: {
     importObject: 'Floater',
     importPath: '@carlsberggroup/malty.atoms.floater'
@@ -29,40 +29,62 @@ const meta: Meta<FloaterProps> = {
       description: 'Button label, can be'
     },
     onClick: {
-      description: 'This is a function that will run on click. It is not a required property'
+      description: 'This is a function that will run on click. It is not a required property',
+      table: {
+        category: 'Events'
+      }
     },
     scroll: {
       description: 'Scroll position where will floater show',
-      defaultValue: {
-        summary: 0
+      table: {
+        defaultValue: {
+          summary: 0
+        }
       },
-      control: {
-        type: 'number'
-      }
+      control: 'number'
     },
     negative: {
       control: 'boolean',
-      description: 'Should this be a white button?'
+      description: 'Should this be a white button?',
+      table: {
+        category: 'Styling'
+      }
     },
     icon: {
       description: 'The icon component to be displayed',
       options: allIconsStoryOptions,
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Icon'
+      }
     },
     iconPos: {
       description: 'When icon present, position will be',
       control: 'select',
       mapping: FloaterIconPosition,
-      options: Object.keys(FloaterIconPosition)
+      options: Object.keys(FloaterIconPosition),
+      table: {
+        category: 'Icon',
+        defaultValue: {
+          summary: FloaterIconPosition.Right
+        }
+      }
     },
     color: {
       description: 'Floater color. Options are',
       control: 'select',
       mapping: FloaterColor,
-      options: Object.keys(FloaterColor)
+      options: Object.keys(FloaterColor),
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: FloaterColor.DigitalBlack
+        }
+      }
     },
     dataTestId: {
-      control: 'text'
+      control: 'text',
+      description: 'Floater data-testid'
     },
     ...generateStorybookSpacing()
   }

@@ -1,18 +1,31 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { TextColor } from '@carlsberggroup/malty.atoms.text';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { ProductQuantityActions as ProductQuantityActionsComponent } from './ProductQuantityActions';
+import { ProductQuantityActions } from './ProductQuantityActions';
 import { ProductQuantityActionsProps } from './ProductQuantityActions.types';
 
-export default {
+const ProductQuantityActionsComponent = ({ actionQuantityInput, ...props }: ProductQuantityActionsProps) => {
+  const [stateValue, setStateValue] = useState(actionQuantityInput?.value || '0');
+  return (
+    <ProductQuantityActions
+      {...props}
+      {...(actionQuantityInput && {
+        actionQuantityInput: { ...actionQuantityInput, value: stateValue, onValueChange: setStateValue }
+      })}
+    />
+  );
+};
+
+const meta: Meta<ProductQuantityActionsProps> = {
   title: 'Information/ProductQuantityActions',
-  component: ProductQuantityActionsComponent,
+  component: ProductQuantityActions,
   parameters: {
     importObject: 'ProductQuantityActions',
     importPath: '@carlsberggroup/malty.molecules.product-quantity-actions'
   },
+  render: (args) => <ProductQuantityActionsComponent {...args} />,
   argTypes: {
     actionButton: {
       control: '',
@@ -33,38 +46,30 @@ export default {
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<ProductQuantityActionsProps> = ({ actionQuantityInput, ...args }) => {
-  const [stateValue, setStateValue] = useState(actionQuantityInput?.value || '0');
-  return (
-    <ProductQuantityActionsComponent
-      {...args}
-      {...(actionQuantityInput && {
-        actionQuantityInput: { ...actionQuantityInput, value: stateValue, onValueChange: setStateValue }
-      })}
-    />
-  );
 };
 
-export const ProductQuantityActions = Template.bind({});
+type Story = StoryObj<ProductQuantityActionsProps>;
 
-ProductQuantityActions.args = {
-  stock: { label: 'In Stock', stockColor: TextColor.Success },
-  actionButton: {
-    color: ButtonColor.DigitalBlack,
-    text: 'Add to cart',
-    onClick: () => null,
-    style: ButtonStyle.Primary,
-    icon: undefined,
-    loading: undefined,
-    disabled: undefined
-  },
-  actionQuantityInput: {
-    onValueChange: () => null,
-    value: '3',
-    min: undefined,
-    max: undefined,
-    readOnly: undefined
+export const Base: Story = {
+  args: {
+    stock: { label: 'In Stock', stockColor: TextColor.Success },
+    actionButton: {
+      color: ButtonColor.DigitalBlack,
+      text: 'Add to cart',
+      onClick: () => null,
+      style: ButtonStyle.Primary,
+      icon: undefined,
+      loading: undefined,
+      disabled: undefined
+    },
+    actionQuantityInput: {
+      onValueChange: () => null,
+      value: '3',
+      min: undefined,
+      max: undefined,
+      readOnly: undefined
+    }
   }
 };
+
+export default meta;

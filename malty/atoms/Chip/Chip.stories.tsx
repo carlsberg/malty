@@ -3,53 +3,55 @@ import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Chip as ChipComponent } from './Chip';
+import { Chip } from './Chip';
 import { ChipProps, ChipSize } from './Chip.types';
 
 const ControlledChip = (props: ChipProps) => {
   const [stateChecked, setStateChecked] = useState(false);
 
-  return <ChipComponent {...props} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
+  return <Chip {...props} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
 };
 
 const meta: Meta<ChipProps> = {
   title: 'Forms/Chip',
-  component: ChipComponent,
-  render: (args) => <ControlledChip {...args} />,
+  component: Chip,
   parameters: {
-    importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.chip',
-    variants: ['button', 'icon', 'selected', 'disabled']
+    importObject: 'Chip',
+    importPath: '@carlsberggroup/malty.atoms.chip'
   },
+  render: (args) => <ControlledChip {...args} />,
   argTypes: {
     label: {
-      control: {
-        type: 'text'
-      },
-      description: 'label for the chip'
+      control: 'text',
+      description: 'Label for the chip'
     },
     size: {
       description: 'Chip size. Options are',
       options: Object.values(ChipSize),
       table: {
         defaultValue: {
-          summary: 'ChipSize.Medium'
-        }
+          summary: ChipSize.Medium
+        },
+        category: 'Styling'
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     selected: {
       control: 'none',
-      description: 'state of the component, selected or not selected'
+      description: 'State of the component, selected or not selected',
+      table: {
+        category: 'State'
+      }
     },
     showAction: {
       control: 'boolean',
       description: 'Displays add button if true'
     },
     onChange: {
-      description: 'Function to be executed when Chip state changes'
+      description: 'Function to be executed when Chip state changes',
+      table: {
+        category: 'Events'
+      }
     },
     icon: {
       description: 'The icon component to be displayed',
@@ -58,11 +60,17 @@ const meta: Meta<ChipProps> = {
     },
     disabled: {
       control: 'boolean',
-      description: 'Disable chip'
+      description: 'Disable chip',
+      table: {
+        category: 'State'
+      }
     },
     readOnly: {
       control: 'boolean',
-      description: 'readOnly chip'
+      description: 'ReadOnly chip',
+      table: {
+        category: 'State'
+      }
     },
     dataTestId: {
       control: 'text',
@@ -108,6 +116,13 @@ export const Disabled: Story = {
     ...Base.args,
     selected: true,
     disabled: true
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
   }
 };
 

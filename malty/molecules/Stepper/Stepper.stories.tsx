@@ -1,12 +1,11 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Stepper as StepperComponent } from './Stepper';
+import { Meta, StoryObj } from '@storybook/react';
+import { Stepper } from './Stepper';
 import { StepperProps } from './Stepper.types';
 
-export default {
+const meta: Meta<StepperProps> = {
   title: 'Progress Indicators/Stepper',
-  component: StepperComponent,
+  component: Stepper,
   parameters: {
     importObject: 'Stepper',
     importPath: '@carlsberggroup/malty.molecules.stepper'
@@ -26,37 +25,34 @@ export default {
     },
     dataQaId: {
       control: 'text',
-      description: 'Stepper dataQaId'
+      description: 'Stepper data-testid'
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
+};
 
-const Template: Story<StepperProps> = (args) => <StepperComponent {...args} />;
+type Story = StoryObj<StepperProps>;
 
-export const Stepper = Template.bind({});
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Base: Story = {
+  args: {
+    steps: [
+      { key: 0, label: 'label 1' },
+      { key: 1, label: 'label 2' },
+      { key: 2, label: 'label 3' },
+      { key: 3, label: 'label 4' },
+      { key: 4, label: 'label 5' }
+    ],
+    currentStep: 2,
+    dataQaId: 'stepper',
+    isMultiStep: false
+  }
+};
 
-switch (variant) {
-  case 'number':
-    Stepper.args = {
-      steps: 5,
-      currentStep: 2,
-      dataQaId: 'stepper'
-    };
-    break;
-  default:
-    Stepper.args = {
-      steps: [
-        { key: 0, label: 'label 1' },
-        { key: 1, label: 'label 2' },
-        { key: 2, label: 'label 3' },
-        { key: 3, label: 'label 4' },
-        { key: 4, label: 'label 5' }
-      ],
-      currentStep: 2,
-      dataQaId: 'stepper'
-    };
-    break;
-}
+export const Number: Story = {
+  args: {
+    ...Base.args,
+    steps: 5
+  }
+};
+
+export default meta;

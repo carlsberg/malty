@@ -1,47 +1,44 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Image as ImageComponent, ImageProps } from '.';
+import { Image, ImageProps } from '.';
 import { ImageEffectPosition, ImageOverlay } from './Image.types';
 
-export default {
+const meta: Meta<ImageProps> = {
   title: 'Media/Image',
-  component: ImageComponent,
+  component: Image,
   parameters: {
     importObject: 'Image',
-    importPath: '@carlsberggroup/malty.atoms.image',
-    variants: [
-      'topborder',
-      'rightborder',
-      'bottomborder',
-      'leftborder',
-      'topgradient',
-      'rightgradient',
-      'bottomgradient',
-      'leftgradient'
-    ],
-    themed: true
+    importPath: '@carlsberggroup/malty.atoms.image'
   },
   argTypes: {
     cover: {
-      defaultValue: false,
       description:
-        'Cover/contain CSS styles, please read more about it [here](https://css-tricks.com/almanac/properties/o/object-fit/).',
-      control: 'boolean'
+        'Cover/contain CSS styles, please read more about it [here](https://css-tricks.com/almanac/properties/o/object-fit/)',
+      control: 'boolean',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: false
+        }
+      }
     },
     height: {
-      required: false,
       description: "Image container's height",
-      control: 'text'
+      control: 'text',
+      table: {
+        category: 'Styling'
+      }
     },
     width: {
-      required: false,
       description: "Image container's width",
-      control: 'text'
+      control: 'text',
+      table: {
+        category: 'Styling'
+      }
     },
     src: {
       description: 'URL of image',
-      defaultValue: 'Required',
       required: true,
       control: 'text'
     },
@@ -51,32 +48,32 @@ export default {
     },
     border: {
       options: [undefined, ...Object.values(ImageEffectPosition)],
-      description: 'Images can have a styled border side, the osition options are listed below',
-      control: {
-        type: 'select'
+      description: 'Images can have a styled border side, the position options are listed below',
+      control: 'select',
+      table: {
+        category: 'Styling'
       }
     },
     gradient: {
       options: [undefined, ...Object.values(ImageEffectPosition)],
       description:
-        'Images can have a gradient overlay, the position options are listed below. Gradient will not work if overlay is defined.',
-      control: {
-        type: 'select'
+        'Images can have a gradient overlay, the position options are listed below. Gradient will not work if overlay is defined',
+      control: 'select',
+      table: {
+        category: 'Styling'
       }
     },
     overlay: {
       options: [undefined, ...Object.values(ImageOverlay)],
       description: 'This is the overlay opacity, it accepts number string as opacity percentage.',
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Styling'
+      }
     },
     children: {
       description:
         'You can nest elements within, they can be React, HTML or simply a string. On the dropdown you have examples.',
-      table: {
-        type: {
-          summary: 'JSX.Element'
-        }
-      },
       options: ['No children', 'Example H1 tag', 'This is a simple string'],
       mapping: {
         'No children': undefined,
@@ -91,11 +88,26 @@ export default {
     },
     figcaption: {
       control: 'text',
-      description: 'caption or legend describing the rest of the contents'
+      description: 'Caption or legend describing the rest of the contents'
     },
-    url: {
+    className: {
+      control: 'text',
+      description: 'Add a classname to the container',
       table: {
-        disable: true
+        category: 'Styling'
+      }
+    },
+    removeBackground: {
+      control: 'boolean',
+      description: '',
+      table: {
+        category: 'Styling'
+      }
+    },
+    onClick: {
+      description: 'This is a function that will run on click.',
+      table: {
+        category: 'Events'
       }
     },
     dataTestId: {
@@ -104,94 +116,86 @@ export default {
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
+};
 
-const Template: Story<ImageProps> = (args) => <ImageComponent {...args} />;
+type Story = StoryObj<ImageProps>;
 
-export const Image = Template.bind({});
+export const Base: Story = {
+  args: {
+    src: 'https://via.placeholder.com/400',
+    alt: 'This is a sample image',
+    dataTestId: 'image'
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Fallback: Story = {
+  args: {
+    ...Base.args,
+    fallbackSrc: 'https://via.placeholder.com/400'
+  }
+};
 
-switch (variant) {
-  case 'fallback':
-    Image.args = {
-      src: 'https://via.placeholder.comm/400',
-      fallbackSrc: 'https://via.placeholder.com/400',
-      border: ImageEffectPosition.Top,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'figcaption':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
+export const FigCaption: Story = {
+  args: {
+    ...Base.args,
+    figcaption: 'This is a figcaption'
+  }
+};
 
-      border: ImageEffectPosition.Top,
-      figcaption: 'This is a figcaption',
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'topborder':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      border: ImageEffectPosition.Top,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'rightborder':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      border: ImageEffectPosition.Right,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'bottomborder':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      border: ImageEffectPosition.Bottom,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'leftborder':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      border: ImageEffectPosition.Left,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'topgradient':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      gradient: ImageEffectPosition.Top,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'rightgradient':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      gradient: ImageEffectPosition.Right,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'bottomgradient':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      gradient: ImageEffectPosition.Bottom,
-      alt: 'This is a sample image'
-    };
-    break;
-  case 'leftgradient':
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      gradient: ImageEffectPosition.Left,
-      alt: 'This is a sample image'
-    };
-    break;
-  default:
-    Image.args = {
-      src: 'https://via.placeholder.com/400',
-      border: ImageEffectPosition.Bottom,
-      alt: 'This is a sample image'
-    };
-    break;
-}
+export const TopBorder: Story = {
+  args: {
+    ...Base.args,
+    border: ImageEffectPosition.Top
+  }
+};
+
+export const RightBorder: Story = {
+  args: {
+    ...Base.args,
+    border: ImageEffectPosition.Right
+  }
+};
+
+export const LeftBorder: Story = {
+  args: {
+    ...Base.args,
+    border: ImageEffectPosition.Left
+  }
+};
+
+export const BottomBorder: Story = {
+  args: {
+    ...Base.args,
+    border: ImageEffectPosition.Bottom
+  }
+};
+
+export const TopGradient: Story = {
+  args: {
+    ...Base.args,
+    gradient: ImageEffectPosition.Top
+  }
+};
+
+export const RightGradient: Story = {
+  args: {
+    ...Base.args,
+    gradient: ImageEffectPosition.Right
+  }
+};
+
+export const LeftGradient: Story = {
+  args: {
+    ...Base.args,
+    gradient: ImageEffectPosition.Left
+  }
+};
+
+export const BottomGradient: Story = {
+  args: {
+    ...Base.args,
+    gradient: ImageEffectPosition.Bottom
+  }
+};
+
+export default meta;

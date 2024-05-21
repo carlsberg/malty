@@ -1,17 +1,23 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Toggle as ToggleComponent } from './Toggle';
+import { Toggle } from './Toggle';
 import { ToggleProps } from './Toggle.types';
 
-export default {
+const ToggleComponent = ({ checked, ...props }: ToggleProps) => {
+  const [stateChecked, setStateChecked] = useState(checked);
+
+  return <Toggle {...props} checked={stateChecked} onValueChange={() => setStateChecked(!stateChecked)} />;
+};
+
+const meta: Meta<ToggleProps> = {
   title: 'Forms/Toggle',
-  component: ToggleComponent,
+  component: Toggle,
   parameters: {
     importObject: 'Toggle',
-    importPath: '@carlsberggroup/malty.atoms.toggle',
-    variants: ['disabled']
+    importPath: '@carlsberggroup/malty.atoms.toggle'
   },
+  render: (args) => <ToggleComponent {...args} />,
   argTypes: {
     label: {
       control: 'text',
@@ -19,52 +25,63 @@ export default {
     },
     checked: {
       control: 'none',
-      description: 'If toggle is on (checked) or off (unchecked)'
+      description: 'If toggle is on (checked) or off (unchecked)',
+      table: {
+        category: 'State'
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Toggle state, when disabled it is read-only.'
+      description: 'Toggle state, when disabled it is read-only',
+      table: {
+        category: 'State'
+      }
     },
     error: {
-      description: 'Error message to be displayed when error is present.',
+      description: 'Error message to be displayed when error is present',
       control: 'text'
     },
     onValueChange: {
-      description: 'Function to be executed when toggle state changes'
+      description: 'Function to be executed when toggle state changes',
+      table: {
+        category: 'Events'
+      }
     },
     required: {
       control: 'boolean',
       description: 'Makes the toogle required to fill'
     },
+    dataTestId: {
+      description: 'Toggle data-testid',
+      control: 'text'
+    },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<ToggleProps> = (args) => {
-  const [stateChecked, setStateChecked] = useState(true);
-  return <ToggleComponent {...args} checked={stateChecked} onValueChange={(value) => setStateChecked(value)} />;
 };
 
-export const Toggle = Template.bind({});
+type Story = StoryObj<ToggleProps>;
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Base: Story = {
+  args: {
+    label: 'Toggle label',
+    disabled: false,
+    required: false,
+    dataTestId: 'toggle'
+  }
+};
 
-switch (variant) {
-  case 'disabled':
-    Toggle.args = {
-      label: 'toggle label',
-      disabled: true,
-      error: '',
-      required: false
-    };
-    break;
-  default:
-    Toggle.args = {
-      label: 'toggle label',
-      disabled: false,
-      error: '',
-      required: false
-    };
-    break;
-}
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export const Checked: Story = {
+  args: {
+    ...Base.args,
+    checked: true
+  }
+};
+
+export default meta;

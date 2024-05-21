@@ -4,8 +4,8 @@ import { Loading } from './Loading';
 import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
 
 const meta: Meta<LoadingProps> = {
-  component: Loading,
   title: 'Progress Indicators/Loading',
+  component: Loading,
   parameters: {
     importObject: 'Loading',
     importPath: '@carlsberggroup/malty.molecules.loading'
@@ -18,25 +18,46 @@ const meta: Meta<LoadingProps> = {
     size: {
       options: Object.values(LoadingSize),
       control: 'select',
-      description: 'Size of the icon'
+      description: 'Size of the icon',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: LoadingSize.Small
+        }
+      }
     },
     status: {
       options: Object.values(LoadingStatus),
       control: 'select',
-      description: 'Status of the icon'
+      description: 'Status of the icon',
+      table: {
+        category: 'Icon',
+        defaultValue: {
+          summary: LoadingStatus.Pending
+        }
+      }
     },
     dataQaId: {
       control: 'text',
-      description: 'Set data-testid'
+      description: 'Loading data-testid'
     },
     color: {
       description: 'Choose the component color',
       options: Object.values(LoadingColor),
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: LoadingColor.DigitalBlack
+        }
+      }
     },
     negative: {
       control: 'boolean',
-      description: 'Inverts the component color'
+      description: 'Inverts the component color',
+      table: {
+        category: 'Styling'
+      }
     },
     ...generateStorybookSpacing()
   }
