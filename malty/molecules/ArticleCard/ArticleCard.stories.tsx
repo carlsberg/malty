@@ -1,18 +1,27 @@
 import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ArticleCard as ArticleCardComponent } from './ArticleCard';
+import { ArticleCard } from './ArticleCard';
 import { ArticleCardProps } from './ArticleCard.types';
 
-export default {
+const ArticleCardComponent = ({ orientation, ...props }: ArticleCardProps) => {
+  return (
+    <div style={orientation === CardOrientation.Portrait ? { width: '320px' } : { width: '500px' }}>
+      <ArticleCard {...props} />
+    </div>
+  );
+};
+
+const meta: Meta<ArticleCardProps> = {
   title: 'Cards/ArticleCard',
-  component: ArticleCardComponent,
+  component: ArticleCard,
   parameters: {
     importObject: 'ArticleCard',
     importPath: '@carlsberggroup/malty.molecules.article-card'
   },
+  render: (args) => <ArticleCardComponent {...args} />,
   argTypes: {
     title: {
       control: 'text',
@@ -24,7 +33,7 @@ export default {
     },
     date: {
       control: 'text',
-      description: 'date to be displayed in the article'
+      description: 'Date to be displayed in the article'
     },
     imageSrc: {
       control: 'text',
@@ -34,28 +43,30 @@ export default {
       description: 'Card style. Options are',
       options: Object.values(CardStyle),
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'CardStyle.Plain'
+          summary: CardStyle.Plain
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     onCardClick: {
-      control: 'null'
+      description: 'Function that will run when the card is clicked',
+      control: 'none',
+      table: {
+        category: 'Events'
+      }
     },
     orientation: {
       description: 'Card orientation. Options are',
       options: Object.values(CardOrientation),
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'CardOrientation.Portrait'
+          summary: CardOrientation.Portrait
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     dataTestId: {
       control: 'text',
@@ -63,11 +74,17 @@ export default {
     },
     imageHeight: {
       control: 'text',
-      description: 'Sets the image height on Portrait'
+      description: 'Sets the image height on Portrait',
+      table: {
+        category: 'Styling'
+      }
     },
     imageWidth: {
       control: 'text',
-      description: 'Sets the image width on Landscape'
+      description: 'Sets the image width on Landscape',
+      table: {
+        category: 'Styling'
+      }
     },
     action: {
       control: '',
@@ -77,30 +94,49 @@ export default {
         variant: ButtonStyle;
         label: string;
         onClick: () => void;
-      }`
+      }`,
+      table: {
+        category: 'Events'
+      }
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<ArticleCardProps> = (args) => {
-  const { orientation } = args;
-
-  return (
-    <div style={orientation === CardOrientation.Portrait ? { width: '320px' } : { width: '500px' }}>
-      <ArticleCardComponent {...args} />
-    </div>
-  );
 };
 
-export const ArticleCard = Template.bind({});
+type Story = StoryObj<ArticleCardProps>;
 
-ArticleCard.args = {
-  title: 'This is an article card Title',
-  description: 'Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio.',
-  date: '12/06/2022',
-  imageSrc: 'https://picsum.photos/320/180',
-  dataTestId: 'Article-card',
-  action: { color: ButtonColor.DigitalBlack, label: 'Read More', onClick: () => null, variant: ButtonStyle.Primary },
-  orientation: CardOrientation.Portrait
+export const Base: Story = {
+  args: {
+    title: 'This is an article card Title',
+    description: 'Nunc vitae feugiat ante, in suscipit sapien. Vivamus auctor porttitor ex. Suspendisse lorem odio.',
+    date: '12/06/2022',
+    imageSrc: 'https://picsum.photos/320/180',
+    dataTestId: 'Article-card',
+    action: { color: ButtonColor.DigitalBlack, label: 'Read More', onClick: () => null, variant: ButtonStyle.Primary },
+    orientation: CardOrientation.Portrait,
+    cardStyle: CardStyle.Plain
+  }
 };
+
+export const Landscape: Story = {
+  args: {
+    ...Base.args,
+    orientation: CardOrientation.Landscape
+  }
+};
+
+export const Outlined: Story = {
+  args: {
+    ...Base.args,
+    cardStyle: CardStyle.Outlined
+  }
+};
+
+export const Shadowed: Story = {
+  args: {
+    ...Base.args,
+    cardStyle: CardStyle.Shadowed
+  }
+};
+
+export default meta;

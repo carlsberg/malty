@@ -1,15 +1,11 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { ProgressCircle as ProgressCircleComponent } from './ProgressCircle';
+import { ProgressCircle } from './ProgressCircle';
 import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps, RoundMethod } from './ProgressCircle.types';
 
 const meta: Meta<ProgressCircleProps> = {
   title: 'Progress Indicators/Progress Circle',
-  component: ProgressCircleComponent,
-  render: (args) => {
-    return <ProgressCircleComponent {...args} />;
-  },
+  component: ProgressCircle,
   parameters: {
     importObject: 'ProgressCircle',
     importPath: '@carlsberggroup/malty.atoms.progress-circle'
@@ -42,7 +38,7 @@ const meta: Meta<ProgressCircleProps> = {
       table: {
         category: 'Styling',
         defaultValue: {
-          summary: 'DigitalBlack'
+          summary: ForegroundCircleColor.DigitalBlack
         }
       },
       control: {
@@ -64,7 +60,7 @@ const meta: Meta<ProgressCircleProps> = {
       table: {
         category: 'Percentage label',
         defaultValue: {
-          summary: 'Left'
+          summary: PercentagePosition.Left
         }
       },
       control: {
@@ -79,7 +75,7 @@ const meta: Meta<ProgressCircleProps> = {
       options: Object.values(RoundMethod),
       table: {
         defaultValue: {
-          summary: 'Up'
+          summary: RoundMethod.Up
         }
       },
       control: {
@@ -104,7 +100,8 @@ export const Base: Story = {
     foregroundColor: ForegroundCircleColor.DigitalBlack,
     percentage: 27,
     percentagePosition: PercentagePosition.Left,
-    roundMethod: RoundMethod.Up
+    roundMethod: RoundMethod.Up,
+    dataTestId: 'progress-circle'
   }
 };
 

@@ -11,8 +11,8 @@ const PaginationComponent = ({ currentPage, ...props }: PaginationProps) => {
 };
 
 const meta: Meta<PaginationProps> = {
-  component: PaginationComponent,
   title: 'Navigation/Pagination',
+  component: Pagination,
   parameters: {
     importObject: 'Pagination',
     importPath: '@carlsberggroup/malty.molecules.pagination'
@@ -20,40 +20,84 @@ const meta: Meta<PaginationProps> = {
   render: (args) => <PaginationComponent {...args} />,
   argTypes: {
     onChange: {
-      description: 'Function to be executed when page changes'
+      description: 'Function to be executed when page changes',
+      control: 'none',
+      table: {
+        category: 'Events',
+        type: {
+          summary: '(page: number | string, trigger?: PaginationTrigger) => void;'
+        }
+      }
     },
     currentPage: {
       description: 'Current number of pagination',
-      control: 'number'
+      control: 'number',
+      table: {
+        type: {
+          summary: 'number'
+        }
+      }
     },
     count: {
       description: 'Total number of pages',
-      control: 'number'
+      control: 'number',
+      table: {
+        type: {
+          summary: 'number'
+        }
+      }
     },
     siblingCount: {
       description: 'You can specify how many digits pages to display',
-      control: 'number'
+      control: 'number',
+      table: {
+        type: {
+          summary: 'number | undefined'
+        }
+      }
     },
     dataTestId: {
       control: 'text',
-      description: 'Pagination data-testid'
+      description: 'Pagination data-testid',
+      table: {
+        type: {
+          summary: 'string | undefined'
+        }
+      }
     },
     type: {
       description: 'Type options for pagination',
-      options: Object.keys(PaginationType),
+      options: Object.values(PaginationType),
       mapping: PaginationType,
-      control: {
-        type: 'select',
-        label: Object.keys(PaginationType)
+      control: 'select',
+      table: {
+        defaultValue: {
+          summary: PaginationType.Default
+        },
+        type: {
+          summary: 'PaginationType | undefined'
+        }
       }
     },
     isWhite: {
       description: 'Changes color of component to white',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'Styling',
+        type: {
+          summary: 'boolean | undefined'
+        }
+      }
     },
     disabled: {
       description: 'Property that allows to disable the component',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'State',
+        type: {
+          summary: 'boolean | undefined'
+        }
+      }
     },
     ...generateStorybookSpacing()
   }
@@ -66,7 +110,9 @@ export const Base: Story = {
     count: 10,
     currentPage: 1,
     type: PaginationType.Default,
-    disabled: false
+    disabled: false,
+    dataTestId: 'pagination',
+    isWhite: false
   }
 };
 

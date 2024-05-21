@@ -29,12 +29,23 @@ const meta: Meta<PaddedContainerProps> = {
       options: Object.values(PaddedContainerSize),
       description: 'PaddedContainer padding size',
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'PaddedContainerSize.None'
+          summary: PaddedContainerSize.None
         }
       },
-      control: {
-        type: 'radio'
+      control: 'radio'
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'PaddedContainer data-testid'
+    },
+    children: {
+      description: 'Content of the component',
+      table: {
+        type: {
+          summary: 'string | JSX.Element | undefined'
+        }
       }
     },
     ...generateStorybookSpacing()
@@ -45,7 +56,8 @@ type Story = StoryObj<PaddedContainerProps>;
 
 export const Base: Story = {
   args: {
-    padding: PaddedContainerSize.None
+    padding: PaddedContainerSize.None,
+    dataTestId: 'paddedContainer'
   }
 };
 

@@ -5,8 +5,8 @@ import { Overlay } from './Overlay';
 import { OverlayProps } from './Overlay.types';
 
 const meta: Meta<OverlayProps> = {
-  component: Overlay,
   title: 'Overlays/Overlay',
+  component: Overlay,
   parameters: {
     importObject: 'Overlay',
     importPath: '@carlsberggroup/malty.atoms.overlay'

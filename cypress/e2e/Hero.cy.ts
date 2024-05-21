@@ -8,7 +8,7 @@ describe('<Hero />', () => {
   it('Base', () => {
     const page = visit({
       args: { dataTestId },
-      storyId: 'layout-hero--hero'
+      storyId: 'layout-hero--base'
     });
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });
@@ -19,8 +19,7 @@ describe('<Hero />', () => {
   it('Required', () => {
     const page = visit({
       args: { dataTestId },
-      storyId: 'layout-hero--hero',
-      variant: 'required'
+      storyId: 'layout-hero--base'
     });
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });
@@ -31,8 +30,7 @@ describe('<Hero />', () => {
   it('Actions', () => {
     const page = visit({
       args: { dataTestId },
-      storyId: 'layout-hero--hero',
-      variant: 'actions'
+      storyId: 'layout-hero--actions'
     });
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });
@@ -43,8 +41,7 @@ describe('<Hero />', () => {
   it('Scroll', () => {
     const page = visit({
       args: { dataTestId },
-      storyId: 'layout-hero--hero',
-      variant: 'scroll'
+      storyId: 'layout-hero--scroll'
     });
 
     expectBackgroundImageIsVisible({ dataTestId, url: backgroundImageUrl });

@@ -49,8 +49,8 @@ const DatepickerComponent = (props: DatepickerProps) => {
 };
 
 const meta: Meta<DatepickerProps> = {
-  component: Datepicker,
   title: 'Forms/Datepicker',
+  component: Datepicker,
   parameters: {
     importObject: 'Datepicker',
     importPath: '@carlsberggroup/malty.molecules.datepicker'
@@ -71,10 +71,16 @@ const meta: Meta<DatepickerProps> = {
       if: { arg: 'selectsRange' }
     },
     onChange: {
-      description: 'Action to perform when clicking a calendar day'
+      description: 'Action to perform when clicking a calendar day',
+      table: {
+        category: 'Events'
+      }
     },
     onClose: {
-      description: 'Action to perform when datepicker is closed'
+      description: 'Action to perform when datepicker is closed',
+      table: {
+        category: 'Events'
+      }
     },
     minDate: {
       description: 'Disable days before defined min. date',
@@ -95,15 +101,27 @@ const meta: Meta<DatepickerProps> = {
     size: {
       description: 'Button size. Options are',
       options: Object.values(DatepickerSize),
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: DatepickerSize.Medium
+        }
+      }
     },
     disabled: {
       description: 'Disable datepicker',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'State'
+      }
     },
     readOnly: {
       control: 'boolean',
-      description: 'ReadOnly datepicker'
+      description: 'ReadOnly datepicker',
+      table: {
+        category: 'State'
+      }
     },
     selectsRange: {
       description: 'Enable date range selection. This will set the input as readonly',
@@ -111,7 +129,10 @@ const meta: Meta<DatepickerProps> = {
     },
     inline: {
       description: 'Display calendar without input',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'Styling'
+      }
     },
     placeholderText: {
       description: 'Input placeholder',
@@ -127,11 +148,17 @@ const meta: Meta<DatepickerProps> = {
     },
     primaryAction: {
       description: 'Apply date',
-      control: 'object'
+      control: 'object',
+      table: {
+        category: 'Events'
+      }
     },
     secondaryAction: {
       description: 'Cancel apply date',
-      control: 'object'
+      control: 'object',
+      table: {
+        category: 'Events'
+      }
     },
     shouldCloseOnSelect: {
       description: 'Whether the datepicker should close automatically upon selection',
@@ -147,7 +174,10 @@ const meta: Meta<DatepickerProps> = {
     },
     withoutBorder: {
       control: 'boolean',
-      description: 'Disables the border and padding from the calendar portal only if inline is true'
+      description: 'Disables the border and padding from the calendar portal only if inline is true',
+      table: {
+        category: 'Styling'
+      }
     },
     ...generateStorybookSpacing()
   }
@@ -160,7 +190,10 @@ export const Base: Story = {
     label: 'Select date',
     required: false,
     startDate: new Date(),
-    dateFormat: DATE_PICKER_DEFAULT_FORMAT
+    dateFormat: DATE_PICKER_DEFAULT_FORMAT,
+    size: DatepickerSize.Medium,
+    dataTestId: 'datepicker',
+    shouldCloseOnSelect: true
   }
 };
 

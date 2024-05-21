@@ -1,12 +1,11 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Sku as SkuComponent } from './Sku';
+import { Meta, StoryObj } from '@storybook/react';
+import { Sku } from './Sku';
 import { MRO, SkuProps } from './Sku.types';
 
-export default {
+const meta: Meta<SkuProps> = {
   title: 'Information/Sku',
-  component: SkuComponent,
+  component: Sku,
   parameters: {
     importObject: 'Sku',
     importPath: '@carlsberggroup/malty.molecules.sku'
@@ -28,17 +27,22 @@ export default {
         }
       }
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Sku data-testid'
+    },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<SkuProps> = (args) => {
-  return <SkuComponent {...args} />;
 };
 
-export const Sku = Template.bind({});
+type Story = StoryObj<SkuProps>;
 
-Sku.args = {
-  sku: 'Sku: 12512 512',
-  mro: undefined
+export const Base: Story = {
+  args: {
+    sku: 'Sku: 12512 512',
+    mro: undefined,
+    dataTestId: 'sku'
+  }
 };
+
+export default meta;

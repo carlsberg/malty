@@ -1,11 +1,10 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Label as LabelComponent, LabelProps } from '.';
+import { Meta, StoryObj } from '@storybook/react';
+import { Label, LabelProps } from '.';
 
-export default {
+const meta: Meta<LabelProps> = {
   title: 'Forms/Label',
-  component: LabelComponent,
+  component: Label,
   parameters: {
     importObject: 'Label',
     importPath: '@carlsberggroup/malty.atoms.label'
@@ -18,15 +17,17 @@ export default {
     required: {
       table: {
         defaultValue: {
-          summary: 'false'
+          summary: false
         }
       },
       control: 'boolean'
     },
     disabled: {
+      description: 'Makes the label disabled',
       table: {
+        category: 'State',
         defaultValue: {
-          summary: 'false'
+          summary: false
         }
       },
       control: 'boolean'
@@ -35,18 +36,29 @@ export default {
       control: 'text',
       description: 'ID of the target input component'
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Label data-testid'
+    },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<LabelProps> = (args) => <LabelComponent {...args} />;
-
-export const Label = Template.bind({});
-
-Label.args = {
-  label: 'Wrapped checkbox label',
-  required: false,
-  disabled: false,
-  htmlFor: 'string',
-  dataTestId: ''
 };
+
+type Story = StoryObj<LabelProps>;
+
+export const Base: Story = {
+  args: {
+    label: 'Wrapped checkbox label',
+    htmlFor: 'string',
+    dataTestId: 'label'
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export default meta;

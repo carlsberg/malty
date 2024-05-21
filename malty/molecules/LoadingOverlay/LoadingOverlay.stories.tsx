@@ -5,8 +5,8 @@ import { LoadingOverlay } from './LoadingOverlay';
 import { LoadingOverlayProps } from './LoadingOverlay.types';
 
 const meta: Meta<LoadingOverlayProps> = {
-  component: LoadingOverlay,
   title: 'Overlays/LoadingOverlay',
+  component: LoadingOverlay,
   parameters: {
     importObject: 'LoadingOverlay',
     importPath: '@carlsberggroup/malty.molecules.loading-overlay'
@@ -42,11 +42,17 @@ const meta: Meta<LoadingOverlayProps> = {
     },
     overlayPositionFixed: {
       control: 'boolean',
-      description: 'Toggle overlay component fixed position. If false, overlay component position is absolute'
+      description: 'Toggle overlay component fixed position. If false, overlay component position is absolute',
+      table: {
+        category: 'Styling'
+      }
     },
     zIndex: {
       control: 'number',
-      description: 'Set component z-index'
+      description: 'Set component z-index',
+      table: {
+        category: 'Styling'
+      }
     },
     dataTestId: {
       control: 'text',
@@ -55,7 +61,13 @@ const meta: Meta<LoadingOverlayProps> = {
     color: {
       options: Object.values(LoadingColor),
       control: 'select',
-      description: 'Set loading icon color'
+      description: 'Set loading icon color',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: LoadingColor.DigitalBlack
+        }
+      }
     }
   }
 };
@@ -66,7 +78,8 @@ export const Base: Story = {
   args: {
     dataTestId: 'loading-overlay',
     text: 'Loading',
-    overlayPositionFixed: false
+    overlayPositionFixed: false,
+    color: LoadingColor.DigitalBlack
   }
 };
 

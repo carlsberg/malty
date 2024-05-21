@@ -21,5 +21,6 @@ export default defineConfig({
       configureVisualRegression(on);
     }
   },
-  video: false
+  video: false,
+  defaultCommandTimeout: 5_000
 });

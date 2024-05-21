@@ -8,34 +8,54 @@ import { Card } from './Card';
 import { CardOrientation, CardProps, CardStyle } from './Card.types';
 
 const meta: Meta<CardProps> = {
-  component: Card,
   title: 'Cards/Card',
+  component: Card,
   parameters: {
     importObject: 'Card',
     importPath: '@carlsberggroup/malty.atoms.card'
   },
-  render: (args) => <Card {...args} />,
   argTypes: {
     cardStyle: {
       description: 'Card style. Options are',
       options: Object.values(CardStyle),
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: CardStyle.Plain
+        }
+      }
     },
     orientation: {
       description: 'Card orientation. Options are',
       options: Object.values(CardOrientation),
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: CardOrientation.Portrait
+        }
+      }
     },
     selected: {
       control: 'boolean',
-      description: 'Selects the card'
+      description: 'Selects the card',
+      table: {
+        category: 'State'
+      }
     },
     onClick: {
-      description: 'This is a function that will run on click. It is not a required property'
+      description: 'This is a function that will run on click. It is not a required property',
+      table: {
+        category: 'Events'
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Makes the card disabled'
+      description: 'Makes the card disabled',
+      table: {
+        category: 'State'
+      }
     },
     dataTestId: {
       control: 'text',
@@ -67,7 +87,7 @@ export const Base: Story = {
       </div>
     ),
     onClick: undefined,
-    dataTestId: 'card-element',
+    dataTestId: 'card',
     disabled: false
   }
 };

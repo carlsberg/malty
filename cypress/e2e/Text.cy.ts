@@ -4,14 +4,14 @@ const dataTestId = 'text';
 
 describe('<Text />', () => {
   it('Base', () => {
-    const page = visit({ args: { dataTestId }, storyId: 'typography-text--text' });
+    const page = visit({ args: { dataTestId }, storyId: 'typography-text--base' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
   it('Ellipsis', () => {
     const page = visit({
-      storyId: 'typography-text--text',
+      storyId: 'typography-text--base',
       args: { dataTestId, ellipsis: 'true', width: '100px' }
     });
 

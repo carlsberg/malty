@@ -1,79 +1,95 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Headline as HeadlineComponent } from './Headline';
+import { Headline } from './Headline';
 import { HeadlineAlign, HeadlineColor, HeadlineProps, HeadlineStyle } from './Headline.types';
 
-export default {
+const HeadlineComponent = (props: HeadlineProps) => {
+  return (
+    <>
+      <Headline {...props} headlineStyle={HeadlineStyle.Display} />
+      <Headline {...props} headlineStyle={HeadlineStyle.Banner} />
+      <Headline {...props} headlineStyle={HeadlineStyle.Huge} />
+      <Headline {...props} headlineStyle={HeadlineStyle.Big} />
+      <Headline {...props} headlineStyle={HeadlineStyle.Large} />
+      <Headline {...props} headlineStyle={HeadlineStyle.MediumLarge} />
+      <Headline {...props} headlineStyle={HeadlineStyle.Medium} />
+    </>
+  );
+};
+
+const meta: Meta<HeadlineProps> = {
   title: 'Typography/Headline',
-  component: HeadlineComponent,
+  component: Headline,
+  render: (args) => <HeadlineComponent {...args} />,
   parameters: {
     importObject: 'Headline',
-    importPath: '@carlsberggroup/malty.atoms.headline',
-    themed: true
+    importPath: '@carlsberggroup/malty.atoms.headline'
   },
   argTypes: {
     color: {
       description: 'Color of the text, from the following options',
       options: Object.keys(HeadlineColor),
       mapping: HeadlineColor,
-      control: {
-        type: 'select',
-        label: Object.values(HeadlineColor)
-      },
+      control: 'select',
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'HeadlineColor.DigitalBlack'
+          summary: HeadlineColor.DigitalBlack
         }
-      },
-      defaultValue: 'DigitalBlack'
+      }
     },
     headlineStyle: {
-      description: 'Size of the text, from the following options',
-      control: {
-        type: null
-      },
-      defaultValue: 'Medium'
+      description: 'Size of the text',
+      control: 'none',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: HeadlineStyle.Medium
+        }
+      }
     },
     align: {
       description: 'Text alignment, from the following options',
       options: Object.keys(HeadlineAlign),
       mapping: HeadlineAlign,
       control: {
-        type: 'select',
+        type: 'radio',
         label: Object.values(HeadlineAlign)
       },
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'HeadlineAlign.Left'
+          summary: HeadlineAlign.Left
         }
-      },
-      defaultValue: 'Left'
+      }
     },
     children: {
       description: 'This is the content of a headline component',
-      control: { type: 'text' }
+      control: 'text'
     },
     as: {
       description: "HTML tag override to be used, from 'h1' through 'h6', as well as 'p' or 'span' tags.",
-      control: { type: 'text' }
+      control: 'text'
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'Headline data-testid'
     },
     ...generateStorybookSpacing()
   }
 };
-const Template: Story<HeadlineProps> = (args) => (
-  <>
-    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Display} />
-    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Banner} />
-    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Huge} />
-    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Big} />
-    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Large} />
-    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.MediumLarge} />
-    <HeadlineComponent {...args} headlineStyle={HeadlineStyle.Medium} />
-  </>
-);
-export const Headline = Template.bind({});
 
-Headline.args = {
-  children: 'This is a sample headline'
+type Story = StoryObj<HeadlineProps>;
+
+export const Base: Story = {
+  args: {
+    children: 'This is a sample headline',
+    align: HeadlineAlign.Left,
+    color: HeadlineColor.ThemePrimary,
+    headlineStyle: HeadlineStyle.Medium,
+    dataTestId: 'headline'
+  }
 };
+
+export default meta;
