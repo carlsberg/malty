@@ -30,7 +30,7 @@ const meta: Meta<BaseIconProps> = {
       },
       table: {
         defaultValue: {
-          summary: 'DigitalBlack'
+          summary: 'IconColor.DigitalBlack'
         }
       },
       defaultValue: 'DigitalBlack'
@@ -45,7 +45,7 @@ const meta: Meta<BaseIconProps> = {
       },
       table: {
         defaultValue: {
-          summary: 'Medium'
+          summary: 'IconSize.Medium'
         }
       },
       defaultValue: 'Medium'
