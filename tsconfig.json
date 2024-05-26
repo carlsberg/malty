@@ -13,7 +13,16 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "target": "es2015",
-    "composite": true
+    "composite": true,
+    "incremental": true,
+    "paths": {
+      "@atoms/*": ["malty/atoms/*"],
+      "@molecules/*": ["malty/molecules/*"],
+      "@organisms/*": ["malty/organisms/*"],
+      "@utils/*": ["malty/utils/*"],
+      "@theme/*": ["malty/theme/*"],
+      "@icons/*": ["malty/icons/*"]
+    }
   },
-  "exclude": ["cypress.config.ts", "cypress", "cypress-visual-regression"]
+  "exclude": ["cypress.config.ts", "cypress", "cypress-visual-regression", "node_modules", "**/node_modules"]
 }

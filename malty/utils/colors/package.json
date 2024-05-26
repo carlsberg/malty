@@ -1,0 +1,16 @@
+{
+  "name": "@carlsberggroup/malty.utils.colors",
+  "version": "0.0.6",
+  "main": "index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+  },
+  "publishConfig": {
+    "@carlsberggbs": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  }
+}

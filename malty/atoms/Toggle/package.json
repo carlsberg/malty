@@ -1,0 +1,42 @@
+{
+  "name": "@carlsberggroup/malty.atoms.toggle",
+  "version": "0.0.47",
+  "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+  },
+  "publishConfig": {
+    "@carlsberggbs": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@carlsberggroup/malty.atoms.label": "*",
+    "@carlsberggroup/malty.theme.malty-theme-provider": "*",
+    "@carlsberggroup/malty.utils.space": "*",
+    "core-js": "^3.0.0",
+    "styled-components": "^5.3.6",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/runtime": "7.12.18",
+    "@carlsberggroup/malty.utils.test": "*",
+    "@storybook/react": "^7.4.1",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^26.0.0",
+    "@types/node": "12.20.4",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@types/styled-components": "^5.1.26",
+    "@types/testing-library__jest-dom": "5.9.5",
+    "@types/uuid": "^9.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  }
+}
