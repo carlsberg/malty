@@ -15,8 +15,7 @@
       "registry": "https://npm.pkg.github.com/"
     },
     "version": {
-      "tagVersionPrefix": "",
-      "createRelease": "github"
+      "tagVersionPrefix": ""
     }
   }
 }
