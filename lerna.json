@@ -12,7 +12,8 @@
   "npmClient": "yarn",
   "command": {
     "publish": {
-      "registry": "https://npm.pkg.github.com/@carlsberggbs"
+      "registry": "https://npm.pkg.github.com/@carlsberggbs",
+      "conventionalCommits": true
     },
     "version": {
       "tagVersionPrefix": ""

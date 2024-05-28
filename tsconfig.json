@@ -12,7 +12,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2015",
+    "target": "ES2017",
     "composite": true,
     "incremental": true,
     "paths": {

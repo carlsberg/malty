@@ -29,15 +29,15 @@
     "malty/icons/*"
   ],
   "scripts": {
-    "clean": "rm -rf ./dist && rm -rf ./build && rm -rf ./node_modules",
+    "clean": "lerna exec -- rm -rf ./lib && rm -rf ./node_modules",
     "wipe": "yarn cache clean --force",
     "reset": "yarn clean && yarn wipe && yarn install && yarn storybook",
     "watch": "tsc -b -w --preserveWatchOutput",
     "compile": "tsc -b",
-    "start": "yarn storybook",
+    "start": "yarn build && yarn storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs",
-    "build": "yarn workspaces foreach run build",
+    "build": "yarn clean && lerna run build",
     "test": "jest",
     "test:ci": "jest --silent --ci --coverage --coverageDirectory=jest-coverage",
     "test:watch": "jest --watch",
