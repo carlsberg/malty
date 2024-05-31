@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.icons.cart-notification",
+  "name": "@carlsberggbs/malty.icons.cart-notification",
   "version": "0.1.0",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -26,7 +26,7 @@
     "@types/testing-library__jest-dom": "5.9.5"
   },
   "peerDependencies": {
-    "@carlsberggroup/malty.atoms.base-icon": "*",
+    "@carlsberggbs/malty.atoms.base-icon": "*",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   }

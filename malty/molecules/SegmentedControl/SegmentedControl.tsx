@@ -1,5 +1,5 @@
-import { Chip, ChipSize } from '@carlsberggroup/malty.atoms.chip';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Chip, ChipSize } from '@carlsberggbs/malty.atoms.chip';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledDivider, StyledSegmentedControl } from './SegmentedControl.styled';

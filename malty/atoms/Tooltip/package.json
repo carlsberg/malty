@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.atoms.tooltip",
+  "name": "@carlsberggbs/malty.atoms.tooltip",
   "version": "0.1.2",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,8 +15,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggroup/malty.atoms.text": "*",
-    "@carlsberggroup/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.atoms.text": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
     "@popperjs/core": "^2.11.5",
     "core-js": "^3.0.0",
     "react-popper": "2.3.0",
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberggroup/malty.utils.test": "*",
+    "@carlsberggbs/malty.utils.test": "*",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",

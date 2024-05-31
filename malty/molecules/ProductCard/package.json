@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.molecules.product-card",
+  "name": "@carlsberggbs/malty.molecules.product-card",
   "version": "0.1.3",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,27 +15,27 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggroup/malty.atoms.base-icon": "*",
-    "@carlsberggroup/malty.atoms.card": "*",
-    "@carlsberggroup/malty.atoms.image": "*",
-    "@carlsberggroup/malty.atoms.pill": "*",
-    "@carlsberggroup/malty.atoms.price": "*",
-    "@carlsberggroup/malty.atoms.select": "*",
-    "@carlsberggroup/malty.atoms.text": "*",
-    "@carlsberggroup/malty.molecules.alert-inline": "*",
-    "@carlsberggroup/malty.molecules.product-quantity-actions": "*",
-    "@carlsberggroup/malty.molecules.sku": "*",
-    "@carlsberggroup/malty.theme.malty-theme-provider": "*",
-    "@carlsberggroup/malty.utils.space": "*",
+    "@carlsberggbs/malty.atoms.base-icon": "*",
+    "@carlsberggbs/malty.atoms.card": "*",
+    "@carlsberggbs/malty.atoms.image": "*",
+    "@carlsberggbs/malty.atoms.pill": "*",
+    "@carlsberggbs/malty.atoms.price": "*",
+    "@carlsberggbs/malty.atoms.select": "*",
+    "@carlsberggbs/malty.atoms.text": "*",
+    "@carlsberggbs/malty.molecules.alert-inline": "*",
+    "@carlsberggbs/malty.molecules.product-quantity-actions": "*",
+    "@carlsberggbs/malty.molecules.sku": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.utils.space": "*",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggroup/malty.atoms.button": "*",
-    "@carlsberggroup/malty.icons.cart": "*",
-    "@carlsberggroup/malty.icons.coupon": "*",
-    "@carlsberggroup/malty.utils.test": "*",
+    "@carlsberggbs/malty.atoms.button": "*",
+    "@carlsberggbs/malty.icons.cart": "*",
+    "@carlsberggbs/malty.icons.coupon": "*",
+    "@carlsberggbs/malty.utils.test": "*",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",
@@ -46,8 +46,8 @@
     "@types/testing-library__jest-dom": "5.9.5"
   },
   "peerDependencies": {
-    "@carlsberggroup/malty.icons.heart": "*",
-    "@carlsberggroup/malty.icons.heart-filled": "*",
+    "@carlsberggbs/malty.icons.heart": "*",
+    "@carlsberggbs/malty.icons.heart-filled": "*",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   }

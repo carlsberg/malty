@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.utils.mixins",
+  "name": "@carlsberggbs/malty.utils.mixins",
   "version": "0.0.2",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

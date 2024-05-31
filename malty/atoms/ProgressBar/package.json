@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.atoms.progress-bar",
+  "name": "@carlsberggbs/malty.atoms.progress-bar",
   "version": "0.0.63",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,14 +15,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggroup/malty.theme.malty-theme-provider": "*",
-    "@carlsberggroup/malty.utils.space": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.utils.space": "*",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberggroup/malty.utils.test": "*",
+    "@carlsberggbs/malty.utils.test": "*",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",

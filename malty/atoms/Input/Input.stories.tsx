@@ -1,6 +1,6 @@
-import { Search as SearchIcon } from '@carlsberggroup/malty.icons.search';
-import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { Search as SearchIcon } from '@carlsberggbs/malty.icons.search';
+import { allIconsStoryOptions } from '@carlsberggbs/malty.utils.all-icons';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Input } from './Input';
@@ -18,7 +18,7 @@ const meta: Meta<InputProps> = {
   component: Input,
   parameters: {
     importObject: 'Input',
-    importPath: '@carlsberggroup/malty.atoms.input'
+    importPath: '@carlsberggbs/malty.atoms.input'
   },
   render: (args) => <InputComponent {...args} />,
   argTypes: {

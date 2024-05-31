@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.utils.colors",
+  "name": "@carlsberggbs/malty.utils.colors",
   "version": "0.0.6",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

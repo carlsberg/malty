@@ -1,6 +1,6 @@
-import { CardOrientation } from '@carlsberggroup/malty.atoms.card';
-import { Image } from '@carlsberggroup/malty.atoms.image';
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { CardOrientation } from '@carlsberggbs/malty.atoms.card';
+import { Image } from '@carlsberggbs/malty.atoms.image';
+import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
 import styled from 'styled-components';
 
 export const StyledArticle = styled.article<SpaceProps>`

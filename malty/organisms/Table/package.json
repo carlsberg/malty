@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.organisms.table",
+  "name": "@carlsberggbs/malty.organisms.table",
   "version": "0.2.3",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,14 +15,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggroup/malty.atoms.base-icon": "*",
-    "@carlsberggroup/malty.atoms.checkbox": "*",
-    "@carlsberggroup/malty.atoms.text": "*",
-    "@carlsberggroup/malty.atoms.tooltip": "*",
-    "@carlsberggroup/malty.molecules.loading-overlay": "*",
-    "@carlsberggroup/malty.molecules.pagination": "*",
-    "@carlsberggroup/malty.theme.malty-theme-provider": "*",
-    "@carlsberggroup/malty.utils.space": "*",
+    "@carlsberggbs/malty.atoms.base-icon": "*",
+    "@carlsberggbs/malty.atoms.checkbox": "*",
+    "@carlsberggbs/malty.atoms.text": "*",
+    "@carlsberggbs/malty.atoms.tooltip": "*",
+    "@carlsberggbs/malty.molecules.loading-overlay": "*",
+    "@carlsberggbs/malty.molecules.pagination": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.utils.space": "*",
     "@tanstack/react-table": "^8.7.6",
     "core-js": "^3.0.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggroup/malty.molecules.loading": "*",
-    "@carlsberggroup/malty.utils.test": "*",
+    "@carlsberggbs/malty.molecules.loading": "*",
+    "@carlsberggbs/malty.utils.test": "*",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
@@ -44,10 +44,10 @@
     "@types/testing-library__jest-dom": "5.9.5"
   },
   "peerDependencies": {
-    "@carlsberggroup/malty.icons.arrange": "*",
-    "@carlsberggroup/malty.icons.arrow-small-down": "*",
-    "@carlsberggroup/malty.icons.arrow-small-up": "*",
-    "@carlsberggroup/malty.icons.sort": "*",
+    "@carlsberggbs/malty.icons.arrange": "*",
+    "@carlsberggbs/malty.icons.arrow-small-down": "*",
+    "@carlsberggbs/malty.icons.arrow-small-up": "*",
+    "@carlsberggbs/malty.icons.sort": "*",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   }

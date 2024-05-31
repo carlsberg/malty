@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
@@ -24,7 +24,7 @@ const meta: Meta<SelectProps> = {
   },
   parameters: {
     importObject: 'Select',
-    importPath: '@carlsberggroup/malty.atoms.select'
+    importPath: '@carlsberggbs/malty.atoms.select'
   },
   argTypes: {
     label: {

@@ -1,4 +1,4 @@
-import { TextColor } from '@carlsberggroup/malty.atoms.text';
+import { TextColor } from '@carlsberggbs/malty.atoms.text';
 import styled, { css, keyframes } from 'styled-components';
 import { AlertBannerType } from './AlertBanner.types';
 

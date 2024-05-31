@@ -1,8 +1,8 @@
 /* eslint-disable no-loop-func, react/jsx-no-useless-fragment */
-import { IconSize } from '@carlsberggroup/malty.atoms.base-icon';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { ItemCheckFilled } from '@carlsberggroup/malty.icons.item-check-filled';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { IconSize } from '@carlsberggbs/malty.atoms.base-icon';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { ItemCheckFilled } from '@carlsberggbs/malty.icons.item-check-filled';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

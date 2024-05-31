@@ -1,5 +1,5 @@
-import { DataTransfer } from '@carlsberggroup/malty.icons.data-transfer';
-import { ItemProps } from '@carlsberggroup/malty.molecules.nav-list';
+import { DataTransfer } from '@carlsberggbs/malty.icons.data-transfer';
+import { ItemProps } from '@carlsberggbs/malty.molecules.nav-list';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
@@ -46,7 +46,7 @@ const meta: Meta<SideNavProps> = {
   component: SideNav,
   parameters: {
     importObject: 'SideNav',
-    importPath: '@carlsberggroup/malty.molecules.side-nav'
+    importPath: '@carlsberggbs/malty.molecules.side-nav'
   },
   render: (args) => <SideNavComponent {...args} />,
   argTypes: {

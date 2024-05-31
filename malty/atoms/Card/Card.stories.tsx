@@ -1,7 +1,7 @@
-import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Image } from '@carlsberggroup/malty.atoms.image';
-import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { Headline, HeadlineStyle } from '@carlsberggbs/malty.atoms.headline';
+import { Image } from '@carlsberggbs/malty.atoms.image';
+import { Text, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Card } from './Card';
@@ -12,7 +12,7 @@ const meta: Meta<CardProps> = {
   component: Card,
   parameters: {
     importObject: 'Card',
-    importPath: '@carlsberggroup/malty.atoms.card'
+    importPath: '@carlsberggbs/malty.atoms.card'
   },
   argTypes: {
     cardStyle: {

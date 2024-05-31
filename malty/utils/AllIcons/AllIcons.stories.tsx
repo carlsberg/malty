@@ -1,6 +1,6 @@
-import { BaseIconProps, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon/BaseIcon.types';
-import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { BaseIconProps, IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon/BaseIcon.types';
+import { CarlsbergFilled } from '@carlsberggbs/malty.icons.carlsberg-filled';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { ChangeEvent, useState } from 'react';
 import { allIcons } from './AllIconsMap';
@@ -17,7 +17,7 @@ const meta: Meta<BaseIconProps> = {
   title: 'Icons/Icons',
   parameters: {
     importObject: 'IconName',
-    importPath: '@carlsberggroup/malty.icons.[icon-name]'
+    importPath: '@carlsberggbs/malty.icons.[icon-name]'
   },
   argTypes: {
     color: {
@@ -85,7 +85,7 @@ const SearchIcons = (args: BaseIconProps) => {
 
   const handleClipboard = (iconName: string) => {
     const kebabCase = iconName.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-    const importPath = `import { ${iconName} } from '@carlsberggroup/malty.icons.${kebabCase}';`;
+    const importPath = `import { ${iconName} } from '@carlsberggbs/malty.icons.${kebabCase}';`;
 
     navigator.clipboard.writeText(importPath);
 

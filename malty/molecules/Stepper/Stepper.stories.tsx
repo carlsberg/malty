@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Stepper } from './Stepper';
 import { StepperProps } from './Stepper.types';
@@ -8,7 +8,7 @@ const meta: Meta<StepperProps> = {
   component: Stepper,
   parameters: {
     importObject: 'Stepper',
-    importPath: '@carlsberggroup/malty.molecules.stepper'
+    importPath: '@carlsberggbs/malty.molecules.stepper'
   },
   argTypes: {
     steps: {

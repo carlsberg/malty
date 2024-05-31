@@ -1,5 +1,5 @@
-import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { FloaterIconPosition, FloaterProps } from '.';

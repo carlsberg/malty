@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { SpaceProps } from '@carlsberggbs/malty.utils.space';
 import { ReactElement } from 'react';
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement>, SpaceProps {

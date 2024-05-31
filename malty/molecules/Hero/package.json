@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.molecules.hero",
+  "name": "@carlsberggbs/malty.molecules.hero",
   "version": "0.1.3",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,18 +15,18 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggroup/malty.atoms.base-icon": "*",
-    "@carlsberggroup/malty.atoms.button": "*",
-    "@carlsberggroup/malty.atoms.headline": "*",
-    "@carlsberggroup/malty.atoms.text": "*",
-    "@carlsberggroup/malty.theme.malty-theme-provider": "*",
-    "@carlsberggroup/malty.utils.hooks": "*",
+    "@carlsberggbs/malty.atoms.base-icon": "*",
+    "@carlsberggbs/malty.atoms.button": "*",
+    "@carlsberggbs/malty.atoms.headline": "*",
+    "@carlsberggbs/malty.atoms.text": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.utils.hooks": "*",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggroup/malty.utils.test": "*",
+    "@carlsberggbs/malty.utils.test": "*",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
@@ -38,7 +38,7 @@
     "@types/testing-library__jest-dom": "5.9.5"
   },
   "peerDependencies": {
-    "@carlsberggroup/malty.icons.arrow-small-down": "*",
+    "@carlsberggbs/malty.icons.arrow-small-down": "*",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   }

@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { RadioProps } from '.';
 import { Radio } from './Radio';
@@ -8,7 +8,7 @@ const meta: Meta<RadioProps> = {
   component: Radio,
   parameters: {
     importObject: 'Radio',
-    importPath: '@carlsberggroup/malty.atoms.radio'
+    importPath: '@carlsberggbs/malty.atoms.radio'
   },
   argTypes: {
     label: {

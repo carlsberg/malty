@@ -1,4 +1,4 @@
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
@@ -98,7 +98,7 @@ const meta: Meta<TooltipProps> = {
   component: Tooltip,
   parameters: {
     importObject: 'Tooltip',
-    importPath: '@carlsberggroup/malty.atoms.tooltip'
+    importPath: '@carlsberggbs/malty.atoms.tooltip'
   },
   render: (args) => <TooltipComponent {...args} />,
   argTypes: {

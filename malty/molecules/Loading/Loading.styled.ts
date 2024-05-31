@@ -1,4 +1,4 @@
-import { space } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggbs/malty.utils.space';
 import styled, { keyframes } from 'styled-components';
 import { LoadingSize, StyledLoadingContainerProps } from './Loading.types';
 

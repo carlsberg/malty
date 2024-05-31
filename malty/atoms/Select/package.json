@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.atoms.select",
+  "name": "@carlsberggbs/malty.atoms.select",
   "version": "0.1.3",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,20 +15,20 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggroup/malty.atoms.base-icon": "*",
-    "@carlsberggroup/malty.atoms.button": "*",
-    "@carlsberggroup/malty.atoms.checkbox": "*",
-    "@carlsberggroup/malty.atoms.input": "*",
-    "@carlsberggroup/malty.atoms.label": "*",
-    "@carlsberggroup/malty.theme.malty-theme-provider": "*",
-    "@carlsberggroup/malty.utils.space": "*",
+    "@carlsberggbs/malty.atoms.base-icon": "*",
+    "@carlsberggbs/malty.atoms.button": "*",
+    "@carlsberggbs/malty.atoms.checkbox": "*",
+    "@carlsberggbs/malty.atoms.input": "*",
+    "@carlsberggbs/malty.atoms.label": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.utils.space": "*",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggroup/malty.utils.test": "*",
+    "@carlsberggbs/malty.utils.test": "*",
     "@storybook/addon-actions": "^7.4.1",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
@@ -42,9 +42,9 @@
     "@types/uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@carlsberggroup/malty.icons.check": "*",
-    "@carlsberggroup/malty.icons.chevron-down": "*",
-    "@carlsberggroup/malty.icons.search": "*",
+    "@carlsberggbs/malty.icons.check": "*",
+    "@carlsberggbs/malty.icons.chevron-down": "*",
+    "@carlsberggbs/malty.icons.search": "*",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   }

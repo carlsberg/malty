@@ -1,5 +1,5 @@
-import { ArrowSmallUp } from '@carlsberggroup/malty.icons.arrow-small-up';
-import { render } from '@carlsberggroup/malty.utils.test';
+import { ArrowSmallUp } from '@carlsberggbs/malty.icons.arrow-small-up';
+import { render } from '@carlsberggbs/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';

@@ -1,6 +1,6 @@
-import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
-import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { CarlsbergFilled } from '@carlsberggbs/malty.icons.carlsberg-filled';
+import { allIconsStoryOptions } from '@carlsberggbs/malty.utils.all-icons';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Pill } from './Pill';
@@ -11,7 +11,7 @@ const meta: Meta<PillProps> = {
   component: Pill,
   parameters: {
     importObject: 'Pill',
-    importPath: '@carlsberggroup/malty.atoms.pill'
+    importPath: '@carlsberggbs/malty.atoms.pill'
   },
   argTypes: {
     text: {

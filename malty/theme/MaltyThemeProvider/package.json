@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.theme.malty-theme-provider",
+  "name": "@carlsberggbs/malty.theme.malty-theme-provider",
   "version": "0.0.43",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

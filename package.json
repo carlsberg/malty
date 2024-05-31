@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/carlsberg-malty",
+  "name": "@carlsberggbs/carlsberg-malty",
   "homepage": "https://malty.carlsberggroup.com/",
   "url": "https://malty.carlsberggroup.com",
   "version": "1.0.33",
@@ -37,7 +37,7 @@
     "start": "yarn build && yarn storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs",
-    "build": "yarn clean && lerna run build",
+    "build": "lerna run build",
     "test": "jest",
     "test:ci": "jest --silent --ci --coverage --coverageDirectory=jest-coverage",
     "test:watch": "jest --watch",

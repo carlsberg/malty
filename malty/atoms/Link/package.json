@@ -1,5 +1,5 @@
 {
-  "name": "@carlsberggroup/malty.atoms.link",
+  "name": "@carlsberggbs/malty.atoms.link",
   "version": "0.1.6",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -15,14 +15,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggroup/malty.utils.space": "*",
-    "@carlsberggroup/malty.utils.types": "*",
+    "@carlsberggbs/malty.utils.space": "*",
+    "@carlsberggbs/malty.utils.types": "*",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberggroup/malty.utils.test": "*",
+    "@carlsberggbs/malty.utils.test": "*",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",

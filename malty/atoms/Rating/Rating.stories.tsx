@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Rating } from './Rating';
 import { RatingProps } from './Rating.types';
@@ -8,7 +8,7 @@ const meta: Meta<RatingProps> = {
   component: Rating,
   parameters: {
     importObject: 'Rating',
-    importPath: '@carlsberggroup/malty.atoms.rating'
+    importPath: '@carlsberggbs/malty.atoms.rating'
   },
   argTypes: {
     name: {
