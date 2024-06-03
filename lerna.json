@@ -13,7 +13,8 @@
   "command": {
     "publish": {
       "registry": "https://npm.pkg.github.com/@carlsberggbs",
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "changelog": false
     },
     "version": {
       "tagVersionPrefix": ""

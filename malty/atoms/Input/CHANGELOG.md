@@ -1,0 +1,60 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 0.3.0 (2024-05-31)
+
+### Bug Fixes
+
+- **checkbox:** [DSM-397] Refactor checkbox component ([#551](https://github.com/CarlsbergGBS/cx-component-library/issues/551)) ([82eb0a6](https://github.com/CarlsbergGBS/cx-component-library/commit/82eb0a62c27c1df768ae94643365942d5f4398e1))
+- **DSM-263:** removed input datepicker ([#212](https://github.com/CarlsbergGBS/cx-component-library/issues/212)) ([39cb599](https://github.com/CarlsbergGBS/cx-component-library/commit/39cb599f6b5d943fd4fc55cfbbf47dcff8127566))
+- **DSM-272:** fixed rounded corners in safari ([#238](https://github.com/CarlsbergGBS/cx-component-library/issues/238)) ([b5d065c](https://github.com/CarlsbergGBS/cx-component-library/commit/b5d065c7b07336f9ac98aca3208e5b178e7814ea))
+- **DSM-289:** input width 100% ([#243](https://github.com/CarlsbergGBS/cx-component-library/issues/243)) ([dbc5f84](https://github.com/CarlsbergGBS/cx-component-library/commit/dbc5f84117220747a3c5c1671d9c51a20c626193))
+- **DSM-312:** fixed rounded corners on mobile ([#250](https://github.com/CarlsbergGBS/cx-component-library/issues/250)) ([8eff302](https://github.com/CarlsbergGBS/cx-component-library/commit/8eff302cde8ad59e993cf082ddc8f68e383e9e54))
+- **DSM-492:** Add aria-labels to Plus and Minus Buttons ([#459](https://github.com/CarlsbergGBS/cx-component-library/issues/459)) ([cb7a03e](https://github.com/CarlsbergGBS/cx-component-library/commit/cb7a03e161f5619c8f4c06125e6b8bddeb67e5d7))
+- **Input:** [DSM-566] Add optional name prop to enable browser autocomplete ([#579](https://github.com/CarlsbergGBS/cx-component-library/issues/579)) ([6d337a5](https://github.com/CarlsbergGBS/cx-component-library/commit/6d337a5803b0cf53637a6a91e734c1650f7eed78))
+- **input:** [DSM-636] Validations for min and max quantity input ([#635](https://github.com/CarlsbergGBS/cx-component-library/issues/635)) ([8db2f63](https://github.com/CarlsbergGBS/cx-component-library/commit/8db2f63e99a9cfa05f17d1432db2347409791f29))
+- **input:** [DSM-656] Update quantity buttons behaviour in smaller containers ([#717](https://github.com/CarlsbergGBS/cx-component-library/issues/717)) ([77623f2](https://github.com/CarlsbergGBS/cx-component-library/commit/77623f2d2779b6651d63c9b2db555c6800ccd3ab))
+- **input:** Quantity readonly styles when min 0 ([#677](https://github.com/CarlsbergGBS/cx-component-library/issues/677)) ([01994d7](https://github.com/CarlsbergGBS/cx-component-library/commit/01994d7be30fe447648c78b350d9c01731d4e3c1))
+- Minor component fixes ([#265](https://github.com/CarlsbergGBS/cx-component-library/issues/265)) ([c75bd7c](https://github.com/CarlsbergGBS/cx-component-library/commit/c75bd7c926163db6efb65ab89a64d8637d7a4664))
+- Remove `eslint` warnings and errors ([#322](https://github.com/CarlsbergGBS/cx-component-library/issues/322)) ([4c7bc73](https://github.com/CarlsbergGBS/cx-component-library/commit/4c7bc737de8abb060919ac5ba16220a6d5d0ace9))
+- Remove typography provider from every component ([#383](https://github.com/CarlsbergGBS/cx-component-library/issues/383)) ([5d05680](https://github.com/CarlsbergGBS/cx-component-library/commit/5d05680e40d3da5bb3042bd8191427a70606afc3))
+- removed duplicated argType ([#398](https://github.com/CarlsbergGBS/cx-component-library/issues/398)) ([1f7ee27](https://github.com/CarlsbergGBS/cx-component-library/commit/1f7ee271d9faf80fc79fc5cfccefcc70575e64e2))
+- reverted changes ([#396](https://github.com/CarlsbergGBS/cx-component-library/issues/396)) ([ecfcf57](https://github.com/CarlsbergGBS/cx-component-library/commit/ecfcf573863253fea16e24764b6f452c3cc4f215))
+- Run auto fixable lint based on new `eslint` configuration ([#501](https://github.com/CarlsbergGBS/cx-component-library/issues/501)) ([9ee94cc](https://github.com/CarlsbergGBS/cx-component-library/commit/9ee94cc2cd407f717e62d8857b5f20a74e7bbec4))
+- Update components to have a function declaration and remove unneeded fragments ([#502](https://github.com/CarlsbergGBS/cx-component-library/issues/502)) ([b470095](https://github.com/CarlsbergGBS/cx-component-library/commit/b4700954f4e1ae9c7e547f4de37ac2b15a9d55ea))
+
+### Features
+
+- add tsconfig files and update package.json files for each component ([3bfc644](https://github.com/CarlsbergGBS/cx-component-library/commit/3bfc644e1cfc9dbb7cf7a0469e25fce055b53240))
+- added missing props ([#376](https://github.com/CarlsbergGBS/cx-component-library/issues/376)) ([fc7cd0b](https://github.com/CarlsbergGBS/cx-component-library/commit/fc7cd0bae08fe01275049206c62fdfce7a90638a))
+- change organization name ([a0aa428](https://github.com/CarlsbergGBS/cx-component-library/commit/a0aa428f43138af5707a3ff4c0e36b7c056f02e6))
+- **DSM-204:** dropdown search ([#155](https://github.com/CarlsbergGBS/cx-component-library/issues/155)) ([60263ac](https://github.com/CarlsbergGBS/cx-component-library/commit/60263ac4e403a0040f86c1f7059ae27a5b88f14b))
+- **DSM-228:** Added rating component ([#379](https://github.com/CarlsbergGBS/cx-component-library/issues/379)) ([ab47354](https://github.com/CarlsbergGBS/cx-component-library/commit/ab47354db803fb051a1f87d66ee34966698df8bd))
+- **DSM-235:** added readOnly on inputs ([#181](https://github.com/CarlsbergGBS/cx-component-library/issues/181)) ([36c5ef7](https://github.com/CarlsbergGBS/cx-component-library/commit/36c5ef7cb1225bf5a150918e01e10fd253377110))
+- **DSM-248:** Headline HTML tags ([#184](https://github.com/CarlsbergGBS/cx-component-library/issues/184)) ([305f5e0](https://github.com/CarlsbergGBS/cx-component-library/commit/305f5e0fa92d5813f4877b338ad827a8c347d452))
+- **DSM-288:** variants to input & chip ([#274](https://github.com/CarlsbergGBS/cx-component-library/issues/274)) ([5430764](https://github.com/CarlsbergGBS/cx-component-library/commit/54307643c5f171131601844690e7dd149de23086))
+- **DSM-329:** toggle password visibility ([#297](https://github.com/CarlsbergGBS/cx-component-library/issues/297)) ([50e6baf](https://github.com/CarlsbergGBS/cx-component-library/commit/50e6baf32acd8e1f65b03a15756c7cac7ba4f291))
+- **DSM-362:** snapshots removed & unit test updates ([#307](https://github.com/CarlsbergGBS/cx-component-library/issues/307)) ([78423eb](https://github.com/CarlsbergGBS/cx-component-library/commit/78423eb5cfe04fe8a3a7af1f5af074ac6d35e235))
+- **DSM-368:** Required prop & label component ([#384](https://github.com/CarlsbergGBS/cx-component-library/issues/384)) ([983bd78](https://github.com/CarlsbergGBS/cx-component-library/commit/983bd78c8f526a8faa2df601bf918b40219820f2))
+- **DSM-439:** Change font-family behavior ([#470](https://github.com/CarlsbergGBS/cx-component-library/issues/470)) ([ab6dad4](https://github.com/CarlsbergGBS/cx-component-library/commit/ab6dad414c42c4343de3de6abaa4cd3ff98cfca1))
+- **DSM-485:** refactor type number & quantity ([#466](https://github.com/CarlsbergGBS/cx-component-library/issues/466)) ([b2a3981](https://github.com/CarlsbergGBS/cx-component-library/commit/b2a3981107516a461e3c89c1a8d8d69368649d4a))
+- **DSM-515:** product card ([#548](https://github.com/CarlsbergGBS/cx-component-library/issues/548)) ([9b91827](https://github.com/CarlsbergGBS/cx-component-library/commit/9b918271c05d4a98fdd7c5b34bb356f89a92c991))
+- Fixes font & positioning in Telephone Input ([#478](https://github.com/CarlsbergGBS/cx-component-library/issues/478)) ([cc12a70](https://github.com/CarlsbergGBS/cx-component-library/commit/cc12a706f64cad0307f6e5002594737de2bbe772))
+- **general:** [DSM-953] refactor icons implementation ([#892](https://github.com/CarlsbergGBS/cx-component-library/issues/892)) ([08d259f](https://github.com/CarlsbergGBS/cx-component-library/commit/08d259f476ce97e9db8ac41d5eb4773eabca0d37))
+- **global:** [DSM-784] add space props in all components ([#842](https://github.com/CarlsbergGBS/cx-component-library/issues/842)) ([9f03f59](https://github.com/CarlsbergGBS/cx-component-library/commit/9f03f59e7518a99abcea06bacbee989d1ddb0465))
+- **global:** migrate from bit to lerna ([a0110c8](https://github.com/CarlsbergGBS/cx-component-library/commit/a0110c8831370dc762c193b17cc593eed381f990))
+- **global:** update storybook files to be compliant with v7 ([#970](https://github.com/CarlsbergGBS/cx-component-library/issues/970)) ([c61d4b4](https://github.com/CarlsbergGBS/cx-component-library/commit/c61d4b40a0755becf942ad3f28758a159f8c54e4))
+- **input:** [DSM-713] Add tests ([#707](https://github.com/CarlsbergGBS/cx-component-library/issues/707)) ([4430181](https://github.com/CarlsbergGBS/cx-component-library/commit/443018176fed7ec20c2da496ba1892b9f9b2fb00))
+- **input:** [DSM-940] add character counter feature ([#847](https://github.com/CarlsbergGBS/cx-component-library/issues/847)) ([80e0f46](https://github.com/CarlsbergGBS/cx-component-library/commit/80e0f469cb9f688bb74f179d1401ccba11f7128a))
+- **input:** add quantity variant ([#800](https://github.com/CarlsbergGBS/cx-component-library/issues/800)) ([b2f07ca](https://github.com/CarlsbergGBS/cx-component-library/commit/b2f07ca29940642260d4936cc958e9122b672440))
+- integrate visual testing ([#925](https://github.com/CarlsbergGBS/cx-component-library/issues/925)) ([35dfc1c](https://github.com/CarlsbergGBS/cx-component-library/commit/35dfc1cce6b76d5d2661d552f9fb25477d3a57f7))
+- **MS-109:** Add missing attributes ([#385](https://github.com/CarlsbergGBS/cx-component-library/issues/385)) ([cae68fa](https://github.com/CarlsbergGBS/cx-component-library/commit/cae68fa23fb5794af66073589ed2b22e09ddce2b))
+- **MS-109:** number type button clicks ([#428](https://github.com/CarlsbergGBS/cx-component-library/issues/428)) ([0aa9876](https://github.com/CarlsbergGBS/cx-component-library/commit/0aa98765a8db3a25243634d1bbf0defdbbf48c0f))
+- **MS-131:** Add prop to disable input on InputQuantity ([#498](https://github.com/CarlsbergGBS/cx-component-library/issues/498)) ([45f8e42](https://github.com/CarlsbergGBS/cx-component-library/commit/45f8e4251297674f74f3fc2d0e7aa870c6d7130b))
+- new icon colors ([#215](https://github.com/CarlsbergGBS/cx-component-library/issues/215)) ([9247d33](https://github.com/CarlsbergGBS/cx-component-library/commit/9247d3370bcde78432033ba8b23837f97e0b0dc0))
+- **product-card, product-quantity-actions:** [DSM-785] readonly option ([#774](https://github.com/CarlsbergGBS/cx-component-library/issues/774)) ([c0b4ec1](https://github.com/CarlsbergGBS/cx-component-library/commit/c0b4ec15c2872e4b15ef886d5850e4fd48ef4f09))
+- **product-quantity-actions, product-card, input:** [DSM-630] ProductQuantityActions Component ([#633](https://github.com/CarlsbergGBS/cx-component-library/issues/633)) ([e33861a](https://github.com/CarlsbergGBS/cx-component-library/commit/e33861a9c082a21ab533a38fd4e028ff58d9a5f0))
+- remove empty composition files ([f8173f4](https://github.com/CarlsbergGBS/cx-component-library/commit/f8173f4a2ecbf80bb7b6ffe848c023ae31819c2d))
+- Several component updates ([#185](https://github.com/CarlsbergGBS/cx-component-library/issues/185)) ([633c9f0](https://github.com/CarlsbergGBS/cx-component-library/commit/633c9f0a4432e9e3d08ff05156453660929c19a2))

@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.utils.hooks",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "repository": {
@@ -15,8 +15,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
-    "@carlsberggbs/malty.utils.helpers": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.1.0",
+    "@carlsberggbs/malty.utils.helpers": "^0.1.0",
     "core-js": "^3.0.0"
   },
   "devDependencies": {
