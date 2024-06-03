@@ -1,8 +1,9 @@
 {
   "name": "@carlsberggbs/malty.icons.tap-glass",
   "version": "0.2.0",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
@@ -11,7 +12,9 @@
     "@carlsberggbs": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
     "test": "jest"
   },
   "dependencies": {

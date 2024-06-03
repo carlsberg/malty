@@ -10,5 +10,5 @@ module.exports = {
     '^@theme/(.*)$': './malty/theme/$1',
     '^@icons/(.*)$': './malty/icons/$1'
   },
-  setupFilesAfterEnv: ['./jest.setup.ts']
+  setupFilesAfterEnv: ['./jest-setup.ts']
 };
