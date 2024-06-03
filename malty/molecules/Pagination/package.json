@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.molecules.pagination",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,17 +18,17 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.atoms.button": "^0.2.0",
-    "@carlsberggbs/malty.atoms.text": "^0.1.0",
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.1.0",
-    "@carlsberggbs/malty.utils.consts": "^0.1.0",
-    "@carlsberggbs/malty.utils.space": "^0.1.0",
+    "@carlsberggbs/malty.atoms.button": "^0.3.0",
+    "@carlsberggbs/malty.atoms.text": "^0.2.0",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.2.0",
+    "@carlsberggbs/malty.utils.consts": "^0.2.0",
+    "@carlsberggbs/malty.utils.space": "^0.2.0",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggbs/malty.utils.test": "^0.1.0",
+    "@carlsberggbs/malty.utils.test": "^0.2.0",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
