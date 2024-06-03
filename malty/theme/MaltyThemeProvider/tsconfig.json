@@ -1,8 +1,9 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "rootDir": "."
   },
-  "exclude": ["./tsconfig.json"],
-  "include": ["./themes/*.json", "./*.json"]
+  "exclude": ["lib", "./tsconfig.json"],
+  "include": ["./themes/*.json", "./*.json", "./**/*"]
 }

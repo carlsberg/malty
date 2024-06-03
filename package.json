@@ -38,9 +38,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs",
     "build": "lerna run build",
-    "test": "jest",
-    "test:ci": "jest --silent --ci --coverage --coverageDirectory=jest-coverage",
-    "test:watch": "jest --watch",
+    "test": "rm -rf ./malty/**/lib && jest",
+    "test:ci": "rm -rf ./malty/**/lib && jest --silent --ci --coverage --coverageDirectory=jest-coverage",
+    "test:watch": "rm -rf ./malty/**/lib && jest --watch",
     "format": "prettier --write . --loglevel error",
     "check-lint": "eslint \"{malty,cypress}/**/*.{js,ts,tsx}\" --max-warnings=9",
     "lint": "yarn check-lint --fix",
@@ -51,7 +51,6 @@
     "cypress:run:desktop": "docker run --platform linux/amd64 -v $PWD:/e2e -w /e2e -e BASE_URL=http://host.docker.internal:6006 cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1 --browser chrome --config viewportWidth=1024,viewportHeight=768",
     "cypress:ci:desktop": "cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768",
     "cypress:move-snapshots": "node ./scripts/move-snapshots.mjs",
-    "bootstrap": "yarn install",
     "publish": "lerna publish"
   },
   "dependencies": {
