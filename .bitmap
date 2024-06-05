@@ -1635,6 +1635,12 @@
         "mainFile": "index.tsx",
         "rootDir": "malty/theme/MaltyThemeProvider"
     },
+    "theme/new-malty-theme-provider": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "malty/theme/NewMaltyThemeProvider"
+    },
     "utils/all-icons": {
         "scope": "carlsberggroup.malty",
         "version": "0.0.2",
