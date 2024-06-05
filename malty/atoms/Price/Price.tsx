@@ -9,12 +9,12 @@ export const Price = ({ base, discount, credit, dataTestId = 'default', ...props
   const theme = useContext(ThemeContext) || defaultTheme;
 
   return (
-    <StyledPriceContainer theme={theme} {...props}>
+    <StyledPriceContainer theme={theme} data-testid={dataTestId} {...props}>
       {base && !credit ? (
         <StyledPrice
           theme={theme}
           discount={!!discount}
-          dataQaId={`${dataTestId}-price`}
+          dataTestId={`${dataTestId}-price`}
           color={discount ? TextColor.Support60 : TextColor.DigitalBlack}
           textStyle={discount ? TextStyle.MediumSmallDefaultUnderline : TextStyle.MediumSmallDefault}
         >
@@ -23,7 +23,7 @@ export const Price = ({ base, discount, credit, dataTestId = 'default', ...props
       ) : null}
       {discount && !credit ? (
         <Text
-          dataQaId={`${dataTestId}-discount-price`}
+          dataTestId={`${dataTestId}-discount-price`}
           color={TextColor.AlertStrong}
           textStyle={TextStyle.MediumSmallBold}
         >
@@ -31,7 +31,7 @@ export const Price = ({ base, discount, credit, dataTestId = 'default', ...props
         </Text>
       ) : null}
       {credit ? (
-        <Text dataQaId={`${dataTestId}-credit-price`} color={TextColor.Success} textStyle={TextStyle.MediumSmallBold}>
+        <Text dataTestId={`${dataTestId}-credit-price`} color={TextColor.Success} textStyle={TextStyle.MediumSmallBold}>
           {credit}
         </Text>
       ) : null}

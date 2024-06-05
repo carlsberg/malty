@@ -1,28 +1,34 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
-import React, { useState } from 'react';
-import { Checkbox as CheckboxComponent } from './Checkbox';
+import { Meta, StoryObj } from '@storybook/react';
+import React, { useEffect, useState } from 'react';
+import { Checkbox } from './Checkbox';
 import { CheckboxProps } from './Checkbox.types';
 
-export default {
+const ControlledCheckbox = ({ checked, ...args }: CheckboxProps) => {
+  const [isChecked, setIsChecked] = useState(checked);
+
+  useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
+
+  return <Checkbox {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
+};
+
+const meta: Meta<CheckboxProps> = {
   title: 'Forms/Checkbox',
-  component: CheckboxComponent,
+  component: Checkbox,
+  render: (args) => <ControlledCheckbox {...args} />,
   parameters: {
     importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.checkbox',
-    variants: ['undetermined', 'checked', 'unchecked']
+    importPath: '@carlsberggroup/malty.atoms.checkbox'
   },
   argTypes: {
     value: {
-      control: {
-        type: 'text'
-      },
+      control: 'text',
       description: 'This is the value to be passed'
     },
     labelText: {
-      control: {
-        type: 'text'
-      },
+      control: 'text',
       description: 'This is the label for the checkbox'
     },
     required: {
@@ -31,96 +37,136 @@ export default {
     },
     readOnly: {
       control: 'boolean',
-      description: 'Makes the checkbox readonly'
+      description: 'Makes the checkbox readonly',
+      table: {
+        category: 'State'
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Makes the checkbox disabled'
+      description: 'Makes the checkbox disabled',
+      table: {
+        category: 'State'
+      }
     },
     fullWidth: {
       control: 'boolean',
-      description: 'Makes the checkbox width 100%'
+      description: 'Makes the checkbox width 100%',
+      table: {
+        category: 'Styling'
+      }
     },
     isIndeterminate: {
       control: 'boolean',
-      description: 'Makes the checkbox Indeterminate'
+      description: 'Makes the checkbox Indeterminate',
+      table: {
+        category: 'State'
+      }
     },
     error: {
-      control: {
-        type: 'text'
-      },
+      control: 'text',
       description: 'Error message below'
     },
     checked: {
       control: 'boolean',
-      description: 'Checked `true` or `false`.'
+      description: 'Checked `true` or `false`.',
+      table: {
+        category: 'State'
+      }
     },
     onValueChange: {
-      description: 'Function to be executed when checkbox state changes'
+      description: 'Function to be executed when checkbox state changes',
+      table: {
+        category: 'Events'
+      }
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'Checkbox data-testid'
     },
     ...generateStorybookSpacing()
   }
 };
 
-const Template: Story<CheckboxProps> = ({ checked, ...args }) => {
-  const [isChecked, setIsChecked] = useState(checked);
+type Story = StoryObj<CheckboxProps>;
 
-  return <CheckboxComponent {...args} onValueChange={() => setIsChecked(!isChecked)} checked={isChecked} />;
+export const Base: Story = {
+  args: {
+    value: 'Base',
+    labelText: 'Base label',
+    error: '',
+    checked: true,
+    required: false,
+    dataTestId: 'checkbox'
+  }
 };
 
-export const Checkbox = Template.bind({});
+export const Checked: Story = {
+  args: {
+    value: 'Checked',
+    labelText: 'Checked label',
+    error: '',
+    checked: true,
+    required: false
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Undetermined: Story = {
+  args: {
+    value: 'Undetermined',
+    labelText: 'Undetermined label',
+    error: '',
+    required: false,
+    isIndeterminate: true
+  }
+};
 
-switch (variant) {
-  case 'undetermined':
-    Checkbox.args = {
-      value: 'Undetermined',
-      labelText: 'Undetermined label',
-      error: '',
-      required: false,
-      isIndeterminate: true
-    };
-    break;
+export const Unchecked: Story = {
+  args: {
+    value: 'Unchecked',
+    labelText: 'Unchecked label',
+    error: '',
+    checked: false,
+    required: false
+  }
+};
 
-  case 'unchecked':
-    Checkbox.args = {
-      value: 'Unchecked',
-      labelText: 'Unchecked label',
-      error: '',
-      checked: false,
-      required: false
-    };
-    break;
+export const Disabled: Story = {
+  args: {
+    labelText: 'Disabled label',
+    error: '',
+    checked: true,
+    required: false,
+    disabled: true
+  }
+};
 
-  case 'disabled':
-    Checkbox.args = {
-      labelText: 'Disabled label',
-      error: '',
-      checked: true,
-      required: false,
-      disabled: true
-    };
-    break;
+export const ReadOnly: Story = {
+  args: {
+    labelText: 'Readonly label',
+    error: '',
+    checked: true,
+    required: false,
+    readOnly: true
+  }
+};
 
-  case 'readOnly':
-    Checkbox.args = {
-      labelText: 'Readonly label',
-      error: '',
-      checked: true,
-      required: false,
-      readOnly: true
-    };
-    break;
+export const Required: Story = {
+  args: {
+    labelText: 'Required label',
+    error: '',
+    checked: false,
+    required: true
+  }
+};
 
-  default:
-    Checkbox.args = {
-      value: 'Checked',
-      labelText: 'Checked label',
-      error: '',
-      checked: true,
-      required: false
-    };
-    break;
-}
+export const Errored: Story = {
+  args: {
+    labelText: 'With error label',
+    checked: true,
+    required: true,
+    error: 'This input is required'
+  }
+};
+
+export default meta;

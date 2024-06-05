@@ -18,7 +18,7 @@ export const Image = ({
   children,
   figcaption,
   fallbackSrc,
-  dataTestId,
+  dataTestId = 'image',
   className,
   onClick,
   removeBackground = false,

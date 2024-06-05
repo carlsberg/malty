@@ -1,31 +1,41 @@
 import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
 import { Banner } from './Banner';
 import { ActionButtonProps, BannerLayout, BannerProps } from './Banner.types';
 
 const meta: Meta<BannerProps> = {
-  component: Banner,
   title: 'Layout/Banner',
+  component: Banner,
   parameters: {
     importObject: 'Banner',
     importPath: '@carlsberggroup/malty.molecules.banner'
   },
-  render: (args) => <Banner {...args} />,
   argTypes: {
     layout: {
       control: 'select',
       options: Object.values(BannerLayout),
-      description: 'Picks the layout of the Content and Image'
+      description: 'Picks the layout of the Content and Image',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: BannerLayout.Full
+        }
+      }
     },
     reverse: {
       control: 'boolean',
-      description: 'Reverses the position of the Image and the Content'
+      description: 'Reverses the position of the Image and the Content',
+      table: {
+        category: 'Styling'
+      }
     },
     negative: {
       control: 'boolean',
-      description: 'Changes the colors to be a black background and lighter elements'
+      description: 'Changes the colors to be a black background and lighter elements',
+      table: {
+        category: 'Styling'
+      }
     },
     title: {
       control: 'text',
@@ -48,7 +58,10 @@ const meta: Meta<BannerProps> = {
     actions: {
       control: 'object',
       description:
-        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"'
+        'An array of maximum 2 actions structured as such "actions?: ActionButtonProps[] | React.ReactNode | JSX.Element;"',
+      table: {
+        category: 'Events'
+      }
     },
     imageSrc: {
       control: 'text',
@@ -56,7 +69,10 @@ const meta: Meta<BannerProps> = {
     },
     imageHeight: {
       control: 'text',
-      description: 'Banner Image Size override (in pixels)'
+      description: 'Banner Image Size override (in pixels)',
+      table: {
+        category: 'Styling'
+      }
     },
     ...generateStorybookSpacing()
   }
@@ -87,6 +103,7 @@ export const Base: Story = {
     reverse: false,
     negative: false,
     layout: BannerLayout.Full,
+    dataTestId: 'banner-component',
     label: {
       text: 'Label'
     },

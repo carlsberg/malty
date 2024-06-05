@@ -54,8 +54,8 @@ const ProductCardComponent = (args: ProductCardProps) => {
 };
 
 const meta: Meta<ProductCardProps> = {
-  component: ProductCard,
   title: 'Cards/ProductCard',
+  component: ProductCard,
   parameters: {
     importObject: 'ProductCard',
     importPath: '@carlsberggroup/malty.molecules.product-card'
@@ -88,18 +88,27 @@ const meta: Meta<ProductCardProps> = {
       description: 'Product card style. Options are',
       options: Object.values(CardStyle),
       table: {
-        category: 'Card config'
+        category: 'Card config',
+        defaultValue: {
+          summary: CardStyle.Plain
+        }
       },
       control: 'select'
     },
     onProductClick: {
-      control: ''
+      control: '',
+      table: {
+        category: 'Events'
+      }
     },
     orientation: {
       description: 'Card orientation. Options are',
       options: Object.values(CardOrientation),
       table: {
-        category: 'Card config'
+        category: 'Card config',
+        defaultValue: {
+          summary: CardOrientation.Portrait
+        }
       },
       control: 'select'
     },
@@ -107,7 +116,10 @@ const meta: Meta<ProductCardProps> = {
       description: 'Color for favorite icon',
       options: Object.values(IconColor),
       table: {
-        category: 'Card config'
+        category: 'Card config',
+        defaultValue: {
+          summary: IconColor.DigitalBlack
+        }
       },
       control: 'select'
     },
@@ -264,7 +276,8 @@ export const Base: Story = {
     discountPill: { text: '20%', type: PillType.AlertStrong },
     promoPill: { text: 'Promo', type: PillType.AlertStrong, icon: <Coupon /> },
     cartPill: { text: '2', type: PillType.Success, icon: <Cart /> },
-    favoriteIconColor: IconColor.Primary
+    favoriteIconColor: IconColor.Primary,
+    productCardStyle: CardStyle.Plain
   }
 };
 

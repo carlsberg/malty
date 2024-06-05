@@ -4,15 +4,15 @@ import { RadioProps } from '.';
 import { Radio } from './Radio';
 
 const meta: Meta<RadioProps> = {
-  component: Radio,
   title: 'Forms/Radio',
+  component: Radio,
   parameters: {
     importObject: 'Radio',
     importPath: '@carlsberggroup/malty.atoms.radio'
   },
   argTypes: {
     label: {
-      description: 'label text radio',
+      description: 'Label text radio',
       control: 'text'
     },
     error: {
@@ -25,15 +25,24 @@ const meta: Meta<RadioProps> = {
     },
     selected: {
       description: 'If Radio component is selected or not',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'State'
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, when disabled'
+      description: 'Input state, when disabled',
+      table: {
+        category: 'State'
+      }
     },
     readOnly: {
       control: 'boolean',
-      description: 'Input state, when readOnly'
+      description: 'Input state, when readOnly',
+      table: {
+        category: 'State'
+      }
     },
     name: {
       description: 'Name attribute of the radio element.'
@@ -43,7 +52,14 @@ const meta: Meta<RadioProps> = {
       description: 'Makes the radio input required to fill'
     },
     onValueChange: {
-      description: 'Function to be executed when radio state changes'
+      description: 'Function to be executed when radio state changes',
+      table: {
+        category: 'Events'
+      }
+    },
+    dataTestId: {
+      control: 'text',
+      description: 'Radio data-testid'
     },
     ...generateStorybookSpacing()
   }
@@ -53,13 +69,18 @@ type Story = StoryObj<RadioProps>;
 
 export const Base: Story = {
   args: {
-    id: 'option1',
     label: 'Option 1',
     name: 'radioOptions',
     value: 'Option 1',
-    selected: true,
-    disabled: false,
-    required: false
+    required: false,
+    dataTestId: 'radio'
+  }
+};
+
+export const Selected: Story = {
+  args: {
+    ...Base.args,
+    selected: true
   }
 };
 

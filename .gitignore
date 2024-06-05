@@ -9,3 +9,10 @@ public/bit/*
 **/install-state.gz
 docs/*
 coverage/*
+.env
+
+# Cypress
+cypress/videos/
+cypress/snapshots/actual/
+cypress/snapshots/diff/
+cypress/downloads/

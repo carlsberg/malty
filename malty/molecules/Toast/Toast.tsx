@@ -102,7 +102,7 @@ export const Toast = ({
   return (
     <StyledAlertToastWrapper theme={theme} {...props}>
       <StyledToast data-testid={`${dataQaId}-container`} color={color} theme={theme}>
-        <Text dataQaId={`${dataQaId}-message`} color={TextColor.White} textStyle={TextStyle.MediumSmallDefault}>
+        <Text dataTestId={`${dataQaId}-message`} color={TextColor.White} textStyle={TextStyle.MediumSmallDefault}>
           {message}
         </Text>
 

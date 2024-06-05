@@ -1,12 +1,11 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
-import React from 'react';
-import { Rating as RatingComponent } from './Rating';
+import { Meta, StoryObj } from '@storybook/react';
+import { Rating } from './Rating';
 import { RatingProps } from './Rating.types';
 
-export default {
+const meta: Meta<RatingProps> = {
   title: 'Forms/Rating',
-  component: RatingComponent,
+  component: Rating,
   parameters: {
     importObject: 'Rating',
     importPath: '@carlsberggroup/malty.atoms.rating'
@@ -14,37 +13,47 @@ export default {
   argTypes: {
     name: {
       description: 'Name of the rating component',
-      control: { type: 'text' }
+      control: 'text'
     },
     label: {
       description: 'Label of the rating component',
-      control: { type: 'text' }
+      control: 'text'
     },
     value: {
-      defaultValue: 0,
       description: 'Current value of the rating component',
-      control: { type: 'number', min: 0, max: 5, step: 1 }
+      control: 'none',
+      table: {
+        defaultValue: {
+          summary: 0
+        }
+      }
     },
     readOnly: {
-      defaultValue: false,
       table: {
-        category: 'State'
+        category: 'State',
+        defaultValue: {
+          summary: false
+        }
       },
       control: 'boolean',
       description: 'Make readOnly the rating component. It is not a required property'
     },
     disabled: {
-      defaultValue: false,
       table: {
-        category: 'State'
+        category: 'State',
+        defaultValue: {
+          summary: false
+        }
       },
       control: 'boolean',
       description: 'Make disable the rating component. It is not a required property'
     },
     totalReview: {
-      defaultValue: undefined,
       description: 'Total review of the rating component',
-      control: { type: 'number', min: 0 }
+      control: {
+        type: 'number',
+        min: 0
+      }
     },
     onStarClick: {
       description: 'This is a function that will run on click. It is not a required property',
@@ -52,15 +61,39 @@ export default {
         category: 'Events'
       }
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Rating data-testid'
+    },
     ...generateStorybookSpacing()
   }
 };
-const Template: Story<RatingProps> = (args) => <RatingComponent {...args} />;
 
-export const Rating = Template.bind({});
+type Story = StoryObj<RatingProps>;
 
-Rating.args = {
-  name: 'rating1',
-  label: 'How was your order experience?',
-  value: 0
+export const Base: Story = {
+  args: {
+    name: 'rating1',
+    label: 'How was your order experience?',
+    value: 0,
+    dataTestId: 'rating',
+    disabled: false,
+    readOnly: false
+  }
 };
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
+  }
+};
+
+export default meta;

@@ -1,9 +1,18 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable camelcase */
 import 'styled-components';
+import {
+  BorderRadiusTokens,
+  BorderTokens,
+  ColorTokens,
+  GridTokens,
+  OpacityTokens,
+  ShadowTokens,
+  SizeTokens,
+  TypographyTokens
+} from '../NewMaltyThemeProvider/tokens/types';
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
+  export type DefaultTheme = DefaultThemeV1 | DefaultThemeV2;
+  export interface DefaultThemeV1 {
     colors: ColorsType;
     sizes: SizesType;
     layout: LayoutType;
@@ -11,7 +20,17 @@ declare module 'styled-components' {
     gradients: GradientsType;
     typography: TypographyType;
     variables: VariablesType;
-    shadows: ShadowsType;
+  }
+
+  export interface DefaultThemeV2 {
+    colorsV2: ColorTokens;
+    sizesV2: SizeTokens;
+    borderRadiusV2: BorderRadiusTokens;
+    bordersV2: BorderTokens;
+    opacityV2: OpacityTokens;
+    shadowsV2: ShadowTokens;
+    typographyV2: TypographyTokens;
+    gridV2: GridTokens;
   }
 
   interface SizesType {

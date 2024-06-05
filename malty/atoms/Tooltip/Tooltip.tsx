@@ -10,7 +10,7 @@ const Tooltip: TooltipType = ({
   placement,
   toggle = TooltipToggle.Hover,
   isDark = true,
-  dataTestId,
+  dataTestId = 'tooltip',
   autoHideDuration = 5000,
   onClose,
   isOpen: isOpenProp,

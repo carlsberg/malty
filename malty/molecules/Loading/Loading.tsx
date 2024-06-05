@@ -27,7 +27,7 @@ export const Loading = ({
       </StyledLoading>
 
       {text && (
-        <Text dataQaId={`${dataQaId}-label`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
+        <Text dataTestId={`${dataQaId}-label`} textStyle={TextStyle.SmallBold} color={TextColor.Support60}>
           {text}
         </Text>
       )}

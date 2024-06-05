@@ -1,18 +1,16 @@
 import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 import { ButtonProps, ButtonSize } from '.';
-import { Button as ButtonComponent } from './Button';
+import { Button } from './Button';
 import { ButtonColor, ButtonIconPosition, ButtonStyle, ButtonType } from './Button.types';
 
-export default {
+const meta: Meta<ButtonProps> = {
   title: 'Forms/Button',
-  component: ButtonComponent,
+  component: Button,
   parameters: {
     importObject: 'Button',
-    importPath: '@carlsberggroup/malty.atoms.button',
-    variants: ['primary', 'secondary', 'transparent']
+    importPath: '@carlsberggroup/malty.atoms.button'
   },
   argTypes: {
     text: {
@@ -25,39 +23,29 @@ export default {
       table: {
         category: 'Styling',
         defaultValue: {
-          summary: 'ButtonColor.DigitalBlack'
+          summary: ButtonColor.DigitalBlack
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     type: {
       description: 'The default behavior of the button. Possible values are',
       options: Object.keys(ButtonType),
-      mapping: ButtonType,
-      control: {
-        type: 'select',
-        label: Object.values(ButtonType)
-      },
+      control: 'select',
       table: {
         defaultValue: {
-          summary: 'ButtonType.Default'
+          summary: ButtonType.Default
         }
       }
     },
     style: {
       description: 'CSS styling for the button, can be',
       options: Object.keys(ButtonStyle),
-      mapping: ButtonStyle,
-      control: {
-        type: 'select',
-        label: Object.values(ButtonStyle)
-      },
+      control: 'select',
       table: {
         category: 'Styling',
         defaultValue: {
-          summary: 'ButtonStyle.Primary'
+          summary: ButtonStyle.Primary
         }
       }
     },
@@ -86,12 +74,10 @@ export default {
       table: {
         category: 'Styling',
         defaultValue: {
-          summary: 'ButtonSize.Medium'
+          summary: ButtonSize.Medium
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     icon: {
       description: 'The icon component to be displayed',
@@ -107,12 +93,10 @@ export default {
       table: {
         category: 'Icon',
         defaultValue: {
-          summary: 'Right'
+          summary: ButtonIconPosition.Right
         }
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     negative: {
       control: 'boolean',
@@ -125,7 +109,7 @@ export default {
       table: {
         category: 'State',
         defaultValue: {
-          summary: 'false'
+          summary: false
         }
       },
       control: 'boolean',
@@ -146,73 +130,63 @@ export default {
       description: 'Add classname of "active" to element',
       control: 'boolean',
       table: {
-        category: 'Styling'
+        category: 'State'
       }
     },
     children: {
       control: 'text',
       description: 'Label your button with a child, as a string. This is an alternative to the `text` property'
     },
+    dataTestId: {
+      control: 'text',
+      description: 'Button data-testid'
+    },
     ...generateStorybookSpacing()
   }
 };
 
-const Template: Story<ButtonProps> = (args) => <ButtonComponent {...args} />;
+type Story = StoryObj<ButtonProps>;
 
-export const Button = Template.bind({});
+export const Base: Story = {
+  args: {
+    color: ButtonColor.DigitalBlack,
+    style: ButtonStyle.Primary,
+    text: 'Primary',
+    type: ButtonType.Submit,
+    size: ButtonSize.Medium,
+    iconPos: ButtonIconPosition.Right,
+    loading: false,
+    negative: false,
+    disabled: false,
+    fullWidth: false,
+    url: '',
+    selected: false,
+    dataTestId: 'button'
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Secondary: Story = {
+  args: {
+    ...Base.args,
+    style: ButtonStyle.Secondary,
+    text: 'Secondary'
+  }
+};
 
-switch (variant) {
-  case 'secondary':
-    Button.args = {
-      color: ButtonColor.DigitalBlack,
-      style: ButtonStyle.Secondary,
-      text: 'Secondary',
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false
-    };
-    break;
+export const Transparent: Story = {
+  args: {
+    ...Base.args,
+    style: ButtonStyle.Transparent,
+    text: 'Transparent'
+  }
+};
 
-  case 'transparent':
-    Button.args = {
-      color: ButtonColor.DigitalBlack,
-      style: ButtonStyle.Transparent,
-      text: 'Transparent',
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false
-    };
-    break;
+export const Negative: Story = {
+  args: {
+    ...Base.args,
+    text: 'Negative',
+    negative: true
+  }
+};
 
-  default:
-    Button.args = {
-      color: ButtonColor.DigitalBlack,
-      style: ButtonStyle.Primary,
-      text: 'Primary',
-      type: ButtonType.Submit,
-      size: ButtonSize.Medium,
-      iconPos: ButtonIconPosition.Right,
-      loading: false,
-      negative: false,
-      disabled: false,
-      fullWidth: false,
-      url: '',
-      selected: false
-    };
-    break;
-}
+export default meta;

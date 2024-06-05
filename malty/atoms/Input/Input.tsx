@@ -21,7 +21,6 @@ import {
   StyledInput,
   StyledInputContainer,
   StyledInputWrapper,
-  StyledOption,
   StyledSelect
 } from './Input.styled';
 import {
@@ -301,15 +300,14 @@ export const Input = forwardRef(
                 const code =
                   InputPrefixes[InputCountry[country as keyof typeof InputCountry] as keyof typeof InputPrefixes];
                 return (
-                  <StyledOption
+                  <option
                     data-testid={`${dataTestId}-phone-option-${country}`}
                     key={`option-value-${country}`}
                     value={code}
-                    height={height}
                   >
                     {emojiFlag(country)}
                     &nbsp;&nbsp;+{code}
-                  </StyledOption>
+                  </option>
                 );
               })}
           </StyledSelect>

@@ -1,48 +1,57 @@
 import { Alert } from '@carlsberggroup/malty.icons.alert';
 import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Chip as ChipComponent } from './Chip';
+import { Chip } from './Chip';
 import { ChipProps, ChipSize } from './Chip.types';
 
-export default {
+const ControlledChip = (props: ChipProps) => {
+  const [stateChecked, setStateChecked] = useState(false);
+
+  return <Chip {...props} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
+};
+
+const meta: Meta<ChipProps> = {
   title: 'Forms/Chip',
-  component: ChipComponent,
+  component: Chip,
   parameters: {
-    importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.chip',
-    variants: ['button', 'icon', 'selected', 'disabled']
+    importObject: 'Chip',
+    importPath: '@carlsberggroup/malty.atoms.chip'
   },
+  render: (args) => <ControlledChip {...args} />,
   argTypes: {
     label: {
-      control: {
-        type: 'text'
-      },
-      description: 'label for the chip'
+      control: 'text',
+      description: 'Label for the chip'
     },
     size: {
       description: 'Chip size. Options are',
       options: Object.values(ChipSize),
       table: {
         defaultValue: {
-          summary: 'ChipSize.Medium'
-        }
+          summary: ChipSize.Medium
+        },
+        category: 'Styling'
       },
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     selected: {
       control: 'none',
-      description: 'state of the component, selected or not selected'
+      description: 'State of the component, selected or not selected',
+      table: {
+        category: 'State'
+      }
     },
     showAction: {
       control: 'boolean',
       description: 'Displays add button if true'
     },
     onChange: {
-      description: 'Function to be executed when Chip state changes'
+      description: 'Function to be executed when Chip state changes',
+      table: {
+        category: 'Events'
+      }
     },
     icon: {
       description: 'The icon component to be displayed',
@@ -51,11 +60,17 @@ export default {
     },
     disabled: {
       control: 'boolean',
-      description: 'Disable chip'
+      description: 'Disable chip',
+      table: {
+        category: 'State'
+      }
     },
     readOnly: {
       control: 'boolean',
-      description: 'readOnly chip'
+      description: 'ReadOnly chip',
+      table: {
+        category: 'State'
+      }
     },
     dataTestId: {
       control: 'text',
@@ -65,52 +80,50 @@ export default {
   }
 };
 
-const Template: Story<ChipProps> = (args) => {
-  const [stateChecked, setStateChecked] = useState(false);
+type Story = StoryObj<ChipProps>;
 
-  return <ChipComponent {...args} selected={stateChecked} onChange={() => setStateChecked(!stateChecked)} />;
+export const Base: Story = {
+  args: {
+    label: 'Label',
+    selected: false,
+    showAction: false
+  }
 };
 
-export const Chip = Template.bind({});
+export const Button: Story = {
+  args: {
+    ...Base.args,
+    showAction: true
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Icon: Story = {
+  args: {
+    ...Base.args,
+    icon: <Alert />
+  }
+};
 
-switch (variant) {
-  case 'button':
-    Chip.args = {
-      label: 'Label',
-      selected: false,
-      showAction: true
-    };
-    break;
-  case 'icon':
-    Chip.args = {
-      label: 'Label',
-      selected: false,
-      icon: <Alert />
-    };
-    break;
-  case 'selected':
-    Chip.args = {
-      label: 'Label',
-      selected: true,
-      showAction: false
-    };
-    break;
-  case 'disabled':
-    Chip.args = {
-      label: 'Label',
-      selected: true,
-      showAction: false,
-      disabled: true
-    };
-    break;
-  default:
-    Chip.args = {
-      label: 'Label',
-      selected: false,
-      showAction: false
-    };
-    break;
-}
+export const Selected: Story = {
+  args: {
+    ...Base.args,
+    selected: true
+  }
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    selected: true,
+    disabled: true
+  }
+};
+
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
+  }
+};
+
+export default meta;

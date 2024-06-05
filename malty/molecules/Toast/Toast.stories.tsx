@@ -1,19 +1,29 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
 import { action } from '@storybook/addon-actions';
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Toast as ToastComponent } from './Toast';
+import { Toast } from './Toast';
 import { ToastColor, ToastProps } from './Toast.types';
 
-export default {
+const StyledContainer = styled.div`
+  height: 200px;
+  width: 100%;
+  position: relative;
+`;
+
+const meta: Meta<ToastProps> = {
   title: 'Information/Toast',
-  component: ToastComponent,
+  component: Toast,
   parameters: {
     importObject: 'Toast',
-    importPath: '@carlsberggroup/malty.molecules.toast',
-    variants: ['custom']
+    importPath: '@carlsberggroup/malty.molecules.toast'
   },
+  render: (args) => (
+    <StyledContainer>
+      <Toast {...args} />
+    </StyledContainer>
+  ),
   argTypes: {
     message: {
       control: 'text',
@@ -23,30 +33,36 @@ export default {
       description: 'Toast colors, from design predefined colors, as follows.',
       options: Object.keys(ToastColor),
       mapping: ToastColor,
-      control: {
-        type: 'select',
-        label: Object.values(ToastColor)
-      },
+      control: 'select',
       table: {
+        category: 'Styling',
         defaultValue: {
-          summary: 'ToastColor.Notification'
+          summary: ToastColor.Notification
         }
       }
     },
     showCloseIcon: {
       description: 'If true close icon is displayed',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'Icon'
+      }
     },
     onClose: {
-      description: 'function to be called when close icon is clicked'
+      description: 'function to be called when close icon is clicked',
+      table: {
+        category: 'Events'
+      }
     },
     customActionText: {
       control: 'text',
-      description: 'Text to be diplayed as custom action',
-      table: { defaultValue: { summary: 'none' } }
+      description: 'Text to be diplayed as custom action'
     },
     onCustomAction: {
-      description: 'function to be called when custom action button is clicked'
+      description: 'function to be called when custom action button is clicked',
+      table: {
+        category: 'Events'
+      }
     },
     autoHideDuration: {
       control: 'number',
@@ -54,45 +70,29 @@ export default {
     },
     dataQaId: {
       control: 'text',
-      description: 'Alert data-qi-id, can be',
-      table: { defaultValue: { summary: 'none' } }
+      description: 'Toast data-testid'
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
+};
 
-const StyledContainer = styled.div`
-  height: 200px;
-  width: 100%;
-  position: relative;
-`;
+type Story = StoryObj<ToastProps>;
 
-const Template: Story<ToastProps> = (args) => (
-  <StyledContainer>
-    <ToastComponent {...args} />
-  </StyledContainer>
-);
+export const Base: Story = {
+  args: {
+    message: 'Hello, Im the Toast Alert! Play with me.',
+    color: ToastColor.Notification,
+    showCloseIcon: true,
+    dataQaId: 'toast-alert'
+  }
+};
 
-export const Toast = Template.bind({});
+export const Custom: Story = {
+  args: {
+    ...Base.args,
+    customActionText: 'Action',
+    onCustomAction: action('Custom Action clicked')
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
-switch (variant) {
-  case 'custom':
-    Toast.args = {
-      message: 'Hello, Im the Toast Alert! Play with me.',
-      color: ToastColor.Notification,
-      customActionText: 'Action',
-      onCustomAction: action('Custom Action clicked'),
-      dataQaId: 'toast-alert'
-    };
-    break;
-  default:
-    Toast.args = {
-      message: 'Hello, Im the Toast Alert! Play with me.',
-      color: ToastColor.Notification,
-      showCloseIcon: true,
-      dataQaId: 'toast-alert'
-    };
-    break;
-}
+export default meta;

@@ -1,17 +1,27 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Select as SelectComponent, SelectOptionsType, SelectProps, SelectSize, SelectType } from '.';
+import { Select, SelectOptionsType, SelectProps, SelectSize, SelectType } from '.';
+import { SelectPosition } from './Select.types';
 
 const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 300px;
 `;
-export default {
+
+const meta: Meta<SelectProps> = {
   title: 'Forms/Select',
-  component: SelectComponent,
+  component: Select,
+  render: (args) => {
+    return (
+      <StyledContainer>
+        <Select {...args} />
+      </StyledContainer>
+    );
+  },
   parameters: {
     importObject: 'Select',
     importPath: '@carlsberggroup/malty.atoms.select'
@@ -30,41 +40,49 @@ export default {
       control: 'text'
     },
     placeholder: {
-      description: 'Placeholder text to go inside the Select field, when empty.',
+      description: 'Placeholder text to go inside the Select field, when empty',
       control: 'text'
     },
     error: {
-      description: 'Error message to be displayed when error is present.',
+      description: 'Error message to be displayed when error is present',
       control: 'text'
     },
     hint: {
-      description: 'helper message to be displayed',
+      description: 'Helper message to be displayed',
       control: 'text'
     },
     size: {
       description: 'Select component size.',
       options: Object.values(SelectSize),
-      control: {
-        type: 'radio'
+      control: 'radio',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: SelectSize.Medium
+        }
       }
     },
     type: {
       description: 'Type of select component',
       options: Object.values(SelectType),
-      control: {
-        type: 'select'
-      }
+      control: 'select'
     },
     disabled: {
-      description: 'Select state, disabled.',
-      control: 'boolean'
+      description: 'Select state, disabled',
+      control: 'boolean',
+      table: {
+        category: 'State'
+      }
     },
     readOnly: {
       control: 'boolean',
-      description: 'Select state, readOnly.'
+      description: 'Select state, readOnly',
+      table: {
+        category: 'State'
+      }
     },
     defaultValue: {
-      description: 'Initial selected option'
+      description: 'Initial selected option(s)'
     },
     options: {
       description:
@@ -83,11 +101,14 @@ export default {
       control: 'text'
     },
     onValueChange: {
-      description: 'Function to be executed when an option is selected or unselected'
+      description: 'Function to be executed when an option is selected or unselected',
+      table: {
+        category: 'Events'
+      }
     },
     dataTestId: {
       control: 'text',
-      description: 'select data-testid'
+      description: 'Select data-testid'
     },
     required: {
       description: 'Makes the select visually mandatory to be filled when not in inline version',
@@ -95,11 +116,38 @@ export default {
     },
     optionsZIndex: {
       control: 'number',
-      description: 'Controls the z-index of the options wrapper'
+      description: 'Controls the z-index of the options wrapper',
+      table: {
+        category: 'Styling'
+      }
+    },
+    value: {
+      description: 'Selected option(s)',
+      control: false
+    },
+    clearAllOption: {
+      description: 'Show option that allows the user to clear the current selection',
+      control: 'boolean'
+    },
+    alignPosition: {
+      description: '',
+      options: Object.values(SelectPosition),
+      control: 'select',
+      table: {
+        category: 'Styling'
+      },
+      if: { arg: 'type', eq: SelectType.Inline }
+    },
+    onBlur: {
+      description: 'Function to be executed when the select loses focus',
+      control: false,
+      table: {
+        category: 'Events'
+      }
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
+};
 
 const testOptions: SelectOptionsType[] = [
   {
@@ -124,57 +172,47 @@ const testOptions: SelectOptionsType[] = [
   }
 ];
 
-const Template: Story<SelectProps> = (args) => (
-  <StyledContainer>
-    <SelectComponent {...args} />
-  </StyledContainer>
-);
+type Story = StoryObj<SelectProps>;
 
-export const Select = Template.bind({});
+export const Base: Story = {
+  args: {
+    options: testOptions,
+    size: SelectSize.Medium,
+    label: 'Label',
+    type: SelectType.Default,
+    hint: 'hint text',
+    disabled: false,
+    placeholder: 'Placeholder',
+    defaultValue: [testOptions[0]],
+    selectionText: 'options selected',
+    readOnly: false,
+    required: false,
+    optionsZIndex: 2,
+    onValueChange: action('onValueChange'),
+    dataTestId: 'select',
+    clearAllOption: true
+  }
+};
 
-const params = new URLSearchParams(window.location.search);
-const type = params.get('type');
-const multiple = params.get('multiple');
-const error = params.get('error');
-const search = params.get('search');
+export const Disabled: Story = {
+  args: {
+    ...Base.args,
+    disabled: true
+  }
+};
 
-switch (type) {
-  case 'inline':
-    Select.args = {
-      options: testOptions,
-      size: SelectSize.Medium,
-      label: 'Label',
-      type: SelectType.Inline,
-      hint: 'hint text',
-      disabled: false,
-      placeholder: 'Placeholder',
-      multiple: !!multiple,
-      defaultValue: [testOptions[0]],
-      selectionText: 'options selected',
-      search: !!search,
-      readOnly: false,
-      required: false,
-      optionsZIndex: 2
-    };
-    break;
+export const ReadOnly: Story = {
+  args: {
+    ...Base.args,
+    readOnly: true
+  }
+};
 
-  default:
-    Select.args = {
-      options: testOptions,
-      size: SelectSize.Medium,
-      label: 'Label',
-      type: SelectType.Default,
-      hint: 'hint text',
-      disabled: false,
-      placeholder: 'Placeholder',
-      multiple: !!multiple,
-      defaultValue: [testOptions[0]],
-      selectionText: 'options selected',
-      error: error ? 'error text' : '',
-      search: !!search,
-      readOnly: false,
-      required: false,
-      optionsZIndex: 2
-    };
-    break;
-}
+export const Inline: Story = {
+  args: {
+    ...Base.args,
+    type: SelectType.Inline
+  }
+};
+
+export default meta;

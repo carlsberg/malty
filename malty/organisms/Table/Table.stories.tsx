@@ -206,8 +206,8 @@ const rows: TableRowProps[] = [
 ];
 
 const meta: Meta<TableProps> = {
-  component: Table,
   title: 'Data and Tables/Table',
+  component: Table,
   parameters: {
     importObject: 'Table',
     importPath: '@carlsberggroup/malty.organisms.table',
@@ -242,7 +242,11 @@ const meta: Meta<TableProps> = {
       description: 'Number of rows to be displayed in a page'
     },
     onRowClick: {
-      description: ''
+      description: 'Function that will run when the user clicks on a row',
+      control: 'none',
+      table: {
+        category: 'Events'
+      }
     },
     isDraggable: {
       control: 'boolean',
@@ -258,7 +262,10 @@ const meta: Meta<TableProps> = {
     },
     onSortingChange: {
       description:
-        'This will return the SortingState when the column title is clicked. By providing this prop the manualSorting will be enabled so automatic sorting will be disabled, as you know we are using react-table and the library is managing the sorting automatically, this will disable this option'
+        'This will return the SortingState when the column title is clicked. By providing this prop the manualSorting will be enabled so automatic sorting will be disabled, as you know we are using react-table and the library is managing the sorting automatically, this will disable this option',
+      table: {
+        category: 'Events'
+      }
     },
     manualPagination: {
       control: 'object',
@@ -275,9 +282,12 @@ const meta: Meta<TableProps> = {
       description: 'Size for table rows',
       options: Object.keys(TableSize),
       mapping: TableSize,
-      control: {
-        type: 'select',
-        label: Object.keys(TableSize)
+      control: 'select',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: TableSize.Medium
+        }
       }
     },
     rowSelection: {
@@ -290,16 +300,29 @@ const meta: Meta<TableProps> = {
     },
     onRowSelect: {
       description: 'Use this prop to handle the selected rows if needed',
-      if: { arg: 'allowSelection' }
+      if: { arg: 'allowSelection' },
+      table: {
+        category: 'Events'
+      }
     },
     isLoading: {
       description: 'Use this prop to control the loading status',
-      control: 'boolean'
+      control: 'boolean',
+      table: {
+        category: 'State'
+      }
     },
     loadingOverlayProps: {
       description: 'Set the Loading Overlay props',
       control: 'object',
       if: { arg: 'isLoading' }
+    },
+    onPaginationChange: {
+      description: 'Function that will run when the table page changes',
+      control: 'none',
+      table: {
+        category: 'Events'
+      }
     },
     ...generateStorybookSpacing()
   }

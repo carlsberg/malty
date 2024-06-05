@@ -1,16 +1,14 @@
 import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
-import { Meta, Story } from '@storybook/react';
-import React from 'react';
-import { Price as PriceComponent } from './Price';
+import { Meta, StoryObj } from '@storybook/react';
+import { Price } from './Price';
 import { PriceProps } from './Price.types';
 
-export default {
+const meta: Meta<PriceProps> = {
   title: 'Information/Price',
-  component: PriceComponent,
+  component: Price,
   parameters: {
     importObject: 'Price',
-    importPath: '@carlsberggroup/malty.atoms.price',
-    variants: ['default', 'discount', 'credit', 'free', 'reward']
+    importPath: '@carlsberggroup/malty.atoms.price'
   },
   argTypes: {
     base: {
@@ -31,56 +29,47 @@ export default {
     },
     ...generateStorybookSpacing()
   }
-} as Meta;
-
-const Template: Story<PriceProps> = (args) => {
-  return <PriceComponent {...args} />;
 };
 
-export const Price = Template.bind({});
+type Story = StoryObj<PriceProps>;
 
-const params = new URLSearchParams(window.location.search);
-const variant = params.get('variant');
+export const Base: Story = {
+  args: {
+    base: '₭ 99,800.00',
+    dataTestId: 'price'
+  }
+};
 
-switch (variant) {
-  case 'default':
-    Price.args = {
-      base: '₭ 99,800.00',
-      discount: '',
-      credit: '',
-      dataTestId: ''
-    };
-    break;
-  case 'credit':
-    Price.args = {
-      base: '',
-      discount: '',
-      credit: '₭ 86,000.00',
-      dataTestId: ''
-    };
-    break;
-  case 'free':
-    Price.args = {
-      base: '',
-      discount: 'FREE',
-      credit: '',
-      dataTestId: ''
-    };
-    break;
-  case 'reward':
-    Price.args = {
-      base: '',
-      discount: 'REWARD',
-      credit: '',
-      dataTestId: ''
-    };
-    break;
-  case 'discount':
-  default:
-    Price.args = {
-      base: '₭ 99,800.00',
-      discount: '₭ 86,000.00',
-      credit: ''
-    };
-    break;
-}
+export const Credit: Story = {
+  args: {
+    ...Base.args,
+    base: '',
+    credit: '₭ 86,000.00'
+  }
+};
+
+export const Free: Story = {
+  args: {
+    ...Base.args,
+    base: '',
+    discount: 'FREE'
+  }
+};
+
+export const Reward: Story = {
+  args: {
+    ...Base.args,
+    base: '',
+    discount: 'REWARD'
+  }
+};
+
+export const Discount: Story = {
+  args: {
+    ...Base.args,
+    base: '₭ 99,800.00',
+    discount: '₭ 86,000.00'
+  }
+};
+
+export default meta;

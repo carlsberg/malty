@@ -14,8 +14,8 @@ const InputComponent = (props: InputProps) => {
 };
 
 const meta: Meta<InputProps> = {
-  component: Input,
   title: 'Forms/Input',
+  component: Input,
   parameters: {
     importObject: 'Input',
     importPath: '@carlsberggroup/malty.atoms.input'
@@ -41,7 +41,13 @@ const meta: Meta<InputProps> = {
     size: {
       description: 'Input size options, at the moment only the two below',
       options: Object.values(InputSize),
-      control: 'radio'
+      control: 'radio',
+      table: {
+        category: 'Styling',
+        defaultValue: {
+          summary: InputSize.Medium
+        }
+      }
     },
     type: {
       options: Object.values(InputType),
@@ -52,15 +58,24 @@ const meta: Meta<InputProps> = {
     icon: {
       description: 'The icon component to be displayed',
       options: allIconsStoryOptions,
-      control: 'select'
+      control: 'select',
+      table: {
+        category: 'Icon'
+      }
     },
     disabled: {
       control: 'boolean',
-      description: 'Input state, disabled'
+      description: 'Input state, disabled',
+      table: {
+        category: 'State'
+      }
     },
     readOnly: {
       control: 'boolean',
-      description: 'Input state, readOnly'
+      description: 'Input state, readOnly',
+      table: {
+        category: 'State'
+      }
     },
     required: {
       control: 'boolean',
@@ -70,14 +85,23 @@ const meta: Meta<InputProps> = {
       options: Object.keys(InputIconPosition),
       mapping: InputIconPosition,
       control: 'radio',
-      description: 'Icon position within the input'
+      description: 'Icon position within the input',
+      table: {
+        category: 'Icon',
+        defaultValue: {
+          summary: InputIconPosition.Left
+        }
+      }
     },
     clearable: {
       control: 'boolean',
       description: 'Should input be clearable?'
     },
     onClearButtonClick: {
-      description: 'Function to be executed when clear button is clicked'
+      description: 'Function to be executed when clear button is clicked',
+      table: {
+        category: 'Events'
+      }
     },
     mask: {
       escription: 'RegEx to be applies as mask for input value',
@@ -93,10 +117,16 @@ const meta: Meta<InputProps> = {
       control: 'text'
     },
     onValueChange: {
-      description: 'Function to be executed when input state changes'
+      description: 'Function to be executed when input state changes',
+      table: {
+        category: 'Events'
+      }
     },
     onInputBlur: {
-      description: 'Function to be executed when input loses focus'
+      description: 'Function to be executed when input loses focus',
+      table: {
+        category: 'Events'
+      }
     },
     maxLength: {
       control: 'number',
