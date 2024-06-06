@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.utils.hooks",
-  "version": "0.2.0",
+  "version": "0.0.4",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,8 +18,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.2.0",
-    "@carlsberggbs/malty.utils.helpers": "^0.2.0",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.utils.helpers": "*",
     "core-js": "^3.0.0"
   },
   "devDependencies": {
