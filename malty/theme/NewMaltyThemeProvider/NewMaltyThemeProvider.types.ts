@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { DefaultThemeV2 } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 export interface NewMaltyThemeProviderProps {
-  theme?: DefaultThemeV2;
+  theme: DefaultTheme;
   children: ReactNode;
 }

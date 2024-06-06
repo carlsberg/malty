@@ -1,4 +1,4 @@
-import { DefaultThemeV2 } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 import {
   borders,
   grid,
@@ -12,7 +12,7 @@ import {
   typography
 } from './tokens';
 
-const defaultTheme: DefaultThemeV2 = {
+const defaultTheme: DefaultTheme = {
   colorsV2: {
     ...primitiveColors,
     ...semanticColors
