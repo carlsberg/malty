@@ -2,7 +2,6 @@
   "name": "@carlsberggbs/carlsberg-malty",
   "homepage": "https://malty.carlsberggroup.com/",
   "url": "https://malty.carlsberggroup.com",
-  "version": "1.0.33",
   "private": true,
   "type": "module",
   "keywords": [
@@ -34,7 +33,7 @@
     "reset": "yarn clean && yarn wipe && yarn install && yarn storybook",
     "watch": "tsc -b -w --preserveWatchOutput",
     "compile": "tsc -b",
-    "start": "yarn build && yarn storybook",
+    "start": "yarn storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o docs",
     "build": "lerna run build",
