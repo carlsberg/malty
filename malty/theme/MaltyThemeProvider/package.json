@@ -19,8 +19,7 @@
   },
   "dependencies": {
     "core-js": "^3.0.0",
-    "styled-components": "^5.3.6",
-    "@carlsberggbs/malty.theme.new-malty-theme-provider": "*"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
