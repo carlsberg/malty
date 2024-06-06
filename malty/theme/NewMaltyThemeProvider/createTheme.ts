@@ -1,4 +1,4 @@
-import { DefaultThemeV2 } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 import { deepMerge } from './helpers';
 import {
   borders,
@@ -19,10 +19,7 @@ interface CreateThemeParams {
   semanticOverrides?: SemanticOverrides;
 }
 
-export default function createTheme({
-  additionalPrimitives,
-  semanticOverrides
-}: CreateThemeParams = {}): DefaultThemeV2 {
+export default function createTheme({ additionalPrimitives, semanticOverrides }: CreateThemeParams = {}): DefaultTheme {
   // COLORS
   const finalPrimitiveColors = { ...additionalPrimitives, ...primitiveColors };
   const finalSemanticColors = semanticOverrides?.colors
