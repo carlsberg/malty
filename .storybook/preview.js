@@ -1,5 +1,5 @@
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { defaultTheme, NewMaltyThemeProvider } from '@carlsberggroup/malty.theme.new-malty-theme-provider';
+import { MaltyThemeProvider } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { defaultTheme, NewMaltyThemeProvider } from '@carlsberggbs/malty.theme.new-malty-theme-provider';
 import { Controls, Description, DocsContainer, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs';
 import React from 'react';
 import styled from 'styled-components';
