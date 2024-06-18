@@ -1,4 +1,3 @@
-import 'styled-components';
 import {
   BorderRadiusTokens,
   BorderTokens,
@@ -9,6 +8,7 @@ import {
   SizeTokens,
   TypographyTokens
 } from '@carlsberggbs/malty.theme.new-malty-theme-provider/tokens/types';
+import 'styled-components';
 
 declare module 'styled-components' {
   export type DefaultTheme = DefaultThemeV1 | DefaultThemeV2;
