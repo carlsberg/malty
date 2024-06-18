@@ -1,9 +1,9 @@
-import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Overlay } from '@carlsberggroup/malty.atoms.overlay';
-import { NavList } from '@carlsberggroup/malty.molecules.nav-list';
-import { ProductsBar } from '@carlsberggroup/malty.molecules.products-bar';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { Device, useMatchMedia } from '@carlsberggroup/malty.utils.hooks';
+import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsberggbs/malty.atoms.headline';
+import { Overlay } from '@carlsberggbs/malty.atoms.overlay';
+import { NavList } from '@carlsberggbs/malty.molecules.nav-list';
+import { ProductsBar } from '@carlsberggbs/malty.molecules.products-bar';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { Device, useMatchMedia } from '@carlsberggbs/malty.utils.hooks';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledListWrapper, StyledSideNav, StyledWrapper } from './SideNav.styled';

@@ -1,4 +1,4 @@
-import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
+import { allIconsStoryOptions } from '@carlsberggbs/malty.utils.all-icons';
 import { Meta, StoryObj } from '@storybook/react';
 import { Footer } from './Footer';
 import { FooterProps, FooterSections, FooterSocialMedia, FooterSocialMediaIconName } from './Footer.types';
@@ -8,7 +8,7 @@ const meta: Meta<FooterProps> = {
   component: Footer,
   parameters: {
     importObject: 'Footer',
-    importPath: '@carlsberggroup/malty.molecules.footer'
+    importPath: '@carlsberggbs/malty.molecules.footer'
   },
   argTypes: {
     brandInfo: {

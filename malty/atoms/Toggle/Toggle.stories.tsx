@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Toggle } from './Toggle';
@@ -15,7 +15,7 @@ const meta: Meta<ToggleProps> = {
   component: Toggle,
   parameters: {
     importObject: 'Toggle',
-    importPath: '@carlsberggroup/malty.atoms.toggle'
+    importPath: '@carlsberggbs/malty.atoms.toggle'
   },
   render: (args) => <ToggleComponent {...args} />,
   argTypes: {

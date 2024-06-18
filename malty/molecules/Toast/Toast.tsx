@@ -1,7 +1,7 @@
-import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggroup/malty.atoms.button';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { Close } from '@carlsberggroup/malty.icons.close';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Button, ButtonSize, ButtonStyle, ButtonType } from '@carlsberggbs/malty.atoms.button';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { Close } from '@carlsberggbs/malty.icons.close';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledActionItem, StyledAlertToastWrapper, StyledDismissContainer, StyledToast } from './Toast.styled';

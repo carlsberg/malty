@@ -1,5 +1,5 @@
-import { srOnly } from '@carlsberggroup/malty.utils.mixins';
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { srOnly } from '@carlsberggbs/malty.utils.mixins';
+import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
 import styled, { css } from 'styled-components';
 
 export const StyledSplide = styled.section<{ innerSpacingX: boolean } & SpaceProps>`

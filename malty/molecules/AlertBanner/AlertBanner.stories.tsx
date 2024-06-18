@@ -1,4 +1,4 @@
-import layoutProps from '@carlsberggroup/malty.theme.malty-theme-provider/layout.json';
+import layoutProps from '@carlsberggbs/malty.theme.malty-theme-provider/layout.json';
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
@@ -23,7 +23,7 @@ const meta: Meta<AlertBannerProps> = {
   component: AlertBanner,
   parameters: {
     importObject: 'AlertBanner',
-    importPath: '@carlsberggroup/malty.molecules.alert-banner'
+    importPath: '@carlsberggbs/malty.molecules.alert-banner'
   },
   render: (args) => <AlertBannerComponent {...args} />,
   argTypes: {

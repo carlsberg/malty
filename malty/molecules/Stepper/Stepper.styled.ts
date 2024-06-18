@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
 import styled from 'styled-components';
 
 export const StyledStepperContainer = styled.div<SpaceProps>`

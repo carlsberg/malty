@@ -1,5 +1,5 @@
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Banner } from './Banner';
 import { ActionButtonProps, BannerLayout, BannerProps } from './Banner.types';
@@ -9,7 +9,7 @@ const meta: Meta<BannerProps> = {
   component: Banner,
   parameters: {
     importObject: 'Banner',
-    importPath: '@carlsberggroup/malty.molecules.banner'
+    importPath: '@carlsberggbs/malty.molecules.banner'
   },
   argTypes: {
     layout: {

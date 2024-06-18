@@ -1,6 +1,6 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { TextColor } from '@carlsberggroup/malty.atoms.text';
-import { render } from '@carlsberggroup/malty.utils.test';
+import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { TextColor } from '@carlsberggbs/malty.atoms.text';
+import { render } from '@carlsberggbs/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';

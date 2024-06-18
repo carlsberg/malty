@@ -1,4 +1,4 @@
-import { TypographyProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { TypographyProvider } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import defaultTheme from './defaultTheme';

@@ -1,4 +1,4 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
 import styled from 'styled-components';
 
 export const StyledPaddedContainer = styled.div<{ padding: string } & SpaceProps>`

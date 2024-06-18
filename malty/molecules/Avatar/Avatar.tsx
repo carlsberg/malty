@@ -1,8 +1,8 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
-import { Camera } from '@carlsberggroup/malty.icons.camera';
-import { Customer } from '@carlsberggroup/malty.icons.customer';
-import { Loading, LoadingSize, LoadingStatus } from '@carlsberggroup/malty.molecules.loading';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
+import { Camera } from '@carlsberggbs/malty.icons.camera';
+import { Customer } from '@carlsberggbs/malty.icons.customer';
+import { Loading, LoadingSize, LoadingStatus } from '@carlsberggbs/malty.molecules.loading';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledAvatar, StyledCamera, StyledLoadingContainer } from './Avatar.styled';

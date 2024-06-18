@@ -1,6 +1,6 @@
-import { Information } from '@carlsberggroup/malty.icons.information';
-import { allIconsStoryOptions } from '@carlsberggroup/malty.utils.all-icons';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { Information } from '@carlsberggbs/malty.icons.information';
+import { allIconsStoryOptions } from '@carlsberggbs/malty.utils.all-icons';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
@@ -26,7 +26,7 @@ const meta: Meta<AlertInlineProps> = {
   component: AlertInline,
   parameters: {
     importObject: 'AlertInline',
-    importPath: '@carlsberggroup/malty.molecules.alert-inline'
+    importPath: '@carlsberggbs/malty.molecules.alert-inline'
   },
   render: (args) => <AlertInlineComponent {...args} />,
   argTypes: {

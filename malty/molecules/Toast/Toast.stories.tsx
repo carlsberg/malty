@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
@@ -17,7 +17,7 @@ const meta: Meta<ToastProps> = {
   component: Toast,
   parameters: {
     importObject: 'Toast',
-    importPath: '@carlsberggroup/malty.molecules.toast'
+    importPath: '@carlsberggbs/malty.molecules.toast'
   },
   render: (args) => (
     <StyledContainer>

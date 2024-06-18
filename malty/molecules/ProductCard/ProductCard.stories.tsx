@@ -1,14 +1,14 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
-import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { PillType } from '@carlsberggroup/malty.atoms.pill';
-import { SelectOptionsType } from '@carlsberggroup/malty.atoms.select';
-import { TextColor } from '@carlsberggroup/malty.atoms.text';
-import { Cart } from '@carlsberggroup/malty.icons.cart';
-import { Coupon } from '@carlsberggroup/malty.icons.coupon';
-import { AlertInlineColor } from '@carlsberggroup/malty.molecules.alert-inline';
-import { MRO } from '@carlsberggroup/malty.molecules.sku';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { IconColor } from '@carlsberggbs/malty.atoms.base-icon';
+import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { CardOrientation, CardStyle } from '@carlsberggbs/malty.atoms.card';
+import { PillType } from '@carlsberggbs/malty.atoms.pill';
+import { SelectOptionsType } from '@carlsberggbs/malty.atoms.select';
+import { TextColor } from '@carlsberggbs/malty.atoms.text';
+import { Cart } from '@carlsberggbs/malty.icons.cart';
+import { Coupon } from '@carlsberggbs/malty.icons.coupon';
+import { AlertInlineColor } from '@carlsberggbs/malty.molecules.alert-inline';
+import { MRO } from '@carlsberggbs/malty.molecules.sku';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { ProductCard } from './ProductCard';
@@ -58,7 +58,7 @@ const meta: Meta<ProductCardProps> = {
   component: ProductCard,
   parameters: {
     importObject: 'ProductCard',
-    importPath: '@carlsberggroup/malty.molecules.product-card'
+    importPath: '@carlsberggbs/malty.molecules.product-card'
   },
   render: (args) => <ProductCardComponent {...args} />,
   argTypes: {

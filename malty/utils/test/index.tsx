@@ -1,4 +1,4 @@
-import { MaltyThemeProvider } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { MaltyThemeProvider } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import { render, RenderOptions } from '@testing-library/react';
 import React, { ReactElement } from 'react';
 import renderer from 'react-test-renderer';

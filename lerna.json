@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent",
+  "packages": [
+    "malty/atoms/*",
+    "malty/molecules/*",
+    "malty/organisms/*",
+    "malty/utils/*",
+    "malty/theme/*",
+    "malty/icons/*"
+  ],
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com/@carlsberggbs",
+      "conventionalCommits": true,
+      "changelog": false
+    },
+    "version": {
+      "tagVersionPrefix": ""
+    }
+  }
+}

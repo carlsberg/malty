@@ -1,5 +1,5 @@
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { Pagination, PaginationType } from '@carlsberggroup/malty.molecules.pagination';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { Pagination, PaginationType } from '@carlsberggbs/malty.molecules.pagination';
 import React from 'react';
 import { StyledInfo, StyledPaginationWrapper, StyledWrapper } from './Footer.styled';
 import { FooterProps } from './Footer.types';

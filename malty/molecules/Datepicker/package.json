@@ -1,0 +1,53 @@
+{
+  "name": "@carlsberggbs/malty.molecules.datepicker",
+  "version": "0.1.3",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+  },
+  "publishConfig": {
+    "@carlsberggbs": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@carlsberggbs/malty.atoms.button": "*",
+    "@carlsberggbs/malty.atoms.label": "*",
+    "@carlsberggbs/malty.atoms.text": "*",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "*",
+    "@carlsberggbs/malty.utils.consts": "*",
+    "@carlsberggbs/malty.utils.mixins": "*",
+    "@carlsberggbs/malty.utils.space": "*",
+    "core-js": "^3.0.0",
+    "react-datepicker": "^4.8.0",
+    "styled-components": "^5.3.6",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.12.18",
+    "@carlsberggbs/malty.utils.test": "*",
+    "@storybook/react": "^7.4.1",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^26.0.0",
+    "@types/node": "12.20.4",
+    "@types/react": "^17.0.8",
+    "@types/react-datepicker": "^4.8.0",
+    "@types/react-dom": "^17.0.5",
+    "@types/styled-components": "^5.1.26",
+    "@types/testing-library__jest-dom": "5.9.5",
+    "@types/uuid": "^9.0.0"
+  },
+  "peerDependencies": {
+    "@carlsberggbs/malty.icons.calendar": "*",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  }
+}

@@ -1,9 +1,9 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { ChevronLeft } from '@carlsberggroup/malty.icons.chevron-left';
-import { ChevronRight } from '@carlsberggroup/malty.icons.chevron-right';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { EventKeys } from '@carlsberggroup/malty.utils.consts';
+import { Button, ButtonSize, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { ChevronLeft } from '@carlsberggbs/malty.icons.chevron-left';
+import { ChevronRight } from '@carlsberggbs/malty.icons.chevron-right';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { EventKeys } from '@carlsberggbs/malty.utils.consts';
 import React, { ChangeEvent, FocusEvent, KeyboardEvent, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { LEFT_DOTS, RIGHT_DOTS, usePagination } from './Pagination.helper';

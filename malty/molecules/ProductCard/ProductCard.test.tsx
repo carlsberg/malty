@@ -1,6 +1,6 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { ActionButton } from '@carlsberggroup/malty.molecules.product-quantity-actions';
-import { render } from '@carlsberggroup/malty.utils.test';
+import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { ActionButton } from '@carlsberggbs/malty.molecules.product-quantity-actions';
+import { render } from '@carlsberggbs/malty.utils.test';
 import { fireEvent, screen } from '@testing-library/react';
 import React from 'react';
 import { ProductCard } from './ProductCard';

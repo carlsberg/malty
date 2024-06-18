@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { TableSize, UseTableSizesProps } from './Table.types';

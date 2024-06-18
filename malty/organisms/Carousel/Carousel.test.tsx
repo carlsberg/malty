@@ -1,6 +1,6 @@
-import { ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { ProductCard } from '@carlsberggroup/malty.molecules.product-card';
-import { render } from '@carlsberggroup/malty.utils.test';
+import { ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { ProductCard } from '@carlsberggbs/malty.molecules.product-card';
+import { render } from '@carlsberggbs/malty.utils.test';
 import { screen } from '@testing-library/react';
 import React from 'react';
 import { Carousel } from './Carousel';

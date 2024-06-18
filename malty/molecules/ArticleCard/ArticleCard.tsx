@@ -1,8 +1,8 @@
-import { Button, ButtonSize } from '@carlsberggroup/malty.atoms.button';
-import { Card, CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { Headline, HeadlineStyle } from '@carlsberggroup/malty.atoms.headline';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Button, ButtonSize } from '@carlsberggbs/malty.atoms.button';
+import { Card, CardOrientation, CardStyle } from '@carlsberggbs/malty.atoms.card';
+import { Headline, HeadlineStyle } from '@carlsberggbs/malty.atoms.headline';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledArticle, StyledBody, StyledFooter, StyledImage, StyledMargin } from './ArticleCard.styled';

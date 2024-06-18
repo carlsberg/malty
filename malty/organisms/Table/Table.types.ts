@@ -1,5 +1,5 @@
-import { LoadingOverlayProps } from '@carlsberggroup/malty.molecules.loading-overlay';
-import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { LoadingOverlayProps } from '@carlsberggbs/malty.molecules.loading-overlay';
+import { SpaceProps } from '@carlsberggbs/malty.utils.space';
 import {
   CellContext,
   ColumnDefTemplate,
