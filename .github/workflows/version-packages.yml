@@ -24,10 +24,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Stash .npmrc changes
-        run: git stash push --keep-index --message "Stashing .npmrc changes"
-        continue-on-error: true
-
       - name: Install dependecies
         run: |
           if [ -e yarn.lock ]; then
@@ -37,6 +33,10 @@ jobs:
           else
           npm i
           fi
+
+      - name: Stash .npmrc changes
+        run: git stash push --keep-index --message "Stashing .npmrc changes"
+        continue-on-error: true
 
       - name: Run Lerna Version
         run: npx lerna version
