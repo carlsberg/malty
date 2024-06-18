@@ -11,6 +11,7 @@ docs/*
 coverage/*
 .env
 malty/*/*/lib
+.npmrc
 
 # Cypress
 cypress/videos/
