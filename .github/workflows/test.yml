@@ -11,15 +11,8 @@ jobs:
   tests-run:
     name: 'Run Unit Tests'
     runs-on: ubuntu-latest
-    env:
-      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-      BIT_VERSION: ${{ secrets.BIT_VERSION }}
     steps:
       - uses: actions/checkout@v3
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20.11.0'
 
       - uses: actions/setup-node@v3
         with:
