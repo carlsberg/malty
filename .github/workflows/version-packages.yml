@@ -19,6 +19,8 @@ jobs:
         with:
           node-version: '20.11.0'
 
+      - run: echo "registry=https://npm.pkg.github.com/@carlsberggbs" >> .npmrc
+
       - name: Install dependecies
         run: |
           if [ -e yarn.lock ]; then
