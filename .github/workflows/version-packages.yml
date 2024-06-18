@@ -39,7 +39,7 @@ jobs:
         continue-on-error: true
 
       - name: Run Lerna Version
-        run: npx lerna version
+        run: npx lerna version --yes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
