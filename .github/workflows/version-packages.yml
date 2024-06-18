@@ -41,7 +41,9 @@ jobs:
       - name: Run Lerna Version
         run: npx lerna version --yes
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Unstash .npmrc changes
         if: failure()
