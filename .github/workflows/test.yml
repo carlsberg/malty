@@ -22,10 +22,7 @@ jobs:
 
       - run: echo "registry=https://npm.pkg.github.com/@carlsberggbs" >> .npmrc
 
-      - name: Dependencies install
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: |
+      - run: |
           if [ -e yarn.lock ]; then
           yarn install
           elif [ -e package-lock.json ]; then
