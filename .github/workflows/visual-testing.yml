@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20.11.0
           registry-url: https://npm.pkg.github.com/
           scope: '@carlsberggbs'
 
@@ -25,7 +25,7 @@ jobs:
 
       - run: |
           if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
+          yarn install
           elif [ -e package-lock.json ]; then
           npm ci
           else
