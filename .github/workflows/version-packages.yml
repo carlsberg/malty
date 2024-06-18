@@ -19,6 +19,15 @@ jobs:
         with:
           node-version: '20.11.0'
 
+      - name: Set npm registry and authentication
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Stash .npmrc changes
+        run: git stash push --keep-index --message "Stashing .npmrc changes"
+        continue-on-error: true
+
       - name: Install dependecies
         run: |
           if [ -e yarn.lock ]; then
@@ -33,3 +42,7 @@ jobs:
         run: npx lerna version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Unstash .npmrc changes
+        if: failure()
+        run: git stash pop
