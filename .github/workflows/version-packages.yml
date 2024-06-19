@@ -10,8 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.CARLSBERG_RELEASE_APP_ID }}
+          private-key: ${{ secrets.CARLSBERG_RELEASE_APP_PRIVATE_KEY }}
+          
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: ${{ github.head_ref }}
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
