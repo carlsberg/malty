@@ -14,8 +14,9 @@ jobs:
       - name: Check if commit is from workflow
         id: check-commit
         run: |
-          if git log -1 --pretty=%B | grep -q '[skip publish]'; then
-            echo "Commit is from workflow, skipping publish."
+          LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          if echo "$LAST_COMMIT_MESSAGE" | grep -q '[skip version]'; then
+            echo "Commit is from workflow, skipping."
             exit 0
           fi
 

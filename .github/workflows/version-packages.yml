@@ -13,7 +13,8 @@ jobs:
       - name: Check if commit is from workflow
         id: check-commit
         run: |
-          if git log -1 --pretty=%B | grep -q '[skip version]'; then
+          LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          if echo "$LAST_COMMIT_MESSAGE" | grep -q '[skip version]'; then
             echo "Commit is from workflow, skipping."
             exit 0
           fi
@@ -62,7 +63,7 @@ jobs:
 
       - name: Run Lerna Version
         run: |
-          npx lerna version --yes --message 'chore(release): bump new versions [skip version]'
+          npx lerna version --conventional-commits --yes --message 'chore(release): bump new versions [skip version]'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
