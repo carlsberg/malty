@@ -3,11 +3,12 @@ name: Publish packages
 on:
   workflow_run:
     workflows: ['Version Packages']
-    branches:
-      - main
+    types:
+      - completed
 
 jobs:
   publish:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/create-github-app-token@v1
