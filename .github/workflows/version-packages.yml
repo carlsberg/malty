@@ -1,7 +1,6 @@
 name: Version Packages
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -44,7 +43,8 @@ jobs:
         continue-on-error: true
 
       - name: Run Lerna Version
-        run: npx lerna version --yes
+        run: |
+          npx lerna version --yes --message 'chore: bump new versions'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
