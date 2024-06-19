@@ -62,7 +62,7 @@ jobs:
 
       - name: Run Lerna Version
         run: |
-          npx lerna version --yes --message 'chore: bump new versions'
+          npx lerna version --yes --message 'chore(release): bump new versions [skip version]'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
