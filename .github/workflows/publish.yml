@@ -39,10 +39,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Stash .npmrc changes
-        run: git stash push --keep-index --message "Stashing .npmrc changes"
-        continue-on-error: true
-
       - run: |
           if [ -e yarn.lock ]; then
           yarn install 
@@ -52,7 +48,12 @@ jobs:
           npm i
           fi
 
+      - name: Stash .npmrc changes
+        run: git stash push --keep-index --message "Stashing .npmrc changes"
+        continue-on-error: true
+
       - run: npx lerna run build
+      
       - run: npx lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
