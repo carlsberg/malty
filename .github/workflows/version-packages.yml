@@ -27,6 +27,11 @@ jobs:
         with:
           node-version: '20.11.0'
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "carlsberg-release-app[bot]"
+          git config --global user.email "carlsberg-release-app[bot]@users.noreply.github.com"
+
       - name: Set npm registry and authentication
         run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
         env:
