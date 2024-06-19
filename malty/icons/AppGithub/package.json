@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.icons.app-github",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
