@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/create-github-app-token@v1
         id: app-token
@@ -39,7 +41,7 @@ jobs:
         run: |
           git config --global user.name "carlsberg-release-app[bot]"
           git config --global user.email "carlsberg-release-app[bot]@users.noreply.github.com"
-          git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
       - name: Install dependecies
         run: |
