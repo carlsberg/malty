@@ -18,6 +18,7 @@ jobs:
         with:
           app-id: ${{ secrets.CX_RELEASE_APP_ID }}
           private-key: ${{ secrets.CX_RELEASE_APP_PRIVATE_KEY }}
+          
       - uses: actions/checkout@v4
         with:
           token: ${{ steps.app-token.outputs.token }}
@@ -38,6 +39,7 @@ jobs:
         run: |
           git config --global user.name "carlsberg-release-app[bot]"
           git config --global user.email "carlsberg-release-app[bot]@users.noreply.github.com"
+          git remote set-url origin https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
       - name: Install dependecies
         run: |
