@@ -10,6 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check if commit is from workflow
+        id: check-commit
+        run: |
+          if git log -1 --pretty=%B | grep -q '[skip version]'; then
+            echo "Commit is from workflow, skipping."
+            exit 0
+          fi
+
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
