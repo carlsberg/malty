@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.molecules.loading-overlay",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,14 +18,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.atoms.overlay": "*",
-    "@carlsberggbs/malty.molecules.loading": "*",
+    "@carlsberggbs/malty.atoms.overlay": "^0.0.62",
+    "@carlsberggbs/malty.molecules.loading": "^0.0.84",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberggbs/malty.utils.test": "*",
+    "@carlsberggbs/malty.utils.test": "^0.0.19",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",

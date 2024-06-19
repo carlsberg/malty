@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.theme.new-malty-theme-provider",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,9 +18,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.44",
     "core-js": "^3.0.0",
-    "styled-components": "^5.3.6",
-    "@carlsberggbs/malty.theme.malty-theme-provider": "*"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
