@@ -39,23 +39,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
-        run: |
-          if [ -e yarn.lock ]; then
-            yarn install
-          elif [ -e package-lock.json ]; then
-            npm ci
-          else
-            npm i
-          fi
-
       - name: Stash .npmrc changes
         run: git stash push --keep-index --message "Stashing .npmrc changes"
         continue-on-error: true
 
       - run: |
           if [ -e yarn.lock ]; then
-          yarn install --frozen-lockfile
+          yarn install 
           elif [ -e package-lock.json ]; then
           npm ci
           else
