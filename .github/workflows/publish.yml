@@ -42,6 +42,10 @@ jobs:
             npm i
           fi
 
+      - name: Stash .npmrc changes
+        run: git stash push --keep-index --message "Stashing .npmrc changes"
+        continue-on-error: true
+
       - name: Build packages
         run: npx lerna run build
         env:
@@ -53,3 +57,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
           GH_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
+
+      - name: Unstash .npmrc changes
+        if: failure()
+        run: git stash pop
