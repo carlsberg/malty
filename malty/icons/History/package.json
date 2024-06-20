@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.icons.history",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",

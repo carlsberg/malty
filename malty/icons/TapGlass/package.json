@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.icons.tap-glass",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
