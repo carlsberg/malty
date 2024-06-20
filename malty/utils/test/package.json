@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.utils.test",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.52",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.53",
     "@testing-library/react": "^12.1.5",
     "react-test-renderer": "^17.0.2"
   },
