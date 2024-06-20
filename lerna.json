@@ -17,6 +17,8 @@
       "changelog": false
     },
     "version": {
+      "conventionalCommits": true,
+      "noPrivate": true,
       "tagVersionPrefix": ""
     }
   }
