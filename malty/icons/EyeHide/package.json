@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.icons.eye-hide",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.atoms.toggle",
-  "version": "0.0.61",
+  "version": "0.0.62",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,16 +18,16 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.atoms.label": "^0.0.74",
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.57",
-    "@carlsberggbs/malty.utils.space": "^0.0.16",
+    "@carlsberggbs/malty.atoms.label": "^0.0.75",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.58",
+    "@carlsberggbs/malty.utils.space": "^0.0.17",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberggbs/malty.utils.test": "^0.0.32",
+    "@carlsberggbs/malty.utils.test": "^0.0.33",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
