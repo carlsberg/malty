@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.icons.technical-support",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
