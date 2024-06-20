@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.atoms.padded-container",
-  "version": "0.0.65",
+  "version": "0.0.66",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,14 +18,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.54",
-    "@carlsberggbs/malty.utils.space": "^0.0.13",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.55",
+    "@carlsberggbs/malty.utils.space": "^0.0.14",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberggbs/malty.utils.test": "^0.0.29",
+    "@carlsberggbs/malty.utils.test": "^0.0.30",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",
