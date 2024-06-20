@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.atoms.base-icon",
-  "version": "0.0.20",
+  "version": "0.1.0",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,15 +18,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.61",
-    "@carlsberggbs/malty.utils.space": "^0.0.20",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.1.0",
+    "@carlsberggbs/malty.utils.space": "^0.1.0",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggbs/malty.icons.carlsberg-filled": "^0.1.18",
-    "@carlsberggbs/malty.utils.test": "^0.0.36",
+    "@carlsberggbs/malty.icons.carlsberg-filled": "^0.2.0",
+    "@carlsberggbs/malty.utils.test": "^0.1.0",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",
     "@types/node": "12.20.4",
