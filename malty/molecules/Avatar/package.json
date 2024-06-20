@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.molecules.avatar",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,16 +18,16 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.atoms.base-icon": "^0.0.18",
-    "@carlsberggbs/malty.molecules.loading": "^0.0.99",
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.59",
-    "@carlsberggbs/malty.utils.space": "^0.0.18",
+    "@carlsberggbs/malty.atoms.base-icon": "^0.0.19",
+    "@carlsberggbs/malty.molecules.loading": "^0.0.100",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.60",
+    "@carlsberggbs/malty.utils.space": "^0.0.19",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggbs/malty.utils.test": "^0.0.34",
+    "@carlsberggbs/malty.utils.test": "^0.0.35",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",
