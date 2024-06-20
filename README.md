@@ -11,7 +11,8 @@ Malty is a Design System, and the code contained in this repository is its Compo
 <!-- GETTING STARTED -->
 
 ## Getting Started
-This project uses Lerna to manage the monorepo packages and GitHub Packages to publish each component. 
+
+This project uses Lerna to manage the monorepo packages and GitHub Packages to publish each component.
 
 ### Install
 
