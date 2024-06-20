@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.organisms.carousel",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,21 +18,21 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberggbs/malty.atoms.button": "^0.1.13",
-    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.53",
-    "@carlsberggbs/malty.utils.mixins": "^0.0.12",
-    "@carlsberggbs/malty.utils.space": "^0.0.12",
+    "@carlsberggbs/malty.atoms.button": "^0.1.14",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.0.54",
+    "@carlsberggbs/malty.utils.mixins": "^0.0.13",
+    "@carlsberggbs/malty.utils.space": "^0.0.13",
     "@splidejs/splide": "^4.1.4",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggbs/malty.atoms.card": "^0.1.13",
-    "@carlsberggbs/malty.molecules.article-card": "^0.1.13",
-    "@carlsberggbs/malty.molecules.product-card": "^0.1.13",
-    "@carlsberggbs/malty.utils.helpers": "^0.0.12",
-    "@carlsberggbs/malty.utils.test": "^0.0.28",
+    "@carlsberggbs/malty.atoms.card": "^0.1.14",
+    "@carlsberggbs/malty.molecules.article-card": "^0.1.14",
+    "@carlsberggbs/malty.molecules.product-card": "^0.1.14",
+    "@carlsberggbs/malty.utils.helpers": "^0.0.13",
+    "@carlsberggbs/malty.utils.test": "^0.0.29",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",

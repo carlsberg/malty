@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.icons.card",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
