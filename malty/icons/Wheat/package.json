@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.icons.wheat",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
