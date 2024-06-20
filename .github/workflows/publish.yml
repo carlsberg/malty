@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '20.11.0'
           registry-url: https://npm.pkg.github.com/
-          scope: "@carlsberggbs"
+          scope: '@carlsberggbs'
 
       - name: Configure Git
         run: |
@@ -54,7 +54,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
 
       - name: Unstash .npmrc changes
         if: failure()
