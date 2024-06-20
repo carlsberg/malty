@@ -29,7 +29,10 @@ jobs:
           git config --global user.email "carlsberg-release-app[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
-      - run: echo "registry=https://npm.pkg.github.com/@carlsberggbs" >> .npmrc
+      - name: Set npm registry and authentication
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install dependencies
         run: |
