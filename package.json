@@ -1,4 +1,5 @@
 {
+  "name": "carlsberg-malty",
   "homepage": "https://malty.carlsberggroup.com/",
   "url": "https://malty.carlsberggroup.com",
   "private": true,
@@ -48,8 +49,7 @@
     "cypress:open": "cypress open",
     "cypress:run:desktop": "docker run --platform linux/amd64 -v $PWD:/e2e -w /e2e -e BASE_URL=http://host.docker.internal:6006 cypress/included:cypress-13.6.4-node-20.11.0-chrome-121.0.6167.85-1-ff-120.0-edge-121.0.2277.83-1 --browser chrome --config viewportWidth=1024,viewportHeight=768",
     "cypress:ci:desktop": "cypress run --browser chrome --config viewportWidth=1024,viewportHeight=768",
-    "cypress:move-snapshots": "node ./scripts/move-snapshots.mjs",
-    "publish": "yarn build && npx lerna publish"
+    "cypress:move-snapshots": "node ./scripts/move-snapshots.mjs"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
