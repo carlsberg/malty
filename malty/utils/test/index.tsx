@@ -12,4 +12,4 @@ const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>
 
 const jsonRenderer = (ui: React.ReactNode) => renderer.create(<AllTheProviders>{ui}</AllTheProviders>).toJSON();
 
-export { customRender as render, jsonRenderer };
+export { jsonRenderer, customRender as render };

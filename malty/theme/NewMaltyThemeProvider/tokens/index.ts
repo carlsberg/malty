@@ -36,14 +36,14 @@ const grid = getGridTokens() as GridTokens;
 const borders = getPrimitiveBorderTokens(primitiveColors) as PrimitiveBorderTokens;
 
 export {
-  primitiveColors,
-  semanticColors,
-  typography,
-  sizes,
-  primitiveBorderRadius,
-  semanticBorderRadius,
-  opacity,
-  shadows,
+  borders,
   grid,
-  borders
+  opacity,
+  primitiveBorderRadius,
+  primitiveColors,
+  semanticBorderRadius,
+  semanticColors,
+  shadows,
+  sizes,
+  typography
 };
