@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.11.0'
+          registry-url: https://npm.pkg.github.com/
+          scope: "@carlsberggbs"
 
       - name: Configure Git
         run: |
@@ -27,10 +29,7 @@ jobs:
           git config --global user.email "carlsberg-release-app[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
 
-      - name: Set npm registry and authentication
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_GH_TOKEN }}" > .npmrc
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_GH_TOKEN }}
+      - run: echo "registry=https://npm.pkg.github.com/@carlsberggbs" >> .npmrc
 
       - name: Install dependencies
         run: |
