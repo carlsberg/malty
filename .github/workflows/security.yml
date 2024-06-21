@@ -8,4 +8,5 @@ on:
     - cron: '30 19 * * 1'
 jobs:
   security:
+    if: '!contains(github.event.head_commit.message, "[skip ci]")'
     uses: carlsberggbs/cx-github-workflows/.github/workflows/security.yml@main
