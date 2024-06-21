@@ -127,7 +127,7 @@ export const Button = ({
       </div>
       {loading && (
         <div data-testid={`${dataTestId}-loading`} className="secondary-container">
-          <Loading color={getLoadingColor()} status={LoadingStatus.Pending} negative={getIsLoadingNegative()} />
+          <Loading status={LoadingStatus.Pending} color={getLoadingColor()} negative={getIsLoadingNegative()} />
         </div>
       )}
     </Component>
