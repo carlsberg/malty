@@ -1,5 +1,5 @@
 import { defineConfig } from 'cypress';
-import { configureVisualRegression } from 'cypress-visual-regression/dist/plugin';
+import { configureVisualRegression } from 'cypress-visual-regression';
 import 'dotenv/config';
 
 export default defineConfig({
