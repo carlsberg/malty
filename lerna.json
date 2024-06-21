@@ -18,6 +18,7 @@
     },
     "version": {
       "conventionalCommits": true,
+      "changelogPreset": "./.versionrc.json",
       "noPrivate": true,
       "tagVersionPrefix": ""
     }
