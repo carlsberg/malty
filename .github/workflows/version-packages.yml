@@ -56,7 +56,7 @@ jobs:
 
       - name: Run Lerna Version
         run: |
-          npx lerna version --conventional-commits --yes --no-private
+          npx lerna version --conventional-commits --changelog-preset ./.versionrc.json --yes --no-private
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
