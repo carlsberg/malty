@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.atoms.chip",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@carlsberggbs/malty.atoms.base-icon": "^0.1.0",
-    "@carlsberggbs/malty.atoms.button": "^0.3.0",
+    "@carlsberggbs/malty.atoms.button": "^0.3.1",
     "@carlsberggbs/malty.atoms.text": "^0.1.0",
     "@carlsberggbs/malty.theme.malty-theme-provider": "^0.1.0",
     "@carlsberggbs/malty.utils.space": "^0.1.0",

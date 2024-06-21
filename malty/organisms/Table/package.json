@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.organisms.table",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -23,7 +23,7 @@
     "@carlsberggbs/malty.atoms.text": "^0.1.0",
     "@carlsberggbs/malty.atoms.tooltip": "^0.2.0",
     "@carlsberggbs/malty.molecules.loading-overlay": "^0.1.0",
-    "@carlsberggbs/malty.molecules.pagination": "^0.2.2",
+    "@carlsberggbs/malty.molecules.pagination": "^0.2.3",
     "@carlsberggbs/malty.theme.malty-theme-provider": "^0.1.0",
     "@carlsberggbs/malty.utils.space": "^0.1.0",
     "@tanstack/react-table": "^8.7.6",
