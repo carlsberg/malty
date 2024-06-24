@@ -74,6 +74,15 @@ jobs:
       - name: 'Untar files'
         run: tar -xvf malty.tar
 
+      - run: |
+          if [ -e yarn.lock ]; then
+          yarn install
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+
       - name: Run visual testing in desktop
         if: matrix.containers == 1
         # TODO: As soon as the ticket https://carlsberggbs.atlassian.net/browse/DEVOPS-3179 is finished we can remove the npx wait-on utility.
