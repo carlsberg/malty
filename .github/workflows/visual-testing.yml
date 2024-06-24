@@ -36,6 +36,9 @@ jobs:
           npm i
           fi
 
+      - name: Build all packages
+        run: npx lerna run build
+
       - name: 'Tar files'
         run: tar -cvf malty.tar .
 
@@ -70,15 +73,6 @@ jobs:
 
       - name: 'Untar files'
         run: tar -xvf malty.tar
-
-      - run: |
-          if [ -e yarn.lock ]; then
-          yarn install
-          elif [ -e package-lock.json ]; then
-          npm ci
-          else
-          npm i
-          fi
 
       - name: Run visual testing in desktop
         if: matrix.containers == 1
