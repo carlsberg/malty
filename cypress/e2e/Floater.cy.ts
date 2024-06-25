@@ -1,5 +1,5 @@
+import { buildSnapshotName, visit } from '@/cypress/support/utils';
 import { FloaterColor } from '@carlsberggbs/malty.atoms.floater';
-import { buildSnapshotName, visit } from '../support/utils';
 
 const dataTestId = 'floater';
 
