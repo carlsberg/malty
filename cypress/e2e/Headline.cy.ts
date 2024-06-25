@@ -1,5 +1,5 @@
-import { buildSnapshotName, visit } from '@/cypress/support/utils';
 import { HeadlineAlign, HeadlineColor } from '@carlsberggbs/malty.atoms.headline';
+import { buildSnapshotName, visit } from '../support/utils';
 
 const dataTestId = 'headline';
 

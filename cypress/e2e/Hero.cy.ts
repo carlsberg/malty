@@ -1,4 +1,4 @@
-import { buildSnapshotName, expectBackgroundImageIsVisible, visit } from '@/cypress/support/utils';
+import { buildSnapshotName, expectBackgroundImageIsVisible, visit } from '../support/utils';
 
 const dataTestId = 'hero';
 // TODO: get this from malty

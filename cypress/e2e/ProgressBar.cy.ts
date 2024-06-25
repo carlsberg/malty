@@ -1,5 +1,5 @@
-import { buildSnapshotName, visit } from '@/cypress/support/utils';
 import { ProgressBarSize } from '@carlsberggbs/malty.atoms.progress-bar';
+import { buildSnapshotName, visit } from '../support/utils';
 
 const dataTestId = 'progress-bar';
 

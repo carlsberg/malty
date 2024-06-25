@@ -1,4 +1,4 @@
-import { buildSnapshotName, visit } from '@/cypress/support/utils';
+import { buildSnapshotName, visit } from '../support/utils';
 
 const dataTestId = 'select';
 

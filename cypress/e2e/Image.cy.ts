@@ -1,4 +1,4 @@
-import { buildSnapshotName, expectImageIsVisible, visit } from '@/cypress/support/utils';
+import { buildSnapshotName, expectImageIsVisible, visit } from '../support/utils';
 
 const dataTestId = 'image';
 const wrapperDataTestId = `${dataTestId}-figure`;
