@@ -36,9 +36,6 @@ jobs:
           npm i
           fi
 
-      - name: Build all packages
-        run: npx lerna run build
-
       - name: 'Tar files'
         run: tar -cvf malty.tar .
 
