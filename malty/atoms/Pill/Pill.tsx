@@ -1,44 +1,46 @@
 import { CloneIcon } from '@carlsberggbs/malty.atoms.base-icon';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { useIconTextColor, usePillStyles } from './Pill.helper';
+import React from 'react';
+import { useIconColor, usePillBackgroundColor, usePillStyles, useTextColor } from './Pill.helper';
 import { StyledPill } from './Pill.styled';
-import { PillProps, PillSize, PillType } from './Pill.types';
+import { IconPosition, PillProps, PillSize, PillType } from './Pill.types';
 
 export const Pill = ({
   text,
   icon,
   type = PillType.Primary,
-  size = PillSize.Medium,
+  size = PillSize.M,
+  iconPosition = IconPosition.Leading,
   isUppercase = false,
   dataTestId,
   ...props
 }: PillProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-  const { fontSize, fontFamily, iconSize, gap, numSize, padding } = usePillStyles({ size });
-  const colorStyle = useIconTextColor({ type });
+  const { fontSize, iconSize, gap, numSize, fontWeight, lineHeight, padding } = usePillStyles({ size });
+  const textColor = useTextColor({ type });
+  const iconColor = useIconColor({ type });
+  const backgroundColor = usePillBackgroundColor({ type });
   const hasText = !!text;
+  const renderedIcon = <CloneIcon icon={icon} color={iconColor} size={iconSize} />;
 
   return (
     <StyledPill
       data-testid={dataTestId}
-      type={type}
-      size={numSize}
-      fontSize={fontSize}
-      fontFamily={fontFamily}
-      padding={padding}
-      hasText={hasText}
-      hasIcon={!!icon}
-      theme={theme}
-      textColor={colorStyle}
-      pillSize={size}
-      gap={gap}
-      isUppercase={hasText && isUppercase}
+      $size={numSize}
+      $padding={padding}
+      $fontSize={fontSize}
+      $hasText={hasText}
+      $hasIcon={!!icon}
+      $textColor={textColor}
+      $pillSize={size}
+      $fontWeight={fontWeight}
+      $lineHeight={lineHeight}
+      $gap={gap}
+      $backgroundColor={backgroundColor}
+      $isUppercase={hasText && isUppercase}
       {...props}
     >
-      <CloneIcon icon={icon} color={colorStyle} size={iconSize} />
+      {icon && iconPosition === IconPosition.Leading && renderedIcon}
       {text}
+      {icon && iconPosition === IconPosition.Trailing && renderedIcon}
     </StyledPill>
   );
 };
