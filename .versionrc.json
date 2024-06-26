@@ -1,11 +1,8 @@
 {
-  "types": [
-    { "type": "feat", "release": "minor" },
-    { "type": "fix", "release": "patch" },
-    { "type": "chore", "release": false }
-  ],
   "releaseRules": [
     { "breaking": true, "release": "major" },
+    { "type": "feat", "release": "minor" },
+    { "type": "fix", "release": "patch" },
     { "type": "*", "release": false }
   ]
 }
