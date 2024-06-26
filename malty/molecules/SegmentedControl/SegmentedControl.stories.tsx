@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { SegmentedControl } from './SegmentedControl';
@@ -15,7 +15,7 @@ const meta: Meta<SegmentedControlProps> = {
   component: SegmentedControl,
   parameters: {
     importObject: 'SegmentedControl',
-    importPath: '@carlsberggroup/malty.molecules.segmented-control'
+    importPath: '@carlsberggbs/malty.molecules.segmented-control'
   },
   render: (args) => <SegmentedControlComponent {...args} />,
   argTypes: {

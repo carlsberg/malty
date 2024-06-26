@@ -1,5 +1,5 @@
-import { LoadingColor } from '@carlsberggroup/malty.molecules.loading';
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { LoadingColor } from '@carlsberggbs/malty.molecules.loading';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Table } from './Table';
@@ -210,7 +210,7 @@ const meta: Meta<TableProps> = {
   component: Table,
   parameters: {
     importObject: 'Table',
-    importPath: '@carlsberggroup/malty.organisms.table',
+    importPath: '@carlsberggbs/malty.organisms.table',
     docs: {
       description: {
         component:

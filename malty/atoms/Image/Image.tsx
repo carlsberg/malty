@@ -1,6 +1,6 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
-import { Image as ImageIcon } from '@carlsberggroup/malty.icons.image';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
+import { Image as ImageIcon } from '@carlsberggbs/malty.icons.image';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ImageProps } from '.';

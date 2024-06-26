@@ -8,7 +8,8 @@ export default defineConfig({
     viewportWidth: 1024,
     viewportHeight: 768,
     env: {
-      visualRegressionType: 'regression'
+      visualRegressionType: 'regression',
+      visualRegressionBaseDirectory: 'cypress/snapshots/base'
     },
     screenshotsFolder: './cypress/snapshots/actual',
     setupNodeEvents(on) {

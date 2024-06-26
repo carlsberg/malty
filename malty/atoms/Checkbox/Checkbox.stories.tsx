@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
 import { Checkbox } from './Checkbox';
@@ -20,7 +20,7 @@ const meta: Meta<CheckboxProps> = {
   render: (args) => <ControlledCheckbox {...args} />,
   parameters: {
     importObject: 'Checkbox',
-    importPath: '@carlsberggroup/malty.atoms.checkbox'
+    importPath: '@carlsberggbs/malty.atoms.checkbox'
   },
   argTypes: {
     value: {

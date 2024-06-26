@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { AccordionColor, AccordionItem, AccordionProps, AccordionSize } from '.';
@@ -37,7 +37,7 @@ const meta: Meta<AccordionProps> = {
   component: Accordion,
   parameters: {
     importObject: 'Accordion',
-    importPath: '@carlsberggroup/malty.molecules.accordion'
+    importPath: '@carlsberggbs/malty.molecules.accordion'
   },
   render: (args) => <AccordionComponent {...args} />,
   argTypes: {

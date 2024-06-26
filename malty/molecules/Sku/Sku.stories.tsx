@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Sku } from './Sku';
 import { MRO, SkuProps } from './Sku.types';
@@ -8,7 +8,7 @@ const meta: Meta<SkuProps> = {
   component: Sku,
   parameters: {
     importObject: 'Sku',
-    importPath: '@carlsberggroup/malty.molecules.sku'
+    importPath: '@carlsberggbs/malty.molecules.sku'
   },
   argTypes: {
     sku: {

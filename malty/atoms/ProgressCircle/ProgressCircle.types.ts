@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { SpaceProps } from '@carlsberggbs/malty.utils.space';
 
 export enum ForegroundCircleColor {
   Close = 'close',

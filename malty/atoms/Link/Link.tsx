@@ -1,4 +1,4 @@
-import { PolymorphicProps } from '@carlsberggroup/malty.utils.types';
+import { PolymorphicProps } from '@carlsberggbs/malty.utils.types';
 import React from 'react';
 import { StyledAnchor } from './Link.styled';
 import { LinkColor, LinkProps, LinkStyle } from './Link.types';

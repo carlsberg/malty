@@ -1,4 +1,4 @@
-import { render } from '@carlsberggroup/malty.utils.test';
+import { render } from '@carlsberggbs/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';

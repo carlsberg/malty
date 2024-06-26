@@ -1,10 +1,10 @@
-import { CloneIcon, IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { CarlsbergFilled } from '@carlsberggroup/malty.icons.carlsberg-filled';
-import { Menu } from '@carlsberggroup/malty.icons.menu';
-import { Avatar, AvatarSize } from '@carlsberggroup/malty.molecules.avatar';
-import { LinkComponentProps } from '@carlsberggroup/malty.molecules.nav-list';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { CloneIcon, IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { CarlsbergFilled } from '@carlsberggbs/malty.icons.carlsberg-filled';
+import { Menu } from '@carlsberggbs/malty.icons.menu';
+import { Avatar, AvatarSize } from '@carlsberggbs/malty.molecules.avatar';
+import { LinkComponentProps } from '@carlsberggbs/malty.molecules.nav-list';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { RefObject, useContext, useEffect, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

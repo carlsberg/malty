@@ -1,5 +1,5 @@
 import { buildSnapshotName, visit } from '@/cypress/support/utils';
-import { ForegroundCircleColor } from '@carlsberggroup/malty.atoms.progress-circle';
+import { ForegroundCircleColor } from '@carlsberggbs/malty.atoms.progress-circle';
 
 const dataTestId = 'progress-circle';
 

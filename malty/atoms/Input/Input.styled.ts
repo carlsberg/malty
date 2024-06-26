@@ -1,4 +1,4 @@
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 
 const animateShow = keyframes`

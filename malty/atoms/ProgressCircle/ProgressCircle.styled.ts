@@ -1,5 +1,5 @@
-import { Text } from '@carlsberggroup/malty.atoms.text';
-import { space } from '@carlsberggroup/malty.utils.space';
+import { Text } from '@carlsberggbs/malty.atoms.text';
+import { space } from '@carlsberggbs/malty.utils.space';
 import styled from 'styled-components';
 import { PercentagePosition, StyledWrapperProps } from './ProgressCircle.types';
 

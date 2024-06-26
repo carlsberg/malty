@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { SpaceProps } from '@carlsberggbs/malty.utils.space';
 
 export interface LabelProps extends React.HTMLAttributes<HTMLLabelElement>, SpaceProps {
   htmlFor?: string;

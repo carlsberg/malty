@@ -1,0 +1,67 @@
+name: Version Packages
+
+on:
+  pull_request:
+    types: [closed]
+    branches: ['main']
+
+jobs:
+  bump-versions:
+    if: ${{ github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.CX_RELEASE_APP_ID }}
+          private-key: ${{ secrets.CX_RELEASE_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.11.0'
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "carlsberg-release-app[bot]"
+          git config --global user.email "carlsberg-release-app[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+      - name: Set npm registry and authentication
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: |
+          if [ -e yarn.lock ]; then
+            yarn install
+          elif [ -e package-lock.json ]; then
+            npm ci
+          else
+            npm i
+          fi
+
+      - name: Stash .npmrc changes
+        run: git stash push --keep-index --message "Stashing .npmrc changes"
+        continue-on-error: true
+
+      - name: Run Lerna Version
+        run: |
+          npx lerna version --conventional-commits --changelog-preset ./.versionrc.json --yes --no-private --message "chore: bump packages versions [skip ci]"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Unstash .npmrc changes
+        if: failure()
+        run: git stash pop

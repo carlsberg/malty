@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Label, LabelProps } from '.';
 
@@ -7,7 +7,7 @@ const meta: Meta<LabelProps> = {
   component: Label,
   parameters: {
     importObject: 'Label',
-    importPath: '@carlsberggroup/malty.atoms.label'
+    importPath: '@carlsberggbs/malty.atoms.label'
   },
   argTypes: {
     label: {

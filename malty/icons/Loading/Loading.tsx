@@ -1,5 +1,5 @@
-import { BaseIcon, BaseIconProps, IconColor } from '@carlsberggroup/malty.atoms.base-icon';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { BaseIcon, BaseIconProps, IconColor } from '@carlsberggbs/malty.atoms.base-icon';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 

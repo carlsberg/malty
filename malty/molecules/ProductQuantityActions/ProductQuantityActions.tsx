@@ -1,7 +1,7 @@
-import { Button, ButtonSize } from '@carlsberggroup/malty.atoms.button';
-import { Input, InputSize, InputType } from '@carlsberggroup/malty.atoms.input';
-import { Text, TextColor, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Button, ButtonSize } from '@carlsberggbs/malty.atoms.button';
+import { Input, InputSize, InputType } from '@carlsberggbs/malty.atoms.input';
+import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import React, { MouseEvent, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

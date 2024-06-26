@@ -1,10 +1,10 @@
-import { Button, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { Label } from '@carlsberggroup/malty.atoms.label';
-import { Text, TextStyle } from '@carlsberggroup/malty.atoms.text';
-import { Calendar } from '@carlsberggroup/malty.icons.calendar';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { EventKeys } from '@carlsberggroup/malty.utils.consts';
-import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
+import { Button, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { Label } from '@carlsberggbs/malty.atoms.label';
+import { Text, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { Calendar } from '@carlsberggbs/malty.icons.calendar';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { EventKeys } from '@carlsberggbs/malty.utils.consts';
+import { isolateSpaceProps } from '@carlsberggbs/malty.utils.space';
 import React, { FC, KeyboardEvent, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { ThemeContext } from 'styled-components';

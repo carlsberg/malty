@@ -1,6 +1,6 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { CardOrientation, CardStyle } from '@carlsberggroup/malty.atoms.card';
-import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { CardOrientation, CardStyle } from '@carlsberggbs/malty.atoms.card';
+import { SpaceProps } from '@carlsberggbs/malty.utils.space';
 
 export interface ArticleCardProps extends SpaceProps {
   cardStyle?: CardStyle;

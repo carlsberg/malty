@@ -1,4 +1,4 @@
-import { BaseIcon, BaseIconProps } from '@carlsberggroup/malty.atoms.base-icon';
+import { BaseIcon, BaseIconProps } from '@carlsberggbs/malty.atoms.base-icon';
 import React from 'react';
 
 export const Filters = ({ dataTestId = 'icon-Filters', ...restProps }: BaseIconProps) => (

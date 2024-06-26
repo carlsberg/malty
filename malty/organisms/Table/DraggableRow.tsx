@@ -1,6 +1,6 @@
-import { IconColor, IconSize } from '@carlsberggroup/malty.atoms.base-icon';
-import { Checkbox } from '@carlsberggroup/malty.atoms.checkbox';
-import { Arrange } from '@carlsberggroup/malty.icons.arrange';
+import { IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
+import { Checkbox } from '@carlsberggbs/malty.atoms.checkbox';
+import { Arrange } from '@carlsberggbs/malty.icons.arrange';
 import { flexRender } from '@tanstack/react-table';
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';

@@ -1,4 +1,4 @@
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { IconColor } from './BaseIcon.types';
@@ -18,6 +18,7 @@ export const useIconColor = (color: IconColor): string => {
     case IconColor.NotificationLight:
     case IconColor.Success:
     case IconColor.SuccessLight:
+    case IconColor.Disabled:
       return colours.system[color].value;
 
     case IconColor.Support20:

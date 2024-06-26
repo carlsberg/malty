@@ -1,0 +1,47 @@
+{
+  "name": "@carlsberggbs/malty.molecules.nav-list",
+  "version": "0.2.0",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+  },
+  "publishConfig": {
+    "@carlsberggbs": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@carlsberggbs/malty.atoms.base-icon": "^0.1.0",
+    "@carlsberggbs/malty.atoms.text": "^0.1.0",
+    "@carlsberggbs/malty.theme.malty-theme-provider": "^0.1.0",
+    "core-js": "^3.0.0",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.12.18",
+    "@carlsberggbs/malty.icons.data-transfer": "^0.2.0",
+    "@carlsberggbs/malty.utils.test": "^0.1.0",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^26.0.0",
+    "@types/node": "12.20.4",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@types/styled-components": "^5.1.26",
+    "@types/testing-library__jest-dom": "5.9.5",
+    "react-router-dom": "^6.2.2"
+  },
+  "peerDependencies": {
+    "@carlsberggbs/malty.icons.arrow-small-left": "*",
+    "@carlsberggbs/malty.icons.arrow-small-right": "*",
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  }
+}

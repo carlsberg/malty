@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useEffect, useState } from 'react';
 import { Datepicker, DATE_PICKER_DEFAULT_FORMAT } from './Datepicker';
@@ -53,7 +53,7 @@ const meta: Meta<DatepickerProps> = {
   component: Datepicker,
   parameters: {
     importObject: 'Datepicker',
-    importPath: '@carlsberggroup/malty.molecules.datepicker'
+    importPath: '@carlsberggbs/malty.molecules.datepicker'
   },
   render: (args) => <DatepickerComponent {...args} />,
   argTypes: {

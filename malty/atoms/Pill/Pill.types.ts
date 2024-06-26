@@ -1,10 +1,11 @@
-import { IconColor } from '@carlsberggroup/malty.atoms.base-icon';
-import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { IconColor } from '@carlsberggbs/malty.atoms.base-icon';
+import { SpaceProps } from '@carlsberggbs/malty.utils.space';
 import { ReactElement } from 'react';
 
 export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps {
   text?: string;
   icon?: ReactElement;
+  iconPosition?: IconPosition;
   type?: PillType;
   size?: PillSize;
   dataTestId?: string;
@@ -12,23 +13,25 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps
 }
 
 export enum PillSize {
-  ExtraSmall = 'ExtraSmall',
-  Small = 'Small',
-  Medium = 'Medium'
+  ExtraSmall = 'extraSmall',
+  Small = 'small',
+  Medium = 'medium'
 }
 
 export enum PillType {
   Primary = 'primary',
-  Secondary = 'secondary',
-  Archive = 'support40',
   Success = 'success',
-  AlertStrong = 'alert-strong',
+  Alert = 'alert',
   Fail = 'fail',
-  NotificationStrong = 'notification-strong',
-  AlertLight = 'alert-light',
-  NotificationLight = 'notification-light',
-  SuccessLight = 'success-light',
-  Disabled = 'disable-light-theme'
+  Notification = 'notification',
+  Archive = 'archive',
+  Secondary = 'secondary',
+  Disabled = 'disabled'
+}
+
+export enum IconPosition {
+  Leading = 'leading',
+  Trailing = 'trailing'
 }
 
 export interface UsePillStylesProps {
@@ -39,16 +42,21 @@ export interface IconTextColorProps {
   type: PillType;
 }
 
-export type StyledPillProps = {
-  size: string;
-  fontSize: string;
-  fontFamily: string;
-  padding: string;
+export interface UsePillBackgroundColorProps {
   type: PillType;
-  textColor: IconColor;
-  hasText: boolean;
-  hasIcon: boolean;
-  pillSize: PillSize;
-  gap: string;
-  isUppercase: boolean;
+}
+
+export type StyledPillProps = {
+  $size: string;
+  $fontSize: string;
+  $fontWeight: string;
+  $lineHeight: string;
+  $backgroundColor: string;
+  $textColor: IconColor;
+  $hasText: boolean;
+  $hasIcon: boolean;
+  $padding: string;
+  $pillSize: PillSize;
+  $gap: string;
+  $isUppercase: boolean;
 } & SpaceProps;

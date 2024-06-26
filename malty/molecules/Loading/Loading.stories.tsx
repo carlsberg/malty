@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggroup/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Loading } from './Loading';
 import { LoadingColor, LoadingProps, LoadingSize, LoadingStatus } from './Loading.types';
@@ -8,7 +8,7 @@ const meta: Meta<LoadingProps> = {
   component: Loading,
   parameters: {
     importObject: 'Loading',
-    importPath: '@carlsberggroup/malty.molecules.loading'
+    importPath: '@carlsberggbs/malty.molecules.loading'
   },
   argTypes: {
     text: {

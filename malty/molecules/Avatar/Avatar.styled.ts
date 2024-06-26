@@ -1,4 +1,4 @@
-import { space } from '@carlsberggroup/malty.utils.space';
+import { space } from '@carlsberggbs/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { AvatarSize, StyledAvatarProps } from './Avatar.types';
 

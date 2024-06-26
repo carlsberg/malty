@@ -1,7 +1,7 @@
-import { Button, ButtonSize, ButtonStyle } from '@carlsberggroup/malty.atoms.button';
-import { ArrowSmallLeft } from '@carlsberggroup/malty.icons.arrow-small-left';
-import { ArrowSmallRight } from '@carlsberggroup/malty.icons.arrow-small-right';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
+import { Button, ButtonSize, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { ArrowSmallLeft } from '@carlsberggbs/malty.icons.arrow-small-left';
+import { ArrowSmallRight } from '@carlsberggbs/malty.icons.arrow-small-right';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
 import Splide, { Options } from '@splidejs/splide';
 import React, { useContext, useLayoutEffect, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';

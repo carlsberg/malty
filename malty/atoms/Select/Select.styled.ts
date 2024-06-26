@@ -1,6 +1,6 @@
-import { Check } from '@carlsberggroup/malty.icons.check';
-import { ChevronDown } from '@carlsberggroup/malty.icons.chevron-down';
-import { space, SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { Check } from '@carlsberggbs/malty.icons.check';
+import { ChevronDown } from '@carlsberggbs/malty.icons.chevron-down';
+import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 import { SelectPosition } from './Select.types';
 

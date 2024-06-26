@@ -1,4 +1,4 @@
-import { Text } from '@carlsberggroup/malty.atoms.text';
+import { Text } from '@carlsberggbs/malty.atoms.text';
 import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.footer`

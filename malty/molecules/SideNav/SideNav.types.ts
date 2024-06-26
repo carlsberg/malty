@@ -1,5 +1,5 @@
-import { ItemProps } from '@carlsberggroup/malty.molecules.nav-list';
-import { ProfileMenuType, SystemItemProps } from '@carlsberggroup/malty.molecules.products-bar';
+import { ItemProps } from '@carlsberggbs/malty.molecules.nav-list';
+import { ProfileMenuType, SystemItemProps } from '@carlsberggbs/malty.molecules.products-bar';
 
 export interface SideNavProps {
   navItems: ItemProps[];

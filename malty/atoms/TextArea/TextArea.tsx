@@ -1,6 +1,6 @@
-import { Label } from '@carlsberggroup/malty.atoms.label';
-import { globalTheme as defaultTheme } from '@carlsberggroup/malty.theme.malty-theme-provider';
-import { isolateSpaceProps } from '@carlsberggroup/malty.utils.space';
+import { Label } from '@carlsberggbs/malty.atoms.label';
+import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { isolateSpaceProps } from '@carlsberggbs/malty.utils.space';
 import React, { useContext, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
 import { v4 as uuid } from 'uuid';

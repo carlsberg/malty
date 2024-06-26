@@ -1,6 +1,6 @@
-import { CardOrientation } from '@carlsberggroup/malty.atoms.card';
-import { Image } from '@carlsberggroup/malty.atoms.image';
-import { Text } from '@carlsberggroup/malty.atoms.text';
+import { CardOrientation } from '@carlsberggbs/malty.atoms.card';
+import { Image } from '@carlsberggbs/malty.atoms.image';
+import { Text } from '@carlsberggbs/malty.atoms.text';
 import styled from 'styled-components';
 
 export const StyledMargin = styled.div`

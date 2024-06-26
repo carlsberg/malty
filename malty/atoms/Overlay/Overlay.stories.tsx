@@ -1,4 +1,4 @@
-import { Text as TextComponent, TextStyle } from '@carlsberggroup/malty.atoms.text';
+import { Text as TextComponent, TextStyle } from '@carlsberggbs/malty.atoms.text';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Overlay } from './Overlay';
@@ -9,7 +9,7 @@ const meta: Meta<OverlayProps> = {
   component: Overlay,
   parameters: {
     importObject: 'Overlay',
-    importPath: '@carlsberggroup/malty.atoms.overlay'
+    importPath: '@carlsberggbs/malty.atoms.overlay'
   },
   render: (args) => (
     <div style={{ height: '150px' }}>

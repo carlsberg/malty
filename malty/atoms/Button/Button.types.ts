@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggroup/malty.utils.space';
+import { SpaceProps } from '@carlsberggbs/malty.utils.space';
 import React, { ReactElement } from 'react';
 
 export interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'style'>, SpaceProps {

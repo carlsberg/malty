@@ -35,6 +35,9 @@
       "alert-strong": {
         "value": "#ffca2b"
       },
+      "disabled": {
+        "value": "#5c6f6c"
+      },
       "disable-dark-theme": {
         "value": "rgba(240, 242, 243, 0.25)"
       },

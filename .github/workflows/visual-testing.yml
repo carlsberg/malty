@@ -11,43 +11,30 @@ on:
 
 jobs:
   prepare-visual-testing:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install Bit CLI
-        run: |
-          npm i -g @teambit/bvm
-          bvm install ${BIT_VERSION}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.11.0
+          registry-url: https://npm.pkg.github.com/
+          scope: '@carlsberggbs'
+
+      - name: Set npm registry and authentication
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
         env:
-          BIT_VERSION: ${{ secrets.BIT_VERSION }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Add bvm bin folder to path
-        run: |
-          echo "$HOME/bin" >> $GITHUB_PATH
-          echo "PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
-
-      - name: Set up bit config
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          echo "Adding bit.dev to npm registry"
-          export PATH=${{ env.PATH }}
-          npm config set @bit:registry https://node.bit.dev
-          npm config set @carlsberggroup:registry=https://node.bit.dev
-          npm config set @teambit:registry=https://node.bit.dev
-          bit config set analytics_reporting false
-          bit config set anonymous_reporting false
-          bit config set user.token ${BIT_TOKEN}
-          echo "Completed adding bit.dev to npm registry"
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-
-      - name: Bit Deps Install & Compile
-        run: |
-          export PATH=${{ env.PATH }}
-          bit install
-          bit compile
-        shell: bash
+      - run: |
+          if [ -e yarn.lock ]; then
+          yarn install
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
 
       - name: 'Tar files'
         run: tar -cvf malty.tar .
@@ -83,6 +70,15 @@ jobs:
 
       - name: 'Untar files'
         run: tar -xvf malty.tar
+
+      - run: |
+          if [ -e yarn.lock ]; then
+          yarn install
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
 
       - name: Run visual testing in desktop
         if: matrix.containers == 1
