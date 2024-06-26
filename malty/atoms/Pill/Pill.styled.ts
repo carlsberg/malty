@@ -25,7 +25,7 @@ export const StyledPill = styled.div<StyledPillProps>`
     let gap;
 
     if ($hasIcon && !$hasText) {
-      if ($pillSize === PillSize.ExtraSmall) {
+      if ($pillSize === PillSize.XSmall) {
         padding = theme.sizesV2['4xs'];
         gap = theme.sizesV2['5xs'];
       }

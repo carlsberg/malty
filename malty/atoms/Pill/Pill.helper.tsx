@@ -8,7 +8,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const pillStyles = {
-    [PillSize.ExtraSmall]: {
+    [PillSize.XSmall]: {
       numSize: theme.sizesV2.s,
       fontWeight: theme.typographyV2.montserrat.body[10].semibold.fontWeight,
       lineHeight: theme.typographyV2.montserrat.body[10].semibold.lineHeight,
