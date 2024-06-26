@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.utils.all-icons",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberggbs/malty.atoms.base-icon": "^0.1.0",
+    "@carlsberggbs/malty.atoms.base-icon": "^0.1.1",
     "@carlsberggbs/malty.icons.add-content": "^0.2.0",
     "@carlsberggbs/malty.icons.add-event": "^0.2.0",
     "@carlsberggbs/malty.icons.add-project": "^0.2.0",
