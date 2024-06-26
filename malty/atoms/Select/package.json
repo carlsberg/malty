@@ -1,6 +1,6 @@
 {
   "name": "@carlsberggbs/malty.atoms.select",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@carlsberggbs/malty.atoms.base-icon": "^0.1.1",
-    "@carlsberggbs/malty.atoms.button": "^0.3.3",
+    "@carlsberggbs/malty.atoms.button": "^0.3.4",
     "@carlsberggbs/malty.atoms.checkbox": "^0.2.1",
     "@carlsberggbs/malty.atoms.input": "^0.3.1",
     "@carlsberggbs/malty.atoms.label": "^0.1.1",
