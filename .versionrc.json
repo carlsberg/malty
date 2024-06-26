@@ -8,11 +8,5 @@
     { "type": "refactor", "release": false },
     { "type": "perf", "release": false },
     { "type": "test", "release": false }
-  ],
-  "releaseRules": [
-    { "breaking": true, "release": "major" },
-    { "type": "feat", "release": "minor" },
-    { "type": "fix", "release": "patch" },
-    { "type": "*", "release": false }
   ]
 }
