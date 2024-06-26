@@ -40,7 +40,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
   return pillStyles[size];
 };
 
-// TODO: Refactor this when the icons are reviewed
+// TODO: Refactor this when the icons are reviewed with new tokens
 export const useIconColor = ({ type }: IconTextColorProps) => {
   if (type === PillType.Archive || type === PillType.Success || type === PillType.Alert) {
     return IconColor.DigitalBlack;
