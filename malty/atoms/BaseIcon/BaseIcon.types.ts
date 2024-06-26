@@ -40,6 +40,7 @@ export enum IconColor {
   SuccessLight = 'success-light',
   Fail = 'fail',
   FailLight = 'fail-light',
+  Disabled = 'disabled',
   DisableDark = 'disable-dark-theme',
   DisableLight = 'disable-light-theme'
 }
