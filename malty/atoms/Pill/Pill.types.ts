@@ -13,9 +13,9 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps
 }
 
 export enum PillSize {
-  XSmall = 'xs',
-  Small = 's',
-  Medium = 'm'
+  XS = 'xs',
+  S = 's',
+  M = 'm'
 }
 
 export enum PillType {

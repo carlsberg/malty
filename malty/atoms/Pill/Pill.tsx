@@ -8,7 +8,7 @@ export const Pill = ({
   text,
   icon,
   type = PillType.Primary,
-  size = PillSize.Medium,
+  size = PillSize.M,
   iconPosition = IconPosition.Leading,
   isUppercase = false,
   dataTestId,

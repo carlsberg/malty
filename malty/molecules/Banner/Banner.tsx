@@ -26,7 +26,7 @@ export const Banner = ({
   const labelProps: PillProps = {
     text: label && typeof label === 'string' ? label : '',
     type: negative ? PillType.Archive : PillType.Primary,
-    size: PillSize.Medium,
+    size: PillSize.M,
     icon: undefined
   };
   if (label && typeof label === 'object') {

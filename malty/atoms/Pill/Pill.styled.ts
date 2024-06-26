@@ -25,15 +25,15 @@ export const StyledPill = styled.div<StyledPillProps>`
     let gap;
 
     if ($hasIcon && !$hasText) {
-      if ($pillSize === PillSize.XSmall) {
+      if ($pillSize === PillSize.XS) {
         padding = theme.sizesV2['4xs'];
         gap = theme.sizesV2['5xs'];
       }
-      if ($pillSize === PillSize.Small) {
+      if ($pillSize === PillSize.S) {
         padding = theme.sizesV2['4xs'];
         gap = theme.sizesV2['4xs'];
       }
-      if ($pillSize === PillSize.Medium) {
+      if ($pillSize === PillSize.M) {
         padding = theme.sizesV2['4xs'];
         gap = theme.sizesV2['3xs'];
       }

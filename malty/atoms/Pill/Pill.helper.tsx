@@ -8,7 +8,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const pillStyles = {
-    [PillSize.XSmall]: {
+    [PillSize.XS]: {
       numSize: theme.sizesV2.s,
       fontWeight: theme.typographyV2.montserrat.body[10].semibold.fontWeight,
       lineHeight: theme.typographyV2.montserrat.body[10].semibold.lineHeight,
@@ -17,7 +17,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       padding: `${theme.sizesV2['4xs']} ${theme.sizesV2['3xs']}`,
       gap: theme.sizesV2['5xs']
     },
-    [PillSize.Small]: {
+    [PillSize.S]: {
       numSize: theme.sizesV2.m,
       fontWeight: theme.typographyV2.montserrat.body[10].semibold.fontWeight,
       lineHeight: theme.typographyV2.montserrat.body[10].semibold.lineHeight,
@@ -26,7 +26,7 @@ export const usePillStyles = ({ size }: UsePillStylesProps) => {
       padding: `${theme.sizesV2['4xs']} ${theme.sizesV2['3xs']}`,
       gap: theme.sizesV2['4xs']
     },
-    [PillSize.Medium]: {
+    [PillSize.M]: {
       numSize: theme.sizesV2.xl,
       fontWeight: theme.typographyV2.montserrat.body[14].semibold.fontWeight,
       lineHeight: theme.typographyV2.montserrat.body[14].semibold.lineHeight,

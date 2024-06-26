@@ -73,7 +73,7 @@ export const Base: Story = {
   args: {
     text: 'Text',
     type: PillType.Primary,
-    size: PillSize.Medium,
+    size: PillSize.M,
     isUppercase: false
   }
 };
