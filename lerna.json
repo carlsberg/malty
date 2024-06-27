@@ -18,7 +18,7 @@
     },
     "version": {
       "conventionalCommits": true,
-      "changelogPreset": "./.versionrc.json",
+      "changelogPreset": "@pragmatics/preset",
       "noPrivate": true,
       "tagVersionPrefix": ""
     }

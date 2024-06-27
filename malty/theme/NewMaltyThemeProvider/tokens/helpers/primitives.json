@@ -1,132 +1,132 @@
 {
   "sizes": {
-    "4xs": {
+    "6xs": {
       "value": "0px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "3xs": {
+    "5xs": {
       "value": "2px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "2xs": {
+    "4xs": {
       "value": "4px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "xs": {
+    "3xs": {
       "value": "8px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "s": {
+    "2xs": {
       "value": "12px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "m": {
+    "xs": {
       "value": "16px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "l": {
+    "s": {
       "value": "20px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "xl": {
+    "m": {
       "value": "24px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "2xl": {
+    "l": {
       "value": "28px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "3xl": {
+    "xl": {
       "value": "32px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "4xl": {
+    "2xl": {
       "value": "36px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "5xl": {
+    "3xl": {
       "value": "40px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "6xl": {
+    "4xl": {
       "value": "44px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "7xl": {
+    "5xl": {
       "value": "48px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "8xl": {
+    "6xl": {
       "value": "52px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "9xl": {
+    "7xl": {
       "value": "56px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "10xl": {
+    "8xl": {
       "value": "60px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "11xl": {
+    "9xl": {
       "value": "64px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "12xl": {
+    "10xl": {
       "value": "68px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "13xl": {
+    "11xl": {
       "value": "72px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "14xl": {
+    "12xl": {
       "value": "76px",
       "type": "dimension",
       "parent": "global/Value",
       "description": ""
     },
-    "15xl": {
+    "13xl": {
       "value": "80px",
       "type": "dimension",
       "parent": "global/Value",

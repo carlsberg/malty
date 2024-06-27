@@ -9,14 +9,20 @@ describe('<Pill />', () => {
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it('Icon', () => {
-    const page = visit({ args: { dataTestId }, storyId: 'information-pill--icon' });
+  it('Only Icon', () => {
+    const page = visit({ args: { dataTestId }, storyId: 'information-pill--only-icon' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
 
-  it('Text', () => {
-    const page = visit({ args: { dataTestId }, storyId: 'information-pill--text' });
+  it('Text With Leading Icon', () => {
+    const page = visit({ args: { dataTestId }, storyId: 'information-pill--text-with-leading-icon' });
+
+    page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
+  });
+
+  it('Text With Trailing Icon', () => {
+    const page = visit({ args: { dataTestId }, storyId: 'information-pill--text-with-trailing-icon' });
 
     page.getFullPageWithVisibleTarget(dataTestId).compareSnapshot(buildSnapshotName());
   });
