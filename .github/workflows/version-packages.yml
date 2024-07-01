@@ -56,7 +56,12 @@ jobs:
 
       - name: Run Lerna Version
         run: |
-          npx lerna version prerelease --preid beta --conventional-commits --changelog-preset @pragmatics/preset --yes --no-private --message "chore: bump packages versions [skip ci]"
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+          if [[ $COMMIT_MSG == *"beta-release"* ]]; then
+            npx lerna version prerelease --preid beta --conventional-commits --changelog-preset @pragmatics/preset --yes --no-private --message "chore: bump beta packages versions [skip ci]"
+          else
+            npx lerna version --conventional-commits --changelog-preset @pragmatics/preset --yes --no-private --message "chore: bump packages versions [skip ci]"
+          fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
