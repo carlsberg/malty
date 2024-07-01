@@ -1,6 +1,6 @@
 {
   "name": "@carlsberg/malty.theme.malty-theme-provider",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",

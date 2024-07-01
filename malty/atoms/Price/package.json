@@ -1,6 +1,6 @@
 {
   "name": "@carlsberg/malty.atoms.price",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,15 +18,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberg/malty.atoms.text": "*",
-    "@carlsberg/malty.theme.malty-theme-provider": "*",
-    "@carlsberg/malty.utils.space": "*",
+    "@carlsberg/malty.atoms.text": "^0.0.70",
+    "@carlsberg/malty.theme.malty-theme-provider": "^0.0.44",
+    "@carlsberg/malty.utils.space": "^0.0.3",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberg/malty.utils.test": "*",
+    "@carlsberg/malty.utils.test": "^0.0.19",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",
