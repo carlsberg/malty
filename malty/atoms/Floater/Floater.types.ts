@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 import React, { ReactElement } from 'react';
 
 export interface FloaterProps extends SpaceProps {

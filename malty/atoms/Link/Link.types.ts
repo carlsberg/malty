@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 import { ElementType, ReactNode } from 'react';
 
 export interface LinkProps<Component extends ElementType = 'a'> extends SpaceProps {

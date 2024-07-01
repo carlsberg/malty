@@ -1,11 +1,11 @@
-import { CloneIcon, IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
-import { Checkbox } from '@carlsberggbs/malty.atoms.checkbox';
-import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { Tooltip, TooltipPlacement } from '@carlsberggbs/malty.atoms.tooltip';
-import { ArrowSmallDown } from '@carlsberggbs/malty.icons.arrow-small-down';
-import { ArrowSmallUp } from '@carlsberggbs/malty.icons.arrow-small-up';
-import { Sort } from '@carlsberggbs/malty.icons.sort';
-import { LoadingOverlay } from '@carlsberggbs/malty.molecules.loading-overlay';
+import { CloneIcon, IconColor, IconSize } from '@carlsberg/malty.atoms.base-icon';
+import { Checkbox } from '@carlsberg/malty.atoms.checkbox';
+import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { Tooltip, TooltipPlacement } from '@carlsberg/malty.atoms.tooltip';
+import { ArrowSmallDown } from '@carlsberg/malty.icons.arrow-small-down';
+import { ArrowSmallUp } from '@carlsberg/malty.icons.arrow-small-up';
+import { Sort } from '@carlsberg/malty.icons.sort';
+import { LoadingOverlay } from '@carlsberg/malty.molecules.loading-overlay';
 import {
   createColumnHelper,
   flexRender,

@@ -1,6 +1,6 @@
-import { CloneIcon, IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
-import { Loading, LoadingColor, LoadingStatus } from '@carlsberggbs/malty.molecules.loading';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { CloneIcon, IconColor, IconSize } from '@carlsberg/malty.atoms.base-icon';
+import { Loading, LoadingColor, LoadingStatus } from '@carlsberg/malty.molecules.loading';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { ButtonProps, ButtonSize } from '.';

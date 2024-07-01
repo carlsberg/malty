@@ -1,7 +1,7 @@
-import { CloneIcon, IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
-import { Link, LinkColor, LinkStyle } from '@carlsberggbs/malty.atoms.link';
-import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { CloneIcon, IconColor, IconSize } from '@carlsberg/malty.atoms.base-icon';
+import { Link, LinkColor, LinkStyle } from '@carlsberg/malty.atoms.link';
+import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

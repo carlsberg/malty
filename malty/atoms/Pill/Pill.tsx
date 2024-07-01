@@ -1,5 +1,5 @@
-import { CloneIcon } from '@carlsberggbs/malty.atoms.base-icon';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { CloneIcon } from '@carlsberg/malty.atoms.base-icon';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { useIconTextColor, usePillStyles } from './Pill.helper';

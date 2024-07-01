@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 import { ReactElement } from 'react';
 
 export interface AlertInlineProps extends SpaceProps {

@@ -12,11 +12,13 @@
   "npmClient": "yarn",
   "command": {
     "publish": {
-      "registry": "https://npm.pkg.github.com/@carlsberggbs",
+      "registry": "https://registry.npmjs.org",
       "conventionalCommits": true,
       "changelog": false
     },
     "version": {
+      "conventionalCommits": true,
+      "noPrivate": true,
       "tagVersionPrefix": ""
     }
   }

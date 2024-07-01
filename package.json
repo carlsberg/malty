@@ -1,9 +1,11 @@
 {
-  "name": "@carlsberggbs/carlsberg-malty",
+  "name": "@carlsberg/carlsberg-malty",
   "homepage": "https://malty.carlsberggroup.com/",
   "url": "https://malty.carlsberggroup.com",
-  "private": true,
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "carlsberg",
     "malty",
@@ -17,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+    "url": "https://github.com/carlsberg/malty.git"
   },
   "workspaces": [
     "malty/atoms/*",
@@ -155,5 +157,6 @@
   "prettier": "@carlsberg/prettier-config",
   "nyc": {
     "report-dir": "cypress-coverage"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }

@@ -25,9 +25,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-          scope: '@carlsberggbs'
+          scope: '@carlsberg'
 
-      - run: echo "registry=https://npm.pkg.github.com/@carlsberggbs" >> .npmrc
+      - run: echo "registry=https://npm.pkg.github.com/@carlsberg" >> .npmrc
 
       - run: |
           if [ -e yarn.lock ]; then

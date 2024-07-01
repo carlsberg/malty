@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '16'
 
-      - run: echo "registry=https://npm.pkg.github.com/@carlsberggbs" >> .npmrc
+      - run: echo "registry=https://npm.pkg.github.com/@carlsberg" >> .npmrc
 
       - name: Install dependecies
         run: |

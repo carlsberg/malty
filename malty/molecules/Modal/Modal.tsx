@@ -1,8 +1,8 @@
-import { Button } from '@carlsberggbs/malty.atoms.button';
-import { Headline, HeadlineAlign, HeadlineStyle } from '@carlsberggbs/malty.atoms.headline';
-import { Overlay } from '@carlsberggbs/malty.atoms.overlay';
-import { Close } from '@carlsberggbs/malty.icons.close';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { Button } from '@carlsberg/malty.atoms.button';
+import { Headline, HeadlineAlign, HeadlineStyle } from '@carlsberg/malty.atoms.headline';
+import { Overlay } from '@carlsberg/malty.atoms.overlay';
+import { Close } from '@carlsberg/malty.icons.close';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

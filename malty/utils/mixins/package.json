@@ -1,15 +1,15 @@
 {
-  "name": "@carlsberggbs/malty.utils.mixins",
+  "name": "@carlsberg/malty.utils.mixins",
   "version": "0.0.2",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+    "url": "https://github.com/carlsberg/malty.git"
   },
   "publishConfig": {
-    "@carlsberggbs": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
