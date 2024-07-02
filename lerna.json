@@ -12,7 +12,6 @@
   "npmClient": "yarn",
   "command": {
     "publish": {
-      "registry": "https://npm.pkg.github.com/@carlsberg",
       "conventionalCommits": true,
       "changelog": false
     },
