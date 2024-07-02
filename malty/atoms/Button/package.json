@@ -9,7 +9,7 @@
     "url": "https://github.com/carlsberg/malty.git"
   },
   "publishConfig": {
-    "access": "public"
+    "@carlsberg:registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",

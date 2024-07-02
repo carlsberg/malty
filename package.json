@@ -4,7 +4,7 @@
   "url": "https://malty.carlsberggroup.com",
   "type": "module",
   "publishConfig": {
-    "access": "public"
+    "@carlsberg:registry": "https://npm.pkg.github.com"
   },
   "keywords": [
     "carlsberg",
