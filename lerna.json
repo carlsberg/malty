@@ -12,7 +12,6 @@
   "npmClient": "yarn",
   "command": {
     "publish": {
-      "registry": "https://registry.npmjs.org",
       "conventionalCommits": true,
       "changelog": false
     },
