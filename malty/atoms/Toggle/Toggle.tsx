@@ -1,5 +1,5 @@
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
-import { isolateSpaceProps } from '@carlsberggbs/malty.utils.space';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
+import { isolateSpaceProps } from '@carlsberg/malty.utils.space';
 import React, { useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {

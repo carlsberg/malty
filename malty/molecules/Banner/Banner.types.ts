@@ -1,6 +1,6 @@
-import { ButtonProps } from '@carlsberggbs/malty.atoms.button';
-import { PillProps } from '@carlsberggbs/malty.atoms.pill';
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { ButtonProps } from '@carlsberg/malty.atoms.button';
+import { PillProps } from '@carlsberg/malty.atoms.pill';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 
 export enum BannerLayout {
   Full = 'full',

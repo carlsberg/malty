@@ -1,4 +1,4 @@
-import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { space, SpaceProps } from '@carlsberg/malty.utils.space';
 import styled, { keyframes } from 'styled-components';
 import { ToastColor } from './Toast.types';
 

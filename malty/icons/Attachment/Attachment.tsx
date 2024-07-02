@@ -1,4 +1,4 @@
-import { BaseIcon, BaseIconProps } from '@carlsberggbs/malty.atoms.base-icon';
+import { BaseIcon, BaseIconProps } from '@carlsberg/malty.atoms.base-icon';
 import React from 'react';
 
 export const Attachment = ({ dataTestId = 'icon-Attachment', ...restProps }: BaseIconProps) => (

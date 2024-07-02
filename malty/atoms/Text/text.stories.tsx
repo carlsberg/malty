@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Text } from './Text';
 import { TextAlign, TextColor, TextProps, TextStyle } from './Text.types';
@@ -8,7 +8,7 @@ const meta: Meta<TextProps> = {
   component: Text,
   parameters: {
     importObject: 'Text',
-    importPath: '@carlsberggbs/malty.atoms.text'
+    importPath: '@carlsberg/malty.atoms.text'
   },
   argTypes: {
     children: {

@@ -1,5 +1,5 @@
-import layoutProps from '@carlsberggbs/malty.theme.malty-theme-provider/layout.json';
-import { getBreakpointNumber } from '@carlsberggbs/malty.utils.helpers';
+import layoutProps from '@carlsberg/malty.theme.malty-theme-provider/layout.json';
+import { getBreakpointNumber } from '@carlsberg/malty.utils.helpers';
 import { useEffect, useState } from 'react';
 
 export enum Device {

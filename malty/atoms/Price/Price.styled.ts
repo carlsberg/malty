@@ -1,5 +1,5 @@
-import { Text } from '@carlsberggbs/malty.atoms.text';
-import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { Text } from '@carlsberg/malty.atoms.text';
+import { space, SpaceProps } from '@carlsberg/malty.utils.space';
 import styled from 'styled-components';
 
 export const StyledPriceContainer = styled.div<SpaceProps>`

@@ -1,10 +1,10 @@
-import { IconColor } from '@carlsberggbs/malty.atoms.base-icon';
-import { TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { CheckboxCheck } from '@carlsberggbs/malty.icons.checkbox-check';
-import { CheckboxCheckAlternate } from '@carlsberggbs/malty.icons.checkbox-check-alternate';
-import { CheckboxEmpty } from '@carlsberggbs/malty.icons.checkbox-empty';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
-import { isolateSpaceProps } from '@carlsberggbs/malty.utils.space';
+import { IconColor } from '@carlsberg/malty.atoms.base-icon';
+import { TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { CheckboxCheck } from '@carlsberg/malty.icons.checkbox-check';
+import { CheckboxCheckAlternate } from '@carlsberg/malty.icons.checkbox-check-alternate';
+import { CheckboxEmpty } from '@carlsberg/malty.icons.checkbox-empty';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
+import { isolateSpaceProps } from '@carlsberg/malty.utils.space';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

@@ -1,5 +1,5 @@
-import { rgbToHex } from '@carlsberggbs/malty.utils.colors';
-import { space } from '@carlsberggbs/malty.utils.space';
+import { rgbToHex } from '@carlsberg/malty.utils.colors';
+import { space } from '@carlsberg/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { ImageEffectPosition, ImageOverlay, StyledContainerProps } from './Image.types';
 

@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { ProgressCircle } from './ProgressCircle';
 import { ForegroundCircleColor, PercentagePosition, ProgressCircleProps, RoundMethod } from './ProgressCircle.types';
@@ -8,7 +8,7 @@ const meta: Meta<ProgressCircleProps> = {
   component: ProgressCircle,
   parameters: {
     importObject: 'ProgressCircle',
-    importPath: '@carlsberggbs/malty.atoms.progress-circle'
+    importPath: '@carlsberg/malty.atoms.progress-circle'
   },
   argTypes: {
     displayPercentage: {

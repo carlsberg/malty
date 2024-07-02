@@ -1,5 +1,5 @@
-import { IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
-import { defaultTheme } from '@carlsberggbs/malty.theme.new-malty-theme-provider';
+import { IconColor, IconSize } from '@carlsberg/malty.atoms.base-icon';
+import { defaultTheme } from '@carlsberg/malty.theme.new-malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { IconTextColorProps, PillSize, PillType, UsePillBackgroundColorProps, UsePillStylesProps } from './Pill.types';

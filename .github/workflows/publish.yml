@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '20.11.0'
           registry-url: https://npm.pkg.github.com/
-          scope: '@carlsberggbs'
+          scope: '@carlsberg'
 
       - name: Configure Git
         run: |
