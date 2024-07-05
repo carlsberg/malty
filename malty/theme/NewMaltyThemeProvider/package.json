@@ -1,6 +1,6 @@
 {
   "name": "@carlsberg/malty.theme.new-malty-theme-provider",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -19,7 +19,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberg/malty.theme.malty-theme-provider": "^0.0.45",
+    "@carlsberg/malty.theme.malty-theme-provider": "^0.0.46",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
