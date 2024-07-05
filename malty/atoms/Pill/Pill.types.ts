@@ -5,7 +5,6 @@ import { ReactElement } from 'react';
 export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps {
   text?: string;
   icon?: ReactElement;
-  iconPosition?: IconPosition;
   type?: PillType;
   size?: PillSize;
   dataTestId?: string;
@@ -13,25 +12,23 @@ export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps
 }
 
 export enum PillSize {
-  XS = 'xs',
-  S = 's',
-  M = 'm'
+  ExtraSmall = 'ExtraSmall',
+  Small = 'Small',
+  Medium = 'Medium'
 }
 
 export enum PillType {
   Primary = 'primary',
-  Success = 'success',
-  Alert = 'alert',
-  Fail = 'fail',
-  Notification = 'notification',
-  Archive = 'archive',
   Secondary = 'secondary',
-  Disabled = 'disabled'
-}
-
-export enum IconPosition {
-  Leading = 'leading',
-  Trailing = 'trailing'
+  Archive = 'support40',
+  Success = 'success',
+  AlertStrong = 'alert-strong',
+  Fail = 'fail',
+  NotificationStrong = 'notification-strong',
+  AlertLight = 'alert-light',
+  NotificationLight = 'notification-light',
+  SuccessLight = 'success-light',
+  Disabled = 'disable-light-theme'
 }
 
 export interface UsePillStylesProps {
@@ -42,21 +39,16 @@ export interface IconTextColorProps {
   type: PillType;
 }
 
-export interface UsePillBackgroundColorProps {
-  type: PillType;
-}
-
 export type StyledPillProps = {
-  $size: string;
-  $fontSize: string;
-  $fontWeight: string;
-  $lineHeight: string;
-  $backgroundColor: string;
-  $textColor: IconColor;
-  $hasText: boolean;
-  $hasIcon: boolean;
-  $padding: string;
-  $pillSize: PillSize;
-  $gap: string;
-  $isUppercase: boolean;
+  size: string;
+  fontSize: string;
+  fontFamily: string;
+  padding: string;
+  type: PillType;
+  textColor: IconColor;
+  hasText: boolean;
+  hasIcon: boolean;
+  pillSize: PillSize;
+  gap: string;
+  isUppercase: boolean;
 } & SpaceProps;

@@ -4,7 +4,7 @@ import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Pill } from './Pill';
-import { IconPosition, PillProps, PillSize, PillType } from './Pill.types';
+import { PillProps, PillSize, PillType } from './Pill.types';
 
 const meta: Meta<PillProps> = {
   title: 'Information/Pill',
@@ -23,14 +23,22 @@ const meta: Meta<PillProps> = {
       options: Object.values(PillSize),
       control: 'select',
       table: {
-        category: 'Styling'
+        category: 'Styling',
+        defaultValue: {
+          summary: PillSize.Medium
+        }
       }
     },
     type: {
       description: 'Pill type',
-      options: Object.values(PillType),
+      options: Object.keys(PillType),
       mapping: PillType,
-      control: 'select'
+      control: 'select',
+      table: {
+        defaultValue: {
+          summary: PillType.Primary
+        }
+      }
     },
     icon: {
       description: 'The icon component to be displayed',
@@ -41,15 +49,6 @@ const meta: Meta<PillProps> = {
         type: {
           summary: 'ReactElement | undefined'
         }
-      }
-    },
-    iconPosition: {
-      description: 'Icon position',
-      options: ['leading', 'trailing'],
-      control: 'radio',
-      if: { arg: 'icon' },
-      table: {
-        category: 'Icon'
       }
     },
     isUppercase: {
@@ -72,36 +71,26 @@ type Story = StoryObj<PillProps>;
 export const Base: Story = {
   args: {
     text: 'Text',
+    icon: <CarlsbergFilled />,
     type: PillType.Primary,
-    size: PillSize.M,
+    size: PillSize.Medium,
     isUppercase: false
   }
 };
 
-export const OnlyIcon: Story = {
+export const Icon: Story = {
   args: {
     ...Base.args,
-    icon: <CarlsbergFilled />,
     type: PillType.Success,
     text: ''
   }
 };
 
-export const TextWithLeadingIcon: Story = {
+export const Text: Story = {
   args: {
     ...Base.args,
-    icon: <CarlsbergFilled />,
-    iconPosition: IconPosition.Leading,
-    type: PillType.Alert
-  }
-};
-
-export const TextWithTrailingIcon: Story = {
-  args: {
-    ...Base.args,
-    icon: <CarlsbergFilled />,
-    iconPosition: IconPosition.Trailing,
-    type: PillType.Notification
+    type: PillType.Fail,
+    icon: undefined
   }
 };
 

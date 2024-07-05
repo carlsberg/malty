@@ -114,7 +114,7 @@ export const ProductCard = ({
                     <Pill
                       text={discountPill?.text}
                       type={discountPill?.type}
-                      size={isMobile ? PillSize.XS : PillSize.S}
+                      size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                       icon={discountPill?.icon}
                     />
                   </StyledDiscountPill>
@@ -124,7 +124,7 @@ export const ProductCard = ({
                   <Pill
                     text={promoPill?.text}
                     type={promoPill?.type}
-                    size={isMobile ? PillSize.XS : PillSize.S}
+                    size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                     icon={promoPill?.icon}
                   />
                 ) : null}
@@ -133,7 +133,7 @@ export const ProductCard = ({
                 <Pill
                   text={cartPill?.text}
                   type={cartPill?.type}
-                  size={isMobile ? PillSize.XS : PillSize.S}
+                  size={isMobile ? PillSize.ExtraSmall : PillSize.Small}
                   icon={cartPill?.icon}
                 />
               ) : null}

@@ -273,8 +273,8 @@ export const Base: Story = {
     loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
     stock: { label: 'In Stock', stockColor: TextColor.Success },
     quantitySelectOptions: selectQuanityOptions,
-    discountPill: { text: '20%', type: PillType.Alert },
-    promoPill: { text: 'Promo', type: PillType.Alert, icon: <Coupon /> },
+    discountPill: { text: '20%', type: PillType.AlertStrong },
+    promoPill: { text: 'Promo', type: PillType.AlertStrong, icon: <Coupon /> },
     cartPill: { text: '2', type: PillType.Success, icon: <Cart /> },
     favoriteIconColor: IconColor.Primary,
     productCardStyle: CardStyle.Plain
