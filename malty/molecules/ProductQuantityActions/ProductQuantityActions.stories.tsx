@@ -1,6 +1,6 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
-import { TextColor } from '@carlsberggbs/malty.atoms.text';
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { ButtonColor, ButtonStyle } from '@carlsberg/malty.atoms.button';
+import { TextColor } from '@carlsberg/malty.atoms.text';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { ProductQuantityActions } from './ProductQuantityActions';
@@ -23,7 +23,7 @@ const meta: Meta<ProductQuantityActionsProps> = {
   component: ProductQuantityActions,
   parameters: {
     importObject: 'ProductQuantityActions',
-    importPath: '@carlsberggbs/malty.molecules.product-quantity-actions'
+    importPath: '@carlsberg/malty.molecules.product-quantity-actions'
   },
   render: (args) => <ProductQuantityActionsComponent {...args} />,
   argTypes: {

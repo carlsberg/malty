@@ -19,7 +19,7 @@ This project uses Lerna to manage the monorepo packages and GitHub Packages to p
 Clone the repo
 
 ```sh
-git clone https://github.com/CarlsbergGBS/cx-component-library
+git clone https://github.com/carlsberg/malty
 ```
 
 Install packages
@@ -62,7 +62,7 @@ Alternatively you can add the `--watch` flag for continued refresh and testing, 
 
 ```typescript
 import React from 'react';
-import { Component, ComponentProps } from '@carlsberggbs/malty.atoms.component';
+import { Component, ComponentProps } from '@carlsberg/malty.atoms.component';
 
 export const component = ({ children }: ComponentProps) => {
   const renderComponent = () => <Component>{childen}</Component>;

@@ -7,7 +7,7 @@ import {
   ShadowTokens,
   SizeTokens,
   TypographyTokens
-} from '@carlsberggbs/malty.theme.new-malty-theme-provider/tokens/types';
+} from '@carlsberg/malty.theme.new-malty-theme-provider/tokens/types';
 import 'styled-components';
 
 declare module 'styled-components' {

@@ -1,6 +1,6 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
-import { CardOrientation, CardStyle } from '@carlsberggbs/malty.atoms.card';
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { ButtonColor, ButtonStyle } from '@carlsberg/malty.atoms.button';
+import { CardOrientation, CardStyle } from '@carlsberg/malty.atoms.card';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ArticleCard } from './ArticleCard';
@@ -19,7 +19,7 @@ const meta: Meta<ArticleCardProps> = {
   component: ArticleCard,
   parameters: {
     importObject: 'ArticleCard',
-    importPath: '@carlsberggbs/malty.molecules.article-card'
+    importPath: '@carlsberg/malty.molecules.article-card'
   },
   render: (args) => <ArticleCardComponent {...args} />,
   argTypes: {

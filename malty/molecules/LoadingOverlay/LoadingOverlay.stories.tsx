@@ -1,4 +1,4 @@
-import { LoadingColor } from '@carlsberggbs/malty.molecules.loading';
+import { LoadingColor } from '@carlsberg/malty.molecules.loading';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { LoadingOverlay } from './LoadingOverlay';
@@ -9,7 +9,7 @@ const meta: Meta<LoadingOverlayProps> = {
   component: LoadingOverlay,
   parameters: {
     importObject: 'LoadingOverlay',
-    importPath: '@carlsberggbs/malty.molecules.loading-overlay'
+    importPath: '@carlsberg/malty.molecules.loading-overlay'
   },
   render: (args) => (
     <>

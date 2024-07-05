@@ -1,8 +1,8 @@
-import { IconColor } from '@carlsberggbs/malty.atoms.base-icon';
-import { Text, TextAlign, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { Star } from '@carlsberggbs/malty.icons.star';
-import { StarFilled } from '@carlsberggbs/malty.icons.star-filled';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { IconColor } from '@carlsberg/malty.atoms.base-icon';
+import { Text, TextAlign, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { Star } from '@carlsberg/malty.icons.star';
+import { StarFilled } from '@carlsberg/malty.icons.star-filled';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

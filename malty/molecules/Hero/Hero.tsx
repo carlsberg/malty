@@ -1,10 +1,10 @@
-import { IconColor } from '@carlsberggbs/malty.atoms.base-icon';
-import { Button, ButtonSize } from '@carlsberggbs/malty.atoms.button';
-import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsberggbs/malty.atoms.headline';
-import { TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { ArrowSmallDown } from '@carlsberggbs/malty.icons.arrow-small-down';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
-import { Device, useMatchMedia } from '@carlsberggbs/malty.utils.hooks';
+import { IconColor } from '@carlsberg/malty.atoms.base-icon';
+import { Button, ButtonSize } from '@carlsberg/malty.atoms.button';
+import { Headline, HeadlineAlign, HeadlineColor, HeadlineStyle } from '@carlsberg/malty.atoms.headline';
+import { TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { ArrowSmallDown } from '@carlsberg/malty.icons.arrow-small-down';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
+import { Device, useMatchMedia } from '@carlsberg/malty.utils.hooks';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

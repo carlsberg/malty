@@ -1,6 +1,6 @@
-import { ArrowSmallUp } from '@carlsberggbs/malty.icons.arrow-small-up';
-import { allIconsStoryOptions } from '@carlsberggbs/malty.utils.all-icons';
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { ArrowSmallUp } from '@carlsberg/malty.icons.arrow-small-up';
+import { allIconsStoryOptions } from '@carlsberg/malty.utils.all-icons';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
@@ -16,7 +16,7 @@ const meta: Meta<FloaterProps> = {
   component: Floater,
   parameters: {
     importObject: 'Floater',
-    importPath: '@carlsberggbs/malty.atoms.floater'
+    importPath: '@carlsberg/malty.atoms.floater'
   },
   render: (args) => (
     <StyledWrapper>

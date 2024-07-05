@@ -1,5 +1,5 @@
-import { Cart } from '@carlsberggbs/malty.icons.cart';
-import { render } from '@carlsberggbs/malty.utils.test';
+import { Cart } from '@carlsberg/malty.icons.cart';
+import { render } from '@carlsberg/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';

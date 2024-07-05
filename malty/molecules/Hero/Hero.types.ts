@@ -1,5 +1,5 @@
-import { ButtonProps } from '@carlsberggbs/malty.atoms.button';
-import { HeadlineProps } from '@carlsberggbs/malty.atoms.headline';
+import { ButtonProps } from '@carlsberg/malty.atoms.button';
+import { HeadlineProps } from '@carlsberg/malty.atoms.headline';
 
 export type ActionButtonProps = { key: React.Key } & Pick<
   ButtonProps,

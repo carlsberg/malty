@@ -1,8 +1,8 @@
-import { CardOrientation, CardStyle } from '@carlsberggbs/malty.atoms.card';
-import { ArticleCard } from '@carlsberggbs/malty.molecules.article-card';
-import layoutProps from '@carlsberggbs/malty.theme.malty-theme-provider/layout.json';
-import { getBreakpointNumber } from '@carlsberggbs/malty.utils.helpers';
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { CardOrientation, CardStyle } from '@carlsberg/malty.atoms.card';
+import { ArticleCard } from '@carlsberg/malty.molecules.article-card';
+import layoutProps from '@carlsberg/malty.theme.malty-theme-provider/layout.json';
+import { getBreakpointNumber } from '@carlsberg/malty.utils.helpers';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Carousel } from './Carousel';
@@ -13,7 +13,7 @@ const meta: Meta<CarouselProps> = {
   component: Carousel,
   parameters: {
     importObject: 'Carousel',
-    importPath: '@carlsberggbs/malty.organisms.carousel',
+    importPath: '@carlsberg/malty.organisms.carousel',
     controls: {
       sort: 'requiredFirst'
     }

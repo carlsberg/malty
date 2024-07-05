@@ -1,4 +1,4 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { ButtonColor, ButtonStyle } from '@carlsberg/malty.atoms.button';
 import { Meta, StoryObj } from '@storybook/react';
 import { Hero } from './Hero';
 import { ActionButtonProps, HeroProps } from './Hero.types';
@@ -8,7 +8,7 @@ const meta: Meta<HeroProps> = {
   component: Hero,
   parameters: {
     importObject: 'Hero',
-    importPath: '@carlsberggbs/malty.molecules.hero'
+    importPath: '@carlsberg/malty.molecules.hero'
   },
   argTypes: {
     title: {

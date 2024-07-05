@@ -1,5 +1,5 @@
-import { srOnly } from '@carlsberggbs/malty.utils.mixins';
-import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { srOnly } from '@carlsberg/malty.utils.mixins';
+import { space, SpaceProps } from '@carlsberg/malty.utils.space';
 import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.div<SpaceProps>`

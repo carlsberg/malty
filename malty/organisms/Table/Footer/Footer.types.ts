@@ -1,4 +1,4 @@
-import { PaginationProps } from '@carlsberggbs/malty.molecules.pagination';
+import { PaginationProps } from '@carlsberg/malty.molecules.pagination';
 import { ManualPagination, TableProps } from '../Table.types';
 
 export interface FooterProps {

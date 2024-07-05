@@ -1,4 +1,4 @@
-import { render } from '@carlsberggbs/malty.utils.test';
+import { render } from '@carlsberg/malty.utils.test';
 import { act, fireEvent, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { Tooltip } from '.';

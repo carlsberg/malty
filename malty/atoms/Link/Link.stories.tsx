@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Link } from './Link';
 import { LinkColor, LinkProps, LinkStyle } from './Link.types';
@@ -8,7 +8,7 @@ const meta: Meta<LinkProps> = {
   component: Link,
   parameters: {
     importObject: 'Link',
-    importPath: '@carlsberggbs/malty.atoms.link'
+    importPath: '@carlsberg/malty.atoms.link'
   },
   argTypes: {
     as: {

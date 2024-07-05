@@ -1,4 +1,4 @@
-import { BaseIcon, BaseIconProps } from '@carlsberggbs/malty.atoms.base-icon';
+import { BaseIcon, BaseIconProps } from '@carlsberg/malty.atoms.base-icon';
 import React from 'react';
 
 export const Can = ({ dataTestId = 'icon-Can', ...restProps }: BaseIconProps) => (

@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Pagination } from './Pagination';
@@ -15,7 +15,7 @@ const meta: Meta<PaginationProps> = {
   component: Pagination,
   parameters: {
     importObject: 'Pagination',
-    importPath: '@carlsberggbs/malty.molecules.pagination'
+    importPath: '@carlsberg/malty.molecules.pagination'
   },
   render: (args) => <PaginationComponent {...args} />,
   argTypes: {

@@ -1,10 +1,10 @@
-import { IconSize } from '@carlsberggbs/malty.atoms.base-icon';
-import { ButtonType } from '@carlsberggbs/malty.atoms.button';
-import { Checkbox } from '@carlsberggbs/malty.atoms.checkbox';
-import { Input, InputSize, InputType } from '@carlsberggbs/malty.atoms.input';
-import { Label } from '@carlsberggbs/malty.atoms.label';
-import { Search } from '@carlsberggbs/malty.icons.search';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { IconSize } from '@carlsberg/malty.atoms.base-icon';
+import { ButtonType } from '@carlsberg/malty.atoms.button';
+import { Checkbox } from '@carlsberg/malty.atoms.checkbox';
+import { Input, InputSize, InputType } from '@carlsberg/malty.atoms.input';
+import { Label } from '@carlsberg/malty.atoms.label';
+import { Search } from '@carlsberg/malty.icons.search';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { createRef, useEffect, useMemo, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import {

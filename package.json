@@ -1,8 +1,10 @@
 {
-  "name": "@carlsberggbs/carlsberg-malty",
+  "name": "@carlsberg/carlsberg-malty",
   "homepage": "https://malty.carlsberggroup.com/",
   "url": "https://malty.carlsberggroup.com",
-  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "keywords": [
     "carlsberg",
@@ -17,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+    "url": "https://github.com/carlsberg/malty.git"
   },
   "workspaces": [
     "malty/atoms/*",
@@ -69,6 +71,7 @@
     "@babel/preset-typescript": "^7.24.6",
     "@carlsberg/eslint-config-carlsberg": "^0.3.0",
     "@carlsberg/prettier-config": "^0.0.1",
+    "@pragmatics/conventional-changelog-preset": "^1.1.1",
     "@storybook/addon-actions": "^7.6.19",
     "@storybook/addon-docs": "^7.6.19",
     "@storybook/addon-essentials": "^7.6.19",
@@ -94,7 +97,6 @@
     "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.53.0",
-    "@pragmatics/conventional-changelog-preset": "^1.1.1",
     "babel-jest": "^29.4.1",
     "babel-loader": "^9.1.2",
     "cypress": "13.6.4",
@@ -155,5 +157,6 @@
   "prettier": "@carlsberg/prettier-config",
   "nyc": {
     "report-dir": "cypress-coverage"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }

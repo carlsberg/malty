@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Headline } from './Headline';
@@ -24,7 +24,7 @@ const meta: Meta<HeadlineProps> = {
   render: (args) => <HeadlineComponent {...args} />,
   parameters: {
     importObject: 'Headline',
-    importPath: '@carlsberggbs/malty.atoms.headline'
+    importPath: '@carlsberg/malty.atoms.headline'
   },
   argTypes: {
     color: {

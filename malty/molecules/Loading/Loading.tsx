@@ -1,4 +1,4 @@
-import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
+import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
 import React from 'react';
 import { useLoadingStyles } from './Loading.helper';
 import { StyledLoading, StyledLoadingContainer } from './Loading.styled';

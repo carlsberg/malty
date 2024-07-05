@@ -1,4 +1,4 @@
-import { render } from '@carlsberggbs/malty.utils.test';
+import { render } from '@carlsberg/malty.utils.test';
 import { RowSelectionState } from '@tanstack/react-table';
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

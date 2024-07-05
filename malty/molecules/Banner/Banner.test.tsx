@@ -1,5 +1,5 @@
-import { ButtonStyle } from '@carlsberggbs/malty.atoms.button';
-import { render } from '@carlsberggbs/malty.utils.test';
+import { ButtonStyle } from '@carlsberg/malty.atoms.button';
+import { render } from '@carlsberg/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';

@@ -1,4 +1,4 @@
-import { space } from '@carlsberggbs/malty.utils.space';
+import { space } from '@carlsberg/malty.utils.space';
 import styled, { css, keyframes } from 'styled-components';
 import { ChipSize, StyledChipProps } from './Chip.types';
 

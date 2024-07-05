@@ -1,4 +1,4 @@
-import { space } from '@carlsberggbs/malty.utils.space';
+import { space } from '@carlsberg/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { PillSize, StyledPillProps } from './Pill.types';
 

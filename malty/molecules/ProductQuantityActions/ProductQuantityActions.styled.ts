@@ -1,6 +1,6 @@
-import { Input } from '@carlsberggbs/malty.atoms.input';
-import { TextColor } from '@carlsberggbs/malty.atoms.text';
-import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { Input } from '@carlsberg/malty.atoms.input';
+import { TextColor } from '@carlsberg/malty.atoms.text';
+import { space, SpaceProps } from '@carlsberg/malty.utils.space';
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div<SpaceProps>`

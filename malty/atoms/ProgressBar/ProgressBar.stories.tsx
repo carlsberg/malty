@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { ProgressBar } from './ProgressBar';
 import { ProgressBarProps, ProgressBarSize } from './ProgressBar.types';
@@ -8,7 +8,7 @@ const meta: Meta<ProgressBarProps> = {
   component: ProgressBar,
   parameters: {
     importObject: 'ProgressBar',
-    importPath: '@carlsberggbs/malty.atoms.progress-bar'
+    importPath: '@carlsberg/malty.atoms.progress-bar'
   },
   argTypes: {
     label: {

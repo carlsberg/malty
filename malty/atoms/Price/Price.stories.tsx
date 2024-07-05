@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { Price } from './Price';
 import { PriceProps } from './Price.types';
@@ -8,7 +8,7 @@ const meta: Meta<PriceProps> = {
   component: Price,
   parameters: {
     importObject: 'Price',
-    importPath: '@carlsberggbs/malty.atoms.price'
+    importPath: '@carlsberg/malty.atoms.price'
   },
   argTypes: {
     base: {

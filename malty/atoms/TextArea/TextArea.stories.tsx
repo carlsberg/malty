@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { TextArea } from './TextArea';
@@ -16,7 +16,7 @@ const meta: Meta<TextAreaProps> = {
   component: TextArea,
   parameters: {
     importObject: 'TextArea',
-    importPath: '@carlsberggbs/malty.atoms.text-area'
+    importPath: '@carlsberg/malty.atoms.text-area'
   },
   render: (args) => <TextAreaComponent {...args} />,
   argTypes: {

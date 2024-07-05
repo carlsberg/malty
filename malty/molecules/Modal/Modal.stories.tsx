@@ -1,4 +1,4 @@
-import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
+import { ButtonColor, ButtonStyle } from '@carlsberg/malty.atoms.button';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Modal } from './Modal';
@@ -23,7 +23,7 @@ const meta: Meta<ModalProps> = {
   component: Modal,
   parameters: {
     importObject: 'Modal',
-    importPath: '@carlsberggbs/malty.molecules.modal'
+    importPath: '@carlsberg/malty.molecules.modal'
   },
   render: (args) => <ModalComponent {...args} />,
   argTypes: {

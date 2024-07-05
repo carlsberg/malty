@@ -1,8 +1,8 @@
-import { CloneIcon, IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
-import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { ArrowSmallLeft } from '@carlsberggbs/malty.icons.arrow-small-left';
-import { ArrowSmallRight } from '@carlsberggbs/malty.icons.arrow-small-right';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { CloneIcon, IconColor, IconSize } from '@carlsberg/malty.atoms.base-icon';
+import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { ArrowSmallLeft } from '@carlsberg/malty.icons.arrow-small-left';
+import { ArrowSmallRight } from '@carlsberg/malty.icons.arrow-small-right';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledNavItem, StyledNavList, StyledRightArrow, StyledSubNavItem } from './NavList.styled';

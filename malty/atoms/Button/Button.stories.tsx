@@ -1,5 +1,5 @@
-import { allIconsStoryOptions } from '@carlsberggbs/malty.utils.all-icons';
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { allIconsStoryOptions } from '@carlsberg/malty.utils.all-icons';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import { ButtonProps, ButtonSize } from '.';
 import { Button } from './Button';
@@ -10,7 +10,7 @@ const meta: Meta<ButtonProps> = {
   component: Button,
   parameters: {
     importObject: 'Button',
-    importPath: '@carlsberggbs/malty.atoms.button'
+    importPath: '@carlsberg/malty.atoms.button'
   },
   argTypes: {
     text: {

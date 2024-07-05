@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { PaddedContainer } from './PaddedContainer';
@@ -9,7 +9,7 @@ const meta: Meta<PaddedContainerProps> = {
   component: PaddedContainer,
   parameters: {
     importObject: 'PaddedContainer',
-    importPath: '@carlsberggbs/malty.atoms.padded-container'
+    importPath: '@carlsberg/malty.atoms.padded-container'
   },
   render: (args) => (
     <PaddedContainer {...args}>

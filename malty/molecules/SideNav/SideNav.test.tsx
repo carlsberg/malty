@@ -1,5 +1,5 @@
-import { DataTransfer } from '@carlsberggbs/malty.icons.data-transfer';
-import { render } from '@carlsberggbs/malty.utils.test';
+import { DataTransfer } from '@carlsberg/malty.icons.data-transfer';
+import { render } from '@carlsberg/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';

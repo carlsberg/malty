@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 import React, { ReactNode } from 'react';
 
 export interface HeadlineProps extends React.HTMLAttributes<HTMLHeadingElement>, SpaceProps {

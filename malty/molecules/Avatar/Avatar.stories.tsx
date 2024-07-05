@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Avatar } from './Avatar';
@@ -9,7 +9,7 @@ const meta: Meta<AvatarProps> = {
   component: Avatar,
   parameters: {
     importObject: 'Avatar',
-    importPath: '@carlsberggbs/malty.molecules.avatar'
+    importPath: '@carlsberg/malty.molecules.avatar'
   },
   render: (args) => (
     <div style={{ width: '100px' }}>

@@ -1,4 +1,4 @@
-import { CloneIcon } from '@carlsberggbs/malty.atoms.base-icon';
+import { CloneIcon } from '@carlsberg/malty.atoms.base-icon';
 import React from 'react';
 import { useIconColor, usePillBackgroundColor, usePillStyles, useTextColor } from './Pill.helper';
 import { StyledPill } from './Pill.styled';
