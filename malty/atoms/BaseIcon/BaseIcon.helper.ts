@@ -18,7 +18,6 @@ export const useIconColor = (color: IconColor): string => {
     case IconColor.NotificationLight:
     case IconColor.Success:
     case IconColor.SuccessLight:
-    case IconColor.Disabled:
       return colours.system[color].value;
 
     case IconColor.Support20:
