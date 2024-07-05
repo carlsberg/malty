@@ -48,6 +48,13 @@ jobs:
         run: git stash push --keep-index --message "Stashing .npmrc changes"
         continue-on-error: true
 
+      - name: Build packages
+        run: yarn build
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish packages
         run: npx lerna publish from-package --yes
         env:
