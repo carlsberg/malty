@@ -26,7 +26,7 @@
     "@carlsberggbs/malty.utils.mixins": "^0.0.3",
     "@carlsberggbs/malty.utils.space": "^0.0.3",
     "core-js": "^3.0.0",
-    "react-datepicker": "^4.8.0",
+    "react-datepicker": "^7.3.0",
     "styled-components": "^5.3.6",
     "uuid": "^9.0.0"
   },
