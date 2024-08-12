@@ -25,6 +25,7 @@ export interface DatepickerProps extends SpaceProps {
   dataTestId?: string;
   withPortal?: boolean;
   withoutBorder?: boolean;
+  popperZIndex?: number;
 }
 
 export enum DatepickerSize {

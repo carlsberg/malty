@@ -60,6 +60,7 @@ export const Datepicker = ({
   withPortal,
   withoutBorder,
   dateFormat = DATE_PICKER_DEFAULT_FORMAT,
+  popperZIndex,
   ...props
 }: DatepickerProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
@@ -199,6 +200,7 @@ export const Datepicker = ({
         size={numSize}
         disabled={disabled}
         readOnly={readOnly}
+        popperZIndex={popperZIndex}
         isOpen={open}
         theme={theme}
         ref={datepickerRef}

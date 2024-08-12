@@ -16,6 +16,7 @@ export const StyledDatepicker = styled.div<{
   disabled?: boolean;
   readOnly?: boolean;
   isOpen?: boolean;
+  popperZIndex?: number;
   size: string;
 }>`
   position: relative;
@@ -24,7 +25,7 @@ export const StyledDatepicker = styled.div<{
     width: 100%;
     max-width: 544px;
     min-width: 304px;
-    z-index: 1;
+    z-index: ${({ popperZIndex }) => `${popperZIndex || 1}`};
   }
   & .datepickerInput {
     border-radius: 0;
@@ -104,6 +105,7 @@ export const StyledDatepicker = styled.div<{
 export const StyledInputIcon = styled.span<{
   disabled?: boolean;
   readOnly?: boolean;
+  popperZIndex?: number;
   datePickerSize: string;
 }>`
   display: inline-block;
@@ -111,7 +113,7 @@ export const StyledInputIcon = styled.span<{
   top: ${({ datePickerSize }) => `calc(${datePickerSize}/2)`};
   right: 14px;
   position: absolute;
-  z-index: 1;
+  z-index: ${({ popperZIndex }) => `${popperZIndex || 1}`};
   pointer-events: none;
 
   ${({ disabled }) =>
@@ -154,7 +156,9 @@ export const StyledContainer = styled.div<{
         `}
 `;
 
-export const StyledCalendar = styled.div`
+export const StyledCalendar = styled.div<{
+  popperZIndex?: number;
+}>`
   display: flex;
   flex-direction: column;
   font-family: ${({ theme }) => theme.typography.desktop.text.small_default['font-family'].value};
@@ -282,7 +286,7 @@ export const StyledCalendar = styled.div`
       content: '';
       position: absolute;
       background-color: ${({ theme }) => theme.colors.colours.support[20].value};
-      z-index: -1;
+      z-index: ${({ popperZIndex }) => `${popperZIndex ? popperZIndex - 1 : -1}`};
       right: 50%;
     }
   }
@@ -294,7 +298,7 @@ export const StyledCalendar = styled.div`
       content: '';
       position: absolute;
       background-color: ${({ theme }) => theme.colors.colours.support[20].value};
-      z-index: -1;
+      z-index: ${({ popperZIndex }) => `${popperZIndex ? popperZIndex - 1 : -1}`};
       left: 50%;
     }
   }
@@ -306,7 +310,7 @@ export const StyledCalendar = styled.div`
     display: flex;
     justify-content: center;
     text-align: center;
-    cursor: pointer;
+    z-index: ${({ popperZIndex }) => `${popperZIndex || 1}`};
     position: absolute;
     padding: 0;
     border: none;
