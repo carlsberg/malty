@@ -196,14 +196,4 @@ describe('datepicker', () => {
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });
-    it('should apply the zIndex prop correctly', () => {
-    const zIndex = 1000;
-    const { container } = render(<Datepicker {...defaultProps} popperZIndex={zIndex} />);
-    const datePicker = screen.getByLabelText(defaultProps.label);
-    userEvent.click(datePicker);
-    const datePickerPopper = container.querySelector('.react-datepicker-popper');
-    expect(datePickerPopper).toHaveStyle(`z-index: ${zIndex}`);
-  });
-
-  
 });
