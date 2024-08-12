@@ -1883,15 +1883,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carlsberg/malty.atoms.base-icon@npm:^0.0.3, @carlsberg/malty.atoms.base-icon@workspace:malty/atoms/BaseIcon":
+"@carlsberg/malty.atoms.base-icon@npm:^0.1.0, @carlsberg/malty.atoms.base-icon@workspace:malty/atoms/BaseIcon":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.base-icon@workspace:malty/atoms/BaseIcon"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.1.1"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
@@ -1907,17 +1907,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.button@npm:^0.1.4, @carlsberg/malty.atoms.button@workspace:malty/atoms/Button":
+"@carlsberg/malty.atoms.button@npm:^0.2.0, @carlsberg/malty.atoms.button@workspace:malty/atoms/Button":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.button@workspace:malty/atoms/Button"
   dependencies:
     "@babel/core": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.molecules.loading": "npm:^0.0.84"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -1935,17 +1935,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.card@npm:^0.1.4, @carlsberg/malty.atoms.card@workspace:malty/atoms/Card":
+"@carlsberg/malty.atoms.card@npm:^0.2.0, @carlsberg/malty.atoms.card@workspace:malty/atoms/Card":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.card@workspace:malty/atoms/Card"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.headline": "npm:^0.0.60"
-    "@carlsberg/malty.atoms.image": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.image": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -1963,16 +1963,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.checkbox@npm:^0.1.4, @carlsberg/malty.atoms.checkbox@workspace:malty/atoms/Checkbox":
+"@carlsberg/malty.atoms.checkbox@npm:^0.2.0, @carlsberg/malty.atoms.checkbox@workspace:malty/atoms/Checkbox":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.checkbox@workspace:malty/atoms/Checkbox"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -1993,19 +1993,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.chip@npm:^0.1.4, @carlsberg/malty.atoms.chip@workspace:malty/atoms/Chip":
+"@carlsberg/malty.atoms.chip@npm:^0.2.0, @carlsberg/malty.atoms.chip@workspace:malty/atoms/Chip":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.chip@workspace:malty/atoms/Chip"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.icons.alert": "npm:^0.1.1"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.icons.alert": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2029,12 +2029,12 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.floater@workspace:malty/atoms/Floater"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.icons.arrow-small-up": "npm:^0.1.1"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.icons.arrow-small-up": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2052,14 +2052,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.headline@npm:^0.0.60, @carlsberg/malty.atoms.headline@workspace:malty/atoms/Headline":
+"@carlsberg/malty.atoms.headline@npm:^0.1.0, @carlsberg/malty.atoms.headline@workspace:malty/atoms/Headline":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.headline@workspace:malty/atoms/Headline"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2076,16 +2076,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.image@npm:^0.1.4, @carlsberg/malty.atoms.image@workspace:malty/atoms/Image":
+"@carlsberg/malty.atoms.image@npm:^0.2.0, @carlsberg/malty.atoms.image@workspace:malty/atoms/Image":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.image@workspace:malty/atoms/Image"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.colors": "npm:^0.0.7"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.colors": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2104,19 +2104,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.input@npm:^0.2.4, @carlsberg/malty.atoms.input@workspace:malty/atoms/Input":
+"@carlsberg/malty.atoms.input@npm:^0.3.0, @carlsberg/malty.atoms.input@workspace:malty/atoms/Input":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.input@workspace:malty/atoms/Input"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.label": "npm:^0.0.61"
-    "@carlsberg/malty.icons.cart": "npm:^0.1.1"
-    "@carlsberg/malty.icons.search": "npm:^0.1.1"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
+    "@carlsberg/malty.icons.cart": "npm:^0.2.0"
+    "@carlsberg/malty.icons.search": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2141,14 +2141,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.label@npm:^0.0.61, @carlsberg/malty.atoms.label@workspace:malty/atoms/Label":
+"@carlsberg/malty.atoms.label@npm:^0.1.0, @carlsberg/malty.atoms.label@workspace:malty/atoms/Label":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.label@workspace:malty/atoms/Label"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2165,14 +2165,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.link@npm:^0.1.7, @carlsberg/malty.atoms.link@workspace:malty/atoms/Link":
+"@carlsberg/malty.atoms.link@npm:^0.2.0, @carlsberg/malty.atoms.link@workspace:malty/atoms/Link":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.link@workspace:malty/atoms/Link"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
-    "@carlsberg/malty.utils.types": "npm:^0.0.4"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.types": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2190,14 +2190,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.overlay@npm:^0.0.62, @carlsberg/malty.atoms.overlay@workspace:malty/atoms/Overlay":
+"@carlsberg/malty.atoms.overlay@npm:^0.1.0, @carlsberg/malty.atoms.overlay@workspace:malty/atoms/Overlay":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.overlay@workspace:malty/atoms/Overlay"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2219,9 +2219,9 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.padded-container@workspace:malty/atoms/PaddedContainer"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2238,17 +2238,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.pill@npm:^0.4.2, @carlsberg/malty.atoms.pill@workspace:malty/atoms/Pill":
+"@carlsberg/malty.atoms.pill@npm:^0.5.0, @carlsberg/malty.atoms.pill@workspace:malty/atoms/Pill":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.pill@workspace:malty/atoms/Pill"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.1.1"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2265,15 +2265,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.price@npm:^0.0.14, @carlsberg/malty.atoms.price@workspace:malty/atoms/Price":
+"@carlsberg/malty.atoms.price@npm:^0.1.0, @carlsberg/malty.atoms.price@workspace:malty/atoms/Price":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.price@workspace:malty/atoms/Price"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2295,9 +2295,9 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.progress-bar@workspace:malty/atoms/ProgressBar"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2319,10 +2319,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.progress-circle@workspace:malty/atoms/ProgressCircle"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2344,10 +2344,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.radio@workspace:malty/atoms/Radio"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.label": "npm:^0.0.61"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2372,11 +2372,11 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.rating@workspace:malty/atoms/Rating"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2396,19 +2396,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.select@npm:^0.1.4, @carlsberg/malty.atoms.select@workspace:malty/atoms/Select":
+"@carlsberg/malty.atoms.select@npm:^0.2.0, @carlsberg/malty.atoms.select@workspace:malty/atoms/Select":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.select@workspace:malty/atoms/Select"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.checkbox": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.input": "npm:^0.2.4"
-    "@carlsberg/malty.atoms.label": "npm:^0.0.61"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.checkbox": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.input": "npm:^0.3.0"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -2437,10 +2437,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.text-area@workspace:malty/atoms/TextArea"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.label": "npm:^0.0.61"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2460,14 +2460,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.text@npm:^0.0.70, @carlsberg/malty.atoms.text@workspace:malty/atoms/Text":
+"@carlsberg/malty.atoms.text@npm:^0.1.0, @carlsberg/malty.atoms.text@workspace:malty/atoms/Text":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.text@workspace:malty/atoms/Text"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2489,10 +2489,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.toggle@workspace:malty/atoms/Toggle"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.label": "npm:^0.0.61"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2512,14 +2512,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.tooltip@npm:^0.1.4, @carlsberg/malty.atoms.tooltip@workspace:malty/atoms/Tooltip":
+"@carlsberg/malty.atoms.tooltip@npm:^0.2.0, @carlsberg/malty.atoms.tooltip@workspace:malty/atoms/Tooltip":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.tooltip@workspace:malty/atoms/Tooltip"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@popperjs/core": "npm:^2.11.5"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -2538,7 +2538,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.add-content@npm:^0.1.1, @carlsberg/malty.icons.add-content@workspace:malty/icons/AddContent":
+"@carlsberg/malty.icons.add-content@npm:^0.2.0, @carlsberg/malty.icons.add-content@workspace:malty/icons/AddContent":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.add-content@workspace:malty/icons/AddContent"
   dependencies:
@@ -2556,7 +2556,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.add-event@npm:^0.1.1, @carlsberg/malty.icons.add-event@workspace:malty/icons/AddEvent":
+"@carlsberg/malty.icons.add-event@npm:^0.2.0, @carlsberg/malty.icons.add-event@workspace:malty/icons/AddEvent":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.add-event@workspace:malty/icons/AddEvent"
   dependencies:
@@ -2574,7 +2574,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.add-project@npm:^0.1.1, @carlsberg/malty.icons.add-project@workspace:malty/icons/AddProject":
+"@carlsberg/malty.icons.add-project@npm:^0.2.0, @carlsberg/malty.icons.add-project@workspace:malty/icons/AddProject":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.add-project@workspace:malty/icons/AddProject"
   dependencies:
@@ -2592,7 +2592,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.added-document@npm:^0.1.1, @carlsberg/malty.icons.added-document@workspace:malty/icons/AddedDocument":
+"@carlsberg/malty.icons.added-document@npm:^0.2.0, @carlsberg/malty.icons.added-document@workspace:malty/icons/AddedDocument":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.added-document@workspace:malty/icons/AddedDocument"
   dependencies:
@@ -2610,7 +2610,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.alert-connection@npm:^0.1.1, @carlsberg/malty.icons.alert-connection@workspace:malty/icons/AlertConnection":
+"@carlsberg/malty.icons.alert-connection@npm:^0.2.0, @carlsberg/malty.icons.alert-connection@workspace:malty/icons/AlertConnection":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.alert-connection@workspace:malty/icons/AlertConnection"
   dependencies:
@@ -2628,7 +2628,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.alert@npm:^0.1.1, @carlsberg/malty.icons.alert@workspace:malty/icons/Alert":
+"@carlsberg/malty.icons.alert@npm:^0.2.0, @carlsberg/malty.icons.alert@workspace:malty/icons/Alert":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.alert@workspace:malty/icons/Alert"
   dependencies:
@@ -2646,7 +2646,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.app-dropbox@npm:^0.1.1, @carlsberg/malty.icons.app-dropbox@workspace:malty/icons/AppDropbox":
+"@carlsberg/malty.icons.app-dropbox@npm:^0.2.0, @carlsberg/malty.icons.app-dropbox@workspace:malty/icons/AppDropbox":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.app-dropbox@workspace:malty/icons/AppDropbox"
   dependencies:
@@ -2664,7 +2664,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.app-facebook@npm:^0.1.1, @carlsberg/malty.icons.app-facebook@workspace:malty/icons/AppFacebook":
+"@carlsberg/malty.icons.app-facebook@npm:^0.2.0, @carlsberg/malty.icons.app-facebook@workspace:malty/icons/AppFacebook":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.app-facebook@workspace:malty/icons/AppFacebook"
   dependencies:
@@ -2682,7 +2682,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.app-github@npm:^0.1.1, @carlsberg/malty.icons.app-github@workspace:malty/icons/AppGithub":
+"@carlsberg/malty.icons.app-github@npm:^0.2.0, @carlsberg/malty.icons.app-github@workspace:malty/icons/AppGithub":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.app-github@workspace:malty/icons/AppGithub"
   dependencies:
@@ -2700,7 +2700,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.app-instagram@npm:^0.1.1, @carlsberg/malty.icons.app-instagram@workspace:malty/icons/AppInstagram":
+"@carlsberg/malty.icons.app-instagram@npm:^0.2.0, @carlsberg/malty.icons.app-instagram@workspace:malty/icons/AppInstagram":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.app-instagram@workspace:malty/icons/AppInstagram"
   dependencies:
@@ -2718,7 +2718,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.app-linkedin@npm:^0.1.1, @carlsberg/malty.icons.app-linkedin@workspace:malty/icons/AppLinkedin":
+"@carlsberg/malty.icons.app-linkedin@npm:^0.2.0, @carlsberg/malty.icons.app-linkedin@workspace:malty/icons/AppLinkedin":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.app-linkedin@workspace:malty/icons/AppLinkedin"
   dependencies:
@@ -2736,7 +2736,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.app-powerbi@npm:^0.1.1, @carlsberg/malty.icons.app-powerbi@workspace:malty/icons/AppPowerbi":
+"@carlsberg/malty.icons.app-powerbi@npm:^0.2.0, @carlsberg/malty.icons.app-powerbi@workspace:malty/icons/AppPowerbi":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.app-powerbi@workspace:malty/icons/AppPowerbi"
   dependencies:
@@ -2754,7 +2754,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.app-skype@npm:^0.1.1, @carlsberg/malty.icons.app-skype@workspace:malty/icons/AppSkype":
+"@carlsberg/malty.icons.app-skype@npm:^0.2.0, @carlsberg/malty.icons.app-skype@workspace:malty/icons/AppSkype":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.app-skype@workspace:malty/icons/AppSkype"
   dependencies:
@@ -2772,7 +2772,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.arrange@npm:^0.1.1, @carlsberg/malty.icons.arrange@workspace:malty/icons/Arrange":
+"@carlsberg/malty.icons.arrange@npm:^0.2.0, @carlsberg/malty.icons.arrange@workspace:malty/icons/Arrange":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.arrange@workspace:malty/icons/Arrange"
   dependencies:
@@ -2790,7 +2790,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.arrow-small-down@npm:^0.1.1, @carlsberg/malty.icons.arrow-small-down@workspace:malty/icons/ArrowSmallDown":
+"@carlsberg/malty.icons.arrow-small-down@npm:^0.2.0, @carlsberg/malty.icons.arrow-small-down@workspace:malty/icons/ArrowSmallDown":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.arrow-small-down@workspace:malty/icons/ArrowSmallDown"
   dependencies:
@@ -2808,7 +2808,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.arrow-small-left@npm:^0.1.1, @carlsberg/malty.icons.arrow-small-left@workspace:malty/icons/ArrowSmallLeft":
+"@carlsberg/malty.icons.arrow-small-left@npm:^0.2.0, @carlsberg/malty.icons.arrow-small-left@workspace:malty/icons/ArrowSmallLeft":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.arrow-small-left@workspace:malty/icons/ArrowSmallLeft"
   dependencies:
@@ -2826,7 +2826,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.arrow-small-right@npm:^0.1.1, @carlsberg/malty.icons.arrow-small-right@workspace:malty/icons/ArrowSmallRight":
+"@carlsberg/malty.icons.arrow-small-right@npm:^0.2.0, @carlsberg/malty.icons.arrow-small-right@workspace:malty/icons/ArrowSmallRight":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.arrow-small-right@workspace:malty/icons/ArrowSmallRight"
   dependencies:
@@ -2844,7 +2844,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.arrow-small-up@npm:^0.1.1, @carlsberg/malty.icons.arrow-small-up@workspace:malty/icons/ArrowSmallUp":
+"@carlsberg/malty.icons.arrow-small-up@npm:^0.2.0, @carlsberg/malty.icons.arrow-small-up@workspace:malty/icons/ArrowSmallUp":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.arrow-small-up@workspace:malty/icons/ArrowSmallUp"
   dependencies:
@@ -2862,7 +2862,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.at@npm:^0.1.1, @carlsberg/malty.icons.at@workspace:malty/icons/At":
+"@carlsberg/malty.icons.at@npm:^0.2.0, @carlsberg/malty.icons.at@workspace:malty/icons/At":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.at@workspace:malty/icons/At"
   dependencies:
@@ -2880,7 +2880,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.attachment@npm:^0.1.1, @carlsberg/malty.icons.attachment@workspace:malty/icons/Attachment":
+"@carlsberg/malty.icons.attachment@npm:^0.2.0, @carlsberg/malty.icons.attachment@workspace:malty/icons/Attachment":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.attachment@workspace:malty/icons/Attachment"
   dependencies:
@@ -2898,7 +2898,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.balance@npm:^0.1.1, @carlsberg/malty.icons.balance@workspace:malty/icons/Balance":
+"@carlsberg/malty.icons.balance@npm:^0.2.0, @carlsberg/malty.icons.balance@workspace:malty/icons/Balance":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.balance@workspace:malty/icons/Balance"
   dependencies:
@@ -2916,7 +2916,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.bell-notification@npm:^0.1.1, @carlsberg/malty.icons.bell-notification@workspace:malty/icons/BellNotification":
+"@carlsberg/malty.icons.bell-notification@npm:^0.2.0, @carlsberg/malty.icons.bell-notification@workspace:malty/icons/BellNotification":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.bell-notification@workspace:malty/icons/BellNotification"
   dependencies:
@@ -2934,7 +2934,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.bell@npm:^0.1.1, @carlsberg/malty.icons.bell@workspace:malty/icons/Bell":
+"@carlsberg/malty.icons.bell@npm:^0.2.0, @carlsberg/malty.icons.bell@workspace:malty/icons/Bell":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.bell@workspace:malty/icons/Bell"
   dependencies:
@@ -2952,7 +2952,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.bold@npm:^0.1.1, @carlsberg/malty.icons.bold@workspace:malty/icons/Bold":
+"@carlsberg/malty.icons.bold@npm:^0.2.0, @carlsberg/malty.icons.bold@workspace:malty/icons/Bold":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.bold@workspace:malty/icons/Bold"
   dependencies:
@@ -2970,7 +2970,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.book@npm:^0.1.1, @carlsberg/malty.icons.book@workspace:malty/icons/Book":
+"@carlsberg/malty.icons.book@npm:^0.2.0, @carlsberg/malty.icons.book@workspace:malty/icons/Book":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.book@workspace:malty/icons/Book"
   dependencies:
@@ -2988,7 +2988,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.bookmark-filled@npm:^0.1.1, @carlsberg/malty.icons.bookmark-filled@workspace:malty/icons/BookmarkFilled":
+"@carlsberg/malty.icons.bookmark-filled@npm:^0.2.0, @carlsberg/malty.icons.bookmark-filled@workspace:malty/icons/BookmarkFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.bookmark-filled@workspace:malty/icons/BookmarkFilled"
   dependencies:
@@ -3006,7 +3006,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.bookmark@npm:^0.1.1, @carlsberg/malty.icons.bookmark@workspace:malty/icons/Bookmark":
+"@carlsberg/malty.icons.bookmark@npm:^0.2.0, @carlsberg/malty.icons.bookmark@workspace:malty/icons/Bookmark":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.bookmark@workspace:malty/icons/Bookmark"
   dependencies:
@@ -3024,7 +3024,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.bottle-craft@npm:^0.1.1, @carlsberg/malty.icons.bottle-craft@workspace:malty/icons/BottleCraft":
+"@carlsberg/malty.icons.bottle-craft@npm:^0.2.0, @carlsberg/malty.icons.bottle-craft@workspace:malty/icons/BottleCraft":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.bottle-craft@workspace:malty/icons/BottleCraft"
   dependencies:
@@ -3042,7 +3042,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.bottle@npm:^0.1.1, @carlsberg/malty.icons.bottle@workspace:malty/icons/Bottle":
+"@carlsberg/malty.icons.bottle@npm:^0.2.0, @carlsberg/malty.icons.bottle@workspace:malty/icons/Bottle":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.bottle@workspace:malty/icons/Bottle"
   dependencies:
@@ -3060,7 +3060,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar-autumn@npm:^0.1.1, @carlsberg/malty.icons.calendar-autumn@workspace:malty/icons/CalendarAutumn":
+"@carlsberg/malty.icons.calendar-autumn@npm:^0.2.0, @carlsberg/malty.icons.calendar-autumn@workspace:malty/icons/CalendarAutumn":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar-autumn@workspace:malty/icons/CalendarAutumn"
   dependencies:
@@ -3078,7 +3078,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar-confirm@npm:^0.1.1, @carlsberg/malty.icons.calendar-confirm@workspace:malty/icons/CalendarConfirm":
+"@carlsberg/malty.icons.calendar-confirm@npm:^0.2.0, @carlsberg/malty.icons.calendar-confirm@workspace:malty/icons/CalendarConfirm":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar-confirm@workspace:malty/icons/CalendarConfirm"
   dependencies:
@@ -3096,7 +3096,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar-events@npm:^0.1.1, @carlsberg/malty.icons.calendar-events@workspace:malty/icons/CalendarEvents":
+"@carlsberg/malty.icons.calendar-events@npm:^0.2.0, @carlsberg/malty.icons.calendar-events@workspace:malty/icons/CalendarEvents":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar-events@workspace:malty/icons/CalendarEvents"
   dependencies:
@@ -3114,7 +3114,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar-spring@npm:^0.1.1, @carlsberg/malty.icons.calendar-spring@workspace:malty/icons/CalendarSpring":
+"@carlsberg/malty.icons.calendar-spring@npm:^0.2.0, @carlsberg/malty.icons.calendar-spring@workspace:malty/icons/CalendarSpring":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar-spring@workspace:malty/icons/CalendarSpring"
   dependencies:
@@ -3132,7 +3132,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar-summer@npm:^0.1.1, @carlsberg/malty.icons.calendar-summer@workspace:malty/icons/CalendarSummer":
+"@carlsberg/malty.icons.calendar-summer@npm:^0.2.0, @carlsberg/malty.icons.calendar-summer@workspace:malty/icons/CalendarSummer":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar-summer@workspace:malty/icons/CalendarSummer"
   dependencies:
@@ -3150,7 +3150,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar-whole-year@npm:^0.1.1, @carlsberg/malty.icons.calendar-whole-year@workspace:malty/icons/CalendarWholeYear":
+"@carlsberg/malty.icons.calendar-whole-year@npm:^0.2.0, @carlsberg/malty.icons.calendar-whole-year@workspace:malty/icons/CalendarWholeYear":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar-whole-year@workspace:malty/icons/CalendarWholeYear"
   dependencies:
@@ -3168,7 +3168,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar-winter@npm:^0.1.1, @carlsberg/malty.icons.calendar-winter@workspace:malty/icons/CalendarWinter":
+"@carlsberg/malty.icons.calendar-winter@npm:^0.2.0, @carlsberg/malty.icons.calendar-winter@workspace:malty/icons/CalendarWinter":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar-winter@workspace:malty/icons/CalendarWinter"
   dependencies:
@@ -3186,7 +3186,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.calendar@npm:^0.1.1, @carlsberg/malty.icons.calendar@workspace:malty/icons/Calendar":
+"@carlsberg/malty.icons.calendar@npm:^0.2.0, @carlsberg/malty.icons.calendar@workspace:malty/icons/Calendar":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.calendar@workspace:malty/icons/Calendar"
   dependencies:
@@ -3204,7 +3204,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.camera@npm:^0.1.1, @carlsberg/malty.icons.camera@workspace:malty/icons/Camera":
+"@carlsberg/malty.icons.camera@npm:^0.2.0, @carlsberg/malty.icons.camera@workspace:malty/icons/Camera":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.camera@workspace:malty/icons/Camera"
   dependencies:
@@ -3222,7 +3222,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.can@npm:^0.1.1, @carlsberg/malty.icons.can@workspace:malty/icons/Can":
+"@carlsberg/malty.icons.can@npm:^0.2.0, @carlsberg/malty.icons.can@workspace:malty/icons/Can":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.can@workspace:malty/icons/Can"
   dependencies:
@@ -3240,7 +3240,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.card-plus@npm:^0.1.1, @carlsberg/malty.icons.card-plus@workspace:malty/icons/CardPlus":
+"@carlsberg/malty.icons.card-plus@npm:^0.2.0, @carlsberg/malty.icons.card-plus@workspace:malty/icons/CardPlus":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.card-plus@workspace:malty/icons/CardPlus"
   dependencies:
@@ -3258,7 +3258,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.card@npm:^0.1.1, @carlsberg/malty.icons.card@workspace:malty/icons/Card":
+"@carlsberg/malty.icons.card@npm:^0.2.0, @carlsberg/malty.icons.card@workspace:malty/icons/Card":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.card@workspace:malty/icons/Card"
   dependencies:
@@ -3276,7 +3276,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.carlsberg-filled@npm:^0.1.1, @carlsberg/malty.icons.carlsberg-filled@workspace:malty/icons/CarlsbergFilled":
+"@carlsberg/malty.icons.carlsberg-filled@npm:^0.2.0, @carlsberg/malty.icons.carlsberg-filled@workspace:malty/icons/CarlsbergFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.carlsberg-filled@workspace:malty/icons/CarlsbergFilled"
   dependencies:
@@ -3294,7 +3294,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.carlsberg-outlined@npm:^0.1.1, @carlsberg/malty.icons.carlsberg-outlined@workspace:malty/icons/CarlsbergOutlined":
+"@carlsberg/malty.icons.carlsberg-outlined@npm:^0.2.0, @carlsberg/malty.icons.carlsberg-outlined@workspace:malty/icons/CarlsbergOutlined":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.carlsberg-outlined@workspace:malty/icons/CarlsbergOutlined"
   dependencies:
@@ -3312,7 +3312,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.carret-down@npm:^0.1.1, @carlsberg/malty.icons.carret-down@workspace:malty/icons/CarretDown":
+"@carlsberg/malty.icons.carret-down@npm:^0.2.0, @carlsberg/malty.icons.carret-down@workspace:malty/icons/CarretDown":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.carret-down@workspace:malty/icons/CarretDown"
   dependencies:
@@ -3330,7 +3330,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.carret-left@npm:^0.1.1, @carlsberg/malty.icons.carret-left@workspace:malty/icons/CarretLeft":
+"@carlsberg/malty.icons.carret-left@npm:^0.2.0, @carlsberg/malty.icons.carret-left@workspace:malty/icons/CarretLeft":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.carret-left@workspace:malty/icons/CarretLeft"
   dependencies:
@@ -3348,7 +3348,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.carret-move@npm:^0.1.1, @carlsberg/malty.icons.carret-move@workspace:malty/icons/CarretMove":
+"@carlsberg/malty.icons.carret-move@npm:^0.2.0, @carlsberg/malty.icons.carret-move@workspace:malty/icons/CarretMove":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.carret-move@workspace:malty/icons/CarretMove"
   dependencies:
@@ -3366,7 +3366,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.carret-right@npm:^0.1.1, @carlsberg/malty.icons.carret-right@workspace:malty/icons/CarretRight":
+"@carlsberg/malty.icons.carret-right@npm:^0.2.0, @carlsberg/malty.icons.carret-right@workspace:malty/icons/CarretRight":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.carret-right@workspace:malty/icons/CarretRight"
   dependencies:
@@ -3384,7 +3384,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.carret-up@npm:^0.1.1, @carlsberg/malty.icons.carret-up@workspace:malty/icons/CarretUp":
+"@carlsberg/malty.icons.carret-up@npm:^0.2.0, @carlsberg/malty.icons.carret-up@workspace:malty/icons/CarretUp":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.carret-up@workspace:malty/icons/CarretUp"
   dependencies:
@@ -3402,7 +3402,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.cart-added@npm:^0.1.1, @carlsberg/malty.icons.cart-added@workspace:malty/icons/CartAdded":
+"@carlsberg/malty.icons.cart-added@npm:^0.2.0, @carlsberg/malty.icons.cart-added@workspace:malty/icons/CartAdded":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.cart-added@workspace:malty/icons/CartAdded"
   dependencies:
@@ -3420,7 +3420,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.cart-label@npm:^0.1.1, @carlsberg/malty.icons.cart-label@workspace:malty/icons/CartLabel":
+"@carlsberg/malty.icons.cart-label@npm:^0.2.0, @carlsberg/malty.icons.cart-label@workspace:malty/icons/CartLabel":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.cart-label@workspace:malty/icons/CartLabel"
   dependencies:
@@ -3438,7 +3438,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.cart-notification@npm:^0.1.1, @carlsberg/malty.icons.cart-notification@workspace:malty/icons/CartNotification":
+"@carlsberg/malty.icons.cart-notification@npm:^0.2.0, @carlsberg/malty.icons.cart-notification@workspace:malty/icons/CartNotification":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.cart-notification@workspace:malty/icons/CartNotification"
   dependencies:
@@ -3456,7 +3456,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.cart@npm:^0.1.1, @carlsberg/malty.icons.cart@workspace:malty/icons/Cart":
+"@carlsberg/malty.icons.cart@npm:^0.2.0, @carlsberg/malty.icons.cart@workspace:malty/icons/Cart":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.cart@workspace:malty/icons/Cart"
   dependencies:
@@ -3474,7 +3474,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.change@npm:^0.1.1, @carlsberg/malty.icons.change@workspace:malty/icons/Change":
+"@carlsberg/malty.icons.change@npm:^0.2.0, @carlsberg/malty.icons.change@workspace:malty/icons/Change":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.change@workspace:malty/icons/Change"
   dependencies:
@@ -3492,7 +3492,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.check@npm:^0.1.1, @carlsberg/malty.icons.check@workspace:malty/icons/Check":
+"@carlsberg/malty.icons.check@npm:^0.2.0, @carlsberg/malty.icons.check@workspace:malty/icons/Check":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.check@workspace:malty/icons/Check"
   dependencies:
@@ -3510,7 +3510,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.checkbox-check-alternate@npm:^0.1.1, @carlsberg/malty.icons.checkbox-check-alternate@workspace:malty/icons/CheckboxCheckAlternate":
+"@carlsberg/malty.icons.checkbox-check-alternate@npm:^0.2.0, @carlsberg/malty.icons.checkbox-check-alternate@workspace:malty/icons/CheckboxCheckAlternate":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.checkbox-check-alternate@workspace:malty/icons/CheckboxCheckAlternate"
   dependencies:
@@ -3528,7 +3528,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.checkbox-check-outline@npm:^0.1.1, @carlsberg/malty.icons.checkbox-check-outline@workspace:malty/icons/CheckboxCheckOutline":
+"@carlsberg/malty.icons.checkbox-check-outline@npm:^0.2.0, @carlsberg/malty.icons.checkbox-check-outline@workspace:malty/icons/CheckboxCheckOutline":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.checkbox-check-outline@workspace:malty/icons/CheckboxCheckOutline"
   dependencies:
@@ -3546,7 +3546,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.checkbox-check-square@npm:^0.1.1, @carlsberg/malty.icons.checkbox-check-square@workspace:malty/icons/CheckboxCheckSquare":
+"@carlsberg/malty.icons.checkbox-check-square@npm:^0.2.0, @carlsberg/malty.icons.checkbox-check-square@workspace:malty/icons/CheckboxCheckSquare":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.checkbox-check-square@workspace:malty/icons/CheckboxCheckSquare"
   dependencies:
@@ -3564,7 +3564,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.checkbox-check@npm:^0.1.1, @carlsberg/malty.icons.checkbox-check@workspace:malty/icons/CheckboxCheck":
+"@carlsberg/malty.icons.checkbox-check@npm:^0.2.0, @carlsberg/malty.icons.checkbox-check@workspace:malty/icons/CheckboxCheck":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.checkbox-check@workspace:malty/icons/CheckboxCheck"
   dependencies:
@@ -3582,7 +3582,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.checkbox-empty@npm:^0.1.1, @carlsberg/malty.icons.checkbox-empty@workspace:malty/icons/CheckboxEmpty":
+"@carlsberg/malty.icons.checkbox-empty@npm:^0.2.0, @carlsberg/malty.icons.checkbox-empty@workspace:malty/icons/CheckboxEmpty":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.checkbox-empty@workspace:malty/icons/CheckboxEmpty"
   dependencies:
@@ -3600,7 +3600,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.chevron-down@npm:^0.1.1, @carlsberg/malty.icons.chevron-down@workspace:malty/icons/ChevronDown":
+"@carlsberg/malty.icons.chevron-down@npm:^0.2.0, @carlsberg/malty.icons.chevron-down@workspace:malty/icons/ChevronDown":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.chevron-down@workspace:malty/icons/ChevronDown"
   dependencies:
@@ -3618,7 +3618,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.chevron-left@npm:^0.1.1, @carlsberg/malty.icons.chevron-left@workspace:malty/icons/ChevronLeft":
+"@carlsberg/malty.icons.chevron-left@npm:^0.2.0, @carlsberg/malty.icons.chevron-left@workspace:malty/icons/ChevronLeft":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.chevron-left@workspace:malty/icons/ChevronLeft"
   dependencies:
@@ -3636,7 +3636,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.chevron-right@npm:^0.1.1, @carlsberg/malty.icons.chevron-right@workspace:malty/icons/ChevronRight":
+"@carlsberg/malty.icons.chevron-right@npm:^0.2.0, @carlsberg/malty.icons.chevron-right@workspace:malty/icons/ChevronRight":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.chevron-right@workspace:malty/icons/ChevronRight"
   dependencies:
@@ -3654,7 +3654,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.chevron-up@npm:^0.1.1, @carlsberg/malty.icons.chevron-up@workspace:malty/icons/ChevronUp":
+"@carlsberg/malty.icons.chevron-up@npm:^0.2.0, @carlsberg/malty.icons.chevron-up@workspace:malty/icons/ChevronUp":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.chevron-up@workspace:malty/icons/ChevronUp"
   dependencies:
@@ -3672,7 +3672,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.clock-filled@npm:^0.1.1, @carlsberg/malty.icons.clock-filled@workspace:malty/icons/ClockFilled":
+"@carlsberg/malty.icons.clock-filled@npm:^0.2.0, @carlsberg/malty.icons.clock-filled@workspace:malty/icons/ClockFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.clock-filled@workspace:malty/icons/ClockFilled"
   dependencies:
@@ -3690,7 +3690,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.clock@npm:^0.1.1, @carlsberg/malty.icons.clock@workspace:malty/icons/Clock":
+"@carlsberg/malty.icons.clock@npm:^0.2.0, @carlsberg/malty.icons.clock@workspace:malty/icons/Clock":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.clock@workspace:malty/icons/Clock"
   dependencies:
@@ -3708,7 +3708,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.clone@npm:^0.1.1, @carlsberg/malty.icons.clone@workspace:malty/icons/Clone":
+"@carlsberg/malty.icons.clone@npm:^0.2.0, @carlsberg/malty.icons.clone@workspace:malty/icons/Clone":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.clone@workspace:malty/icons/Clone"
   dependencies:
@@ -3726,7 +3726,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.close@npm:^0.1.1, @carlsberg/malty.icons.close@workspace:malty/icons/Close":
+"@carlsberg/malty.icons.close@npm:^0.2.0, @carlsberg/malty.icons.close@workspace:malty/icons/Close":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.close@workspace:malty/icons/Close"
   dependencies:
@@ -3744,7 +3744,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.coin-dollar@npm:^0.1.1, @carlsberg/malty.icons.coin-dollar@workspace:malty/icons/CoinDollar":
+"@carlsberg/malty.icons.coin-dollar@npm:^0.2.0, @carlsberg/malty.icons.coin-dollar@workspace:malty/icons/CoinDollar":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.coin-dollar@workspace:malty/icons/CoinDollar"
   dependencies:
@@ -3762,7 +3762,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.coin-euro@npm:^0.1.1, @carlsberg/malty.icons.coin-euro@workspace:malty/icons/CoinEuro":
+"@carlsberg/malty.icons.coin-euro@npm:^0.2.0, @carlsberg/malty.icons.coin-euro@workspace:malty/icons/CoinEuro":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.coin-euro@workspace:malty/icons/CoinEuro"
   dependencies:
@@ -3780,7 +3780,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.compass-filled@npm:^0.1.1, @carlsberg/malty.icons.compass-filled@workspace:malty/icons/CompassFilled":
+"@carlsberg/malty.icons.compass-filled@npm:^0.2.0, @carlsberg/malty.icons.compass-filled@workspace:malty/icons/CompassFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.compass-filled@workspace:malty/icons/CompassFilled"
   dependencies:
@@ -3798,7 +3798,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.compass@npm:^0.1.1, @carlsberg/malty.icons.compass@workspace:malty/icons/Compass":
+"@carlsberg/malty.icons.compass@npm:^0.2.0, @carlsberg/malty.icons.compass@workspace:malty/icons/Compass":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.compass@workspace:malty/icons/Compass"
   dependencies:
@@ -3816,7 +3816,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.connected@npm:^0.1.1, @carlsberg/malty.icons.connected@workspace:malty/icons/Connected":
+"@carlsberg/malty.icons.connected@npm:^0.2.0, @carlsberg/malty.icons.connected@workspace:malty/icons/Connected":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.connected@workspace:malty/icons/Connected"
   dependencies:
@@ -3834,7 +3834,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.contract@npm:^0.1.1, @carlsberg/malty.icons.contract@workspace:malty/icons/Contract":
+"@carlsberg/malty.icons.contract@npm:^0.2.0, @carlsberg/malty.icons.contract@workspace:malty/icons/Contract":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.contract@workspace:malty/icons/Contract"
   dependencies:
@@ -3852,7 +3852,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.cookies@npm:^0.1.1, @carlsberg/malty.icons.cookies@workspace:malty/icons/Cookies":
+"@carlsberg/malty.icons.cookies@npm:^0.2.0, @carlsberg/malty.icons.cookies@workspace:malty/icons/Cookies":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.cookies@workspace:malty/icons/Cookies"
   dependencies:
@@ -3870,7 +3870,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.coupon@npm:^0.1.1, @carlsberg/malty.icons.coupon@workspace:malty/icons/Coupon":
+"@carlsberg/malty.icons.coupon@npm:^0.2.0, @carlsberg/malty.icons.coupon@workspace:malty/icons/Coupon":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.coupon@workspace:malty/icons/Coupon"
   dependencies:
@@ -3888,7 +3888,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.customer-add@npm:^0.1.1, @carlsberg/malty.icons.customer-add@workspace:malty/icons/CustomerAdd":
+"@carlsberg/malty.icons.customer-add@npm:^0.2.0, @carlsberg/malty.icons.customer-add@workspace:malty/icons/CustomerAdd":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.customer-add@workspace:malty/icons/CustomerAdd"
   dependencies:
@@ -3906,7 +3906,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.customer-question@npm:^0.1.1, @carlsberg/malty.icons.customer-question@workspace:malty/icons/CustomerQuestion":
+"@carlsberg/malty.icons.customer-question@npm:^0.2.0, @carlsberg/malty.icons.customer-question@workspace:malty/icons/CustomerQuestion":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.customer-question@workspace:malty/icons/CustomerQuestion"
   dependencies:
@@ -3924,7 +3924,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.customer@npm:^0.1.1, @carlsberg/malty.icons.customer@workspace:malty/icons/Customer":
+"@carlsberg/malty.icons.customer@npm:^0.2.0, @carlsberg/malty.icons.customer@workspace:malty/icons/Customer":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.customer@workspace:malty/icons/Customer"
   dependencies:
@@ -3942,7 +3942,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.customers@npm:^0.1.1, @carlsberg/malty.icons.customers@workspace:malty/icons/Customers":
+"@carlsberg/malty.icons.customers@npm:^0.2.0, @carlsberg/malty.icons.customers@workspace:malty/icons/Customers":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.customers@workspace:malty/icons/Customers"
   dependencies:
@@ -3960,7 +3960,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.data-transfer@npm:^0.1.1, @carlsberg/malty.icons.data-transfer@workspace:malty/icons/DataTransfer":
+"@carlsberg/malty.icons.data-transfer@npm:^0.2.0, @carlsberg/malty.icons.data-transfer@workspace:malty/icons/DataTransfer":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.data-transfer@workspace:malty/icons/DataTransfer"
   dependencies:
@@ -3978,7 +3978,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.diagonal-down-left@npm:^0.1.1, @carlsberg/malty.icons.diagonal-down-left@workspace:malty/icons/DiagonalDownLeft":
+"@carlsberg/malty.icons.diagonal-down-left@npm:^0.2.0, @carlsberg/malty.icons.diagonal-down-left@workspace:malty/icons/DiagonalDownLeft":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.diagonal-down-left@workspace:malty/icons/DiagonalDownLeft"
   dependencies:
@@ -3996,7 +3996,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.diagonal-down-right@npm:^0.1.1, @carlsberg/malty.icons.diagonal-down-right@workspace:malty/icons/DiagonalDownRight":
+"@carlsberg/malty.icons.diagonal-down-right@npm:^0.2.0, @carlsberg/malty.icons.diagonal-down-right@workspace:malty/icons/DiagonalDownRight":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.diagonal-down-right@workspace:malty/icons/DiagonalDownRight"
   dependencies:
@@ -4014,7 +4014,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.diagonal-up-left@npm:^0.1.1, @carlsberg/malty.icons.diagonal-up-left@workspace:malty/icons/DiagonalUpLeft":
+"@carlsberg/malty.icons.diagonal-up-left@npm:^0.2.0, @carlsberg/malty.icons.diagonal-up-left@workspace:malty/icons/DiagonalUpLeft":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.diagonal-up-left@workspace:malty/icons/DiagonalUpLeft"
   dependencies:
@@ -4032,7 +4032,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.diagonal-up-right@npm:^0.1.1, @carlsberg/malty.icons.diagonal-up-right@workspace:malty/icons/DiagonalUpRight":
+"@carlsberg/malty.icons.diagonal-up-right@npm:^0.2.0, @carlsberg/malty.icons.diagonal-up-right@workspace:malty/icons/DiagonalUpRight":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.diagonal-up-right@workspace:malty/icons/DiagonalUpRight"
   dependencies:
@@ -4050,7 +4050,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.diploma2@npm:^0.1.1, @carlsberg/malty.icons.diploma2@workspace:malty/icons/Diploma2":
+"@carlsberg/malty.icons.diploma2@npm:^0.2.0, @carlsberg/malty.icons.diploma2@workspace:malty/icons/Diploma2":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.diploma2@workspace:malty/icons/Diploma2"
   dependencies:
@@ -4068,7 +4068,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.diploma@npm:^0.1.1, @carlsberg/malty.icons.diploma@workspace:malty/icons/Diploma":
+"@carlsberg/malty.icons.diploma@npm:^0.2.0, @carlsberg/malty.icons.diploma@workspace:malty/icons/Diploma":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.diploma@workspace:malty/icons/Diploma"
   dependencies:
@@ -4086,7 +4086,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.download@npm:^0.1.1, @carlsberg/malty.icons.download@workspace:malty/icons/Download":
+"@carlsberg/malty.icons.download@npm:^0.2.0, @carlsberg/malty.icons.download@workspace:malty/icons/Download":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.download@workspace:malty/icons/Download"
   dependencies:
@@ -4104,7 +4104,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.draughtmaster@npm:^0.1.1, @carlsberg/malty.icons.draughtmaster@workspace:malty/icons/Draughtmaster":
+"@carlsberg/malty.icons.draughtmaster@npm:^0.2.0, @carlsberg/malty.icons.draughtmaster@workspace:malty/icons/Draughtmaster":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.draughtmaster@workspace:malty/icons/Draughtmaster"
   dependencies:
@@ -4122,7 +4122,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.edit@npm:^0.1.1, @carlsberg/malty.icons.edit@workspace:malty/icons/Edit":
+"@carlsberg/malty.icons.edit@npm:^0.2.0, @carlsberg/malty.icons.edit@workspace:malty/icons/Edit":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.edit@workspace:malty/icons/Edit"
   dependencies:
@@ -4140,7 +4140,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.ellipsis-vertical@npm:^0.1.1, @carlsberg/malty.icons.ellipsis-vertical@workspace:malty/icons/EllipsisVertical":
+"@carlsberg/malty.icons.ellipsis-vertical@npm:^0.2.0, @carlsberg/malty.icons.ellipsis-vertical@workspace:malty/icons/EllipsisVertical":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.ellipsis-vertical@workspace:malty/icons/EllipsisVertical"
   dependencies:
@@ -4158,7 +4158,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.email@npm:^0.1.1, @carlsberg/malty.icons.email@workspace:malty/icons/Email":
+"@carlsberg/malty.icons.email@npm:^0.2.0, @carlsberg/malty.icons.email@workspace:malty/icons/Email":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.email@workspace:malty/icons/Email"
   dependencies:
@@ -4176,7 +4176,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.expand@npm:^0.1.1, @carlsberg/malty.icons.expand@workspace:malty/icons/Expand":
+"@carlsberg/malty.icons.expand@npm:^0.2.0, @carlsberg/malty.icons.expand@workspace:malty/icons/Expand":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.expand@workspace:malty/icons/Expand"
   dependencies:
@@ -4194,7 +4194,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.external-link@npm:^0.1.1, @carlsberg/malty.icons.external-link@workspace:malty/icons/ExternalLink":
+"@carlsberg/malty.icons.external-link@npm:^0.2.0, @carlsberg/malty.icons.external-link@workspace:malty/icons/ExternalLink":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.external-link@workspace:malty/icons/ExternalLink"
   dependencies:
@@ -4230,7 +4230,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.eye-hide@npm:^0.1.1, @carlsberg/malty.icons.eye-hide@workspace:malty/icons/EyeHide":
+"@carlsberg/malty.icons.eye-hide@npm:^0.2.0, @carlsberg/malty.icons.eye-hide@workspace:malty/icons/EyeHide":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.eye-hide@workspace:malty/icons/EyeHide"
   dependencies:
@@ -4248,7 +4248,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.eye-show@npm:^0.1.1, @carlsberg/malty.icons.eye-show@workspace:malty/icons/EyeShow":
+"@carlsberg/malty.icons.eye-show@npm:^0.2.0, @carlsberg/malty.icons.eye-show@workspace:malty/icons/EyeShow":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.eye-show@workspace:malty/icons/EyeShow"
   dependencies:
@@ -4284,7 +4284,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.file@npm:^0.1.1, @carlsberg/malty.icons.file@workspace:malty/icons/File":
+"@carlsberg/malty.icons.file@npm:^0.2.0, @carlsberg/malty.icons.file@workspace:malty/icons/File":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.file@workspace:malty/icons/File"
   dependencies:
@@ -4302,7 +4302,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.files-csv@npm:^0.1.1, @carlsberg/malty.icons.files-csv@workspace:malty/icons/FilesCsv":
+"@carlsberg/malty.icons.files-csv@npm:^0.2.0, @carlsberg/malty.icons.files-csv@workspace:malty/icons/FilesCsv":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.files-csv@workspace:malty/icons/FilesCsv"
   dependencies:
@@ -4320,7 +4320,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.files-json@npm:^0.1.1, @carlsberg/malty.icons.files-json@workspace:malty/icons/FilesJson":
+"@carlsberg/malty.icons.files-json@npm:^0.2.0, @carlsberg/malty.icons.files-json@workspace:malty/icons/FilesJson":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.files-json@workspace:malty/icons/FilesJson"
   dependencies:
@@ -4338,7 +4338,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.files-pdf@npm:^0.1.1, @carlsberg/malty.icons.files-pdf@workspace:malty/icons/FilesPdf":
+"@carlsberg/malty.icons.files-pdf@npm:^0.2.0, @carlsberg/malty.icons.files-pdf@workspace:malty/icons/FilesPdf":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.files-pdf@workspace:malty/icons/FilesPdf"
   dependencies:
@@ -4356,7 +4356,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.files-xls@npm:^0.1.1, @carlsberg/malty.icons.files-xls@workspace:malty/icons/FilesXls":
+"@carlsberg/malty.icons.files-xls@npm:^0.2.0, @carlsberg/malty.icons.files-xls@workspace:malty/icons/FilesXls":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.files-xls@workspace:malty/icons/FilesXls"
   dependencies:
@@ -4374,7 +4374,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.filters@npm:^0.1.1, @carlsberg/malty.icons.filters@workspace:malty/icons/Filters":
+"@carlsberg/malty.icons.filters@npm:^0.2.0, @carlsberg/malty.icons.filters@workspace:malty/icons/Filters":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.filters@workspace:malty/icons/Filters"
   dependencies:
@@ -4392,7 +4392,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.flash@npm:^0.1.1, @carlsberg/malty.icons.flash@workspace:malty/icons/Flash":
+"@carlsberg/malty.icons.flash@npm:^0.2.0, @carlsberg/malty.icons.flash@workspace:malty/icons/Flash":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.flash@workspace:malty/icons/Flash"
   dependencies:
@@ -4410,7 +4410,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.glass-goblet@npm:^0.1.1, @carlsberg/malty.icons.glass-goblet@workspace:malty/icons/GlassGoblet":
+"@carlsberg/malty.icons.glass-goblet@npm:^0.2.0, @carlsberg/malty.icons.glass-goblet@workspace:malty/icons/GlassGoblet":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.glass-goblet@workspace:malty/icons/GlassGoblet"
   dependencies:
@@ -4428,7 +4428,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.glass-mug-empty@npm:^0.1.1, @carlsberg/malty.icons.glass-mug-empty@workspace:malty/icons/GlassMugEmpty":
+"@carlsberg/malty.icons.glass-mug-empty@npm:^0.2.0, @carlsberg/malty.icons.glass-mug-empty@workspace:malty/icons/GlassMugEmpty":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.glass-mug-empty@workspace:malty/icons/GlassMugEmpty"
   dependencies:
@@ -4446,7 +4446,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.glass-mug@npm:^0.1.1, @carlsberg/malty.icons.glass-mug@workspace:malty/icons/GlassMug":
+"@carlsberg/malty.icons.glass-mug@npm:^0.2.0, @carlsberg/malty.icons.glass-mug@workspace:malty/icons/GlassMug":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.glass-mug@workspace:malty/icons/GlassMug"
   dependencies:
@@ -4464,7 +4464,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.glass-weissbier@npm:^0.1.1, @carlsberg/malty.icons.glass-weissbier@workspace:malty/icons/GlassWeissbier":
+"@carlsberg/malty.icons.glass-weissbier@npm:^0.2.0, @carlsberg/malty.icons.glass-weissbier@workspace:malty/icons/GlassWeissbier":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.glass-weissbier@workspace:malty/icons/GlassWeissbier"
   dependencies:
@@ -4482,7 +4482,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.globe@npm:^0.1.1, @carlsberg/malty.icons.globe@workspace:malty/icons/Globe":
+"@carlsberg/malty.icons.globe@npm:^0.2.0, @carlsberg/malty.icons.globe@workspace:malty/icons/Globe":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.globe@workspace:malty/icons/Globe"
   dependencies:
@@ -4500,7 +4500,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.headline@npm:^0.1.1, @carlsberg/malty.icons.headline@workspace:malty/icons/Headline":
+"@carlsberg/malty.icons.headline@npm:^0.2.0, @carlsberg/malty.icons.headline@workspace:malty/icons/Headline":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.headline@workspace:malty/icons/Headline"
   dependencies:
@@ -4518,7 +4518,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.heart-filled@npm:^0.1.1, @carlsberg/malty.icons.heart-filled@workspace:malty/icons/HeartFilled":
+"@carlsberg/malty.icons.heart-filled@npm:^0.2.0, @carlsberg/malty.icons.heart-filled@workspace:malty/icons/HeartFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.heart-filled@workspace:malty/icons/HeartFilled"
   dependencies:
@@ -4536,7 +4536,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.heart@npm:^0.1.1, @carlsberg/malty.icons.heart@workspace:malty/icons/Heart":
+"@carlsberg/malty.icons.heart@npm:^0.2.0, @carlsberg/malty.icons.heart@workspace:malty/icons/Heart":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.heart@workspace:malty/icons/Heart"
   dependencies:
@@ -4554,7 +4554,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.help@npm:^0.1.1, @carlsberg/malty.icons.help@workspace:malty/icons/Help":
+"@carlsberg/malty.icons.help@npm:^0.2.0, @carlsberg/malty.icons.help@workspace:malty/icons/Help":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.help@workspace:malty/icons/Help"
   dependencies:
@@ -4572,7 +4572,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.hide-menu@npm:^0.1.1, @carlsberg/malty.icons.hide-menu@workspace:malty/icons/HideMenu":
+"@carlsberg/malty.icons.hide-menu@npm:^0.2.0, @carlsberg/malty.icons.hide-menu@workspace:malty/icons/HideMenu":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.hide-menu@workspace:malty/icons/HideMenu"
   dependencies:
@@ -4590,7 +4590,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.history@npm:^0.1.1, @carlsberg/malty.icons.history@workspace:malty/icons/History":
+"@carlsberg/malty.icons.history@npm:^0.2.0, @carlsberg/malty.icons.history@workspace:malty/icons/History":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.history@workspace:malty/icons/History"
   dependencies:
@@ -4608,7 +4608,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.home@npm:^0.1.1, @carlsberg/malty.icons.home@workspace:malty/icons/Home":
+"@carlsberg/malty.icons.home@npm:^0.2.0, @carlsberg/malty.icons.home@workspace:malty/icons/Home":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.home@workspace:malty/icons/Home"
   dependencies:
@@ -4626,7 +4626,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.hop@npm:^0.1.1, @carlsberg/malty.icons.hop@workspace:malty/icons/Hop":
+"@carlsberg/malty.icons.hop@npm:^0.2.0, @carlsberg/malty.icons.hop@workspace:malty/icons/Hop":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.hop@workspace:malty/icons/Hop"
   dependencies:
@@ -4644,7 +4644,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.image@npm:^0.1.1, @carlsberg/malty.icons.image@workspace:malty/icons/Image":
+"@carlsberg/malty.icons.image@npm:^0.2.0, @carlsberg/malty.icons.image@workspace:malty/icons/Image":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.image@workspace:malty/icons/Image"
   dependencies:
@@ -4662,7 +4662,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.information@npm:^0.1.1, @carlsberg/malty.icons.information@workspace:malty/icons/Information":
+"@carlsberg/malty.icons.information@npm:^0.2.0, @carlsberg/malty.icons.information@workspace:malty/icons/Information":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.information@workspace:malty/icons/Information"
   dependencies:
@@ -4680,7 +4680,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.italic@npm:^0.1.1, @carlsberg/malty.icons.italic@workspace:malty/icons/Italic":
+"@carlsberg/malty.icons.italic@npm:^0.2.0, @carlsberg/malty.icons.italic@workspace:malty/icons/Italic":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.italic@workspace:malty/icons/Italic"
   dependencies:
@@ -4698,7 +4698,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.item-add@npm:^0.1.1, @carlsberg/malty.icons.item-add@workspace:malty/icons/ItemAdd":
+"@carlsberg/malty.icons.item-add@npm:^0.2.0, @carlsberg/malty.icons.item-add@workspace:malty/icons/ItemAdd":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.item-add@workspace:malty/icons/ItemAdd"
   dependencies:
@@ -4716,7 +4716,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.item-block@npm:^0.1.1, @carlsberg/malty.icons.item-block@workspace:malty/icons/ItemBlock":
+"@carlsberg/malty.icons.item-block@npm:^0.2.0, @carlsberg/malty.icons.item-block@workspace:malty/icons/ItemBlock":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.item-block@workspace:malty/icons/ItemBlock"
   dependencies:
@@ -4734,7 +4734,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.item-check-default@npm:^0.1.1, @carlsberg/malty.icons.item-check-default@workspace:malty/icons/ItemCheckDefault":
+"@carlsberg/malty.icons.item-check-default@npm:^0.2.0, @carlsberg/malty.icons.item-check-default@workspace:malty/icons/ItemCheckDefault":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.item-check-default@workspace:malty/icons/ItemCheckDefault"
   dependencies:
@@ -4752,7 +4752,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.item-check-filled@npm:^0.1.1, @carlsberg/malty.icons.item-check-filled@workspace:malty/icons/ItemCheckFilled":
+"@carlsberg/malty.icons.item-check-filled@npm:^0.2.0, @carlsberg/malty.icons.item-check-filled@workspace:malty/icons/ItemCheckFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.item-check-filled@workspace:malty/icons/ItemCheckFilled"
   dependencies:
@@ -4770,7 +4770,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.item-check@npm:^0.1.1, @carlsberg/malty.icons.item-check@workspace:malty/icons/ItemCheck":
+"@carlsberg/malty.icons.item-check@npm:^0.2.0, @carlsberg/malty.icons.item-check@workspace:malty/icons/ItemCheck":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.item-check@workspace:malty/icons/ItemCheck"
   dependencies:
@@ -4788,7 +4788,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.item-close-filled@npm:^0.1.1, @carlsberg/malty.icons.item-close-filled@workspace:malty/icons/ItemCloseFilled":
+"@carlsberg/malty.icons.item-close-filled@npm:^0.2.0, @carlsberg/malty.icons.item-close-filled@workspace:malty/icons/ItemCloseFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.item-close-filled@workspace:malty/icons/ItemCloseFilled"
   dependencies:
@@ -4806,7 +4806,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.item-close@npm:^0.1.1, @carlsberg/malty.icons.item-close@workspace:malty/icons/ItemClose":
+"@carlsberg/malty.icons.item-close@npm:^0.2.0, @carlsberg/malty.icons.item-close@workspace:malty/icons/ItemClose":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.item-close@workspace:malty/icons/ItemClose"
   dependencies:
@@ -4824,7 +4824,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.library@npm:^0.1.1, @carlsberg/malty.icons.library@workspace:malty/icons/Library":
+"@carlsberg/malty.icons.library@npm:^0.2.0, @carlsberg/malty.icons.library@workspace:malty/icons/Library":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.library@workspace:malty/icons/Library"
   dependencies:
@@ -4842,7 +4842,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.loading@npm:^0.1.1, @carlsberg/malty.icons.loading@workspace:malty/icons/Loading":
+"@carlsberg/malty.icons.loading@npm:^0.2.0, @carlsberg/malty.icons.loading@workspace:malty/icons/Loading":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.loading@workspace:malty/icons/Loading"
   dependencies:
@@ -4860,7 +4860,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.location-ip@npm:^0.1.1, @carlsberg/malty.icons.location-ip@workspace:malty/icons/LocationIp":
+"@carlsberg/malty.icons.location-ip@npm:^0.2.0, @carlsberg/malty.icons.location-ip@workspace:malty/icons/LocationIp":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.location-ip@workspace:malty/icons/LocationIp"
   dependencies:
@@ -4878,7 +4878,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.lock-open@npm:^0.1.1, @carlsberg/malty.icons.lock-open@workspace:malty/icons/LockOpen":
+"@carlsberg/malty.icons.lock-open@npm:^0.2.0, @carlsberg/malty.icons.lock-open@workspace:malty/icons/LockOpen":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.lock-open@workspace:malty/icons/LockOpen"
   dependencies:
@@ -4896,7 +4896,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.lock@npm:^0.1.1, @carlsberg/malty.icons.lock@workspace:malty/icons/Lock":
+"@carlsberg/malty.icons.lock@npm:^0.2.0, @carlsberg/malty.icons.lock@workspace:malty/icons/Lock":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.lock@workspace:malty/icons/Lock"
   dependencies:
@@ -4914,7 +4914,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.map@npm:^0.1.1, @carlsberg/malty.icons.map@workspace:malty/icons/Map":
+"@carlsberg/malty.icons.map@npm:^0.2.0, @carlsberg/malty.icons.map@workspace:malty/icons/Map":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.map@workspace:malty/icons/Map"
   dependencies:
@@ -4932,7 +4932,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.market@npm:^0.1.1, @carlsberg/malty.icons.market@workspace:malty/icons/Market":
+"@carlsberg/malty.icons.market@npm:^0.2.0, @carlsberg/malty.icons.market@workspace:malty/icons/Market":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.market@workspace:malty/icons/Market"
   dependencies:
@@ -4950,7 +4950,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.media-pause@npm:^0.1.1, @carlsberg/malty.icons.media-pause@workspace:malty/icons/MediaPause":
+"@carlsberg/malty.icons.media-pause@npm:^0.2.0, @carlsberg/malty.icons.media-pause@workspace:malty/icons/MediaPause":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.media-pause@workspace:malty/icons/MediaPause"
   dependencies:
@@ -4968,7 +4968,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.media-play@npm:^0.1.1, @carlsberg/malty.icons.media-play@workspace:malty/icons/MediaPlay":
+"@carlsberg/malty.icons.media-play@npm:^0.2.0, @carlsberg/malty.icons.media-play@workspace:malty/icons/MediaPlay":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.media-play@workspace:malty/icons/MediaPlay"
   dependencies:
@@ -4986,7 +4986,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.media-sound-off@npm:^0.1.1, @carlsberg/malty.icons.media-sound-off@workspace:malty/icons/MediaSoundOff":
+"@carlsberg/malty.icons.media-sound-off@npm:^0.2.0, @carlsberg/malty.icons.media-sound-off@workspace:malty/icons/MediaSoundOff":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.media-sound-off@workspace:malty/icons/MediaSoundOff"
   dependencies:
@@ -5004,7 +5004,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.media-sound@npm:^0.1.1, @carlsberg/malty.icons.media-sound@workspace:malty/icons/MediaSound":
+"@carlsberg/malty.icons.media-sound@npm:^0.2.0, @carlsberg/malty.icons.media-sound@workspace:malty/icons/MediaSound":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.media-sound@workspace:malty/icons/MediaSound"
   dependencies:
@@ -5022,7 +5022,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.media-stop@npm:^0.1.1, @carlsberg/malty.icons.media-stop@workspace:malty/icons/MediaStop":
+"@carlsberg/malty.icons.media-stop@npm:^0.2.0, @carlsberg/malty.icons.media-stop@workspace:malty/icons/MediaStop":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.media-stop@workspace:malty/icons/MediaStop"
   dependencies:
@@ -5040,7 +5040,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.menu-left@npm:^0.1.1, @carlsberg/malty.icons.menu-left@workspace:malty/icons/MenuLeft":
+"@carlsberg/malty.icons.menu-left@npm:^0.2.0, @carlsberg/malty.icons.menu-left@workspace:malty/icons/MenuLeft":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.menu-left@workspace:malty/icons/MenuLeft"
   dependencies:
@@ -5058,7 +5058,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.menu-right@npm:^0.1.1, @carlsberg/malty.icons.menu-right@workspace:malty/icons/MenuRight":
+"@carlsberg/malty.icons.menu-right@npm:^0.2.0, @carlsberg/malty.icons.menu-right@workspace:malty/icons/MenuRight":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.menu-right@workspace:malty/icons/MenuRight"
   dependencies:
@@ -5076,7 +5076,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.menu@npm:^0.1.1, @carlsberg/malty.icons.menu@workspace:malty/icons/Menu":
+"@carlsberg/malty.icons.menu@npm:^0.2.0, @carlsberg/malty.icons.menu@workspace:malty/icons/Menu":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.menu@workspace:malty/icons/Menu"
   dependencies:
@@ -5094,7 +5094,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.minus@npm:^0.1.1, @carlsberg/malty.icons.minus@workspace:malty/icons/Minus":
+"@carlsberg/malty.icons.minus@npm:^0.2.0, @carlsberg/malty.icons.minus@workspace:malty/icons/Minus":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.minus@workspace:malty/icons/Minus"
   dependencies:
@@ -5112,7 +5112,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.mobile@npm:^0.1.1, @carlsberg/malty.icons.mobile@workspace:malty/icons/Mobile":
+"@carlsberg/malty.icons.mobile@npm:^0.2.0, @carlsberg/malty.icons.mobile@workspace:malty/icons/Mobile":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.mobile@workspace:malty/icons/Mobile"
   dependencies:
@@ -5130,7 +5130,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.more@npm:^0.1.1, @carlsberg/malty.icons.more@workspace:malty/icons/More":
+"@carlsberg/malty.icons.more@npm:^0.2.0, @carlsberg/malty.icons.more@workspace:malty/icons/More":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.more@workspace:malty/icons/More"
   dependencies:
@@ -5148,7 +5148,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.mouse@npm:^0.1.1, @carlsberg/malty.icons.mouse@workspace:malty/icons/Mouse":
+"@carlsberg/malty.icons.mouse@npm:^0.2.0, @carlsberg/malty.icons.mouse@workspace:malty/icons/Mouse":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.mouse@workspace:malty/icons/Mouse"
   dependencies:
@@ -5166,7 +5166,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.notepad@npm:^0.1.1, @carlsberg/malty.icons.notepad@workspace:malty/icons/Notepad":
+"@carlsberg/malty.icons.notepad@npm:^0.2.0, @carlsberg/malty.icons.notepad@workspace:malty/icons/Notepad":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.notepad@workspace:malty/icons/Notepad"
   dependencies:
@@ -5184,7 +5184,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.outlet-plus@npm:^0.1.1, @carlsberg/malty.icons.outlet-plus@workspace:malty/icons/OutletPlus":
+"@carlsberg/malty.icons.outlet-plus@npm:^0.2.0, @carlsberg/malty.icons.outlet-plus@workspace:malty/icons/OutletPlus":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.outlet-plus@workspace:malty/icons/OutletPlus"
   dependencies:
@@ -5202,7 +5202,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.outlet@npm:^0.1.1, @carlsberg/malty.icons.outlet@workspace:malty/icons/Outlet":
+"@carlsberg/malty.icons.outlet@npm:^0.2.0, @carlsberg/malty.icons.outlet@workspace:malty/icons/Outlet":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.outlet@workspace:malty/icons/Outlet"
   dependencies:
@@ -5220,7 +5220,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pack@npm:^0.1.1, @carlsberg/malty.icons.pack@workspace:malty/icons/Pack":
+"@carlsberg/malty.icons.pack@npm:^0.2.0, @carlsberg/malty.icons.pack@workspace:malty/icons/Pack":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pack@workspace:malty/icons/Pack"
   dependencies:
@@ -5238,7 +5238,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.package-keg@npm:^0.1.1, @carlsberg/malty.icons.package-keg@workspace:malty/icons/PackageKeg":
+"@carlsberg/malty.icons.package-keg@npm:^0.2.0, @carlsberg/malty.icons.package-keg@workspace:malty/icons/PackageKeg":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.package-keg@workspace:malty/icons/PackageKeg"
   dependencies:
@@ -5256,7 +5256,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.package-wholesaler@npm:^0.1.1, @carlsberg/malty.icons.package-wholesaler@workspace:malty/icons/PackageWholesaler":
+"@carlsberg/malty.icons.package-wholesaler@npm:^0.2.0, @carlsberg/malty.icons.package-wholesaler@workspace:malty/icons/PackageWholesaler":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.package-wholesaler@workspace:malty/icons/PackageWholesaler"
   dependencies:
@@ -5274,7 +5274,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.paint@npm:^0.1.1, @carlsberg/malty.icons.paint@workspace:malty/icons/Paint":
+"@carlsberg/malty.icons.paint@npm:^0.2.0, @carlsberg/malty.icons.paint@workspace:malty/icons/Paint":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.paint@workspace:malty/icons/Paint"
   dependencies:
@@ -5292,7 +5292,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pallet@npm:^0.1.1, @carlsberg/malty.icons.pallet@workspace:malty/icons/Pallet":
+"@carlsberg/malty.icons.pallet@npm:^0.2.0, @carlsberg/malty.icons.pallet@workspace:malty/icons/Pallet":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pallet@workspace:malty/icons/Pallet"
   dependencies:
@@ -5310,7 +5310,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pencil@npm:^0.1.1, @carlsberg/malty.icons.pencil@workspace:malty/icons/Pencil":
+"@carlsberg/malty.icons.pencil@npm:^0.2.0, @carlsberg/malty.icons.pencil@workspace:malty/icons/Pencil":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pencil@workspace:malty/icons/Pencil"
   dependencies:
@@ -5328,7 +5328,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.phone-classic@npm:^0.1.1, @carlsberg/malty.icons.phone-classic@workspace:malty/icons/PhoneClassic":
+"@carlsberg/malty.icons.phone-classic@npm:^0.2.0, @carlsberg/malty.icons.phone-classic@workspace:malty/icons/PhoneClassic":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.phone-classic@workspace:malty/icons/PhoneClassic"
   dependencies:
@@ -5346,7 +5346,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pilsner@npm:^0.1.1, @carlsberg/malty.icons.pilsner@workspace:malty/icons/Pilsner":
+"@carlsberg/malty.icons.pilsner@npm:^0.2.0, @carlsberg/malty.icons.pilsner@workspace:malty/icons/Pilsner":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pilsner@workspace:malty/icons/Pilsner"
   dependencies:
@@ -5364,7 +5364,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-active@npm:^0.1.1, @carlsberg/malty.icons.pin-active@workspace:malty/icons/PinActive":
+"@carlsberg/malty.icons.pin-active@npm:^0.2.0, @carlsberg/malty.icons.pin-active@workspace:malty/icons/PinActive":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-active@workspace:malty/icons/PinActive"
   dependencies:
@@ -5382,7 +5382,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-churn@npm:^0.1.1, @carlsberg/malty.icons.pin-churn@workspace:malty/icons/PinChurn":
+"@carlsberg/malty.icons.pin-churn@npm:^0.2.0, @carlsberg/malty.icons.pin-churn@workspace:malty/icons/PinChurn":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-churn@workspace:malty/icons/PinChurn"
   dependencies:
@@ -5400,7 +5400,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-closed@npm:^0.1.1, @carlsberg/malty.icons.pin-closed@workspace:malty/icons/PinClosed":
+"@carlsberg/malty.icons.pin-closed@npm:^0.2.0, @carlsberg/malty.icons.pin-closed@workspace:malty/icons/PinClosed":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-closed@workspace:malty/icons/PinClosed"
   dependencies:
@@ -5418,7 +5418,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-inactive@npm:^0.1.1, @carlsberg/malty.icons.pin-inactive@workspace:malty/icons/PinInactive":
+"@carlsberg/malty.icons.pin-inactive@npm:^0.2.0, @carlsberg/malty.icons.pin-inactive@workspace:malty/icons/PinInactive":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-inactive@workspace:malty/icons/PinInactive"
   dependencies:
@@ -5436,7 +5436,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-indirect@npm:^0.1.1, @carlsberg/malty.icons.pin-indirect@workspace:malty/icons/PinIndirect":
+"@carlsberg/malty.icons.pin-indirect@npm:^0.2.0, @carlsberg/malty.icons.pin-indirect@workspace:malty/icons/PinIndirect":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-indirect@workspace:malty/icons/PinIndirect"
   dependencies:
@@ -5454,7 +5454,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-labeling@npm:^0.1.1, @carlsberg/malty.icons.pin-labeling@workspace:malty/icons/PinLabeling":
+"@carlsberg/malty.icons.pin-labeling@npm:^0.2.0, @carlsberg/malty.icons.pin-labeling@workspace:malty/icons/PinLabeling":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-labeling@workspace:malty/icons/PinLabeling"
   dependencies:
@@ -5472,7 +5472,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-parked@npm:^0.1.1, @carlsberg/malty.icons.pin-parked@workspace:malty/icons/PinParked":
+"@carlsberg/malty.icons.pin-parked@npm:^0.2.0, @carlsberg/malty.icons.pin-parked@workspace:malty/icons/PinParked":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-parked@workspace:malty/icons/PinParked"
   dependencies:
@@ -5490,7 +5490,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-prospect@npm:^0.1.1, @carlsberg/malty.icons.pin-prospect@workspace:malty/icons/PinProspect":
+"@carlsberg/malty.icons.pin-prospect@npm:^0.2.0, @carlsberg/malty.icons.pin-prospect@workspace:malty/icons/PinProspect":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-prospect@workspace:malty/icons/PinProspect"
   dependencies:
@@ -5508,7 +5508,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin-several@npm:^0.1.1, @carlsberg/malty.icons.pin-several@workspace:malty/icons/PinSeveral":
+"@carlsberg/malty.icons.pin-several@npm:^0.2.0, @carlsberg/malty.icons.pin-several@workspace:malty/icons/PinSeveral":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin-several@workspace:malty/icons/PinSeveral"
   dependencies:
@@ -5526,7 +5526,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pin@npm:^0.1.1, @carlsberg/malty.icons.pin@workspace:malty/icons/Pin":
+"@carlsberg/malty.icons.pin@npm:^0.2.0, @carlsberg/malty.icons.pin@workspace:malty/icons/Pin":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pin@workspace:malty/icons/Pin"
   dependencies:
@@ -5544,7 +5544,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.pint@npm:^0.1.1, @carlsberg/malty.icons.pint@workspace:malty/icons/Pint":
+"@carlsberg/malty.icons.pint@npm:^0.2.0, @carlsberg/malty.icons.pint@workspace:malty/icons/Pint":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.pint@workspace:malty/icons/Pint"
   dependencies:
@@ -5562,7 +5562,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.plus@npm:^0.1.1, @carlsberg/malty.icons.plus@workspace:malty/icons/Plus":
+"@carlsberg/malty.icons.plus@npm:^0.2.0, @carlsberg/malty.icons.plus@workspace:malty/icons/Plus":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.plus@workspace:malty/icons/Plus"
   dependencies:
@@ -5580,7 +5580,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.power@npm:^0.1.1, @carlsberg/malty.icons.power@workspace:malty/icons/Power":
+"@carlsberg/malty.icons.power@npm:^0.2.0, @carlsberg/malty.icons.power@workspace:malty/icons/Power":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.power@workspace:malty/icons/Power"
   dependencies:
@@ -5598,7 +5598,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.radiobutton-off@npm:^0.1.1, @carlsberg/malty.icons.radiobutton-off@workspace:malty/icons/RadiobuttonOff":
+"@carlsberg/malty.icons.radiobutton-off@npm:^0.2.0, @carlsberg/malty.icons.radiobutton-off@workspace:malty/icons/RadiobuttonOff":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.radiobutton-off@workspace:malty/icons/RadiobuttonOff"
   dependencies:
@@ -5616,7 +5616,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.radiobutton-on@npm:^0.1.1, @carlsberg/malty.icons.radiobutton-on@workspace:malty/icons/RadiobuttonOn":
+"@carlsberg/malty.icons.radiobutton-on@npm:^0.2.0, @carlsberg/malty.icons.radiobutton-on@workspace:malty/icons/RadiobuttonOn":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.radiobutton-on@workspace:malty/icons/RadiobuttonOn"
   dependencies:
@@ -5634,7 +5634,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.refresh@npm:^0.1.1, @carlsberg/malty.icons.refresh@workspace:malty/icons/Refresh":
+"@carlsberg/malty.icons.refresh@npm:^0.2.0, @carlsberg/malty.icons.refresh@workspace:malty/icons/Refresh":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.refresh@workspace:malty/icons/Refresh"
   dependencies:
@@ -5652,7 +5652,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.restaurant@npm:^0.1.1, @carlsberg/malty.icons.restaurant@workspace:malty/icons/Restaurant":
+"@carlsberg/malty.icons.restaurant@npm:^0.2.0, @carlsberg/malty.icons.restaurant@workspace:malty/icons/Restaurant":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.restaurant@workspace:malty/icons/Restaurant"
   dependencies:
@@ -5670,7 +5670,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.retry@npm:^0.1.1, @carlsberg/malty.icons.retry@workspace:malty/icons/Retry":
+"@carlsberg/malty.icons.retry@npm:^0.2.0, @carlsberg/malty.icons.retry@workspace:malty/icons/Retry":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.retry@workspace:malty/icons/Retry"
   dependencies:
@@ -5688,7 +5688,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.salesrep@npm:^0.1.1, @carlsberg/malty.icons.salesrep@workspace:malty/icons/Salesrep":
+"@carlsberg/malty.icons.salesrep@npm:^0.2.0, @carlsberg/malty.icons.salesrep@workspace:malty/icons/Salesrep":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.salesrep@workspace:malty/icons/Salesrep"
   dependencies:
@@ -5706,7 +5706,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.save@npm:^0.1.1, @carlsberg/malty.icons.save@workspace:malty/icons/Save":
+"@carlsberg/malty.icons.save@npm:^0.2.0, @carlsberg/malty.icons.save@workspace:malty/icons/Save":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.save@workspace:malty/icons/Save"
   dependencies:
@@ -5724,7 +5724,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.search-user@npm:^0.1.1, @carlsberg/malty.icons.search-user@workspace:malty/icons/SearchUser":
+"@carlsberg/malty.icons.search-user@npm:^0.2.0, @carlsberg/malty.icons.search-user@workspace:malty/icons/SearchUser":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.search-user@workspace:malty/icons/SearchUser"
   dependencies:
@@ -5742,7 +5742,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.search@npm:^0.1.1, @carlsberg/malty.icons.search@workspace:malty/icons/Search":
+"@carlsberg/malty.icons.search@npm:^0.2.0, @carlsberg/malty.icons.search@workspace:malty/icons/Search":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.search@workspace:malty/icons/Search"
   dependencies:
@@ -5760,7 +5760,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.sent@npm:^0.1.1, @carlsberg/malty.icons.sent@workspace:malty/icons/Sent":
+"@carlsberg/malty.icons.sent@npm:^0.2.0, @carlsberg/malty.icons.sent@workspace:malty/icons/Sent":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.sent@workspace:malty/icons/Sent"
   dependencies:
@@ -5778,7 +5778,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.settings@npm:^0.1.1, @carlsberg/malty.icons.settings@workspace:malty/icons/Settings":
+"@carlsberg/malty.icons.settings@npm:^0.2.0, @carlsberg/malty.icons.settings@workspace:malty/icons/Settings":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.settings@workspace:malty/icons/Settings"
   dependencies:
@@ -5796,7 +5796,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.share@npm:^0.1.1, @carlsberg/malty.icons.share@workspace:malty/icons/Share":
+"@carlsberg/malty.icons.share@npm:^0.2.0, @carlsberg/malty.icons.share@workspace:malty/icons/Share":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.share@workspace:malty/icons/Share"
   dependencies:
@@ -5814,7 +5814,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.shield-exclamation@npm:^0.1.1, @carlsberg/malty.icons.shield-exclamation@workspace:malty/icons/ShieldExclamation":
+"@carlsberg/malty.icons.shield-exclamation@npm:^0.2.0, @carlsberg/malty.icons.shield-exclamation@workspace:malty/icons/ShieldExclamation":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.shield-exclamation@workspace:malty/icons/ShieldExclamation"
   dependencies:
@@ -5832,7 +5832,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.shield-security@npm:^0.1.1, @carlsberg/malty.icons.shield-security@workspace:malty/icons/ShieldSecurity":
+"@carlsberg/malty.icons.shield-security@npm:^0.2.0, @carlsberg/malty.icons.shield-security@workspace:malty/icons/ShieldSecurity":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.shield-security@workspace:malty/icons/ShieldSecurity"
   dependencies:
@@ -5850,7 +5850,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.shop@npm:^0.1.1, @carlsberg/malty.icons.shop@workspace:malty/icons/Shop":
+"@carlsberg/malty.icons.shop@npm:^0.2.0, @carlsberg/malty.icons.shop@workspace:malty/icons/Shop":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.shop@workspace:malty/icons/Shop"
   dependencies:
@@ -5868,7 +5868,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.sign-out@npm:^0.1.1, @carlsberg/malty.icons.sign-out@workspace:malty/icons/SignOut":
+"@carlsberg/malty.icons.sign-out@npm:^0.2.0, @carlsberg/malty.icons.sign-out@workspace:malty/icons/SignOut":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.sign-out@workspace:malty/icons/SignOut"
   dependencies:
@@ -5886,7 +5886,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.sort@npm:^0.1.1, @carlsberg/malty.icons.sort@workspace:malty/icons/Sort":
+"@carlsberg/malty.icons.sort@npm:^0.2.0, @carlsberg/malty.icons.sort@workspace:malty/icons/Sort":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.sort@workspace:malty/icons/Sort"
   dependencies:
@@ -5904,7 +5904,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.speach-balloon-complaint@npm:^0.1.1, @carlsberg/malty.icons.speach-balloon-complaint@workspace:malty/icons/SpeachBalloonComplaint":
+"@carlsberg/malty.icons.speach-balloon-complaint@npm:^0.2.0, @carlsberg/malty.icons.speach-balloon-complaint@workspace:malty/icons/SpeachBalloonComplaint":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.speach-balloon-complaint@workspace:malty/icons/SpeachBalloonComplaint"
   dependencies:
@@ -5922,7 +5922,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.speach-balloon-livechat@npm:^0.1.1, @carlsberg/malty.icons.speach-balloon-livechat@workspace:malty/icons/SpeachBalloonLivechat":
+"@carlsberg/malty.icons.speach-balloon-livechat@npm:^0.2.0, @carlsberg/malty.icons.speach-balloon-livechat@workspace:malty/icons/SpeachBalloonLivechat":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.speach-balloon-livechat@workspace:malty/icons/SpeachBalloonLivechat"
   dependencies:
@@ -5940,7 +5940,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.speach-balloon@npm:^0.1.1, @carlsberg/malty.icons.speach-balloon@workspace:malty/icons/SpeachBalloon":
+"@carlsberg/malty.icons.speach-balloon@npm:^0.2.0, @carlsberg/malty.icons.speach-balloon@workspace:malty/icons/SpeachBalloon":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.speach-balloon@workspace:malty/icons/SpeachBalloon"
   dependencies:
@@ -5958,7 +5958,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.star-filled@npm:^0.1.1, @carlsberg/malty.icons.star-filled@workspace:malty/icons/StarFilled":
+"@carlsberg/malty.icons.star-filled@npm:^0.2.0, @carlsberg/malty.icons.star-filled@workspace:malty/icons/StarFilled":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.star-filled@workspace:malty/icons/StarFilled"
   dependencies:
@@ -5976,7 +5976,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.star@npm:^0.1.1, @carlsberg/malty.icons.star@workspace:malty/icons/Star":
+"@carlsberg/malty.icons.star@npm:^0.2.0, @carlsberg/malty.icons.star@workspace:malty/icons/Star":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.star@workspace:malty/icons/Star"
   dependencies:
@@ -5994,7 +5994,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.survey-check@npm:^0.1.1, @carlsberg/malty.icons.survey-check@workspace:malty/icons/SurveyCheck":
+"@carlsberg/malty.icons.survey-check@npm:^0.2.0, @carlsberg/malty.icons.survey-check@workspace:malty/icons/SurveyCheck":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.survey-check@workspace:malty/icons/SurveyCheck"
   dependencies:
@@ -6012,7 +6012,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.survey-checkbox@npm:^0.1.1, @carlsberg/malty.icons.survey-checkbox@workspace:malty/icons/SurveyCheckbox":
+"@carlsberg/malty.icons.survey-checkbox@npm:^0.2.0, @carlsberg/malty.icons.survey-checkbox@workspace:malty/icons/SurveyCheckbox":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.survey-checkbox@workspace:malty/icons/SurveyCheckbox"
   dependencies:
@@ -6030,7 +6030,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.survey-default@npm:^0.1.1, @carlsberg/malty.icons.survey-default@workspace:malty/icons/SurveyDefault":
+"@carlsberg/malty.icons.survey-default@npm:^0.2.0, @carlsberg/malty.icons.survey-default@workspace:malty/icons/SurveyDefault":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.survey-default@workspace:malty/icons/SurveyDefault"
   dependencies:
@@ -6048,7 +6048,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.survey-trophy@npm:^0.1.1, @carlsberg/malty.icons.survey-trophy@workspace:malty/icons/SurveyTrophy":
+"@carlsberg/malty.icons.survey-trophy@npm:^0.2.0, @carlsberg/malty.icons.survey-trophy@workspace:malty/icons/SurveyTrophy":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.survey-trophy@workspace:malty/icons/SurveyTrophy"
   dependencies:
@@ -6066,7 +6066,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.survey@npm:^0.1.1, @carlsberg/malty.icons.survey@workspace:malty/icons/Survey":
+"@carlsberg/malty.icons.survey@npm:^0.2.0, @carlsberg/malty.icons.survey@workspace:malty/icons/Survey":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.survey@workspace:malty/icons/Survey"
   dependencies:
@@ -6084,7 +6084,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.sync@npm:^0.1.1, @carlsberg/malty.icons.sync@workspace:malty/icons/Sync":
+"@carlsberg/malty.icons.sync@npm:^0.2.0, @carlsberg/malty.icons.sync@workspace:malty/icons/Sync":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.sync@workspace:malty/icons/Sync"
   dependencies:
@@ -6102,7 +6102,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.tap-glass@npm:^0.1.1, @carlsberg/malty.icons.tap-glass@workspace:malty/icons/TapGlass":
+"@carlsberg/malty.icons.tap-glass@npm:^0.2.0, @carlsberg/malty.icons.tap-glass@workspace:malty/icons/TapGlass":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.tap-glass@workspace:malty/icons/TapGlass"
   dependencies:
@@ -6120,7 +6120,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.tap@npm:^0.1.1, @carlsberg/malty.icons.tap@workspace:malty/icons/Tap":
+"@carlsberg/malty.icons.tap@npm:^0.2.0, @carlsberg/malty.icons.tap@workspace:malty/icons/Tap":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.tap@workspace:malty/icons/Tap"
   dependencies:
@@ -6138,7 +6138,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.technical-support@npm:^0.1.1, @carlsberg/malty.icons.technical-support@workspace:malty/icons/TechnicalSupport":
+"@carlsberg/malty.icons.technical-support@npm:^0.2.0, @carlsberg/malty.icons.technical-support@workspace:malty/icons/TechnicalSupport":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.technical-support@workspace:malty/icons/TechnicalSupport"
   dependencies:
@@ -6156,7 +6156,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.text@npm:^0.1.1, @carlsberg/malty.icons.text@workspace:malty/icons/Text":
+"@carlsberg/malty.icons.text@npm:^0.2.0, @carlsberg/malty.icons.text@workspace:malty/icons/Text":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.text@workspace:malty/icons/Text"
   dependencies:
@@ -6174,7 +6174,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.third-party@npm:^0.1.1, @carlsberg/malty.icons.third-party@workspace:malty/icons/ThirdParty":
+"@carlsberg/malty.icons.third-party@npm:^0.2.0, @carlsberg/malty.icons.third-party@workspace:malty/icons/ThirdParty":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.third-party@workspace:malty/icons/ThirdParty"
   dependencies:
@@ -6192,7 +6192,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.thumb-down@npm:^0.1.1, @carlsberg/malty.icons.thumb-down@workspace:malty/icons/ThumbDown":
+"@carlsberg/malty.icons.thumb-down@npm:^0.2.0, @carlsberg/malty.icons.thumb-down@workspace:malty/icons/ThumbDown":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.thumb-down@workspace:malty/icons/ThumbDown"
   dependencies:
@@ -6210,7 +6210,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.thumb-up@npm:^0.1.1, @carlsberg/malty.icons.thumb-up@workspace:malty/icons/ThumbUp":
+"@carlsberg/malty.icons.thumb-up@npm:^0.2.0, @carlsberg/malty.icons.thumb-up@workspace:malty/icons/ThumbUp":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.thumb-up@workspace:malty/icons/ThumbUp"
   dependencies:
@@ -6228,7 +6228,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.toggle-off@npm:^0.1.1, @carlsberg/malty.icons.toggle-off@workspace:malty/icons/ToggleOff":
+"@carlsberg/malty.icons.toggle-off@npm:^0.2.0, @carlsberg/malty.icons.toggle-off@workspace:malty/icons/ToggleOff":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.toggle-off@workspace:malty/icons/ToggleOff"
   dependencies:
@@ -6246,7 +6246,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.toggle-on@npm:^0.1.1, @carlsberg/malty.icons.toggle-on@workspace:malty/icons/ToggleOn":
+"@carlsberg/malty.icons.toggle-on@npm:^0.2.0, @carlsberg/malty.icons.toggle-on@workspace:malty/icons/ToggleOn":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.toggle-on@workspace:malty/icons/ToggleOn"
   dependencies:
@@ -6264,7 +6264,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.trash@npm:^0.1.1, @carlsberg/malty.icons.trash@workspace:malty/icons/Trash":
+"@carlsberg/malty.icons.trash@npm:^0.2.0, @carlsberg/malty.icons.trash@workspace:malty/icons/Trash":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.trash@workspace:malty/icons/Trash"
   dependencies:
@@ -6282,7 +6282,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.trophy@npm:^0.1.1, @carlsberg/malty.icons.trophy@workspace:malty/icons/Trophy":
+"@carlsberg/malty.icons.trophy@npm:^0.2.0, @carlsberg/malty.icons.trophy@workspace:malty/icons/Trophy":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.trophy@workspace:malty/icons/Trophy"
   dependencies:
@@ -6300,7 +6300,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.truck@npm:^0.1.1, @carlsberg/malty.icons.truck@workspace:malty/icons/Truck":
+"@carlsberg/malty.icons.truck@npm:^0.2.0, @carlsberg/malty.icons.truck@workspace:malty/icons/Truck":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.truck@workspace:malty/icons/Truck"
   dependencies:
@@ -6318,7 +6318,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.tulipe@npm:^0.1.1, @carlsberg/malty.icons.tulipe@workspace:malty/icons/Tulipe":
+"@carlsberg/malty.icons.tulipe@npm:^0.2.0, @carlsberg/malty.icons.tulipe@workspace:malty/icons/Tulipe":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.tulipe@workspace:malty/icons/Tulipe"
   dependencies:
@@ -6336,7 +6336,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.twitter@npm:^0.1.1, @carlsberg/malty.icons.twitter@workspace:malty/icons/Twitter":
+"@carlsberg/malty.icons.twitter@npm:^0.2.0, @carlsberg/malty.icons.twitter@workspace:malty/icons/Twitter":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.twitter@workspace:malty/icons/Twitter"
   dependencies:
@@ -6354,7 +6354,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.underline@npm:^0.1.1, @carlsberg/malty.icons.underline@workspace:malty/icons/Underline":
+"@carlsberg/malty.icons.underline@npm:^0.2.0, @carlsberg/malty.icons.underline@workspace:malty/icons/Underline":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.underline@workspace:malty/icons/Underline"
   dependencies:
@@ -6372,7 +6372,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.upload@npm:^0.1.1, @carlsberg/malty.icons.upload@workspace:malty/icons/Upload":
+"@carlsberg/malty.icons.upload@npm:^0.2.0, @carlsberg/malty.icons.upload@workspace:malty/icons/Upload":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.upload@workspace:malty/icons/Upload"
   dependencies:
@@ -6390,7 +6390,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.view-grid@npm:^0.1.1, @carlsberg/malty.icons.view-grid@workspace:malty/icons/ViewGrid":
+"@carlsberg/malty.icons.view-grid@npm:^0.2.0, @carlsberg/malty.icons.view-grid@workspace:malty/icons/ViewGrid":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.view-grid@workspace:malty/icons/ViewGrid"
   dependencies:
@@ -6408,7 +6408,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.view-list@npm:^0.1.1, @carlsberg/malty.icons.view-list@workspace:malty/icons/ViewList":
+"@carlsberg/malty.icons.view-list@npm:^0.2.0, @carlsberg/malty.icons.view-list@workspace:malty/icons/ViewList":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.view-list@workspace:malty/icons/ViewList"
   dependencies:
@@ -6426,7 +6426,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.volume@npm:^0.1.1, @carlsberg/malty.icons.volume@workspace:malty/icons/Volume":
+"@carlsberg/malty.icons.volume@npm:^0.2.0, @carlsberg/malty.icons.volume@workspace:malty/icons/Volume":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.volume@workspace:malty/icons/Volume"
   dependencies:
@@ -6444,7 +6444,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.wheat@npm:^0.1.1, @carlsberg/malty.icons.wheat@workspace:malty/icons/Wheat":
+"@carlsberg/malty.icons.wheat@npm:^0.2.0, @carlsberg/malty.icons.wheat@workspace:malty/icons/Wheat":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.wheat@workspace:malty/icons/Wheat"
   dependencies:
@@ -6462,7 +6462,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.icons.world@npm:^0.1.1, @carlsberg/malty.icons.world@workspace:malty/icons/World":
+"@carlsberg/malty.icons.world@npm:^0.2.0, @carlsberg/malty.icons.world@workspace:malty/icons/World":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.icons.world@workspace:malty/icons/World"
   dependencies:
@@ -6485,10 +6485,10 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.accordion@workspace:malty/molecules/Accordion"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6514,13 +6514,13 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.alert-banner@workspace:malty/molecules/AlertBanner"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.link": "npm:^0.1.7"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.molecules.pagination": "npm:^0.1.4"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.helpers": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.link": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.pagination": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.helpers": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -6542,19 +6542,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.alert-inline@npm:^0.1.4, @carlsberg/malty.molecules.alert-inline@workspace:malty/molecules/AlertInline":
+"@carlsberg/malty.molecules.alert-inline@npm:^0.2.0, @carlsberg/malty.molecules.alert-inline@workspace:malty/molecules/AlertInline":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.alert-inline@workspace:malty/molecules/AlertInline"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.link": "npm:^0.1.7"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.icons.information": "npm:^0.1.1"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.link": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.icons.information": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -6572,19 +6572,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.article-card@npm:^0.1.4, @carlsberg/malty.molecules.article-card@workspace:malty/molecules/ArticleCard":
+"@carlsberg/malty.molecules.article-card@npm:^0.2.0, @carlsberg/malty.molecules.article-card@workspace:malty/molecules/ArticleCard":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.article-card@workspace:malty/molecules/ArticleCard"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.card": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.headline": "npm:^0.0.60"
-    "@carlsberg/malty.atoms.image": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.card": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.image": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6601,16 +6601,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.avatar@npm:^0.1.4, @carlsberg/malty.molecules.avatar@workspace:malty/molecules/Avatar":
+"@carlsberg/malty.molecules.avatar@npm:^0.2.0, @carlsberg/malty.molecules.avatar@workspace:malty/molecules/Avatar":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.avatar@workspace:malty/molecules/Avatar"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.molecules.loading": "npm:^0.0.84"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6635,13 +6635,13 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.banner@workspace:malty/molecules/Banner"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.headline": "npm:^0.0.60"
-    "@carlsberg/malty.atoms.pill": "npm:^0.4.2"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.pill": "npm:^0.5.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6664,14 +6664,14 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.datepicker@workspace:malty/molecules/Datepicker"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.label": "npm:^0.0.61"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.consts": "npm:^0.0.3"
-    "@carlsberg/malty.utils.mixins": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.consts": "npm:^0.1.0"
+    "@carlsberg/malty.utils.mixins": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6699,14 +6699,14 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.footer@workspace:malty/molecules/Footer"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.headline": "npm:^0.0.60"
-    "@carlsberg/malty.atoms.link": "npm:^0.1.7"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.link": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6736,13 +6736,13 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.hero@workspace:malty/molecules/Hero"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.headline": "npm:^0.0.60"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.hooks": "npm:^0.0.5"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.hooks": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6761,14 +6761,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.loading-overlay@npm:^0.0.7, @carlsberg/malty.molecules.loading-overlay@workspace:malty/molecules/LoadingOverlay":
+"@carlsberg/malty.molecules.loading-overlay@npm:^0.1.0, @carlsberg/malty.molecules.loading-overlay@workspace:malty/molecules/LoadingOverlay":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.loading-overlay@workspace:malty/molecules/LoadingOverlay"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.overlay": "npm:^0.0.62"
-    "@carlsberg/malty.molecules.loading": "npm:^0.0.84"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.overlay": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6785,15 +6785,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.loading@npm:^0.0.84, @carlsberg/malty.molecules.loading@workspace:malty/molecules/Loading":
+"@carlsberg/malty.molecules.loading@npm:^0.1.0, @carlsberg/malty.molecules.loading@workspace:malty/molecules/Loading":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.loading@workspace:malty/molecules/Loading"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6815,11 +6815,11 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.modal@workspace:malty/molecules/Modal"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.headline": "npm:^0.0.60"
-    "@carlsberg/malty.atoms.overlay": "npm:^0.0.62"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.overlay": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6838,16 +6838,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.nav-list@npm:^0.1.7, @carlsberg/malty.molecules.nav-list@workspace:malty/molecules/NavList":
+"@carlsberg/malty.molecules.nav-list@npm:^0.2.0, @carlsberg/malty.molecules.nav-list@workspace:malty/molecules/NavList":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.nav-list@workspace:malty/molecules/NavList"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.icons.data-transfer": "npm:^0.1.1"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.icons.data-transfer": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
     "@types/jest": "npm:^26.0.0"
@@ -6867,17 +6867,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.pagination@npm:^0.1.4, @carlsberg/malty.molecules.pagination@workspace:malty/molecules/Pagination":
+"@carlsberg/malty.molecules.pagination@npm:^0.2.0, @carlsberg/malty.molecules.pagination@workspace:malty/molecules/Pagination":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.pagination@workspace:malty/molecules/Pagination"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.consts": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.consts": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6897,27 +6897,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.product-card@npm:^0.1.4, @carlsberg/malty.molecules.product-card@workspace:malty/molecules/ProductCard":
+"@carlsberg/malty.molecules.product-card@npm:^0.2.0, @carlsberg/malty.molecules.product-card@workspace:malty/molecules/ProductCard":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.product-card@workspace:malty/molecules/ProductCard"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.card": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.image": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.pill": "npm:^0.4.2"
-    "@carlsberg/malty.atoms.price": "npm:^0.0.14"
-    "@carlsberg/malty.atoms.select": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.icons.cart": "npm:^0.1.1"
-    "@carlsberg/malty.icons.coupon": "npm:^0.1.1"
-    "@carlsberg/malty.molecules.alert-inline": "npm:^0.1.4"
-    "@carlsberg/malty.molecules.product-quantity-actions": "npm:^0.1.4"
-    "@carlsberg/malty.molecules.sku": "npm:^0.0.15"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.card": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.image": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.pill": "npm:^0.5.0"
+    "@carlsberg/malty.atoms.price": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.select": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.icons.cart": "npm:^0.2.0"
+    "@carlsberg/malty.icons.coupon": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.alert-inline": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.product-quantity-actions": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.sku": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6936,17 +6936,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.product-quantity-actions@npm:^0.1.4, @carlsberg/malty.molecules.product-quantity-actions@workspace:malty/molecules/ProductQuantityActions":
+"@carlsberg/malty.molecules.product-quantity-actions@npm:^0.2.0, @carlsberg/malty.molecules.product-quantity-actions@workspace:malty/molecules/ProductQuantityActions":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.product-quantity-actions@workspace:malty/molecules/ProductQuantityActions"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.input": "npm:^0.2.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.input": "npm:^0.3.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6964,18 +6964,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.products-bar@npm:^0.1.7, @carlsberg/malty.molecules.products-bar@workspace:malty/molecules/ProductsBar":
+"@carlsberg/malty.molecules.products-bar@npm:^0.2.0, @carlsberg/malty.molecules.products-bar@workspace:malty/molecules/ProductsBar":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.products-bar@workspace:malty/molecules/ProductsBar"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.icons.data-transfer": "npm:^0.1.1"
-    "@carlsberg/malty.molecules.avatar": "npm:^0.1.4"
-    "@carlsberg/malty.molecules.nav-list": "npm:^0.1.7"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.icons.data-transfer": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.avatar": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.nav-list": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
     "@types/jest": "npm:^26.0.0"
@@ -7000,10 +7000,10 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.segmented-control@workspace:malty/molecules/SegmentedControl"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.chip": "npm:^0.1.4"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.chip": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -7026,14 +7026,14 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.side-nav@workspace:malty/molecules/SideNav"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.headline": "npm:^0.0.60"
-    "@carlsberg/malty.atoms.overlay": "npm:^0.0.62"
-    "@carlsberg/malty.icons.data-transfer": "npm:^0.1.1"
-    "@carlsberg/malty.molecules.nav-list": "npm:^0.1.7"
-    "@carlsberg/malty.molecules.products-bar": "npm:^0.1.7"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.hooks": "npm:^0.0.5"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.overlay": "npm:^0.1.0"
+    "@carlsberg/malty.icons.data-transfer": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.nav-list": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.products-bar": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.hooks": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -7052,15 +7052,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.sku@npm:^0.0.15, @carlsberg/malty.molecules.sku@workspace:malty/molecules/Sku":
+"@carlsberg/malty.molecules.sku@npm:^0.1.0, @carlsberg/malty.molecules.sku@workspace:malty/molecules/Sku":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.sku@workspace:malty/molecules/Sku"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -7082,11 +7082,11 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.stepper@workspace:malty/molecules/Stepper"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -7109,11 +7109,11 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.toast@workspace:malty/molecules/Toast"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -7138,15 +7138,15 @@ __metadata:
   resolution: "@carlsberg/malty.organisms.carousel@workspace:malty/organisms/Carousel"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.card": "npm:^0.1.4"
-    "@carlsberg/malty.molecules.article-card": "npm:^0.1.4"
-    "@carlsberg/malty.molecules.product-card": "npm:^0.1.4"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.helpers": "npm:^0.0.3"
-    "@carlsberg/malty.utils.mixins": "npm:^0.0.3"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.card": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.article-card": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.product-card": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.helpers": "npm:^0.1.0"
+    "@carlsberg/malty.utils.mixins": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@splidejs/splide": "npm:^4.1.4"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -7171,16 +7171,16 @@ __metadata:
   resolution: "@carlsberg/malty.organisms.table@workspace:malty/organisms/Table"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.atoms.checkbox": "npm:^0.1.4"
-    "@carlsberg/malty.atoms.text": "npm:^0.0.70"
-    "@carlsberg/malty.atoms.tooltip": "npm:^0.1.4"
-    "@carlsberg/malty.molecules.loading": "npm:^0.0.84"
-    "@carlsberg/malty.molecules.loading-overlay": "npm:^0.0.7"
-    "@carlsberg/malty.molecules.pagination": "npm:^0.1.4"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
-    "@carlsberg/malty.utils.test": "npm:^0.0.19"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.checkbox": "npm:^0.2.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.tooltip": "npm:^0.2.0"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.loading-overlay": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.pagination": "npm:^0.2.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@tanstack/react-table": "npm:^8.7.6"
     "@testing-library/react": "npm:^12.1.5"
@@ -7205,7 +7205,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.theme.malty-theme-provider@npm:^0.0.44, @carlsberg/malty.theme.malty-theme-provider@workspace:malty/theme/MaltyThemeProvider":
+"@carlsberg/malty.theme.malty-theme-provider@npm:^0.1.0, @carlsberg/malty.theme.malty-theme-provider@workspace:malty/theme/MaltyThemeProvider":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.theme.malty-theme-provider@workspace:malty/theme/MaltyThemeProvider"
   dependencies:
@@ -7229,7 +7229,7 @@ __metadata:
   resolution: "@carlsberg/malty.theme.new-malty-theme-provider@workspace:malty/theme/NewMaltyThemeProvider"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
     "@types/react": "npm:^17.0.8"
@@ -7244,230 +7244,230 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.all-icons@npm:^0.0.3, @carlsberg/malty.utils.all-icons@workspace:malty/utils/AllIcons":
+"@carlsberg/malty.utils.all-icons@npm:^0.1.0, @carlsberg/malty.utils.all-icons@workspace:malty/utils/AllIcons":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.all-icons@workspace:malty/utils/AllIcons"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.0.3"
-    "@carlsberg/malty.icons.add-content": "npm:^0.1.1"
-    "@carlsberg/malty.icons.add-event": "npm:^0.1.1"
-    "@carlsberg/malty.icons.add-project": "npm:^0.1.1"
-    "@carlsberg/malty.icons.added-document": "npm:^0.1.1"
-    "@carlsberg/malty.icons.alert": "npm:^0.1.1"
-    "@carlsberg/malty.icons.alert-connection": "npm:^0.1.1"
-    "@carlsberg/malty.icons.app-dropbox": "npm:^0.1.1"
-    "@carlsberg/malty.icons.app-facebook": "npm:^0.1.1"
-    "@carlsberg/malty.icons.app-github": "npm:^0.1.1"
-    "@carlsberg/malty.icons.app-instagram": "npm:^0.1.1"
-    "@carlsberg/malty.icons.app-linkedin": "npm:^0.1.1"
-    "@carlsberg/malty.icons.app-powerbi": "npm:^0.1.1"
-    "@carlsberg/malty.icons.app-skype": "npm:^0.1.1"
-    "@carlsberg/malty.icons.arrange": "npm:^0.1.1"
-    "@carlsberg/malty.icons.arrow-small-down": "npm:^0.1.1"
-    "@carlsberg/malty.icons.arrow-small-left": "npm:^0.1.1"
-    "@carlsberg/malty.icons.arrow-small-right": "npm:^0.1.1"
-    "@carlsberg/malty.icons.arrow-small-up": "npm:^0.1.1"
-    "@carlsberg/malty.icons.at": "npm:^0.1.1"
-    "@carlsberg/malty.icons.attachment": "npm:^0.1.1"
-    "@carlsberg/malty.icons.balance": "npm:^0.1.1"
-    "@carlsberg/malty.icons.bell": "npm:^0.1.1"
-    "@carlsberg/malty.icons.bell-notification": "npm:^0.1.1"
-    "@carlsberg/malty.icons.bold": "npm:^0.1.1"
-    "@carlsberg/malty.icons.book": "npm:^0.1.1"
-    "@carlsberg/malty.icons.bookmark": "npm:^0.1.1"
-    "@carlsberg/malty.icons.bookmark-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.bottle": "npm:^0.1.1"
-    "@carlsberg/malty.icons.bottle-craft": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar-autumn": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar-confirm": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar-events": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar-spring": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar-summer": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar-whole-year": "npm:^0.1.1"
-    "@carlsberg/malty.icons.calendar-winter": "npm:^0.1.1"
-    "@carlsberg/malty.icons.camera": "npm:^0.1.1"
-    "@carlsberg/malty.icons.can": "npm:^0.1.1"
-    "@carlsberg/malty.icons.card": "npm:^0.1.1"
-    "@carlsberg/malty.icons.card-plus": "npm:^0.1.1"
-    "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.carlsberg-outlined": "npm:^0.1.1"
-    "@carlsberg/malty.icons.carret-down": "npm:^0.1.1"
-    "@carlsberg/malty.icons.carret-left": "npm:^0.1.1"
-    "@carlsberg/malty.icons.carret-move": "npm:^0.1.1"
-    "@carlsberg/malty.icons.carret-right": "npm:^0.1.1"
-    "@carlsberg/malty.icons.carret-up": "npm:^0.1.1"
-    "@carlsberg/malty.icons.cart": "npm:^0.1.1"
-    "@carlsberg/malty.icons.cart-added": "npm:^0.1.1"
-    "@carlsberg/malty.icons.cart-label": "npm:^0.1.1"
-    "@carlsberg/malty.icons.cart-notification": "npm:^0.1.1"
-    "@carlsberg/malty.icons.change": "npm:^0.1.1"
-    "@carlsberg/malty.icons.check": "npm:^0.1.1"
-    "@carlsberg/malty.icons.checkbox-check": "npm:^0.1.1"
-    "@carlsberg/malty.icons.checkbox-check-alternate": "npm:^0.1.1"
-    "@carlsberg/malty.icons.checkbox-check-outline": "npm:^0.1.1"
-    "@carlsberg/malty.icons.checkbox-check-square": "npm:^0.1.1"
-    "@carlsberg/malty.icons.checkbox-empty": "npm:^0.1.1"
-    "@carlsberg/malty.icons.chevron-down": "npm:^0.1.1"
-    "@carlsberg/malty.icons.chevron-left": "npm:^0.1.1"
-    "@carlsberg/malty.icons.chevron-right": "npm:^0.1.1"
-    "@carlsberg/malty.icons.chevron-up": "npm:^0.1.1"
-    "@carlsberg/malty.icons.clock": "npm:^0.1.1"
-    "@carlsberg/malty.icons.clock-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.clone": "npm:^0.1.1"
-    "@carlsberg/malty.icons.close": "npm:^0.1.1"
-    "@carlsberg/malty.icons.coin-dollar": "npm:^0.1.1"
-    "@carlsberg/malty.icons.coin-euro": "npm:^0.1.1"
-    "@carlsberg/malty.icons.compass": "npm:^0.1.1"
-    "@carlsberg/malty.icons.compass-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.connected": "npm:^0.1.1"
-    "@carlsberg/malty.icons.contract": "npm:^0.1.1"
-    "@carlsberg/malty.icons.cookies": "npm:^0.1.1"
-    "@carlsberg/malty.icons.coupon": "npm:^0.1.1"
-    "@carlsberg/malty.icons.customer": "npm:^0.1.1"
-    "@carlsberg/malty.icons.customer-add": "npm:^0.1.1"
-    "@carlsberg/malty.icons.customer-question": "npm:^0.1.1"
-    "@carlsberg/malty.icons.customers": "npm:^0.1.1"
-    "@carlsberg/malty.icons.data-transfer": "npm:^0.1.1"
-    "@carlsberg/malty.icons.diagonal-down-left": "npm:^0.1.1"
-    "@carlsberg/malty.icons.diagonal-down-right": "npm:^0.1.1"
-    "@carlsberg/malty.icons.diagonal-up-left": "npm:^0.1.1"
-    "@carlsberg/malty.icons.diagonal-up-right": "npm:^0.1.1"
-    "@carlsberg/malty.icons.diploma": "npm:^0.1.1"
-    "@carlsberg/malty.icons.diploma2": "npm:^0.1.1"
-    "@carlsberg/malty.icons.download": "npm:^0.1.1"
-    "@carlsberg/malty.icons.draughtmaster": "npm:^0.1.1"
-    "@carlsberg/malty.icons.edit": "npm:^0.1.1"
-    "@carlsberg/malty.icons.ellipsis-vertical": "npm:^0.1.1"
-    "@carlsberg/malty.icons.email": "npm:^0.1.1"
-    "@carlsberg/malty.icons.expand": "npm:^0.1.1"
-    "@carlsberg/malty.icons.external-link": "npm:^0.1.1"
-    "@carlsberg/malty.icons.eye-hide": "npm:^0.1.1"
-    "@carlsberg/malty.icons.eye-show": "npm:^0.1.1"
-    "@carlsberg/malty.icons.file": "npm:^0.1.1"
-    "@carlsberg/malty.icons.files-csv": "npm:^0.1.1"
-    "@carlsberg/malty.icons.files-json": "npm:^0.1.1"
-    "@carlsberg/malty.icons.files-pdf": "npm:^0.1.1"
-    "@carlsberg/malty.icons.files-xls": "npm:^0.1.1"
-    "@carlsberg/malty.icons.filters": "npm:^0.1.1"
-    "@carlsberg/malty.icons.flash": "npm:^0.1.1"
-    "@carlsberg/malty.icons.glass-goblet": "npm:^0.1.1"
-    "@carlsberg/malty.icons.glass-mug": "npm:^0.1.1"
-    "@carlsberg/malty.icons.glass-mug-empty": "npm:^0.1.1"
-    "@carlsberg/malty.icons.glass-weissbier": "npm:^0.1.1"
-    "@carlsberg/malty.icons.globe": "npm:^0.1.1"
-    "@carlsberg/malty.icons.headline": "npm:^0.1.1"
-    "@carlsberg/malty.icons.heart": "npm:^0.1.1"
-    "@carlsberg/malty.icons.heart-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.help": "npm:^0.1.1"
-    "@carlsberg/malty.icons.hide-menu": "npm:^0.1.1"
-    "@carlsberg/malty.icons.history": "npm:^0.1.1"
-    "@carlsberg/malty.icons.home": "npm:^0.1.1"
-    "@carlsberg/malty.icons.hop": "npm:^0.1.1"
-    "@carlsberg/malty.icons.image": "npm:^0.1.1"
-    "@carlsberg/malty.icons.information": "npm:^0.1.1"
-    "@carlsberg/malty.icons.italic": "npm:^0.1.1"
-    "@carlsberg/malty.icons.item-add": "npm:^0.1.1"
-    "@carlsberg/malty.icons.item-block": "npm:^0.1.1"
-    "@carlsberg/malty.icons.item-check": "npm:^0.1.1"
-    "@carlsberg/malty.icons.item-check-default": "npm:^0.1.1"
-    "@carlsberg/malty.icons.item-check-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.item-close": "npm:^0.1.1"
-    "@carlsberg/malty.icons.item-close-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.library": "npm:^0.1.1"
-    "@carlsberg/malty.icons.loading": "npm:^0.1.1"
-    "@carlsberg/malty.icons.location-ip": "npm:^0.1.1"
-    "@carlsberg/malty.icons.lock": "npm:^0.1.1"
-    "@carlsberg/malty.icons.lock-open": "npm:^0.1.1"
-    "@carlsberg/malty.icons.map": "npm:^0.1.1"
-    "@carlsberg/malty.icons.market": "npm:^0.1.1"
-    "@carlsberg/malty.icons.media-pause": "npm:^0.1.1"
-    "@carlsberg/malty.icons.media-play": "npm:^0.1.1"
-    "@carlsberg/malty.icons.media-sound": "npm:^0.1.1"
-    "@carlsberg/malty.icons.media-sound-off": "npm:^0.1.1"
-    "@carlsberg/malty.icons.media-stop": "npm:^0.1.1"
-    "@carlsberg/malty.icons.menu": "npm:^0.1.1"
-    "@carlsberg/malty.icons.menu-left": "npm:^0.1.1"
-    "@carlsberg/malty.icons.menu-right": "npm:^0.1.1"
-    "@carlsberg/malty.icons.minus": "npm:^0.1.1"
-    "@carlsberg/malty.icons.mobile": "npm:^0.1.1"
-    "@carlsberg/malty.icons.more": "npm:^0.1.1"
-    "@carlsberg/malty.icons.mouse": "npm:^0.1.1"
-    "@carlsberg/malty.icons.notepad": "npm:^0.1.1"
-    "@carlsberg/malty.icons.outlet": "npm:^0.1.1"
-    "@carlsberg/malty.icons.outlet-plus": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pack": "npm:^0.1.1"
-    "@carlsberg/malty.icons.package-keg": "npm:^0.1.1"
-    "@carlsberg/malty.icons.package-wholesaler": "npm:^0.1.1"
-    "@carlsberg/malty.icons.paint": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pallet": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pencil": "npm:^0.1.1"
-    "@carlsberg/malty.icons.phone-classic": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pilsner": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-active": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-churn": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-closed": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-inactive": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-indirect": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-labeling": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-parked": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-prospect": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pin-several": "npm:^0.1.1"
-    "@carlsberg/malty.icons.pint": "npm:^0.1.1"
-    "@carlsberg/malty.icons.plus": "npm:^0.1.1"
-    "@carlsberg/malty.icons.power": "npm:^0.1.1"
-    "@carlsberg/malty.icons.radiobutton-off": "npm:^0.1.1"
-    "@carlsberg/malty.icons.radiobutton-on": "npm:^0.1.1"
-    "@carlsberg/malty.icons.refresh": "npm:^0.1.1"
-    "@carlsberg/malty.icons.restaurant": "npm:^0.1.1"
-    "@carlsberg/malty.icons.retry": "npm:^0.1.1"
-    "@carlsberg/malty.icons.salesrep": "npm:^0.1.1"
-    "@carlsberg/malty.icons.save": "npm:^0.1.1"
-    "@carlsberg/malty.icons.search": "npm:^0.1.1"
-    "@carlsberg/malty.icons.search-user": "npm:^0.1.1"
-    "@carlsberg/malty.icons.sent": "npm:^0.1.1"
-    "@carlsberg/malty.icons.settings": "npm:^0.1.1"
-    "@carlsberg/malty.icons.share": "npm:^0.1.1"
-    "@carlsberg/malty.icons.shield-exclamation": "npm:^0.1.1"
-    "@carlsberg/malty.icons.shield-security": "npm:^0.1.1"
-    "@carlsberg/malty.icons.shop": "npm:^0.1.1"
-    "@carlsberg/malty.icons.sign-out": "npm:^0.1.1"
-    "@carlsberg/malty.icons.sort": "npm:^0.1.1"
-    "@carlsberg/malty.icons.speach-balloon": "npm:^0.1.1"
-    "@carlsberg/malty.icons.speach-balloon-complaint": "npm:^0.1.1"
-    "@carlsberg/malty.icons.speach-balloon-livechat": "npm:^0.1.1"
-    "@carlsberg/malty.icons.star": "npm:^0.1.1"
-    "@carlsberg/malty.icons.star-filled": "npm:^0.1.1"
-    "@carlsberg/malty.icons.survey": "npm:^0.1.1"
-    "@carlsberg/malty.icons.survey-check": "npm:^0.1.1"
-    "@carlsberg/malty.icons.survey-checkbox": "npm:^0.1.1"
-    "@carlsberg/malty.icons.survey-default": "npm:^0.1.1"
-    "@carlsberg/malty.icons.survey-trophy": "npm:^0.1.1"
-    "@carlsberg/malty.icons.sync": "npm:^0.1.1"
-    "@carlsberg/malty.icons.tap": "npm:^0.1.1"
-    "@carlsberg/malty.icons.tap-glass": "npm:^0.1.1"
-    "@carlsberg/malty.icons.technical-support": "npm:^0.1.1"
-    "@carlsberg/malty.icons.text": "npm:^0.1.1"
-    "@carlsberg/malty.icons.third-party": "npm:^0.1.1"
-    "@carlsberg/malty.icons.thumb-down": "npm:^0.1.1"
-    "@carlsberg/malty.icons.thumb-up": "npm:^0.1.1"
-    "@carlsberg/malty.icons.toggle-off": "npm:^0.1.1"
-    "@carlsberg/malty.icons.toggle-on": "npm:^0.1.1"
-    "@carlsberg/malty.icons.trash": "npm:^0.1.1"
-    "@carlsberg/malty.icons.trophy": "npm:^0.1.1"
-    "@carlsberg/malty.icons.truck": "npm:^0.1.1"
-    "@carlsberg/malty.icons.tulipe": "npm:^0.1.1"
-    "@carlsberg/malty.icons.twitter": "npm:^0.1.1"
-    "@carlsberg/malty.icons.underline": "npm:^0.1.1"
-    "@carlsberg/malty.icons.upload": "npm:^0.1.1"
-    "@carlsberg/malty.icons.view-grid": "npm:^0.1.1"
-    "@carlsberg/malty.icons.view-list": "npm:^0.1.1"
-    "@carlsberg/malty.icons.volume": "npm:^0.1.1"
-    "@carlsberg/malty.icons.wheat": "npm:^0.1.1"
-    "@carlsberg/malty.icons.world": "npm:^0.1.1"
-    "@carlsberg/malty.utils.space": "npm:^0.0.3"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.icons.add-content": "npm:^0.2.0"
+    "@carlsberg/malty.icons.add-event": "npm:^0.2.0"
+    "@carlsberg/malty.icons.add-project": "npm:^0.2.0"
+    "@carlsberg/malty.icons.added-document": "npm:^0.2.0"
+    "@carlsberg/malty.icons.alert": "npm:^0.2.0"
+    "@carlsberg/malty.icons.alert-connection": "npm:^0.2.0"
+    "@carlsberg/malty.icons.app-dropbox": "npm:^0.2.0"
+    "@carlsberg/malty.icons.app-facebook": "npm:^0.2.0"
+    "@carlsberg/malty.icons.app-github": "npm:^0.2.0"
+    "@carlsberg/malty.icons.app-instagram": "npm:^0.2.0"
+    "@carlsberg/malty.icons.app-linkedin": "npm:^0.2.0"
+    "@carlsberg/malty.icons.app-powerbi": "npm:^0.2.0"
+    "@carlsberg/malty.icons.app-skype": "npm:^0.2.0"
+    "@carlsberg/malty.icons.arrange": "npm:^0.2.0"
+    "@carlsberg/malty.icons.arrow-small-down": "npm:^0.2.0"
+    "@carlsberg/malty.icons.arrow-small-left": "npm:^0.2.0"
+    "@carlsberg/malty.icons.arrow-small-right": "npm:^0.2.0"
+    "@carlsberg/malty.icons.arrow-small-up": "npm:^0.2.0"
+    "@carlsberg/malty.icons.at": "npm:^0.2.0"
+    "@carlsberg/malty.icons.attachment": "npm:^0.2.0"
+    "@carlsberg/malty.icons.balance": "npm:^0.2.0"
+    "@carlsberg/malty.icons.bell": "npm:^0.2.0"
+    "@carlsberg/malty.icons.bell-notification": "npm:^0.2.0"
+    "@carlsberg/malty.icons.bold": "npm:^0.2.0"
+    "@carlsberg/malty.icons.book": "npm:^0.2.0"
+    "@carlsberg/malty.icons.bookmark": "npm:^0.2.0"
+    "@carlsberg/malty.icons.bookmark-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.bottle": "npm:^0.2.0"
+    "@carlsberg/malty.icons.bottle-craft": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar-autumn": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar-confirm": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar-events": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar-spring": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar-summer": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar-whole-year": "npm:^0.2.0"
+    "@carlsberg/malty.icons.calendar-winter": "npm:^0.2.0"
+    "@carlsberg/malty.icons.camera": "npm:^0.2.0"
+    "@carlsberg/malty.icons.can": "npm:^0.2.0"
+    "@carlsberg/malty.icons.card": "npm:^0.2.0"
+    "@carlsberg/malty.icons.card-plus": "npm:^0.2.0"
+    "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.carlsberg-outlined": "npm:^0.2.0"
+    "@carlsberg/malty.icons.carret-down": "npm:^0.2.0"
+    "@carlsberg/malty.icons.carret-left": "npm:^0.2.0"
+    "@carlsberg/malty.icons.carret-move": "npm:^0.2.0"
+    "@carlsberg/malty.icons.carret-right": "npm:^0.2.0"
+    "@carlsberg/malty.icons.carret-up": "npm:^0.2.0"
+    "@carlsberg/malty.icons.cart": "npm:^0.2.0"
+    "@carlsberg/malty.icons.cart-added": "npm:^0.2.0"
+    "@carlsberg/malty.icons.cart-label": "npm:^0.2.0"
+    "@carlsberg/malty.icons.cart-notification": "npm:^0.2.0"
+    "@carlsberg/malty.icons.change": "npm:^0.2.0"
+    "@carlsberg/malty.icons.check": "npm:^0.2.0"
+    "@carlsberg/malty.icons.checkbox-check": "npm:^0.2.0"
+    "@carlsberg/malty.icons.checkbox-check-alternate": "npm:^0.2.0"
+    "@carlsberg/malty.icons.checkbox-check-outline": "npm:^0.2.0"
+    "@carlsberg/malty.icons.checkbox-check-square": "npm:^0.2.0"
+    "@carlsberg/malty.icons.checkbox-empty": "npm:^0.2.0"
+    "@carlsberg/malty.icons.chevron-down": "npm:^0.2.0"
+    "@carlsberg/malty.icons.chevron-left": "npm:^0.2.0"
+    "@carlsberg/malty.icons.chevron-right": "npm:^0.2.0"
+    "@carlsberg/malty.icons.chevron-up": "npm:^0.2.0"
+    "@carlsberg/malty.icons.clock": "npm:^0.2.0"
+    "@carlsberg/malty.icons.clock-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.clone": "npm:^0.2.0"
+    "@carlsberg/malty.icons.close": "npm:^0.2.0"
+    "@carlsberg/malty.icons.coin-dollar": "npm:^0.2.0"
+    "@carlsberg/malty.icons.coin-euro": "npm:^0.2.0"
+    "@carlsberg/malty.icons.compass": "npm:^0.2.0"
+    "@carlsberg/malty.icons.compass-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.connected": "npm:^0.2.0"
+    "@carlsberg/malty.icons.contract": "npm:^0.2.0"
+    "@carlsberg/malty.icons.cookies": "npm:^0.2.0"
+    "@carlsberg/malty.icons.coupon": "npm:^0.2.0"
+    "@carlsberg/malty.icons.customer": "npm:^0.2.0"
+    "@carlsberg/malty.icons.customer-add": "npm:^0.2.0"
+    "@carlsberg/malty.icons.customer-question": "npm:^0.2.0"
+    "@carlsberg/malty.icons.customers": "npm:^0.2.0"
+    "@carlsberg/malty.icons.data-transfer": "npm:^0.2.0"
+    "@carlsberg/malty.icons.diagonal-down-left": "npm:^0.2.0"
+    "@carlsberg/malty.icons.diagonal-down-right": "npm:^0.2.0"
+    "@carlsberg/malty.icons.diagonal-up-left": "npm:^0.2.0"
+    "@carlsberg/malty.icons.diagonal-up-right": "npm:^0.2.0"
+    "@carlsberg/malty.icons.diploma": "npm:^0.2.0"
+    "@carlsberg/malty.icons.diploma2": "npm:^0.2.0"
+    "@carlsberg/malty.icons.download": "npm:^0.2.0"
+    "@carlsberg/malty.icons.draughtmaster": "npm:^0.2.0"
+    "@carlsberg/malty.icons.edit": "npm:^0.2.0"
+    "@carlsberg/malty.icons.ellipsis-vertical": "npm:^0.2.0"
+    "@carlsberg/malty.icons.email": "npm:^0.2.0"
+    "@carlsberg/malty.icons.expand": "npm:^0.2.0"
+    "@carlsberg/malty.icons.external-link": "npm:^0.2.0"
+    "@carlsberg/malty.icons.eye-hide": "npm:^0.2.0"
+    "@carlsberg/malty.icons.eye-show": "npm:^0.2.0"
+    "@carlsberg/malty.icons.file": "npm:^0.2.0"
+    "@carlsberg/malty.icons.files-csv": "npm:^0.2.0"
+    "@carlsberg/malty.icons.files-json": "npm:^0.2.0"
+    "@carlsberg/malty.icons.files-pdf": "npm:^0.2.0"
+    "@carlsberg/malty.icons.files-xls": "npm:^0.2.0"
+    "@carlsberg/malty.icons.filters": "npm:^0.2.0"
+    "@carlsberg/malty.icons.flash": "npm:^0.2.0"
+    "@carlsberg/malty.icons.glass-goblet": "npm:^0.2.0"
+    "@carlsberg/malty.icons.glass-mug": "npm:^0.2.0"
+    "@carlsberg/malty.icons.glass-mug-empty": "npm:^0.2.0"
+    "@carlsberg/malty.icons.glass-weissbier": "npm:^0.2.0"
+    "@carlsberg/malty.icons.globe": "npm:^0.2.0"
+    "@carlsberg/malty.icons.headline": "npm:^0.2.0"
+    "@carlsberg/malty.icons.heart": "npm:^0.2.0"
+    "@carlsberg/malty.icons.heart-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.help": "npm:^0.2.0"
+    "@carlsberg/malty.icons.hide-menu": "npm:^0.2.0"
+    "@carlsberg/malty.icons.history": "npm:^0.2.0"
+    "@carlsberg/malty.icons.home": "npm:^0.2.0"
+    "@carlsberg/malty.icons.hop": "npm:^0.2.0"
+    "@carlsberg/malty.icons.image": "npm:^0.2.0"
+    "@carlsberg/malty.icons.information": "npm:^0.2.0"
+    "@carlsberg/malty.icons.italic": "npm:^0.2.0"
+    "@carlsberg/malty.icons.item-add": "npm:^0.2.0"
+    "@carlsberg/malty.icons.item-block": "npm:^0.2.0"
+    "@carlsberg/malty.icons.item-check": "npm:^0.2.0"
+    "@carlsberg/malty.icons.item-check-default": "npm:^0.2.0"
+    "@carlsberg/malty.icons.item-check-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.item-close": "npm:^0.2.0"
+    "@carlsberg/malty.icons.item-close-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.library": "npm:^0.2.0"
+    "@carlsberg/malty.icons.loading": "npm:^0.2.0"
+    "@carlsberg/malty.icons.location-ip": "npm:^0.2.0"
+    "@carlsberg/malty.icons.lock": "npm:^0.2.0"
+    "@carlsberg/malty.icons.lock-open": "npm:^0.2.0"
+    "@carlsberg/malty.icons.map": "npm:^0.2.0"
+    "@carlsberg/malty.icons.market": "npm:^0.2.0"
+    "@carlsberg/malty.icons.media-pause": "npm:^0.2.0"
+    "@carlsberg/malty.icons.media-play": "npm:^0.2.0"
+    "@carlsberg/malty.icons.media-sound": "npm:^0.2.0"
+    "@carlsberg/malty.icons.media-sound-off": "npm:^0.2.0"
+    "@carlsberg/malty.icons.media-stop": "npm:^0.2.0"
+    "@carlsberg/malty.icons.menu": "npm:^0.2.0"
+    "@carlsberg/malty.icons.menu-left": "npm:^0.2.0"
+    "@carlsberg/malty.icons.menu-right": "npm:^0.2.0"
+    "@carlsberg/malty.icons.minus": "npm:^0.2.0"
+    "@carlsberg/malty.icons.mobile": "npm:^0.2.0"
+    "@carlsberg/malty.icons.more": "npm:^0.2.0"
+    "@carlsberg/malty.icons.mouse": "npm:^0.2.0"
+    "@carlsberg/malty.icons.notepad": "npm:^0.2.0"
+    "@carlsberg/malty.icons.outlet": "npm:^0.2.0"
+    "@carlsberg/malty.icons.outlet-plus": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pack": "npm:^0.2.0"
+    "@carlsberg/malty.icons.package-keg": "npm:^0.2.0"
+    "@carlsberg/malty.icons.package-wholesaler": "npm:^0.2.0"
+    "@carlsberg/malty.icons.paint": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pallet": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pencil": "npm:^0.2.0"
+    "@carlsberg/malty.icons.phone-classic": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pilsner": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-active": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-churn": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-closed": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-inactive": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-indirect": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-labeling": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-parked": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-prospect": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pin-several": "npm:^0.2.0"
+    "@carlsberg/malty.icons.pint": "npm:^0.2.0"
+    "@carlsberg/malty.icons.plus": "npm:^0.2.0"
+    "@carlsberg/malty.icons.power": "npm:^0.2.0"
+    "@carlsberg/malty.icons.radiobutton-off": "npm:^0.2.0"
+    "@carlsberg/malty.icons.radiobutton-on": "npm:^0.2.0"
+    "@carlsberg/malty.icons.refresh": "npm:^0.2.0"
+    "@carlsberg/malty.icons.restaurant": "npm:^0.2.0"
+    "@carlsberg/malty.icons.retry": "npm:^0.2.0"
+    "@carlsberg/malty.icons.salesrep": "npm:^0.2.0"
+    "@carlsberg/malty.icons.save": "npm:^0.2.0"
+    "@carlsberg/malty.icons.search": "npm:^0.2.0"
+    "@carlsberg/malty.icons.search-user": "npm:^0.2.0"
+    "@carlsberg/malty.icons.sent": "npm:^0.2.0"
+    "@carlsberg/malty.icons.settings": "npm:^0.2.0"
+    "@carlsberg/malty.icons.share": "npm:^0.2.0"
+    "@carlsberg/malty.icons.shield-exclamation": "npm:^0.2.0"
+    "@carlsberg/malty.icons.shield-security": "npm:^0.2.0"
+    "@carlsberg/malty.icons.shop": "npm:^0.2.0"
+    "@carlsberg/malty.icons.sign-out": "npm:^0.2.0"
+    "@carlsberg/malty.icons.sort": "npm:^0.2.0"
+    "@carlsberg/malty.icons.speach-balloon": "npm:^0.2.0"
+    "@carlsberg/malty.icons.speach-balloon-complaint": "npm:^0.2.0"
+    "@carlsberg/malty.icons.speach-balloon-livechat": "npm:^0.2.0"
+    "@carlsberg/malty.icons.star": "npm:^0.2.0"
+    "@carlsberg/malty.icons.star-filled": "npm:^0.2.0"
+    "@carlsberg/malty.icons.survey": "npm:^0.2.0"
+    "@carlsberg/malty.icons.survey-check": "npm:^0.2.0"
+    "@carlsberg/malty.icons.survey-checkbox": "npm:^0.2.0"
+    "@carlsberg/malty.icons.survey-default": "npm:^0.2.0"
+    "@carlsberg/malty.icons.survey-trophy": "npm:^0.2.0"
+    "@carlsberg/malty.icons.sync": "npm:^0.2.0"
+    "@carlsberg/malty.icons.tap": "npm:^0.2.0"
+    "@carlsberg/malty.icons.tap-glass": "npm:^0.2.0"
+    "@carlsberg/malty.icons.technical-support": "npm:^0.2.0"
+    "@carlsberg/malty.icons.text": "npm:^0.2.0"
+    "@carlsberg/malty.icons.third-party": "npm:^0.2.0"
+    "@carlsberg/malty.icons.thumb-down": "npm:^0.2.0"
+    "@carlsberg/malty.icons.thumb-up": "npm:^0.2.0"
+    "@carlsberg/malty.icons.toggle-off": "npm:^0.2.0"
+    "@carlsberg/malty.icons.toggle-on": "npm:^0.2.0"
+    "@carlsberg/malty.icons.trash": "npm:^0.2.0"
+    "@carlsberg/malty.icons.trophy": "npm:^0.2.0"
+    "@carlsberg/malty.icons.truck": "npm:^0.2.0"
+    "@carlsberg/malty.icons.tulipe": "npm:^0.2.0"
+    "@carlsberg/malty.icons.twitter": "npm:^0.2.0"
+    "@carlsberg/malty.icons.underline": "npm:^0.2.0"
+    "@carlsberg/malty.icons.upload": "npm:^0.2.0"
+    "@carlsberg/malty.icons.view-grid": "npm:^0.2.0"
+    "@carlsberg/malty.icons.view-list": "npm:^0.2.0"
+    "@carlsberg/malty.icons.volume": "npm:^0.2.0"
+    "@carlsberg/malty.icons.wheat": "npm:^0.2.0"
+    "@carlsberg/malty.icons.world": "npm:^0.2.0"
+    "@carlsberg/malty.utils.space": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
@@ -7477,13 +7477,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.colors@npm:^0.0.7, @carlsberg/malty.utils.colors@workspace:malty/utils/colors":
+"@carlsberg/malty.utils.colors@npm:^0.1.0, @carlsberg/malty.utils.colors@workspace:malty/utils/colors":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.colors@workspace:malty/utils/colors"
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.consts@npm:^0.0.3, @carlsberg/malty.utils.consts@workspace:malty/utils/consts":
+"@carlsberg/malty.utils.consts@npm:^0.1.0, @carlsberg/malty.utils.consts@workspace:malty/utils/consts":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.consts@workspace:malty/utils/consts"
   dependencies:
@@ -7500,7 +7500,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.helpers@npm:^0.0.3, @carlsberg/malty.utils.helpers@workspace:malty/utils/helpers":
+"@carlsberg/malty.utils.helpers@npm:^0.1.0, @carlsberg/malty.utils.helpers@workspace:malty/utils/helpers":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.helpers@workspace:malty/utils/helpers"
   dependencies:
@@ -7517,13 +7517,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.hooks@npm:^0.0.5, @carlsberg/malty.utils.hooks@workspace:malty/utils/hooks":
+"@carlsberg/malty.utils.hooks@npm:^0.1.0, @carlsberg/malty.utils.hooks@workspace:malty/utils/hooks":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.hooks@workspace:malty/utils/hooks"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
-    "@carlsberg/malty.utils.helpers": "npm:^0.0.3"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.utils.helpers": "npm:^0.1.0"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
     "@types/react": "npm:^17.0.8"
@@ -7536,7 +7536,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.mixins@npm:^0.0.3, @carlsberg/malty.utils.mixins@workspace:malty/utils/mixins":
+"@carlsberg/malty.utils.mixins@npm:^0.1.0, @carlsberg/malty.utils.mixins@workspace:malty/utils/mixins":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.mixins@workspace:malty/utils/mixins"
   dependencies:
@@ -7555,7 +7555,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.space@npm:^0.0.3, @carlsberg/malty.utils.space@workspace:malty/utils/space":
+"@carlsberg/malty.utils.space@npm:^0.1.0, @carlsberg/malty.utils.space@workspace:malty/utils/space":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.space@workspace:malty/utils/space"
   dependencies:
@@ -7573,12 +7573,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.test@npm:^0.0.19, @carlsberg/malty.utils.test@workspace:malty/utils/test":
+"@carlsberg/malty.utils.test@npm:^0.1.0, @carlsberg/malty.utils.test@workspace:malty/utils/test":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.test@workspace:malty/utils/test"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.0.44"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
@@ -7590,7 +7590,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.types@npm:^0.0.4, @carlsberg/malty.utils.types@workspace:malty/utils/types":
+"@carlsberg/malty.utils.types@npm:^0.1.0, @carlsberg/malty.utils.types@workspace:malty/utils/types":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.types@workspace:malty/utils/types"
   dependencies:

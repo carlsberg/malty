@@ -1,6 +1,6 @@
 {
   "name": "@carlsberg/malty.molecules.footer",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -18,19 +18,19 @@
     "test": "jest"
   },
   "dependencies": {
-    "@carlsberg/malty.atoms.base-icon": "^0.0.3",
-    "@carlsberg/malty.atoms.button": "^0.1.4",
-    "@carlsberg/malty.atoms.headline": "^0.0.60",
-    "@carlsberg/malty.atoms.link": "^0.1.7",
-    "@carlsberg/malty.atoms.text": "^0.0.70",
-    "@carlsberg/malty.theme.malty-theme-provider": "^0.0.44",
+    "@carlsberg/malty.atoms.base-icon": "^0.1.0",
+    "@carlsberg/malty.atoms.button": "^0.2.0",
+    "@carlsberg/malty.atoms.headline": "^0.1.0",
+    "@carlsberg/malty.atoms.link": "^0.2.0",
+    "@carlsberg/malty.atoms.text": "^0.1.0",
+    "@carlsberg/malty.theme.malty-theme-provider": "^0.1.0",
     "core-js": "^3.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
-    "@carlsberg/malty.utils.all-icons": "^0.0.3",
-    "@carlsberg/malty.utils.test": "^0.0.19",
+    "@carlsberg/malty.utils.all-icons": "^0.1.0",
+    "@carlsberg/malty.utils.test": "^0.1.0",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@types/jest": "^26.0.0",
