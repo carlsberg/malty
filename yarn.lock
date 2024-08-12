@@ -1827,7 +1827,7 @@ __metadata:
     eslint-plugin-import: "npm:^2.27.5"
     eslint-plugin-jest: "npm:^28.6.0"
     eslint-plugin-jsx-a11y: "npm:^6.7.1"
-    eslint-plugin-prettier: "npm:^4.2.1"
+    eslint-plugin-prettier: "npm:^5.2.1"
     eslint-plugin-react: "npm:^7.32.2"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-testing-library: "npm:^5.10.2"
@@ -8832,6 +8832,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pkgr/core@npm:^0.1.0":
+  version: 0.1.1
+  resolution: "@pkgr/core@npm:0.1.1"
+  checksum: 10c0/3f7536bc7f57320ab2cf96f8973664bef624710c403357429fbf680a5c3b4843c1dbd389bb43daa6b1f6f1f007bb082f5abcb76bb2b5dc9f421647743b71d3d8
+  languageName: node
+  linkType: hard
+
 "@pmmmwh/react-refresh-webpack-plugin@npm:^0.5.11":
   version: 0.5.13
   resolution: "@pmmmwh/react-refresh-webpack-plugin@npm:0.5.13"
@@ -15246,18 +15253,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^4.2.1":
-  version: 4.2.1
-  resolution: "eslint-plugin-prettier@npm:4.2.1"
+"eslint-plugin-prettier@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "eslint-plugin-prettier@npm:5.2.1"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
+    synckit: "npm:^0.9.1"
   peerDependencies:
-    eslint: ">=7.28.0"
-    prettier: ">=2.0.0"
+    "@types/eslint": ">=8.0.0"
+    eslint: ">=8.0.0"
+    eslint-config-prettier: "*"
+    prettier: ">=3.0.0"
   peerDependenciesMeta:
+    "@types/eslint":
+      optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 10c0/c5e7316baeab9d96ac39c279f16686e837277e5c67a8006c6588bcff317edffdc1532fb580441eb598bc6770f6444006756b68a6575dff1cd85ebe227252d0b7
+  checksum: 10c0/4bc8bbaf5bb556c9c501dcdff369137763c49ccaf544f9fa91400360ed5e3a3f1234ab59690e06beca5b1b7e6f6356978cdd3b02af6aba3edea2ffe69ca6e8b2
   languageName: node
   linkType: hard
 
@@ -23094,6 +23106,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"synckit@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "synckit@npm:0.9.1"
+  dependencies:
+    "@pkgr/core": "npm:^0.1.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/d8b89e1bf30ba3ffb469d8418c836ad9c0c062bf47028406b4d06548bc66af97155ea2303b96c93bf5c7c0f0d66153a6fbd6924c76521b434e6a9898982abc2e
+  languageName: node
+  linkType: hard
+
 "tapable@npm:^2.0.0, tapable@npm:^2.1.1, tapable@npm:^2.2.0, tapable@npm:^2.2.1":
   version: 2.2.1
   resolution: "tapable@npm:2.2.1"
@@ -23532,6 +23554,13 @@ __metadata:
   version: 2.6.2
   resolution: "tslib@npm:2.6.2"
   checksum: 10c0/e03a8a4271152c8b26604ed45535954c0a45296e32445b4b87f8a5abdb2421f40b59b4ca437c4346af0f28179780d604094eb64546bee2019d903d01c6c19bdb
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.6.2":
+  version: 2.6.3
+  resolution: "tslib@npm:2.6.3"
+  checksum: 10c0/2598aef53d9dbe711af75522464b2104724d6467b26a60f2bdac8297d2b5f1f6b86a71f61717384aa8fd897240467aaa7bcc36a0700a0faf751293d1331db39a
   languageName: node
   linkType: hard
 
