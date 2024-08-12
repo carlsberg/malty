@@ -1,5 +1,5 @@
-import { CarlsbergFilled } from '@carlsberggbs/malty.icons.carlsberg-filled';
-import { render } from '@carlsberggbs/malty.utils.test';
+import { CarlsbergFilled } from '@carlsberg/malty.icons.carlsberg-filled';
+import { render } from '@carlsberg/malty.utils.test';
 import { screen } from '@testing-library/react';
 import React from 'react';
 import { Pill } from './Pill';

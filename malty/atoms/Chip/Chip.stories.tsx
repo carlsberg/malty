@@ -1,6 +1,6 @@
-import { Alert } from '@carlsberggbs/malty.icons.alert';
-import { allIconsStoryOptions } from '@carlsberggbs/malty.utils.all-icons';
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { Alert } from '@carlsberg/malty.icons.alert';
+import { allIconsStoryOptions } from '@carlsberg/malty.utils.all-icons';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Chip } from './Chip';
@@ -17,7 +17,7 @@ const meta: Meta<ChipProps> = {
   component: Chip,
   parameters: {
     importObject: 'Chip',
-    importPath: '@carlsberggbs/malty.atoms.chip'
+    importPath: '@carlsberg/malty.atoms.chip'
   },
   render: (args) => <ControlledChip {...args} />,
   argTypes: {

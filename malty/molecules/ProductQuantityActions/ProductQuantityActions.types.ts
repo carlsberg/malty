@@ -1,7 +1,7 @@
-import { ButtonProps } from '@carlsberggbs/malty.atoms.button';
-import { InputProps } from '@carlsberggbs/malty.atoms.input';
-import { TextColor } from '@carlsberggbs/malty.atoms.text';
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { ButtonProps } from '@carlsberg/malty.atoms.button';
+import { InputProps } from '@carlsberg/malty.atoms.input';
+import { TextColor } from '@carlsberg/malty.atoms.text';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 
 export interface Stock {
   label: string;

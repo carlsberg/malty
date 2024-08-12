@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 
 export interface PaginationProps extends SpaceProps {
   count: number;
