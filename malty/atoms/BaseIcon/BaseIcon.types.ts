@@ -1,4 +1,4 @@
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 import { ReactElement } from 'react';
 
 interface BaseIconSVGProps {
@@ -40,7 +40,6 @@ export enum IconColor {
   SuccessLight = 'success-light',
   Fail = 'fail',
   FailLight = 'fail-light',
-  Disabled = 'disabled',
   DisableDark = 'disable-dark-theme',
   DisableLight = 'disable-light-theme'
 }

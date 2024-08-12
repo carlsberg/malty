@@ -1,47 +1,61 @@
-import { space } from '@carlsberggbs/malty.utils.space';
+import { space } from '@carlsberg/malty.utils.space';
 import styled, { css } from 'styled-components';
-import { PillSize, StyledPillProps } from './Pill.types';
+import { PillSize, PillType, StyledPillProps } from './Pill.types';
 
 export const StyledPill = styled.div<StyledPillProps>`
-  font-family: 'Montserrat', sans-serif;
-  font-size: ${({ $fontSize }) => $fontSize};
-  font-weight: ${({ $fontWeight }) => $fontWeight};
-  background-color: ${({ $backgroundColor }) => $backgroundColor};
-  line-height: ${({ $lineHeight }) => $lineHeight};
-  color: ${({ $textColor }) => $textColor};
+  font-family: ${({ fontFamily }) => `${fontFamily}`};
+  font-size: ${({ fontSize }) => `${fontSize}`};
+  font-weight: bold;
+  background-color: ${({ type, theme }) => {
+    if (type === PillType.Primary) {
+      return theme.colors.theme.themePrimary.value;
+    }
+    if (type === PillType.Secondary) {
+      return theme.colors.theme.themeSecondary.value;
+    }
+    if (type === PillType.Archive) {
+      return theme.colors.colours.support[40].value;
+    }
+    return theme.colors.colours.system[type].value;
+  }};
+  color: ${({ textColor }) => textColor};
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: ${({ $size }) => $size};
-  min-width: ${({ $size }) => $size};
+  height: ${({ size }) => `${size}`};
+  min-width: ${({ size }) => `${size}`};
   box-sizing: border-box;
-  gap: ${({ $gap }) => $gap};
-  padding: ${({ $padding }) => $padding};
-  text-transform: ${({ $isUppercase }) => ($isUppercase ? 'uppercase' : 'initial')};
-  border-radius: ${({ theme }) => theme.borderRadiusV2.round};
+  transition: background-color 0.25s ease-in-out;
+  border-radius: ${({ size }) => `${size}`};
+  padding: 0 ${({ padding }) => padding};
+  gap: ${({ gap }) => gap};
+  text-transform: ${({ isUppercase }) => (isUppercase ? 'uppercase' : 'initial')};
 
-  ${({ $hasIcon, $hasText, $pillSize, theme }) => {
-    let padding;
-    let gap;
+  ${({ hasIcon, hasText, pillSize, theme }) => {
+    let paddingLeft;
 
-    if ($hasIcon && !$hasText) {
-      if ($pillSize === PillSize.XS) {
-        padding = theme.sizesV2['4xs'];
-        gap = theme.sizesV2['5xs'];
-      }
-      if ($pillSize === PillSize.S) {
-        padding = theme.sizesV2['4xs'];
-        gap = theme.sizesV2['4xs'];
-      }
-      if ($pillSize === PillSize.M) {
-        padding = theme.sizesV2['4xs'];
-        gap = theme.sizesV2['3xs'];
+    if (hasIcon && !hasText) {
+      return css`
+        padding: 0;
+      `;
+    }
+
+    if (hasIcon && hasText) {
+      switch (pillSize) {
+        case PillSize.ExtraSmall:
+          paddingLeft = theme.sizes['4xs'].value;
+          break;
+        case PillSize.Small:
+          paddingLeft = theme.sizes['3xs'].value;
+          break;
+        default:
+          paddingLeft = theme.sizes['2xs'].value;
+          break;
       }
     }
 
     return css`
-      padding: ${padding};
-      gap: ${gap};
+      padding-left: ${paddingLeft};
     `;
   }}
 

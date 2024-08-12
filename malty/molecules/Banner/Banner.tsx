@@ -1,8 +1,8 @@
-import { Button } from '@carlsberggbs/malty.atoms.button';
-import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberggbs/malty.atoms.headline';
-import { Pill, PillProps, PillSize, PillType } from '@carlsberggbs/malty.atoms.pill';
-import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { Button } from '@carlsberg/malty.atoms.button';
+import { Headline, HeadlineColor, HeadlineStyle } from '@carlsberg/malty.atoms.headline';
+import { Pill, PillProps, PillSize, PillType } from '@carlsberg/malty.atoms.pill';
+import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledBannerContainer, StyledBannerContent, StyledBannerImage, StyledButtonsWrapper } from './Banner.styled';
@@ -26,7 +26,7 @@ export const Banner = ({
   const labelProps: PillProps = {
     text: label && typeof label === 'string' ? label : '',
     type: negative ? PillType.Archive : PillType.Primary,
-    size: PillSize.M,
+    size: PillSize.Medium,
     icon: undefined
   };
   if (label && typeof label === 'object') {

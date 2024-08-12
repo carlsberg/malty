@@ -1,4 +1,4 @@
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Image, ImageProps } from '.';
@@ -9,7 +9,7 @@ const meta: Meta<ImageProps> = {
   component: Image,
   parameters: {
     importObject: 'Image',
-    importPath: '@carlsberggbs/malty.atoms.image'
+    importPath: '@carlsberg/malty.atoms.image'
   },
   argTypes: {
     cover: {

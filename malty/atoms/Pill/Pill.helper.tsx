@@ -1,91 +1,53 @@
-import { IconColor, IconSize } from '@carlsberggbs/malty.atoms.base-icon';
-import { defaultTheme } from '@carlsberggbs/malty.theme.new-malty-theme-provider';
+import { IconColor, IconSize } from '@carlsberg/malty.atoms.base-icon';
+import { defaultTheme } from '@carlsberg/malty.theme.new-malty-theme-provider';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import { IconTextColorProps, PillSize, PillType, UsePillBackgroundColorProps, UsePillStylesProps } from './Pill.types';
+import { IconTextColorProps, PillSize, PillType, UsePillStylesProps } from './Pill.types';
 
 export const usePillStyles = ({ size }: UsePillStylesProps) => {
   const theme = useContext(ThemeContext) || defaultTheme;
 
   const pillStyles = {
-    [PillSize.XS]: {
-      numSize: theme.sizesV2.s,
-      fontWeight: theme.typographyV2.montserrat.body[10].semibold.fontWeight,
-      lineHeight: theme.typographyV2.montserrat.body[10].semibold.lineHeight,
-      fontSize: theme.typographyV2.montserrat.body[10].semibold.fontSize,
+    [PillSize.ExtraSmall]: {
+      numSize: theme.sizes.ms.value,
+      fontSize: theme.typography.desktop.text.tiny_bold['font-size'].value,
+      fontFamily: theme.typography.desktop.text.tiny_bold['font-family'].value,
       iconSize: IconSize.ExtraSmall,
-      padding: `${theme.sizesV2['4xs']} ${theme.sizesV2['3xs']}`,
-      gap: theme.sizesV2['5xs']
+      padding: theme.sizes['3xs'].value,
+      gap: theme.sizes['4xs'].value
     },
-    [PillSize.S]: {
-      numSize: theme.sizesV2.m,
-      fontWeight: theme.typographyV2.montserrat.body[10].semibold.fontWeight,
-      lineHeight: theme.typographyV2.montserrat.body[10].semibold.lineHeight,
-      fontSize: theme.typographyV2.montserrat.body[10].semibold.fontSize,
+    [PillSize.Small]: {
+      numSize: theme.sizes.m.value,
+      fontSize: theme.typography.desktop.text.tiny_bold['font-size'].value,
+      fontFamily: theme.typography.desktop.text.tiny_bold['font-family'].value,
       iconSize: IconSize.Small,
-      padding: `${theme.sizesV2['4xs']} ${theme.sizesV2['3xs']}`,
-      gap: theme.sizesV2['4xs']
+      padding: theme.sizes['2xs'].value,
+      gap: theme.sizes['3xs'].value
     },
-    [PillSize.M]: {
-      numSize: theme.sizesV2.xl,
-      fontWeight: theme.typographyV2.montserrat.body[14].semibold.fontWeight,
-      lineHeight: theme.typographyV2.montserrat.body[14].semibold.lineHeight,
-      fontSize: theme.typographyV2.montserrat.body[14].semibold.fontSize,
+    [PillSize.Medium]: {
+      numSize: theme.sizes.l.value,
+      fontSize: theme.typography.desktop.text['medium-small_bold']['font-size'].value,
+      fontFamily: theme.typography.desktop.text['medium-small_bold']['font-family'].value,
       iconSize: IconSize.Medium,
-      padding: `${theme.sizesV2['4xs']} ${theme.sizesV2['2xs']}`,
-      gap: theme.sizesV2['4xs']
+      padding: theme.sizes.xs.value,
+      gap: theme.sizes['2xs'].value
     }
   };
 
   return pillStyles[size];
 };
 
-// TODO: Refactor this when the icons are reviewed with new tokens
-export const useIconColor = ({ type }: IconTextColorProps) => {
-  if (type === PillType.Archive || type === PillType.Success || type === PillType.Alert) {
+export const useIconTextColor = ({ type }: IconTextColorProps) => {
+  if (
+    type === PillType.Archive ||
+    type === PillType.Success ||
+    type === PillType.SuccessLight ||
+    type === PillType.AlertStrong ||
+    type === PillType.AlertLight ||
+    type === PillType.NotificationLight
+  ) {
     return IconColor.DigitalBlack;
   }
 
-  if (type === PillType.Disabled) {
-    return IconColor.Disabled;
-  }
-
   return IconColor.White;
-};
-
-export const useTextColor = ({ type }: IconTextColorProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-
-  if (type === PillType.Archive || type === PillType.Success || type === PillType.Alert) {
-    return theme.colorsV2.default.content[500];
-  }
-
-  if (type === PillType.Disabled) {
-    return theme.colorsV2.default.foreground.primary['interactive--disabled'];
-  }
-
-  return theme.colorsV2.default.content[100];
-};
-
-export const usePillBackgroundColor = ({ type }: UsePillBackgroundColorProps) => {
-  const theme = useContext(ThemeContext) || defaultTheme;
-
-  switch (type) {
-    case PillType.Success:
-      return theme.colorsV2.default.success[500];
-    case PillType.Alert:
-      return theme.colorsV2.default.warning[500];
-    case PillType.Fail:
-      return theme.colorsV2.default.error[600];
-    case PillType.Notification:
-      return theme.colorsV2.default.information[600];
-    case PillType.Archive:
-      return theme.colorsV2.default.primary[200];
-    case PillType.Secondary:
-      return theme.colorsV2.default.primary[400];
-    case PillType.Disabled:
-      return theme.colorsV2.default.background.primary['interactive--disabled'];
-    default:
-      return theme.colorsV2.default.content[500];
-  }
 };

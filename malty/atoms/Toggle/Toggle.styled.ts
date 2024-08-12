@@ -1,5 +1,5 @@
-import { Label } from '@carlsberggbs/malty.atoms.label';
-import { space, SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { Label } from '@carlsberg/malty.atoms.label';
+import { space, SpaceProps } from '@carlsberg/malty.utils.space';
 import styled, { css } from 'styled-components';
 
 export const StyledWrapper = styled.div<SpaceProps>`

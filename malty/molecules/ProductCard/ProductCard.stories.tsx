@@ -1,14 +1,14 @@
-import { IconColor } from '@carlsberggbs/malty.atoms.base-icon';
-import { ButtonColor, ButtonStyle } from '@carlsberggbs/malty.atoms.button';
-import { CardOrientation, CardStyle } from '@carlsberggbs/malty.atoms.card';
-import { PillType } from '@carlsberggbs/malty.atoms.pill';
-import { SelectOptionsType } from '@carlsberggbs/malty.atoms.select';
-import { TextColor } from '@carlsberggbs/malty.atoms.text';
-import { Cart } from '@carlsberggbs/malty.icons.cart';
-import { Coupon } from '@carlsberggbs/malty.icons.coupon';
-import { AlertInlineColor } from '@carlsberggbs/malty.molecules.alert-inline';
-import { MRO } from '@carlsberggbs/malty.molecules.sku';
-import { generateStorybookSpacing } from '@carlsberggbs/malty.utils.space';
+import { IconColor } from '@carlsberg/malty.atoms.base-icon';
+import { ButtonColor, ButtonStyle } from '@carlsberg/malty.atoms.button';
+import { CardOrientation, CardStyle } from '@carlsberg/malty.atoms.card';
+import { PillType } from '@carlsberg/malty.atoms.pill';
+import { SelectOptionsType } from '@carlsberg/malty.atoms.select';
+import { TextColor } from '@carlsberg/malty.atoms.text';
+import { Cart } from '@carlsberg/malty.icons.cart';
+import { Coupon } from '@carlsberg/malty.icons.coupon';
+import { AlertInlineColor } from '@carlsberg/malty.molecules.alert-inline';
+import { MRO } from '@carlsberg/malty.molecules.sku';
+import { generateStorybookSpacing } from '@carlsberg/malty.utils.space';
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { ProductCard } from './ProductCard';
@@ -58,7 +58,7 @@ const meta: Meta<ProductCardProps> = {
   component: ProductCard,
   parameters: {
     importObject: 'ProductCard',
-    importPath: '@carlsberggbs/malty.molecules.product-card'
+    importPath: '@carlsberg/malty.molecules.product-card'
   },
   render: (args) => <ProductCardComponent {...args} />,
   argTypes: {
@@ -273,8 +273,8 @@ export const Base: Story = {
     loyalty: { label: '+30', imageSrc: 'https://www.carlsberg.com/media/2249/favicon-32x32.png' },
     stock: { label: 'In Stock', stockColor: TextColor.Success },
     quantitySelectOptions: selectQuanityOptions,
-    discountPill: { text: '20%', type: PillType.Alert },
-    promoPill: { text: 'Promo', type: PillType.Alert, icon: <Coupon /> },
+    discountPill: { text: '20%', type: PillType.AlertStrong },
+    promoPill: { text: 'Promo', type: PillType.AlertStrong, icon: <Coupon /> },
     cartPill: { text: '2', type: PillType.Success, icon: <Cart /> },
     favoriteIconColor: IconColor.Primary,
     productCardStyle: CardStyle.Plain
