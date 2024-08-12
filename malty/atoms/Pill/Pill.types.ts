@@ -1,5 +1,5 @@
-import { IconColor } from '@carlsberggbs/malty.atoms.base-icon';
-import { SpaceProps } from '@carlsberggbs/malty.utils.space';
+import { IconColor } from '@carlsberg/malty.atoms.base-icon';
+import { SpaceProps } from '@carlsberg/malty.utils.space';
 import { ReactElement } from 'react';
 
 export interface PillProps extends React.HTMLAttributes<HTMLElement>, SpaceProps {

@@ -1,5 +1,5 @@
-import { Text, TextColor, TextStyle } from '@carlsberggbs/malty.atoms.text';
-import { globalTheme as defaultTheme } from '@carlsberggbs/malty.theme.malty-theme-provider';
+import { Text, TextColor, TextStyle } from '@carlsberg/malty.atoms.text';
+import { globalTheme as defaultTheme } from '@carlsberg/malty.theme.malty-theme-provider';
 import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { StyledPrice, StyledPriceContainer } from './Price.styled';

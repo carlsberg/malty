@@ -1,4 +1,4 @@
-import { ButtonProps } from '@carlsberggbs/malty.atoms.button';
+import { ButtonProps } from '@carlsberg/malty.atoms.button';
 
 export enum ModalSize {
   Medium = 'Medium',

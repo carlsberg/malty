@@ -1,5 +1,5 @@
-import { ChevronDown } from '@carlsberggbs/malty.icons.chevron-down';
-import { space } from '@carlsberggbs/malty.utils.space';
+import { ChevronDown } from '@carlsberg/malty.icons.chevron-down';
+import { space } from '@carlsberg/malty.utils.space';
 import styled, { css } from 'styled-components';
 import { AccordionColor, StyledAccordionWrapperProps } from './Accordion.types';
 

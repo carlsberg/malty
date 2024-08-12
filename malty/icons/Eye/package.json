@@ -1,15 +1,15 @@
 {
-  "name": "@carlsberggbs/malty.icons.eye",
+  "name": "@carlsberg/malty.icons.eye",
   "version": "0.1.1",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CarlsbergGBS/cx-component-library.git"
+    "url": "https://github.com/carlsberg/malty.git"
   },
   "publishConfig": {
-    "@carlsberggbs": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
@@ -29,7 +29,7 @@
     "@types/testing-library__jest-dom": "5.9.5"
   },
   "peerDependencies": {
-    "@carlsberggbs/malty.atoms.base-icon": "*",
+    "@carlsberg/malty.atoms.base-icon": "*",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
   }

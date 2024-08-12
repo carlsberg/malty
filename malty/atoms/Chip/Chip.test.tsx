@@ -1,5 +1,5 @@
-import { Alert } from '@carlsberggbs/malty.icons.alert';
-import { render } from '@carlsberggbs/malty.utils.test';
+import { Alert } from '@carlsberg/malty.icons.alert';
+import { render } from '@carlsberg/malty.utils.test';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
