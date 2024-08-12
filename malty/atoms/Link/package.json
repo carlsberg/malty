@@ -1,6 +1,6 @@
 {
   "name": "@carlsberg/malty.atoms.link",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",
-    "@carlsberg/malty.utils.test": "^0.1.0",
+    "@carlsberg/malty.utils.test": "^0.1.1",
     "@storybook/react": "^7.4.1",
     "@testing-library/react": "^12.1.5",
     "@testing-library/user-event": "^13.5.0",

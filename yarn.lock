@@ -1883,15 +1883,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@carlsberg/malty.atoms.base-icon@npm:^0.1.0, @carlsberg/malty.atoms.base-icon@workspace:malty/atoms/BaseIcon":
+"@carlsberg/malty.atoms.base-icon@npm:^0.1.1, @carlsberg/malty.atoms.base-icon@workspace:malty/atoms/BaseIcon":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.base-icon@workspace:malty/atoms/BaseIcon"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
     "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
@@ -1907,17 +1907,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.button@npm:^0.2.0, @carlsberg/malty.atoms.button@workspace:malty/atoms/Button":
+"@carlsberg/malty.atoms.button@npm:^0.2.1, @carlsberg/malty.atoms.button@workspace:malty/atoms/Button":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.button@workspace:malty/atoms/Button"
   dependencies:
     "@babel/core": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -1935,17 +1935,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.card@npm:^0.2.0, @carlsberg/malty.atoms.card@workspace:malty/atoms/Card":
+"@carlsberg/malty.atoms.card@npm:^0.2.1, @carlsberg/malty.atoms.card@workspace:malty/atoms/Card":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.card@workspace:malty/atoms/Card"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.image": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.image": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -1963,16 +1963,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.checkbox@npm:^0.2.0, @carlsberg/malty.atoms.checkbox@workspace:malty/atoms/Checkbox":
+"@carlsberg/malty.atoms.checkbox@npm:^0.2.1, @carlsberg/malty.atoms.checkbox@workspace:malty/atoms/Checkbox":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.checkbox@workspace:malty/atoms/Checkbox"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -1993,19 +1993,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.chip@npm:^0.2.0, @carlsberg/malty.atoms.chip@workspace:malty/atoms/Chip":
+"@carlsberg/malty.atoms.chip@npm:^0.2.1, @carlsberg/malty.atoms.chip@workspace:malty/atoms/Chip":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.chip@workspace:malty/atoms/Chip"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
     "@carlsberg/malty.icons.alert": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2029,12 +2029,12 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.floater@workspace:malty/atoms/Floater"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
     "@carlsberg/malty.icons.arrow-small-up": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2052,14 +2052,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.headline@npm:^0.1.0, @carlsberg/malty.atoms.headline@workspace:malty/atoms/Headline":
+"@carlsberg/malty.atoms.headline@npm:^0.1.1, @carlsberg/malty.atoms.headline@workspace:malty/atoms/Headline":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.headline@workspace:malty/atoms/Headline"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2076,16 +2076,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.image@npm:^0.2.0, @carlsberg/malty.atoms.image@workspace:malty/atoms/Image":
+"@carlsberg/malty.atoms.image@npm:^0.2.1, @carlsberg/malty.atoms.image@workspace:malty/atoms/Image":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.image@workspace:malty/atoms/Image"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.colors": "npm:^0.1.0"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2104,19 +2104,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.input@npm:^0.3.0, @carlsberg/malty.atoms.input@workspace:malty/atoms/Input":
+"@carlsberg/malty.atoms.input@npm:^0.3.1, @carlsberg/malty.atoms.input@workspace:malty/atoms/Input":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.input@workspace:malty/atoms/Input"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.1"
     "@carlsberg/malty.icons.cart": "npm:^0.2.0"
     "@carlsberg/malty.icons.search": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2141,14 +2141,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.label@npm:^0.1.0, @carlsberg/malty.atoms.label@workspace:malty/atoms/Label":
+"@carlsberg/malty.atoms.label@npm:^0.1.1, @carlsberg/malty.atoms.label@workspace:malty/atoms/Label":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.label@workspace:malty/atoms/Label"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2165,13 +2165,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.link@npm:^0.2.0, @carlsberg/malty.atoms.link@workspace:malty/atoms/Link":
+"@carlsberg/malty.atoms.link@npm:^0.2.1, @carlsberg/malty.atoms.link@workspace:malty/atoms/Link":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.link@workspace:malty/atoms/Link"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@carlsberg/malty.utils.types": "npm:^0.1.0"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -2190,14 +2190,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.overlay@npm:^0.1.0, @carlsberg/malty.atoms.overlay@workspace:malty/atoms/Overlay":
+"@carlsberg/malty.atoms.overlay@npm:^0.1.1, @carlsberg/malty.atoms.overlay@workspace:malty/atoms/Overlay":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.overlay@workspace:malty/atoms/Overlay"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2219,9 +2219,9 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.padded-container@workspace:malty/atoms/PaddedContainer"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2238,17 +2238,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.pill@npm:^0.5.0, @carlsberg/malty.atoms.pill@workspace:malty/atoms/Pill":
+"@carlsberg/malty.atoms.pill@npm:^0.5.1, @carlsberg/malty.atoms.pill@workspace:malty/atoms/Pill":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.pill@workspace:malty/atoms/Pill"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
     "@carlsberg/malty.icons.carlsberg-filled": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2265,15 +2265,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.price@npm:^0.1.0, @carlsberg/malty.atoms.price@workspace:malty/atoms/Price":
+"@carlsberg/malty.atoms.price@npm:^0.1.1, @carlsberg/malty.atoms.price@workspace:malty/atoms/Price":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.price@workspace:malty/atoms/Price"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2295,9 +2295,9 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.progress-bar@workspace:malty/atoms/ProgressBar"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2319,10 +2319,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.progress-circle@workspace:malty/atoms/ProgressCircle"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2344,10 +2344,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.radio@workspace:malty/atoms/Radio"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2372,11 +2372,11 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.rating@workspace:malty/atoms/Rating"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2396,19 +2396,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.select@npm:^0.2.0, @carlsberg/malty.atoms.select@workspace:malty/atoms/Select":
+"@carlsberg/malty.atoms.select@npm:^0.2.1, @carlsberg/malty.atoms.select@workspace:malty/atoms/Select":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.select@workspace:malty/atoms/Select"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.checkbox": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.input": "npm:^0.3.0"
-    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.checkbox": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.input": "npm:^0.3.1"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -2437,10 +2437,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.text-area@workspace:malty/atoms/TextArea"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2460,14 +2460,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.text@npm:^0.1.0, @carlsberg/malty.atoms.text@workspace:malty/atoms/Text":
+"@carlsberg/malty.atoms.text@npm:^0.1.1, @carlsberg/malty.atoms.text@workspace:malty/atoms/Text":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.text@workspace:malty/atoms/Text"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -2489,10 +2489,10 @@ __metadata:
   resolution: "@carlsberg/malty.atoms.toggle@workspace:malty/atoms/Toggle"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -2512,14 +2512,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.atoms.tooltip@npm:^0.2.0, @carlsberg/malty.atoms.tooltip@workspace:malty/atoms/Tooltip":
+"@carlsberg/malty.atoms.tooltip@npm:^0.2.1, @carlsberg/malty.atoms.tooltip@workspace:malty/atoms/Tooltip":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.atoms.tooltip@workspace:malty/atoms/Tooltip"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@popperjs/core": "npm:^2.11.5"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -6485,10 +6485,10 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.accordion@workspace:malty/molecules/Accordion"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6514,13 +6514,13 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.alert-banner@workspace:malty/molecules/AlertBanner"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.link": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.molecules.pagination": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.link": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.molecules.pagination": "npm:^0.2.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.helpers": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -6542,19 +6542,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.alert-inline@npm:^0.2.0, @carlsberg/malty.molecules.alert-inline@workspace:malty/molecules/AlertInline":
+"@carlsberg/malty.molecules.alert-inline@npm:^0.2.1, @carlsberg/malty.molecules.alert-inline@workspace:malty/molecules/AlertInline":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.alert-inline@workspace:malty/molecules/AlertInline"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.link": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.link": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
     "@carlsberg/malty.icons.information": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -6572,19 +6572,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.article-card@npm:^0.2.0, @carlsberg/malty.molecules.article-card@workspace:malty/molecules/ArticleCard":
+"@carlsberg/malty.molecules.article-card@npm:^0.2.1, @carlsberg/malty.molecules.article-card@workspace:malty/molecules/ArticleCard":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.article-card@workspace:malty/molecules/ArticleCard"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.card": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.image": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.card": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.image": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6601,16 +6601,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.avatar@npm:^0.2.0, @carlsberg/malty.molecules.avatar@workspace:malty/molecules/Avatar":
+"@carlsberg/malty.molecules.avatar@npm:^0.2.1, @carlsberg/malty.molecules.avatar@workspace:malty/molecules/Avatar":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.avatar@workspace:malty/molecules/Avatar"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6635,13 +6635,13 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.banner@workspace:malty/molecules/Banner"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.pill": "npm:^0.5.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.pill": "npm:^0.5.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6664,14 +6664,14 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.datepicker@workspace:malty/molecules/Datepicker"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.label": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.label": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.consts": "npm:^0.1.0"
     "@carlsberg/malty.utils.mixins": "npm:^0.1.0"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6699,14 +6699,14 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.footer@workspace:malty/molecules/Footer"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.link": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.all-icons": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.link": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.all-icons": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6736,13 +6736,13 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.hero@workspace:malty/molecules/Hero"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.hooks": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.hooks": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6761,14 +6761,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.loading-overlay@npm:^0.1.0, @carlsberg/malty.molecules.loading-overlay@workspace:malty/molecules/LoadingOverlay":
+"@carlsberg/malty.molecules.loading-overlay@npm:^0.1.1, @carlsberg/malty.molecules.loading-overlay@workspace:malty/molecules/LoadingOverlay":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.loading-overlay@workspace:malty/molecules/LoadingOverlay"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.atoms.overlay": "npm:^0.1.0"
-    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.overlay": "npm:^0.1.1"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6785,15 +6785,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.loading@npm:^0.1.0, @carlsberg/malty.molecules.loading@workspace:malty/molecules/Loading":
+"@carlsberg/malty.molecules.loading@npm:^0.1.1, @carlsberg/malty.molecules.loading@workspace:malty/molecules/Loading":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.loading@workspace:malty/molecules/Loading"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6815,11 +6815,11 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.modal@workspace:malty/molecules/Modal"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.overlay": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.overlay": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6838,16 +6838,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.nav-list@npm:^0.2.0, @carlsberg/malty.molecules.nav-list@workspace:malty/molecules/NavList":
+"@carlsberg/malty.molecules.nav-list@npm:^0.2.1, @carlsberg/malty.molecules.nav-list@workspace:malty/molecules/NavList":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.nav-list@workspace:malty/molecules/NavList"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
     "@carlsberg/malty.icons.data-transfer": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
     "@types/jest": "npm:^26.0.0"
@@ -6867,17 +6867,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.pagination@npm:^0.2.0, @carlsberg/malty.molecules.pagination@workspace:malty/molecules/Pagination":
+"@carlsberg/malty.molecules.pagination@npm:^0.2.1, @carlsberg/malty.molecules.pagination@workspace:malty/molecules/Pagination":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.pagination@workspace:malty/molecules/Pagination"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.consts": "npm:^0.1.0"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6897,27 +6897,27 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.product-card@npm:^0.2.0, @carlsberg/malty.molecules.product-card@workspace:malty/molecules/ProductCard":
+"@carlsberg/malty.molecules.product-card@npm:^0.2.1, @carlsberg/malty.molecules.product-card@workspace:malty/molecules/ProductCard":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.product-card@workspace:malty/molecules/ProductCard"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.card": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.image": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.pill": "npm:^0.5.0"
-    "@carlsberg/malty.atoms.price": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.select": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.card": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.image": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.pill": "npm:^0.5.1"
+    "@carlsberg/malty.atoms.price": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.select": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
     "@carlsberg/malty.icons.cart": "npm:^0.2.0"
     "@carlsberg/malty.icons.coupon": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.alert-inline": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.product-quantity-actions": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.sku": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.alert-inline": "npm:^0.2.1"
+    "@carlsberg/malty.molecules.product-quantity-actions": "npm:^0.2.1"
+    "@carlsberg/malty.molecules.sku": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -6936,17 +6936,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.product-quantity-actions@npm:^0.2.0, @carlsberg/malty.molecules.product-quantity-actions@workspace:malty/molecules/ProductQuantityActions":
+"@carlsberg/malty.molecules.product-quantity-actions@npm:^0.2.1, @carlsberg/malty.molecules.product-quantity-actions@workspace:malty/molecules/ProductQuantityActions":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.product-quantity-actions@workspace:malty/molecules/ProductQuantityActions"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.input": "npm:^0.3.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.input": "npm:^0.3.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -6964,18 +6964,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.products-bar@npm:^0.2.0, @carlsberg/malty.molecules.products-bar@workspace:malty/molecules/ProductsBar":
+"@carlsberg/malty.molecules.products-bar@npm:^0.2.1, @carlsberg/malty.molecules.products-bar@workspace:malty/molecules/ProductsBar":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.products-bar@workspace:malty/molecules/ProductsBar"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
     "@carlsberg/malty.icons.data-transfer": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.avatar": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.nav-list": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.avatar": "npm:^0.2.1"
+    "@carlsberg/malty.molecules.nav-list": "npm:^0.2.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
     "@types/jest": "npm:^26.0.0"
@@ -7000,10 +7000,10 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.segmented-control@workspace:malty/molecules/SegmentedControl"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.chip": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.chip": "npm:^0.2.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -7026,14 +7026,14 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.side-nav@workspace:malty/molecules/SideNav"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.headline": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.overlay": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.headline": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.overlay": "npm:^0.1.1"
     "@carlsberg/malty.icons.data-transfer": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.nav-list": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.products-bar": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
-    "@carlsberg/malty.utils.hooks": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.molecules.nav-list": "npm:^0.2.1"
+    "@carlsberg/malty.molecules.products-bar": "npm:^0.2.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
+    "@carlsberg/malty.utils.hooks": "npm:^0.1.1"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@testing-library/user-event": "npm:^13.5.0"
@@ -7052,15 +7052,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.molecules.sku@npm:^0.1.0, @carlsberg/malty.molecules.sku@workspace:malty/molecules/Sku":
+"@carlsberg/malty.molecules.sku@npm:^0.1.1, @carlsberg/malty.molecules.sku@workspace:malty/molecules/Sku":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.molecules.sku@workspace:malty/molecules/Sku"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -7082,11 +7082,11 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.stepper@workspace:malty/molecules/Stepper"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
@@ -7109,11 +7109,11 @@ __metadata:
   resolution: "@carlsberg/malty.molecules.toast@workspace:malty/molecules/Toast"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/addon-actions": "npm:^7.4.1"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -7138,15 +7138,15 @@ __metadata:
   resolution: "@carlsberg/malty.organisms.carousel@workspace:malty/organisms/Carousel"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.button": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.card": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.article-card": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.product-card": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.button": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.card": "npm:^0.2.1"
+    "@carlsberg/malty.molecules.article-card": "npm:^0.2.1"
+    "@carlsberg/malty.molecules.product-card": "npm:^0.2.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.helpers": "npm:^0.1.0"
     "@carlsberg/malty.utils.mixins": "npm:^0.1.0"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@splidejs/splide": "npm:^4.1.4"
     "@storybook/react": "npm:^7.4.1"
     "@testing-library/react": "npm:^12.1.5"
@@ -7171,16 +7171,16 @@ __metadata:
   resolution: "@carlsberg/malty.organisms.table@workspace:malty/organisms/Table"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.checkbox": "npm:^0.2.0"
-    "@carlsberg/malty.atoms.text": "npm:^0.1.0"
-    "@carlsberg/malty.atoms.tooltip": "npm:^0.2.0"
-    "@carlsberg/malty.molecules.loading": "npm:^0.1.0"
-    "@carlsberg/malty.molecules.loading-overlay": "npm:^0.1.0"
-    "@carlsberg/malty.molecules.pagination": "npm:^0.2.0"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.checkbox": "npm:^0.2.1"
+    "@carlsberg/malty.atoms.text": "npm:^0.1.1"
+    "@carlsberg/malty.atoms.tooltip": "npm:^0.2.1"
+    "@carlsberg/malty.molecules.loading": "npm:^0.1.1"
+    "@carlsberg/malty.molecules.loading-overlay": "npm:^0.1.1"
+    "@carlsberg/malty.molecules.pagination": "npm:^0.2.1"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.space": "npm:^0.1.0"
-    "@carlsberg/malty.utils.test": "npm:^0.1.0"
+    "@carlsberg/malty.utils.test": "npm:^0.1.1"
     "@storybook/react": "npm:^7.4.1"
     "@tanstack/react-table": "npm:^8.7.6"
     "@testing-library/react": "npm:^12.1.5"
@@ -7205,7 +7205,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.theme.malty-theme-provider@npm:^0.1.0, @carlsberg/malty.theme.malty-theme-provider@workspace:malty/theme/MaltyThemeProvider":
+"@carlsberg/malty.theme.malty-theme-provider@npm:^0.1.1, @carlsberg/malty.theme.malty-theme-provider@workspace:malty/theme/MaltyThemeProvider":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.theme.malty-theme-provider@workspace:malty/theme/MaltyThemeProvider"
   dependencies:
@@ -7229,7 +7229,7 @@ __metadata:
   resolution: "@carlsberg/malty.theme.new-malty-theme-provider@workspace:malty/theme/NewMaltyThemeProvider"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
     "@types/react": "npm:^17.0.8"
@@ -7244,12 +7244,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.all-icons@npm:^0.1.0, @carlsberg/malty.utils.all-icons@workspace:malty/utils/AllIcons":
+"@carlsberg/malty.utils.all-icons@npm:^0.1.1, @carlsberg/malty.utils.all-icons@workspace:malty/utils/AllIcons":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.all-icons@workspace:malty/utils/AllIcons"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.0"
+    "@carlsberg/malty.atoms.base-icon": "npm:^0.1.1"
     "@carlsberg/malty.icons.add-content": "npm:^0.2.0"
     "@carlsberg/malty.icons.add-event": "npm:^0.2.0"
     "@carlsberg/malty.icons.add-project": "npm:^0.2.0"
@@ -7517,12 +7517,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.hooks@npm:^0.1.0, @carlsberg/malty.utils.hooks@workspace:malty/utils/hooks":
+"@carlsberg/malty.utils.hooks@npm:^0.1.1, @carlsberg/malty.utils.hooks@workspace:malty/utils/hooks":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.hooks@workspace:malty/utils/hooks"
   dependencies:
     "@babel/runtime": "npm:^7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@carlsberg/malty.utils.helpers": "npm:^0.1.0"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
@@ -7573,12 +7573,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@carlsberg/malty.utils.test@npm:^0.1.0, @carlsberg/malty.utils.test@workspace:malty/utils/test":
+"@carlsberg/malty.utils.test@npm:^0.1.1, @carlsberg/malty.utils.test@workspace:malty/utils/test":
   version: 0.0.0-use.local
   resolution: "@carlsberg/malty.utils.test@workspace:malty/utils/test"
   dependencies:
     "@babel/runtime": "npm:7.12.18"
-    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.0"
+    "@carlsberg/malty.theme.malty-theme-provider": "npm:^0.1.1"
     "@testing-library/react": "npm:^12.1.5"
     "@types/jest": "npm:^26.0.0"
     "@types/node": "npm:12.20.4"
