@@ -1,15 +1,10 @@
 import { MaltyThemeProvider } from '@carlsberg/malty.theme.malty-theme-provider';
-import { defaultTheme, NewMaltyThemeProvider } from '@carlsberg/malty.theme.new-malty-theme-provider';
 import { render, RenderOptions } from '@testing-library/react';
 import React, { ReactElement } from 'react';
 import renderer from 'react-test-renderer';
 
 const AllTheProviders: React.FC = ({ children }) => {
-  return (
-    <MaltyThemeProvider theme="global">
-      <NewMaltyThemeProvider theme={defaultTheme}>{children}</NewMaltyThemeProvider>
-    </MaltyThemeProvider>
-  );
+  return <MaltyThemeProvider theme="global">{children}</MaltyThemeProvider>;
 };
 
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
