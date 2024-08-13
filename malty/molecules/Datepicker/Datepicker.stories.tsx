@@ -5,7 +5,7 @@ import { Datepicker, DATE_PICKER_DEFAULT_FORMAT } from './Datepicker';
 import { Colors, DatepickerProps, DatepickerSize } from './Datepicker.types';
 
 const DatepickerComponent = (props: DatepickerProps) => {
-  const { selectsRange, dateFormat, startDate, endDate } = props;
+  const { selectsRange, dateFormat, startDate, endDate, popperZIndex } = props;
   const [newStartDate, setNewStartDate] = useState<Date | null>(startDate);
 
   useEffect(() => {
@@ -179,7 +179,14 @@ const meta: Meta<DatepickerProps> = {
         category: 'Styling'
       }
     },
-    ...generateStorybookSpacing()
+    popperZIndex: {
+      control: 'number',
+      description: 'Controls the z-index of the calendar',
+      table: {
+        category: 'Styling'
+      },
+      ...generateStorybookSpacing()
+    }
   }
 };
 
