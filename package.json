@@ -152,7 +152,10 @@
     "@adobe/css-tools": "4.3.2",
     "postcss": "8.4.31",
     "jackspeak": "2.1.1",
-    "ws": "^8.17.1"
+    "ws": "^8.17.1",
+    "body-parser": "^1.20.3",
+    "express": "^4.20.0",
+    "micromatch": "^4.0.8"
   },
   "prettier": "@carlsberg/prettier-config",
   "nyc": {
