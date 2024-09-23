@@ -25,7 +25,7 @@
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@babel/runtime": "7.12.18",
+    "@babel/runtime": "7.25.6",
     "@carlsberg/malty.icons.arrow-small-up": "^0.2.0",
     "@carlsberg/malty.utils.all-icons": "^0.1.1",
     "@carlsberg/malty.utils.test": "^0.1.1",

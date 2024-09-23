@@ -27,7 +27,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@babel/runtime": "7.12.18",
+    "@babel/runtime": "7.25.6",
     "@carlsberg/malty.icons.cart": "^0.2.0",
     "@carlsberg/malty.icons.search": "^0.2.0",
     "@carlsberg/malty.utils.all-icons": "^0.1.1",
