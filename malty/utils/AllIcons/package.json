@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "core-js": "^3.0.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@babel/runtime": "^7.12.18",
