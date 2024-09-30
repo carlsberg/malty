@@ -23,7 +23,7 @@
     "@popperjs/core": "^2.11.5",
     "core-js": "^3.0.0",
     "react-popper": "2.3.0",
-    "styled-components": "^5.3.6"
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@babel/runtime": "7.12.18",

@@ -1845,7 +1845,7 @@ __metadata:
     react-popper: "npm:^2.3.0"
     react-test-renderer: "npm:^17.0.2"
     storybook: "npm:^7.6.19"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     styled-normalize: "npm:^8.0.7"
     ts-jest: "npm:^29.0.5"
     ts-loader: "npm:^9.4.2"
@@ -1900,7 +1900,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -1928,7 +1928,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -1956,7 +1956,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -1983,7 +1983,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.checkbox-check": "*"
     "@carlsberg/malty.icons.checkbox-check-alternate": "*"
@@ -2016,7 +2016,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.plus": "*"
     react: ^16.8.0 || ^17.0.0
@@ -2045,7 +2045,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2069,7 +2069,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2096,7 +2096,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.image": "*"
     react: ^16.8.0 || ^17.0.0
@@ -2128,7 +2128,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     "@types/uuid": "npm:^9.0.0"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     uuid: "npm:^9.0.0"
   peerDependencies:
     "@carlsberg/malty.icons.eye-hide": "*"
@@ -2158,7 +2158,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2183,7 +2183,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2207,7 +2207,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2231,7 +2231,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2258,7 +2258,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2283,7 +2283,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2307,7 +2307,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2332,7 +2332,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2359,7 +2359,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     "@types/uuid": "npm:^9.0.0"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     uuid: "npm:^9.0.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
@@ -2387,7 +2387,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.star": "*"
     "@carlsberg/malty.icons.star-filled": "*"
@@ -2421,7 +2421,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     "@types/uuid": "npm:^9.0.0"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     uuid: "npm:^9.0.0"
   peerDependencies:
     "@carlsberg/malty.icons.check": "*"
@@ -2452,7 +2452,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     "@types/uuid": "npm:^9.0.0"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     uuid: "npm:^9.0.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
@@ -2477,7 +2477,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -2504,7 +2504,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     "@types/uuid": "npm:^9.0.0"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     uuid: "npm:^9.0.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
@@ -2531,7 +2531,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
     react-popper: "npm:2.3.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6500,7 +6500,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     "@types/uuid": "npm:^9.0.0"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     uuid: "npm:^9.0.0"
   peerDependencies:
     "@carlsberg/malty.icons.chevron-down": "*"
@@ -6531,7 +6531,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.alert": "*"
     "@carlsberg/malty.icons.close": "*"
@@ -6565,7 +6565,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6594,7 +6594,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6621,7 +6621,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.camera": "*"
     "@carlsberg/malty.icons.customer": "*"
@@ -6652,7 +6652,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6685,7 +6685,7 @@ __metadata:
     "@types/uuid": "npm:^9.0.0"
     core-js: "npm:^3.0.0"
     react-datepicker: "npm:^4.8.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
     uuid: "npm:^9.0.0"
   peerDependencies:
     "@carlsberg/malty.icons.calendar": "*"
@@ -6716,7 +6716,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.app-dropbox": "*"
     "@carlsberg/malty.icons.app-facebook": "*"
@@ -6753,7 +6753,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.arrow-small-down": "*"
     react: ^16.8.0 || ^17.0.0
@@ -6778,7 +6778,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6803,7 +6803,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6830,7 +6830,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.close": "*"
     react: ^16.8.0 || ^17.0.0
@@ -6858,7 +6858,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
     react-router-dom: "npm:^6.2.2"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.arrow-small-left": "*"
     "@carlsberg/malty.icons.arrow-small-right": "*"
@@ -6888,7 +6888,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.chevron-left": "*"
     "@carlsberg/malty.icons.chevron-right": "*"
@@ -6927,7 +6927,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.heart": "*"
     "@carlsberg/malty.icons.heart-filled": "*"
@@ -6957,7 +6957,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -6986,7 +6986,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
     react-router-dom: "npm:^6.2.2"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.carlsberg-filled": "*"
     "@carlsberg/malty.icons.menu": "*"
@@ -7014,7 +7014,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -7045,7 +7045,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
     react-router-dom: "npm:^6.2.2"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -7070,7 +7070,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -7096,7 +7096,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.item-check-filled": "*"
     react: ^16.8.0 || ^17.0.0
@@ -7125,7 +7125,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.close": "*"
     react: ^16.8.0 || ^17.0.0
@@ -7157,7 +7157,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.arrow-small-left": "*"
     "@carlsberg/malty.icons.arrow-small-right": "*"
@@ -7194,7 +7194,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
     react-beautiful-dnd: "npm:^13.1.1"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     "@carlsberg/malty.icons.arrange": "*"
     "@carlsberg/malty.icons.arrow-small-down": "*"
@@ -7217,7 +7217,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -7237,7 +7237,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
@@ -7473,7 +7473,7 @@ __metadata:
     "@types/node": "npm:12.20.4"
     "@types/react": "npm:^17.0.8"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   languageName: unknown
   linkType: soft
 
@@ -7548,7 +7548,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@types/testing-library__jest-dom": "npm:5.9.5"
     core-js: "npm:^3.0.0"
-    styled-components: "npm:^5.3.6"
+    styled-components: "npm:^6.1.13"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
     react-dom: ^16.8.0 || ^17.0.0
